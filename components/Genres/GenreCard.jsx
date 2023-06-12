@@ -2,7 +2,7 @@
 import '@styles/globals.css';
 import '@components/Genres/genrecard.css';
 
-const GenreCard = ({ imgUrl, title, description, notableAlbums, index }) => (
+const GenreCard = ({ imgUrl, title, description, notableAlbums}) => (
   <div
     className="@container  md:flex-row flex-col gap-4"
   >
