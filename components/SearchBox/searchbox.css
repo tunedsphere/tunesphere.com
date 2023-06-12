@@ -1,0 +1,50 @@
+.dialogue-search {
+
+  position: relative;
+  z-index: 100000;
+  max-height: 500px;
+  display: flex;
+}
+
+#input-search {
+  color: white;
+  opacity: 1;
+  border: 0cap;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.801);
+    z-index: 999;
+    justify-items: center;
+ 
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .overlay-content {
+    text-align: center;
+  }
+  
+  .overlay input[type="text"] {
+    color: beige;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 200px;
+  }
+  
+  .overlay button {
+    padding: 10px;
+    font-size: 16px;
+  }
