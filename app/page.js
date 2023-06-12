@@ -14,7 +14,7 @@ export default function MyApp() {
       </div> */}
 
 
-<h3 className="py-8 font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-sky-400">A Psychedelic </span> Dedicated Platform</h3>
+<h3 className="py-12 font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-sky-400">A Psychedelic </span> Dedicated Platform</h3>
 
 <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 text-center">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
 
