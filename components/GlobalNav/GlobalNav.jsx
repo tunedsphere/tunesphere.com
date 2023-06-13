@@ -81,7 +81,7 @@ const GlobalNav = () => {
             <div
               className="w-1/3"
             >
-              <h2 className="text-center text-brand hover:text-primary algin-center cursor-pointer font-extrabold text-[24px] leading-[30.24px]">
+              <h2 href="/" className="text-center text-brand hover:text-primary algin-center cursor-pointer font-extrabold text-[24px] leading-[30.24px]">
                 TUNEDSPHERE
               </h2>
             </div>
