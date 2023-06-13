@@ -24,7 +24,7 @@ export default function MyApp() {
       <div className='left-gradient'> </div>
       <div className='right-gradient'> </div>
 
-      <div className="py-16 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
+        <div className='grid 2xl:grid-cols-4 py-16 ext-center 2xl:text-left text-center'>
         
         <Link href="/labels" passHref>
         <div
@@ -97,12 +97,14 @@ export default function MyApp() {
           </p>
         </div>
         </Link>
+
       </div>
+
+
       <div className='py-12 '>
       <h3 href="/genres" id="home-genre-list" className="decoration-colortheme hover:underline underline-offset-4 cursor-pointer py-4 font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-texthigh">Genre List </span> </h3>  
       <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 text-center">Explore the Variaty of energies and sounds through different musical styles</p>
       </div>
-
           <div className='flex relative'>
           <div  className='bg-gradient-to-r to-colortheme from-sky-400 -z-10 -inset-1 absolute rounded-lg'></div>
           <div className={`grid @grid lg:grid-cols-6 text-2xl font-semibold bg-black p-8`}>
