@@ -124,7 +124,7 @@ const isNavbarBottomVisible = !isNavMenuVisible; // Determine the visibility of 
         autoPlay
         loop
         muted
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden 2xl:block"
         style={{ zIndex: -10 }}
       >
         <source src='/bgvideo.mp4' type="video/mp4" />

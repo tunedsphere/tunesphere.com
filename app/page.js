@@ -103,8 +103,8 @@ export default function MyApp() {
 
 
       <div className='py-12 '>
-      <h3 href="/genres" id="home-genre-list" className="decoration-colortheme hover:underline underline-offset-4 cursor-pointer py-4 font-extrabold text-gray-900 dark:text-green-400 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-texthigh">Genre List </span> </h3>  
-      <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 text-center">Explore the Variaty of energies and sounds through different musical styles</p>
+      <h3 href="/genres" id="home-genre-list" className="decoration-colortheme hover:underline underline-offset-4 cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-colortheme">Genre List </span> </h3>  
+      <p className="text-lg font-normal text-textlow lg:text-xl text-center">Explore the Variaty of energies and sounds through different musical styles</p>
       </div>
           <div className='flex relative'>
           <div  className='bg-gradient-to-r to-colortheme from-sky-400 -z-10 -inset-1 absolute rounded-lg'></div>
