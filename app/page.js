@@ -103,11 +103,11 @@ export default function MyApp() {
 
 
       <div className='py-12 '>
-      <h3 href="/genres" id="home-genre-list" className="decoration-colortheme hover:underline underline-offset-4 cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-colortheme">Genre List </span> </h3>  
+      <h3 href="/genres" id="home-genre-list" className="decoration-colortheme hover:underline underline-offset-4 cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r from-colortheme to-sky-400">Genre List </span> </h3>  
       <p className="text-lg font-normal text-textlow lg:text-xl text-center">Explore the Variaty of energies and sounds through different musical styles</p>
       </div>
           <div className='flex relative'>
-          <div  className='bg-gradient-to-r to-colortheme from-sky-400 -z-10 -inset-1 absolute rounded-lg'></div>
+          <div  className='bg-gradient-to-r to-sky-400 from-colortheme -z-10 -inset-1 absolute rounded-lg'></div>
           <div className={`grid @grid lg:grid-cols-6 text-2xl font-semibold bg-black p-8`}>
   {genres.map((item, index) => (
     <div  href={item.href} key={`genre-${index}`} className="cursor-pointer group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30  group-hover:translate-x-1 motion-reduce:transform-none text-texthigh p-2" index={index + 1}>
