@@ -1,3 +1,4 @@
+"use client";
 import '@styles/globals.css';
 import { GlobalNav } from '@components';
 import { Footer } from '@components';
@@ -25,6 +26,8 @@ export const metadata = {
       icon: "/favicon.ico",
       shortcut: "/favicon-16x16.png",
     },
+
+
 }
 
 export default function RootLayout({ children }) {

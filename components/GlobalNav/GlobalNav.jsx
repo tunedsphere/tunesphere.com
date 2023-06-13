@@ -94,6 +94,7 @@ const GlobalNav = () => {
                   onClick={handleNavMenuClick}
                 />
               )}
+          
             <SignedIn>
               <UserButton/>
             </SignedIn>

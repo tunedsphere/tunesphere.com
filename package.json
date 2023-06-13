@@ -1,5 +1,5 @@
 {
-  "name": "tunesphere",
+  "name": "tunedsphere",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,8 +10,9 @@
     "analyze": "next build && next analyze"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.20.0",
+    "@clerk/nextjs": "^4.21.0",
     "@clerk/themes": "^1.7.5",
+    "@next/eslint-plugin-next": "^13.4.5",
     "@prisma/client": "^4.15.0",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
@@ -24,7 +25,8 @@
     "date-fns": "^2.30.0",
     "framer-motion": "^10.12.16",
     "lucide-react": "^0.233.0",
-    "next": "13.4.4",
+    "next": "^13.4.5",
+    "next-axiom": "^0.17.0",
     "next-themes": "^0.2.1",
     "postcss": "8.4.24",
     "react": "18.2.0",
