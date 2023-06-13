@@ -94,14 +94,14 @@ export const genres = [
     ]
   },
   {
-    id: 'psybient',
-    name: 'Psybient',
+    id: 'ambient',
+    name: 'Ambient',
     imgUrl: '/bggenre/aurora.jpg',
-    title: 'PsyBient',
-    description: 'Psybient, also known as psychedelic Ambient or Psychill, is a mesmerizing and otherworldly musical genre that seamlessly blends elements of ambient, downtempo, and psytrance with a distinct psychedelic twist. It emerged in the late 1990s as an experimental fusion of electronic and psychedelic music, captivating listeners with its ethereal soundscapes, intricate rhythms, and mind-altering atmospheres. At its core, Psybient is characterized by its expansive and immersive nature. It transports listeners on a sonic journey, often evoking a sense of introspection, cosmic exploration, and inner discovery. The music is intricately crafted, combining lush and evolving synthesizers, hypnotic beats, intricate percussions, and a plethora of organic and digital sound effects. Psybient tracks often feature a slower tempo, providing a relaxed and meditative backdrop that allows the mind to wander and explore its depths. Layers of ambient textures and celestial melodies intertwine with pulsating basslines, creating a symbiotic relationship between the soothing and the rhythmically engaging elements. This interplay results in a unique blend of tranquility and energy that sets Psybient apart from other genres. One of the defining characteristics of Psybient is its strong emphasis on the use of psychedelic and mystical themes. It draws inspiration from various spiritual traditions, ancient cultures, and esoteric concepts, infusing the music with a sense of mystery, introspection, and transcendence. Sampled vocals, ethnic instruments, and nature sounds further enhance the enchanting and otherworldly ambiance. Psybient has gained a dedicated following worldwide, attracting both avid electronic music enthusiasts and those seeking a more introspective and transformative experience. It is often featured in chill-out rooms at festivals, yoga studios, meditation centers, and other spaces where relaxation, contemplation, and spiritual exploration are valued.In essence, Psybient is a genre that transcends traditional musical boundaries, taking listeners on a sonic odyssey that blurs the line between sound and consciousness. It invites the listener to immerse themselves in a mystical tapestry of sound, encouraging self-reflection, serenity, and an expanded state of awareness.',
+    title: 'Ambient',
+    description: 'Ambient, also known as Psybient or Psychill, is a mesmerizing and otherworldly musical genre that seamlessly blends elements of ambient, downtempo, and psytrance with a distinct psychedelic twist. It emerged in the late 1990s as an experimental fusion of electronic and psychedelic music, captivating listeners with its ethereal soundscapes, intricate rhythms, and mind-altering atmospheres. At its core, Psybient is characterized by its expansive and immersive nature. It transports listeners on a sonic journey, often evoking a sense of introspection, cosmic exploration, and inner discovery. The music is intricately crafted, combining lush and evolving synthesizers, hypnotic beats, intricate percussions, and a plethora of organic and digital sound effects. Psybient tracks often feature a slower tempo, providing a relaxed and meditative backdrop that allows the mind to wander and explore its depths. Layers of ambient textures and celestial melodies intertwine with pulsating basslines, creating a symbiotic relationship between the soothing and the rhythmically engaging elements. This interplay results in a unique blend of tranquility and energy that sets Psybient apart from other genres. One of the defining characteristics of Psybient is its strong emphasis on the use of psychedelic and mystical themes. It draws inspiration from various spiritual traditions, ancient cultures, and esoteric concepts, infusing the music with a sense of mystery, introspection, and transcendence. Sampled vocals, ethnic instruments, and nature sounds further enhance the enchanting and otherworldly ambiance. Psybient has gained a dedicated following worldwide, attracting both avid electronic music enthusiasts and those seeking a more introspective and transformative experience. It is often featured in chill-out rooms at festivals, yoga studios, meditation centers, and other spaces where relaxation, contemplation, and spiritual exploration are valued.In essence, Psybient is a genre that transcends traditional musical boundaries, taking listeners on a sonic odyssey that blurs the line between sound and consciousness. It invites the listener to immerse themselves in a mystical tapestry of sound, encouraging self-reflection, serenity, and an expanded state of awareness.',
     notableAlbums: [
       {
-        genre: 'Psybient',
+        genre: 'Ambient',
         albums: [
           {
             title: 'Across the Universe',
@@ -375,7 +375,103 @@ export const genres = [
       }
     ]
   },
-  {
+  { id: 'zenon',
+  name: 'Zenon',
+  imgUrl: '/bggenre/zenonesque.jpg',
+  title: 'Zenonesque',
+  description:
+      "Zenonesque is a subgenre of electronic dance music (EDM) that originated in the mid-2000s. It is characterized by its unique fusion of psychedelic trance and dark progressive trance elements, creating a distinct and experimental sonic experience. Zenonesque music often embodies a futuristic and minimalistic approach, combining intricate sound design, unconventional rhythms, and unconventional musical structures.\n\nHere are some key features and characteristics of Zenonesque:\n\n- Sound Design: Zenonesque places a strong emphasis on intricate and detailed sound design. The genre explores a wide range of psychedelic and atmospheric textures, incorporating complex synthesis, evolving soundscapes, and unconventional sound effects.\n\n- Minimalism and Groove: Zenonesque tracks often feature a minimalistic approach, focusing on stripped-down and repetitive patterns. The music relies on a hypnotic groove, characterized by deep basslines, intricate percussion, and glitchy elements, creating a captivating rhythmic foundation.\n\n- Dark and Moody Atmosphere: Zenonesque is known for its dark and moody atmosphere. The genre often explores eerie and introspective themes, incorporating unconventional and abstract soundscapes that evoke a sense of mystery and exploration.\n\n- Experimentation and Innovation: Zenonesque pushes the boundaries of traditional trance music by embracing experimentation and innovation. The genre encourages artists to explore unconventional song structures, unexpected transitions, and unusual time signatures, resulting in a unique and unpredictable musical journey.\n\n- Fusion of Genres: Zenonesque draws influences from various musical genres, including psytrance, progressive trance, techno, glitch, and IDM (Intelligent Dance Music). This fusion of genres contributes to the genre's diverse and eclectic sonic palette.\n\n- Psychedelic Visuals: Zenonesque is often accompanied by psychedelic visual projections and art installations during live performances. The visual aspect of Zenonesque aims to enhance the overall immersive experience and create a multisensory journey for the audience.\n\n- Underground Scene: Zenonesque has developed a dedicated following within the underground electronic music scene. The genre's experimental nature and unconventional sound have attracted a niche audience who appreciates its unique blend of psychedelic and progressive elements.\n\nNotable artists in the Zenonesque genre include Electrypnose, Hypogeo, SourOne, Sensient, Kromagon, and Grouch, among others.\n\nOverall, Zenonesque offers a distinctive and boundary-pushing approach to trance music, combining psychedelic and progressive elements with experimental sound design and unconventional structures. It provides a captivating and immersive experience for listeners who are drawn to its dark, minimalistic, and futuristic sonic landscape.",
+      notableAlbums: [
+        {
+          genre: 'Zenonesque',
+          albums: [
+            {
+              title: 'Antifluoro',
+              artist: 'Sensient',
+              imgUrl: '/genreselections/zenon/Sensient_AntiFluoro.jpg'
+            },
+            {
+              title: 'Further',
+              artist: 'Grouch',
+              imgUrl: '/genreselections/zenon/Grouch-Further.jpg'
+            },
+            {
+              title: 'Awaken',
+              artist: 'Merkaba',
+              imgUrl: '/genreselections/zenon/Merkaba-Visionary_Awakening.jpg'
+            },
+            {
+              title: 'Tree Of Lies',
+              artist: 'Hypogeo',
+              imgUrl: '/genreselections/zenon/Hypogeo.jpg'
+            },
+            {
+              title: 'Yugen',
+              artist: 'Ryanosaurus',
+              imgUrl: '/genreselections/zenon/Ryanosaurus-Yugen.jpg'
+            },
+            {
+              title: 'Conscious Species',
+              artist: 'Airi',
+              imgUrl: '/genreselections/zenon/Airi.jpg'
+            },
+            {
+              title: 'Pspiralife',
+              artist: 'Shadow Fx',
+              imgUrl: '/genreselections/zenon/Shadow_Fx-Pspiralife.jpg'
+            },
+            {
+              title: 'Inner Harmony',
+              artist: 'Zen Harmony',
+              imgUrl: '/planet-06.png'
+            },
+            {
+              title: 'Serenity in Silence',
+              artist: 'Mystic Waves',
+              imgUrl: '/planet-06.png'
+            },
+            {
+              title: 'Inner Harmony',
+              artist: 'Zen Harmony',
+              imgUrl: '/planet-06.png'
+            },
+            {
+              title: 'Serenity in Silence',
+              artist: 'Mystic Waves',
+              imgUrl: '/planet-06.png'
+            },
+            {
+              title: 'Inner Harmony',
+              artist: 'Zen Harmony',
+              imgUrl: '/planet-06.png'
+            },
+            {
+              title: 'Serenity in Silence',
+              artist: 'Mystic Waves',
+              imgUrl: '/planet-06.png'
+            },
+            {
+              title: 'Inner Harmony',
+              artist: 'Zen Harmony',
+              imgUrl: '/planet-06.png'
+            },
+            {
+              title: 'Serenity in Silence',
+              artist: 'Mystic Waves',
+              imgUrl: '/planet-06.png'
+            },
+            {
+              title: 'Inner Harmony',
+              artist: 'Zen Harmony',
+              imgUrl: '/planet-06.png'
+            },
+          ]
+        }
+      ]
+
+    },
+{
+  
     id: 'naturaltrance',
     name: 'natural Trance',
     imgUrl: '/bggenre/naturaltrance.jpg',
@@ -470,102 +566,7 @@ export const genres = [
         ]
       
       },
-  { id: 'zenon',
-    name: 'Zenon',
-    imgUrl: '/bggenre/zenonesque.jpg',
-    title: 'Zenonesque',
-    description:
-        "Zenonesque is a subgenre of electronic dance music (EDM) that originated in the mid-2000s. It is characterized by its unique fusion of psychedelic trance and dark progressive trance elements, creating a distinct and experimental sonic experience. Zenonesque music often embodies a futuristic and minimalistic approach, combining intricate sound design, unconventional rhythms, and unconventional musical structures.\n\nHere are some key features and characteristics of Zenonesque:\n\n- Sound Design: Zenonesque places a strong emphasis on intricate and detailed sound design. The genre explores a wide range of psychedelic and atmospheric textures, incorporating complex synthesis, evolving soundscapes, and unconventional sound effects.\n\n- Minimalism and Groove: Zenonesque tracks often feature a minimalistic approach, focusing on stripped-down and repetitive patterns. The music relies on a hypnotic groove, characterized by deep basslines, intricate percussion, and glitchy elements, creating a captivating rhythmic foundation.\n\n- Dark and Moody Atmosphere: Zenonesque is known for its dark and moody atmosphere. The genre often explores eerie and introspective themes, incorporating unconventional and abstract soundscapes that evoke a sense of mystery and exploration.\n\n- Experimentation and Innovation: Zenonesque pushes the boundaries of traditional trance music by embracing experimentation and innovation. The genre encourages artists to explore unconventional song structures, unexpected transitions, and unusual time signatures, resulting in a unique and unpredictable musical journey.\n\n- Fusion of Genres: Zenonesque draws influences from various musical genres, including psytrance, progressive trance, techno, glitch, and IDM (Intelligent Dance Music). This fusion of genres contributes to the genre's diverse and eclectic sonic palette.\n\n- Psychedelic Visuals: Zenonesque is often accompanied by psychedelic visual projections and art installations during live performances. The visual aspect of Zenonesque aims to enhance the overall immersive experience and create a multisensory journey for the audience.\n\n- Underground Scene: Zenonesque has developed a dedicated following within the underground electronic music scene. The genre's experimental nature and unconventional sound have attracted a niche audience who appreciates its unique blend of psychedelic and progressive elements.\n\nNotable artists in the Zenonesque genre include Electrypnose, Hypogeo, SourOne, Sensient, Kromagon, and Grouch, among others.\n\nOverall, Zenonesque offers a distinctive and boundary-pushing approach to trance music, combining psychedelic and progressive elements with experimental sound design and unconventional structures. It provides a captivating and immersive experience for listeners who are drawn to its dark, minimalistic, and futuristic sonic landscape.",
-        notableAlbums: [
-          {
-            genre: 'Zenonesque',
-            albums: [
-              {
-                title: 'Antifluoro',
-                artist: 'Sensient',
-                imgUrl: '/genreselections/zenon/Sensient_AntiFluoro.jpg'
-              },
-              {
-                title: 'Further',
-                artist: 'Grouch',
-                imgUrl: '/genreselections/zenon/Grouch-Further.jpg'
-              },
-              {
-                title: 'Awaken',
-                artist: 'Merkaba',
-                imgUrl: '/genreselections/zenon/Merkaba-Visionary_Awakening.jpg'
-              },
-              {
-                title: 'Tree Of Lies',
-                artist: 'Hypogeo',
-                imgUrl: '/genreselections/zenon/Hypogeo.jpg'
-              },
-              {
-                title: 'Yugen',
-                artist: 'Ryanosaurus',
-                imgUrl: '/genreselections/zenon/Ryanosaurus-Yugen.jpg'
-              },
-              {
-                title: 'Conscious Species',
-                artist: 'Airi',
-                imgUrl: '/genreselections/zenon/Airi.jpg'
-              },
-              {
-                title: 'Pspiralife',
-                artist: 'Shadow Fx',
-                imgUrl: '/genreselections/zenon/Shadow_Fx-Pspiralife.jpg'
-              },
-              {
-                title: 'Inner Harmony',
-                artist: 'Zen Harmony',
-                imgUrl: '/planet-06.png'
-              },
-              {
-                title: 'Serenity in Silence',
-                artist: 'Mystic Waves',
-                imgUrl: '/planet-06.png'
-              },
-              {
-                title: 'Inner Harmony',
-                artist: 'Zen Harmony',
-                imgUrl: '/planet-06.png'
-              },
-              {
-                title: 'Serenity in Silence',
-                artist: 'Mystic Waves',
-                imgUrl: '/planet-06.png'
-              },
-              {
-                title: 'Inner Harmony',
-                artist: 'Zen Harmony',
-                imgUrl: '/planet-06.png'
-              },
-              {
-                title: 'Serenity in Silence',
-                artist: 'Mystic Waves',
-                imgUrl: '/planet-06.png'
-              },
-              {
-                title: 'Inner Harmony',
-                artist: 'Zen Harmony',
-                imgUrl: '/planet-06.png'
-              },
-              {
-                title: 'Serenity in Silence',
-                artist: 'Mystic Waves',
-                imgUrl: '/planet-06.png'
-              },
-              {
-                title: 'Inner Harmony',
-                artist: 'Zen Harmony',
-                imgUrl: '/planet-06.png'
-              },
-            ]
-          }
-        ]
-  
-      },
-  {
+ {
     imgUrl: '/bggenre/progressive.jpg',
     title: 'Progressive',
     description:

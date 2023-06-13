@@ -3,6 +3,7 @@ import './globalnavbarapp.css';
 import React, { useState, useEffect } from 'react';
 import NavbarItems from './NavbarItems';
 import '@styles/globals.css';
+import Link from 'next/link';
 
 
 
@@ -37,22 +38,21 @@ const NavbarBottom = () => {
   // const { param1, param2 } = props;
 
   return (
-
-    <div style={{ display: isNavbarBottomVisible ? 'block' : 'none' }}
-      className="@container"
-      >
-    <nav className="navbar navbarbottom relative hidden sm:block">
-    <div className="flex justify-center navbar-container h-[80px] items-center ">
+<div style={{ display: isNavbarBottomVisible ? 'block' : 'none' }} className="@container">
+  <nav className="navbar navbarbottom relative hidden sm:block">
+    <div className="flex justify-center navbar-container h-[80px] items-center">
       <ul className="navbar-list items-center">
-          {NavbarItems.map((item) => (
-            <li className="navbar-item text-texthigh hover:text-colortheme px-3" key={item.id}>
-              <a href={`#${item.id}`}>{item.label}</a>
-            </li>
-          ))}
-        </ul>
+        {NavbarItems.map((item) => (
+         
+            <Link href={item.href} className="navbar-item text-texthigh hover:text-colortheme px-3" key={item.id}>
+              {item.label}
+            </Link>
+         
+        ))}
+      </ul>
     </div>
-    </nav>
-    </div>
+  </nav>
+</div>
   );
 }
 

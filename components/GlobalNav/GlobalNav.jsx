@@ -7,6 +7,7 @@ import { Button } from '@ui/button';
 import { SignedIn, SignedOut} from '@clerk/nextjs';
 import { SignInButton, UserButton } from '@clerk/nextjs';
 import { ShoppingCartIcon } from 'lucide-react';
+import Link from 'next/link';
 
 
 const GlobalNav = () => {
@@ -63,9 +64,7 @@ const GlobalNav = () => {
     setSearchBoxVisible(false);
   };
 
-  const closeNavMenu = () => {
-    setNavMenuVisible(false);
-  };
+
 
   const isNavbarBottomVisible = !isNavMenuVisible; // Determine the visibility of NavbarBottom
 
@@ -81,9 +80,13 @@ const GlobalNav = () => {
             <div
               className="w-1/3"
             >
-              <h2 href="/" className="text-center text-brand hover:text-primary algin-center cursor-pointer font-extrabold text-[24px] leading-[30.24px]">
-                TUNEDSPHERE
-              </h2>
+             
+             <Link href="/" aria-label='tunedsphere'id='tunedsphere'>
+  <h2 className="text-center text-brand hover:text-primary algin-center cursor-pointer font-extrabold text-[24px] leading-[30.24px]">
+    TUNEDSPHERE
+  </h2>
+</Link>
+
             </div>
             <div className='w-1/3 relative items-center right-0 flex flex-row-reverse gap-2'>
               {isMenuBurgerVisible && (
