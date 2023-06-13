@@ -16,6 +16,8 @@ const GlobalNav = () => {
   const [currentIcon, setCurrentIcon] = useState('svg/menuburger.svg');
   const [isMenuBurgerVisible, setIsMenuBurgerVisible] = useState(false);
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
+
+
   
   useEffect(() => {
     if (window.innerWidth >= 768) {
@@ -65,8 +67,7 @@ const GlobalNav = () => {
   };
 
 
-
-  const isNavbarBottomVisible = !isNavMenuVisible; // Determine the visibility of NavbarBottom
+const isNavbarBottomVisible = !isNavMenuVisible; // Determine the visibility of NavbarBottom
 
   return (
     <nav id="globalnav" className="globalnav fixed h-auto">
@@ -107,7 +108,6 @@ const GlobalNav = () => {
               className="rounded-md px-2 font-medium disabled:pointer-events-none ring-offset-background outline-cyan-500/50 outline outline-1 hover:outline-offset-1 text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-sky-400"></SignInButton>
               </SignedOut>
             <ShoppingCartIcon className='cursor-pointer'/>
-    
 
             </div>
           </div>

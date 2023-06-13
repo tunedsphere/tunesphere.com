@@ -5,7 +5,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
-  theme: {
+  theme: {   
     container: {
       center: true,
       padding: "2rem",

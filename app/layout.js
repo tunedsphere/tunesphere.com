@@ -4,6 +4,7 @@ import { GlobalNav } from '@components';
 import { Footer } from '@components';
 import { ClerkProvider, SignIn } from "@clerk/nextjs";
 
+
 export const metadata = {
   title: 'TunedSphere',
   description: 'Psychedelic Dedicated Platform',
@@ -35,7 +36,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider >
 
-      
+
     <html lang="en">  
         <body className="min-h-screen bg-background font-sans antialiased">
 
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
 
            </body>
     </html>
+
     </ClerkProvider>
 
   )
