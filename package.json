@@ -10,7 +10,7 @@
     "analyze": "next build && next analyze"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.21.0",
+    "@clerk/nextjs": "^4.21.1",
     "@clerk/themes": "^1.7.5",
     "@next/eslint-plugin-next": "^13.4.5",
     "@prisma/client": "^4.15.0",

@@ -1,4 +1,4 @@
-"use client";
+
 import '@styles/globals.css';
 import { GlobalNav } from '@components';
 import { Footer } from '@components';
