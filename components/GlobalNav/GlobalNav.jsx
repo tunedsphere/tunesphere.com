@@ -99,12 +99,9 @@ const GlobalNav = () => {
               <UserButton/>
             </SignedIn>
               <SignedOut>
-                <SignInButton mode='modal'>
-                <Button
-              variant="outline"
-              className="btn text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-sky-400"
-                                  >LogIn</Button>
-                </SignInButton>
+                <SignInButton mode='modal'
+
+              className="rounded-md px-2 font-medium disabled:pointer-events-none ring-offset-background outline-cyan-500/50 outline outline-1 hover:outline-offset-1 text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-sky-400"></SignInButton>
               </SignedOut>
             <ShoppingCartIcon className='cursor-pointer'/>
     
