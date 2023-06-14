@@ -38,6 +38,8 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         colortheme: "var(--colortheme)",
+        colortheme2: "var(--colortheme2)",
+        orange: "var(--orange)",
         backgroundgradient: "var(--backgroundgradient)",
             accent7: "var(--accent7)",
         accent6: "var(--accent6)",

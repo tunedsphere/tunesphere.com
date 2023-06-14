@@ -35,9 +35,14 @@ const Footer = () => {
   const { footerNav } = footerConfig;
   return (
   <footer
-      className="bottom-0 relative items-center px-4 md:px-8  py-8 mx-auto" 
-  >
-    <div className="footer-gradient w-2/5" />
+      className="bottom-0 relative items-center mx-auto py-8 px-4">
+   <img
+    src='/bghome/stars6.png'
+    alt="planet Home"
+    className='-z-10 absolute right-0 bottom-0 w-1/2 lg:w-1/4 object-contain'>
+
+    </img>
+    <div className="footer-gradient w-1/5" />
       <div className="gap-5">
         <h3 className="text-center font-bold py-8 text-high md:text-4xl" >
           A Psychedelic dedicated Platform
@@ -129,8 +134,11 @@ const Footer = () => {
 
         </div>
       </div>
+ 
   </footer>
+  
   );
+  
 };
 
 export default Footer;

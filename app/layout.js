@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
 
               <GlobalNav/>
 
-            <main className='mt-36'>{children}</main>     
+          {children}   
        
               <Footer />     
 

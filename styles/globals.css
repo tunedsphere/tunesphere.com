@@ -723,7 +723,9 @@
 --colors-mauve2: hsl(240 5.1% 11.6%);
 
 
-    --colortheme: hsl(250 51.8% 51.2%);
+    --colortheme:hsl(252 99.9% 70.3% / 0.786);
+    --colortheme2: hsl(280 41.2% 20.0%);
+    --orange: hsl(24 100% 58.5%);
 
     --brand:  hsl(211 86.7% 99.6% / 0.927);
     --texthigh: hsl(208 98.7% 96.8%);
@@ -926,15 +928,13 @@ h5 {
   justify-items: center;
 
 }
-
-
 .footer-gradient {
   position: absolute;
   height: 100px;
   left: 37%;
   bottom: 0;
-  background: #65c4fa;
-  filter: blur(150px);
+  background: var(--colortheme2);
+  filter: blur(100px);
 }
 .right-gradient {
   position: absolute;
@@ -942,18 +942,18 @@ h5 {
   height: 100px;
   right: 0;
   top: 0;
-  background: hsl(188 100% 40.0%);
+  background: var(--colortheme2);
   filter: blur(150px);
 }
 .left-gradient {
   position: absolute;
   width: 33.333333%;
-  height: 100px;
+  height: 180px;
   top: 300px;
   left: 0;
   width: 25%;
   background: #160068;
-  filter: blur(150px);
+  filter: blur(100px);
 }
 
 .global-container {
@@ -967,3 +967,51 @@ h5 {
   justify-content: center;
 }
 
+.dialogue-search {
+  position: relative;
+  z-index: 100000;
+  max-height: 500px;
+  display: flex;
+}
+
+#input-search {
+  color: red;
+  opacity: 1;
+  border: 0cap;
+}
+
+#searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.901);
+  z-index: 999;
+  justify-items: center;
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .overlay-content {
+    text-align: center;
+  }
+  
+  .overlay input[type="text"] {
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 200px;
+  }
+  
+  .overlay button {
+    padding: 10px;
+    font-size: 16px;
+  }

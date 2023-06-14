@@ -3,7 +3,6 @@ import './globalnavbarapp.css';
 import '@styles/globals.css';
 import React, { useEffect, useState } from 'react';
 import { NavbarBottom, SearchBox, SearchTrigger } from '@components';
-import { Button } from '@ui/button';
 import { SignedIn, SignedOut} from '@clerk/nextjs';
 import { SignInButton, UserButton } from '@clerk/nextjs';
 import { ShoppingCartIcon } from 'lucide-react';
@@ -12,7 +11,7 @@ import Link from 'next/link';
 
 const GlobalNav = () => {
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
-  const [isNavMenuVisible, setNavMenuVisible] = useState(false);
+  const [isNavbarBottomVisible, setNavbarBottomVisible] = useState(true);
   const [currentIcon, setCurrentIcon] = useState('svg/menuburger.svg');
   const [isMenuBurgerVisible, setIsMenuBurgerVisible] = useState(false);
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
@@ -49,11 +48,11 @@ const GlobalNav = () => {
   }, [hasScrolledDown]);
 
   const handleNavMenuClick = () => {
-    if (isNavMenuVisible) {
-      setNavMenuVisible(false);
+    if (isNavbarBottomVisible) {
+      setNavbarBottomVisible(false);
       setCurrentIcon('svg/menuburger.svg');
     } else {
-      setNavMenuVisible(true);
+      setNavbarBottomVisible(true);
       setCurrentIcon('svg/x.svg');
     }
   };
@@ -67,7 +66,7 @@ const GlobalNav = () => {
   };
 
 
-const isNavbarBottomVisible = !isNavMenuVisible; // Determine the visibility of NavbarBottom
+
 
   return (
     <nav id="globalnav" className="globalnav fixed h-auto">
@@ -124,7 +123,7 @@ const isNavbarBottomVisible = !isNavMenuVisible; // Determine the visibility of 
         autoPlay
         loop
         muted
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden 2xl:block"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden md:block"
         style={{ zIndex: -10 }}
       >
         <source src='/bgvideo.mp4' type="video/mp4" />
