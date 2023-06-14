@@ -9,12 +9,14 @@ export default function MyApp() {
     <section>
       <div className='grid grid-cols-2'>
         <div className='w-1/2'>
-    <img
+    <Image
     src='/bghome/planet2.png'
+    width={500}
+    height={500}
     alt="planet Home"
     className='-z-10 absolute left-0 top-0 w-1/3'>
 
-    </img>
+    </Image>
     </div>
     </div>
   
@@ -107,7 +109,7 @@ export default function MyApp() {
 
 
       <div className='py-12 '>
-      <h3 href="/genres" id="home-genre-list" className="decoration-colortheme hover:underline underline-offset-4 cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-orange from-texthigh">Genre List </span> </h3>  
+      <h3 href="/genres" id="home-genre-list" className="decoration-colortheme hover:underline underline-offset-4 cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-orange from-texthigh">Genre List</span></h3>
       <p className="text-lg font-normal text-textlow lg:text-xl text-center">Explore the Variaty of energies and sounds through different musical styles</p>
       </div>
           <div className='flex relative'>

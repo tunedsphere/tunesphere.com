@@ -9,6 +9,7 @@ import { footerConfig } from '@configs/footer';
 
 import '@styles/globals.css';
 import Link from "next/link";
+import Image from 'next/image';
 
 
 const Footer = () => {
@@ -36,12 +37,14 @@ const Footer = () => {
   return (
   <footer
       className="bottom-0 relative items-center mx-auto py-8 px-4">
-   <img
+   <Image
     src='/bghome/stars6.png'
+    width={500}
+    height={500}
     alt="planet Home"
     className='-z-10 absolute right-0 bottom-0 w-1/2 lg:w-1/4 object-contain'>
 
-    </img>
+    </Image>
     <div className="footer-gradient w-1/5" />
       <div className="gap-5">
         <h3 className="text-center font-bold py-8 text-high md:text-4xl" >
