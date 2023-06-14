@@ -3,6 +3,7 @@ import '@styles/globals.css';
 import Link from 'next/link';
 import { genres } from '../constants/genres.js';
 import Image from 'next/image';
+import planet2 from '@public/bghome/planet2.png';
 export default function MyApp() {
 
   return (  
@@ -10,7 +11,7 @@ export default function MyApp() {
       <div className='grid grid-cols-2'>
         <div className='w-1/2'>
     <Image
-    src='/bghome/planet2.png'
+    src={planet2}
     width={500}
     height={500}
     alt="planet Home"

@@ -9,6 +9,7 @@
       "@themes/*": ["./themes/*"],
       "@utils/*": ["./utils/*"],
       "@lib/*": ["./lib/*"],
+      "@public/*": ["./public/*"],
 
     }
   }
