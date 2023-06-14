@@ -43,7 +43,7 @@ const Footer = () => {
     placeholder="blur"
     width={500}
     height={500}
-    alt="planet Home"
+    alt="Footer Stars"
     className='-z-10 absolute right-0 bottom-0 w-1/2 lg:w-1/4 object-contain'>
 
     </Image>

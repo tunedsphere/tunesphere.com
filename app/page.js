@@ -12,6 +12,7 @@ export default function MyApp() {
         <div className='w-1/2'>
     <Image
     src={planet2}
+    placeholder="blur"
     width={500}
     height={500}
     alt="planet Home"
