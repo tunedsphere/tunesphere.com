@@ -22,7 +22,7 @@ export default function MyApp() {
     </div>
     </div>
   
-    <main className="mt-36 flex flex-col items-center justify-between px-4 md:px-8 mx-auto">
+    <main className="mt-8 flex flex-col items-center justify-between px-4 md:px-8 mx-auto">
 
 <div className="py-12" >
 <h1 className="font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-orange">A Psychedelic </span> Dedicated Platform</h1>

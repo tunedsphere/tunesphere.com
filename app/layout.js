@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
 
               <GlobalNav/>
 
-          {children}   
+        <main className='mt-28'>{children}</main>
        
               <Footer />     
 
