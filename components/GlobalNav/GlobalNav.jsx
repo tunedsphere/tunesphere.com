@@ -70,7 +70,7 @@ const GlobalNav = () => {
 
   return (
     <nav id="globalnav" className="globalnav fixed h-auto">
-      <div id="globalnav-content" className="globalnav-content relative @container">
+      <div id="globalnav-content" className="globalnav-content relative">
         <nav className="navbar navbartop z-9999 algin-center px-4 md:px-8">
           <div className="py-3 navbar-container flex flex-between justify-between">
             <div className='left-0 w-1/3 items-center flex'>
