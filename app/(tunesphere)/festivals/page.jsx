@@ -1,13 +1,14 @@
 "use client";
 import React from 'react';
-import { Calendar } from '@ui/calendar';
+import CalendarComponent from '@ui/Calendar/CalendarComponent';
 const FestivalPage = () => {
   return (
 
-    <main className="flex flex-col items-center justify-between p-24">
+    <main className="@container flex justify-center">
            
-           
-            <Calendar></Calendar>
+           <div className=''>
+            <CalendarComponent></CalendarComponent>
+            </div>
 
 
             </main>

@@ -1,9 +1,11 @@
 "use client";
 import React from 'react';
 import { Button } from '@ui/button';
-import { Calendar } from '@ui/calendar';
 import '@styles/globals.css';
+import CalendarComponent from '@ui/Calendar/CalendarComponent';
 const Uipage = () => {
+ 
+
   return (
     <main>
     <div className='relative'>
@@ -26,8 +28,8 @@ const Uipage = () => {
        
     </div>
     
-        <Calendar></Calendar>
-        <div id="SignInOverlay" className="signinoverlay">
+
+        {/* <div id="SignInOverlay" className="signinoverlay">
         <div className='flex justify-center mt-24'>
         <div className="flex flex-col px-4 py-8 rounded-lg shadow bg-accent1 sm:px-6 md:px-8 lg:px-10">
     <div className="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
@@ -93,9 +95,11 @@ const Uipage = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    
-                                                    
+                                                    </div> */}
+                                      
+   
+<CalendarComponent></CalendarComponent>
+
 </main>
 
   )
