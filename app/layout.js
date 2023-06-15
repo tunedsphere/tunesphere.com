@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
 
               <GlobalNav/>
 
-        <main className='mt-28'>{children}</main>
+        <main className='mt-28 mx-auto max-w-[1600px]'>{children}</main>
        
               <Footer />     
 

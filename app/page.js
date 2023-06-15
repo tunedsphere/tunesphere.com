@@ -4,7 +4,40 @@ import Link from 'next/link';
 import { genres } from '../constants/genres.js';
 import Image from 'next/image';
 import planet2 from '@public/bghome/planet2.png';
+import React, { useState, useEffect } from 'react';
+import { recordLabels } from '@public/data.js';
+import { Button } from "@/components/ui/button";
+import { cn } from '@lib/utils.js';
+
+
 export default function MyApp() {
+
+  const elementsPerPage = 8; // Update the elementsPerPage to 8  
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Calculate start and end indexes for the current page
+  const startIndex = (currentPage - 1) * elementsPerPage;
+  const endIndex = Math.min(startIndex + elementsPerPage, recordLabels.length);
+
+  // Get the labels for the current page
+  const currentLabels = recordLabels.slice(startIndex, endIndex);
+  const [selectedLabel, setSelectedLabel] = useState(null); // A
+
+  // Function to handle previous page button click
+  const previousPage = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
+  // Function to handle next page button click
+  const nextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+  useEffect(() => {
+    // Set the initially selected label to the first item in the list
+    setSelectedLabel(recordLabels[0]);
+  }, []);
+
 
   return (  
     <section>
@@ -109,11 +142,11 @@ export default function MyApp() {
 
       </div>
 
-
       <div className='py-12 '>
       <h3 href="/genres" id="home-genre-list" className="cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-orange from-texthigh">Genre List</span></h3>
       <p className="text-lg font-normal text-textlow lg:text-xl text-center">Explore the Variaty of energies and sounds through different musical styles</p>
       </div>
+
           <div className='flex relative justify-center'>
                
           <div  className='bg-gradient-to-r to-colortheme2 from-colortheme -z-10 -inset-1 absolute rounded-lg blur'></div>
@@ -127,21 +160,74 @@ export default function MyApp() {
   </div>
 </div>
 
+
 <div className='py-12 '>
-      <h3 href="/genres" id="home-genre-list" className="cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-orange">NEW </span><span className="justify-center text-transparent bg-clip-text bg-colortheme from-texthigh">RELEASES</span></h3>
+      <h3 href="/genres" id="home-genre-list" className="py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-orange">NEW </span><span className="justify-center text-transparent bg-clip-text bg-colortheme from-texthigh">RELEASES</span></h3>
       <p className="text-lg font-normal text-textlow lg:text-xl text-center">The latest releases on TunedSphere</p>
       </div>
-      <div className={`@container @grid @grid-row`}>
-                  <div className=''>
-                    
-                    </div>
-                  </div>
+
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-2">
+      <div className='row-span-2 col-span-2 top-0'>
+  {selectedLabel && (
+    <>
+      <img src={selectedLabel.image} alt={selectedLabel.name} className="object-contain object-center" />
+      <h2 className="text-xl font-semibold mt-4">{selectedLabel.name}</h2>
+      <p className="text-gray-600 mt-2">{selectedLabel.genres.join(', ')}</p>
+    </>
+  )}
+</div>
+        {currentLabels.map((label) => (
+          <div key={label.id} onClick={() => setSelectedLabel(label)} className="bg-white shadow-lg rounded-lg p-4">
+            <div className="aspect-w-1 aspect-h-1">
+              <img src={label.image} alt={label.name} className="object-cover object-center w-full h-full" />
+            </div>
+            <h2 className="text-xl font-semibold mt-4">{label.name}</h2>
+            <p className="text-gray-600 mt-2">{label.genres.join(', ')}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex justify-center mt-4 gap-6 py-4">
+        <Button
+        variant="outline"
+          onClick={previousPage}
+          disabled={currentPage === 1}
+          className="text-texthigh px-4  py-2 text-sm bg-accent2"
+        
+        >
+          Previous
+        </Button>
+        <div className="flex justify-center gap-2">
+        {/* Display page numbers */}
+        {Array.from({ length: Math.ceil(recordLabels.length / elementsPerPage) }, (_, i) => i + 1).map((page) => (
+          <Button
+          variant="outline"
+            key={page}
+            onClick={() => setCurrentPage(page)}
+            className={`px-4 py-2 text-sm text-texthigh font-medium rounded-md ${
+              page === currentPage ? 'bg-colortheme text-texthigh' : 'text-textlow'
+            }`}
+          >
+            Page {page}
+          </Button>
+        ))}
+      </div>
+        <Button
+        variant="outline"
+          onClick={nextPage}
+          disabled={endIndex >= recordLabels.length || Math.ceil(recordLabels.length / elementsPerPage) <= currentPage}
+          className="px-4 py-2 text-sm text-texthigh bg-accent2"
+        >
+          Next
+        </Button>
+      </div>
+
+   
  
+      
 
     </main>
-   
-
-   
     </section>
     
   )
