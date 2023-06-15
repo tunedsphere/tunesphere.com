@@ -44,7 +44,7 @@ const Footer = () => {
     width={500}
     height={500}
     alt="Footer Stars"
-    className='-z-10 absolute right-0 bottom-0 w-1/2 lg:w-1/4 object-contain'>
+    className='-z-10 absolute right-0 bottom-0 w-1/2 lg:w-1/4 object-contain opacity-80'>
 
     </Image>
     <div className="footer-gradient w-1/5 -z-10" />

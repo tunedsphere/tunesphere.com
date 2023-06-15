@@ -47,13 +47,13 @@ const CalendarComponent = () => {
       function initCalendar() {
         monthEl.textContent = months[month] + " " + year;
         weekdays.innerHTML = `
-          <div>Sun</div>
           <div>Mon</div>
           <div>Tue</div>
           <div>Wed</div>
           <div>Thu</div>
           <div>Fri</div>
           <div>Sat</div>
+          <div>Sun</div>
         `;
 
         const firstDay = new Date(year, month, 1).getDay();
@@ -232,13 +232,13 @@ const CalendarComponent = () => {
             <i className="fas fa-angle-right next"></i>
           </div>
           <div className="weekdays">
-            <div>Sun</div>
             <div>Mon</div>
             <div>Tue</div>
             <div>Wed</div>
             <div>Thu</div>
             <div>Fri</div>
             <div>Sat</div>
+            <div>Sun</div>
           </div>
           <div className="days"></div>
           <div className="goto-today">

@@ -53,7 +53,7 @@ module.exports = {
         colortheme2: "var(--colortheme2)",
         orange: "var(--orange)",
         backgroundgradient: "var(--backgroundgradient)",
-            accent7: "var(--accent7)",
+        accent7: "var(--accent7)",
         accent6: "var(--accent6)",
         accent5: "var(--accent5)",
         accent4: "var(--accent4)",

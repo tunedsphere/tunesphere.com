@@ -111,16 +111,15 @@ export default function MyApp() {
 
 
       <div className='py-12 '>
-      <h3 href="/genres" id="home-genre-list" className="decoration-colortheme hover:underline underline-offset-4 cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-orange from-texthigh">Genre List</span></h3>
+      <h3 href="/genres" id="home-genre-list" className="cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-orange from-texthigh">Genre List</span></h3>
       <p className="text-lg font-normal text-textlow lg:text-xl text-center">Explore the Variaty of energies and sounds through different musical styles</p>
       </div>
-          <div className='flex relative'>
+          <div className='flex relative justify-center'>
                
           <div  className='bg-gradient-to-r to-colortheme2 from-colortheme -z-10 -inset-1 absolute rounded-lg blur'></div>
-          <div className={`grid lg:grid-cols-6 text-2xl font-semibold bg-black p-8`}>
+          <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 lg:text-xl text-xl font-semibold bg-black p-8 ">
   {genres.map((item, index) => (
-    <div  href={item.href} key={`genre-${index}`} className="cursor-pointer group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30  group-hover:translate-x-1 motion-reduce:transform-none text-texthigh p-2" index={index + 1}>
-     {' '} <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+    <div  href={item.href} key={`genre-${index}`} className="text-center cursor-pointer group rounded-lg border border-transparent px-5 py-4 transition-colors hover:underline underline-offset-4 decoration-colortheme group-hover:translate-x-1 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 motion-reduce:transform-none text-texthigh p-2" index={index + 1}>{' '}<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               
             </span>{item.title}</div>
   ))}
@@ -128,6 +127,15 @@ export default function MyApp() {
   </div>
 </div>
 
+<div className='py-12 '>
+      <h3 href="/genres" id="home-genre-list" className="cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-orange">NEW </span><span className="justify-center text-transparent bg-clip-text bg-colortheme from-texthigh">RELEASES</span></h3>
+      <p className="text-lg font-normal text-textlow lg:text-xl text-center">The latest releases on TunedSphere</p>
+      </div>
+      <div className={`@container @grid @grid-row`}>
+                  <div className=''>
+                    
+                    </div>
+                  </div>
  
 
     </main>

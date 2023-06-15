@@ -94,6 +94,7 @@ import { useEffect, useRef } from 'react';
                 ></Button>
               </div>
               <div
+              data-label-cards-container
                 id="suggestions-container"
                 role="listbox"
                 aria-label="Suggestions"
@@ -107,6 +108,12 @@ import { useEffect, useRef } from 'react';
 
                   </div>
                 </div>
+                <template data-label-template>
+    <div class="card">
+      <div class="header" data-header></div>
+      <div class="body" data-body></div>
+    </div>
+  </template>
               </div>
             </div>
           </div>

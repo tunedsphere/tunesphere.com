@@ -37,8 +37,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider >
 
 
-    <html lang="en">  
-
+    <html lang="en">   
 
         <body className="min-h-screen bg-background font-sans antialiased">
 
@@ -48,7 +47,7 @@ export default function RootLayout({ children }) {
        
               <Footer />     
 
-
+              <script src="@utils/searchscript.js" defer></script>
            </body>
        
     </html>
