@@ -1,3 +1,4 @@
+
 "use client";
 import  { recordLabels } from '@public/data.js';// Assuming data.js file is in the same directory
 import "@styles/globals.css";
@@ -86,7 +87,7 @@ const LabelsGrid = () => {
           style={{ gridColumn: '1 / -1', gridRow: expandedGridRow }}
         >
           <div className='gap-4 grid @xs:grid-rows-1 @xs:grid-cols-2 @md:grid-rows-1 @md:grid-cols-3 @2xl:grid-flow-col @2xl:grid-rows-2 @3xl:grid-rows-2'>
-          <div className='-z-10 -inset-1.5 absolute rounded-lg blur opacity-50 bg-gradient-to-r from-colortheme to-bg-background'></div>
+          <div className='-z-10 -inset-1.5 absolute rounded-lg blur opacity-50 bg-gradient-to-r from-colortheme2 to-bg-background'></div>
             <div className=" @xs:row-start-1 @xs:row-end-1 @2xl:row-span-3 @3xl:row-span-2 flex justify-center pr-8 border-r-2 border-accent5">
               <Link   href={`label/${selectedItem.id}`} className=''>
                 <Image

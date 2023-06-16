@@ -167,23 +167,24 @@ export default function MyApp() {
       </div>
 
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-2">
+      <div className="grid grid-cols-6 gap-2 p-4">
       <div className='row-span-2 col-span-2 top-0'>
   {selectedLabel && (
     <>
       <img src={selectedLabel.image} alt={selectedLabel.name} className="object-contain object-center" />
-      <h2 className="text-xl font-semibold mt-4">{selectedLabel.name}</h2>
+      <h2 className="md:text-xl text-sm font-semibold mt-4">{selectedLabel.name}</h2>
       <p className="text-gray-600 mt-2">{selectedLabel.genres.join(', ')}</p>
     </>
   )}
 </div>
         {currentLabels.map((label) => (
-          <div key={label.id} onClick={() => setSelectedLabel(label)} className="bg-white shadow-lg rounded-lg p-4">
+          <div key={label.id} onClick={() => setSelectedLabel(label)} className="shadow-lg rounded-lg p-4 bg-purple1">
             <div className="aspect-w-1 aspect-h-1">
               <img src={label.image} alt={label.name} className="object-cover object-center w-full h-full" />
             </div>
-            <h2 className="text-xl font-semibold mt-4">{label.name}</h2>
-            <p className="text-gray-600 mt-2">{label.genres.join(', ')}</p>
+            <h2 className="md:text-xl text-xs font-bold ">{label.name}</h2>
+            <h2 className="md:text-xl text-xs text-textlow font-normal">{label.founding_year}</h2>
+            <p className="text-gray-600 mt-2 md:text-sm text-xs">{label.genres.join(', ')}</p>
           </div>
         ))}
       </div>
@@ -193,7 +194,7 @@ export default function MyApp() {
         variant="outline"
           onClick={previousPage}
           disabled={currentPage === 1}
-          className="text-texthigh px-4  py-2 text-sm bg-accent2"
+          className="text-texthigh px-4 py-2 text-sm bg-accent2 hover:bg-accent3"
         
         >
           Previous
@@ -205,8 +206,8 @@ export default function MyApp() {
           variant="outline"
             key={page}
             onClick={() => setCurrentPage(page)}
-            className={`px-4 py-2 text-sm text-texthigh font-medium rounded-md ${
-              page === currentPage ? 'bg-colortheme text-texthigh' : 'text-textlow'
+            className={`px-4 py-2 text-sm text-texthigh font-medium rounded-md hover:bg-accent3 hover:text-texthigh ${
+              page === currentPage ? 'bg-colortheme2 hover:bg-colortheme text-texthigh' : 'text-textlow'
             }`}
           >
             Page {page}
@@ -217,7 +218,7 @@ export default function MyApp() {
         variant="outline"
           onClick={nextPage}
           disabled={endIndex >= recordLabels.length || Math.ceil(recordLabels.length / elementsPerPage) <= currentPage}
-          className="px-4 py-2 text-sm text-texthigh bg-accent2"
+          className="px-4 py-2 text-sm text-texthigh bg-accent2 hover:bg-accent3"
         >
           Next
         </Button>
