@@ -28,9 +28,11 @@ const GlobalNav = () => {
         if (currentScrollPosition > lastScrollPosition) {
           setIsMenuBurgerVisible(true);
           setHasScrolledDown(true);
+          setNavbarBottomVisible(false);
         } else {
           if (!hasScrolledDown) {
             setIsMenuBurgerVisible(true);
+            setNavbarBottomVisible(true);
           }
         }
 
@@ -48,15 +50,9 @@ const GlobalNav = () => {
   }, [hasScrolledDown]);
 
   const handleNavMenuClick = () => {
-    if (isNavbarBottomVisible) {
-      setNavbarBottomVisible(false);
-      setCurrentIcon('svg/menuburger.svg');
-    } else {
-      setNavbarBottomVisible(true);
-      setCurrentIcon('svg/x.svg');
-    }
+    setCurrentIcon(prevIcon => prevIcon === 'svg/menuburger.svg' ? 'svg/x.svg' : 'svg/menuburger.svg');
+    setNavbarBottomVisible(prevVisible => !prevVisible);
   };
-
   const handleSearchTriggerClick = () => {
     setSearchBoxVisible(!isSearchBoxVisible);
   };

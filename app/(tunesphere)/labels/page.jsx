@@ -3,16 +3,20 @@ import React from 'react';
 import { LabelsGrid } from '@components';
 
 
-const Gridpage = () => {
+
+
+const Grid = () => {
   return (
 
     <main>
           <div className='left-gradient'> </div>
- 
-        <LabelsGrid/>
+
+
+ <LabelsGrid />
+    
  
     </main>
      )
 }
 
-export default Gridpage;
+export default Grid;

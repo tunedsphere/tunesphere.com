@@ -143,16 +143,16 @@ export default function MyApp() {
       </div>
 
       <div className='py-12 '>
-      <h3 href="/genres" id="home-genre-list" className="cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-orange from-texthigh">Genre List</span></h3>
+      <h3 href="/genres" id="home-genre-list" className="cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-orange from-colortheme">Genre List</span></h3>
       <p className="text-lg font-normal text-textlow lg:text-xl text-center">Explore the Variaty of energies and sounds through different musical styles</p>
       </div>
 
           <div className='flex relative justify-center'>
                
           <div  className='bg-gradient-to-r to-colortheme2 from-colortheme -z-10 -inset-1 absolute rounded-lg blur'></div>
-          <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 lg:text-xl text-xl font-semibold bg-black p-8 ">
+          <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 lg:text-xl text-xl font-semibold bg-black gap-4 p-8">
   {genres.map((item, index) => (
-    <div  href={item.href} key={`genre-${index}`} className="text-center cursor-pointer group rounded-lg border border-transparent px-5 py-4 transition-colors hover:underline underline-offset-4 decoration-colortheme group-hover:translate-x-1 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 motion-reduce:transform-none text-texthigh p-2" index={index + 1}>{' '}<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+    <div  href={item.href} key={`genre-${index}`} className="text-center cursor-pointer group rounded-lg border border-transparent transition-colors hover:underline underline-offset-4 decoration-colortheme group-hover:translate-x-1 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 motion-reduce:transform-none text-texthigh p-2" index={index + 1}>{' '}<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               
             </span>{item.title}</div>
   ))}
@@ -201,7 +201,12 @@ export default function MyApp() {
         </Button>
         <div className="flex justify-center gap-2">
         {/* Display page numbers */}
-        {Array.from({ length: Math.ceil(recordLabels.length / elementsPerPage) }, (_, i) => i + 1).map((page) => (
+        {Array.from(
+      {
+        length: Math.min(Math.ceil(recordLabels.length / elementsPerPage), 10), // Limit to 10 pages
+      },
+      (_, i) => i + 1 + Math.max(currentPage - 5, 0) // Adjust page numbers based on current page
+    ).map((page) => (
           <Button
           variant="outline"
             key={page}
