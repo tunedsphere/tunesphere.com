@@ -75,7 +75,7 @@ const LabelsGrid = () => {
   const sortedAndFilteredLabels = sortLabels(filteredLabels);
 
   return (
-    <section>
+    <section className=''>
       <div className="py-8 flex justify-between gap-4">
         <div className='flex flex-row'>
           <SelectGenre
@@ -96,6 +96,7 @@ const LabelsGrid = () => {
           <Button variant="outline" className="" onClick={handleSortAlphabetically}>A/Z</Button>
         </div>
       </div>
+    
       <div className='scrollable-container @container overflow-y-scroll'>
         <div className="grid grid-flow-row-dense grid-cols-2 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9 @5xl:grid-cols-10 @6xl:grid-cols-12 gap-4">
           {sortedAndFilteredLabels.map((label, index) => (
