@@ -1,20 +1,15 @@
 
 import React from 'react';
-import { LabelsGrid } from '@components';
-
-
-
+import LabelsGrid from '@components/Labels/LabelsGrid';
 
 const Grid = () => {
   return (
 
     <main>
-          <div className='left-gradient'> </div>
-
-
- <LabelsGrid />
-    
- 
+          <div className='left-gradient -z-10'> </div>
+          
+            <LabelsGrid />
+          
     </main>
      )
 }

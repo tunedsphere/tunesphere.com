@@ -39,7 +39,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/SearchBox/SearchBox.jsx"  ],
+, "components/SearchBox/SearchBox.jsx", "components/auth/modal.js"  ],
   "exclude": [
     "node_modules"
   ]

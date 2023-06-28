@@ -5,40 +5,6 @@ import './searchbox.css';
 import { Button } from '@components/ui/button';
 import { useEffect, useRef } from 'react';
 
-// const SearchBox = ({ closeSearch}) => {
-
-
-//   return (
-    // <div className='absolute bg-red-600 left-0 top-0 bottom-0 w-full h-full'>
-    // <div id="searchOverlay" className="transition-shadow z-40"></div>
-    //   <div className='bottom-0 top-0 z-50 right-2 left-2 my-auto mx-auto md:bottom-auto'>
-    //   <div className='m-h-[500px] z-50 flex flex-none items-center border-b border-accent1'>
-    //   <input 
-    //   id='globalsearch'
-    //   className="p-4 w-full outline-none bg-inherit" 
-    //   type="search" 
-    //   placeholder="Search"
-    //   role='dialog'
-    //   />
-    //   <Button
-    //   variant="outline"
-    //   className="text-xs after:content-['close'] md:after:content-['Esc'] px-1"
-    //   aria-label="Cancel">
-    //   </Button>
-    //   <div 
-    //   role='listbox'
-    //   aria-label='Suggestions'
-    //   className='overflow-y-auto p-2 flex-1 max-h-[400px]'></div>
-    //   </div>
-    //   </div>
-
-    //   <span className="closebtn" onClick={closeSearch} title="Close Overlay">
-    //     x
-    //   </span>
-    //   {/* Additional search functionality */}
-    // </div>
-
-
     const SearchBox = ({ closeSearch }) => {
       const searchBoxRef = useRef(null);
     
@@ -75,8 +41,9 @@ import { useEffect, useRef } from 'react';
               <div className="flex flex-none items-center w-full border-b border-accent2">
                 <input
                   id="search-input"
-                  className="p-4 w-full outline-none bg-inherit text-texthigh"
-                  type="text"
+                  className="p-4 w-full outline-none bg-transparent text-texthigh"
+                  type="search" 
+                  aria-label="Search"
                   placeholder="Search"
                   role="dialog"
                   autoCorrect="off"

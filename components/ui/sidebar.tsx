@@ -1,12 +1,22 @@
-"use client";
-import React, { ReactNode } from 'react';
+import { useEffect, useRef } from 'react';
+import '@styles/globals.css';
+import { useState } from 'react';
 
-type SidebarProps = {
-  children: ReactNode;
-};
+interface SidebarProps {
+  children: React.ReactNode;
+}
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
-  return <div className="sidebar">{children}</div>;
+
+  return (
+    <aside
+
+      className="flex flex-col min-w-[200px] shrink-0 overflow-x-hidden overflow-auto border-accent4 border-y-2"
+    >
+      {children}
+
+    </aside>
+  );
 };
 
 export default Sidebar;

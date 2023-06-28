@@ -2,9 +2,9 @@
 import React from 'react';
 import { Button } from '@ui/button';
 import '@styles/globals.css';
-import CalendarComponent from '@ui/Calendar/CalendarComponent';
+
 const Uipage = () => {
- 
+    const [date, setDate] = React.useState(new Date());    
 
   return (
     <main>
@@ -27,6 +27,7 @@ const Uipage = () => {
 
        
     </div>
+
     
 
         {/* <div id="SignInOverlay" className="signinoverlay">
@@ -98,7 +99,7 @@ const Uipage = () => {
                                                     </div> */}
                                       
    
-<CalendarComponent></CalendarComponent>
+
 
 </main>
 

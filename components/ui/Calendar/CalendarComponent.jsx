@@ -225,7 +225,7 @@ const CalendarComponent = () => {
   return (
     <div className="container">
       <div className="left">
-        <div className="calendar">
+        <div className="calendar bg-transparent">
           <div className="month">
             <i className="fas fa-angle-left prev"></i>
             <div className="date">December 2015</div>
@@ -250,7 +250,7 @@ const CalendarComponent = () => {
           </div>
         </div>
       </div>
-      <div className="right">
+      <div className="expanded">
         <div className="today-date">
           <div className="event-day">Wed</div>
           <div className="event-date">12th December 2022</div>

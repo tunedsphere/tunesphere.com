@@ -1,13 +1,12 @@
 "use client";
 import React from 'react';
 import { recordLabels } from '@public/data.js'; // Assuming data.js file is in the same directory
-import { Banner, Header } from '@components';
+import { Banner } from '@components';
 const LabelCard = () => {
 
   return (
     <div className="bg-gray-100">
       <Banner></Banner>
-        <Header></Header>
       {/* Content */}
       <main className="container mx-auto py-8 px-6">
         <div className="flex flex-wrap -mx-4">

@@ -55,10 +55,10 @@ export default function MyApp() {
     </div>
     </div>
   
-    <main className="mt-8 flex flex-col items-center justify-between px-4 md:px-8 mx-auto">
+    <main className="mt-32 flex flex-col items-center justify-between px-4 md:px-8 mx-auto">
 
 <div className="py-12" >
-<h1 className="font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-orange">A Psychedelic </span> Dedicated Platform</h1>
+<h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text"><span className="text-texthigh">A </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-orange">Psychedelic </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-500 from-blue-500">Dedicated </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-red-500 from-orange">Platform</span>  </h1>
 
 <p className="py-4 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 text-center">Explore the musical realm of Psychedelic Art, with Music, Art, Decorations and Festivals</p>
 </div>
@@ -66,11 +66,11 @@ export default function MyApp() {
       <div className='left-gradient -z-10'> </div>
       <div className='right-gradient -z-10'> </div>
 
-        <div className='grid 2xl:grid-cols-4 py-16 ext-center 2xl:text-left text-center'>
+        <div className='grid xl:grid-cols-4 py-16 ext-center 2xl:text-left text-center'>
         
         <Link href="/labels" passHref>
         <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -90,7 +90,7 @@ export default function MyApp() {
 
         <Link href="/artists" passHref>
         <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -107,7 +107,7 @@ export default function MyApp() {
         </Link>
         <Link href="/festivals" passHref>
         <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -124,7 +124,7 @@ export default function MyApp() {
         </Link>
         <Link href="/labels" passHref>
         <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30  group-hover:translate-x-1 motion-reduce:transform-none"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30  group-hover:translate-x-1 motion-reduce:transform-none"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -167,7 +167,7 @@ export default function MyApp() {
       </div>
 
 
-      <div className="grid grid-cols-6 gap-2 p-4">
+      <div className="grid grid-cols-6 gap-2 p-4 max-w-[1600px]">
       <div className='row-span-2 col-span-2 top-0'>
   {selectedLabel && (
     <>
@@ -215,7 +215,7 @@ export default function MyApp() {
               page === currentPage ? 'bg-colortheme2 hover:bg-colortheme text-texthigh' : 'text-textlow'
             }`}
           >
-            Page {page}
+            {page}
           </Button>
         ))}
       </div>

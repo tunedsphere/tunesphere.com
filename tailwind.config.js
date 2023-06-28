@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
    './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
   theme: {   
-
     container: {
       center: true,
       padding: "2rem",
@@ -17,12 +17,14 @@ module.exports = {
         'lg': {'min': '1024px', 'max': '1279px'},
         'xl': {'min': '1280px', 'max': '1535px'},
         '2xl': {'min': '1536px'},
-        '&xs': { 'raw': '(min-width: 320px)' },
-        '&sm': { 'raw': '(min-width: 384px)' },
-        '&md': { 'raw': '(min-width: 448px)' },
-        '&lg': { 'raw': '(min-width: 512px)' },
-        '&xl': { 'raw': '(min-width: 576px)' },
-        '&2xl': { 'raw': '(min-width: 672px)' },
+        '7xl': { 'min': '2880px' },
+        '8xl': { 'min': '3456px' },
+        '&xs': {'raw': '(min-width: 320px)'},
+        '&sm': {'raw': '(min-width: 384px)'},
+        '&md': {'raw': '(min-width: 448px)'},
+        '&lg': {'raw': '(min-width: 512px)'},
+        '&xl': {'raw': '(min-width: 576px)'},
+        '&2xl': {'raw': '(min-width: 672px)'},
       }
     },
     extend: {
@@ -124,6 +126,7 @@ module.exports = {
     },
   },
   plugins: [
+
     require('@tailwindcss/container-queries'),
     // ...
     require('tailwindcss-animate'),

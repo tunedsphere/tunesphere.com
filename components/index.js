@@ -5,16 +5,12 @@ import SearchIcon from './SearchBox/SearchTrigger';
 import SearchTrigger from './SearchBox/SearchTrigger';
 import NavMenu from './GlobalNav/NavMenu';
 import Footer from './Footer';
-import Header from './Header';
 import Banner from './Banner';
 import LabelCard from './Labels/LabelCard';
 import GenreCard from './Genres/GenreCard';
 import ArtistsGrid from './Artists/ArtistsGrid';
-import LabelsGrid from './Labels/LabelsGrid';
-
 
 export {
-  Header,
   Banner,
   NavMenu,
   SearchTrigger,
@@ -26,6 +22,5 @@ export {
   LabelCard,
   ArtistsGrid,
   GenreCard,
-  LabelsGrid,
 };
 

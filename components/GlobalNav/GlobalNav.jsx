@@ -3,11 +3,13 @@ import './globalnavbarapp.css';
 import '@styles/globals.css';
 import React, { useEffect, useState } from 'react';
 import { NavbarBottom, SearchBox, SearchTrigger } from '@components';
-import { SignedIn, SignedOut} from '@clerk/nextjs';
-import { SignInButton, UserButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut } from '@clerk/nextjs';
+import { UserButton } from '@clerk/nextjs';
 import { ShoppingCartIcon } from 'lucide-react';
+import { ThemeToggle } from '@/components/theme-toggle';
 import Link from 'next/link';
-
+import { Button } from '@components/ui/button';
+import Modal from '@/components/auth/modal';
 
 const GlobalNav = () => {
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
@@ -15,9 +17,15 @@ const GlobalNav = () => {
   const [currentIcon, setCurrentIcon] = useState('svg/menuburger.svg');
   const [isMenuBurgerVisible, setIsMenuBurgerVisible] = useState(false);
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
 
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
-  
   useEffect(() => {
     if (window.innerWidth >= 768) {
       let lastScrollPosition = window.scrollY;
@@ -50,9 +58,12 @@ const GlobalNav = () => {
   }, [hasScrolledDown]);
 
   const handleNavMenuClick = () => {
-    setCurrentIcon(prevIcon => prevIcon === 'svg/menuburger.svg' ? 'svg/x.svg' : 'svg/menuburger.svg');
-    setNavbarBottomVisible(prevVisible => !prevVisible);
+    setCurrentIcon((prevIcon) =>
+      prevIcon === 'svg/menuburger.svg' ? 'svg/x.svg' : 'svg/menuburger.svg'
+    );
+    setNavbarBottomVisible((prevVisible) => !prevVisible);
   };
+
   const handleSearchTriggerClick = () => {
     setSearchBoxVisible(!isSearchBoxVisible);
   };
@@ -60,31 +71,42 @@ const GlobalNav = () => {
   const closeSearch = () => {
     setSearchBoxVisible(false);
   };
-
-
-
+  const closeModal = () => {
+    setModalBoxVisible(false);
+  };
 
   return (
     <nav id="globalnav" className="globalnav fixed h-auto">
-      <div id="globalnav-content" className="globalnav-content relative">
+      <div id="globalnav-content" className="globalnav-content relative ">
         <nav className="navbar navbartop z-9999 algin-center px-4 md:px-8">
           <div className="py-3 navbar-container flex flex-between justify-between">
-            <div className='left-0 w-1/3 items-center flex'>
+            <div className="left-0 w-1/3 items-center flex">
               <SearchTrigger className="" onClick={handleSearchTriggerClick} />
               {isSearchBoxVisible && <SearchBox closeSearch={closeSearch} />}
             </div>
-            <div
-              className="w-1/3 flex justify-center"
-            >
-             
-             <Link href="/" aria-label='tunedsphere'id='tunedsphere'>
-  <h2 className="text-center text-brand hover:text-primary algin-center cursor-pointer font-extrabold text-[24px] leading-[30.24px]">
-    TUNEDSPHERE
-  </h2>
-</Link>
-
+            <div className="w-1/3 flex justify-center">
+              <Link href="/" aria-label="tunedsphere" id="tunedsphere">
+                <h2 className="text-center text-brand hover:text-primary algin-center cursor-pointer font-extrabold text-[24px] leading-[30.24px]">
+                  TUNEDSPHERE
+                </h2>
+              </Link>
             </div>
-            <div className='w-1/3 relative items-center right-0 flex flex-row-reverse gap-2'>
+            <div className="w-1/3 relative items-center flex flex-row gap-2 justify-end">
+              <ShoppingCartIcon className="cursor-pointer" />
+              <ThemeToggle />
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                <Button
+                   onClick={handleModalOpen}
+                  variant="outline"
+                  className="&xs:hidden rounded-md px-2 font-medium disabled:pointer-events-none ring-offset-background outline-cyan-500/50 outline outline-1 hover:outline-offset-1 text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-sky-400"
+                >
+                  Sign In
+                </Button>
+              </SignedOut>
+
               {isMenuBurgerVisible && (
                 <img
                   src={currentIcon}
@@ -93,25 +115,10 @@ const GlobalNav = () => {
                   onClick={handleNavMenuClick}
                 />
               )}
-          
-            <SignedIn>
-              <UserButton/>
-            </SignedIn>
-       
-              <SignedOut>
-            
-                <SignInButton mode='modal' 
-
-              className="hidden @2xl:block rounded-md px-2 font-medium disabled:pointer-events-none ring-offset-background outline-cyan-500/50 outline outline-1 hover:outline-offset-1 text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-sky-400"></SignInButton>
-           
-              </SignedOut>
-                
-            <ShoppingCartIcon className='cursor-pointer'/>
-
             </div>
           </div>
         </nav>
-        {isNavbarBottomVisible && <NavbarBottom className=""></NavbarBottom>}
+        {isNavbarBottomVisible && <NavbarBottom className="" />}
       </div>
 
       {/* Video background */}
@@ -122,8 +129,10 @@ const GlobalNav = () => {
         className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden md:block"
         style={{ zIndex: -10 }}
       >
-        <source src='/bgvideo.mp4' type="video/mp4" />
+        <source src="/bgvideo.mp4" type="video/mp4" />
       </video>
+
+      {isModalOpen && <Modal onClose={handleModalClose} closeModal={closeModal} />}
     </nav>
   );
 };
