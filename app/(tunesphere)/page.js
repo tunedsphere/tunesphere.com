@@ -1,13 +1,12 @@
 "use client"
 import '@styles/globals.css';
 import Link from 'next/link';
-import { genres } from '../constants/genres.js';
+import { genres } from '../../constants/genres.js';
 import Image from 'next/image';
 import planet2 from '@public/bghome/planet2.png';
 import React, { useState, useEffect } from 'react';
 import { recordLabels } from '@public/data.js';
 import { Button } from "@/components/ui/button";
-import { cn } from '@lib/utils.js';
 
 
 export default function MyApp() {
@@ -58,7 +57,7 @@ export default function MyApp() {
     <main className="mt-32 flex flex-col items-center justify-between px-4 md:px-8 mx-auto">
 
 <div className="py-12" >
-<h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text"><span className="text-texthigh">A </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-orange">Psychedelic </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-500 from-blue-500">Dedicated </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-red-500 from-orange">Platform</span>  </h1>
+<h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text"><span className="text-texthigh">A </span><span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-800 to-fuchsia-600">Psychedelic </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-500 from-red-700">Dedicated </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-400 from-blue-600">Platform</span>  </h1>
 
 <p className="py-4 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 text-center">Explore the musical realm of Psychedelic Art, with Music, Art, Decorations and Festivals</p>
 </div>
@@ -143,7 +142,7 @@ export default function MyApp() {
       </div>
 
       <div className='py-12 '>
-      <h3 href="/genres" id="home-genre-list" className="cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-orange from-colortheme">Genre List</span></h3>
+      <h3 href="/genres" id="home-genre-list" className="cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-colortheme2">Genre List</span></h3>
       <p className="text-lg font-normal text-textlow lg:text-xl text-center">Explore the Variaty of energies and sounds through different musical styles</p>
       </div>
 

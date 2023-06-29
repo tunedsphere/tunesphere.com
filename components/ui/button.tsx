@@ -19,6 +19,7 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "underline-offset-4 hover:underline text-primary",
+        loginButton: "rounded-full text-texthigh bg-colortheme2 hover:opacity-75"
       },
       size: {
         default: "py-1 px-4",

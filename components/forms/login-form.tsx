@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import type { z } from "zod"
 
-import { authSchema } from "@/lib/validations/auth"
+import { logInSchema } from "@/lib/validations/auth"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -22,7 +22,7 @@ import { Input } from "@/components/ui/input"
 import { Icons } from "@/components/icons"
 import { PasswordInput } from "@/components/password-input"
 
-type Inputs = z.infer<typeof authSchema>
+type Inputs = z.infer<typeof logInSchema>
 
 export function SignInForm() {
   const router = useRouter()
@@ -31,7 +31,7 @@ export function SignInForm() {
 
   // react-hook-form
   const form = useForm<Inputs>({
-    resolver: zodResolver(authSchema),
+    resolver: zodResolver(logInSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -77,9 +77,9 @@ export function SignInForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Email or Username</FormLabel>
               <FormControl>
-                <Input placeholder="Enter Your Email" {...field} />
+                <Input placeholder="Email or Username" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -98,15 +98,19 @@ export function SignInForm() {
             </FormItem>
           )}
         />
-        <Button disabled={isPending}>
+        
+        <Button 
+        variant="loginButton"
+        className="m-8 p-2 text-base"
+        disabled={isPending}>
           {isPending && (
             <Icons.spinner
               className="mr-2 h-4 w-4 animate-spin"
               aria-hidden="true"
             />
           )}
-          Sign in
-          <span className="sr-only">Sign in</span>
+          Log in
+          <span className="sr-only">Log in</span>
         </Button>
       </form>
     </Form>

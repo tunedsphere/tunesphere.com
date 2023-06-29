@@ -1,3 +1,5 @@
+
+import '@styles/globals.css';
 import React, { useRef, useEffect} from 'react';
 
 import SigninCard from '@components/auth/SigninCard';
@@ -34,15 +36,18 @@ const Modal = ({ onClose}) => {
   }, []);
   return (
     
-    <div className="fixed inset-0 flex justify-center z-9999 bg-black bg-opacity-80 overflow-hidden">
-    <div
-        ref={modalRef}
-    className="relative md:top-36 sm:top-8 max-w-[calc(100%-8px)] max-h-[calc(100%-24px)] bottom-auto overflow-y-hidden overflow-x-hidden">
-      <Shell layout="auth">
-        <SigninCard onClose={handleClose} />
-      </Shell>
+    <div className="fixed inset-0 z-900 bg-black bg-opacity-80 overflow-hidden">
+      <div
+          ref={modalRef}
+          className="relative flex justify-center">  
+
+        <Shell layout="auth">
+          <SigninCard onClose={handleClose} />
+        </Shell>
+      
+        </div>
     </div>
-  </div>
+ 
   );
 };
 

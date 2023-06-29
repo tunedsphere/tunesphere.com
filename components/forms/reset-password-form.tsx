@@ -1,5 +1,4 @@
 "use client"
-
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { isClerkAPIResponseError, useSignIn } from "@clerk/nextjs"
@@ -75,7 +74,7 @@ export function ResetPasswordForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Your TunedSphere Email account" {...field} />
+                <Input placeholder="sphere@example.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

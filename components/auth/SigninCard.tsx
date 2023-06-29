@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { OAuthSignIn } from "@/components/auth/oauth-signin"
-import { SignInForm } from "@/components/forms/signin-form"
+import { SignInForm } from "@components/forms/login-form"
 
 export const metadata = {
     title: "Sign In",
@@ -33,16 +33,17 @@ export const metadata = {
     };
   
     return (
-      <div id="SigninCard" className="SigninCard">
-        <Card>
-          <div className="flex justify-end p-1">
+      <div id="SigninCard" className="SigninCard relative top-32">
+        <Card className=''>
+        <div className='absolute bg-colortheme2 -z-10 -inset-2 blur'></div>
+          <div className="flex justify-end">
             <button onClick={handleClose} type="button" title="close" className="right-1 top-1 w-6 h-6">
               <img src="svg/x.svg" alt="Close" />
             </button>
           </div>
           <CardHeader className="space-y-1 items-center">
-            <CardTitle className="text-2xl">Sign in</CardTitle>
-            <CardDescription>Choose your preferred sign in method</CardDescription>
+            <CardTitle className="">Log in</CardTitle>
+            <CardDescription className='p-2'>Choose your preferred log in method</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <OAuthSignIn />
@@ -77,8 +78,10 @@ export const metadata = {
               Reset password
             </Link>
           </CardFooter>
+          
         </Card>
       </div>
+     
     );
   };
   

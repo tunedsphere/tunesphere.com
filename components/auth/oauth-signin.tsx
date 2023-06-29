@@ -43,7 +43,7 @@ export function OAuthSignIn() {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-4">
+    <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-4 pt-4 pb-4">
       {oauthProviders.map((provider) => {
         const Icon = Icons[provider.icon]
 
@@ -52,7 +52,7 @@ export function OAuthSignIn() {
             aria-label={`Sign in with ${provider.name}`}
             key={provider.strategy}
             variant="outline"
-            className="w-full bg-background sm:w-auto"
+            className="w-full bg-background sm:w-auto text-base "
             onClick={() => void oauthSignIn(provider.strategy)}
           >
             {isLoading === provider.strategy ? (

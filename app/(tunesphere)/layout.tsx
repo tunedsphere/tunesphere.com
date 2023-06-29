@@ -1,8 +1,11 @@
 
 import '@styles/globals.css';
+import { GlobalNav } from '@components';
+import { Footer } from '@components';
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider";
+
 
 export const metadata = {
   title: 'TunedSphere',
@@ -25,33 +28,21 @@ export const metadata = {
       { media: "(prefers-color-scheme: light)", color: "light" },
       { media: "(prefers-color-scheme: dark)", color: "dark" },
     ],
-    creator: "TunedSphere",
+    creator: "Tunedsphere",
     icons: {
       icon: "/favicon.ico",
       shortcut: "/favicon-16x16.png",
     },
 }
 
-interface RootLayoutProps {
+interface TunedLayoutProps {
   children: React.ReactNode
-}
-export default function RootLayout({ children }: RootLayoutProps) {
+}export default function TunedLayout({ children }: TunedLayoutProps) {
   return (
-    <ClerkProvider>
-
-    <html lang="en">   
-        <body className="min-h-screen bg-background font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-
-                {children}
-
-              </ThemeProvider>   
-              <Toaster />  
-              <script src="@utils/searchscript.js" defer></script>
-           </body>       
-    </html>
-
-    </ClerkProvider>
-    
-  )
+    <>
+      <GlobalNav />
+      {children}
+      <Footer />
+    </>
+  );
 }

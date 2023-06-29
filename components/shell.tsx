@@ -20,9 +20,9 @@ export function Shell({
   return (
     <section
       className={cn(
-        "grid items-center gap-8 pb-8 pt-6 md:py-8",
-        layout === "default" && "container",
-        layout === "auth" && "container max-w-lg",
+        "grid items-center",
+        layout === "default",
+        layout === "auth" ,
         className
       )}
       {...props}
