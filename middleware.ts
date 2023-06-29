@@ -3,7 +3,7 @@ import { authMiddleware } from "@clerk/nextjs";
 export default authMiddleware({
 
   publicRoutes: ["/", "/signin(.*)",
-  "/signup(.*)", "/labels", "/genres", "/festivals", "/artsits", "/shop", "/albums", "/uipage"],
+  "/signup(.*)", "/sso-callback(.*)", "/labels", "/genres", "/festivals", "/artsits", "/shop", "/albums", "/uipage"],
 
 });
 
