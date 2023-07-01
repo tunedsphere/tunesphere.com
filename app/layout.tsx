@@ -47,7 +47,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
               </ThemeProvider>   
               <Toaster />  
-              <script src="@utils/searchscript.js" defer></script>
            </body>       
     </html>
 

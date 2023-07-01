@@ -57,15 +57,15 @@ export default function MyApp() {
     <main className="mt-32 flex flex-col items-center justify-between px-4 md:px-8 mx-auto">
 
 <div className="py-12" >
-<h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text"><span className="text-texthigh">A </span><span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-800 to-fuchsia-600">Psychedelic </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-500 from-red-700">Dedicated </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-400 from-blue-600">Platform</span>  </h1>
+<h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text"><span className="text-texthigh">A </span><span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-700 to-fuchsia-600">Psychedelic </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-400 from-red-600">Dedicated </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-400 from-blue-700">Platform</span>  </h1>
 
-<p className="py-4 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 text-center">Explore the musical realm of Psychedelic Art, with Music, Art, Decorations and Festivals</p>
+<p className="py-4 text-lg font-normal text-textlow lg:text-xl text-center">Explore the musical realm of Psychedelic Art, with Music, Art, Decorations and Festivals</p>
 </div>
 
       <div className='left-gradient -z-10'> </div>
       <div className='right-gradient -z-10'> </div>
 
-        <div className='grid xl:grid-cols-4 py-16 ext-center 2xl:text-left text-center'>
+        <div className='grid xl:grid-cols-4 py-16 2xl:text-left text-center text-textlow'>
         
         <Link href="/labels" passHref>
         <div
@@ -161,12 +161,12 @@ export default function MyApp() {
 
 
 <div className='py-12 '>
-      <h3 href="/genres" id="home-genre-list" className="py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-orange">NEW </span><span className="justify-center text-transparent bg-clip-text bg-colortheme from-texthigh">RELEASES</span></h3>
+      <h3 href="/genres" id="home-genre-list" className="py-4 font-extrabold md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-colortheme3">NEW </span><span className="justify-center text-transparent bg-clip-text bg-colortheme from-texthigh">RELEASES</span></h3>
       <p className="text-lg font-normal text-textlow lg:text-xl text-center">The latest releases on TunedSphere</p>
       </div>
 
 
-      <div className="grid grid-cols-6 gap-2 p-4 max-w-[1600px]">
+      <div className="grid grid-cols-9 gap-2 p-4 max-w-[1600px]">
       <div className='row-span-2 col-span-2 top-0'>
   {selectedLabel && (
     <>
@@ -176,14 +176,14 @@ export default function MyApp() {
     </>
   )}
 </div>
+
         {currentLabels.map((label) => (
-          <div key={label.id} onClick={() => setSelectedLabel(label)} className="shadow-lg rounded-lg p-4 bg-purple1">
+          <div key={label.id} onClick={() => setSelectedLabel(label)} className="shadow-lg rounded-lg p-4 bg-accent1">
             <div className="aspect-w-1 aspect-h-1">
               <img src={label.image} alt={label.name} className="object-cover object-center w-full h-full" />
             </div>
-            <h2 className="md:text-xl text-xs font-bold ">{label.name}</h2>
-            <h2 className="md:text-xl text-xs text-textlow font-normal">{label.founding_year}</h2>
-            <p className="text-gray-600 mt-2 md:text-sm text-xs">{label.genres.join(', ')}</p>
+            <h2 className="md:text-xl text-xs font-bold py-2">{label.name}</h2>
+            <p className="text-gray-600 md:text-sm text-xs">{label.genres.join(', ')}</p>
           </div>
         ))}
       </div>
@@ -202,7 +202,7 @@ export default function MyApp() {
         {/* Display page numbers */}
         {Array.from(
       {
-        length: Math.min(Math.ceil(recordLabels.length / elementsPerPage), 10), // Limit to 10 pages
+        length: Math.min(Math.ceil(recordLabels.length / elementsPerPage), 8), // Limit to 10 pages
       },
       (_, i) => i + 1 + Math.max(currentPage - 5, 0) // Adjust page numbers based on current page
     ).map((page) => (

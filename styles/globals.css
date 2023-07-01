@@ -762,23 +762,27 @@
 --colors-cyan12: hsl(185 73.0% 93.2%);
 
     
-    --colortheme: hsl(272 52% 46%);
-    --colortheme2:hsl(24 100% 58%);
+    --colortheme: hsl(272 100% 60%);
+    --colortheme2: hsl(280 100% 40%);
+    --colortheme3: hsl(49 100% 60%);
+    --colortheme4: hsl(358 99% 60%);
+    --colortheme5: hsl(212 100% 51%);
+    --colortheme6: hsl(199 100% 60%);
 
 
     --colorfooter: hsl(280 41% 20%);
     --orange: hsl(24 100% 58%);
 
     --brand:  hsl(211 87% 98%);
-    --texthigh: hsl(208 98% 97%);
-    --textlow: hsl(206 5% 49%);
+    --texthigh: hsl(290 80% 97%);
+    --textlow: hsl(290 5% 60%);
 
     --backgroundgradient:  linear-gradient(120deg, var(--colors-indigo4), var(--colors-plum3));
     --background: hsl(0, 0%, 2%);
-    --foreground: hsl(250 52% 51%);
+    --foreground:  var(--colortheme);
  
     --muted: hsl(240 4% 16%);
-    --muted-foreground: hsl(240 5% 65%);
+    --muted-foreground: var((--colortheme)/120 );
  
     --popover: hsl(240 10% 34%);
     --popover-foreground: hsl(0 0% 98%);
@@ -819,8 +823,13 @@
   }
  
   .dark {
-    --colortheme: hsl(188 100% 40.0%);
-    --colortheme2: hsl(211 89.7% 34.1%);
+
+    --colortheme: hsl(199 100% 60%);
+    --colortheme2:hsl(212 100% 51%);
+    --colortheme3: hsl(49 100% 60%);
+    --colortheme4: hsl(358 99% 60%);
+    --colortheme5: hsl(272 52% 60%) ;
+    --colortheme6: hsl(24 100% 60%);
 
     --purple1: hsl(284 20.0% 9.6%);
     --purple2: hsl(283 30.0% 11.8%);
@@ -841,14 +850,14 @@
 
     --brand:  hsl(211 86.7% 99.6% / 0.927);
     --texthigh: hsl(208 98.7% 96.8%);
-    --textlow: hsl(206 5.2% 49.5%);
+    --textlow:  hsl(206 5% 80%);
 
     --backgroundgradient:  linear-gradient(120deg, var(--colors-indigo4), var(--colors-plum3));
     --background: hsl(0, 0%, 2%);
-    --foreground: hsl(250 51.8% 51.2%);
+    --foreground:  var(--colortheme);
  
     --muted: hsl(250 51.8% 51.2%);
-    --muted-foreground: hsl(250 51.8% 51.2%);
+    --muted-foreground: var(--colortheme);
  
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
@@ -884,7 +893,7 @@
     --radius: 0.5rem;
 
   }
-  .purple {
+  .fire {
 
     
 

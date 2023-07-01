@@ -91,19 +91,24 @@ const GlobalNav = () => {
                 </h2>
               </Link>
             </div>
-            <div className="w-1/3 relative items-center flex flex-row gap-2 justify-end">
+            <div className="w-1/3 relative items-center gap-2 flex flex-row justify-end">
+            <Button
+                  
+                    variant="ghost"
+                    size='xs'>
               <ShoppingCartIcon className="cursor-pointer" />
+              </Button>
               <ThemeToggle />
               <SignedIn>
                 <UserButton />
               </SignedIn>
               <SignedOut>
                 <Button
+                    size='xs'
                    onClick={handleModalOpen}
-                  variant="outline"
-                  className="&xs:hidden rounded-md px-2 font-medium disabled:pointer-events-none ring-offset-background outline-cyan-500/50 outline outline-1 hover:outline-offset-1 text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-sky-400"
-                >
-                  Sign In
+                    variant="ghostline"
+                    className="rounded-md text-center text-texthigh px-2 disabled:pointer-events-none ring-offset-background font-bold"
+                >Sign In
                 </Button>
               </SignedOut>
 

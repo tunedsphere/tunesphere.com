@@ -10,11 +10,11 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { OAuthSignIn } from "@/components/auth/oauth-signin"
-import { SignInForm } from "@components/forms/login-form"
+import { SignInForm } from "@components/forms/signin-form"
 import { Shell } from "@/components/shell"
 export const metadata = {
-  title: "Log in",
-  description: "Log in to your account",
+  title: "Sign In",
+  description: "Sign In to your account",
 }
 
 export default function SignInPage() {
@@ -22,9 +22,9 @@ export default function SignInPage() {
     <Shell layout="auth">
     <Card>
       <CardHeader className="space-y-1 items-center p-8">
-        <CardTitle className="text-2xl">Log in to TunedSphere</CardTitle>
+        <CardTitle className="text-2xl">Sign In to TunedSphere</CardTitle>
         <CardDescription>
-          Choose your preferred Log in method
+          Choose your preferred Sign In method
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">

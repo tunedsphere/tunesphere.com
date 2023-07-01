@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import type { z } from "zod"
 
-import { logInSchema } from "@/lib/validations/auth"
+import { authSchema } from "@/lib/validations/auth"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -22,7 +22,7 @@ import { Input } from "@/components/ui/input"
 import { Icons } from "@/components/icons"
 import { PasswordInput } from "@/components/password-input"
 
-type Inputs = z.infer<typeof logInSchema>
+type Inputs = z.infer<typeof authSchema>
 
 export function SignInForm() {
   const router = useRouter()
@@ -31,7 +31,7 @@ export function SignInForm() {
 
   // react-hook-form
   const form = useForm<Inputs>({
-    resolver: zodResolver(logInSchema),
+    resolver: zodResolver(authSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -100,7 +100,7 @@ export function SignInForm() {
         />
         
         <Button 
-        variant="loginButton"
+        variant="logInButton"
         className="m-8 p-2 text-base"
         disabled={isPending}>
           {isPending && (
@@ -109,8 +109,8 @@ export function SignInForm() {
               aria-hidden="true"
             />
           )}
-          Log in
-          <span className="sr-only">Log in</span>
+          Sign In
+          <span className="sr-only">Sign In</span>
         </Button>
       </form>
     </Form>

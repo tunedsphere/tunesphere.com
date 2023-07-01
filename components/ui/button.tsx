@@ -10,16 +10,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         paging: "text-texthigh bg-red",
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-colortheme text-texthigh hover:bg-colortheme/90",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "outline-cyan-500/50 outline outline-1 hover:outline-offset-1",
+          "outline-colortheme outline outline-1 hover:outline-offset-1",
         secondary: 
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghostline: "hover:bg-accent outline-colortheme outline outline-1 hover:outline-offset-1",
         link: "underline-offset-4 hover:underline text-primary",
-        loginButton: "rounded-full text-texthigh bg-colortheme2 hover:opacity-75"
+        logInButton: "rounded-full text-texthigh font-bold  bg-colortheme hover:opacity-90"
       },
       size: {
         default: "py-1 px-4",

@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { OAuthSignIn } from "@/components/auth/oauth-signin"
-import { SignInForm } from "@components/forms/login-form"
+import { SignInForm } from "@components/forms/signin-form"
 
 export const metadata = {
     title: "Sign In",
@@ -63,7 +63,7 @@ export const metadata = {
               <Link
                 aria-label="Sign up"
                 href="/signup"
-                className="text-primary underline-offset-4 transition-colors hover:underline"
+                className="text-textlow underline-offset-4 transition-colors hover:underline"
                 onClick={handleLinkClick}
               >
                 Sign up
@@ -72,7 +72,7 @@ export const metadata = {
             <Link
               aria-label="Reset password"
               href="/signin/reset-password"
-              className="text-sm text-primary underline-offset-4 transition-colors hover:underline"
+              className="text-sm text-textlow underline-offset-4 transition-colors hover:underline"
               onClick={handleLinkClick}
             >
               Reset password
