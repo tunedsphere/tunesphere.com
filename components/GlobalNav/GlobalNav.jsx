@@ -123,7 +123,7 @@ const GlobalNav = () => {
             </div>
           </div>
         </nav>
-        {isNavbarBottomVisible && <NavbarBottom className="" />}
+        {isNavbarBottomVisible && <NavbarBottom />}
       </div>
 
       {/* Video background */}

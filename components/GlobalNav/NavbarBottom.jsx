@@ -1,6 +1,6 @@
 "use client"
 import './globalnavbarapp.css';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState} from 'react';
 import NavbarItems from './NavbarItems';
 import '@styles/globals.css';
 import Link from 'next/link';
