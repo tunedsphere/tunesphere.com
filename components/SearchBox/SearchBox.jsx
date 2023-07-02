@@ -1,9 +1,12 @@
 "use client";
-import React from 'react';
 import '@styles/globals.css';
-import './searchbox.css';
-import { Button } from '@components/ui/button';
+
+import React from 'react';
 import { useEffect, useRef } from 'react';
+
+import './searchbox.css';
+import { Button } from '@/components/ui/button';
+
 
     const SearchBox = ({ closeSearch }) => {
       const searchBoxRef = useRef(null);

@@ -1,14 +1,15 @@
 "use client";
 import './globalnavbarapp.css';
-import '@styles/globals.css';
+import '@/styles/globals.css';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { NavbarBottom, SearchBox, SearchTrigger } from '@components';
+
 import { SignedIn, SignedOut } from '@clerk/nextjs';
 import { UserButton } from '@clerk/nextjs';
 import { ShoppingCartIcon } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
-import Link from 'next/link';
-import { Button } from '@components/ui/button';
+import { NavbarBottom, SearchBox, SearchTrigger } from '@/components';
+import { Button } from '@/components/ui/button';
 import Modal from '@/components/auth/modal';
 
 const GlobalNav = () => {

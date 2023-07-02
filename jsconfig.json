@@ -2,16 +2,16 @@
   "compilerOptions": {
     "paths": {
       "@*": ["./*"],
-      "@components/*": ["./components/*"],
-      "@ui/*": ["./components/ui/*"],
-      "@configs/*": ["./configs/*"],
-      "@constants/*": ["./constants/*"],
-      "@styles/*": ["./styles/*"],
-      "@themes/*": ["./themes/*"],
-      "@utils/*": ["./utils/*"],
-      "@lib/*": ["./lib/*"],
-      "@public/*": ["./public/*"],
-      "@sections/*": ["./sections/*"],
+      "@app/*": ["./app/*"],
+      "@/components/*": ["./components/*"],
+      "@/configs/*": ["./configs/*"],
+      "@/constants/*": ["./constants/*"],
+      "@/styles/*": ["./styles/*"],
+      "@/themes/*": ["./themes/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/public/*": ["./public/*"],
+      "@/sections/*": ["./sections/*"],
 
     }
   }

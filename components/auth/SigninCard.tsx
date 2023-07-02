@@ -1,5 +1,4 @@
-import React from 'react';
-
+import * as React from "react"
 import Link from "next/link"
 
 import {
@@ -11,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { OAuthSignIn } from "@/components/auth/oauth-signin"
-import { SignInForm } from "@components/forms/signin-form"
+import { SignInForm } from "@/components/forms/signin-form"
 
 export const metadata = {
     title: "Sign In",

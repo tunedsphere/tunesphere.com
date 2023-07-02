@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import siteConfig from '@configs/site'
-import { AuthNav } from "@components"
+import { AuthNav } from "@/components"
 
 interface AuthLayoutProps {
   children: React.ReactNode
@@ -20,7 +20,9 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
           className=""
         />
         </div>
-    <AuthNav></AuthNav>
+
+    <AuthNav />
+
     <div className="md:grid min-h-screen justify-center overflow-hidden md:grid-cols-3 lg:grid-cols-2">
      
         <main className="container absolute top-1/2 md:col-span-1 flex -translate-y-1/2 justify-center items-center md:static md:flex md:translate-y-0 lg:col-span-1 invisible md:visible">

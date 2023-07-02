@@ -1,5 +1,5 @@
 import React from 'react';
-import ArtistsGrid from '@components/Artists/ArtistsGrid';
+import ArtistsGrid from '@/components/Artists/ArtistsGrid';
 
 
 const Gridpage = () => {

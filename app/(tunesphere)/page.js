@@ -1,12 +1,15 @@
 "use client"
 import '@styles/globals.css';
-import Link from 'next/link';
-import { genres } from '../../constants/genres.js';
-import Image from 'next/image';
-import planet2 from '@public/bghome/planet2.png';
+
 import React, { useState, useEffect } from 'react';
-import { recordLabels } from '@public/data.js';
+import Link from 'next/link';
+import Image from 'next/image';
+
+import planet2 from '@/public/bghome/planet2.png';
+
+import { recordLabels } from '@/public/data.js';
 import { Button } from "@/components/ui/button";
+import { genres } from '@/constants/genres.js';
 
 
 export default function MyApp() {

@@ -2,7 +2,7 @@
 import './globalnavbarapp.css';
 import React, { useState } from 'react';
 import NavbarItems from './NavbarItems';
-import '@styles/globals.css';
+import '@/styles/globals.css';
 
 const NavMenu = () => {
 

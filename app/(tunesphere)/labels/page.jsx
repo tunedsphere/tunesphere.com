@@ -1,6 +1,6 @@
 
 import React from 'react';
-import LabelsGrid from '@components/Labels/LabelsGrid';
+import LabelsGrid from '@/components/Labels/LabelsGrid';
 
 const Grid = () => {
   return (

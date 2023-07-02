@@ -1,18 +1,23 @@
 "use client";
-import { recordLabels } from '@public/data.js';
+
 import "@styles/globals.css";
+
 import * as React from "react";
 import { useState, useEffect, useRef } from 'react';
+
 import Link from 'next/link';
-import { Button } from '@ui/button';
 import Image from 'next/image';
-import Sidebar from '@components/ui/sidebar';
-import { useUser, SignedIn, SignedOut } from '@clerk/nextjs';
+import { useUser } from '@clerk/nextjs';
+
+import { recordLabels } from '@public/data.js';
+
+import { Button } from '@/components/ui/button';
+import Sidebar from '@/components/ui/sidebar';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@ui/collapsible";
+} from "@/components/ui/collapsible";
 
 const LabelsGrid: React.FC = () => {
   const [selectedLabel, setSelectedLabel] = useState(null);

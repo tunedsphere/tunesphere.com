@@ -3,7 +3,7 @@
     "paths": {
       "@*": ["./*"],
       "@components/*": ["./components/*"],
-      "@ui/*": ["./components/ui/*"],
+      "@/ui/*": ["./components/ui/*"],
       "@configs/*": ["./configs/*"],
       "@styles/*": ["./styles/*"],
       "@themes/*": ["./themes/*"],

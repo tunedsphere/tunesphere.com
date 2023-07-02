@@ -1,15 +1,15 @@
 "use client"
+import '@/styles/globals.css';
 import './globalnavbarapp.css';
+
 import React, { useState} from 'react';
-import NavbarItems from './NavbarItems';
-import '@styles/globals.css';
 import Link from 'next/link';
 
+import NavbarItems from './NavbarItems';
 import {
   Collapsible,
-  CollapsibleContent,
   CollapsibleTrigger,
-} from "@ui/collapsible";
+} from "@/components/ui/collapsible";
 
 const NavbarBottom = () => {
 

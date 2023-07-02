@@ -35,9 +35,9 @@ export function SignUpForm() {
       email: "",
       password: "",
       username: "",
-      firstName: "",
-      lastName: "",
-      dateOfBirth: "",
+      first_name: "",
+      last_name: "",
+
     },
   })
   function onSubmit(data: Inputs) {
@@ -47,8 +47,10 @@ export function SignUpForm() {
       await signUp.create({
         emailAddress: data.email,
         password: data.password,
-        firstName: data.firstName,
-        lastName: data.lastName,
+        username: data.username,
+        firstName: data.first_name,
+        lastName: data.last_name,
+
       })
 
       // Send email verification code
@@ -102,7 +104,7 @@ export function SignUpForm() {
             </FormItem>
           )}
         />
-          <FormField
+ <FormField
     control={form.control}
     name="username"
     render={({ field }) => (
@@ -120,10 +122,10 @@ export function SignUpForm() {
   <div className="flex flex-col flex-grow mr-2">
     <FormField
       control={form.control}
-      name="firstName"
+      name="first_name"
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Name</FormLabel>
+          <FormLabel>First Name</FormLabel>
           <FormControl>
             <Input placeholder="Enter your name" {...field} />
           </FormControl>
@@ -135,7 +137,7 @@ export function SignUpForm() {
   <div className="flex flex-col flex-grow">
     <FormField
       control={form.control}
-      name="lastName"
+      name="last_name"
       render={({ field }) => (
         <FormItem>
           <FormLabel>Last Name</FormLabel>

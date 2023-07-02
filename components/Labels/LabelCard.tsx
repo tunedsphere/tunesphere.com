@@ -1,7 +1,8 @@
 "use client";
 import * as React from "react";
-import { recordLabels } from '@public/data.js';
-import { Banner } from '@components';
+
+import { recordLabels } from '@/public/data.js';
+import { Banner } from '@/components';
 
 
 

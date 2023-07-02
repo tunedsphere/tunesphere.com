@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { genres } from '../constants/genres.js';
-import { staggerContainer } from '../utils/motion';
-import { GenreCard } from '@components';
+
+import { genres } from '@/constants/genres.js';
+import { staggerContainer } from '@/utils/motion';
+import { GenreCard } from '@/components';
 
 const Genres = () => (
   <section className="relative z-10">

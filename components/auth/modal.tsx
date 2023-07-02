@@ -2,7 +2,7 @@
 import '@styles/globals.css';
 import React, { useRef, useEffect} from 'react';
 
-import SigninCard from '@components/auth/SigninCard';
+import SigninCard from '@/components/auth/SigninCard';
 import { Shell } from "@/components/shell";
 
 

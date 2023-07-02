@@ -1,6 +1,6 @@
 "use client";
 
-import { Genres } from '@sections';
+import { Genres } from '@/sections';
 import React from 'react';
 
 const Genrespage = () => {

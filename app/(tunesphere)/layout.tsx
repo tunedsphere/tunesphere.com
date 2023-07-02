@@ -1,10 +1,6 @@
+import { GlobalNav } from '@/components';
+import { Footer } from '@/components';
 
-import '@styles/globals.css';
-import { GlobalNav } from '@components';
-import { Footer } from '@components';
-import { ClerkProvider } from "@clerk/nextjs";
-import { Toaster } from "@/components/ui/toaster"
-import { ThemeProvider } from "@/components/theme-provider";
 
 
 export const metadata = {

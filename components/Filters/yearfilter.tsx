@@ -1,6 +1,6 @@
-import { recordLabels } from "@public/data";
+import { recordLabels } from "@/public/data";
 import React, { useState } from 'react';
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@components/ui/collapsible";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 
 interface YearsFilterProps {
     selectedYear: number | null;

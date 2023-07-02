@@ -2,10 +2,9 @@
 import '@styles/globals.css';
 
 import React, { useState } from 'react';
-import { Calendar } from '@ui/Calendar/calendar';
-import { addMonths, isSameMonth } from 'date-fns';
-import EventForm from '@ui/Calendar/EventForm';
-import { Button } from '@components/ui/button';
+import { Calendar } from '@/ui/Calendar/calendar';
+import EventForm from '@/ui/Calendar/EventForm';
+import { Button } from '@/components/ui/button';
 
 const FestivalPage = () => {
   const [isEventFormVisible, setEventFormVisible] = useState(false);

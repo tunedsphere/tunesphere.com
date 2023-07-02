@@ -1,12 +1,14 @@
-"use client";
-import  { recordLabels } from '@public/data.js';// Assuming data.js file is in the same directory
+"use client";// Assuming data.js file is in the same directory
 import "@styles/globals.css";
-import React, { useState, useEffect } from 'react';
-import SelectGenre from '../ui/SelectGenre';
-import SelectYear from '../ui/SelectYear';
-import SelectCountry from '../ui/SelectCountry';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Button } from '../ui/button';
+
+import  { recordLabels } from '@/public/data.js';
+import SelectGenre from '@/components/ui/SelectGenre';
+import SelectYear from '@/components/ui/SelectYear';
+import SelectCountry from '@/components/ui/SelectCountry';
+import { Button } from '@/components/ui/button';
 
 
 const ArtistsGrid = () => {

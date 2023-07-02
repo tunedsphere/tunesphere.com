@@ -1,16 +1,18 @@
 "use client";
+import '@styles/globals.css';
+
+import React from 'react';
+
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@ui/collapsible";
-import { footerConfig } from '@configs/footer';
-
-import '@styles/globals.css';
-import Link from "next/link";
-import Image from 'next/image';
-import stars6 from '@public/bghome/stars6.png';
+} from "@/components/ui/collapsible";
+import { footerConfig } from '@/configs/footer';
+import stars6 from '@/public/bghome/stars6.png';
 
 
 const Footer = () => {
@@ -139,11 +141,8 @@ const Footer = () => {
 
         </div>
       </div>
- 
-  </footer>
-  
+  </footer> 
   );
-  
 };
 
 export default Footer;

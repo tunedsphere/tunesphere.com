@@ -1,5 +1,5 @@
+import "@styles/globals.css";
 
-import '@styles/globals.css';
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider";
@@ -39,15 +39,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ClerkProvider>
 
-    <html lang="en">   
+    <html lang="en" suppressHydrationWarning>   
         <body className="min-h-screen bg-background font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 
                 {children}
 
-              </ThemeProvider>   
+            </ThemeProvider>   
               <Toaster />  
-           </body>       
+        </body>       
     </html>
 
     </ClerkProvider>
