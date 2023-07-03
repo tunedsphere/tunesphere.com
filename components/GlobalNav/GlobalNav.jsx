@@ -115,7 +115,7 @@ export function GlobalNav() {
   size="xs"
   variant="nav"
   onClick={() => setIsNavbarBottomOpen(!isNavbarBottomOpen)}
-  className='hidden md:block'
+  className='hidden md:block text-texthigh'
 >
   {isNavbarBottomOpen ? (
     <Icons.close
