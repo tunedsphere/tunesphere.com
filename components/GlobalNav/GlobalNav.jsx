@@ -22,10 +22,15 @@ export function GlobalNav() {
   const [isGlobalNavFlyoutOpen, setIsGlobalNavFlyoutOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasScrolledDown, setHasScrolledDown] = useState(false);
-
+  const [isMenuIconVisible, setMenuIconVisible] = useState(true);
+  const [isIconClicked, setIsIconClicked] = useState(false);
+  
   const handleNavbarBottomClick = () => {
     setIsNavbarBottomOpen(!isNavbarBottomOpen);
+    setMenuIconVisible(false);
+
   };
+
   const handleGlobalNavFlyoutClick = () => {
     setIsGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
   };
@@ -89,7 +94,8 @@ export function GlobalNav() {
             </div>
             <div className="w-1/3 relative items-center gap-2 flex flex-row justify-end">
               <Button variant="ghost" size="xs">
-                <Icons.cart />
+                <Icons.cart 
+                className='transition-all'/>
               </Button>
               <ThemeToggle />
               <SignedIn>
@@ -100,54 +106,56 @@ export function GlobalNav() {
                   size="xs"
                   onClick={handleModalOpen}
                   variant="ghostline"
-                  className="hidden md:block rounded-md text-center text-texthigh px-2 disabled:pointer-events-none ring-offset-background font-bold"
+                  className="transition-all hidden md:block rounded-md text-center text-texthigh px-2 disabled:pointer-events-none ring-offset-background font-bold"
                 >
                   Sign In
                 </Button>
               </SignedOut>
-              <Button 
+              <Button
   size="xs"
-  variant="ghost" 
-  onClick={handleNavbarBottomClick}
-  className='hidden md:block'
+  variant="ghost"
+  onClick={() => setIsNavbarBottomOpen(!isNavbarBottomOpen)}
+  className='text-texthigh'
 >
   {isNavbarBottomOpen ? (
     <Icons.close
-      className="object-contain text-texthigh cursor-pointer rotate-90 scale-100 transition-all"
+      className={`transition-all ${
+        isNavbarBottomOpen ? 'rotate-0 scale-100' : 'rotate-90 scale-0'
+      } `}
       aria-hidden="true"
     />
   ) : (
     <Icons.menu
-      className="object-contain text-texthigh cursor-pointer rotate-0 scale-100 transition-all"
+      className={`transition-all${
+        isNavbarBottomOpen ? 'rotate-90 scale-0' : 'rotate-0 scale-100'
+      } `}
       aria-hidden="true"
     />
   )}
-</Button>
-<Button 
-  size="xs"
-  variant="ghost" 
-  onClick={handleGlobalNavFlyoutClick}
-  className='md:hidden block'
->
-  {isGlobalNavFlyoutOpen ? (
-    <Icons.close
-      className="object-contain text-texthigh cursor-pointer rotate-90 scale-100 transition-all"
-      aria-hidden="true"
-    />
-  ) : (
-    <Icons.menu
-      className="object-contain text-texthigh cursor-pointer rotate-0 scale-100 transition-all"
-      aria-hidden="true"
-    />
-  )}
-</Button>
 
+</Button>
+              <Button
+                size="xs"
+                variant="ghost"
+                onClick={handleGlobalNavFlyoutClick}
+                className="md:hidden block"
+              >
+                {isGlobalNavFlyoutOpen ? (
+                  <Icons.close
+                    className="object-contain text-texthigh cursor-pointer"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <Icons.menu
+                    className="object-contain text-texthigh cursor-pointer"
+                    aria-hidden="true"
+                  />
+                )}
+              </Button>
             </div>
           </div>
         </nav>
-        {isNavbarBottomOpen && (
-          <NavbarBottom className="hidden sm:block" />
-        )}
+        {isNavbarBottomOpen && <NavbarBottom className="hidden sm:block" />}
         {isGlobalNavFlyoutOpen && (
           <GlobalNavFlyout onClose={() => setIsGlobalNavFlyoutOpen(false)} />
         )}
