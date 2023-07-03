@@ -82,7 +82,14 @@ export function GlobalNav() {
         <nav className="navbar navbartop z-9999 algin-center px-4 md:px-8">
           <div className="py-3 navbar-container flex flex-between justify-between">
             <div className="left-0 w-1/3 items-center flex">
+              <Button 
+              variant='nav'
+              size="xs"
+              className='text-texthigh hover:text-colortheme'>
+
+              
               <SearchTrigger className="" onClick={handleSearchTriggerClick} />
+              </Button>
               {isSearchBoxVisible && <SearchBox closeSearch={closeSearch} />}
             </div>
             <div className="w-1/3 flex justify-center">
@@ -95,7 +102,7 @@ export function GlobalNav() {
             <div className="w-1/3 relative items-center gap-2 flex flex-row justify-end">
               <Button variant="nav" size="xs">
                 <Icons.cart 
-                className='transition-all'/>
+                className='transition-all '/>
               </Button>
               <ThemeToggle />
               <SignedIn>
@@ -115,19 +122,19 @@ export function GlobalNav() {
   size="xs"
   variant="nav"
   onClick={() => setIsNavbarBottomOpen(!isNavbarBottomOpen)}
-  className='hidden md:block text-texthigh'
+  className='hidden md:block text-texthigh hover:text-colortheme'
 >
   {isNavbarBottomOpen ? (
     <Icons.close
       className={`${
-        isNavbarBottomOpen ? 'rotate-0 scale-100 transition-all hover:text-colortheme' : 'rotate-90 scale-0 transition-all hover:text-colortheme'
+        isNavbarBottomOpen ? 'rotate-0 scale-100 transition-all' : 'rotate-90 scale-0 transition-all'
       } `}
       aria-hidden="true"
     />
   ) : (
     <Icons.menu
       className={`${
-        isNavbarBottomOpen ? 'rotate-90 scale-0 transition-all hover:text-colortheme' : 'rotate-0 scale-100 transition-all hover:text-colortheme'
+        isNavbarBottomOpen ? 'rotate-90 scale-0 transition-all' : 'rotate-0 scale-100 transition-all'
       } `}
       aria-hidden="true"
     />
