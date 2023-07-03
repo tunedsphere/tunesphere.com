@@ -41,6 +41,7 @@ export function Footer () {
       className="bottom-0 relative items-center mx-auto py-8 px-4">
    <Image
     src={stars6}
+    priority
     placeholder="blur"
     width={500}
     height={500}

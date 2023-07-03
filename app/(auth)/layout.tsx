@@ -14,11 +14,15 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
       <Image
           src="/bggenre/retina.png"
           alt="retina bggenre"
-          sizes="100vw"
-          priority={true}
-          fill={true}
-          className=""
+          fill
+          priority
+          quality={100}
+          sizes="(min-width: 808px) 50vw, 100vw"
+          style={{
+            objectFit: 'cover', // cover, contain, none
+          }}
         />
+
         </div>
 
     <AuthNav />
