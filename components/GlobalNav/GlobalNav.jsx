@@ -2,67 +2,40 @@
 import './globalnavbarapp.css';
 import '@/styles/globals.css';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { SignedIn, SignedOut } from '@clerk/nextjs';
 import { UserButton } from '@clerk/nextjs';
-import { ShoppingCartIcon } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { NavbarBottom, SearchBox, SearchTrigger } from '@/components';
+import GlobalNavFlyout from './GlobalNav-flyout';
 import { Button } from '@/components/ui/button';
+import { Icons } from "@/components/icons"
 import Modal from '@/components/auth/modal';
 
-const GlobalNav = () => {
+
+
+
+export function GlobalNav() {
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
-  const [isNavbarBottomVisible, setNavbarBottomVisible] = useState(true);
-  const [currentIcon, setCurrentIcon] = useState('svg/menuburger.svg');
-  const [isMenuBurgerVisible, setIsMenuBurgerVisible] = useState(false);
-  const [hasScrolledDown, setHasScrolledDown] = useState(false);
+  const [isNavbarBottomOpen, setIsNavbarBottomOpen] = useState(true);
+  const [isGlobalNavFlyoutOpen, setIsGlobalNavFlyoutOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hasScrolledDown, setHasScrolledDown] = useState(false);
+
+  const handleNavbarBottomClick = () => {
+    setIsNavbarBottomOpen(!isNavbarBottomOpen);
+  };
+  const handleGlobalNavFlyoutClick = () => {
+    setIsGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
+  };
+
   const handleModalOpen = () => {
     setIsModalOpen(true);
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-  };
-
-  useEffect(() => {
-    if (window.innerWidth >= 768) {
-      let lastScrollPosition = window.scrollY;
-
-      const handleScroll = () => {
-        const currentScrollPosition = window.scrollY;
-
-        if (currentScrollPosition > lastScrollPosition) {
-          setIsMenuBurgerVisible(true);
-          setHasScrolledDown(true);
-          setNavbarBottomVisible(false);
-        } else {
-          if (!hasScrolledDown) {
-            setIsMenuBurgerVisible(true);
-            setNavbarBottomVisible(true);
-          }
-        }
-
-        lastScrollPosition = currentScrollPosition;
-      };
-
-      window.addEventListener('scroll', handleScroll);
-
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    } else {
-      setIsMenuBurgerVisible(true);
-    }
-  }, [hasScrolledDown]);
-
-  const handleNavMenuClick = () => {
-    setCurrentIcon((prevIcon) =>
-      prevIcon === 'svg/menuburger.svg' ? 'svg/x.svg' : 'svg/menuburger.svg'
-    );
-    setNavbarBottomVisible((prevVisible) => !prevVisible);
   };
 
   const handleSearchTriggerClick = () => {
@@ -72,13 +45,35 @@ const GlobalNav = () => {
   const closeSearch = () => {
     setSearchBoxVisible(false);
   };
+
   const closeModal = () => {
-    setModalBoxVisible(false);
+    setIsModalOpen(false);
   };
+
+  const handleGlobalNavFlyoutOpen = () => {
+    setIsGlobalNavFlyoutOpen(true);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY === 0 && !isNavbarBottomOpen) {
+        setIsNavbarBottomOpen(true);
+        setHasScrolledDown(true);
+      } else if (scrollY > 0 && isNavbarBottomOpen) {
+        setIsNavbarBottomOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isNavbarBottomOpen]);
 
   return (
     <nav id="globalnav" className="globalnav fixed h-auto">
-      <div id="globalnav-content" className="globalnav-content relative ">
+      <div id="globalnav-content" className="globalnav-content relative">
         <nav className="navbar navbartop z-9999 algin-center px-4 md:px-8">
           <div className="py-3 navbar-container flex flex-between justify-between">
             <div className="left-0 w-1/3 items-center flex">
@@ -93,11 +88,8 @@ const GlobalNav = () => {
               </Link>
             </div>
             <div className="w-1/3 relative items-center gap-2 flex flex-row justify-end">
-            <Button
-                  
-                    variant="ghost"
-                    size='xs'>
-              <ShoppingCartIcon className="cursor-pointer" />
+              <Button variant="ghost" size="xs">
+                <Icons.cart />
               </Button>
               <ThemeToggle />
               <SignedIn>
@@ -105,29 +97,62 @@ const GlobalNav = () => {
               </SignedIn>
               <SignedOut>
                 <Button
-                    size='xs'
-                   onClick={handleModalOpen}
-                    variant="ghostline"
-                    className="rounded-md text-center text-texthigh px-2 disabled:pointer-events-none ring-offset-background font-bold"
-                >Sign In
+                  size="xs"
+                  onClick={handleModalOpen}
+                  variant="ghostline"
+                  className="hidden md:block rounded-md text-center text-texthigh px-2 disabled:pointer-events-none ring-offset-background font-bold"
+                >
+                  Sign In
                 </Button>
               </SignedOut>
+              <Button 
+  size="xs"
+  variant="ghost" 
+  onClick={handleNavbarBottomClick}
+  className='hidden md:block'
+>
+  {isNavbarBottomOpen ? (
+    <Icons.close
+      className="object-contain text-texthigh cursor-pointer rotate-90 scale-100 transition-all"
+      aria-hidden="true"
+    />
+  ) : (
+    <Icons.menu
+      className="object-contain text-texthigh cursor-pointer rotate-0 scale-100 transition-all"
+      aria-hidden="true"
+    />
+  )}
+</Button>
+<Button 
+  size="xs"
+  variant="ghost" 
+  onClick={handleGlobalNavFlyoutClick}
+  className='md:hidden block'
+>
+  {isGlobalNavFlyoutOpen ? (
+    <Icons.close
+      className="object-contain text-texthigh cursor-pointer rotate-90 scale-100 transition-all"
+      aria-hidden="true"
+    />
+  ) : (
+    <Icons.menu
+      className="object-contain text-texthigh cursor-pointer rotate-0 scale-100 transition-all"
+      aria-hidden="true"
+    />
+  )}
+</Button>
 
-              {isMenuBurgerVisible && (
-                <img
-                  src={currentIcon}
-                  alt="Menu"
-                  className="object-contain cursor-pointer"
-                  onClick={handleNavMenuClick}
-                />
-              )}
             </div>
           </div>
         </nav>
-        {isNavbarBottomVisible && <NavbarBottom />}
+        {isNavbarBottomOpen && (
+          <NavbarBottom className="hidden sm:block" />
+        )}
+        {isGlobalNavFlyoutOpen && (
+          <GlobalNavFlyout onClose={() => setIsGlobalNavFlyoutOpen(false)} />
+        )}
       </div>
 
-      {/* Video background */}
       <video
         autoPlay
         loop
@@ -138,9 +163,11 @@ const GlobalNav = () => {
         <source src="/bgvideo.mp4" type="video/mp4" />
       </video>
 
-      {isModalOpen && <Modal onClose={handleModalClose} closeModal={closeModal} />}
+      {isModalOpen && (
+        <Modal onClose={handleModalClose} closeModal={closeModal} />
+      )}
     </nav>
   );
-};
+}
 
 export default GlobalNav;

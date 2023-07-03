@@ -59,7 +59,7 @@ export default function MyApp() {
   
     <main className="mt-32 flex flex-col items-center justify-between px-4 md:px-8 mx-auto">
 
-<div className="py-12" >
+<div className="py-12 md:mt-12 mt-2" >
 <h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text"><span className="text-texthigh">A </span><span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-700 to-fuchsia-600">Psychedelic </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-400 from-red-600">Dedicated </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-400 from-blue-700">Platform</span>  </h1>
 
 <p className="py-4 text-lg font-normal text-textlow lg:text-xl text-center">Explore the musical realm of Psychedelic Art, with Music, Art, Decorations and Festivals</p>

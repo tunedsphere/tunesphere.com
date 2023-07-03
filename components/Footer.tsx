@@ -1,8 +1,7 @@
 "use client";
 import '@styles/globals.css';
 
-import React from 'react';
-
+import * as React from "react";
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
@@ -15,7 +14,7 @@ import { footerConfig } from '@/configs/footer';
 import stars6 from '@/public/bghome/stars6.png';
 
 
-const Footer = () => {
+export function Footer () {
   const [activeIndex, setActiveIndex] = useState(null);
   const containerRef = useRef(null);
 

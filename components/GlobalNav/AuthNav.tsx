@@ -1,6 +1,7 @@
 "use client";
 import './globalnavbarapp.css';
 import '@/styles/globals.css';
+
 import React from 'react';
 
 import Link from 'next/link';

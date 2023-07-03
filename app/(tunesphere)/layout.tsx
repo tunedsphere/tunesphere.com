@@ -1,5 +1,5 @@
-import { GlobalNav } from '@/components';
-import { Footer } from '@/components';
+import { GlobalNav } from '@/components/GlobalNav/GlobalNav';
+import { Footer } from '@/components/Footer';
 
 
 

@@ -1,11 +1,9 @@
 import NavbarBottom from './GlobalNav/NavbarBottom';
-import GlobalNav from './GlobalNav/GlobalNav';
 import AuthNav from './GlobalNav/AuthNav';
 import SearchBox from './SearchBox/SearchBox';
 import SearchIcon from './SearchBox/SearchTrigger';
 import SearchTrigger from './SearchBox/SearchTrigger';
 import NavMenu from './GlobalNav/NavMenu';
-import Footer from './Footer';
 import Banner from './Banner';
 import LabelCard from './Labels/LabelCard';
 import GenreCard from './Genres/GenreCard';
@@ -18,8 +16,6 @@ export {
   SearchTrigger,
   SearchIcon,
   SearchBox,
-  GlobalNav,
-  Footer,
   NavbarBottom,
   LabelCard,
   ArtistsGrid,
