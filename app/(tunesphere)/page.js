@@ -192,7 +192,6 @@ export default function MyApp() {
     </>
   )}
 </div>
-
         {currentLabels.map((label) => (
           <div key={label.id} onClick={() => setSelectedLabel(label)} className="shadow-lg rounded-lg p-4 bg-accent1">
             <div className="aspect-w-1 aspect-h-1">
@@ -243,13 +242,7 @@ export default function MyApp() {
           Next
         </Button>
       </div>
-
-   
- 
-      
-
     </main>
-    </section>
-    
+    </section>   
   )
 }
