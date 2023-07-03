@@ -9,7 +9,11 @@ import planet2 from '@/public/bghome/planet2.png';
 
 import { recordLabels } from '@/public/data.js';
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { genres } from '@/constants/genres.js';
+
+import { Icons } from '@components/icons';
+
 
 
 export default function MyApp() {
@@ -144,32 +148,41 @@ export default function MyApp() {
 
       </div>
 
-      <div className='py-12 '>
-      <h3 href="/genres" id="home-genre-list" className="cursor-pointer py-4 font-extrabold text-gray-900 md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-gradient-to-r to-colortheme from-colortheme2">Genre List</span></h3>
-      <p className="text-lg font-normal text-textlow lg:text-xl text-center">Explore the Variaty of energies and sounds through different musical styles</p>
-      </div>
-
-          <div className='flex relative justify-center'>
-               
-          <div  className='bg-gradient-to-r to-colortheme2 from-colortheme -z-10 -inset-1 absolute rounded-lg blur'></div>
-          <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 lg:text-xl text-xl font-semibold bg-black gap-4 p-8">
-  {genres.map((item, index) => (
-    <div  href={item.href} key={`genre-${index}`} className="text-center cursor-pointer group rounded-lg border border-transparent transition-colors hover:underline underline-offset-4 decoration-colortheme group-hover:translate-x-1 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 motion-reduce:transform-none text-texthigh p-2" index={index + 1}>{' '}<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              
-            </span>{item.title}</div>
-  ))}
-      
-  </div>
-</div>
-
-
 <div className='py-12 '>
       <h3 href="/genres" id="home-genre-list" className="py-4 font-extrabold md:text-4xl text-center"><span className="justify-center text-transparent bg-clip-text bg-colortheme3">NEW </span><span className="justify-center text-transparent bg-clip-text bg-colortheme from-texthigh">RELEASES</span></h3>
       <p className="text-lg font-normal text-textlow lg:text-xl text-center">The latest releases on TunedSphere</p>
       </div>
 
 
-      <div className="grid grid-cols-9 gap-2 p-4 max-w-[1600px]">
+      <div className='relative bg-colortheme2 w-full inset-0'>
+  <div className='bg-gradient-to-r to-colortheme2  from-colortheme -z-10 -inset-1 absolute rounded-lg blur'></div>
+  <div className="flex text-sm divide-x justify-center overflow-x-auto">
+    {/* Left arrow icon */}
+    <div className='flex align-center items-center'>
+      <Icons.chevronLeft className="text-texthigh p-2 cursor-pointer" />
+    </div>
+
+    {genres.map((item, index) => (
+      <div className='flex align-center items-center' key={`genre-${index}`}>
+        <a
+          href={item.href}
+          className="text-center cursor-pointer group rounded-lg border border-transparent transition-colors hover:underline underline-offset-4 decoration-colortheme group-hover:translate-x-1 hover:border-neutral-700 hover:bg-neutral-800/30 motion-reduce:transform-none text-texthigh p-2"
+          style={{ float: 'left' }}
+        >
+          {item.title}
+        </a>
+        <Separator orientation="vertical" />
+      </div>
+    ))}
+
+    {/* Right arrow icon */}
+    <div className='flex align-center items-center'>
+      <Icons.chevronRight className="text-texthigh p-2 cursor-pointer" />
+    </div>
+  </div>
+</div>
+     
+      <div className="grid grid-cols-9 gap-2 p-4 max-w-[1600px] py-12 ">
       <div className='row-span-2 col-span-2 top-0'>
   {selectedLabel && (
     <>

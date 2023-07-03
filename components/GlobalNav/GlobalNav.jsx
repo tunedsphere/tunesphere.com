@@ -93,7 +93,7 @@ export function GlobalNav() {
               </Link>
             </div>
             <div className="w-1/3 relative items-center gap-2 flex flex-row justify-end">
-              <Button variant="ghost" size="xs">
+              <Button variant="nav" size="xs">
                 <Icons.cart 
                 className='transition-all'/>
               </Button>
@@ -113,21 +113,21 @@ export function GlobalNav() {
               </SignedOut>
               <Button
   size="xs"
-  variant="ghost"
+  variant="nav"
   onClick={() => setIsNavbarBottomOpen(!isNavbarBottomOpen)}
-  className='text-texthigh'
+  className='hidden md:block'
 >
   {isNavbarBottomOpen ? (
     <Icons.close
-      className={`transition-all ${
-        isNavbarBottomOpen ? 'rotate-0 scale-100' : 'rotate-90 scale-0'
+      className={`${
+        isNavbarBottomOpen ? 'rotate-0 scale-100 transition-all hover:text-colortheme' : 'rotate-90 scale-0 transition-all hover:text-colortheme'
       } `}
       aria-hidden="true"
     />
   ) : (
     <Icons.menu
-      className={`transition-all${
-        isNavbarBottomOpen ? 'rotate-90 scale-0' : 'rotate-0 scale-100'
+      className={`${
+        isNavbarBottomOpen ? 'rotate-90 scale-0 transition-all hover:text-colortheme' : 'rotate-0 scale-100 transition-all hover:text-colortheme'
       } `}
       aria-hidden="true"
     />
@@ -136,7 +136,7 @@ export function GlobalNav() {
 </Button>
               <Button
                 size="xs"
-                variant="ghost"
+                variant="nav"
                 onClick={handleGlobalNavFlyoutClick}
                 className="md:hidden block"
               >

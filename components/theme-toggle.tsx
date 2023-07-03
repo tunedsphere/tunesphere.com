@@ -7,11 +7,12 @@ import { Icons } from "@/components/icons"
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
+  
 
   return (
     <Button
     size="xs"
-      variant="ghost"
+      variant="nav"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       <Icons.sun

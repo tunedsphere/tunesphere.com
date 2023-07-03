@@ -59,7 +59,7 @@ import { Button } from '@/components/ui/button';
                   aria-label="Cancel"
                   type="button"
                   tabindex="-1"
-                  className="text-xs after:content-['close'] md:after:content-['Esc'] px-1 mr-2 rounded-[4px] h-[20px] font-medium hover:bg-accent1 hover:text-texthigh text-textlow"
+                  className="text-xs after:content-['close'] md:after:content-['Esc'] p-4 mr-4 rounded-[4px] h-[20px] font-medium hover:bg-accent1 hover:text-texthigh text-textlow"
                   onClick={closeSearch}
                 ></Button>
               </div>

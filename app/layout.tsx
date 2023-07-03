@@ -24,6 +24,7 @@ export const metadata = {
     themeColor: [
       { media: "(prefers-color-scheme: light)", color: "light" },
       { media: "(prefers-color-scheme: dark)", color: "dark" },
+      { media: "(prefers-color-scheme: fire)", color: "fire" },
     ],
     creator: "TunedSphere",
     icons: {
