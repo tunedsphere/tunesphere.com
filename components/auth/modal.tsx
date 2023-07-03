@@ -6,7 +6,7 @@ import SigninCard from '@/components/auth/SigninCard';
 import { Shell } from "@/components/shell";
 
 
-const Modal = ({ onClose}) => {
+const Modal = ({ onClose }) => {
   const modalRef = useRef(null);
 
   const handleClose = () => {
