@@ -1,5 +1,8 @@
+import '@/styles/globals.css';
+
 import * as React from 'react';
 import { useState } from 'react';
+
 import { SignedIn, SignedOut } from '@clerk/nextjs';
 import { UserButton } from '@clerk/nextjs';
 import NavbarItems from './NavbarItems'; 
@@ -11,7 +14,7 @@ import {
   Collapsible,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-
+import { ThemeToggle } from '@components/theme-toggle';
 
 type GlobalNavFlyoutProps = {
   onClose: () => void;
@@ -40,14 +43,19 @@ const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ onClose }) => {
   };
 
   return (
-    <div className="@container bg-background block md:hidden absolute top-0 left-0 right-0 h-screen">
-     <div className='flex flex-row-reverse py-3 px-4'>
+    <div className="@container z-9999 bg-background block md:hidden absolute top-0 h-screen w-screen overflow-y-auto no-scrollbar">
+     <div className='flex flex-row w-full'>
+     <div className='flex row-start py-3 px-4 w-1/2'>
+     <ThemeToggle/>
+     </div>
+     <div className=' items-center gap-2 flex flex-row justify-end py-3 px-4 w-1/2'>
      <Button variant="ghost" onClick={onClose}>
                   <Icons.close
                     className="object-contain text-texthigh cursor-pointer rotate-90 scale-100 transition-all"
                     aria-hidden="true"
                   />
                 </Button>
+                </div>
                 </div>
                 
                   <div className='flex justify-center'>
@@ -72,7 +80,7 @@ const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ onClose }) => {
               </SignedOut>
              
               </div>
-  <div className='pb-16 h-auto'>
+  <div className=''>
     <div className="divide-y px-4 justify-between">
       {NavbarItems.map((item, index) => (
         <Collapsible

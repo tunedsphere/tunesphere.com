@@ -94,11 +94,16 @@ export function GlobalNav() {
               </Link>
             </div>
             <div className="w-1/3 relative items-center gap-2 flex flex-row justify-end">
-              <Button variant="nav" size="xs">
+              <Button 
+              variant="nav"
+               size="xs"
+              className=' hidden sm:block'>
                 <Icons.cart 
-                className='transition-all '/>
+                className='transition-all'/>
               </Button>
-              <ThemeToggle />
+              <div  className=' hidden sm:block'>
+              <ThemeToggle/>
+              </div>
               <SignedIn>
                 <UserButton />
               </SignedIn>

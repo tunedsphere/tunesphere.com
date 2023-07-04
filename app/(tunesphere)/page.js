@@ -203,45 +203,44 @@ export default function MyApp() {
         ))}
       </div>
 
-      <div className="flex justify-center mt-4 gap-6 py-4">
-        <Button
-        variant="outline"
-          onClick={previousPage}
-          disabled={currentPage === 1}
-          className="text-texthigh px-4 py-2 text-sm bg-accent2 hover:bg-accent3"
-        
-        >
-          Previous
-        </Button>
-        <div className="flex justify-center gap-2">
-        {/* Display page numbers */}
-        {Array.from(
+      <div className="flex justify-center md:mt-4 md:gap-6 md:py-4 gap-2">
+  <Button
+    variant="outline"
+    onClick={previousPage}
+    disabled={currentPage === 1}
+    className="h-6 px-1 py-1 text-texthigh md:px-3 md:py-1 md:text-sm text-xs bg-accent2 hover:bg-accent3"
+  >
+    <Icons.chevronLeft /> {/* Replace Icons.Left with the appropriate icon component or SVG */}
+  </Button>
+  <div className="flex justify-center gap-2">
+    {/* Display page numbers */}
+    {Array.from(
       {
-        length: Math.min(Math.ceil(recordLabels.length / elementsPerPage), 8), // Limit to 10 pages
+        length: Math.min(Math.ceil(recordLabels.length / elementsPerPage), 5), // Limit to 5 pages
       },
-      (_, i) => i + 1 + Math.max(currentPage - 5, 0) // Adjust page numbers based on current page
+      (_, i) => i + 1 + Math.max(currentPage - 3, 0) // Adjust page numbers based on current page
     ).map((page) => (
-          <Button
-          variant="outline"
-            key={page}
-            onClick={() => setCurrentPage(page)}
-            className={`px-4 py-2 text-sm text-texthigh font-medium rounded-md hover:bg-accent3 hover:text-texthigh ${
-              page === currentPage ? 'bg-colortheme2 hover:bg-colortheme text-texthigh' : 'text-textlow'
-            }`}
-          >
-            {page}
-          </Button>
-        ))}
-      </div>
-        <Button
+      <Button
         variant="outline"
-          onClick={nextPage}
-          disabled={endIndex >= recordLabels.length || Math.ceil(recordLabels.length / elementsPerPage) <= currentPage}
-          className="px-4 py-2 text-sm text-texthigh bg-accent2 hover:bg-accent3"
-        >
-          Next
-        </Button>
-      </div>
+        key={page}
+        onClick={() => setCurrentPage(page)}
+        className={`md:px-3 md:py-1 md:text-sm h-6 px-2 py-1 text-xs text-texthigh font-medium rounded-md hover:bg-accent3 hover:text-texthigh ${
+          page === currentPage ? 'bg-colortheme2 hover:bg-colortheme text-texthigh' : 'text-textlow'
+        }`}
+      >
+        {page}
+      </Button>
+    ))}
+  </div>
+  <Button
+    variant="outline"
+    onClick={nextPage}
+    disabled={endIndex >= recordLabels.length || Math.ceil(recordLabels.length / elementsPerPage) <= currentPage}
+    className="h-6 px-1 py-1 md:px-3 md:py-1 md:text-sm text-xs text-texthigh bg-accent2 hover:bg-accent3"
+  >
+    <Icons.chevronRight className="text-xs" /> {/* Replace Icons.Right with the appropriate icon component or SVG */}
+  </Button>
+</div>
     </main>
     </section>   
   )

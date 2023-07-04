@@ -1,5 +1,5 @@
-import * as React from "react"
-import Link from "next/link"
+import * as React from "react";
+import Link from "next/link";
 
 import {
   Card,
@@ -8,9 +8,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { OAuthSignIn } from "@/components/auth/oauth-signin"
-import { SignInForm } from "@/components/forms/signin-form"
+} from "@/components/ui/card";
+import { OAuthSignIn } from "@/components/auth/oauth-signin";
+import { SignInForm } from "@/components/forms/signin-form";
+import { Button } from "@components/ui/button";
+import { Icons } from "@components/icons";
 
 export const metadata = {
     title: "Sign In",
@@ -32,16 +34,22 @@ export const metadata = {
     };
   
     return (
-      <div id="SigninCard" className="SigninCard relative top-32">
-        <Card className=''>
-        <div className='absolute bg-colortheme2 -z-10 -inset-2 blur'></div>
-          <div className="flex justify-end">
-            <button onClick={handleClose} type="button" title="close" className="right-1 top-1 w-6 h-6">
-              <img src="svg/x.svg" alt="Close" />
-            </button>
+      <div id="SigninCard" className="md:relative md:top-32 z-9999">
+        <Card>
+        <div className='absolute md:bg-colortheme2 -z-10 -inset-2 blur'></div>
+          <div className="flex justify-end p-4">
+            <Button 
+           variant="ghost"
+            onClick={handleClose} 
+            type="button" 
+            title="close" 
+            className="text-texthigh ">
+              <Icons.close 
+              className="text-texthigh"/>
+            </Button>
           </div>
           <CardHeader className="space-y-1 items-center">
-            <CardTitle className="">Log in</CardTitle>
+            <CardTitle>Log in</CardTitle>
             <CardDescription className='p-2'>Choose your preferred log in method</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">

@@ -7,6 +7,7 @@
 
 
 @layer base {
+
   html {
     scrollbar-width: thin;
     scrollbar-color: hsla(10, 78%, 54%, 0.795) #555;
@@ -23,6 +24,7 @@
     html::-webkit-scrollbar-track{
       background-color: #555;
     }
+
   :root {
 
     --globalnav-height: 238px;
@@ -932,6 +934,11 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
+  @media (max-width: 767px) {
+    body {
+      scrollbar-width: none;
+    }
+  }
 
 h1, h2, h3, h4, h5 {
   font-weight: 800;
@@ -986,6 +993,15 @@ h5 {
 
 .scrollable-container::-webkit-scrollbar-track {
   background-color: var(--scrollbar-track-color);
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 .signinoverlay {
   position: fixed;

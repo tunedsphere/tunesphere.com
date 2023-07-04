@@ -36,7 +36,7 @@ const Modal = ({ onClose }) => {
   }, []);
   return (
     
-    <div className="fixed inset-0 z-900 bg-black bg-opacity-80 overflow-hidden">
+    <div className="fixed inset-0 z-9999 bg-black md:bg-opacity-80 h-screen md:right-0 md:left-0 right-2 left-2 top-2">
       <div
           ref={modalRef}
           className="relative flex justify-center">  

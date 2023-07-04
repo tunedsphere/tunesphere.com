@@ -5,7 +5,7 @@ import { Toaster as RadToaster } from "sonner"
 export function Toaster() {
   return (
     <RadToaster
-    className=''
+    className='z-10000'
       position="bottom-right"
       toastOptions={{
         style: {
