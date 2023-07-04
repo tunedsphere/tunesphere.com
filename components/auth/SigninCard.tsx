@@ -34,9 +34,8 @@ export const metadata = {
     };
   
     return (
-      <div id="SigninCard" className="md:relative md:top-32 z-9999">
+      <div id="SigninCard" >
         <Card>
-        <div className='absolute md:bg-colortheme2 -z-10 -inset-2 blur'></div>
           <div className="flex justify-end p-4">
             <Button 
            variant="ghost"
@@ -87,8 +86,7 @@ export const metadata = {
           </CardFooter>
           
         </Card>
-      </div>
-     
+        </div>     
     );
   };
   
