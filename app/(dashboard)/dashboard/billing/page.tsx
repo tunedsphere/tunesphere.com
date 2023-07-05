@@ -64,7 +64,7 @@ export default function BillingPage() {
                 You are currently on the <strong>Ollie</strong> plan.
               </CardDescription>
             </CardHeader>
-            <CardContent>{subscriptionPlan.description}</CardContent>
+            {/* <CardContent>{subscriptionPlan.description}</CardContent> */}
             <CardFooter className="flex flex-col items-start space-y-2 md:flex-row md:justify-between md:space-x-0">
               <Button>Upgrade to Kickflip</Button>
               {true ? (
