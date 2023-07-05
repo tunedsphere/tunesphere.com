@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   description: "Manage your billing and subscription",
 }
 
-export default async function BillingPage() {
-  const user = await currentUser()
+export default function BillingPage() {
+  // const user = await currentUser()
 
-  if (!user) {
-    redirect("/signin")
-  }
+  // if (!user) {
+  //   redirect("/signin")
+  // }
 
-  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
+  // const subscriptionPlan = await getUserSubscriptionPlan(user.id)
 
   // // If user has a pro plan, check cancel status on Stripe.
   // let isCanceled = false
