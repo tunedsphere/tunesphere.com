@@ -3,6 +3,7 @@ import './globalnavbarapp.css';
 import '@/styles/globals.css';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import type { User } from "@clerk/nextjs/dist/types/server";
 
 import { SignedIn, SignedOut } from '@clerk/nextjs';
 import { UserButton } from '@clerk/nextjs';
@@ -13,10 +14,33 @@ import { Button } from '@/components/ui/button';
 import { Icons } from "@/components/icons"
 import Modal from '@/components/auth/modal';
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+import { dashboardConfig } from "@/configs/dashboard";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 
+interface GlobalNavProps {
+  user: User | null
+}
 
-export function GlobalNav() {
+export function GlobalNav({ user }: GlobalNavProps) {
+  const initials = `${user?.firstName?.charAt(0) ?? ""} ${
+    user?.lastName?.charAt(0) ?? ""
+  }`
+  const email =
+    user?.emailAddresses?.find((e) => e.id === user.primaryEmailAddressId)
+      ?.emailAddress ?? ""
+
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
   const [isNavbarBottomOpen, setIsNavbarBottomOpen] = useState(true);
   const [isGlobalNavFlyoutOpen, setIsGlobalNavFlyoutOpen] = useState(false);
@@ -51,10 +75,6 @@ export function GlobalNav() {
     setSearchBoxVisible(false);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   const handleGlobalNavFlyoutOpen = () => {
     setIsGlobalNavFlyoutOpen(true);
   };
@@ -83,12 +103,12 @@ export function GlobalNav() {
           <div className="py-3 navbar-container flex flex-between justify-between">
             <div className="left-0 w-1/3 items-center flex">
                       
-              <SearchTrigger className="" onClick={handleSearchTriggerClick} />
+              <SearchTrigger onClick={handleSearchTriggerClick} />
               {isSearchBoxVisible && <SearchBox closeSearch={closeSearch} />}
             </div>
-            <div className="w-1/3 flex justify-center">
+            <div className="w-1/3 flex justify-center items-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h2 className="text-center text-brand hover:text-primary algin-center cursor-pointer font-extrabold text-[24px] leading-[30.24px]">
+                <h2 className="text-center text-brand hover:text-primary algin-center cursor-pointer font-extrabold md:text-[24px] md:leading-[30.24px] text-[20px] leading-[24px]">
                   TUNEDSPHERE
                 </h2>
               </Link>
@@ -101,13 +121,83 @@ export function GlobalNav() {
                 <Icons.cart 
                 className='transition-all'/>
               </Button>
-              <div  className=' hidden sm:block'>
+              <div  className='hidden sm:block'>
               <ThemeToggle/>
               </div>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-              <SignedOut>
+
+              {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                      size="xs"
+                      variant="nav"
+                      className='rounded-full'
+                  >
+                    <Avatar className='h-8 w-8'>
+                      <AvatarImage
+                        src={user.imageUrl}
+                        alt={user.username ?? ""}
+                      />
+                      <AvatarFallback>{initials}</AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56 z-10000" align="end" forceMount>
+                  <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        {user.firstName} {user.lastName}
+                      </p>
+                      <p className="text-xs leading-none text-textlow">
+                        {email}
+                      </p>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem asChild>
+                      <Link href="/dashboard/account">
+                        <Icons.user
+                          className="mr-2 h-4 w-4"
+                          aria-hidden="true"
+                        />
+                        Account
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/dashboard/stores">
+                        <Icons.dashboard
+                          className="mr-2 h-4 w-4"
+                          aria-hidden="true"
+                        />
+                        Dashboard
+
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild disabled>
+                      <Link href="/dashboard/settings">
+                        <Icons.settings
+                          className="mr-2 h-4 w-4"
+                          aria-hidden="true"
+                        />
+                        Settings
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/signout">
+                      <Icons.logout
+                        className="mr-2 h-4 w-4"
+                        aria-hidden="true"
+                      />
+                      Log out
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+
                 <Button
                   size="xs"
                   onClick={handleModalOpen}
@@ -116,7 +206,10 @@ export function GlobalNav() {
                 >
                   Sign In
                 </Button>
-              </SignedOut>
+
+            )}
+
+
               <Button
   size="xs"
   variant="nav"
@@ -161,7 +254,7 @@ export function GlobalNav() {
             </div>
           </div>
         </nav>
-        {isNavbarBottomOpen && <NavbarBottom className="hidden sm:block" />}
+        {isNavbarBottomOpen && <NavbarBottom />}
         {isGlobalNavFlyoutOpen && (
           <GlobalNavFlyout onClose={() => setIsGlobalNavFlyoutOpen(false)} />
         )}
@@ -178,10 +271,9 @@ export function GlobalNav() {
       </video>
 
       {isModalOpen && (
-        <Modal onClose={handleModalClose} closeModal={closeModal} />
+        <Modal onClose={handleModalClose}/>
       )}
     </nav>
   );
 }
 
-export default GlobalNav;

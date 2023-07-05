@@ -28,6 +28,11 @@ module.exports = {
       }
     },
     extend: {
+      spacing: {
+        sidebar: '240px',
+        headerHeight: '380px',
+        sidabarDashboardHeight: 'var(--sidebar-dashboard-height)',
+      },
       zIndex: {
         '100': '100',
         '200': '200',

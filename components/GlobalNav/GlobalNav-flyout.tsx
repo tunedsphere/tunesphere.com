@@ -59,9 +59,6 @@ const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ onClose }) => {
                 </div>
                 
                   <div className='flex justify-center'>
-                  <SignedIn>
-                <UserButton />
-              </SignedIn>
               <SignedOut>
                 <Button
                 

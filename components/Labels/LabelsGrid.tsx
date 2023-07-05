@@ -12,7 +12,7 @@ import { useUser } from '@clerk/nextjs';
 import { recordLabels } from '@public/data.js';
 
 import { Button } from '@/components/ui/button';
-import Sidebar from '@/components/ui/sidebar';
+import { Sidebar } from '@/components/ui/sidebar';
 import {
   Collapsible,
   CollapsibleContent,
@@ -154,7 +154,8 @@ const sortedAndFilteredLabels = recordLabels
       <Button className="mx-4" variant='outline'>Labels</Button></div>
       </div>
     <div className='flex h-[calc(100vh-[436px])]'> 
- <Sidebar>
+ <Sidebar
+ variant="musicgrid">
  
     <div className='flex flex-col items-center p-2'>
     <UserProfileImage></UserProfileImage>

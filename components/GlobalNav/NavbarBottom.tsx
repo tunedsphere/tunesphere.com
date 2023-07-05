@@ -3,28 +3,20 @@ import '@/styles/globals.css';
 import './globalnavbarapp.css';
 
 import * as React from "react";
-import NavbarItems from "./NavbarItems";
 import Link from "next/link";
+import { siteConfig } from "@/configs/site";
 
-interface NavbarItem {
-  id: string;
-  href: string;
-  label: string;
-}
 
-interface NavbarBottomProps {
-  isOpen: boolean;
-}
 
-const NavbarBottom: React.FC<NavbarBottomProps> = () => {
+export function NavbarBottom() {
 
 
     return (
       <nav className="navbar navbarbottom relative hidden sm:block">
         <div className="flex justify-center navbar-container h-[80px] items-center">
           <ul className="navbar-list items-center divide-y sm:divide-none">
-            {NavbarItems.map((item) => (
-              <li key={item.id} className="navbar-item px-3">
+            {siteConfig.navbarBottom.map((item) => (
+              <li key={item.title} className="navbar-item px-3">
                 <Link
                   href={item.href}
                   className="text-texthigh hover:text-colortheme"

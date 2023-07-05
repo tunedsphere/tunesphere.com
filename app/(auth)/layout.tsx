@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import siteConfig from '@configs/site'
+import { siteConfig } from '@configs/site'
 import { AuthNav } from "@/components"
 
 interface AuthLayoutProps {

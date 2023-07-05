@@ -26,8 +26,8 @@
     }
 
   :root {
-
-    --globalnav-height: 238px;
+    --sidebar-dashboard-height: 220px;
+    --headerHeight: 160px;
 
 
     --scrollbar-thumb-color: white;
@@ -819,7 +819,7 @@
     --ring: var(--accent6);
  
     --radius: 0.5rem;
-
+ 
     
   }
  
@@ -878,7 +878,7 @@
     --ring: var(--accent6);
  
     --radius: 0.5rem;
-
+    --sidebar-width: 208px;
   }
   .fire {
 
@@ -1003,17 +1003,7 @@ h5 {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
-.signinoverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.801);
-  z-index: 999;
-  justify-items: center;
 
-}
 .footer-gradient {
   position: absolute;
   height: 100px;

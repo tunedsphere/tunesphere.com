@@ -1,6 +1,6 @@
 import { GlobalNav } from '@/components/GlobalNav/GlobalNav';
 import { Footer } from '@/components/Footer';
-
+import { currentUser } from "@clerk/nextjs"
 
 
 export const metadata = {
@@ -33,10 +33,14 @@ export const metadata = {
 
 interface TunedLayoutProps {
   children: React.ReactNode
-}export default function TunedLayout({ children }: TunedLayoutProps) {
+}
+
+
+export default async function TunedLayout({ children }: TunedLayoutProps) {
+  const user = await currentUser()
   return (
     <>
-      <GlobalNav />
+      <GlobalNav user={user}/>
       {children}
       <Footer />
     </>

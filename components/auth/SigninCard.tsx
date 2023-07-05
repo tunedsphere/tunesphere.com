@@ -34,7 +34,7 @@ export const metadata = {
     };
   
     return (
-      <div id="SigninCard" >
+      <div id="SigninCard">
         <Card>
           <div className="flex justify-end p-4">
             <Button 
