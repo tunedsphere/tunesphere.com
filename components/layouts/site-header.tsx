@@ -1,13 +1,13 @@
 "use client";
-import './globalnavbarapp.css';
+import '@/components/GLobalNav/globalnavbarapp.css';
 import '@/styles/globals.css';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import type { User } from "@clerk/nextjs/dist/types/server";
 
 import { ThemeToggle } from '@/components/theme-toggle';
 import { NavbarBottom, SearchBox, SearchTrigger } from '@/components';
-import GlobalNavFlyout from './GlobalNav-flyout';
+import GlobalNavFlyout from '@/components/GlobalNav/GlobalNav-flyout';
 import { Button } from '@/components/ui/button';
 import { Icons } from "@/components/icons"
 import Modal from '@/components/auth/modal';
@@ -23,15 +23,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 
-interface GlobalNavProps {
+interface SiteHeaderProps {
   user: User | null
 }
 
-export function GlobalNav({ user }: GlobalNavProps) {
+export function SiteHeader({ user }: SiteHeaderProps) {
   const initials = `${user?.firstName?.charAt(0) ?? ""} ${
     user?.lastName?.charAt(0) ?? ""
   }`
@@ -40,12 +39,11 @@ export function GlobalNav({ user }: GlobalNavProps) {
       ?.emailAddress ?? ""
 
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
-  const [isNavbarBottomOpen, setIsNavbarBottomOpen] = useState(true);
+  const [isNavbarBottomOpen, setIsNavbarBottomOpen] = useState(false);
   const [isGlobalNavFlyoutOpen, setIsGlobalNavFlyoutOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [hasScrolledDown, setHasScrolledDown] = useState(false);
   const [isMenuIconVisible, setMenuIconVisible] = useState(true);
-  const [isIconClicked, setIsIconClicked] = useState(false);
+
   
   const handleNavbarBottomClick = () => {
     setIsNavbarBottomOpen(!isNavbarBottomOpen);
@@ -77,22 +75,7 @@ export function GlobalNav({ user }: GlobalNavProps) {
     setIsGlobalNavFlyoutOpen(true);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY === 0 && !isNavbarBottomOpen) {
-        setIsNavbarBottomOpen(true);
-        setHasScrolledDown(true);
-      } else if (scrollY > 0 && isNavbarBottomOpen) {
-        setIsNavbarBottomOpen(false);
-      }
-    };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [isNavbarBottomOpen]);
 
   return (
     <nav id="globalnav" className="globalnav fixed h-auto">

@@ -1,12 +1,12 @@
 
-import { redirect } from "next/navigation"
-import { currentUser } from "@clerk/nextjs"
+import { redirect } from "next/navigation";
+import { currentUser } from "@clerk/nextjs";
 
-import { dashboardConfig } from "@/configs/dashboard"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { SidebarNav } from "@/components/layouts/sidebar-nav"
+import { dashboardConfig } from "@/configs/dashboard";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { SidebarNav } from "@/components/layouts/sidebar-nav";
 
-import { GlobalNav } from '@/components/GlobalNav/GlobalNav';
+import { SiteHeader } from "@components/layouts/site-header";
 import { Footer } from '@/components/Footer';
 import { Sidebar } from "@components/ui/sidebar"
 
@@ -26,15 +26,14 @@ export default async function DashboardLayout({
 
   return (
 <>
-  <GlobalNav user={user} />
-  <div className="min-h-screen mt-[var(--headerHeight)] flex justify-center">
-
+  <SiteHeader user={user} />
+  <div className="min-h-screen mt-[var(--headerHeight)] flex justify-center max-w-[1280px] mx-auto">
       <Sidebar variant="dashboard">
         <ScrollArea className="py-6 pr-6 ">
           <SidebarNav items={dashboardConfig.sidebarNav} />
         </ScrollArea>
       </Sidebar>
-    <main className="overflow-hidden flex">
+    <main className="overflow-hidden flex w-screen">
       {children}
     </main>
 
