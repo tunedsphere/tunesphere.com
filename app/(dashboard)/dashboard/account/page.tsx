@@ -13,12 +13,15 @@ export const metadata: Metadata = {
 export default function AccountPage() {
   return (
     <Shell layout="dashboard">
+      <div className='bg-accent2 inset-10 p-8'>
       <Header
+      className='bg-acent1'
         title="Account"
         description="Manage your account settings."
         size="sm"
       />
-      <div className="w-full overflow-hidden rounded-lg">
+      </div>
+      <div className="overflow-hidden rounded-lg">
         <UserProfile
           appearance={{
             variables: {
@@ -27,20 +30,18 @@ export default function AccountPage() {
               colorInputBackground: "hsl(240 4% 16%)",
               borderRadius: "0.25rem",
               fontSize :"text-2xl"
-
             },
             elements: {
-              card: "shadow-none",
+              card: "shadow-none flex mx-auto object-contain md:w-5/6 lg:w-full",
               navbar: "hidden",
               navbarMobileMenuButton: "hidden",
               headerTitle: "hidden",
               headerSubtitle: "hidden",
-              profilePage: "divide-y divide-[var(--accent4)] ",
-              profileSectionTitle: "pt-4 font-semibold text-2xl underline underline-offset-4 decoration-2",
+              profilePage: "divide-y divide-[var(--accent6)] gap-0",
+              profileSectionTitle: "font-semibold text-2xl underline underline-offset-4 decoration-2",
               profileSectionPrimaryButton: "text-[var(--colortheme)]",
               profileSectionContent: "ml-4",
-
-     
+              profileSection: "p-4",
             },
           }}
         />

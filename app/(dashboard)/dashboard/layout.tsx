@@ -27,17 +27,17 @@ export default async function DashboardLayout({
   return (
 <>
   <GlobalNav user={user} />
-  <div className="min-h-screen flex flex-col items-center">
-  <div className="mt-[var(--headerHeight)] container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+  <div className="min-h-screen mt-[var(--headerHeight)] flex justify-center">
+
       <Sidebar variant="dashboard">
         <ScrollArea className="py-6 pr-6 ">
           <SidebarNav items={dashboardConfig.sidebarNav} />
         </ScrollArea>
       </Sidebar>
-    <main className="flex w-full flex-col overflow-hidden">
+    <main className="overflow-hidden flex">
       {children}
     </main>
-  </div>
+
   </div>
   <Footer />
   </>

@@ -53,7 +53,7 @@ export default function BillingPage() {
           <Icons.warning className="h-4 w-4" aria-hidden="true" />
           <AlertTitle>Heads up!</AlertTitle>
           <AlertDescription>
-            You can create up to 3 stores on the kickflip plan.
+            You can create up to 3 stores on the Sphere plan.
           </AlertDescription>
         </Alert>
         <form>
@@ -61,12 +61,12 @@ export default function BillingPage() {
             <CardHeader>
               <CardTitle>Subscription Plan</CardTitle>
               <CardDescription>
-                You are currently on the <strong>Ollie</strong> plan.
+                You are currently on the <strong>Sphere</strong> plan.
               </CardDescription>
             </CardHeader>
             {/* <CardContent>{subscriptionPlan.description}</CardContent> */}
             <CardFooter className="flex flex-col items-start space-y-2 md:flex-row md:justify-between md:space-x-0">
-              <Button>Upgrade to Kickflip</Button>
+              <Button>Upgrade to Pro</Button>
               {true ? (
                 <p className="rounded-full text-xs font-medium">
                   {true

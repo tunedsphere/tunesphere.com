@@ -12,7 +12,7 @@ const sidebarVariants = cva(
       variant: {
         default: "",
         musicgrid: "min-w-[200px] overflow-x-hidden overflow-auto border-accent4 border-y-2",
-        dashboard: "flex flex-col shrink-0 overflow-hidden border-r-2 border-accent4 pt-4 items-center justify-stretch sticky left-0 fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 overflow-y-auto border-r md:sticky md:block",
+        dashboard: "w-[var(--sidebar-dashboard-width)] flex flex-col overflow-hidden border-r-2 border-accent4 pt-4 items-center justify-stretch sticky left-0 hidden shrink-0 overflow-y-auto border-r md:sticky md:block",
       },
 
       size: {

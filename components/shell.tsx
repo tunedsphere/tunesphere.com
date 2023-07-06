@@ -23,7 +23,7 @@ export function Shell({
         "grid items-center gap-8 pb-8 pt-6 md:py-8",
         layout === "default",
         layout === "auth" && "container max-w-lg",
-        layout === "dashboard",
+        layout === "dashboard" && "mx-auto px-8 gap-0",
         className
       )}
       {...props}

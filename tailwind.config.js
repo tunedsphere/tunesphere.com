@@ -31,7 +31,7 @@ module.exports = {
       spacing: {
         sidebar: '240px',
         headerHeight: '380px',
-        sidabarDashboardHeight: 'var(--sidebar-dashboard-height)',
+        sidabarDashboardWidth: 'var(--sidebar-dashboard-width)',
       },
       zIndex: {
         '100': '100',
