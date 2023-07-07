@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import '@/styles/globalnav.css';
 import '@/styles/globals.css';
 
