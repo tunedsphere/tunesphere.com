@@ -1,17 +1,14 @@
-"use client";
-import './globalnavbarapp.css';
-import '@/styles/globals.css';
 
-import React from 'react';
+import '@/styles/globalnav.css';
+import '@/styles/globals.css';
 
 import Link from 'next/link';
 
 
-const AuthNav = () => {
-
+  export default function Authheader() {
 
   return (
-    <nav id="globalnav" className="globalnav fixed h-auto">
+    <nav id="globalnav" className="globalnav fixed h-auto bg-accent2">
       <div id="globalnav-content" className="globalnav-content relative ">
         <nav className="navbar navbartop z-9999 algin-center px-4 md:px-8">
           <div className="py-5 navbar-container">
@@ -27,21 +24,6 @@ const AuthNav = () => {
           </div>
         </nav>
       </div>
-
-      {/* Video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden md:block"
-        style={{ zIndex: -10 }}
-      >
-        <source src="/bgvideo.mp4" type="video/mp4" />
-      </video>
-
-      
     </nav>
   );
 };
-
-export default AuthNav;

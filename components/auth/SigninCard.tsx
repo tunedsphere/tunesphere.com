@@ -32,6 +32,7 @@ export const metadata = {
     const handleLinkClick = () => {
       handleClose();
     };
+    
   
     return (
       <div id="SigninCard">

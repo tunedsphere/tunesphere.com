@@ -144,14 +144,14 @@ const sortedAndFilteredLabels = recordLabels
   };
 
 
-  return (<section className='min-h-[calc(100vh-[436px])]'>
-    <div className='pt-32 h-[calc(100vh-[436px])] '>
+  return (<section className='mt-[var(--headerHeight)]'>
+    <div className=''>
       
     <div className='flex justify-center items-center '>
       <div className='flex py-8 justify-center border-accent4 border-b-1 border-t-2 w-3/4'>
-      <Button className="mx-4" variant='outline'>Artists</Button>
-      <Button className="mx-4" variant='outline'>Djs</Button>
-      <Button className="mx-4" variant='outline'>Labels</Button></div>
+      <Button className="mx-4 text-texthigh" variant='outline'>Artists</Button>
+      <Button className="mx-4 text-texthigh" variant='outline'>Djs</Button>
+      <Button className="mx-4 text-texthigh" variant='outline'>Labels</Button></div>
       </div>
     <div className='flex h-[calc(100vh-[436px])]'> 
  <Sidebar
@@ -267,7 +267,7 @@ const sortedAndFilteredLabels = recordLabels
        
         <div className='w-full bg-transparent border-colortheme border-b-2 p-6'>
        
-        <h3 className='text-texthigh underline underline-offset-4 decoration-colortheme'>{selectedGenre ? `${selectedGenre} :` : 'ALL :'}</h3>
+        <h3 className='text-texthigh'>{selectedGenre ? `${selectedGenre} :` : 'ALL :'}</h3>
   <h5 className='text-textlow'>{selectedYear}</h5>
   <h5 className='text-textlow'>{selectedCountry}</h5>
 </div>

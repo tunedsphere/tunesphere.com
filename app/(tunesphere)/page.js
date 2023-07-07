@@ -23,7 +23,7 @@ export default function MyApp() {
     width={500}
     height={500}
     alt="planet Home"
-    className='-z-10 absolute left-0 top-0 w-1/3'>
+    className='-z-10 absolute left-0 top-0 md:w-1/3 w-2/5 block sm:hidden md:block'>
 
     </Image>
     </div>

@@ -1,5 +1,3 @@
-
-
 #globalnav {
 
   --r-globalnav-font-size: 17px;
@@ -10,7 +8,6 @@
   display: block;
   margin: 0;
   width: 100%;
-  min-width: 320px;
   font-size: 17px;
  -webkit-user-select: none;
   user-select: none;

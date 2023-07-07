@@ -1,7 +1,6 @@
-import { GlobalNav } from '@/components/GlobalNav/GlobalNav';
+import { SiteGlobalNav } from "@/components/layouts/site-global-nav";
 import { Footer } from '@/components/Footer';
-import { currentUser } from "@clerk/nextjs"
-
+import { currentUser } from "@clerk/nextjs";
 
 export const metadata = {
   title: 'TunedSphere',
@@ -40,9 +39,9 @@ export default async function TunedLayout({ children }: TunedLayoutProps) {
   const user = await currentUser()
   return (
     <>
-      <GlobalNav user={user}/>
+   <SiteGlobalNav/>
       {children}
       <Footer />
     </>
-  );
+  )
 }

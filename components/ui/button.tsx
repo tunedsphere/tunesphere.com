@@ -21,11 +21,11 @@ const buttonVariants = cva(
         nav: "hover:bg-accent hover:text-texthigh",
         ghostline: "hover:bg-accent outline-colortheme outline outline-1 hover:outline-offset-1",
         link: "underline-offset-4 hover:underline text-primary",
-        logInButton: "rounded-full text-texthigh font-bold  bg-colortheme hover:opacity-90"
+        logInButton: "rounded-full text-texthigh font-bold bg-colortheme hover:opacity-90"
       },
       size: {
         default: "py-1 px-4",
-        xs: "h-8 px-2 py-1 rounded-md",
+        xs: "h-8 rounded-md",
         sm: "h-9 px-3 rounded-md",
         lg: "h-11 px-8 rounded-md",
         xg: "h-12 px-8 rounded-md",
