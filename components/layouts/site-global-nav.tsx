@@ -70,7 +70,7 @@ export function SiteGlobalNav() {
                   variant="logInButton"
                   className='hidden sm:block'
                   size="sm" onClick={handleModalOpen}>Sign In</Button>
-                  {isMenuOpen &&
+                  {isModalOpen &&
                <Modal handleModalClose={handleToggle}/>}
                </SignedOut>
                </div>

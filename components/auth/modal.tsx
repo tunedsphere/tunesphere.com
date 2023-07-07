@@ -8,7 +8,7 @@ interface ModalProps {
   handleModalClose: () => void;
 }
 const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const modalRef = useRef(null);
 
   const handleClick = () => {
@@ -43,7 +43,7 @@ const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
         <div className="md:bg-opacity-80 h-screen z-9999 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div
             ref={modalRef}
-            className="max-w-[calc(100%-8px)] max-h-[calc(100%-24px)] mx-auto overflow-y-auto no-scrollbar z-10000 fixed bottom-0 top-0 right-2 left-2 my-auto md:top-24 md:bottom-auto"
+            className="mx-auto overflow-y-auto no-scrollbar z-10000 fixed bottom-0 top-0 right-2 left-2 md:top-24 md:bottom-auto"
           >
             <Shell layout="auth">
               <SigninCard onClose={handleClick} />
