@@ -23,7 +23,7 @@ export function Shell({
         "grid",
         layout === "default",
         layout === "auth" && "container max-w-lg",
-        layout === "dashboard" && "mx-auto w-full gap-0",
+        layout === "dashboard" && "mx-auto w-full gap-0 px-2",
         className
       )}
       {...props}

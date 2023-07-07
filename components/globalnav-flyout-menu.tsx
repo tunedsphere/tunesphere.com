@@ -68,7 +68,7 @@ const GlobalNavFlyout: React.FC = () => {
             ))}
           </div>
         </div>
-        {isModalOpen && <Modal />}
+        {isModalOpen && <Modal handleModalClose={handleModalOpen}/>}
       </div>
 
     </>

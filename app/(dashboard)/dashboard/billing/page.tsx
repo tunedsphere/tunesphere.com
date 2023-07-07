@@ -24,11 +24,11 @@ export const metadata: Metadata = {
 }
 
 export default async function BillingPage() {
-  // const user = await currentUser()
+  const user = await currentUser()
 
-  // if (!user) {
-  //   redirect("/signin")
-  // }
+  if (!user) {
+    redirect("/signin")
+  }
 
   // const subscriptionPlan = await getUserSubscriptionPlan(user.id)
 
@@ -43,17 +43,19 @@ export default async function BillingPage() {
 
   return (
     <Shell layout="dashboard">
+      <div className='bg-accent2 md:p-8'>
       <Header
         title="Billing"
         description="Manage your billing and subscription."
-        size="sm"
+        className='px-8'
+          size="sm"
       />
-      <div className="space-y-4">
-        <Alert>
-          <Icons.warning className="h-4 w-4" aria-hidden="true" />
+      </div>
+      <div className="mt-4">
+        <Alert className="border-0">
           <AlertTitle>Heads up!</AlertTitle>
           <AlertDescription>
-            You can create up to 3 stores on the Sphere plan.
+            And get tuned In with the Pro TunedSphere plan.
           </AlertDescription>
         </Alert>
         <form>

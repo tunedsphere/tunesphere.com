@@ -1,7 +1,8 @@
 import '@styles/globals.css';
 import type { Metadata } from "next"
 import { UserProfile } from "@clerk/nextjs"
-
+import { currentUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 import { Header } from "@/components/header"
 import { Shell } from "@/components/shell"
 
@@ -10,7 +11,13 @@ export const metadata: Metadata = {
   description: "Manage your account settings",
 }
 
-export default function AccountPage() {
+
+export default async function AccountPage() {
+  const user = await currentUser()
+
+  if (!user) {
+    redirect("/signin")
+  }
   const appearance = {
     variables: {
       colorBackground: "transparent",

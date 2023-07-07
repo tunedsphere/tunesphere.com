@@ -26,10 +26,10 @@ export default async function DashboardLayout({
 
   return (
 <>
-  <SiteHeader user={user} />
+  <SiteHeader/>
   <div className="min-h-screen mt-[var(--headerHeight)] flex justify-center max-w-[1280px] mx-auto">
       <Sidebar variant="dashboard">
-        <ScrollArea className="py-6 pr-6 ">
+        <ScrollArea className="py-6 pr-6">
           <SidebarNav items={dashboardConfig.sidebarNav} />
         </ScrollArea>
       </Sidebar>

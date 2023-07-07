@@ -53,7 +53,7 @@ export function SiteHeader() {
               <Button 
               variant="nav"
                size="xs"
-              className='hidden sm:block'>
+              className='hidden sm:block px-2'>
                 <Icons.cart 
                 className='transition-all'/>
               </Button>
