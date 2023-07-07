@@ -5,7 +5,7 @@ import '@/styles/globals.css';
 import Link from 'next/link';
 import { useState } from 'react';
 import React from 'react';
-import type { User } from "@clerk/nextjs/dist/types/server";
+
 import { ThemeToggle } from '@/components/theme-toggle';
 import { SearchBox } from '@/components';
 import GlobalNavFlyout from '@/components/globalnav-flyout-menu';
