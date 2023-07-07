@@ -22,11 +22,11 @@ const MenuBurger: React.FC<MenuBurgerProps> = ({ handleToggle }) => {
       onClick={handleClick}
       className="text-texthigh hover:text-colortheme object-contain px-2"
     >
-      <Icons.close
+      <Icons.menu
         className={`absolute rotate-${isOpen ? '0' : '90'} scale-${isOpen ? '100' : '0'} transition-all`}
         aria-hidden="true"
       />
-      <Icons.menu
+      <Icons.close
         className={` rotate-${isOpen ? '90' : '0'} scale-${isOpen ? '0' : '100'} transition-all`}
         aria-hidden="true"
       />

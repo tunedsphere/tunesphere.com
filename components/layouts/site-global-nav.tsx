@@ -23,7 +23,7 @@ import { useUser, WithUserProp, WithUser, SignedOut, SignedIn } from '@clerk/nex
 export function SiteGlobalNav() {
 
 
-      const [isMenuOpen, setMenuOpen] = useState(false);
+      const [isMenuOpen, setMenuOpen] = useState(true);
       const [isModalOpen, setModalOpen] = useState(false);
       const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = useState(false);
 
