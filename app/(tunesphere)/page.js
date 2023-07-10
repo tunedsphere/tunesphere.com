@@ -1,17 +1,45 @@
 "use client"
 import '@styles/globals.css';
 
-import React from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
 import planet2 from '@/public/bghome/planet2.png';
 import NewReleasesSection from '@components/new-releases';
 
+import React, { useEffect } from 'react';
 
+export default function MyApp() {  useEffect(() => {
+  const textElements = document.querySelectorAll('.text-effect');
+  const intervalTime = 2000; // Time in milliseconds
+  const fadeTime = 500; // Time in milliseconds
 
-export default function MyApp() {
+  let currentIndex = 0;
+  let isFading = false;
 
+  function toggleFade() {
+    isFading = !isFading;
+    textElements[currentIndex].classList.toggle('text-transparent');
+  }
+
+  function changeColor() {
+    if (!isFading) {
+      toggleFade();
+
+      setTimeout(() => {
+        toggleFade();
+        currentIndex = (currentIndex + 1) % textElements.length;
+      }, fadeTime);
+    }
+  }
+
+  const intervalId = setInterval(changeColor, intervalTime);
+
+  return () => {
+    clearInterval(intervalId);
+  };
+}, []);
 
   return (  
     <section>
@@ -32,7 +60,7 @@ export default function MyApp() {
     <main className="mt-[var(--headerHeight)] sm:mt-[var(--globalNavHeight)]  flex flex-col items-center justify-between px-4 md:px-8 mx-auto">
 
 <div className="py-12 md:mt-12 mt-2" >
-<h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text"><span className="text-texthigh">A </span><span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-700 to-fuchsia-600">Psychedelic </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-400 from-red-600">Dedicated </span><span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-400 from-blue-700">Platform</span>  </h1>
+<h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text"><span className="text-texthigh">A </span><span className="text-transparent bg-clip-text party1">Psychedelic </span><span className="text-transparent bg-clip-text party2">Dedicated </span><span className="text-transparent bg-clip-text party3">Platform</span></h1>
 
 <p className="py-4 text-lg font-normal text-textlow lg:text-xl text-center">Explore the musical realm of Psychedelic Art, with Music, Art, Decorations and Festivals</p>
 </div>
@@ -46,7 +74,7 @@ export default function MyApp() {
         <div
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer" 
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Labels{' '}

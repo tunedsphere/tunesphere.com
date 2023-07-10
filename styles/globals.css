@@ -27,6 +27,8 @@
 
   :root {
 
+    --background-navbartop: hsla(0, 0%, 2%, 0.63);
+    --background-navbarbottom: hsla(0, 0%, 2%, 0.63);
 
     --sidebar-dashboard-width: 220px;
     --headerHeight: 62px;
@@ -875,8 +877,8 @@
     --accent0: hsl(0 0% 4.0%);
     --accent-foreground: 222.2 47.4% 11.2%;
  
-    --destructive: hsl(272 52.1% 45.9%);
-    --destructive-foreground: hsl(279 43.8% 23.3%);
+    --destructive: hsl(358 65% 40%);
+    --destructive-foreground: hsl(279 44% 23%);
  
     --ring: var(--accent6);
  
@@ -972,6 +974,52 @@ h5 {
   }
   p { 
     color: var(--color-primary);
+  }
+}
+
+.party1 {
+  animation: party1 20s infinite;
+  background-image: white;
+  background-color: white;
+}
+.party2 {
+  animation: party2 20s infinite ;
+  background-image: white;
+  background-color: white;
+  
+}
+.party3 {
+  animation: party3 20s infinite;
+  background-image: white;
+  background-color: white;
+}
+
+@keyframes party1 {
+  0%{
+    background-image: linear-gradient(to right,#6B46C1, #C026A7);
+  }
+  50%{
+    background-image: none;
+  }
+
+}
+
+@keyframes party2 {
+ 50%{
+    background-image: linear-gradient(to right, #DC2626, #FCD34D);
+  }
+0%, 100%{  background-image: none;
+
+}
+
+
+}
+
+@keyframes party3 {
+100%{
+    background-image: linear-gradient(to right, #4C51BF, #60A5FA);
+  } 
+  0%, 50%{  background-image: none;
   }
 }
 .user-profile-container {

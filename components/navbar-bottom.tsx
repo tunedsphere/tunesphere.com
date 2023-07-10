@@ -10,7 +10,7 @@ import { siteConfig } from "@/configs/site";
 
   return (
     <>
-    <nav className="navbar navbarbottom relative hidden sm:block">
+    <nav className="navbar bg-backgroundNavbarBottom relative hidden sm:block">
     <div className="flex justify-center navbar-container h-[80px] items-center">
       <ul className="navbar-list items-center divide-y sm:divide-none">
         {siteConfig.navbarBottom.map((item) => (

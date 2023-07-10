@@ -12,14 +12,6 @@
 
  
 }
-.navbartop {
-  background-color: rgba(0,0,0,0.605);
-  
-}
-.navbarbottom {
-  background-color: rgba(0,0,0,0.605);
-}
-
 .navbar-container {
   max-width: 1360px;
   margin: 0 auto;

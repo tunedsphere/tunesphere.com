@@ -35,9 +35,9 @@ export const metadata = {
     
   
     return (
-      <div id="SigninCard">
-        <Card>
-          <div className="flex justify-end p-4">
+      <div id="SigninCard" className="@container">
+        <Card className="@md:border border-0">
+          <div className="flex justify-end sm:p-4 p-2">
             <Button 
            variant="ghost"
             onClick={handleClose} 
@@ -49,8 +49,8 @@ export const metadata = {
             </Button>
           </div>
           <CardHeader className="space-y-1 items-center">
-            <CardTitle>Log in</CardTitle>
-            <CardDescription className='p-2'>Choose your preferred log in method</CardDescription>
+            <CardTitle className="text-center">Log in</CardTitle>
+            <CardDescription className='p-2 text-center'>Choose your preferred log in method</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <OAuthSignIn />

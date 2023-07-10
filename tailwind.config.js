@@ -48,13 +48,16 @@ module.exports = {
         '10000': '10000',
       },
       colors: {
+        background: "var(--background)",
+        backgroundNavbarTop: "var(--background-navbartop)",
+        backgroundNavbarBottom: "var(--background-navbarbottom)",
         brand: "var(--brand)",
         texthigh: "var(--texthigh)",
         textlow: "var(--textlow)",
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
-        background: "var(--background)",
+        
         foreground: "var(--foreground)",
         colortheme: "var(--colortheme)",
         colortheme2: "var(--colortheme2)",

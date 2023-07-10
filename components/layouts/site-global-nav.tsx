@@ -36,9 +36,10 @@ export function SiteGlobalNav() {
       };
     
   return (
-    <nav id="globalnav" className="globalnav fixed h-auto @container">
-      <div id="globalnav-content" className="globalnav-content relative">
-        <nav className="navbar navbartop z-9999 algin-center md:px-8">
+    <>
+    <nav id="globalnav" className="@container globalnav fixed h-auto ">
+      <div id="globalnav-content" className="relative">
+        <nav className="navbar navbartop bg-backgroundNavbarTop z-9999 algin-center md:px-8">
           <div className="py-3 navbar-container flex flex-between justify-between @sm:px-4 px-2">
           <div className="left-0 sm:w-1/3 sm:block hidden items-center shrink-0">         
              <SearchBox/>
@@ -70,8 +71,6 @@ export function SiteGlobalNav() {
                   variant="logInButton"
                   className='hidden sm:block'
                   size="sm" onClick={handleModalOpen}>Sign In</Button>
-                  {isModalOpen &&
-               <Modal handleModalClose={handleToggle}/>}
                </SignedOut>
                </div>
                <MenuBurger handleToggle={handleToggle}/>
@@ -80,8 +79,7 @@ export function SiteGlobalNav() {
  
         </nav>
         {isMenuOpen && <NavbarBottom />}
-        {isGlobalNavFlyoutOpen &&
-           <GlobalNavFlyout/> }
+        {isGlobalNavFlyoutOpen && <GlobalNavFlyout/> }
       </div>
 
       <video
@@ -93,9 +91,11 @@ export function SiteGlobalNav() {
       >
         <source src="/bgvideo.mp4" type="video/mp4" />
       </video>
-
-
+      
     </nav>
+    {isModalOpen &&
+               <Modal handleModalClose={handleToggle}/>}
+    </>
   )
 }
 

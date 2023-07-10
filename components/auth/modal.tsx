@@ -3,7 +3,6 @@ import '@styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import SigninCard from '@/components/auth/SigninCard';
 import { Shell } from '@/components/shell';
-import { Button } from '@components/ui/button';
 interface ModalProps {
   handleModalClose: () => void;
 }
@@ -40,10 +39,10 @@ const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
   return (
     <>
       {isModalOpen && (
-        <div className="md:bg-opacity-80 h-screen z-9999 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="@container h-screen z-9999 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div
             ref={modalRef}
-            className="mx-auto overflow-y-auto no-scrollbar z-10000 fixed bottom-0 top-0 right-2 left-2 md:top-24 md:bottom-auto"
+            className="overflow-y-auto no-scrollbar w-full no-scrollbar z-10000 absolute @xs:mt-[var(--headerHeight)] @4xl:top-16 top-0 bottom-0"
           >
             <Shell layout="auth">
               <SigninCard onClose={handleClick} />
