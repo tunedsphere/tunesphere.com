@@ -5,6 +5,7 @@ import * as React from 'react';
 import { useState } from 'react';
 
 import { SignedIn, SignedOut } from '@clerk/nextjs';
+import { useUser } from '@clerk/nextjs';
 
 import { siteConfig } from "@/configs/site";
 import LogInButton from '@/components/login-btn';
@@ -24,6 +25,21 @@ const GlobalNavFlyout: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isFlyoutOpen, setFlyoutOpen] = useState(true);
+  const {user,isSignedIn} = useUser();
+
+  const UserProfileImage = () => {
+ 
+    if (!user) return null;
+    return (
+      <div className='flex justify-center items-center '>
+    
+      <img 
+      src={user.profileImageUrl}
+      className='my-6 flex-none h-20 w-20 border-4 border-white rounded-full' alt="Profile image" />
+  
+    </div>
+    );
+};
 
   const handleModalOpen = () => {
     setModalOpen(!isModalOpen);
@@ -48,36 +64,44 @@ const GlobalNavFlyout: React.FC = () => {
     size="sm"
     onClick={handleFlyoutMenuClose}
     variant="ghost"
-    className=""
+    className="px-0 mx-0"
   >
     <span className="flex items-center">
       <Icons.chevronLeft className="" />
-      <span className="text-lg font-semibold mr-1">Back</span>
+      <span className="text-lg font-semibold pr-2">Back</span>
     </span>
   </Button>
 </div>
             </div>
+     
             <div className="@sm:hidden flex py-3 px-4 w-1/2 justify-end">
               <ThemeToggle />
             </div>
           </div>
+        
 
           <div className="flex justify-center">
             <SignedOut>
               <LogInButton handleModalOpen={handleModalOpen} />
+              
             </SignedOut>
+            <SignedIn>
+            <div className='flex flex-col items-center p-2'>
+              <UserProfileImage></UserProfileImage>
+            </div>
+            </SignedIn>  
           </div>
 
           <div className="">
-            <div className="divide-y px-4 justify-between">
+            <div className="divide-y px-4 justify-between divide-colortheme pb-8">
               {siteConfig.navbarBottom.map((item, index) => (
                 <Collapsible
                   key={item.title}
                   open={activeIndex === index}
                   onOpenChange={() => handleCollapsibleToggle(index)}
                 >
-                  <CollapsibleTrigger className="text-3xl leading-7 flex justify-between text-texthigh w-full py-4">
-                    <span className="pl-8 flex-start font-semibold">
+                  <CollapsibleTrigger className="text-2xl leading-7 flex justify-between text-texthigh w-full py-4">
+                    <span className="pl-6 flex-start font-semibold">
                       {item.label}
                     </span>
                     <span className="mr-5 float-right">

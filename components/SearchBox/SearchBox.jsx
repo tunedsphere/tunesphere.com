@@ -48,11 +48,11 @@ export default function SearchBox({ }) {
   <Icons.search alt="Search" className="object-contain cursor-pointer search-trigger" />
 </Button>
       {isSearchBoxVisible && (
-        <div className="z-9999 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="z-10000 fixed w-screen h-screen inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div
             ref={searchBoxRef}
             id="search-box"
-            className="m-h-[500px] z-10000 fixed bottom-0 top-0 right-2 left-2 my-auto mx-auto bg-accent1 rounded-lg border  border-colortheme md:max-w-2xl md:top-1/4 md:bottom-auto max-w-[calc(100%-8px)] max-h-[calc(100%-24px)]"
+            className="m-h-[500px] z-40 absolute bottom-0 top-0 right-2 left-2 my-auto mx-auto bg-accent1 rounded-lg border  border-colortheme md:max-w-2xl md:top-1/4 md:bottom-auto max-w-[calc(100%-8px)] max-h-[calc(100%-24px)]"
           >
             <div className="flex flex-none items-center w-full border-b border-accent2">
               <input

@@ -38,7 +38,7 @@ export function SiteHeader() {
     <nav id="globalnav" className="globalnav fixed h-auto">
       <div id="globalnav-content" className="relative">
         <nav className="navbar navbartop bg-backgroundNavbarTop z-9999 algin-center md:px-8">
-          <div className="py-3 navbar-container flex flex-between justify-between mx-auto">
+          <div className="py-2 navbar-container flex flex-between justify-between mx-auto">
           <div className="left-0 sm:w-1/3 sm:block hidden items-center">    
               <SearchBox/>
             </div>

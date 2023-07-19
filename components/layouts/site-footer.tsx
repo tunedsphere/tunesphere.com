@@ -117,14 +117,14 @@ export function Footer() {
       </div>
 
       <div className="@container block md:hidden" ref={containerRef}>
-        <div className="divide-y">
+        <div className="divide-y divide-colortheme">
           {footerNav.map((item, index) => (
             <Collapsible key={index} open={activeIndex === index} onOpenChange={() => handleCollapsibleToggle(index)}>
               <CollapsibleTrigger className="text-texthigh w-full py-4">
                 <span className="float-left">{item.title}</span>
                 <span className="mr-2 float-right">{activeIndex === index ? '-' : '+'}</span>
               </CollapsibleTrigger>
-              <CollapsibleContent className="pb-4 pl-6w-full">
+              <CollapsibleContent className="pb-4 pl-4 w-full">
                 {item.items.map((subItem, subIndex) => (
                   <Link
                     className="flex left-0 text-textlow hover:underline"

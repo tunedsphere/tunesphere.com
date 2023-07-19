@@ -1,4 +1,3 @@
-"use client";
 
 import '@/styles/globals.css';
 import '@/styles/globalnav.css';
@@ -11,7 +10,7 @@ import { siteConfig } from "@/configs/site";
   return (
     <>
     <nav className="navbar bg-backgroundNavbarBottom relative hidden sm:block">
-    <div className="flex justify-center navbar-container h-[80px] items-center">
+    <div className="flex justify-center navbar-container py-4 items-center">
       <ul className="navbar-list items-center divide-y sm:divide-none">
         {siteConfig.navbarBottom.map((item) => (
           <li key={item.title} className="navbar-item px-3">

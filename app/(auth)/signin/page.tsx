@@ -22,10 +22,10 @@ export default function SignInPage() {
   return (
     <Shell layout="auth">
     <Card>
-      <CardHeader className="space-y-1 items-center p-8">
-        <CardTitle className="text-2xl">Sign In to TunedSphere</CardTitle>
+      <CardHeader className="space-y-1 items-center p-12 gap-1">
+        <CardTitle className="text-3xl">Log In to TunedSphere</CardTitle>
         <CardDescription>
-          Choose your preferred Sign In method
+          Choose your preferred Log In method
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">

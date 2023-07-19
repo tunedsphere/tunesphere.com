@@ -50,7 +50,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <Toaster />  
         </body>       
     </html>
-
     </ClerkProvider>
     
   )

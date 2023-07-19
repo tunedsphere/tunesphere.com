@@ -98,10 +98,11 @@ export function SignInForm() {
             </FormItem>
           )}
         />
-        
+        <div
+        className="flex justify-center">
         <Button 
         variant="logInButton"
-        className="m-8 p-2 text-base"
+        className="my-8 p-2 text-xl w-4/5 items-center"
         disabled={isPending}>
           {isPending && (
             <Icons.spinner
@@ -109,9 +110,10 @@ export function SignInForm() {
               aria-hidden="true"
             />
           )}
-          Sign In
-          <span className="sr-only">Sign In</span>
+          Log In
+          <span className="sr-only">Log In</span>
         </Button>
+        </div>
       </form>
     </Form>
   )

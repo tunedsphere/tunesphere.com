@@ -769,7 +769,7 @@
 --colors-cyan12: hsl(185 73.0% 93.2%);
 
     
-    --colortheme: hsl(272 100% 60%);
+    --colortheme: hsl(278 100% 50%);
     --colortheme2: hsl(280 100% 40%);
     --colortheme3: hsl(49 100% 60%);
     --colortheme4: hsl(358 99% 60%);
@@ -978,49 +978,58 @@ h5 {
 }
 
 .party1 {
-  animation: party1 20s infinite;
-  background-image: white;
-  background-color: white;
+  animation: party1 8s infinite;
+  background-image: linear-gradient(to right,#6B46C1, #C026A7);
 }
 .party2 {
-  animation: party2 20s infinite ;
-  background-image: white;
-  background-color: white;
-  
+  animation: party2 8s infinite;
+  background-image: linear-gradient(to right, #DC2626, #FCD34D);
 }
 .party3 {
-  animation: party3 20s infinite;
-  background-image: white;
-  background-color: white;
+  animation: party3 8s infinite;
+  background-image: linear-gradient(to right, #4C51BF, #60A5FA);
 }
 
 @keyframes party1 {
-  0%{
+  0%, 25%{
     background-image: linear-gradient(to right,#6B46C1, #C026A7);
-  }
-  50%{
-    background-image: none;
-  }
 
+
+  }
+  50%, 100%{
+    background-image: none;
+    background-color: white;
+  }
 }
 
 @keyframes party2 {
  50%{
     background-image: linear-gradient(to right, #DC2626, #FCD34D);
   }
-0%, 100%{  background-image: none;
+0%, 25%, 75%, 100%{
+    background-image: none;
+    background-color: white;
 
-}
-
-
+  }
 }
 
 @keyframes party3 {
-100%{
+ 75%{
     background-image: linear-gradient(to right, #4C51BF, #60A5FA);
   } 
-  0%, 50%{  background-image: none;
+  0%, 25%, 50%{ background-image: none;
+      background-color: white;
+
   }
+}
+.section-max-width {
+  position: relative;
+margin-left: auto;
+margin-right: auto;
+max-width: 1580px;
+padding-left: 16x;
+padding-right: 16px;
+box-sizing: border-box;
 }
 .user-profile-container {
   width: calc(100vw - var(--sidebar-dashboard-width));

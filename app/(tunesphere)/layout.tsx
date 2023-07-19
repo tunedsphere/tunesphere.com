@@ -1,5 +1,5 @@
 import { SiteGlobalNav } from "@/components/layouts/site-global-nav";
-import { Footer } from '@/components/Footer';
+import { Footer } from '@components/layouts/site-footer';
 import { currentUser } from "@clerk/nextjs";
 
 export const metadata = {
@@ -39,7 +39,7 @@ export default async function TunedLayout({ children }: TunedLayoutProps) {
   const user = await currentUser()
   return (
     <>
-   <SiteGlobalNav/>
+
       {children}
       <Footer />
     </>

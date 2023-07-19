@@ -1,7 +1,8 @@
-
+import { type z } from "zod"
 import { type FileWithPath } from "react-dropzone"
-
+import type { cartItemSchema, checkoutItemSchema } from "@/lib/validations/cart"
 import { type Icons } from "@/components/icons"
+import { type Product } from "@/db/schema"
 
 export interface NavItem {
   title: string
@@ -25,7 +26,7 @@ export type NavbarBottomItem = NavItemWithOptionalChildren
 
 export type SidebarNavItem = NavItemWithChildren
 
-export type UserRole = "user" | "admin"
+export type UserRole = "user" | "admin" | "artist" | "label" | "dj" | "seller"
 
 export type Option = {
   label: string
@@ -41,17 +42,35 @@ export type StoredFile = {
   name: string
   url: string
 }
-
-export type CartItem = {
-  productId: number
-  quantity: number
-  productSubcategory?: string | null
+export interface DataTableSearchableColumn<TData> {
+  id: keyof TData
+  title: string
+}
+export interface DataTableFilterableColumn<TData>
+  extends DataTableSearchableColumn<TData> {
+  options: Option[]
 }
 
-export interface CheckoutItem extends CartItem {
-  price: number
-}
 
+export type CartItem = z.infer<typeof cartItemSchema>
+
+export type CheckoutItem = z.infer<typeof checkoutItemSchema>
+
+export interface CartLineItem
+  extends Pick<
+    Product,
+    | "id"
+    | "name"
+    | "images"
+    | "category"
+    | "subcategory"
+    | "price"
+    | "inventory"
+    | "storeId"
+  > {
+  quantity?: number
+  storeName: string | null
+}
 export type SubscriptionPlan = {
   name: string
   description: string

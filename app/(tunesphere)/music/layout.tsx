@@ -11,7 +11,7 @@ interface LabelsLayoutProps {
 export default async function LabelsLayout({ children }: LabelsLayoutProps) {
   return (
       <>
-      <SiteHeader/>
+     <SiteHeader/>
           {children}
           </>
   )

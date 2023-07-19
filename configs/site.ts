@@ -1,6 +1,4 @@
 
-import { slugify } from "@/lib/utils"
-
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
@@ -10,29 +8,12 @@ export const siteConfig = {
   ogImage: "",
   navbarBottom: [
     {
-      title: "Labels",
-      label: "Labels",
+      title: "Music",
+      label: "Music",
       items: [],
-      href: "/labels",
+      href: "/music",
     },
-    {
-      title: "Artists",
-      label: "Artists",
-      items: [],
-      href: "/Artists",
-    },
-    {
-      title: "Dj",
-      label: "Dj",
-      items: [],
-      href: "/djs",
-    },
-    {
-      title: "Genres",
-      label: "Genres",
-      items: [],
-      href: "/genres",
-    },
+    
     {
       title: "Festivals",
       label: "Festivals",
@@ -45,11 +26,6 @@ export const siteConfig = {
       items: [],
       href: "/shop",
     },
-    {
-      title: "Contact",
-      label: "Contact",
-      items: [],
-      href: "/contact",
-    },
+  
   ],
 };

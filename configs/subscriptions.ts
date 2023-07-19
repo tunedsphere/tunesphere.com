@@ -10,9 +10,9 @@ export const freePlan: SubscriptionPlan = {
 }
 
 export const proPlan: SubscriptionPlan = {
-  name: "Kickflip",
+  name: "Tuned",
   description:
-    "The kickflip plan allows you to create up to 3 stores, and 20 products per store.",
-  stripePriceId: env.STRIPE_PRO_STORE_PRICE_ID ?? "",
+    "The Tuned plan allows you to create up to a store, and 20 products per store. For additional products contact TunedSphere",
+  stripePriceId: null,
   monthlyPrice: 10,
 }

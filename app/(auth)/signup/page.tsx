@@ -22,8 +22,8 @@ export default function SignUpPage() {
   return (
     <Shell layout="auth">
       <Card>
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Sign up</CardTitle>
+        <CardHeader className="space-y-1 items-center p-12 gap-1">
+          <CardTitle className="text-3xl">Sign up</CardTitle>
           <CardDescription>
             Choose your preferred sign up method
           </CardDescription>
@@ -50,7 +50,7 @@ export default function SignUpPage() {
               href="/signin"
               className="text-primary underline-offset-4 transition-colors hover:underline"
             >
-              Sign in
+              Log in
             </Link>
           </div>
         </CardFooter>

@@ -26,6 +26,7 @@ export default async function AccountPage() {
       borderRadius: "",
       fontSize: "text-2xl"
     },
+
     elements: {
       card: "shadow-none flex justify-center items-center mx-auto object-contain sm:w-10/12 lg:w-full w-full",
       navbar: "hidden",
@@ -34,9 +35,8 @@ export default async function AccountPage() {
       headerSubtitle: "hidden",
       profilePage: "divide-y divide-[var(--accent6)] gap-0",
       profileSectionTitle: "font-semibold text-2xl underline underline-offset-4 decoration-2",
-      profileSectionPrimaryButton: "text-[var(--colortheme)]",
-      profileSection: "py-4",
-
+      profileSectionPrimaryButton: "hidden",
+      profileSection: "py-4",   
     },
   };
 

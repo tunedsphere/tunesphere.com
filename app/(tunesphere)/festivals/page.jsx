@@ -2,8 +2,8 @@
 import '@styles/globals.css';
 
 import React, { useState } from 'react';
-import { Calendar } from '@/ui/Calendar/calendar';
-import EventForm from '@/ui/Calendar/EventForm';
+import { Calendar } from '@/components/ui/Calendar/calendar';
+import EventForm from '@/components/ui/Calendar/EventForm';
 import { Button } from '@/components/ui/button';
 
 const FestivalPage = () => {

@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useUser } from '@clerk/nextjs';
+
 
 import { recordLabels } from '@public/data.js';
 
@@ -19,32 +19,19 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
-const LabelsGrid: React.FC = () => {
+const MusicGrid: React.FC = () => {
   const [selectedLabel, setSelectedLabel] = useState(null);
   const [selectedGenre, setSelectedGenre] = useState(null);
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const expandedLabelRef = useRef(null);
-  const {user,isSignedIn} = useUser();
   const [isExpanded, setIsExpanded] = useState(false);
   const [genreExpanded, setGenreExpanded] = useState(false);
   const [yearExpanded, setYearExpanded] = useState(false);
   const [countryExpanded, setCountryExpanded] = useState(false);
 
 
-  const UserProfileImage = () => {
- 
-    if (!user) return null;
-    return (
-      <div className='flex justify-center items-center '>
-    
-      <img 
-      src={user.profileImageUrl}
-      className='my-6 flex-none h-20 w-20 border-4 border-white rounded-full' alt="Profile image" />
-  
-    </div>
-    );
-};
+
 
 const handleGenreToggle = () => {
   setGenreExpanded(!genreExpanded);
@@ -144,7 +131,8 @@ const sortedAndFilteredLabels = recordLabels
   };
 
 
-  return (<section className='mt-[var(--headerHeight)]'>
+  return (
+  <section className='mt-[var(--headerHeight)]'>
     <div className=''>
       
     <div className='flex justify-center items-center '>
@@ -157,9 +145,7 @@ const sortedAndFilteredLabels = recordLabels
  <Sidebar
  variant="musicgrid">
  
-    <div className='flex flex-col items-center p-2'>
-    <UserProfileImage></UserProfileImage>
-    </div>
+
 
     {/* // Sort the genreOptions */}
     <div className="@container">
@@ -340,4 +326,4 @@ const sortedAndFilteredLabels = recordLabels
   );
 };
 
-export default LabelsGrid;
+export default MusicGrid;

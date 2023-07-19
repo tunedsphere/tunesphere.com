@@ -2,14 +2,6 @@
   "compilerOptions": {
     "paths": {
       "@*": ["./*"],
-      "@components/*": ["./components/*"],
-      "@/ui/*": ["./components/ui/*"],
-      "@configs/*": ["./configs/*"],
-      "@styles/*": ["./styles/*"],
-      "@themes/*": ["./themes/*"],
-      "@utils/*": ["./utils/*"],
-      "@lib/*": ["./lib/*"],
-
     },
     "lib": [
       "dom",
