@@ -1,6 +1,5 @@
 
-import React from 'react';
-import MusicGrid from '@components/MusicGrid';
+import MusicGrid from '@components/music-grid';
 
 export default async function MusicPage() {
   return (

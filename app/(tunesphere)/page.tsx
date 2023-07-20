@@ -1,21 +1,14 @@
 
 import '@styles/globals.css'
-
-
 import Link from 'next/link'
 import Image from 'next/image'
-
 import planet2 from '@/public/bghome/planet2.png'
 import NewReleasesSection from '@components/new-releases'
-
 import React from 'react'
-
 import { db } from "@/db"
 import { products, stores } from "@/db/schema"
 import { desc, eq, sql } from "drizzle-orm"
-
 import { productCategories } from "@/configs/products"
-
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { SiteGlobalNav } from '@components/layouts/site-global-nav'
@@ -33,7 +26,6 @@ import { Shell } from "@/components/shell"
 export const dynamic = "force-dynamic"
 
 export default async function MyApp() {
-
   const allProducts = await db
     .select()
     .from(products)
@@ -53,120 +45,111 @@ export default async function MyApp() {
     .groupBy(stores.id)
     .orderBy(desc(sql<number>`count(${products.id})`))
 
-  return (  
+  return (
     <>
-          <SiteGlobalNav/>
+      <SiteGlobalNav />
       <div className='grid grid-cols-2'>
         <div className='w-1/2'>
-    <Image
-    src={planet2}
-    placeholder="blur"
-    width={500}
-    height={500}
-    alt="planet Home"
-    className='-z-10 absolute left-0 top-0 md:w-1/3 w-2/5 block sm:hidden md:block'>
-
-    </Image>
-    </div>
-    </div>
-  
-    <main className="mt-[var(--headerHeight)] sm:mt-[var(--globalNavHeight)]">
-<section className="section-max-width flex flex-col items-center justify-between md:px-8 mx-auto">
-<div className="py-12 md:mt-12 mt-2" >
-<h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text"><span className="text-texthigh">A </span><span className="text-transparent bg-clip-text party1">Psychedelic </span><span className="text-transparent bg-clip-text party2">Dedicated </span><span className="text-transparent bg-clip-text party3">Platform</span></h1>
-
-<p className="py-4 text-lg font-normal text-textlow lg:text-xl text-center">Explore the musical realm of Psychedelic Art, with Music, Art, Decorations and Festivals</p>
-</div>
-
-      <div className='left-gradient -z-10'> </div>
-      <div className='right-gradient -z-10'> </div>
-
-        <div className='grid xl:grid-cols-4 py-16 2xl:text-left text-center text-textlow'>
-        
-        <Link href="/labels" passHref>
-        <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30"
-          rel="noopener noreferrer" 
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Labels{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          
-          
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
-            Search & Find the label thats suits your ears the most. 
-          </p>
+          <Image
+            src={planet2}
+            placeholder="blur"
+            width={500}
+            height={500}
+            alt="planet Home"
+            className='-z-10 absolute left-0 top-0 md:w-1/3 w-2/5 block sm:hidden md:block'>
+          </Image>
         </div>
-        </Link>
-
-        <Link href="/artists" passHref>
-        <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Artists & DJ{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
-            Explore in depth of your favourite genre and find inspiring Artists
-          </p>
-        </div>
-        </Link>
-        <Link href="/festivals" passHref>
-        <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Festivals{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
-            Instantly check where your favourite Artist will play. 
-          </p>
-        </div>
-        </Link>
-        <Link href="/labels" passHref>
-        <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30  group-hover:translate-x-1 motion-reduce:transform-none"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Most popular{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
-            Visit the most Popular request
-          </p>
-        </div>
-        </Link>
-
       </div>
-    <div className='flex justify-center'>
-    {/* <NewReleasesSection/>  */}
-    </div>
-    </section>
-   
 
+      <main className="mt-[var(--headerHeight)] sm:mt-[var(--globalNavHeight)]">
+        <section className="section-max-width flex flex-col items-center justify-between md:px-8 mx-auto">
+          <div className="py-12 md:mt-12 mt-2" >
+            <h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text">
+              <span className="text-texthigh">A </span>
+              <span className="text-transparent bg-clip-text party1">Psychedelic </span>
+              <span className="text-transparent bg-clip-text party2">Dedicated </span>
+              <span className="text-transparent bg-clip-text party3">Platform</span>
+            </h1>
 
-    <Shell className="gap-12">
+            <p className="py-4 text-lg font-normal text-textlow lg:text-xl text-center">
+              Explore the musical realm of Psychedelic Art, with Music, Art, Decorations, and Festivals
+            </p>
+          </div>
+
+          <div className='left-gradient -z-10'> </div>
+          <div className='right-gradient -z-10'> </div>
+
+          <div className='grid xl:grid-cols-4 py-16 2xl:text-left text-center text-textlow'>
+            <Link href="/labels" passHref>
+              <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30" rel="noopener noreferrer">
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                  Labels{' '}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                    -&gt;
+                  </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
+                  Search & Find the label that suits your ears the most.
+                </p>
+              </div>
+            </Link>
+
+            <Link href="/artists" passHref>
+              <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30" rel="noopener noreferrer">
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                  Artists & DJ{' '}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                    -&gt;
+                  </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
+                  Explore in depth of your favorite genre and find inspiring Artists
+                </p>
+              </div>
+            </Link>
+
+            <Link href="/festivals" passHref>
+              <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30" rel="noopener noreferrer">
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                  Festivals{' '}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                    -&gt;
+                  </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
+                  Instantly check where your favorite Artist will play.
+                </p>
+              </div>
+            </Link>
+
+            <Link href="/labels" passHref>
+              <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30  group-hover:translate-x-1 motion-reduce:transform-none" rel="noopener noreferrer">
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                  Most popular{' '}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                    -&gt;
+                  </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
+                  Visit the most Popular request
+                </p>
+              </div>
+            </Link>
+
+          </div>
+
+          <div className='flex justify-center'>
+            {/* <NewReleasesSection/>  */}
+          </div>
+        </section>
+        <Shell className="gap-12 section-max-width">
       <section
         id="hero"
         aria-labelledby="hero-heading"
-        className="section-max-width flex flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
+        className="flex flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
-          A Store built for You and with everything you would expect
+          A Store built for You and with everything you would expect.
         </h1>
         <div className="flex flex-wrap items-center justify-center gap-4 py-8">
           <Link
@@ -195,7 +178,7 @@ export default async function MyApp() {
       <section
         id="categories"
         aria-labelledby="categories-heading"
-        className="section-max-width space-y-6 py-6 md:pt-10 lg:pt-24"
+        className="space-y-6 py-6 md:pt-10 lg:pt-24"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">

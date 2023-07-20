@@ -4,11 +4,12 @@ import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 
 interface MenuBurgerProps {
-
+  isOpen: boolean; 
   handleToggle: () => void;
+  setIsOpen(isOpen: boolean): void;
 }
-const MenuBurger: React.FC<MenuBurgerProps> = ({ handleToggle }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const MenuBurger: React.FC<MenuBurgerProps> = ({ handleToggle, setIsOpen, isOpen }) => {
+
   const [rotation, setRotation] = useState(0);
   const [scale, setScale] = useState(100);
 

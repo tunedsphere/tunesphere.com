@@ -26,6 +26,7 @@ export function SiteGlobalNav() {
       const [isMenuOpen, setMenuOpen] = useState(true);
       const [isModalOpen, setModalOpen] = useState(false);
       const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = useState(false);
+      const [isOpen, setIsOpen] = useState(false); 
 
       const handleToggle = () => {
         setGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
@@ -98,7 +99,7 @@ export function SiteGlobalNav() {
                   size="xs" onClick={handleModalOpen}>Log In</Button>
                </SignedOut>
                </div>
-               <MenuBurger handleToggle={handleToggle}/>
+               <MenuBurger handleToggle={handleToggle} isOpen={isOpen} setIsOpen={setIsOpen}/>
             </div>
           </div>
  

@@ -16,6 +16,7 @@ import Modal from '@/components/auth/modal';
 
 import { UserDropdownMenu } from '@components/user-dropdown-menu';
 import MenuBurger from '@components/menu-burger';
+import CartSheet from "@/components/cart/cart-sheet"
 import { SignedOut, SignedIn } from '@clerk/nextjs';
 
 
@@ -25,7 +26,8 @@ export function SiteHeader() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isGlobalNavFlyoutOpen, setGloisGlobalNavFlyoutOpen] = useState(false);
-
+  const [isOpen, setIsOpen] = useState(true);
+  const [isCartSheetOpen, setCartSheetOpen] = useState(false);
   const handleToggle = () => {
     setGloisGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
     setMenuOpen(!isMenuOpen);
@@ -33,6 +35,10 @@ export function SiteHeader() {
   const handleModalClose = () => {
     setModalOpen(!isModalOpen);
   };
+  const handleToggleCartSheet = () => {
+    setCartSheetOpen(!isCartSheetOpen);
+  };
+
 
   return (
     <nav id="globalnav" className="globalnav fixed h-auto">
@@ -50,13 +56,8 @@ export function SiteHeader() {
               </Link>
             </div>
             <div className="sm:w-1/3 w-2/6 relative items-center sm:gap-2 gap-1 flex flex-row justify-end px-4">
-              <Button 
-              variant="nav"
-               size="xs"
-              className='hidden sm:block px-2'>
-                <Icons.cart 
-                className='transition-all'/>
-              </Button>
+          
+            <CartSheet />
               <div  className='hidden sm:block'>
               <ThemeToggle/>
               </div>
@@ -68,7 +69,7 @@ export function SiteHeader() {
                <Modal handleModalClose={handleModalClose}/>
                </SignedOut>
                </div>
-              <MenuBurger handleToggle={handleToggle}/>
+              <MenuBurger handleToggle={handleToggle} isOpen={isOpen} setIsOpen={setIsOpen}/>
             </div>
           </div>
         </nav>

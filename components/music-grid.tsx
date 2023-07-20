@@ -137,13 +137,15 @@ const sortedAndFilteredLabels = recordLabels
       
     <div className='flex justify-center items-center '>
       <div className='flex py-8 justify-center border-accent4 border-b-1 border-t-2 w-3/4'>
+      <Button className="mx-4 text-texthigh" variant='outline'>Albums</Button>
       <Button className="mx-4 text-texthigh" variant='outline'>Artists</Button>
       <Button className="mx-4 text-texthigh" variant='outline'>Djs</Button>
       <Button className="mx-4 text-texthigh" variant='outline'>Labels</Button></div>
       </div>
     <div className='flex h-[calc(100vh-[436px])]'> 
  <Sidebar
- variant="musicgrid">
+ variant="musicgrid"
+ className="">
  
 
 
@@ -151,19 +153,22 @@ const sortedAndFilteredLabels = recordLabels
     <div className="@container">
   <div className="divide-y">
     <Collapsible>
-      <CollapsibleTrigger onClick={handleGenreToggle} className="text-texthigh w-full py-6">
+      <CollapsibleTrigger onClick={handleGenreToggle}  className={`text-texthigh w-full py-4 ${
+        genreExpanded ? 'bg-accent1' : '' // Apply the bg-accent1 class when yearExpanded is true
+      }`}
+    >
         <span className="float-left pl-6">Genres</span>
         <span className="float-right mr-4">{genreExpanded ? '-' : '+'}</span>
       </CollapsibleTrigger>
       {genreExpanded && (
-        <CollapsibleContent className="pb-4 w-full">
+        <CollapsibleContent className="w-full">
           <div>
             {genreOptions
                 .sort((a, b) => a.localeCompare(b)) // Sort the genreOptions array alphabetically
                 .map((genre) => (
                 <div
                   key={genre}
-                  className={`py-4 bg-accent0 cursor-pointer pl-8 font-normal divide-y divide-y-reverse ${
+                  className={`py-2 bg-accent0 cursor-pointer pl-8 font-normal divide-y divide-y-reverse ${
                     genre === selectedGenre ? 'bg-accent1 text-texthigh' : ''
                   }`}
                   onClick={() => handleGenreSelection(genre)}
@@ -182,19 +187,22 @@ const sortedAndFilteredLabels = recordLabels
 <div className="@container">
   <div className="divide-y">
     <Collapsible>
-      <CollapsibleTrigger onClick={handleCountryToggle} className="text-texthigh w-full py-6">
+      <CollapsibleTrigger onClick={handleCountryToggle}  className={`text-texthigh w-full py-4 ${
+        countryExpanded ? 'bg-accent1' : '' // Apply the bg-accent1 class when yearExpanded is true
+      }`}
+    >
         <span className="float-left pl-6">Country</span>
         <span className="float-right mr-4">{countryExpanded ? '-' : '+'}</span>
       </CollapsibleTrigger>
       {countryExpanded && (
-        <CollapsibleContent className="pb-4 w-full  ">
+        <CollapsibleContent className="w-full">
           <div>
             {countryOptions
               .sort((a, b) => a.localeCompare(b)) // Sort the genreOptions array in descending order
              .map((country) => (
               <div
                 key={country}
-                className={`py-4 bg-accent0 cursor-pointer pl-8 font-normal ${
+                className={`py-2 bg-accent0 cursor-pointer pl-8 font-normal ${
                   country === selectedCountry ? 'bg-accent1 text-texthigh' : ''
                 }`}
                 onClick={() => handleCountrySelection(country)}
@@ -213,20 +221,23 @@ const sortedAndFilteredLabels = recordLabels
             <div className="@container">
   <div className="divide-y">
     <Collapsible>
-      <CollapsibleTrigger onClick={handleYearToggle} className="text-texthigh w-full py-6">
+      <CollapsibleTrigger onClick={handleYearToggle}  className={`text-texthigh w-full py-4 ${
+        yearExpanded ? 'bg-accent1' : '' // Apply the bg-accent1 class when yearExpanded is true
+      }`}
+    >
         <span className="float-left pl-6">Year</span>
         <span className="float-right mr-4">{yearExpanded ? '-' : '+'}</span>
       </CollapsibleTrigger>
       {yearExpanded && (
-        <CollapsibleContent className="pb-4 w-full  ">
+        <CollapsibleContent className="w-full">
           <div>
             {yearOptions
               .sort((a, b) => b.localeCompare(a)) // Sort the genreOptions array in descending order
              .map((year) => (
               <div
                 key={year}
-                className={`py-4 bg-accent0 cursor-pointer pl-8 font-normal ${
-                  year === selectedYear ? 'bg-accent1 text-texthigh' : ''
+                className={`py-2 bg-accent0 cursor-pointer pl-8 font-normal ${
+                  year === selectedYear ? 'bg-secondary-foreground text-texthigh' : ''
                 }`}
                 onClick={() => handleYearSelection(year)}
               >
@@ -240,22 +251,16 @@ const sortedAndFilteredLabels = recordLabels
   </div>
 </div>
 
-
-
-
 </Sidebar>
       <div 
       id="GridMusicView"
        style={{ height: 'calc(100vh - 248px)' }}
-       className='p-6 border-accent4 border-2 grow scrollable-container @container overflow-y-scroll'>
-        
-
-       
-        <div className='w-full bg-transparent border-colortheme border-b-2 p-6'>
-       
+       className='p-4 border-accent4 border-2 grow scrollable-container @container overflow-y-scroll'>
+        <div className='w-full bg-transparent border-colortheme border-b-2 p-6'> 
         <h3 className='text-texthigh'>{selectedGenre ? `${selectedGenre} :` : 'ALL :'}</h3>
-  <h5 className='text-textlow'>{selectedYear}</h5>
-  <h5 className='text-textlow'>{selectedCountry}</h5>
+        <div className="flex gap-4"><h5 className='text-textlow'>{selectedYear}</h5>
+  <h5 className='text-textlow'>{selectedCountry}</h5></div>
+
 </div>
         <div className="grid grid-flow-row-dense grid-cols-2 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9 @5xl:grid-cols-10 @6xl:grid-cols-12 7xl:grid-cols-13 8xl:grid-cols-14 gap-4">
 
@@ -290,7 +295,6 @@ const sortedAndFilteredLabels = recordLabels
                     <div className=" @xs:row-start-1 @xs:row-end-1 @2xl:row-span-3 @3xl:row-span-2 flex justify-center pr-8 border-r-2 border-accent5">
                       <Link href={`label/${label.id}`} className=''>
                         <Image
-                          
                           src={label.image}
                           width={380}
                           height={380}

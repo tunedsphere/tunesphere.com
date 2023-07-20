@@ -1,5 +1,6 @@
+"use client"
 import Image from "next/image"
-
+import { useEffect, useState } from "react"
 import { formatPrice } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -17,8 +18,24 @@ import { UpdateCart } from "@/components/cart/update-cart"
 import { Icons } from "@/components/icons"
 import { getCartAction } from "@/app/_actions/cart"
 
-export async function CartSheet() {
-  const cartLineItems = await getCartAction()
+export default function CartSheet() {
+  const [cartLineItems, setCartLineItems] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCartData = async () => {
+      try {
+        const data = await getCartAction();
+        setCartLineItems(data);
+        setLoading(false);
+      } catch (error) {
+        // Handle error if needed
+        setLoading(false);
+      }
+    };
+
+    fetchCartData();
+  }, []);
 
   const itemCount = cartLineItems.reduce(
     (total, item) => total + Number(item.quantity),
@@ -35,9 +52,9 @@ export async function CartSheet() {
       <SheetTrigger asChild>
         <Button
           aria-label="Open cart"
-          variant="outline"
-          size="icon"
-          className="relative"
+          variant="nav"
+          size="xs"
+          className='px-2'
         >
           {itemCount > 0 && (
             <Badge
@@ -47,12 +64,12 @@ export async function CartSheet() {
               {itemCount}
             </Badge>
           )}
-          <Icons.cart className="h-4 w-4" aria-hidden="true" />
+          <Icons.cart className='transition-all' aria-hidden="true" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg">
+      <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg z-10000">
         <SheetHeader className="px-1">
-          <SheetTitle>Cart {itemCount > 0 && `(${itemCount})`}</SheetTitle>
+          <SheetTitle>Your Basket {itemCount > 0 && `(${itemCount})`}</SheetTitle>
         </SheetHeader>
         <Separator />
         {itemCount > 0 ? (
@@ -146,7 +163,7 @@ export async function CartSheet() {
               aria-hidden="true"
             />
             <span className="text-lg font-medium text-muted-foreground">
-              Your cart is empty
+              We understand Inflation but Your cart is empty
             </span>
           </div>
         )}
