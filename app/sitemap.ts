@@ -12,19 +12,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   })
 
   const products = productsTransaction.items.map((product) => ({
-    url: `${siteConfig.url}/product/${product.id}`,
+    url: `${siteConfig.url}/shop/product/${product.id}`,
     lastModified: new Date().toISOString(),
   }))
 
   const categories = productCategories.map((category) => ({
-    url: `${siteConfig.url}/categories/${category.title}`,
+    url: `${siteConfig.url}/shop/categories/${category.title}`,
     lastModified: new Date().toISOString(),
   }))
 
   const subcategories = productCategories
     .map((category) =>
       category.subcategories.map((subcategory) => ({
-        url: `${siteConfig.url}/categories/${category.title}/${subcategory.slug}`,
+        url: `${siteConfig.url}/shop/categories/${category.title}/${subcategory.slug}`,
         lastModified: new Date().toISOString(),
       }))
     )

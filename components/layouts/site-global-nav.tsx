@@ -17,7 +17,6 @@ import Modal from '@/components/auth/modal';
 import { UserDropdownMenu } from '@components/user-dropdown-menu';
 import MenuBurger from '@components/menu-burger';
 
-
 import { SignedOut, SignedIn } from '@clerk/nextjs';
 
 export function SiteGlobalNav() {
@@ -35,31 +34,7 @@ export function SiteGlobalNav() {
       const handleModalOpen = () => {
         setModalOpen(!isModalOpen);
       };
-      // useEffect(() => {
-      //   let prevScrollPos = window.pageYOffset;
-    
-      //   const handleScroll = () => {
-      //     const currentScrollPos = window.pageYOffset;
-    
-      //     // Check if the current scroll position is at the top of the page (within a small threshold)
-      //     const isAtTop = currentScrollPos < 20;
-    
-      //     // Only update the menu state if the scroll position is at the top of the page
-      //     if (isAtTop) {
-      //       setMenuOpen(true);
-      //     } else {
-      //       // Scrolling down, close the menu
-      //       setMenuOpen(false);
-      //     }
-    
-      //     prevScrollPos = currentScrollPos;
-      //   };
-    
-      //   window.addEventListener('scroll', handleScroll);
-      //   return () => {
-      //     window.removeEventListener('scroll', handleScroll);
-      //   };
-      // }, []);
+
     
   return (
     <>

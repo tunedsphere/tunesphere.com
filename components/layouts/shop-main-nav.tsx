@@ -1,4 +1,4 @@
-"use client"
+
 import '@styles/globals.css'
 import * as React from "react"
 import Link from "next/link"
@@ -15,7 +15,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { Icons } from "@/components/icons"
 
 interface ShopMainNavProps {
   items?: ShopMainNavItem[]

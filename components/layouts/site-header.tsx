@@ -18,7 +18,7 @@ import MenuBurger from '@components/menu-burger';
 import CartSheet from "@/components/cart/cart-sheet"
 import { SignedOut, SignedIn } from '@clerk/nextjs';
 
-import { Combobox } from '@components/combobox';
+
 
 
 export function SiteHeader() {
