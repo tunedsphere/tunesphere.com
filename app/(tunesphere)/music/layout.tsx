@@ -11,8 +11,10 @@ interface LabelsLayoutProps {
 export default async function LabelsLayout({ children }: LabelsLayoutProps) {
   return (
       <>
+      <body className='no-scrollbar'>
      <SiteHeader/>
           {children}
+          </body>
           </>
   )
 }

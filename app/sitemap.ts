@@ -33,7 +33,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const routes = [
     "",
-    "/products",
+    "/shop",
+    "/shop/products",
     "/dashboard/account",
     "/dashboard/stores",
     "/dashboard/billing",

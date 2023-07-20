@@ -9,10 +9,13 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { footerConfig } from '@/configs/footer';
+
 import stars6 from '@/public/bghome/stars6.png';
 
-export function Footer() {
+import { siteConfig } from "@/configs/site";
+
+
+export function SiteFooter() {
   const [activeIndex, setActiveIndex] = useState(null);
   const containerRef = useRef(null);
 
@@ -33,7 +36,6 @@ export function Footer() {
     };
   }, []);
 
-  const { footerNav } = footerConfig;
 
   return (
     <footer className="bottom-0 relative items-center mx-auto py-8 px-4">
@@ -57,68 +59,76 @@ export function Footer() {
 
       <div className="@container hidden md:block">
         <div className="grid @sm:grid-cols-9 mx-auto max-w-[1400px] py-8">
-          <div className="col-start-2">
-            <h6 className="text-texthigh text-left underline underline-offset-4 decoration-colortheme py-2">
-              {footerNav[0].title}
+        <div className="col-start-2">
+        <h6 className="text-texthigh text-left underline underline-offset-4 decoration-colortheme py-2">
+              {siteConfig.footerNav[0].title}
             </h6>
-            <ul className="text-sm">
-              {footerNav[0].items.map((subItem, index) => (
-                <Link key={index} href={subItem.href}>
-                  <p className="text-textlow cursor-pointer hover:underline">
-                    {subItem.title}
-                  </p>
-                </Link>
-              ))}
-            </ul>
-          </div>
+        <ul className="text-sm">
+        {siteConfig.footerNav[0].items.map((item, index) => (
+   <li key={index}>
+   <Link href={item.href}>
+     <p className="text-textlow cursor-pointer hover:underline">
+       {item.title}
+     </p>
+   </Link>
+ </li>
+  ))}
+  </ul>
+</div>
           <div className="col-start-4">
-            <h6 className="text-texthigh text-left underline underline-offset-4 decoration-colortheme py-2">
-              {footerNav[1].title}
+          <h6 className="text-texthigh text-left underline underline-offset-4 decoration-colortheme py-2">
+              {siteConfig.footerNav[1].title}
             </h6>
-            <ul className="text-sm">
-              {footerNav[1].items.map((subItem, index) => (
-                <Link key={index} href={subItem.href}>
-                  <p className="text-textlow cursor-pointer hover:underline">
-                    {subItem.title}
-                  </p>
-                </Link>
-              ))}
-            </ul>
+        <ul className="text-sm">
+        {siteConfig.footerNav[1].items.map((item, index) => (
+   <li key={index}>
+   <Link href={item.href}>
+     <p className="text-textlow cursor-pointer hover:underline">
+       {item.title}
+     </p>
+   </Link>
+ </li>
+  ))}
+  </ul>
           </div>
           <div className="col-start-6">
-            <h6 className="text-texthigh text-left underline underline-offset-4 decoration-colortheme py-2">
-              {footerNav[2].title}
+          <h6 className="text-texthigh text-left underline underline-offset-4 decoration-colortheme py-2">
+              {siteConfig.footerNav[2].title}
             </h6>
-            <ul className="text-sm">
-              {footerNav[2].items.map((subItem, index) => (
-                <Link key={index} href={subItem.href}>
-                  <p className="text-textlow cursor-pointer hover:underline">
-                    {subItem.title}
-                  </p>
-                </Link>
-              ))}
-            </ul>
+        <ul className="text-sm">
+        {siteConfig.footerNav[2].items.map((item, index) => (
+   <li key={index}>
+   <Link href={item.href}>
+     <p className="text-textlow cursor-pointer hover:underline">
+       {item.title}
+     </p>
+   </Link>
+ </li>
+  ))}
+  </ul>
           </div>
           <div className="col-start-8">
-            <h6 className="text-texthigh text-left underline underline-offset-4 decoration-colortheme py-2">
-              {footerNav[3].title}
+          <h6 className="text-texthigh text-left underline underline-offset-4 decoration-colortheme py-2">
+              {siteConfig.footerNav[3].title}
             </h6>
-            <ul className="text-sm">
-              {footerNav[3].items.map((subItem, index) => (
-                <Link key={index} href={subItem.href}>
-                  <p className="text-textlow cursor-pointer hover:underline">
-                    {subItem.title}
-                  </p>
-                </Link>
-              ))}
-            </ul>
+        <ul className="text-sm">
+        {siteConfig.footerNav[3].items.map((item, index) => (
+   <li key={index}>
+   <Link href={item.href}>
+     <p className="text-textlow cursor-pointer hover:underline">
+       {item.title}
+     </p>
+   </Link>
+ </li>
+  ))}
+  </ul>
           </div>
         </div>
       </div>
 
       <div className="@container block md:hidden" ref={containerRef}>
         <div className="divide-y divide-colortheme">
-          {footerNav.map((item, index) => (
+          {siteConfig.footerNav.map((item, index) => (
             <Collapsible key={index} open={activeIndex === index} onOpenChange={() => handleCollapsibleToggle(index)}>
               <CollapsibleTrigger className="text-texthigh w-full py-4">
                 <span className="float-left">{item.title}</span>
@@ -156,4 +166,4 @@ export function Footer() {
   );
 }
 
-export default Footer;
+export default SiteFooter;

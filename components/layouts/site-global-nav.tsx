@@ -4,7 +4,7 @@ import '@/styles/globals.css';
 import Link from 'next/link';
 
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { SearchBox } from '@/components';
@@ -12,13 +12,13 @@ import { NavbarBottom } from '@/components/navbar-bottom';
 import GlobalNavFlyout from '@/components/globalnav-flyout-menu';
 import { Button } from '@/components/ui/button';
 import { Icons } from "@/components/icons"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import Modal from '@/components/auth/modal';
 import { UserDropdownMenu } from '@components/user-dropdown-menu';
 import MenuBurger from '@components/menu-burger';
 
 
-import { useUser, WithUserProp, WithUser, SignedOut, SignedIn } from '@clerk/nextjs';
+import { SignedOut, SignedIn } from '@clerk/nextjs';
 
 export function SiteGlobalNav() {
 
@@ -63,11 +63,11 @@ export function SiteGlobalNav() {
     
   return (
     <>
-    <nav id="globalnav" className="@container globalnav fixed h-auto ">
+    <nav id="globalnav" className="@container globalnav fixed h-auto border-b-2 border-accent2">
       <div id="globalnav-content" className="relative">
-        <nav className="navbar navbartop bg-backgroundNavbarTop z-9999 md:px-8">
-          <div className="py-2 navbar-container flex flex-between justify-between @sm:px-4 px-2">
-          <div className="left-0 sm:w-1/3 sm:block hidden items-center shrink-0">         
+        <nav className=" bg-backgroundNavbarTop z-9999 md:px-8">
+          <div className="py-2 navbar-container h-[--headerHeight] flex flex-between justify-between @sm:px-4 px-2">
+          <div className="sm:w-1/3 shrink-0 w-2/6  sm:visible invisible relative items-center sm:gap-2 gap-1 flex flex-row justify-start px-4">    
              <SearchBox/>
             </div>
             <div className="w-4/6 flex sm:justify-center items-center left-0 @sm:px-4 px-2 shrink">

@@ -2,7 +2,6 @@
 import { products } from "@/db/schema"
 import { env } from "@/env.mjs"
 
-import { Header } from "@/components/header"
 import { Products } from "@/components/products"
 import { Shell } from "@/components/shell"
 import { getProductsAction } from "@/app/_actions/product"
@@ -68,12 +67,8 @@ export default async function ProductsPage({
   const storePageCount = Math.ceil(storesTransaction.total / storesLimit)
 
   return (
+    <section className="section-max-width py-8">
     <Shell>
-      <Header
-        title="Products"
-        description="Buy products from our stores"
-        size="sm"
-      />
       <Products
         products={productsTransaction.items}
         pageCount={pageCount}
@@ -82,5 +77,6 @@ export default async function ProductsPage({
         storePageCount={storePageCount}
       />
     </Shell>
+    </section>
   )
 }

@@ -31,7 +31,7 @@
     --background-navbarbottom: hsla(0, 0%, 2%, 0.63);
 
     --sidebar-dashboard-width: 220px;
-    --headerHeight: 62px;
+    --headerHeight: 72px;
     --globalNavHeight: 128px;
 
 
@@ -769,7 +769,7 @@
 --colors-cyan12: hsl(185 73.0% 93.2%);
 
     
-    --colortheme: hsl(278 100% 50%);
+    --colortheme: hsl(270 100% 50%);
     --colortheme2: hsl(280 100% 40%);
     --colortheme3: hsl(49 100% 60%);
     --colortheme4: hsl(358 99% 60%);
@@ -779,7 +779,8 @@
     --brand:  hsl(211 87% 98%);
     --texthigh: hsl(290 80% 97%);
     --textlow: hsl(290 5% 60%);
-
+    --textdark:hsl(0, 0%, 5%);
+    
     --colorfooter: hsl(280 41% 20%);
     --orange: hsl(24 100% 58%);
 
@@ -790,7 +791,7 @@
     --muted: hsl(240 4% 16%);
     --muted-foreground: hsl(240 5% 65%);
  
-    --popover: hsl(240 10% 34%);
+    --popover: hsl(270 100% 80%);
     --popover-foreground: hsl(280 47% 11%);
  
     --card: hsl(240 10% 4%);
@@ -816,7 +817,7 @@
     --accent2: hsl(0 0% 11%);
     --accent1: hsl(0 0% 7%);
     --accent0: hsl(0 0% 4%);
-    --accent-foreground: hsl(222 47% 11%);
+    --accent-foreground: 222.2 47.4% 11.2%;
  
     --destructive: hsl(358 65% 40%);
     --destructive-foreground: hsl(279 44% 23%);
@@ -838,6 +839,7 @@
     --colortheme6: hsl(24 100% 60%);
 
     --brand:  hsl(211 87% 98%);
+    --textdark:hsl(0, 0%, 5%);
     --texthigh: hsl(199 80% 97%);
     --textlow:  hsl(206 5% 80%);
 
@@ -851,7 +853,7 @@
     --muted: hsl(240 4% 16%);
     --muted-foreground:  hsl(240 5% 65%);
  
-    --popover: hsl(240 10% 34%);
+    --popover: hsl(199 100% 90%);
     --popover-foreground: hsl(222 47% 11%);
  
     --card: hsl(0 0% 8%);

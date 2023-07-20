@@ -12,12 +12,17 @@ export default authMiddleware({
     "/signup(.*)",
     "/sso-callback(.*)",
     "/api(.*)",
+
     "/shop(.*)",
+    "/shop/categories(.*)",
+    "/shop/products(.*)",
+    "/shop/product(.*)",
+  
     "/music", 
     "/genres", 
     "/festivals", 
     "/artsits", 
-    "/shop", 
+   
     "/albums", 
     "/uipage",
   ],
@@ -56,5 +61,5 @@ export default authMiddleware({
 
 export const config = {
 
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api)(.*)"],
 };

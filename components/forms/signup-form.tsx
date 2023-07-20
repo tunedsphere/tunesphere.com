@@ -151,9 +151,8 @@ export function SignUpForm() {
   </div>
 </div>
 
-
         <Button 
-        className="py-2 my-2"
+        className="py-3 my-2 text-lg"
         variant="logInButton"
         disabled={isPending}>
           {isPending && (
@@ -165,6 +164,7 @@ export function SignUpForm() {
           Continue
           <span className="sr-only">Continue to email verification page</span>
         </Button>
+
       </form>
     </Form>
   );

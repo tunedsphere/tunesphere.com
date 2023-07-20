@@ -54,6 +54,7 @@ module.exports = {
         brand: "var(--brand)",
         texthigh: "var(--texthigh)",
         textlow: "var(--textlow)",
+        textdark: "var(--textdark)",
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",

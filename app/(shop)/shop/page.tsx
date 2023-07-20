@@ -27,7 +27,7 @@ import { Shell } from "@/components/shell"
 // Read more: https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
 export const dynamic = "force-dynamic"
 
-export default async function IndexPage() {
+export default async function ShopPage() {
   const allProducts = await db
     .select()
     .from(products)
@@ -52,14 +52,14 @@ export default async function IndexPage() {
       <section
         id="hero"
         aria-labelledby="hero-heading"
-        className="mx-auto flex w-full max-w-[64rem] flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
+        className="section-max-width flex w-full flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           A Store specially built for You and with everything you should expect
         </h1>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="/products"
+            href="/shop/products"
             className={cn(
               buttonVariants({
                 size: "lg",
@@ -126,7 +126,7 @@ export default async function IndexPage() {
       <section
         id="create-a-store-banner"
         aria-labelledby="create-a-store-banner-heading"
-        className="grid place-items-center gap-6 rounded-lg border bg-card px-6 py-16 text-center text-card-foreground shadow-sm"
+        className="section-max-width grid place-items-center gap-6 rounded-lg border bg-card px-6 py-16 text-center text-card-foreground shadow-sm"
       >
         <h2 className="text-2xl font-medium sm:text-3xl">
           Do you want to sell your products on our website?
@@ -141,7 +141,7 @@ export default async function IndexPage() {
       <section
         id="featured-products"
         aria-labelledby="featured-products-heading"
-        className="space-y-6"
+        className="section-max-width space-y-6"
       >
         <div className="flex items-center">
           <h2 className="flex-1 text-2xl font-medium sm:text-3xl">
@@ -169,7 +169,7 @@ export default async function IndexPage() {
       <section
         id="featured-stores"
         aria-labelledby="featured-stores-heading"
-        className="space-y-6"
+        className="section-max-width space-y-6"
       >
         <h2 className="text-2xl font-medium sm:text-3xl">Featured stores</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -203,7 +203,7 @@ export default async function IndexPage() {
       <section
         id="random-subcategories"
         aria-labelledby="random-subcategories-heading"
-        className="flex flex-wrap items-center justify-center gap-4 pb-4"
+        className="section-max-width flex flex-wrap items-center justify-center gap-4 pb-4"
       >
         {productCategories[
           Math.floor(Math.random() * productCategories.length)

@@ -7,7 +7,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { SidebarNav } from "@/components/layouts/sidebar-nav";
 
 import { SiteHeader } from "@components/layouts/site-header";
-import { Footer } from '@components/layouts/site-footer';
+import { SiteFooter } from '@components/layouts/site-footer';
 import { Sidebar } from "@components/ui/sidebar"
 
 
@@ -38,7 +38,7 @@ export default async function DashboardLayout({
     </main>
 
   </div>
-  <Footer />
+  <SiteFooter />
   </>
    
   )

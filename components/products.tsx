@@ -1,5 +1,5 @@
 "use client"
-
+import '@/styles/globals.css';
 import * as React from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { type Product, type Store } from "@/db/schema"
@@ -155,16 +155,17 @@ export function Products({
 
   return (
     <div className="flex flex-col space-y-6">
-      <div className="flex items-center space-x-2">
+      <div className="px-12 flex justify-between items-center space-x-2">
         <Sheet>
           <SheetTrigger asChild>
             <Button aria-label="Filter products" size="sm" disabled={isPending}>
-              Filter
+              All Filters
             </Button>
           </SheetTrigger>
-          <SheetContent className="flex flex-col">
+          <SheetContent className="flex flex-col" side="left"
+          >
             <SheetHeader className="px-1">
-              <SheetTitle>Filters</SheetTitle>
+              <SheetTitle className="text-4xl">Filters</SheetTitle>
             </SheetHeader>
             <Separator />
             <div className="flex flex-1 flex-col gap-5 overflow-hidden px-1">
@@ -370,7 +371,7 @@ export function Products({
             {sortOptions.map((option) => (
               <DropdownMenuItem
                 key={option.label}
-                className={cn(option.value === sort && "font-bold")}
+                className={cn(option.value === sort && "font-bold text-textdark")}
                 onClick={() => {
                   startTransition(() => {
                     router.push(
@@ -387,9 +388,10 @@ export function Products({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+      
       {!isPending && !products.length ? (
         <div className="mx-auto flex max-w-xs flex-col space-y-1.5">
-          <h1 className="text-center text-2xl font-bold">No products found</h1>
+          <h1 className="text-center text-2xl font-bold text-textdark">No products found</h1>
           <p className="text-center text-muted-foreground">
             Try changing your filters, or check back later for new products
           </p>

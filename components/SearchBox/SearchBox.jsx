@@ -3,7 +3,6 @@ import '@styles/globals.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@components/icons';
-import '@styles/globals.css';
 
 export default function SearchBox({ }) {
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
@@ -52,7 +51,7 @@ export default function SearchBox({ }) {
           <div
             ref={searchBoxRef}
             id="search-box"
-            className="m-h-[500px] z-40 absolute bottom-0 top-0 right-2 left-2 my-auto mx-auto bg-accent1 rounded-lg border  border-colortheme md:max-w-2xl md:top-1/4 md:bottom-auto max-w-[calc(100%-8px)] max-h-[calc(100%-24px)]"
+            className="m-h-[500px] z-40 absolute bottom-0 top-0 right-2 left-2 my-auto mx-auto bg-accent1 rounded-lg border border-colortheme md:max-w-2xl md:top-1/4 md:bottom-auto max-w-[calc(100%-8px)] max-h-[calc(100%-24px)]"
           >
             <div className="flex flex-none items-center w-full border-b border-accent2">
               <input

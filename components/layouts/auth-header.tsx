@@ -8,7 +8,7 @@ import Link from 'next/link';
   export default function Authheader() {
 
   return (
-    <nav id="globalnav" className="globalnav fixed h-auto bg-accent2">
+    <nav id="globalnav" className="globalnav fixed h-auto bg-accent0">
       <div id="globalnav-content" className="globalnav-content relative ">
         <nav className="navbar navbartop z-9999 algin-center px-4 md:px-8">
           <div className="py-5 navbar-container">

@@ -94,7 +94,7 @@ const GlobalNavFlyout: React.FC = () => {
 
           <div className="">
             <div className="divide-y px-4 justify-between divide-colortheme pb-8">
-              {siteConfig.navbarBottom.map((item, index) => (
+              {siteConfig.navbarNav.map((item, index) => (
                 <Collapsible
                   key={item.title}
                   open={activeIndex === index}
