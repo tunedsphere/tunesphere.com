@@ -30,7 +30,8 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "**/*.mjs"
 , "components/SearchBox/SearchBox.jsx", "components/auth/modal.js"  ],
   "exclude": [
     "node_modules"
