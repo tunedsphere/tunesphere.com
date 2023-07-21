@@ -7,7 +7,7 @@ export const authSchema = z.object({
   password: z
     .string()
     .min(6, {
-      message: "Password must be at least 8 characters long",
+      message: "Password must be at least 6 characters long",
     })
     .max(42)
     .refine((value) => /^(?=.*[A-Z]).+$/.test(value), {
@@ -26,7 +26,7 @@ export const authSchema = z.object({
     .min(2, {
       message: "Username must be at least 2 characters long",
     })
-    .max(24)
+    .max(42)
     .regex(/^[a-zA-Z0-9]+$/, {
       message: "Username must contain only letters and numbers",
     }),

@@ -1,7 +1,7 @@
 
 import '@/styles/globals.css';
 import React from "react";
-import { useUser, WithUserProp, WithUser } from '@clerk/nextjs';
+import { useUser,} from '@clerk/nextjs';
 import { Button } from "./ui/button";
 import Link from "next/link";
 import {
@@ -35,7 +35,7 @@ export function UserDropdownMenu({}: UserDropdownMenuProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="xs" variant="nav" className="rounded-full">
+        <Button size="xs" variant="nav" className="">
           <Avatar className="h-7 w-7 flex items-center justify-center border border-accent8">
             <AvatarImage src={user.imageUrl} alt={user.username ?? ""} />
             <AvatarFallback>{initials}</AvatarFallback>

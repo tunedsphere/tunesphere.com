@@ -107,8 +107,7 @@ export default async function ShopPage() {
                   <Image
                     src={category.image}
                     alt={category.title}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw h-[700px]"
                     className="object-cover transition-transform group-hover:scale-105"
                     priority
                   />

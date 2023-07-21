@@ -1,6 +1,8 @@
-
+import { type Metadata } from "next"
 import Link from "next/link"
-
+import { redirect } from "next/navigation"
+import { currentUser } from "@clerk/nextjs"
+import { env } from "@/env.mjs"
 import {
   Card,
   CardContent,
@@ -13,12 +15,16 @@ import { OAuthSignIn } from "@/components/auth/oauth-signin"
 import { SignInForm } from "@/components/forms/signin-form"
 import { Shell } from "@/components/shell"
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: "Sign In",
   description: "Sign In to your account",
 }
 
-export default function SignInPage() {
+export default async function SignInPage() {
+  const user = await currentUser()
+  if (user) redirect("/")
+  
   return (
     <Shell layout="auth">
     <Card>

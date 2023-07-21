@@ -22,13 +22,12 @@ export const metadata = {
   interface SigninCardProps {
     onClose?: () => void;
   }
-  const SigninCard: React.FC<SigninCardProps> = ({ onClose }) => {
+  const SigninCard: React.FC<SigninCardProps> = ({ onClose }) => { 
     const handleClose = () => {
       if (onClose) {
         onClose();
       }
     };
-  
     const handleLinkClick = () => {
       handleClose();
     };
@@ -53,7 +52,7 @@ export const metadata = {
             <CardDescription className='p-2 text-center'>Choose your preferred log in method</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <OAuthSignIn />
+            <OAuthSignIn/>
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t" />
@@ -62,7 +61,7 @@ export const metadata = {
                 <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
               </div>
             </div>
-            <SignInForm />
+            <SignInForm/>
           </CardContent>
           <CardFooter className="flex flex-wrap items-center space-x-2">
             <div className="flex-1 text-sm text-muted-foreground">
@@ -85,7 +84,6 @@ export const metadata = {
               Reset password
             </Link>
           </CardFooter>
-          
         </Card>
         </div>     
     );

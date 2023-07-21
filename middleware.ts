@@ -18,13 +18,13 @@ export default authMiddleware({
     "/shop/products(.*)",
     "/shop/product(.*)",
   
-    "/music", 
-    "/genres", 
-    "/festivals", 
-    "/artsits", 
+    "/music(.*)", 
+    "/genres(.*)", 
+    "/festivals(.*)", 
+    "/artsits(.*)", 
    
-    "/albums", 
-    "/uipage",
+    "/albums(.*)", 
+    "/uipage(.*)",
   ],
   async afterAuth(auth, req) {
     if (auth.isPublicRoute) {

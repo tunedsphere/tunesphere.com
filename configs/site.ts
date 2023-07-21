@@ -119,19 +119,19 @@ export const siteConfig = {
       items: [
         {
           title: "Spirit",
-          href: "/about-us/spirit",
+          href: "/spirit",
         },
         {
           title: "Team",
-          href: "/about-us/team",
+          href: "/team",
         },
         {
           title: "Support",
-          href: "/about-us/support",
+          href: "/support",
         },
         {
           title: "Donate",
-          href: "/about-us/donate",
+          href: "/donate",
         },
       ],
     },

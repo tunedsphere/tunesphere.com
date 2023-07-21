@@ -1,8 +1,8 @@
 "use client"
 import '@/styles/globalnav.css';
 import '@/styles/globals.css';
-import Link from 'next/link';
 
+import Link from 'next/link';
 
 import { useState } from 'react';
 import React from 'react';
@@ -17,11 +17,9 @@ import Modal from '@/components/auth/modal';
 import { UserDropdownMenu } from '@components/user-dropdown-menu';
 import MenuBurger from '@components/menu-burger';
 
-import { SignedOut, SignedIn } from '@clerk/nextjs';
+import { SignedOut, SignedIn, useSignIn } from '@clerk/nextjs';
 
 export function SiteGlobalNav() {
-
-
       const [isMenuOpen, setMenuOpen] = useState(true);
       const [isModalOpen, setModalOpen] = useState(false);
       const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = useState(false);
@@ -34,7 +32,6 @@ export function SiteGlobalNav() {
       const handleModalOpen = () => {
         setModalOpen(!isModalOpen);
       };
-
     
   return (
     <>

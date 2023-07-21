@@ -39,7 +39,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ClerkProvider>
-
     <html lang="en" suppressHydrationWarning>   
         <body className="min-h-screen bg-background font-sans antialiased">
            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
