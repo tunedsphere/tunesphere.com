@@ -16,7 +16,7 @@ import { Icons } from "@/components/icons"
 import Modal from '@/components/auth/modal';
 import { UserDropdownMenu } from '@components/user-dropdown-menu';
 import MenuBurger from '@components/menu-burger';
-
+import { ModalLogIn } from '@components/auth/modal-login';
 import { SignedOut, SignedIn, useSignIn } from '@clerk/nextjs';
 
 export function SiteGlobalNav() {
@@ -25,7 +25,7 @@ export function SiteGlobalNav() {
       const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = useState(false);
       const [isOpen, setIsOpen] = useState(false); 
 
-      const handleToggle = () => {
+      const handleNavbarOpen = () => {
         setGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
         setMenuOpen(!isMenuOpen);
       };
@@ -64,14 +64,14 @@ export function SiteGlobalNav() {
               <SignedIn>
                 <UserDropdownMenu />
                 </SignedIn>
-                <SignedOut>
+               <SignedOut>
                   <Button 
                   variant="logInButton"
                   className='hidden sm:block'
                   size="xs" onClick={handleModalOpen}>Log In</Button>
                </SignedOut>
                </div>
-               <MenuBurger handleToggle={handleToggle} isOpen={isOpen} setIsOpen={setIsOpen}/>
+               <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/>
             </div>
           </div>
  
@@ -91,8 +91,7 @@ export function SiteGlobalNav() {
       </video>
       
     </nav>
-    {isModalOpen &&
-               <Modal handleModalClose={handleToggle}/>}
+    {isModalOpen && <Modal handleModalClose={handleModalOpen}/>}
     </>
   )
 }

@@ -5,17 +5,17 @@ import { Button } from '@/components/ui/button';
 
 interface MenuBurgerProps {
   isOpen: boolean; 
-  handleToggle: () => void;
+  handleNavbarToggle: () => void;
   setIsOpen(isOpen: boolean): void;
 }
-const MenuBurger: React.FC<MenuBurgerProps> = ({ handleToggle, setIsOpen, isOpen }) => {
+const MenuBurger: React.FC<MenuBurgerProps> = ({ handleNavbarToggle, setIsOpen, isOpen }) => {
 
   const [rotation, setRotation] = useState(0);
   const [scale, setScale] = useState(100);
 
-  const handleClick = () => {
+  const handleNavbarClick = () => {
     setIsOpen(!isOpen);
-    handleToggle();
+    handleNavbarToggle();
     setRotation(rotation === 0 ? 90 : 0);
     setScale(scale === 100 ? 0 : 100);   // Call the handleToggle prop to toggle NavbarBottom
   };
@@ -51,7 +51,7 @@ const MenuBurger: React.FC<MenuBurgerProps> = ({ handleToggle, setIsOpen, isOpen
     <Button
       size="xs"
       variant="nav"
-      onClick={handleClick}
+      onClick={handleNavbarClick}
       className="hidden md:block text-texthigh hover:text-colortheme"
     >
       <Icons.menu
@@ -66,7 +66,7 @@ const MenuBurger: React.FC<MenuBurgerProps> = ({ handleToggle, setIsOpen, isOpen
     <Button
       size="xs"
       variant="nav"
-      onClick={handleClick}
+      onClick={handleNavbarClick}
       className="block md:hidden text-texthigh hover:text-colortheme object-contain px-2"
     >
       <Icons.menu

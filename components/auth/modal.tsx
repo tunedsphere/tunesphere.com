@@ -3,25 +3,29 @@ import '@styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import SigninCard from '@/components/auth/SigninCard';
 import { Shell } from '@/components/shell';
+import { useDebounce } from "@/hooks/use-debounce"
 interface ModalProps {
   handleModalClose: () => void;
 }
+
 const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-  const modalRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(true)
+  const modalRef = useRef(null)
+  const [query, setQuery] = React.useState("")
+  const debouncedQuery = useDebounce(query, 300)
 
   const handleClick = () => {
     setIsModalOpen(false);
   };
 
-  const handleEscapeKey = (event) => {
+  const handleEscapeKey = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       handleModalClose();
     }
   };
 
-  const handleClickOutside = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
       handleModalClose();
     }
   };
@@ -36,15 +40,21 @@ const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isModalOpen) {
+      setQuery("");
+    }
+  }, [isModalOpen]);
+
   return (
     <>
       {isModalOpen && (
         <div className="@container h-screen z-9999 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div
             ref={modalRef}
-            className="overflow-y-auto no-scrollbar w-full no-scrollbar z-10000 absolute @sm:mt-[var(--headerHeight)] @4xl:top-16 top-0 bottom-0"
+            className="overflow-y-auto no-scrollbar w-full no-scrollbar z-10000 absolute @md:top-16 top-0 bottom-0"
           >
-            <Shell layout="auth">
+            <Shell layout="auth" className='z-40'>
               <SigninCard onClose={handleClick} />
             </Shell>
           </div>

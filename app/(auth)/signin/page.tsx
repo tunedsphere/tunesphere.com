@@ -2,7 +2,7 @@ import { type Metadata } from "next"
 import Link from "next/link"
 import { redirect } from "next/navigation"
 import { currentUser } from "@clerk/nextjs"
-import { env } from "@/env.mjs"
+
 import {
   Card,
   CardContent,
@@ -16,7 +16,6 @@ import { SignInForm } from "@/components/forms/signin-form"
 import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: "Sign In",
   description: "Sign In to your account",
 }

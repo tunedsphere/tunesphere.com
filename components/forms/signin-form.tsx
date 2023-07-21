@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 
 import type { z } from "zod"
 import { catchClerkError } from "@/lib/utils"
-import { authSchema } from "@/lib/validations/auth"
+import { authSignInSchema } from "@/lib/validations/auth"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -22,7 +22,7 @@ import { Input } from "@/components/ui/input"
 import { Icons } from "@/components/icons"
 import { PasswordInput } from "@/components/password-input"
 
-type Inputs = z.infer<typeof authSchema>
+type Inputs = z.infer<typeof authSignInSchema>
 
 export function SignInForm() {
   const router = useRouter()
@@ -31,7 +31,7 @@ export function SignInForm() {
 
   // react-hook-form
   const form = useForm<Inputs>({
-    resolver: zodResolver(authSchema),
+    resolver: zodResolver(authSignInSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -45,7 +45,7 @@ export function SignInForm() {
     startTransition(async () => {
       try {
         const result = await signIn.create({
-          identifier: `${data.email}:${data.username}`, 
+          identifier: data.email,
           password: data.password,
         })
 
@@ -74,9 +74,9 @@ export function SignInForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email or Username</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email or Username" {...field} />
+                <Input placeholder="Email" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

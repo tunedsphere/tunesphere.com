@@ -48,13 +48,13 @@ export default async function ShopPage() {
     .orderBy(desc(sql<number>`count(${products.id})`))
 
   return (
-    <Shell className="gap-12">
+    <Shell className="gap-12 divide-y">
       <section
         id="hero"
         aria-labelledby="hero-heading"
         className="section-max-width flex w-full flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
-        <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
+        <h1 className="text-3xl text-textdark font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           A Store specially built for You and with everything you should expect
         </h1>
         <div className="flex flex-wrap items-center justify-center gap-4">
@@ -84,10 +84,10 @@ export default async function ShopPage() {
       <section
         id="categories"
         aria-labelledby="categories-heading"
-        className="space-y-6 py-6 md:pt-10 lg:pt-24"
+        className="space-y-6 py-6 md:pt-10"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-          <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
+          <h2 className="text-3xl text-textdark font-bold leading-[1.1] sm:text-3xl md:text-5xl">
             Categories
           </h2>
           <h2 className="max-w-[46rem] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
@@ -99,7 +99,7 @@ export default async function ShopPage() {
             <Link
               aria-label={`Go to ${category.title}`}
               key={category.title}
-              href={`/categories/${category.title}`}
+              href={`/shop/categories/${category.title}`}
             >
               <div className="group relative overflow-hidden rounded-md">
             
@@ -107,13 +107,15 @@ export default async function ShopPage() {
                   <Image
                     src={category.image}
                     alt={category.title}
+                    width={500}
+                    height={500}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw h-[700px]"
                     className="object-cover transition-transform group-hover:scale-105"
                     priority
                   />
               
                 <div className="absolute inset-0 z-20 flex items-center justify-center">
-                  <h3 className="text-3xl font-medium capitalize text-slate-100 md:text-2xl">
+                  <h3 className="text-3xl font-medium capitalize text-textlow md:text-2xl">
                     {category.title}
                   </h3>
                 </div>
@@ -209,7 +211,7 @@ export default async function ShopPage() {
         ]?.subcategories.map((subcategory) => (
           <Link
             key={subcategory.slug}
-            href={`/categories/${String(productCategories[0]?.title)}/${
+            href={`categories/${String(productCategories[0]?.title)}/${
               subcategory.slug
             }`}
           >
