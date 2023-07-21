@@ -34,7 +34,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
       Drop On and Tune In  </p>
       </div>
         </main>
-      <main className="flex justify-center absolute mt-24 p-4 col-span-1 mx-auto min-w-full items-center md:static md:top-0 md:col-span-2 md:flex md:translate-y-0 lg:col-span-1">
+      <main className="flex justify-center absolute mt-24 sm:p-4 col-span-1 mx-auto min-w-full items-center md:static md:top-0 md:col-span-2 md:flex md:translate-y-0 lg:col-span-1">
         {children}
       </main>
     </div>

@@ -41,13 +41,13 @@ export function SiteGlobalNav() {
     <nav id="globalnav" className="@container globalnav fixed h-auto border-b-2 border-accent2">
       <div id="globalnav-content" className="relative">
         <nav className=" bg-backgroundNavbarTop z-9999 md:px-8">
-          <div className="py-2 navbar-container h-[--headerHeight] flex flex-between justify-between @sm:px-4 px-2">
-          <div className="sm:w-1/3 shrink-0 w-2/6  sm:visible invisible relative items-center sm:gap-2 gap-1 flex flex-row justify-start px-4">    
+          <div className="py-2 navbar-container h-[--headerHeight] flex @sm:px-4 px-2">
+          <div className="sm:w-1/3 hidden relative items-center sm:gap-2 gap-1 sm:flex flex-row justify-start px-4">    
              <SearchBox/>
             </div>
-            <div className="w-4/6 flex sm:justify-center items-center left-0 @sm:px-4 px-2 shrink">
+            <div className="sm:w-1/3 w-4/6 flex sm:justify-center items-center left-0 @sm:px-4 px-2 shrink">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h2 className="text-center text-brand hover:text-primary cursor-pointer font-extrabold md:text-[24px] md:leading-[30.24px] text-[20px] leading-[24px]">
+                <h2 className="text-center text-brand hover:text-primary cursor-pointer font-extrabold text-[24px] leading-[30.24px]">
                   TUNEDSPHERE
                 </h2>
               </Link>

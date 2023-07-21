@@ -22,8 +22,8 @@ export function Shell({
       className={cn(
         "grid",
         layout === "default",
-        layout === "auth" && "max-w-lg p-2 mx-auto",
-        layout === "dashboard" && "mx-auto w-full gap-0 px-2 ",
+        layout === "auth" && "max-w-lg mx-auto",
+        layout === "dashboard" && "mx-auto w-full gap-0",
         className
       )}
       {...props}

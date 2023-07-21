@@ -21,8 +21,8 @@ export const metadata = {
 export default function SignUpPage() {
   return (
     <Shell layout="auth">
-      <Card>
-        <CardHeader className="space-y-1 items-center p-12 gap-1">
+      <Card variant="signup">
+        <CardHeader className="space-y-1 items-center sm:p-12 gap-1">
           <CardTitle className="text-3xl">Sign up</CardTitle>
           <CardDescription>
             Choose your preferred sign up method
