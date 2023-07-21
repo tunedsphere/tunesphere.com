@@ -29,11 +29,12 @@ export function SiteHeader() {
   const [isGlobalNavFlyoutOpen, setGloisGlobalNavFlyoutOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
   const [isCartSheetOpen, setCartSheetOpen] = useState(false);
-  const handleToggle = () => {
+
+  const handleNavbarOpen = () => {
     setGloisGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
     setMenuOpen(!isMenuOpen);
   };
-  const handleModalClose = () => {
+  const handleModalOpen = () => {
     setModalOpen(!isModalOpen);
   };
   const handleToggleCartSheet = () => {
@@ -66,12 +67,12 @@ export function SiteHeader() {
                 <UserDropdownMenu />
                 </SignedIn>
                 <SignedOut>
-               <Modal handleModalClose={handleModalClose}/>
+               <Modal handleModalClose={handleModalOpen}/>
                </SignedOut>
                </div>
-              <MenuBurger handleToggle={handleToggle} isOpen={isOpen} setIsOpen={setIsOpen}/>
+               <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/>
             </div>
-          </div>
+            </div>
         </nav>
         {isMenuOpen && <NavbarBottom />}
         {isGlobalNavFlyoutOpen &&
