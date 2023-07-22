@@ -30,7 +30,7 @@ export function Header({
       {description ? (
         <p
           className={cn(
-            "text-muted-foreground",
+            "text-textlow",
             size === "default" && "text-lg"
           )}
         >

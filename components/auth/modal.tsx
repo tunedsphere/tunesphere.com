@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import SigninCard from '@/components/auth/SigninCard';
 import { Shell } from '@/components/shell';
 import { useDebounce } from "@/hooks/use-debounce"
+import { SignedOut } from '@clerk/nextjs';
 interface ModalProps {
   handleModalClose: () => void;
 }
@@ -47,7 +48,8 @@ const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
   }, [isModalOpen]);
 
   return (
-    <>
+    <>      
+    <SignedOut>
       {isModalOpen && (
         <div className="@container h-screen z-9999 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div
@@ -60,6 +62,7 @@ const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
           </div>
         </div>
       )}
+      </SignedOut>
     </>
   );
 };

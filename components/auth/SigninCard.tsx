@@ -1,6 +1,8 @@
 import * as React from "react";
 import Link from "next/link";
-
+import { redirect } from "next/navigation"
+import { useRouter } from "next/router"
+import { SignedOut, currentUser } from "@clerk/nextjs"
 import {
   Card,
   CardContent,
@@ -23,6 +25,8 @@ export const metadata = {
     onClose?: () => void;
   }
   const SigninCard: React.FC<SigninCardProps> = ({ onClose }) => { 
+
+
     const handleClose = () => {
       if (onClose) {
         onClose();
@@ -31,9 +35,10 @@ export const metadata = {
     const handleLinkClick = () => {
       handleClose();
     };
-    
+
   
     return (
+
       <div id="SigninCard" className="@container z-20">
         <Card className="@md:border border-0">
           <div className="flex justify-end sm:p-4 p-2">
@@ -85,7 +90,8 @@ export const metadata = {
             </Link>
           </CardFooter>
         </Card>
-        </div>     
+        </div>   
+
     );
   };
   

@@ -1,13 +1,13 @@
 {
   "name": "tunedsphere",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "next build && next analyze",
+    "analyze": "cross-env ANALYZE=true next build",
     "generate": "drizzle-kit generate:pg",
     "migrations:generate": "drizzle-kit generate:mysql",
     "migrations:push": "drizzle-kit push:mysql",

@@ -53,7 +53,7 @@ export default async function MyApp() {
           <div className='right-gradient -z-10'> </div>
 
           <div className='grid xl:grid-cols-4 py-16 2xl:text-left text-center text-textlow'>
-            <Link href="/labels" passHref>
+            <Link href="/music" passHref>
               <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30" rel="noopener noreferrer">
                 <h2 className={`mb-3 text-2xl font-semibold`}>
                   Labels{' '}
@@ -67,7 +67,7 @@ export default async function MyApp() {
               </div>
             </Link>
 
-            <Link href="/artists" passHref>
+            <Link href="/music" passHref>
               <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30" rel="noopener noreferrer">
                 <h2 className={`mb-3 text-2xl font-semibold`}>
                   Artists & DJ{' '}
@@ -81,7 +81,7 @@ export default async function MyApp() {
               </div>
             </Link>
 
-            <Link href="/festivals" passHref>
+            <Link href="/music" passHref>
               <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30" rel="noopener noreferrer">
                 <h2 className={`mb-3 text-2xl font-semibold`}>
                   Festivals{' '}
@@ -95,7 +95,7 @@ export default async function MyApp() {
               </div>
             </Link>
 
-            <Link href="/labels" passHref>
+            <Link href="/music" passHref>
               <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30  group-hover:translate-x-1 motion-reduce:transform-none" rel="noopener noreferrer">
                 <h2 className={`mb-3 text-2xl font-semibold`}>
                   Most popular{' '}
