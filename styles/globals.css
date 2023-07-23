@@ -27,8 +27,8 @@
 
   :root {
 
-    --background-navbartop: hsla(0, 0%, 2%, 0.63);
-    --background-navbarbottom: hsla(0, 0%, 2%, 0.63);
+    --background-navbartop: hsla(0, 0%, 2%, 0.9);
+    --background-navbarbottom: hsla(0, 0%, 2%, 0.9);
 
     --sidebar-dashboard-width: 220px;
     --headerHeight: 72px;
