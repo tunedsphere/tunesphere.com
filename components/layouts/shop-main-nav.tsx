@@ -53,7 +53,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                         <div className="mb-2 mt-4 text-lg font-medium">
                           {siteConfig.name}
                         </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
+                        <p className="text-sm leading-tight text-textlow">
                           {siteConfig.description}
                         </p>
                       </a>

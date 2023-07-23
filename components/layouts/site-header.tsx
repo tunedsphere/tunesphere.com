@@ -43,7 +43,7 @@ export function SiteHeader() {
 
 
   return (
-    <nav id="globalnav" className="globalnav fixed h-auto">
+    <nav id="globalnav" className="globalnav fixed h-auto border-b-2 border-accent2">
       <div id="globalnav-content" className="relative">
         <nav className="bg-backgroundNavbarTop z-9999 items-center md:px-8">
           <div className="py-2 navbar-container h-[--headerHeight] flex flex-between justify-between mx-auto">

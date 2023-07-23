@@ -37,7 +37,7 @@ export default async function MyApp() {
       <main className="mt-[var(--headerHeight)] sm:mt-[var(--globalNavHeight)]">
         <section className="section-max-width flex flex-col items-center justify-between md:px-8 mx-auto">
           <div className="py-12 md:mt-12 mt-2" >
-            <h1 className="font-extrabold dark:text-white md:text-5xl lg:text-6xl text-center justify-center text-transparent bg-clip-text">
+            <h1 className="font-extrabold dark:text-white text-center justify-center text-transparent bg-clip-text leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.4]">
               <span className="text-texthigh">A </span>
               <span className="text-transparent bg-clip-text party1">Psychedelic </span>
               <span className="text-transparent bg-clip-text party2">Dedicated </span>

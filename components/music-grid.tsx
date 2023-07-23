@@ -136,11 +136,11 @@ const sortedAndFilteredLabels = recordLabels
     <div className=''>
       
     <div className='flex justify-center items-center '>
-      <div className='flex py-8 justify-center border-accent4 border-b-1 border-t-2 w-3/4'>
-      <Button className="mx-4 text-texthigh" variant='outline'>Albums</Button>
-      <Button className="mx-4 text-texthigh" variant='outline'>Artists</Button>
-      <Button className="mx-4 text-texthigh" variant='outline'>Djs</Button>
-      <Button className="mx-4 text-texthigh" variant='outline'>Labels</Button></div>
+      <div className='flex py-8 justify-center border-accent4 border-b-1 border-t-2 w-3/4 gap-2 md:gap-6'>
+      <Button className="text-texthigh" variant='outline'>Albums</Button>
+      <Button className="text-texthigh" variant='outline'>Artists</Button>
+      <Button className="text-texthigh" variant='outline'>Djs</Button>
+      <Button className="text-texthigh" variant='outline'>Labels</Button></div>
       </div>
     <div className='flex h-[calc(100vh-[436px])]'> 
  <Sidebar
@@ -258,8 +258,8 @@ const sortedAndFilteredLabels = recordLabels
        className='p-4 border-accent4 border-2 grow scrollable-container @container overflow-y-scroll'>
         <div className='w-full bg-transparent border-colortheme border-b-2 p-6'> 
         <h3 className='text-texthigh'>{selectedGenre ? `${selectedGenre} :` : 'ALL :'}</h3>
-        <div className="flex gap-4"><h5 className='text-textlow'>{selectedYear}</h5>
-  <h5 className='text-textlow'>{selectedCountry}</h5></div>
+        <div className="flex gap-4 text-textlow"><h5>{selectedYear}</h5>
+  <h5>{selectedCountry}</h5></div>
 
 </div>
         <div className="grid grid-flow-row-dense grid-cols-2 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9 @5xl:grid-cols-10 @6xl:grid-cols-12 7xl:grid-cols-13 8xl:grid-cols-14 gap-4">

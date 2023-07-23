@@ -948,7 +948,6 @@
   }
 
 h1, h2, h3, h4, h5 {
-  font-weight: 800;
   color: var(--texthigh);
 }
 h1 {
@@ -968,8 +967,8 @@ h4 {
   line-height: 2rem; /* 32px */
 }
 h5 {
-  font-size: 1.25rem; /* 20px */
-  line-height: 1.75rem; /* 28px */
+  font-size: 1.25; /* 20px */
+  line-height: 1.5; /* 28px */
 }
  a:hover {
     color: var(--colortheme);
@@ -981,14 +980,17 @@ h5 {
 
 .party1 {
   animation: party1 8s infinite;
+  animation-delay: 3s;
   background-image: linear-gradient(to right,#6B46C1, #C026A7);
 }
 .party2 {
   animation: party2 8s infinite;
+  animation-delay: 3s;
   background-image: linear-gradient(to right, #DC2626, #FCD34D);
 }
 .party3 {
   animation: party3 8s infinite;
+  animation-delay: 3s;
   background-image: linear-gradient(to right, #4C51BF, #60A5FA);
 }
 
