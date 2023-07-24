@@ -126,7 +126,7 @@ export default async function MyApp() {
         </h1>
         <div className="flex flex-wrap items-center justify-center gap-4 py-8">
           <Link
-            href="/products"
+            href="/shop/products"
             className={cn(
               buttonVariants({
                 size: "lg",

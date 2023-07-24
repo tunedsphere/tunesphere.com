@@ -18,12 +18,12 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Icons } from "@/components/icons"
 
-interface MobileNavProps {
+interface ShopMobileNavProps {
   shopMainNavItems?: ShopMainNavItem[]
   sidebarNavItems: SidebarNavItem[]
 }
 
-export function MobileNav({ shopMainNavItems, sidebarNavItems }: MobileNavProps) {
+export function ShopMobileNav({ shopMainNavItems, sidebarNavItems }: ShopMobileNavProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = React.useState(false)
 
@@ -39,15 +39,15 @@ export function MobileNav({ shopMainNavItems, sidebarNavItems }: MobileNavProps)
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="pl-1 pr-0">
-        <div className="px-7">
+        <div className="px-7 pt-7">
           <Link
             aria-label="Home"
             href="/"
             className="flex items-center"
             onClick={() => setIsOpen(false)}
           >
-            <Icons.logo className="mr-2 h-4 w-4" aria-hidden="true" />
-            <span className="font-bold">{siteConfig.name}</span>
+            <Icons.logo className="mr-2 h-12 w-12" aria-hidden="true" />
+            <span className="font-bold text-xl">{siteConfig.name}</span>
           </Link>
         </div>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">

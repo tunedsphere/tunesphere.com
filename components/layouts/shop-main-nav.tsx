@@ -15,6 +15,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { Icons } from '@components/icons'
 
 interface ShopMainNavProps {
   items?: ShopMainNavItem[]
@@ -49,7 +50,10 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none"
                         href="/"
                       >
-                       LOGO
+                         <Icons.logo className='absolute mx-auto right-0 left-0 -z-10'
+              width={100}
+              height={100}></Icons.logo>
+              
                         <div className="mb-2 mt-4 text-lg font-medium">
                           {siteConfig.name}
                         </div>

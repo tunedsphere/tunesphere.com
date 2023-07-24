@@ -148,7 +148,7 @@ export default async function ShopPage() {
           <h2 className="flex-1 text-2xl font-medium sm:text-3xl">
             Featured products
           </h2>
-          <Link href="/products">
+          <Link href="/shop/products">
             <div
               className={cn(
                 buttonVariants({
@@ -183,7 +183,7 @@ export default async function ShopPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Link href={`/products?store_ids=${store.id}`}>
+                <Link href={`/shop/products?store_ids=${store.id}`}>
                   <div
                     className={cn(
                       buttonVariants({
@@ -211,7 +211,7 @@ export default async function ShopPage() {
         ]?.subcategories.map((subcategory) => (
           <Link
             key={subcategory.slug}
-            href={`categories/${String(productCategories[0]?.title)}/${
+            href={`/shop/categories/${String(productCategories[0]?.title)}/${
               subcategory.slug
             }`}
           >
