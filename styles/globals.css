@@ -773,7 +773,7 @@
 --colors-cyan12: hsl(185 73.0% 93.2%);
 
     
-    --colortheme: hsl(270 100% 50%);
+    --colortheme: hsl(270 100% 60%);
     --colortheme2: hsl(280 100% 40%);
     --colortheme3: hsl(49 100% 60%);
     --colortheme4: hsl(358 99% 60%);
@@ -1380,11 +1380,13 @@ max-width: 100%;
   transition: width var(--animation-duration) var(--animation-timing-curve);
   position: sticky;
   left: 0;
+  height: auto;
 }
 
 .sidebar .hidden-sidebar {
   opacity: 0;
   width: 0;
+  height: auto;
   transition: opacity var(--animation-duration) var(--animation-timing-curve);
 }
 

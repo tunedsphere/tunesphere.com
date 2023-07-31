@@ -138,22 +138,57 @@ const sortedAndFilteredLabels = recordLabels
     setColumnWidth(e.target.offsetWidth);
   };
 
+  // const containerRef = useRef(null);
+  // const [showLeftArrow, setShowLeftArrow] = useState(false);
+  // const [showRightArrow, setShowRightArrow] = useState(true);
 
+  // const handleScroll = () => {
+  //   if (containerRef.current) {
+  //     const container = containerRef.current;
+  //     setShowLeftArrow(container.scrollLeft > 0);
+  //     setShowRightArrow(container.scrollLeft + container.clientWidth < container.scrollWidth);
+  //   }
+  // };
+
+  // const scrollLeft = () => {
+  //   if (containerRef.current) {
+  //     const container = containerRef.current;
+  //     container.scrollTo({ left: container.scrollLeft - container.clientWidth, behavior: "smooth" });
+  //   }
+  // };
+
+  // const scrollRight = () => {
+  //   if (containerRef.current) {
+  //     const container = containerRef.current;
+  //     container.scrollTo({ left: container.scrollLeft + container.clientWidth, behavior: "smooth" });
+  //   }
+  // };
   return (
   <section className='mt-[var(--headerHeight)]'>
     <div className=''>
-      
-    <div className='flex justify-center items-center '>
-      <div className='flex py-8 justify-center border-accent4 border-b-1 border-t-2 w-3/4 gap-2 md:gap-6'>
-      <Button className="text-texthigh" variant='outline'>Albums</Button>
-      <Button className="text-texthigh" variant='outline'>Artists</Button>
-      <Button className="text-texthigh" variant='outline'>Djs</Button>
-      <Button className="text-texthigh" variant='outline'>Labels</Button></div>
+    <div className=" mx-auto relative w-full flex justify-center items-center">
+        {/* <Button
+        size="xs"
+        variant="nav"
+        onClick={scrollLeft} className={`left-0 flex items-center justify-center transition-opacity ${showLeftArrow ? 'opacity-100' : 'opacity-0'} focus:outline-none`}>
+          <Icons.chevronLeft/>
+        </Button> */}
+        <div className="flex justify center py-8 px-4 mx-auto right-0 left-0 gap-2 md:gap-6">
+          <Button className="text-texthigh px-1 sm:px-4" variant="outline">Albums</Button>
+          <Button className="text-texthigh px-1 sm:px-4" variant="outline">Artists</Button>
+          <Button className="text-texthigh px-1 sm:px-4" variant="outline">Djs</Button>
+          <Button className="text-texthigh px-1 sm:px-4" variant="outline">Labels</Button>
+        </div>
+        {/* <Button 
+        size="xs"
+        variant="nav"onClick={scrollRight} className={`h-full right-0 flex items-center justify-center transition-opacity ${showRightArrow ? 'opacity-100' : 'opacity-0'} focus:outline-none`}>
+          <Icons.chevronRight/>
+          </Button> */}
       </div>
-    <div className='flex h-[calc(100vh-[436px])]'> 
+    <div className='flex'> 
 
- <Sidebar variant="musicgrid" className={`sidebar  ${isSidebarOpen ? "sidebar-open xl:w-64 2xl:w-72 w-52" : "hidden-sidebar w-[68px] xl:w-24"}`}>
-  <div className={`flex py-4 ${isSidebarOpen ? "flex-row-reverse" : "justify-center"}`}>
+ <Sidebar variant="musicgrid" className={`sidebar  ${isSidebarOpen ? "sidebar-open xl:w-64 w-52" : "hidden-sidebar w-[68px] xl:w-24"}`}>
+  <div className={`flex py-2 ${isSidebarOpen ? "flex-row-reverse" : "justify-center"}`}>
  <SidebarMenuBurger
               isOpen={isSidebarOpen}
               handleSidebarToggle={handleSidebarClick}
@@ -161,20 +196,20 @@ const sortedAndFilteredLabels = recordLabels
             />
 </div>
     {/* // Sort the genreOptions */}
-    <div className="middle-sidebar">
+    <div className="middle-sidebar py-2">
     <div className="@container">
   <div className="divide-y gap-8">
     <Collapsible>
-      <CollapsibleTrigger onClick={handleGenreToggle}  className={`text-texthigh items-center justify-center  w-full flex py-2 text-xl${
+      <CollapsibleTrigger onClick={handleGenreToggle}  className={`text-texthigh justify-center items-center w-full flex py-2 text-xl${
         genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
     ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex object-contain py-4 ${isSidebarOpen ? "hidden" : "flex"}`}
-    style={{ width: '32px', height: '32px' }}><Icons.flower></Icons.flower></div>
+    style={{ width: '50px', height: '50px' }}><Icons.flower></Icons.flower></div>
     
     <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
-      <div className="flex">
-        <span><Icons.flower/></span>
-        <span className="hidden-sidebar px-2">Genres</span></div>
+      <div className="flex justify-center">
+        <span className=""><Icons.flower/></span>
+        <span className="hidden-sidebar px-2 ">Genres</span></div>
         <div>
         <span className="hidden-sidebar float-right">{genreExpanded ? '-' : '+'}</span></div></div>
       </CollapsibleTrigger>
@@ -205,10 +240,10 @@ const sortedAndFilteredLabels = recordLabels
 <div className="@container">
   <div className="divide-y">
     <Collapsible>
-    <CollapsibleTrigger onClick={handleCountryToggle}  className={`text-texthigh items-center justify-center  w-full flex py-2 text-xl${
+    <CollapsibleTrigger onClick={handleCountryToggle}  className={`text-texthigh items-center justify-center text-center w-full flex py-2 text-xl ${
         genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
-    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex object-contain ${isSidebarOpen ? "hidden" : "flex"}`}
+    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex text-center ${isSidebarOpen ? "hidden" : "flex"}`}
     style={{ width: '32px', height: '32px' }}><Icons.globe></Icons.globe></div>
     
     <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
@@ -286,8 +321,8 @@ const sortedAndFilteredLabels = recordLabels
       <div 
       id="GridMusicView"
        className='border-accent4 border-2 grow @container'>
-        <div id="MusicGridBanner" className='sm:min-h-[--music-grid-banner-height] min-h-[--music-grid-banner-height-mobile] relative w-full bg-transparent z-10 flex justify-center sm:ml-12 ml-4 border-colortheme border-b-2'> 
-        <div className="absolute inset-x-0 bottom-2  w-full ">
+        <div id="MusicGridBanner" className='sm:min-h-[--music-grid-banner-height] min-h-[--music-grid-banner-height-mobile] min-w-[calc(100vw - 68px)] relative w-full bg-transparent z-10 flex justify-center sm:ml-12 ml-4 border-colortheme border-b-2'> 
+        <div className="absolute inset-x-0 bottom-2 items-center w-full ">
         <h3 className='font-semibold text-texthigh md:text-5xl sm:text-3xl text-xl'>{selectedGenre ? `${selectedGenre} ` : 'ALL Genres'}</h3>
         <div className="flex gap-1">
         <h5 className="text-textlow md:text-3xl sm:text-xl text-base">{selectedCountry ? `${selectedCountry}, ` : ""}</h5><h5 className="text-textlow ">{selectedYear}</h5></div></div>
