@@ -31,6 +31,10 @@ const buttonVariants = cva(
         lg: "h-11 px-8 rounded-md",
         xg: "h-12 px-8 rounded-md",
       },
+      border: {
+        default:"",
+        transparent: "border-transparent",
+      }
     },
     defaultVariants: {
       variant: "default",

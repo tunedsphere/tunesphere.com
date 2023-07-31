@@ -19,32 +19,6 @@ const MenuBurger: React.FC<MenuBurgerProps> = ({ handleNavbarToggle, setIsOpen, 
     setRotation(rotation === 0 ? 90 : 0);
     setScale(scale === 100 ? 0 : 100);   // Call the handleToggle prop to toggle NavbarBottom
   };
-  
-  // useEffect(() => {
-  //   let prevScrollPos = window.pageYOffset;
-
-  //   const handleScroll = () => {
-  //     const currentScrollPos = window.pageYOffset;
-
-  //     // Check if the current scroll position is at the top of the page (within a small threshold)
-  //     const isAtTop = currentScrollPos < 20;
-
-  //     // Only update the menu state if the scroll position is at the top of the page
-  //     if (isAtTop) {
-  //       setIsOpen(false);
-  //     } else {
-  //       // Scrolling down, close the menu
-  //       setIsOpen(true);
-  //     }
-
-  //     prevScrollPos = currentScrollPos;
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
 
   return (
     <>

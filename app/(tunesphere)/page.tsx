@@ -1,5 +1,6 @@
 
 import '@styles/globals.css'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import planet2 from '@/public/bghome/planet2.png'
@@ -12,7 +13,9 @@ import { cn } from "@/lib/utils"
 import { SiteGlobalNav } from '@components/layouts/site-global-nav'
 import { buttonVariants } from "@/components/ui/button"
 
+
 import { Shell } from "@/components/shell"
+import { Icons } from '@components/icons'
 
 export const dynamic = "force-dynamic"
 
@@ -29,24 +32,42 @@ export default async function MyApp() {
             width={500}
             height={500}
             alt="planet Home"
-            className='-z-10 absolute left-0 top-0 md:w-1/3 w-2/5 block sm:hidden md:block'>
+            className='-z-10 absolute left-0 top-0 md:w-2/5 w-3/5'>
           </Image>
         </div>
       </div>
 
       <main className="mt-[var(--headerHeight)] sm:mt-[var(--globalNavHeight)]">
         <section className="section-max-width flex flex-col items-center justify-between md:px-8 mx-auto">
-          <div className="py-12 md:mt-12 mt-2" >
-            <h1 className="font-extrabold dark:text-white text-center justify-center text-transparent bg-clip-text leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.4]">
-              <span className="text-texthigh">A </span>
-              <span className="text-transparent bg-clip-text party1">Psychedelic </span>
-              <span className="text-transparent bg-clip-text party2">Dedicated </span>
-              <span className="text-transparent bg-clip-text party3">Platform</span>
-            </h1>
+          <div className="py-12 md:mt-12 mt-12" >
+            <div>
+            <h1 className="hero_title text-center justify-center leading-tight tracking-tighter md:text-5xl lg:text-7xl lg:leading-[1.4] md:leading-[1.4] gap-2"
+            aria-label='A Psychedelic Dedicated Platform'>
 
-            <p className="py-4 text-lg font-normal text-textlow lg:text-xl text-center">
+              <span className="text-texthigh">A </span>
+              <span 
+              className="animated-gradient-text_background animated-gradient-text_background-1 bg-clip-text"
+              >
+               <span 
+              className="animated-gradient-text_foreground animated-gradient-text_foreground-1 bg-clip-text">Psychedelic</span></span>
+                <span 
+              className="animated-gradient-text_background animated-gradient-text_background-2 bg-clip-text"
+              >
+               <span 
+              className="animated-gradient-text_foreground animated-gradient-text_foreground-2 bg-clip-text">Dedicated</span></span>
+                <span 
+              className="animated-gradient-text_background animated-gradient-text_background-3 bg-clip-text"
+              >
+               <span 
+              className="animated-gradient-text_foreground animated-gradient-text_foreground-3 bg-clip-text">Platform</span></span>
+
+            </h1>
+            </div>
+
+            <p className="py-4 text-lg font-normal text-textlow lg:text-xl text-center hero_description">
               Explore the musical realm of Psychedelic Art, with Music, Art, Decorations, and Festivals
             </p>
+            
           </div>
 
           <div className='left-gradient -z-10'> </div>
@@ -124,28 +145,52 @@ export default async function MyApp() {
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           A Store built for You and with everything you would expect.
         </h1>
-        <div className="flex flex-wrap items-center justify-center gap-4 py-8">
-          <Link
-            href="/shop/products"
-            className={cn(
-              buttonVariants({
-                size: "lg",
-              })
-            )}
-          >
-            Buy Now
-          </Link>
+        <div className="max-w-full w-[400px] mx-auto py-8">
+        <div className="flex flex-wrap items-center justify-center gap-4">
+       
+             <div className='hero_gradient-button-wrapper flex-1 flex-start items-stretch '>
           <Link
             href="/dashboard/stores"
             className={cn(
               buttonVariants({
-                variant: "outline",
                 size: "lg",
-              })
+              }),
+              "hero_gradient-button"
             )}
+            
           >
-            Sell Now
+           
+            <span className='absolute left-4'> <Icons.chevronRight className='text-black'></Icons.chevronRight></span>
+          <span className='absolute text-transparent bg-clip-text hero_bg-1 font-bold'>Buy Now</span>
+          <span className='absolute text-transparent bg-clip-text hero_bg-2 font-bold'>Buy Now</span>
+          <span className='absolute text-transparent bg-clip-text hero_bg-3 font-bold'>Buy Now</span>
+          
           </Link>
+          </div>
+          
+          <div className='hero_gradient-button-wrapper flex-1 flex-start items-stretch'>
+          <div className='hero_gradient-button-bg blur hero_bg-1'></div>
+          <div className='hero_gradient-button-bg blur hero_bg-2'></div>
+          <div className='hero_gradient-button-bg blur hero_bg-3 '></div>
+            <span className='hero_button-bg hero_bg-1'></span>
+            <span className='hero_button-bg hero_bg-2'></span>
+            <span className='hero_button-bg hero_bg-3'></span>
+          <Link
+            href="/dashboard/stores"
+            className={cn(
+              buttonVariants({
+                size: "lg",
+              }),
+              "hero_gradient-button-outline"
+            )}
+          ><span className='text-texthigh'>Sell Now</span>
+            
+          </Link>
+          </div>
+
+        
+          </div>
+
         </div>
       </section>
       <section

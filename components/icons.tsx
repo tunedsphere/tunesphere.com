@@ -53,6 +53,15 @@ import {
   Wallet,
   X,
   Flame,
+  Flower,
+  Globe,
+  CalendarSearch,
+  Disc,
+  Disc2,
+  Disc3,
+  Mic,
+  Mic2,
+  ListMusic,
   type Icon as LucideIcon,
   type LucideProps,
 } from "lucide-react"
@@ -114,6 +123,15 @@ export const Icons = {
   shoes: Footprints,
   accessories: HardHat,
   flame: Flame,
+  disc: Disc,
+  disc2: Disc2,
+  disc3: Disc3,
+  mic: Mic,
+  mic2: Mic2,
+  listMusic: ListMusic,
+  flower: Flower,
+  globe: Globe,
+  calendarSearch: CalendarSearch,
   logo: (props: LucideProps) => (
 <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg"
 fill="currentColor"  {...props}>

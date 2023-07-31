@@ -15,9 +15,9 @@ import { Icons } from "@/components/icons"
 
 import Modal from '@/components/auth/modal';
 import { UserDropdownMenu } from '@components/user-dropdown-menu';
-import MenuBurger from '@components/menu-burger';
-import { ModalLogIn } from '@components/auth/modal-login';
-import { SignedOut, SignedIn, useSignIn } from '@clerk/nextjs';
+import MenuBurger from '@components/navbar-menu-burger';
+
+import { SignedOut, SignedIn } from '@clerk/nextjs';
 
 export function SiteGlobalNav() {
       const [isMenuOpen, setMenuOpen] = useState(true);
@@ -38,17 +38,21 @@ export function SiteGlobalNav() {
     <nav id="globalnav" className="@container globalnav fixed h-auto border-b-2 border-accent2">
       <div id="globalnav-content" className="relative">
         
-        <nav className=" bg-backgroundNavbarTop z-9999 md:px-8">
+        <nav className="md:bg-backgroundNavbarTop bg-background z-9999 md:px-8">
 
           <div className="py-2 navbar-container h-[--headerHeight] flex @sm:px-4 px-2">
           
           <div className="sm:w-1/3 hidden relative items-center sm:gap-2 gap-1 sm:flex flex-row justify-start px-4">    
-             <SearchBox/>
+         
+             <Icons.logo className=''
+              width={72}
+              height={72}></Icons.logo>
+              
             </div>
             <div className="sm:w-1/3 w-4/6 z-20 flex sm:justify-center items-center left-0 @sm:px-4 px-2 shrink">
-            <Icons.logo className='absolute mx-auto right-0 left-0 -z-10 sm:block hidden'
+            {/* <Icons.logo className='absolute mx-auto right-0 left-0 -z-10 sm:block hidden'
               width={100}
-              height={100}></Icons.logo>
+              height={100}></Icons.logo> */}
               
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
                 
@@ -59,6 +63,7 @@ export function SiteGlobalNav() {
 
             </div>
             <div className="sm:w-1/3 w-2/6 shrink-0 relative items-center sm:gap-2 gap-1 flex flex-row justify-end">
+            <SearchBox/>
             <Button 
               variant="nav"
                size="xs"

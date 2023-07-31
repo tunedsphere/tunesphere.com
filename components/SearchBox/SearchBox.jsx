@@ -41,7 +41,7 @@ export default function SearchBox({ }) {
       <Button
   variant="nav"
   size="xs"
-  className="text-texthigh hover:text-colortheme px-2"
+  className=""
   onClick={() => setSearchBoxVisible(!isSearchBoxVisible)}
 >
   <Icons.search alt="Search" className="object-contain cursor-pointer search-trigger" />

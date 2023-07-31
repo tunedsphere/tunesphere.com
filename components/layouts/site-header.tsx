@@ -14,7 +14,7 @@ import { NavbarBottom } from '@/components/navbar-bottom';
 import Modal from '@/components/auth/modal';
 
 import { UserDropdownMenu } from '@components/user-dropdown-menu';
-import MenuBurger from '@components/menu-burger';
+import MenuBurger from '@components/navbar-menu-burger';
 import CartSheet from "@/components/cart/cart-sheet"
 import { SignedOut, SignedIn } from '@clerk/nextjs';
 
@@ -47,7 +47,7 @@ export function SiteHeader() {
   return (
     <nav id="globalnav" className="globalnav fixed h-auto border-b-2 border-accent2">
       <div id="globalnav-content" className="relative">
-        <nav className="bg-backgroundNavbarTop z-9999 items-center md:px-8">
+        <nav className="md:bg-backgroundNavbarTop bg-background  z-9999 items-center md:px-8">
           <div className="py-2 navbar-container h-[--headerHeight] flex flex-between justify-between mx-auto">
           <div className="sm:w-1/3 sm:visible invisible hidden relative items-center sm:gap-2 gap-[2px] sm:flex flex-row justify-start px-4">    
           <Icons.logo className='absolute mx-auto right-0 left-0 -z-10 sm:block hidden'

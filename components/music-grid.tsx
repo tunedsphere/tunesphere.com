@@ -12,12 +12,16 @@ import Image from 'next/image';
 import { recordLabels } from '@public/data.js';
 
 import { Button } from '@/components/ui/button';
+import { Icons } from '@/components/icons';
 import { Sidebar } from '@/components/ui/sidebar';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+
+import SidebarMenuBurger from "./sidebar-menu-burger";
+
 
 const MusicGrid: React.FC = () => {
   const [selectedLabel, setSelectedLabel] = useState(null);
@@ -30,7 +34,11 @@ const MusicGrid: React.FC = () => {
   const [yearExpanded, setYearExpanded] = useState(false);
   const [countryExpanded, setCountryExpanded] = useState(false);
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
+  const handleSidebarClick = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
 
 const handleGenreToggle = () => {
@@ -143,33 +151,43 @@ const sortedAndFilteredLabels = recordLabels
       <Button className="text-texthigh" variant='outline'>Labels</Button></div>
       </div>
     <div className='flex h-[calc(100vh-[436px])]'> 
- <Sidebar
- variant="musicgrid"
- className="">
- 
 
-
+ <Sidebar variant="musicgrid" className={`sidebar  ${isSidebarOpen ? "sidebar-open xl:w-64 2xl:w-72 w-52" : "hidden-sidebar w-[68px] xl:w-24"}`}>
+  <div className={`flex py-4 ${isSidebarOpen ? "flex-row-reverse" : "justify-center"}`}>
+ <SidebarMenuBurger
+              isOpen={isSidebarOpen}
+              handleSidebarToggle={handleSidebarClick}
+              setIsOpen={setIsSidebarOpen}
+            />
+</div>
     {/* // Sort the genreOptions */}
+    <div className="middle-sidebar">
     <div className="@container">
-  <div className="divide-y">
+  <div className="divide-y gap-8">
     <Collapsible>
-      <CollapsibleTrigger onClick={handleGenreToggle}  className={`text-texthigh w-full py-4 ${
-        genreExpanded ? 'bg-accent1' : '' // Apply the bg-accent1 class when yearExpanded is true
+      <CollapsibleTrigger onClick={handleGenreToggle}  className={`text-texthigh items-center justify-center  w-full flex py-2 text-xl${
+        genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
-    >
-        <span className="float-left pl-6">Genres</span>
-        <span className="float-right mr-4">{genreExpanded ? '-' : '+'}</span>
+    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex object-contain py-4 ${isSidebarOpen ? "hidden" : "flex"}`}
+    style={{ width: '32px', height: '32px' }}><Icons.flower></Icons.flower></div>
+    
+    <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
+      <div className="flex">
+        <span><Icons.flower/></span>
+        <span className="hidden-sidebar px-2">Genres</span></div>
+        <div>
+        <span className="hidden-sidebar float-right">{genreExpanded ? '-' : '+'}</span></div></div>
       </CollapsibleTrigger>
       {genreExpanded && (
-        <CollapsibleContent className="w-full">
+        <CollapsibleContent className={`${isSidebarOpen ? "w-full" : "hidden"}`}>
           <div>
             {genreOptions
                 .sort((a, b) => a.localeCompare(b)) // Sort the genreOptions array alphabetically
                 .map((genre) => (
                 <div
                   key={genre}
-                  className={`py-2 bg-accent0 cursor-pointer pl-8 font-normal divide-y divide-y-reverse ${
-                    genre === selectedGenre ? 'bg-accent1 text-texthigh' : ''
+                  className={`cursor-pointer py-2 pl-8 font-normal divide-y divide-y-reverse text-lg ${
+                    genre === selectedGenre ? ' text-texthigh' : ''
                   }`}
                   onClick={() => handleGenreSelection(genre)}
                 >
@@ -187,22 +205,28 @@ const sortedAndFilteredLabels = recordLabels
 <div className="@container">
   <div className="divide-y">
     <Collapsible>
-      <CollapsibleTrigger onClick={handleCountryToggle}  className={`text-texthigh w-full py-4 ${
-        countryExpanded ? 'bg-accent1' : '' // Apply the bg-accent1 class when yearExpanded is true
+    <CollapsibleTrigger onClick={handleCountryToggle}  className={`text-texthigh items-center justify-center  w-full flex py-2 text-xl${
+        genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
-    >
-        <span className="float-left pl-6">Country</span>
-        <span className="float-right mr-4">{countryExpanded ? '-' : '+'}</span>
+    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex object-contain ${isSidebarOpen ? "hidden" : "flex"}`}
+    style={{ width: '32px', height: '32px' }}><Icons.globe></Icons.globe></div>
+    
+    <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
+      <div className="flex">
+        <span><Icons.globe/></span>
+        <span className="hidden-sidebar px-2">Countries</span></div>
+        <div>
+        <span className="hidden-sidebar float-right">{countryExpanded ? '-' : '+'}</span></div></div>
       </CollapsibleTrigger>
       {countryExpanded && (
-        <CollapsibleContent className="w-full">
+        <CollapsibleContent className={`${isSidebarOpen ? "w-full" : "hidden"}`}>
           <div>
             {countryOptions
-              .sort((a, b) => a.localeCompare(b)) // Sort the genreOptions array in descending order
+              .sort((a, b) => a.localeCompare(b)) // Sort the countryOptions array in descending order
              .map((country) => (
               <div
                 key={country}
-                className={`py-2 bg-accent0 cursor-pointer pl-8 font-normal ${
+                className={`cursor-pointer py-2 pl-8 font-normal divide-y divide-y-reverse text-lg${
                   country === selectedCountry ? 'bg-accent1 text-texthigh' : ''
                 }`}
                 onClick={() => handleCountrySelection(country)}
@@ -221,22 +245,28 @@ const sortedAndFilteredLabels = recordLabels
             <div className="@container">
   <div className="divide-y">
     <Collapsible>
-      <CollapsibleTrigger onClick={handleYearToggle}  className={`text-texthigh w-full py-4 ${
-        yearExpanded ? 'bg-accent1' : '' // Apply the bg-accent1 class when yearExpanded is true
+    <CollapsibleTrigger onClick={handleYearToggle}  className={`text-texthigh items-center justify-center  w-full flex py-2 text-xl${
+        yearExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
-    >
-        <span className="float-left pl-6">Year</span>
-        <span className="float-right mr-4">{yearExpanded ? '-' : '+'}</span>
+    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex object-contain ${isSidebarOpen ? "hidden" : "flex"}`}
+    style={{ width: '32px', height: '32px' }}><Icons.calendarSearch></Icons.calendarSearch></div>
+    
+    <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
+      <div className="flex">
+        <span><Icons.calendarSearch/></span>
+        <span className="hidden-sidebar px-2">Year</span></div>
+        <div>
+        <span className="hidden-sidebar float-right">{yearExpanded ? '-' : '+'}</span></div></div>
       </CollapsibleTrigger>
       {yearExpanded && (
-        <CollapsibleContent className="w-full">
+        <CollapsibleContent className={`${isSidebarOpen ? "w-full" : "hidden"}`}>
           <div>
             {yearOptions
-              .sort((a, b) => b.localeCompare(a)) // Sort the genreOptions array in descending order
+              .sort((a, b) => b.localeCompare(a)) // Sort the yearOptions array in descending order
              .map((year) => (
               <div
                 key={year}
-                className={`py-2 bg-accent0 cursor-pointer pl-8 font-normal ${
+                className={`cursor-pointer py-2 pl-8 font-normal divide-y divide-y-reverse text-lg${
                   year === selectedYear ? 'bg-secondary-foreground text-texthigh' : ''
                 }`}
                 onClick={() => handleYearSelection(year)}
@@ -250,18 +280,22 @@ const sortedAndFilteredLabels = recordLabels
     </Collapsible>
   </div>
 </div>
+</div>
 
 </Sidebar>
       <div 
       id="GridMusicView"
-       style={{ height: 'calc(100vh - 248px)' }}
-       className='p-4 border-accent4 border-2 grow scrollable-container @container overflow-y-scroll'>
-        <div className='w-full bg-transparent border-colortheme border-b-2 p-6'> 
-        <h3 className='text-texthigh'>{selectedGenre ? `${selectedGenre} :` : 'ALL :'}</h3>
-        <div className="flex gap-4 text-textlow"><h5>{selectedYear}</h5>
-  <h5>{selectedCountry}</h5></div>
+       className='border-accent4 border-2 grow @container'>
+        <div id="MusicGridBanner" className='sm:min-h-[--music-grid-banner-height] min-h-[--music-grid-banner-height-mobile] relative w-full bg-transparent z-10 flex justify-center sm:ml-12 ml-4 border-colortheme border-b-2'> 
+        <div className="absolute inset-x-0 bottom-2  w-full ">
+        <h3 className='font-semibold text-texthigh md:text-5xl sm:text-3xl text-xl'>{selectedGenre ? `${selectedGenre} ` : 'ALL Genres'}</h3>
+        <div className="flex gap-1">
+        <h5 className="text-textlow md:text-3xl sm:text-xl text-base">{selectedCountry ? `${selectedCountry}, ` : ""}</h5><h5 className="text-textlow ">{selectedYear}</h5></div></div>
 
 </div>
+<div 
+      id="GridMusicView"
+       className='-z-10 sm:music-grid music-grid-mobile sm:pl-12 p-4 border-accent4 grow scrollable-container @container overflow-y-scroll'>
         <div className="grid grid-flow-row-dense grid-cols-2 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9 @5xl:grid-cols-10 @6xl:grid-cols-12 7xl:grid-cols-13 8xl:grid-cols-14 gap-4">
 
         {sortedAndFilteredLabels.map((label, index) => (
@@ -303,7 +337,7 @@ const sortedAndFilteredLabels = recordLabels
                         />
                       </Link>
                     </div>
-                    <div className="col-span-2 items-center pl-6">
+                    <div className="col-span-2 items-center">
                       <Link href={`label/${label.id}`}>
                         <h3 className="text-texthigh text-lg underline font-bold hover:text-colortheme cursor-pointer">
                           {label.name}
@@ -313,7 +347,7 @@ const sortedAndFilteredLabels = recordLabels
                       <p className="text-textlow">Founding Year: {label.founding_year}</p>
                       <p className="text-textlow">Main Genre: {label.genre}</p>
                     </div>
-                    <div className="@xs:col-span-3 w-5/6 pl-6">
+                    <div className="@xs:col-span-3 w-5/6">
                       <p><strong className="text-lg underline text-texthigh">Description:</strong></p>
                       <p className='text-textlow'>{label.description}</p>
                     </div>
@@ -323,6 +357,7 @@ const sortedAndFilteredLabels = recordLabels
             </React.Fragment>
           ))}
         </div>
+      </div>
       </div>
       </div>
       </div>
