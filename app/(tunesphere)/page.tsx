@@ -140,30 +140,34 @@ export default async function MyApp() {
       <section
         id="hero"
         aria-labelledby="hero-heading"
-        className="flex flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
+        className="section-max-width flex flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           A Store built for You and with everything you would expect.
         </h1>
-        <div className="max-w-full w-[400px] mx-auto py-8">
+        <div className="relative max-w-full w-[400px] mx-auto py-8">
+      
         <div className="flex flex-wrap items-center justify-center gap-4">
-       
+        <div className="absolute button_bg-gradient-1 left-0 right-0 -z-10"></div>
+        <div className="absolute button_bg-gradient-2 left-0 right-0 -z-10"></div>
+        <div className="absolute button_bg-gradient-3 left-0 right-0 -z-10"></div>
              <div className='hero_gradient-button-wrapper flex-1 flex-start items-stretch '>
+              
           <Link
-            href="/dashboard/stores"
+            href="/shop/products"
             className={cn(
               buttonVariants({
                 size: "lg",
               }),
-              "hero_gradient-button"
-            )}
-            
+              "hero_gradient-button text-textblack"
+            )}         
           >
-           
-            <span className='absolute left-4'> <Icons.chevronRight className='text-black'></Icons.chevronRight></span>
-          <span className='absolute text-transparent bg-clip-text hero_bg-1 font-bold'>Buy Now</span>
+ 
+            <span className='absolute flex justify-center items-center text-black text-textblack font-semibold'><Icons.chevronRight className='text-black left-4'></Icons.chevronRight>Buy Now</span>
+          {/* <span className='absolute text-transparent bg-clip-text hero_bg-1 font-bold'>Buy Now</span>
           <span className='absolute text-transparent bg-clip-text hero_bg-2 font-bold'>Buy Now</span>
-          <span className='absolute text-transparent bg-clip-text hero_bg-3 font-bold'>Buy Now</span>
+          <span className='absolute text-transparent bg-clip-text hero_bg-3 font-bold'>Buy Now</span> */}
+
           
           </Link>
           </div>
@@ -187,8 +191,6 @@ export default async function MyApp() {
             
           </Link>
           </div>
-
-        
           </div>
 
         </div>

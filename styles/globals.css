@@ -793,7 +793,7 @@
     --foreground:  var(--colortheme);
  
     --muted: hsl(240 4% 16%);
-    --muted-foreground: hsl(240 5% 65%);
+    --muted-foreground:  hsl(240 5% 45%);
  
     --popover: hsl(270 100% 80%);
     --popover-foreground: hsl(280 47% 11%);
@@ -811,16 +811,14 @@
     --secondary-foreground: hsl(222 47% 11%);
  
     --accent: hsl(252 40% 22%);
-    --accent9: hsl(0 0% 93%);
-    --accent8: hsl(0 0% 62%);
-    --accent7: hsl(0 0% 49%);
-    --accent6: hsl(0 0% 44%);
-    --accent5: hsl(0 0% 24%);
-    --accent4: hsl(0 0% 20%);
-    --accent3: hsl(0 0% 16%);
-    --accent2: hsl(0 0% 11%);
-    --accent1: hsl(0 0% 7%);
-    --accent0: hsl(0 0% 4%);
+    --accent7: hsl(0 0% 93.0%);
+    --accent6: hsl(0 0% 62.8%);
+    --accent5: hsl(0 0% 49.4%);
+    --accent4: hsl(0 0% 43.9%);
+    --accent3: hsl(0 0% 24.3%);
+    --accent2: hsl(0 0% 20.5%);
+    --accent1: hsl(0 0% 7.6%);
+    --accent0: hsl(0 0% 4.0%);
     --accent-foreground: 222.2 47.4% 11.2%;
  
     --destructive: hsl(358 65% 40%);
@@ -1028,6 +1026,16 @@ max-width: 100%;
   transition-duration: .15s;
   transition-timing-function: ease;
 }
+.hero_gradient-button-shop {
+  background-color: var(--texthigh);
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 4px 0 #00000010;
+  color: var(--foreground);
+  transition-property: color,background-color,box-shadow;
+  transition-duration: .15s;
+  transition-timing-function: ease;
+}
 
 .hero_button-bg {
   border-radius: 6px;
@@ -1045,6 +1053,12 @@ max-width: 100%;
 .hero_title-bg-1 {
   animation: hero_title-bg-1 8s infinite;
   background-image: linear-gradient(to right,#6B46C1, #C026A7);
+}
+.animated-gradient-text_background-colortheme {
+  --start-color: var(--colortheme2);
+  --end-color: var(--colortheme);
+  display: block;
+  position: relative;
 }
 .animated-gradient-text_background-1 {
   --start-color: #6B46C1;
@@ -1064,7 +1078,27 @@ max-width: 100%;
   display: block;
   position: relative;
 }
-
+.animated-gradient-text_background-colortheme::before {
+  content: 'Explore Products';
+  position: absolute;
+    display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: -10px;
+  background: var(--textdark);
+  background-clip: text;
+  color: transparent;
+  z-index: 0;
+}
+.animated-gradient-text_foreground-colortheme{
+  content: 'Psychedelic';
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(90deg, var(--start-color), var(--end-color));
+  position: relative;
+  top :0;
+  z-index: 1;
+}
 .animated-gradient-text_background-1::before {
   content: 'Psychedelic';
   position: absolute;
@@ -1108,6 +1142,7 @@ max-width: 100%;
   position: relative;
   top :0;
   z-index: 1;
+
 }.animated-gradient-text_background-3::before {
   content: 'Platform';
   position: absolute;
@@ -1130,6 +1165,12 @@ max-width: 100%;
   top :0;
   z-index: 1;
 }
+.animated-gradient-text_foreground-colortheme {
+  animation: animated-gradient-text_fade-foreground-colortheme 8s infinite;
+}
+.animated-gradient-text_background-colortheme::before {
+  animation: animated-gradient-text_fade-background-colortheme 8s infinite;
+}
 .animated-gradient-text_foreground-1 {
   animation: animated-gradient-text_fade-foreground-1 8s infinite;
 }
@@ -1148,7 +1189,22 @@ max-width: 100%;
 .animated-gradient-text_background-3::before {
   animation: animated-gradient-text_fade-background-3 8s infinite;
 }
-
+@keyframes animated-gradient-text_fade-background-colortheme {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  66.667%, 83.333% {
+    opacity: 0;
+  }
+}
+@keyframes animated-gradient-text_fade-foreground-colortheme {
+  0%, 50%, 100% {
+    opacity: 0;
+  }
+  66.667%, 83.333% {
+    opacity: 1;
+  }
+}
 @keyframes animated-gradient-text_fade-background-1 {
   0%, 16.667%, 100% {
     opacity: 0;
@@ -1203,6 +1259,7 @@ max-width: 100%;
     opacity: 1;
   }
 }
+
 .hero_title-bg-2 {
   animation: hero_title-bg-2 8s infinite;
   background-image: linear-gradient(to right, #DC2626, #FCD34D);
@@ -1229,8 +1286,50 @@ max-width: 100%;
     opacity: 1;
   }
 }
+.button_text-bg-colortheme-1 {
+  --start-color: var(--colortheme2);
+  --end-color: var(--colortheme);
+  animation: button_text-bg-colortheme-1 8s infinite;
+  background-image: linear-gradient(to right, var(--start-color),var(--end-color));
+}
+@keyframes button_text-bg-colortheme-1 {
+  0%, 50%, 100% {
+    opacity: 0;
+  }
+  66.667%, 83.333% {
+    opacity: 1;
+  }
+}
+.button_text-bg-colortheme-2 {
+  --start-color: var(--colortheme2);
+  --end-color: var(--colortheme);
+  animation: button_text-bg-colortheme-2 8s infinite;
+  background-image: var(--textdark);
+}
+@keyframes button_text-bg-colortheme-2 {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  66.667%, 83.333% {
+    opacity: 0;
+  }
+}
 
+.hero_bg-colortheme {
+  --start-color: var(--colortheme2);
+  --end-color: var(--colortheme);
+  animation: hero_bg-colortheme 8s infinite;
+  background-image: linear-gradient(to right, var(--start-color),var(--end-color));
+}
 
+@keyframes hero_bg-colortheme {
+  0%, 33.337%, 100% {
+    opacity: 1;
+  }
+  83.333%, 90% {
+    opacity: 0;
+  }
+}
 .hero_bg-1 {
   animation: hero_bg-1 8s infinite;
   background-image: linear-gradient(to right,#6B46C1, #C026A7);
@@ -1321,6 +1420,7 @@ max-width: 100%;
   bottom: 0;
   background: var(--colorfooter);
   filter: blur(100px);
+  
 }
 .grid-gradient {
   position: absolute;
@@ -1346,8 +1446,46 @@ max-width: 100%;
   width: 25%;
   background: #160068;
   filter: blur(100px);
+  
+}
+.button_bg-gradient-colortheme {
+  height: 60px;
+  width: 100%;
+  background: var(--colortheme);
+  filter: blur(100px);
+  animation: button_bg-colortheme 8s infinite;
+}
+@keyframes button_bg-colortheme {
+  0%, 100% {
+    opacity: 0;
+  }
+  16.667%, 83.333% {
+    opacity: 1;
+  }
 }
 
+.button_bg-gradient-1 {
+  height: 32px;
+  width: 100%;
+  background: #C026A7;
+  filter: blur(100px);
+  animation: hero_bg-1 8s infinite;
+}
+
+.button_bg-gradient-2 {
+  height: 32px;
+  width: 100%;
+  background: #FCD34D;
+  filter: blur(100px);
+  animation: hero_bg-2 8s infinite;
+
+}.button_bg-gradient-3 {
+  height: 32px;
+  width: 100%;
+  background: #60A5FA;
+  filter: blur(100px);
+  animation: hero_bg-3 8s infinite;
+}
 .global-container {
   display: flex;
   max-width: 1441px;

@@ -54,31 +54,51 @@ export default async function ShopPage() {
         aria-labelledby="hero-heading"
         className="section-max-width flex w-full flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
-        <h1 className="text-3xl text-textdark font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
+        <h1 className="z-10 text-3xl text-textdark font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           A Store specially built for You and with everything you should expect
         </h1>
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="relative max-w-full w-[400px] mx-auto py-8">
+        <div className="flex flex-wrap items-center justify-center gap-4">  
+        <div className="absolute button_bg-gradient-colortheme left-0 right-0"></div>
+             <div className='hero_gradient-button-wrapper flex-1 flex-start items-stretch z-20'>
           <Link
             href="/shop/products"
             className={cn(
               buttonVariants({
                 size: "lg",
-              })
-            )}
+              }),
+              "hero_gradient-button hover:bg-popover"
+            )}  
           >
-            Buy Now
+          <span 
+              className="animated-gradient-text_background-colortheme animated-gradient-text_background-colortheme bg-clip-text font-semibold"
+              >
+               <span 
+              className="animated-gradient-text_foreground-colortheme animated-gradient-text_foreground-colortheme bg-clip-text font-semibold">Explore Products</span></span>
+          
           </Link>
+          </div>
+          
+          <div className='hero_gradient-button-wrapper z-20 flex-1 flex-start items-stretch'>
+          <div className='hero_gradient-button-bg blur hero_bg-colortheme'></div>
+
           <Link
             href="/dashboard/stores"
             className={cn(
               buttonVariants({
-                variant: "outline",
                 size: "lg",
-              })
+              }),
+              "hero_gradient-button-shop z-30 hover:bg-popover"
             )}
-          >
-            Sell Now
+          ><span className='text-textdark font-semibold'>Sell Now</span>
+            
           </Link>
+          </div>
+
+          <div className="absolute button_bg-gradient-colortheme left-0 right-0 -z-10"></div>
+
+          </div>
+
         </div>
       </section>
       <section

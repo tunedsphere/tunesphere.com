@@ -198,18 +198,17 @@ const sortedAndFilteredLabels = recordLabels
     {/* // Sort the genreOptions */}
     <div className="middle-sidebar py-2">
     <div className="@container">
-  <div className="divide-y gap-8">
     <Collapsible>
       <CollapsibleTrigger onClick={handleGenreToggle}  className={`text-texthigh justify-center items-center w-full flex py-2 text-xl${
         genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
     ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex object-contain py-4 ${isSidebarOpen ? "hidden" : "flex"}`}
-    style={{ width: '50px', height: '50px' }}><Icons.flower></Icons.flower></div>
+    style={{ width: '50px', height: '50px' }}><Icons.flower/></div>
     
     <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
       <div className="flex justify-center">
         <span className=""><Icons.flower/></span>
-        <span className="hidden-sidebar px-2 ">Genres</span></div>
+        <span className="hidden-sidebar px-2">Genres</span></div>
         <div>
         <span className="hidden-sidebar float-right">{genreExpanded ? '-' : '+'}</span></div></div>
       </CollapsibleTrigger>
@@ -221,7 +220,7 @@ const sortedAndFilteredLabels = recordLabels
                 .map((genre) => (
                 <div
                   key={genre}
-                  className={`cursor-pointer py-2 pl-8 font-normal divide-y divide-y-reverse text-lg ${
+                  className={`cursor-pointer py-2 pl-8 font-normal text-lg ${
                     genre === selectedGenre ? ' text-texthigh' : ''
                   }`}
                   onClick={() => handleGenreSelection(genre)}
@@ -233,18 +232,16 @@ const sortedAndFilteredLabels = recordLabels
         </CollapsibleContent>
       )}
     </Collapsible>
-  </div>
 </div>
 
 {/* // Sort the CountryOptions */}
 <div className="@container">
-  <div className="divide-y">
     <Collapsible>
     <CollapsibleTrigger onClick={handleCountryToggle}  className={`text-texthigh items-center justify-center text-center w-full flex py-2 text-xl ${
         genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
     ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex text-center ${isSidebarOpen ? "hidden" : "flex"}`}
-    style={{ width: '32px', height: '32px' }}><Icons.globe></Icons.globe></div>
+    style={{ width: '32px', height: '32px' }}><Icons.globe/></div>
     
     <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
       <div className="flex">
@@ -261,8 +258,8 @@ const sortedAndFilteredLabels = recordLabels
              .map((country) => (
               <div
                 key={country}
-                className={`cursor-pointer py-2 pl-8 font-normal divide-y divide-y-reverse text-lg${
-                  country === selectedCountry ? 'bg-accent1 text-texthigh' : ''
+                className={`cursor-pointer py-2 pl-8 font-normal text-lg ${
+                  country === selectedCountry ? 'text-texthigh' : ''
                 }`}
                 onClick={() => handleCountrySelection(country)}
               >
@@ -274,21 +271,21 @@ const sortedAndFilteredLabels = recordLabels
       )}
     </Collapsible>
   </div>
-</div>
 
 {/* // Sort the YearOptions */}
-            <div className="@container">
-  <div className="divide-y">
+
+  
+  <div className="@container">
     <Collapsible>
-    <CollapsibleTrigger onClick={handleYearToggle}  className={`text-texthigh items-center justify-center  w-full flex py-2 text-xl${
-        yearExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
+    <CollapsibleTrigger onClick={handleYearToggle}  className={`text-texthigh items-center justify-center text-center w-full flex py-2 text-xl ${
+        genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
-    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex object-contain ${isSidebarOpen ? "hidden" : "flex"}`}
-    style={{ width: '32px', height: '32px' }}><Icons.calendarSearch></Icons.calendarSearch></div>
+    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex text-center ${isSidebarOpen ? "hidden" : "flex"}`}
+    style={{ width: '32px', height: '32px' }}><Icons.listMusic/></div>
     
     <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
       <div className="flex">
-        <span><Icons.calendarSearch/></span>
+        <span><Icons.listMusic/></span>
         <span className="hidden-sidebar px-2">Year</span></div>
         <div>
         <span className="hidden-sidebar float-right">{yearExpanded ? '-' : '+'}</span></div></div>
@@ -301,8 +298,8 @@ const sortedAndFilteredLabels = recordLabels
              .map((year) => (
               <div
                 key={year}
-                className={`cursor-pointer py-2 pl-8 font-normal divide-y divide-y-reverse text-lg${
-                  year === selectedYear ? 'bg-secondary-foreground text-texthigh' : ''
+                className={`cursor-pointer py-2 pl-8 font-normal text-lg ${
+                  year === selectedYear ? 'text-texthigh' : ''
                 }`}
                 onClick={() => handleYearSelection(year)}
               >
@@ -314,14 +311,15 @@ const sortedAndFilteredLabels = recordLabels
       )}
     </Collapsible>
   </div>
-</div>
+
+
 </div>
 
 </Sidebar>
       <div 
       id="GridMusicView"
        className='border-accent4 border-2 grow @container'>
-        <div id="MusicGridBanner" className='sm:min-h-[--music-grid-banner-height] min-h-[--music-grid-banner-height-mobile] min-w-[calc(100vw - 68px)] relative w-full bg-transparent z-10 flex justify-center sm:ml-12 ml-4 border-colortheme border-b-2'> 
+        <div id="MusicGridBanner" className='sm:min-h-[--music-grid-banner-height] min-h-[--music-grid-banner-height-mobile] min-w-[calc(100vw - 68px)] relative w-full bg-transparent z-10 flex justify-center sm:ml-12 ml-4 border-accent4 border-b-2'> 
         <div className="absolute inset-x-0 bottom-2 items-center w-full ">
         <h3 className='font-semibold text-texthigh md:text-5xl sm:text-3xl text-xl'>{selectedGenre ? `${selectedGenre} ` : 'ALL Genres'}</h3>
         <div className="flex gap-1">
