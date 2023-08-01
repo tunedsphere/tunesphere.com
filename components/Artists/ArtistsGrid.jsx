@@ -1,4 +1,4 @@
-"use client";// Assuming data.js file is in the same directory
+"use client";
 import "@styles/globals.css";
 
 import React, { useState } from 'react';

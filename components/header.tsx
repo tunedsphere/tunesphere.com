@@ -8,21 +8,25 @@ interface HeaderProps
   title: string
   description?: string | null
   size?: "default" | "sm"
+  variant?: "dashboard"
 }
 
 export function Header({
   title,
   description,
   size = "default",
+  variant = "dashboard",
   className,
   ...props
 }: HeaderProps) {
   return (
-    <div className={cn("grid gap-1", className)} {...props}>
+    <div className={cn("grid gap-1",
+      variant === "dashboard" && "bg-accent2 p-8", className)} {...props}>
       <h1
         className={cn(
           "text-3xl font-bold tracking-tight",
-          size === "default" && "md:text-4xl"
+          size === "default" && "md:text-4xl",
+
         )}
       >
         {title}

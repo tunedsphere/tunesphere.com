@@ -2,7 +2,7 @@
 import '@styles/globals.css';
 import * as React from "react"
 import SigninCard from '@/components/auth/SigninCard';
-import { Shell } from '@/components/shell';
+import { Shell } from '@components/shells/shell';
 import {
   CommandDialog,
   CommandEmpty,
@@ -61,7 +61,7 @@ export function ModalLogIn() {
                </SignedOut>
           <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
           <div className="z-10000">
-            <Shell layout="auth">
+            <Shell variant="auth">
               <SigninCard onClose={handleCloseDialog}/>
             </Shell>
         </div>

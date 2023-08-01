@@ -42,6 +42,7 @@ export type UserRole = "user" | "admin" | "artist" | "label" | "dj" | "seller"
 export type Option = {
   label: string
   value: string
+  icon?: React.ComponentType<{ className?: string }>
 }
 
 export type FileWithPreview = FileWithPath & {
@@ -82,9 +83,12 @@ export interface CartLineItem
   quantity?: number
   storeName: string | null
 }
-export type SubscriptionPlan = {
+export interface SubscriptionPlan {
+  id: "basic" | "standard" | "pro"
   name: string
   description: string
+  features: string[]
   stripePriceId: string
-  monthlyPrice?: number | null
+  price: number
+  isCanceled?: boolean
 }

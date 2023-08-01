@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card"
 import { OAuthSignIn } from "@/components/auth/oauth-signin"
 import { SignInForm } from "@/components/forms/signin-form"
-import { Shell } from "@/components/shell"
+import { Shell } from "@components/shells/shell"
 
 export const metadata: Metadata = {
   title: "Sign In",
@@ -25,7 +25,7 @@ export default async function SignInPage() {
   if (user) redirect("/")
   
   return (
-    <Shell layout="auth">
+    <Shell variant="auth">
     <Card>
       <CardHeader className="space-y-1 items-center p-12 gap-1">
         <CardTitle className="text-3xl">Log In to TunedSphere</CardTitle>

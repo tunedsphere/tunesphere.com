@@ -9,7 +9,6 @@ interface SidebarMenuBurgerProps {
   setIsOpen(isOpen: boolean): void;
 }
 const SidebarMenuBurger: React.FC<SidebarMenuBurgerProps> = ({ handleSidebarToggle, setIsOpen, isOpen }) => {
-
   const [rotation, setRotation] = useState(0);
   const [scale, setScale] = useState(100);
 
@@ -29,11 +28,11 @@ const SidebarMenuBurger: React.FC<SidebarMenuBurgerProps> = ({ handleSidebarTogg
       className="text-texthigh hover:text-colortheme"
     >
       <Icons.close
-        className={`absolute scale-${isOpen ? '100' : '0'} transition-all`}
+        className={`absolute scale-${isOpen ? '100' : '0'}`}
         aria-hidden="true"
       />
       <Icons.menu
-        className={`scale-${isOpen ? '0' : '100'} transition-all`}
+        className={`scale-${isOpen ? '0' : '100'}`}
         aria-hidden="true"
       />
     </Button>

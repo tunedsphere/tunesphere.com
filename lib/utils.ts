@@ -10,10 +10,15 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formatPrice(price: number | string) {
-  return new Intl.NumberFormat("en-US", {
+export function formatPrice(
+  price: number | string,
+  currency: "EUR" | "USD" | "GBP" | "BDT" = "EUR",
+  notation: "compact" | "engineering" | "scientific" | "standard" = "standard"
+) {
+  return new Intl.NumberFormat("en-EU", {
     style: "currency",
-    currency: "EUR",
+    currency,
+    notation,
   }).format(Number(price))
 }
 
@@ -53,7 +58,9 @@ export function toTitleCase(str: string) {
     (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()
   )
 }
-
+export function truncate(str: string, length: number) {
+  return str.length > length ? `${str.substring(0, length)}...` : str
+}
 export function toSentenceCase(str: string) {
   return str
     .replace(/([A-Z])/g, " $1")

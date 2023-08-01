@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card"
 import { OAuthSignIn } from "@/components/auth/oauth-signin"
 import { SignUpForm } from "@/components/forms/signup-form"
-import { Shell } from "@/components/shell"
+import { Shell } from "@components/shells/shell"
 
 export const metadata = {
   title: "Sign Up",
@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function SignUpPage() {
   return (
-    <Shell layout="auth">
+    <Shell variant="auth">
       <Card variant="signup">
         <CardHeader className="space-y-1 items-center sm:p-12 gap-1">
           <CardTitle className="text-3xl">Sign up</CardTitle>

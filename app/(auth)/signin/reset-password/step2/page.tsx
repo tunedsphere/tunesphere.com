@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { ResetPasswordStep2Form } from "@/components/forms/reset-password-form-step2"
-import { Shell } from "@/components/shell"
+import { Shell } from "@components/shells/shell"
 
 export const metadata = {
   title: "Reset Password",
@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function ResetPasswordStep2Page() {
   return (
-    <Shell layout="auth">
+    <Shell variant="auth">
       <Card>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">Forgot password</CardTitle>

@@ -3,7 +3,7 @@ import { products } from "@/db/schema"
 import { env } from "@/env.mjs"
 
 import { Products } from "@/components/products"
-import { Shell } from "@/components/shell"
+import { Shell } from "@components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
 

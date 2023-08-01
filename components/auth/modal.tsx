@@ -2,7 +2,7 @@
 import '@styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import SigninCard from '@/components/auth/SigninCard';
-import { Shell } from '@/components/shell';
+import { Shell } from '@components/shells/shell';
 import { useDebounce } from "@/hooks/use-debounce"
 import { SignedOut } from '@clerk/nextjs';
 interface ModalProps {
@@ -56,7 +56,7 @@ const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
             ref={modalRef}
             className="overflow-y-auto no-scrollbar w-full no-scrollbar z-10000 absolute @md:top-16 top-0 bottom-0"
           >
-            <Shell layout="auth" className='z-40'>
+            <Shell variant="auth" className='z-40'>
               <SigninCard onClose={handleClick} />
             </Shell>
           </div>

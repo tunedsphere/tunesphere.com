@@ -27,17 +27,16 @@ export default async function DashboardLayout({
   return (
 <>
   <SiteHeader/>
-  <div className="min-h-screen mt-[var(--headerHeight)] flex justify-center max-w-[1280px] mx-auto">
+  <section className="relative min-h-screen mt-[var(--headerHeight)] flex justify-center max-w-[1560px] mx-auto">
       <Sidebar variant="dashboard">
         <ScrollArea className="py-6 pr-6">
           <SidebarNav items={dashboardConfig.sidebarNav} />
         </ScrollArea>
       </Sidebar>
-    <main className="overflow-hidden flex w-screen">
-      {children}
+    <main className="overflow-hidden w-full flex flex-col">
+      {children} 
     </main>
-
-  </div>
+  </section>
   <SiteFooter />
   </>
    

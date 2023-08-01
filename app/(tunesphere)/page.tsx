@@ -14,7 +14,7 @@ import { SiteGlobalNav } from '@components/layouts/site-global-nav'
 import { buttonVariants } from "@/components/ui/button"
 
 
-import { Shell } from "@/components/shell"
+import { Shell } from "@components/shells/shell"
 import { Icons } from '@components/icons'
 
 export const dynamic = "force-dynamic"
@@ -70,12 +70,17 @@ export default async function MyApp() {
             
           </div>
 
-          <div className='left-gradient -z-10'> </div>
+          {/* <div className='left-gradient -z-10'> </div> */}
           <div className='right-gradient -z-10'> </div>
 
           <div className='grid xl:grid-cols-4 py-16 2xl:text-left text-center text-textlow'>
+          <div className='hero_gradient-link-wrapper flex-1 flex-start items-stretch'>
+
+            <span className='-inset-1 hero_link-bg hero_bg-1'></span>
+
             <Link href="/music" passHref>
-              <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30" rel="noopener noreferrer">
+              <div className="bg-background group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-accent1" rel="noopener noreferrer">
+
                 <h2 className={`mb-3 text-2xl font-semibold`}>
                   Labels{' '}
                   <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
@@ -87,23 +92,34 @@ export default async function MyApp() {
                 </p>
               </div>
             </Link>
-
+            </div>
+            <div className='hero_gradient-link-wrapper flex-1 flex-start items-stretch'>
+     
+            <span className='inset-1 hero_link-bg hero_bg-2'></span>
+           
             <Link href="/music" passHref>
-              <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30" rel="noopener noreferrer">
+              <div className="bg-background group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-accent1" rel="noopener noreferrer">
+
+
                 <h2 className={`mb-3 text-2xl font-semibold`}>
                   Artists & DJ{' '}
                   <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
                   </span>
+                
                 </h2>
                 <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
                   Explore in depth of your favorite genre and find inspiring Artists
                 </p>
               </div>
             </Link>
+            </div>
 
+            <div className='hero_gradient-link-wrapper flex-1 flex-start items-stretch'>
+     
+     <span className='-inset-1 hero_link-bg hero_bg-2'></span>
             <Link href="/music" passHref>
-              <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30" rel="noopener noreferrer">
+              <div className="bg-background group rounded-lg border border-transparent px-5 py-4 transition-colors hover:bg-accent1 hover:bg-bg-accent1" rel="noopener noreferrer">
                 <h2 className={`mb-3 text-2xl font-semibold`}>
                   Festivals{' '}
                   <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
@@ -115,9 +131,12 @@ export default async function MyApp() {
                 </p>
               </div>
             </Link>
+            </div>
+            <div className='hero_gradient-link-wrapper flex-1 flex-start items-stretch'>
 
+            <span className='inset-1 hero_link-bg hero_bg-3'></span>
             <Link href="/music" passHref>
-              <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30  group-hover:translate-x-1 motion-reduce:transform-none" rel="noopener noreferrer">
+              <div className="bg-background group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-accent1 group-hover:translate-x-1 motion-reduce:transform-none" rel="noopener noreferrer">
                 <h2 className={`mb-3 text-2xl font-semibold`}>
                   Most popular{' '}
                   <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
@@ -125,11 +144,11 @@ export default async function MyApp() {
                   </span>
                 </h2>
                 <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-textlow`}>
-                  Visit the most Popular request
+                  Search with the most Popular request
                 </p>
               </div>
             </Link>
-
+        </div>
           </div>
 
           <div className='flex justify-center'>
@@ -143,7 +162,7 @@ export default async function MyApp() {
         className="section-max-width flex flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
-          A Store built for You and with everything you would expect.
+          A Store built for You with everything you would expect.
         </h1>
         <div className="relative max-w-full w-[400px] mx-auto py-8">
       
@@ -162,8 +181,8 @@ export default async function MyApp() {
               "hero_gradient-button text-textblack"
             )}         
           >
- 
-            <span className='absolute flex justify-center items-center text-black text-textblack font-semibold'><Icons.chevronRight className='text-black left-4'></Icons.chevronRight>Buy Now</span>
+          <Icons.chevronRight className='absolute text-textdark left-4'></Icons.chevronRight>
+            <span className='absolute flex justify-center items-center text-textdark font-semibold'>Buy Now</span>
           {/* <span className='absolute text-transparent bg-clip-text hero_bg-1 font-bold'>Buy Now</span>
           <span className='absolute text-transparent bg-clip-text hero_bg-2 font-bold'>Buy Now</span>
           <span className='absolute text-transparent bg-clip-text hero_bg-3 font-bold'>Buy Now</span> */}

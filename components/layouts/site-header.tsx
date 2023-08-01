@@ -7,7 +7,7 @@ import { useState } from 'react';
 import React from 'react';
 
 import { ThemeToggle } from '@/components/theme-toggle';
-import { SearchBox } from '@/components';
+import SearchBox from  '@components/SearchBox/search-box';
 import GlobalNavFlyout from '@/components/globalnav-flyout-menu';
 import { NavbarBottom } from '@/components/navbar-bottom';
 

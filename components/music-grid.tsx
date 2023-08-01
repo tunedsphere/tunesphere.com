@@ -138,57 +138,22 @@ const sortedAndFilteredLabels = recordLabels
     setColumnWidth(e.target.offsetWidth);
   };
 
-  // const containerRef = useRef(null);
-  // const [showLeftArrow, setShowLeftArrow] = useState(false);
-  // const [showRightArrow, setShowRightArrow] = useState(true);
-
-  // const handleScroll = () => {
-  //   if (containerRef.current) {
-  //     const container = containerRef.current;
-  //     setShowLeftArrow(container.scrollLeft > 0);
-  //     setShowRightArrow(container.scrollLeft + container.clientWidth < container.scrollWidth);
-  //   }
-  // };
-
-  // const scrollLeft = () => {
-  //   if (containerRef.current) {
-  //     const container = containerRef.current;
-  //     container.scrollTo({ left: container.scrollLeft - container.clientWidth, behavior: "smooth" });
-  //   }
-  // };
-
-  // const scrollRight = () => {
-  //   if (containerRef.current) {
-  //     const container = containerRef.current;
-  //     container.scrollTo({ left: container.scrollLeft + container.clientWidth, behavior: "smooth" });
-  //   }
-  // };
   return (
   <section className='mt-[var(--headerHeight)]'>
     <div className=''>
     <div className=" mx-auto relative w-full flex justify-center items-center">
-        {/* <Button
-        size="xs"
-        variant="nav"
-        onClick={scrollLeft} className={`left-0 flex items-center justify-center transition-opacity ${showLeftArrow ? 'opacity-100' : 'opacity-0'} focus:outline-none`}>
-          <Icons.chevronLeft/>
-        </Button> */}
+
         <div className="flex justify center py-8 px-4 mx-auto right-0 left-0 gap-2 md:gap-6">
           <Button className="text-texthigh px-1 sm:px-4" variant="outline">Albums</Button>
           <Button className="text-texthigh px-1 sm:px-4" variant="outline">Artists</Button>
           <Button className="text-texthigh px-1 sm:px-4" variant="outline">Djs</Button>
           <Button className="text-texthigh px-1 sm:px-4" variant="outline">Labels</Button>
         </div>
-        {/* <Button 
-        size="xs"
-        variant="nav"onClick={scrollRight} className={`h-full right-0 flex items-center justify-center transition-opacity ${showRightArrow ? 'opacity-100' : 'opacity-0'} focus:outline-none`}>
-          <Icons.chevronRight/>
-          </Button> */}
       </div>
     <div className='flex'> 
 
  <Sidebar variant="musicgrid" className={`sidebar  ${isSidebarOpen ? "sidebar-open xl:w-64 w-52" : "hidden-sidebar w-[68px] xl:w-24"}`}>
-  <div className={`flex py-2 ${isSidebarOpen ? "flex-row-reverse" : "justify-center"}`}>
+  <div className={`flex py-2 border-b border-accent4 ${isSidebarOpen ? "flex-row-reverse" : "justify-center"}`}>
  <SidebarMenuBurger
               isOpen={isSidebarOpen}
               handleSidebarToggle={handleSidebarClick}
@@ -197,20 +162,24 @@ const sortedAndFilteredLabels = recordLabels
 </div>
     {/* // Sort the genreOptions */}
     <div className="middle-sidebar py-2">
+
+{/* // Sort the CountryOptions */}
     <div className="@container">
     <Collapsible>
-      <CollapsibleTrigger onClick={handleGenreToggle}  className={`text-texthigh justify-center items-center w-full flex py-2 text-xl${
+      <CollapsibleTrigger onClick={handleGenreToggle}  className={`text-texthigh justify-center items-center w-full flex text-xl py-2${
         genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
-    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex object-contain py-4 ${isSidebarOpen ? "hidden" : "flex"}`}
-    style={{ width: '50px', height: '50px' }}><Icons.flower/></div>
+    ><div onClick={handleSidebarClick} className={`w-full justify-center ${isSidebarOpen ? "hidden" : "flex "}`}><Icons.flower/></div>
     
-    <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
-      <div className="flex justify-center">
-        <span className=""><Icons.flower/></span>
-        <span className="hidden-sidebar px-2">Genres</span></div>
-        <div>
-        <span className="hidden-sidebar float-right">{genreExpanded ? '-' : '+'}</span></div></div>
+    <div className={`items-center ${isSidebarOpen ? "py-4 px-4 w-full" : "hidden "}`}>
+  <div className="flex align-center items-center">
+    <span className="mr-2"><Icons.flower/></span>
+    <span>Genres</span>
+    <div className="w-full">
+    <span className="float-right">{genreExpanded ? '-' : '+'}</span></div>
+  </div>
+</div>
+
       </CollapsibleTrigger>
       {genreExpanded && (
         <CollapsibleContent className={`${isSidebarOpen ? "w-full" : "hidden"}`}>
@@ -237,18 +206,20 @@ const sortedAndFilteredLabels = recordLabels
 {/* // Sort the CountryOptions */}
 <div className="@container">
     <Collapsible>
-    <CollapsibleTrigger onClick={handleCountryToggle}  className={`text-texthigh items-center justify-center text-center w-full flex py-2 text-xl ${
+    <CollapsibleTrigger onClick={handleCountryToggle}  className={`text-texthigh justify-center items-center w-full flex py-2 text-xl ${
         genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
-    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex text-center ${isSidebarOpen ? "hidden" : "flex"}`}
-    style={{ width: '32px', height: '32px' }}><Icons.globe/></div>
+    ><div onClick={handleSidebarClick} className={`w-full justify-center py-2 ${isSidebarOpen ? "hidden" : "flex"}`}
+><Icons.globe/></div>
     
-    <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
-      <div className="flex">
-        <span><Icons.globe/></span>
-        <span className="hidden-sidebar px-2">Countries</span></div>
-        <div>
-        <span className="hidden-sidebar float-right">{countryExpanded ? '-' : '+'}</span></div></div>
+    <div className={`items-center ${isSidebarOpen ? "py-4 px-4 w-full" : "hidden "}`}>
+  <div className="flex align-center items-center">
+    <span className="mr-2"><Icons.globe/></span>
+    <span>Countries</span>
+    <div className="w-full">
+    <span className="float-right">{genreExpanded ? '-' : '+'}</span></div>
+  </div>
+</div>
       </CollapsibleTrigger>
       {countryExpanded && (
         <CollapsibleContent className={`${isSidebarOpen ? "w-full" : "hidden"}`}>
@@ -272,23 +243,23 @@ const sortedAndFilteredLabels = recordLabels
     </Collapsible>
   </div>
 
-{/* // Sort the YearOptions */}
-
-  
+{/* // Sort the YearOptions */} 
   <div className="@container">
     <Collapsible>
-    <CollapsibleTrigger onClick={handleYearToggle}  className={`text-texthigh items-center justify-center text-center w-full flex py-2 text-xl ${
+    <CollapsibleTrigger onClick={handleYearToggle}  className={`text-texthigh items-center justify-center content-center text-center w-full flex py-2 text-xl ${
         genreExpanded ? '' : '' // Apply the bg-accent1 class when yearExpanded is true
       }`}
-    ><div onClick={handleSidebarClick} className={`justify-center items-center w-full flex text-center ${isSidebarOpen ? "hidden" : "flex"}`}
-    style={{ width: '32px', height: '32px' }}><Icons.listMusic/></div>
+    ><div onClick={handleSidebarClick} className={`w-full ${isSidebarOpen ? "hidden" : "flex justify-center"}`}
+><Icons.listMusic/></div>
     
-    <div className={`${isSidebarOpen ? "py-4 px-4 flex flex-row w-full justify-between" : "hidden"}`}>
-      <div className="flex">
-        <span><Icons.listMusic/></span>
-        <span className="hidden-sidebar px-2">Year</span></div>
-        <div>
-        <span className="hidden-sidebar float-right">{yearExpanded ? '-' : '+'}</span></div></div>
+    <div className={`items-center ${isSidebarOpen ? "py-4 px-4 w-full" : "hidden"}`}>
+  <div className="flex align-center items-center">
+    <span className="mr-2"><Icons.listMusic/></span>
+    <span>Year</span>
+    <div className="w-full">
+    <span className="float-right">{genreExpanded ? '-' : '+'}</span></div>
+  </div>
+</div>
       </CollapsibleTrigger>
       {yearExpanded && (
         <CollapsibleContent className={`${isSidebarOpen ? "w-full" : "hidden"}`}>

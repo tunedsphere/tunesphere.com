@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
+    "target": "es2017",
     "paths": {
       "@*": ["./*"],
     },
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable","esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -32,8 +29,6 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.mjs"
-, "components/SearchBox/SearchBox.jsx", "components/auth/modal.js"  ],
-  "exclude": [
-    "node_modules"
-  ]
+, "components/SearchBox/SearchBox.tsx", "components/auth/modal.js"  ],
+  "exclude": ["node_modules"]
 }

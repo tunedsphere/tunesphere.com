@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { VerifyEmailForm } from "@/components/forms/verify-email-form"
-import { Shell } from "@/components/shell"
+import { Shell } from "@components/shells/shell"
 
 export const metadata = {
   title: "Verify Email",
@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function VerifyEmailPage() {
   return (
-    <Shell layout="auth">
+    <Shell variant="auth">
       <Card>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">Verify email</CardTitle>

@@ -62,6 +62,8 @@ import {
   Mic,
   Mic2,
   ListMusic,
+  Terminal,
+  GripHorizontal,
   type Icon as LucideIcon,
   type LucideProps,
 } from "lucide-react"
@@ -132,6 +134,8 @@ export const Icons = {
   flower: Flower,
   globe: Globe,
   calendarSearch: CalendarSearch,
+  terminal: Terminal,
+  gripHorizontal: GripHorizontal,
   logo: (props: LucideProps) => (
 <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg"
 fill="currentColor"  {...props}>
