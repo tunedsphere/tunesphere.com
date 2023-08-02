@@ -49,7 +49,6 @@ export default async function ShopPage() {
 
   return (
     <Shell className="gap-12 divide-y section-max-width ">
-      
       <section
         id="hero"
         aria-labelledby="hero-heading"

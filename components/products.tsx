@@ -170,8 +170,8 @@ export function Products({
             <Separator />
             <div className="flex flex-1 flex-col gap-5 overflow-hidden px-1">
               <div className="space-y-4">
-                <h3 className="text-sm font-medium tracking-wide text-foreground">
-                  Price range ($)
+                <h3 className="text-sm font-medium tracking-wide text-textdark">
+                  Price range (€)
                 </h3>
                 <Slider
                   variant="range"
@@ -197,7 +197,7 @@ export function Products({
                       setPriceRange([value, priceRange[1]])
                     }}
                   />
-                  <span className="text-muted-foreground">-</span>
+                  <span className="text-textdark">-</span>
                   <Input
                     type="number"
                     inputMode="numeric"
@@ -214,7 +214,7 @@ export function Products({
               </div>
               {categories?.length ? (
                 <div className="space-y-4">
-                  <h3 className="text-sm font-medium tracking-wide text-foreground">
+                  <h3 className="text-sm font-medium tracking-wide text-textdark">
                     Categories
                   </h3>
                   <MultiSelect
@@ -230,7 +230,7 @@ export function Products({
               ) : null}
               {category ? (
                 <div className="space-y-4">
-                  <h3 className="text-sm font-medium tracking-wide text-foreground">
+                  <h3 className="text-sm font-medium tracking-wide text-textdark">
                     Subcategories
                   </h3>
                   <MultiSelect
@@ -244,7 +244,7 @@ export function Products({
               {stores?.length ? (
                 <div className="space-y-3">
                   <div className="flex gap-2">
-                    <h3 className="flex-1 text-sm font-medium tracking-wide text-foreground">
+                    <h3 className="flex-1 text-sm font-medium tracking-wide text-textdark">
                       Stores
                     </h3>
                     <div className="flex items-center space-x-2">

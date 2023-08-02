@@ -3,7 +3,6 @@
 import * as React from "react"
 import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { cva, type VariantProps } from "class-variance-authority"
-import { X } from "lucide-react"
 import { Icons } from "@/components/icons"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -75,7 +74,7 @@ const SheetContent = React.forwardRef<
       <SheetPrimitive.Close className="absolute right-2 top-4 rounded-sm disabled:pointer-events-none">
         <Button  
         variant="nav"
-        className="text-texthigh hover:text-colortheme">
+        className="text-textdark hover:text-colortheme">
         <Icons.close className="h-8 w-8" />
         <span className="sr-only">Close</span>
         </Button>
