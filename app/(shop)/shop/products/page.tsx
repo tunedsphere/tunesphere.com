@@ -7,13 +7,27 @@ import { Shell } from "@components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
 
-// Running out of edge function execution units on vercel free plan
-// export const runtime = "edge"
 
-export const metadata = {
+import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
+
+import type { Metadata } from "next"
+
+import { and, desc, eq, not, sql } from "drizzle-orm"
+
+import { formatPrice, toTitleCase } from "@/lib/utils"
+
+
+
+
+export const metadata: Metadata = {
+  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: "Products",
   description: "Buy products from our stores",
 }
+
+
+// Running out of edge function execution units on vercel free plan
+// export const runtime = "edge"
 
 interface ProductsPageProps {
   searchParams: {
@@ -22,7 +36,7 @@ interface ProductsPageProps {
 }
 
 export default async function ProductsPage({
-  searchParams,
+  searchParams, 
 }: ProductsPageProps) {
   const {
     page,
@@ -69,6 +83,18 @@ export default async function ProductsPage({
   return (
     <section className="section-max-width py-8">
     <Shell>
+    <Breadcrumbs
+        segments={[
+          {
+            title: "Products",
+            href: "/shop/products",
+          },
+          {
+            title: toTitleCase(products.category.name),
+            href: `/shop/products?category=${products.category}`,
+          },
+        ]}
+      />
       <Products
         products={productsTransaction.items}
         pageCount={pageCount}

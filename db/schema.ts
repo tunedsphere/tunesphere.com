@@ -13,16 +13,6 @@ import {
   varchar,
 } from "drizzle-orm/mysql-core"
 
-// export const user = mysqlTable("user", {
-//   id: serial("id"),
-//   name: text("name"),
-//   email: text("email"),
-//   password: text("password"),
-//   role: text("role").$type<"user" | "admin" | "artist" | "label" | "dj" | "seller">(),
-//   createdAt: timestamp("created_at"),
-//   updatedAt: timestamp("updated_at"),
-// });
-
 export const stores = mysqlTable("stores", {
   id: serial("id").primaryKey(),
   userId: varchar("userId", { length: 191 }).notNull(),

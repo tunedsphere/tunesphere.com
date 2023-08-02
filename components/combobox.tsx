@@ -107,7 +107,7 @@ export function Combobox() {
                   <CommandItem
                     key={item.id}
                     onSelect={() =>
-                      handleSelect(() => router.push(`/product/${item.id}`))
+                      handleSelect(() => router.push(`/shop/product/${item.id}`))
                     }
                   >
                     {item.name}

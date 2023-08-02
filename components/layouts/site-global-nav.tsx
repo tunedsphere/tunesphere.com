@@ -16,6 +16,7 @@ import { Icons } from "@/components/icons"
 import Modal from '@/components/auth/modal';
 import { UserDropdownMenu } from '@components/user-dropdown-menu';
 import MenuBurger from '@components/navbar-menu-burger';
+import CartSheet from "@/components/cart/cart-sheet"
 
 import { SignedOut, SignedIn } from '@clerk/nextjs';
 
@@ -64,13 +65,8 @@ export function SiteGlobalNav() {
             </div>
             <div className="sm:w-1/3 w-2/6 shrink-0 relative items-center sm:gap-2 gap-1 flex flex-row justify-end">
             <SearchBox/>
-            <Button 
-              variant="nav"
-               size="xs"
-              className='hidden @sm:block'>
-                <Icons.cart 
-                className='transition-all'/>
-              </Button>
+            <CartSheet />
+              
               <div  className='hidden @sm:block'>
               <ThemeToggle/>
               </div>

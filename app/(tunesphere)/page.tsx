@@ -73,7 +73,7 @@ export default async function MyApp() {
           {/* <div className='left-gradient -z-10'> </div> */}
           <div className='right-gradient -z-10'> </div>
 
-          <div className='grid xl:grid-cols-4 py-16 2xl:text-left text-center text-textlow'>
+          <div className='grid lg:grid-cols-4 py-16 2xl:text-left text-center text-textlow'>
           <div className='hero_gradient-link-wrapper flex-1 flex-start items-stretch'>
 
             <span className='-inset-1 hero_link-bg hero_bg-1'></span>

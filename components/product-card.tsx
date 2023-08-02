@@ -3,10 +3,13 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { type Product } from "@/db/schema"
+import { type Product, type Store } from "@/db/schema"
+
+
 import { toast } from "sonner"
 
 import { cn, formatPrice } from "@/lib/utils"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Button, buttonVariants } from "@/components/ui/button"
 import {
   Card,
@@ -36,17 +39,18 @@ export function ProductCard({
 }: ProductCardProps) {
   const [isPending, startTransition] = React.useTransition()
 
+
   return (
     <Card
-      className={cn("h-full overflow-hidden rounded-sm", className)}
+      className={cn("h-full overflow-hidden rounded-sm bg-primary", className)}
       {...props}
     >
       <Link
         aria-label={`View ${product.name} details`}
-        href={`/product/${product.id}`}
+        href={`/shop/product/${product.id}`}
       >
         <CardHeader className="border-b p-0">
-          <div>
+          <AspectRatio ratio={4 / 3}>
             {product?.images?.length ? (
               <Image
                 src={
@@ -63,7 +67,7 @@ export function ProductCard({
                 aria-label="Placeholder"
                 role="img"
                 aria-roledescription="placeholder"
-                className="flex h-full w-full items-center justify-center bg-secondary"
+                className="flex h-full w-full items-center justify-center bg-transparent"
               >
                 <Icons.placeholder
                   className="h-9 w-9 text-muted-foreground"
@@ -71,18 +75,22 @@ export function ProductCard({
                 />
               </div>
             )}
-</div>
+      </AspectRatio>
         </CardHeader>
       </Link>
       <Link
         aria-label={`View ${product.name} details`}
-        href={`/product/${product.id}`}
+        href={`/shop/product/${product.id}`}
       >
         <CardContent className="grid gap-2.5 p-4">
-          <CardTitle className="line-clamp-1">{product.name}</CardTitle>
-          <CardDescription className="line-clamp-2">
+          <CardTitle className="line-clamp-1 text-textdark">{product.name}</CardTitle>
+          <CardDescription className="line-clamp-2 text-textdark">
             {formatPrice(product.price)}
           </CardDescription>
+          <CardTitle 
+           
+           as="h6" 
+           className="line-clamp-1 text-muted-foreground">{product.storeId}</CardTitle>
         </CardContent>
       </Link>
       <CardFooter className="p-4">
@@ -90,11 +98,11 @@ export function ProductCard({
           <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:justify-between">
             <Link
               aria-label="Preview product"
-              href={`/product-preview/${product.id}`}
+              href={`/shop/product-preview/${product.id}`}
               className={buttonVariants({
                 variant: "outline",
                 size: "sm",
-                className: "h-8 w-full rounded-sm",
+                className: "h-8 w-full rounded-sm text-textdark",
               })}
             >
               Preview

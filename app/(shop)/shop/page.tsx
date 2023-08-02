@@ -48,7 +48,8 @@ export default async function ShopPage() {
     .orderBy(desc(sql<number>`count(${products.id})`))
 
   return (
-    <Shell className="gap-12 divide-y">
+    <Shell className="gap-12 divide-y section-max-width ">
+      
       <section
         id="hero"
         aria-labelledby="hero-heading"
@@ -104,7 +105,7 @@ export default async function ShopPage() {
       <section
         id="categories"
         aria-labelledby="categories-heading"
-        className="space-y-6 py-6 md:pt-10"
+        className="space-y-6 py-6 md:pt-10  w-full"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <h2 className="text-3xl text-textdark font-bold leading-[1.1] sm:text-3xl md:text-5xl">
@@ -147,7 +148,7 @@ export default async function ShopPage() {
       <section
         id="create-a-store-banner"
         aria-labelledby="create-a-store-banner-heading"
-        className="section-max-width grid place-items-center gap-6 rounded-lg border bg-card px-6 py-16 text-center text-card-foreground shadow-sm"
+        className="section-max-width w-full grid place-items-center gap-6 rounded-lg border bg-card px-6 py-16 text-center text-card-foreground shadow-sm"
       >
         <h2 className="text-2xl font-medium sm:text-3xl">
           Do you want to sell your products on our website?
@@ -162,9 +163,9 @@ export default async function ShopPage() {
       <section
         id="featured-products"
         aria-labelledby="featured-products-heading"
-        className="section-max-width space-y-6"
+        className="w-full section-max-width space-y-6"
       >
-        <div className="flex items-center">
+        <div className="w-full flex items-center">
           <h2 className="flex-1 text-2xl font-medium sm:text-3xl">
             Featured products
           </h2>
@@ -181,7 +182,7 @@ export default async function ShopPage() {
             </div>
           </Link>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {allProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -224,7 +225,7 @@ export default async function ShopPage() {
       <section
         id="random-subcategories"
         aria-labelledby="random-subcategories-heading"
-        className="section-max-width flex flex-wrap items-center justify-center gap-4 pb-4"
+        className="w-full flex flex-wrap items-center justify-center gap-4 pb-4"
       >
         {productCategories[
           Math.floor(Math.random() * productCategories.length)

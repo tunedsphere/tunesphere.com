@@ -58,13 +58,13 @@ export default function CartSheet() {
         >
           {itemCount > 0 && (
             <Badge
-              variant="secondary"
-              className="absolute -right-2 -top-2 h-6 w-6 rounded-full p-2"
+              variant="destructive"
+              className="absolute transform translate-x-1/2 -translate-y-1/2"
             >
               {itemCount}
             </Badge>
           )}
-          <Icons.cart className='transition-all' aria-hidden="true" />
+          <Icons.basket className='transition-all' aria-hidden="true" />
         </Button>
       </SheetTrigger>
       <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg z-10000">
