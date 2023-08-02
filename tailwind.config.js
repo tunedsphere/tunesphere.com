@@ -59,7 +59,9 @@ module.exports = {
         ring: "var(--ring)",
         
         foreground: "var(--foreground)",
+        
         colortheme: "var(--colortheme)",
+        colorthemeHover: "var(--colortheme-hover)",
         colortheme2: "var(--colortheme2)",
         colortheme3: "var(--colortheme3)",
         colortheme4: "var(--colortheme4)",
@@ -86,6 +88,7 @@ module.exports = {
         destructive: {
           DEFAULT: "var(--destructive)",
           foreground: "var(--destructive-foreground)",
+          hover: "var(--destructive-hover)",
         },
         muted: {
           DEFAULT: "var(--muted)",

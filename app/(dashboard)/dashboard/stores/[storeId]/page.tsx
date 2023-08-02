@@ -172,7 +172,8 @@ export default async function UpdateStorePage({
               />
             </fieldset>
             <div className="flex space-x-2">
-              <LoadingButton>
+              <LoadingButton
+              variant="outlineTheme">
                 Update Store
                 <span className="sr-only">Update store</span>
               </LoadingButton>

@@ -774,6 +774,7 @@
 
     
     --colortheme: hsl(270 100% 60%);
+    --colortheme-hover: hsl(270 100% 40%);
     --colortheme2: hsl(280 100% 40%);
     --colortheme3: hsl(49 100% 60%);
     --colortheme4: hsl(358 99% 60%);
@@ -822,7 +823,8 @@
     --accent-foreground: 222.2 47.4% 11.2%;
  
     --destructive: hsl(358 65% 40%);
-    --destructive-foreground: hsl(279 44% 23%);
+    --destructive-hover: hsl(358 65% 30%);
+    --destructive-foreground: hsl(0 0% 98%);
  
     --ring: var(--accent6);
  
@@ -834,6 +836,7 @@
   .dark {
 
     --colortheme: hsl(199 100% 60%);
+    --colortheme-hover: hsl(199 100% 40%);
     --colortheme2:hsl(212 100% 51%);
     --colortheme3: hsl(49 100% 60%);
     --colortheme4: hsl(358 99% 60%);
@@ -882,7 +885,8 @@
     --accent-foreground: 222.2 47.4% 11.2%;
  
     --destructive: hsl(358 65% 40%);
-    --destructive-foreground: hsl(279 44% 23%);
+    --destructive-hover: hsl(358 65% 30%);
+    --destructive-foreground: hsl(0 0% 98%);
  
     --ring: var(--accent6);
  

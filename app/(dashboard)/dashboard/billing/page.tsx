@@ -57,8 +57,8 @@ export default async function BillingPage() {
       >
         <h2 className="text-xl font-semibold sm:text-2xl">Billing info</h2>
         <Card className="grid gap-4 p-6">
-          <h3 className="text-lg font-semibold sm:text-xl">
-            {subscriptionPlan?.name}
+          <h3 className="text-lg font-semibold sm:text-xl"><span>Current Plan :</span><span className="font-normal"> <strong>
+            {subscriptionPlan?.name}</strong></span> 
           </h3>
           <p className="text-sm text-muted-foreground">
             {!subscriptionPlan.isSubscribed
@@ -98,7 +98,7 @@ export default async function BillingPage() {
               </CardHeader>
               <CardContent className="grid flex-1 place-items-start gap-6">
                 <div className="text-3xl font-bold">
-                  {formatPrice(plan.price, "USD", "compact")}
+                  {formatPrice(plan.price, "EUR", "compact")}
                   <span className="text-sm font-normal text-muted-foreground">
                     /month
                   </span>

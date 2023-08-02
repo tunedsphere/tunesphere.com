@@ -10,11 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         paging: "text-texthigh bg-red",
-        default: "bg-colortheme text-texthigh hover:bg-colortheme/90",
+        default: "bg-colortheme text-texthigh hover:bg-colortheme-hover",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive-hover",
         outline:
-          "outline-colortheme outline outline-1 hover:outline-offset-1",
+          "border border-input hover:bg-accent hover:text-accent-foreground",
+        outlineTheme:
+          "border border-colortheme hover:bg-accent hover:text-accent-foreground",
         secondary: 
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
