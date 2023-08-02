@@ -1478,17 +1478,7 @@ max-width: 100%;
   filter: blur(100px);
   
 }
-.music-grid-gradient {
-  position: absolute;
-  width: 33.333333%;
-  height: 180px;
-  top: 300px;
-  left: 0;
-  width: 25%;
-  background: var(--colortheme2);
-  filter: blur(300px);
-  
-}
+
 .button_bg-gradient-colortheme {
   height: 60px;
   width: 100%;
@@ -1539,7 +1529,28 @@ max-width: 100%;
 }
 
 
+.signin-card-gradient {
+  position: absolute;
+  width: 42%;
+  height: 180px;
+  top: 72%;
+  left: 0;
+  background: var(--colortheme2);
+  filter: blur(100px);
+}
+
+
 /* Music GRID */
+
+.music-grid-gradient {
+  position: absolute;
+  width: 33.333333%;
+  height: 180px;
+  top: 300px;
+  left: 0;
+  background: var(--colortheme2);
+  filter: blur(300px);
+}
 .music-grid-banner {
   height: calc(100vh - var(--headerHeight));
 }

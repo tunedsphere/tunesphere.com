@@ -80,8 +80,8 @@ export function SiteGlobalNav() {
                 </SignedIn>
                <SignedOut>
                   <Button 
-                  variant="logInButton"
-                  className='hidden sm:block'
+                  variant="outlineTheme"
+                  className='hidden sm:block shrink-0 font-semibold px-2'
                   size="xs" onClick={handleModalOpen}>Log In</Button>
                </SignedOut>
                </div>

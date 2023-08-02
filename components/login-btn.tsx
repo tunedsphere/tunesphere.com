@@ -20,7 +20,7 @@ const LogInButton: React.FC<LogInButtonProps> = ({ handleModalOpen }) => {
     <Button
       variant='logInButton'
       onClick={handleClick}
-      className="m-8 p-4 text-3xl leading-7 w-4/5"
+      className="p-4 text-3xl leading-7 w-4/5"
       disabled={isPending}
     >
       {isPending && (
@@ -29,7 +29,7 @@ const LogInButton: React.FC<LogInButtonProps> = ({ handleModalOpen }) => {
           aria-hidden="true"
         />
       )}
-      Log In<span className="sr-only">Sign In</span>
+      Log In
     </Button>
   );
 };

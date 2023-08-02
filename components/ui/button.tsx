@@ -12,18 +12,18 @@ const buttonVariants = cva(
         paging: "text-texthigh bg-red",
         default: "bg-colortheme text-texthigh hover:bg-colortheme-hover",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive-hover",
+          "bg-destructive text-destructive-foreground hover:opacity-80",
         outline:
           "border border-input hover:bg-accent hover:text-accent-foreground",
         outlineTheme:
           "border border-colortheme hover:bg-accent hover:text-accent-foreground",
         secondary: 
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground hover:opacity-80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         nav: "hover:bg-accent hover:text-texthigh",
         ghostline: "hover:bg-accent outline-colortheme outline outline-1 hover:outline-offset-1",
         link: "underline-offset-4 hover:underline text-primary",
-        logInButton: "rounded-full text-texthigh font-bold bg-colortheme hover:opacity-90"
+        logInButton: "rounded-full text-texthigh bg-colortheme hover:opacity-90 "
       },
       size: {
         icon: "h-9 w-9",

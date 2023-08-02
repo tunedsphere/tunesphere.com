@@ -40,7 +40,9 @@ export const metadata = {
     return (
 
       <div id="SigninCard" className="@container z-20">
+         <div className='modal-gradient z-60'></div>
         <Card className="@md:border border-0">
+        <div className='signin-card-gradient -z-10'></div>
           <div className="flex justify-end sm:p-4 p-2">
             <Button 
            variant="ghost"
@@ -53,7 +55,9 @@ export const metadata = {
             </Button>
           </div>
           <CardHeader className="space-y-1 items-center">
-            <CardTitle className="text-center">Log in</CardTitle>
+            <CardTitle 
+            as="h1"
+            >Log in</CardTitle>
             <CardDescription className='p-2 text-center'>Choose your preferred log in method</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
