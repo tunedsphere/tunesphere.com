@@ -3,23 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import GlobalNavFlyout from '@/components/globalnav-flyout-menu';
-import { NavbarBottom } from '@components/layouts/navbar-bottom';
+import { NavbarBottom } from '@/components/layouts/navbar-bottom';
 
-import Link from 'next/link';
-
-
-import { ThemeToggle } from '@/components/theme-toggle';
-import SearchBox from '@/components/SearchBox/search-box';
-
-
-import LoginModalButton from '@components/login-modal-btn';
-
-
-import { UserDropdownMenu } from '@components/user-dropdown-menu';
-import MenuBurger from '@components/site-global-nav-menu-burger';
-import { CartSheet } from "@/components/cart/cart-sheet"
-
-import { SignedOut, SignedIn } from '@clerk/nextjs';
 
 export default function SiteHeaderMenuBurger() {
   const [isMenuOpen, setMenuOpen] = useState(false);
