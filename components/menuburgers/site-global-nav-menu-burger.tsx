@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import GlobalNavFlyout from '@/components/globalnav-flyout-menu';
-import { NavbarBottom } from '@components/layouts/navbar-bottom';
+import { NavbarBottom } from '@/components/layouts/navbar-bottom';
 
 export default function SiteGlobalNavMenuBurger() {
   const [isMenuOpen, setMenuOpen] = useState(true);
