@@ -13,7 +13,6 @@ import { cn } from "@/lib/utils"
 import { SiteGlobalNav } from '@components/layouts/site-global-nav'
 import { buttonVariants } from "@/components/ui/button"
 
-
 import { Shell } from "@components/shells/shell"
 import { Icons } from '@components/icons'
 
@@ -37,8 +36,7 @@ export default async function MyApp() {
         </div>
       </div>
 
-      <main className="mt-[var(--headerHeight)] sm:mt-[var(--globalNavHeight)]">
-        <section className="section-max-width flex flex-col items-center justify-between md:px-8 mx-auto">
+        <Shell className="mt-[var(--headerHeight)] sm:mt-[var(--globalNavHeight)] flex flex-col items-center justify-between md:px-8 mx-auto">
           <div className="py-12 md:mt-12 mt-12" >
             <div>
             <h1 className="hero_title text-center justify-center leading-tight tracking-tighter md:text-5xl lg:text-7xl lg:leading-[1.4] md:leading-[1.4] gap-2"
@@ -153,17 +151,16 @@ export default async function MyApp() {
           <div className='flex justify-center'>
             {/* <NewReleasesSection/>  */}
           </div>
-        </section>
-        <Shell className="gap-12 section-max-width">
-      <section
+        </Shell>
+      <Shell
         id="hero"
         aria-labelledby="hero-heading"
-        className="section-max-width flex flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
+        className="grid items-center justify-center pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           A Store built for You with everything you would expect.
         </h1>
-        <div className="relative max-w-full w-[400px] mx-auto py-8">
+        <div className="relative w-full max-w-[400px] mx-auto py-8">
       
         <div className="flex flex-wrap items-center justify-center gap-4">
         <div className="absolute button_bg-gradient-1 left-0 right-0 -z-10"></div>
@@ -180,7 +177,7 @@ export default async function MyApp() {
               "hero_gradient-button text-textblack"
             )}         
           >
-          <Icons.chevronRight className='absolute text-textdark left-4'></Icons.chevronRight>
+          <Icons.chevronRight className='absolute text-textdark sm:left-4 left-1'></Icons.chevronRight>
             <span className='absolute flex justify-center items-center text-textdark font-semibold'>Buy Now</span>
           {/* <span className='absolute text-transparent bg-clip-text hero_bg-1 font-bold'>Buy Now</span>
           <span className='absolute text-transparent bg-clip-text hero_bg-2 font-bold'>Buy Now</span>
@@ -212,7 +209,7 @@ export default async function MyApp() {
           </div>
 
         </div>
-      </section>
+      </Shell>
       <section
         id="categories"
         aria-labelledby="categories-heading"
@@ -255,8 +252,6 @@ export default async function MyApp() {
           ))}
         </div>
       </section>
-    </Shell>
-    </main>
     </> 
   )
 }

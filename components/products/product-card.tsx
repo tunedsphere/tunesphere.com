@@ -3,9 +3,11 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { type Product, type Store } from "@/db/schema"
 
 
+
+import { type Product} from "@/db/schema"
+import { type Store } from "@/db/schema"
 import { toast } from "sonner"
 
 import { cn, formatPrice } from "@/lib/utils"
@@ -24,12 +26,14 @@ import { addToCartAction } from "@/app/_actions/cart"
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
   product: Product
+  stores?: Pick<Store, "id" | "name">[]
   variant?: "default" | "switchable"
   isAddedToCart?: boolean
   onSwitch?: () => Promise<void>
 }
 
 export function ProductCard({
+  stores,
   product,
   variant = "default",
   isAddedToCart = false,
@@ -38,6 +42,7 @@ export function ProductCard({
   ...props
 }: ProductCardProps) {
   const [isPending, startTransition] = React.useTransition()
+
 
 
   return (
@@ -90,7 +95,7 @@ export function ProductCard({
           <CardTitle 
            
            as="h6" 
-           className="line-clamp-1 text-muted-foreground">{product.storeId}</CardTitle>
+           className="line-clamp-1 text-muted-foreground">StoreName</CardTitle>
         </CardContent>
       </Link>
       <CardFooter className="p-4">

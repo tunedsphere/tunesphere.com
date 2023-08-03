@@ -1,5 +1,4 @@
 #globalnav {
-
   top: 0;
   right: 0;
   left: 0;
@@ -9,13 +8,10 @@
   width: 100%;
   font-size: 17px;
   user-select: none;
-
- 
 }
 .navbar-container {
   max-width: 1360px;
   margin: 0 auto;
-
 }
 
 .navbar-list {

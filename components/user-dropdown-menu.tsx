@@ -16,16 +16,15 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Icons } from "@/components/icons";
 
+import type { User } from "@clerk/nextjs/dist/types/server"
+import { buttonVariants } from "@/components/ui/button"
+import LoginModalButton from './login-modal-btn';
 interface UserDropdownMenuProps {
-   
+  user: User | null
 }
 
-export function UserDropdownMenu({}: UserDropdownMenuProps) {
-  const { isLoaded, isSignedIn, user } = useUser();
-  if (!isLoaded || !isSignedIn) {
-    // You can handle the loading or signed state separately
-    return null;
-  }
+export function UserDropdownMenu({ user }: UserDropdownMenuProps) {
+
   const initials = `${user?.firstName?.charAt(0) ?? ""} ${
     user?.lastName?.charAt(0) ?? ""
   }`
@@ -33,6 +32,8 @@ export function UserDropdownMenu({}: UserDropdownMenuProps) {
     user?.emailAddresses?.find((e) => e.id === user.primaryEmailAddressId)
       ?.emailAddress ?? ""
   return (
+    <>
+    {user ? (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button size="xs" variant="nav" className="">
@@ -42,10 +43,10 @@ export function UserDropdownMenu({}: UserDropdownMenuProps) {
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 z-10000" align="center" forceMount>
+      <DropdownMenuContent className="w-56 z-10000 p-2" align="center" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">
+            <p className="text-base font-medium leading-none py-1">
               {user.firstName} {user.lastName}
             </p>
             <p className="text-xs leading-none text-textlow">{email}</p>
@@ -81,5 +82,9 @@ export function UserDropdownMenu({}: UserDropdownMenuProps) {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+    ) : (
+      <LoginModalButton/>
+    )}
+    </>
   );
 }

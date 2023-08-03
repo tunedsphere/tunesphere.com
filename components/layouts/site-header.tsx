@@ -1,55 +1,56 @@
-"use client";
+
 import '@/styles/globalnav.css';
 import '@/styles/globals.css';
 
 import Link from 'next/link';
-import { useState } from 'react';
+
 import React from 'react';
 
 import { ThemeToggle } from '@/components/theme-toggle';
-import SearchBox from  '@components/SearchBox/search-box';
-import GlobalNavFlyout from '@/components/globalnav-flyout-menu';
-import { NavbarBottom } from '@/components/navbar-bottom';
 
-import Modal from '@/components/auth/modal';
 
-import { UserDropdownMenu } from '@components/user-dropdown-menu';
-import MenuBurger from '@components/navbar-menu-burger';
-import CartSheet from "@/components/cart/cart-sheet"
+import LoginModalButton from '@components/login-modal-btn'; 
+
+import SiteHeaderMenuBurger from '@/components/menuburgers/site-header-menu-burger';
+import { CartSheet } from "@/components/cart/cart-sheet"
 import { SignedOut, SignedIn } from '@clerk/nextjs';
 
 import { Icons } from '@components/icons';
 
-
+import LoginNavbar from '@components/ui/login-navbar';
 
 
 export function SiteHeader() {
 
-  // Rest of the code...
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [isGlobalNavFlyoutOpen, setGloisGlobalNavFlyoutOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
-  const [isCartSheetOpen, setCartSheetOpen] = useState(false);
+  // // Rest of the code...
+  // const [isMenuOpen, setMenuOpen] = useState(false);
+  // const [isModalOpen, setModalOpen] = useState(false);
+  // const [isGlobalNavFlyoutOpen, setGloisGlobalNavFlyoutOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(true);
+  // const [isCartSheetOpen, setCartSheetOpen] = useState(false);
 
-  const handleNavbarOpen = () => {
-    setGloisGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
-    setMenuOpen(!isMenuOpen);
-  };
-  const handleModalOpen = () => {
-    setModalOpen(!isModalOpen);
-  };
-  const handleToggleCartSheet = () => {
-    setCartSheetOpen(!isCartSheetOpen);
-  };
+  // const handleNavbarOpen = () => {
+  //   setGloisGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
+  //   setMenuOpen(!isMenuOpen);
+  // };
+  // const handleModalOpen = () => {
+  //   setModalOpen(!isModalOpen);
+  // };
+  // const handleToggleCartSheet = () => {
+  //   setCartSheetOpen(!isCartSheetOpen);
+  // };
 
 
   return (
-    <nav id="globalnav" className="globalnav fixed h-auto border-b-2 border-accent2">
+    <nav id="globalnav" className="@container globalnav fixed h-auto border-b-2 border-accent2">
       <div id="globalnav-content" className="relative">
-        <nav className="md:bg-backgroundNavbarTop bg-background  z-9999 items-center md:px-8">
-          <div className="py-2 navbar-container h-[--headerHeight] flex flex-between justify-between mx-auto">
-          <div className="sm:w-1/3 sm:visible invisible hidden relative items-center sm:gap-2 gap-[2px] sm:flex flex-row justify-start px-4">    
+        
+        <nav className="md:bg-backgroundNavbarTop bg-background z-9999">
+
+          <div className="py-2 navbar-container h-[--headerHeight] flex md:px-8 px-4">
+          
+          <div className="sm:w-1/3 hidden relative items-center sm:gap-2 gap-1 sm:flex flex-row justify-start">    
+          
           <Icons.logo className='absolute mx-auto right-0 left-0 -z-10 sm:block hidden'
               width={100}
               height={100}></Icons.logo>
@@ -63,26 +64,27 @@ export function SiteHeader() {
                 </h2>
               </Link>
             </div>
-            <div className="sm:w-1/3 w-2/6 relative items-center sm:gap-2 gap-[1px] flex flex-row justify-end px-4">
+            <div className="sm:w-1/3 w-2/6 relative items-center sm:gap-2 gap-[1px] flex flex-row justify-end pr-12">
             <CartSheet />
               <div  className='hidden sm:block'>
               <ThemeToggle/>
               </div>
               <div className='flex items-center justify-center'>
               <SignedIn>
-                <UserDropdownMenu />
+            <LoginNavbar/> 
                 </SignedIn>
                 <SignedOut>
-               <Modal handleModalClose={handleModalOpen}/>
+                <LoginModalButton/> 
                </SignedOut>
                </div>
-               <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/>
+               {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
             </div>
             </div>
         </nav>
-        {isMenuOpen && <NavbarBottom />}
+        <SiteHeaderMenuBurger/>
+        {/* {isMenuOpen && <NavbarBottom />}
         {isGlobalNavFlyoutOpen &&
-           <GlobalNavFlyout/> }
+           <GlobalNavFlyout/> } */}
       </div>
 
       <video

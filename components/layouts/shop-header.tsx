@@ -1,29 +1,25 @@
 
 import { siteConfig } from "@/configs/site"
 
-import { Combobox } from "@/components/combobox"
+import { ShopSearchBar} from "@/components/shop-search-bar"
 
 import { ShopMainNav } from "@components/layouts/shop-main-nav"
 import { ShopMobileNav } from "@components/layouts/shop-mobile-nav"
 
-
+import { Shell } from "@components/shells/shell"
 import { dashboardConfig } from "@/configs/dashboard"
 export function ShopHeader() {
 
   return (
     <header className="relative z-50 mt-[--headerHeight] w-full border-b bg-white">
-      <div className="container flex h-16 items-center">
+      <Shell className="justify-between flex items-center">
         <ShopMainNav items={siteConfig.shopNav} />
         <ShopMobileNav
           shopMainNavItems={siteConfig.shopNav}
           sidebarNavItems={dashboardConfig.sidebarNav}
         />
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-2">
-            <Combobox />
-          </nav>
-        </div>
-      </div>
+            <ShopSearchBar />
+      </Shell>
     </header>
   )
 }

@@ -790,11 +790,11 @@
     --orange: hsl(24 100% 58%);
 
     --backgroundgradient:  linear-gradient(120deg, var(--colors-indigo4), var(--colors-plum3));
-    --background: hsl(0, 0%, 2%);
+    --background: hsl(0, 0%, 4%);
     --foreground:  var(--colortheme);
  
     --muted: hsl(240 4% 16%);
-    --muted-foreground:  hsl(240 5% 45%);
+    --muted-foreground:  hsl(240 5% 60%);
  
     --popover: hsl(270 100% 80%);
     --popover-foreground: hsl(280 47% 11%);
@@ -852,7 +852,7 @@
     --orange: hsl(24 100% 58%);
 
     --backgroundgradient:  linear-gradient(120deg, var(--colors-indigo4), var(--colors-plum3));
-    --background: hsl(0, 0%, 2%);
+    --background: hsl(0, 0%, 4%);
     --foreground:  var(--colortheme);
  
     --muted: hsl(240 4% 16%);

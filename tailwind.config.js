@@ -45,6 +45,7 @@ module.exports = {
         '900': '900',
         '9999': '9999',
         '10000': '10000',
+        '20000': '20000',
       },
       colors: {
         background: "var(--background)",

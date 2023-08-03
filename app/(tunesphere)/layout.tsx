@@ -39,7 +39,9 @@ export default async function TunedLayout({ children }: TunedLayoutProps) {
 
   return (
     <>
+       <main className='flex-1'>
       {children}
+      </main>
       <SiteFooter />
     </>
   )

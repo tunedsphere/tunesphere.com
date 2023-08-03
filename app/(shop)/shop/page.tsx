@@ -17,7 +17,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Icons } from "@/components/icons"
-import { ProductCard } from "@/components/product-card"
+import { ProductCard } from "@components/products/product-card"
 import { Shell } from "@components/shells/shell"
 
 // Running out of edge function execution units on vercel free plan
@@ -48,11 +48,11 @@ export default async function ShopPage() {
     .orderBy(desc(sql<number>`count(${products.id})`))
 
   return (
-    <Shell className="gap-12 divide-y section-max-width ">
+    <Shell className="gap-12 divide-y">
       <section
         id="hero"
         aria-labelledby="hero-heading"
-        className="section-max-width flex w-full flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
+        className="flex w-full flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
         <h1 className="z-10 text-3xl text-textdark font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           A Store specially built for You with everything you would expect

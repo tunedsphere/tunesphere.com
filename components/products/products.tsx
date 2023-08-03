@@ -1,8 +1,10 @@
 "use client"
-import '@/styles/globals.css';
+import "@/styles/globals.css"
 import * as React from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { type Product, type Store } from "@/db/schema"
+
+import { type Product} from "@/db/schema"
+import { type Store } from "@/db/schema"
 import type { Option } from "@/types"
 
 import { getSubcategories, sortOptions } from "@/configs/products"
@@ -34,23 +36,23 @@ import { Slider } from "@/components/ui/slider"
 import { Icons } from "@/components/icons"
 import { MultiSelect } from "@/components/multi-select"
 import { PaginationButton } from "@/components/pagers/pagination-button"
-import { ProductCard } from "@/components/product-card"
+import { ProductCard } from "@components/products/product-card"
 
 interface ProductsProps {
+  stores?: Pick<Store, "id" | "name">[]
   products: Product[]
   pageCount: number
   category?: Product["category"]
   categories?: Product["category"][]
-  stores?: Pick<Store, "id" | "name">[]
   storePageCount?: number
 }
 
 export function Products({
+  stores,
   products,
   pageCount,
   category,
   categories,
-  stores,
   storePageCount,
 }: ProductsProps) {
   const router = useRouter()
@@ -399,7 +401,7 @@ export function Products({
       ) : null}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} stores={stores}/>
         ))}
       </div>
       {products.length ? (

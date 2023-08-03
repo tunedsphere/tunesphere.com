@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 
-interface SidebarMenuBurgerProps {
+interface MusicSidebarMenuBurgerProps {
   isOpen: boolean; 
   handleSidebarToggle: () => void;
   setIsOpen(isOpen: boolean): void;
 }
-const SidebarMenuBurger: React.FC<SidebarMenuBurgerProps> = ({ handleSidebarToggle, setIsOpen, isOpen }) => {
+const MusicSidebarMenuBurger: React.FC<MusicSidebarMenuBurgerProps> = ({ handleSidebarToggle, setIsOpen, isOpen }) => {
   const [rotation, setRotation] = useState(0);
   const [scale, setScale] = useState(100);
 
@@ -40,4 +40,4 @@ const SidebarMenuBurger: React.FC<SidebarMenuBurgerProps> = ({ handleSidebarTogg
   );
 };
 
-export default SidebarMenuBurger;
+export default MusicSidebarMenuBurger;

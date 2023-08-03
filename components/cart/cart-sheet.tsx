@@ -1,6 +1,6 @@
-"use client"
+
 import Image from "next/image"
-import { useEffect, useState } from "react"
+
 import { formatPrice } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -18,24 +18,8 @@ import { UpdateCart } from "@/components/cart/update-cart"
 import { Icons } from "@/components/icons"
 import { getCartAction } from "@/app/_actions/cart"
 
-export default function CartSheet() {
-  const [cartLineItems, setCartLineItems] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchCartData = async () => {
-      try {
-        const data = await getCartAction();
-        setCartLineItems(data);
-        setLoading(false);
-      } catch (error) {
-        // Handle error if needed
-        setLoading(false);
-      }
-    };
-
-    fetchCartData();
-  }, []);
+export async function CartSheet() {
+  const cartLineItems = await getCartAction()
 
   const itemCount = cartLineItems.reduce(
     (total, item) => total + Number(item.quantity),
@@ -46,6 +30,7 @@ export default function CartSheet() {
     (total, item) => total + Number(item.quantity) * Number(item.price),
     0
   )
+
 
   return (
     <Sheet>

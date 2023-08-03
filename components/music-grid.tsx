@@ -20,7 +20,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
-import SidebarMenuBurger from "./sidebar-menu-burger";
+import MusicSidebarMenuBurger from "@/components/menuburgers/music-sidebar-menu-burger";
 
 
 const MusicGrid: React.FC = () => {
@@ -154,7 +154,7 @@ const sortedAndFilteredLabels = recordLabels
 
  <Sidebar variant="musicgrid" className={`sidebar  ${isSidebarOpen ? "sidebar-open xl:w-64 w-52" : "hidden-sidebar w-[68px] xl:w-24"}`}>
   <div className={`flex py-2 border-b border-accent4 ${isSidebarOpen ? "flex-row-reverse" : "justify-center"}`}>
- <SidebarMenuBurger
+ <MusicSidebarMenuBurger
               isOpen={isSidebarOpen}
               handleSidebarToggle={handleSidebarClick}
               setIsOpen={setIsSidebarOpen}

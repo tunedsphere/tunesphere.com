@@ -244,3 +244,4 @@ export async function deleteCartItemsAction(
 
   revalidatePath("/")
 }
+

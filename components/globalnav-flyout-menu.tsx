@@ -17,9 +17,9 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { ThemeToggle } from '@components/theme-toggle';
-import { UserDropdownMenu } from './user-dropdown-menu';
-import { Button } from './ui/button';
 
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 const GlobalNavFlyout: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -56,10 +56,9 @@ const GlobalNavFlyout: React.FC = () => {
   return (
     <>
       {isFlyoutOpen && (
-        <div className="@container z-9999 bg-background block sm:hidden absolute top-0 h-screen w-screen overflow-y-auto no-scrollbar">
-          <div className="flex flex-row justify-between w-full">
-          <div className="flex py-3 px-4 w-1/2">
-          <div className="text-center flex">
+        <div className="@container z-9999 bg-background block sm:hidden absolute top-0 h-screen w-screen overflow-y-auto no-scrollbar px-1">
+          <div className="flex flex-1 flex-row justify-between w-full">
+          <div className="flex py-3 w-1/4">
   <Button
     size="sm"
     onClick={handleFlyoutMenuClose}
@@ -71,16 +70,16 @@ const GlobalNavFlyout: React.FC = () => {
       <span className="text-lg font-semibold pr-2">Back</span>
     </span>
   </Button>
-</div>
+
             </div>
      
-            <div className="@sm:hidden flex py-3 px-4 w-1/2 justify-end">
+            <div className="@sm:hidden flex py-3 w-1/2 justify-end">
               <ThemeToggle />
             </div>
           </div>
         
 
-          <div className="flex justify-center">
+          <div className="flex justify-center py-6">
             <SignedOut>
               <LogInButton handleModalOpen={handleModalOpen} />
               
@@ -92,28 +91,19 @@ const GlobalNavFlyout: React.FC = () => {
             </SignedIn>  
           </div>
 
-          <div className="">
             <div className="divide-y px-4 justify-between divide-colortheme pb-8">
-              {siteConfig.navbarNav.map((item, index) => (
-                <Collapsible
-                  key={item.title}
-                  open={activeIndex === index}
-                  onOpenChange={() => handleCollapsibleToggle(index)}
-                >
-                  <CollapsibleTrigger className="text-2xl leading-7 flex justify-between text-texthigh w-full py-4">
-                    <span className="pl-6 flex-start font-semibold">
-                      {item.label}
-                    </span>
-                    <span className="mr-5 float-right">
-                      {activeIndex === index ? '-' : '+'}
-                    </span>
-                  </CollapsibleTrigger>
-                </Collapsible>
-              ))}
+      {siteConfig.navbarNav.map((item) => (
+          <li key={item.title} className="text-2xl leading-7 flex justify-between text-texthigh w-full py-4">
+            <Link
+              href={item.href}
+              className="text-texthigh hover:text-colortheme"
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
             </div>
           </div>
-          
-        </div>
       )}
       {isModalOpen && <Modal handleModalClose={handleModalOpen} />}
     </>
