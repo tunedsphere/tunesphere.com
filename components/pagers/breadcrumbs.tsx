@@ -13,12 +13,12 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ segments, separator }: BreadcrumbsProps) {
-  const SeparatorIcon = separator ?? Icons.horizontalSliders
+  const SeparatorIcon = separator ?? Icons.chevronRight
 
   return (
     <nav
       aria-label="breadcrumbs"
-      className="flex items-center text-sm font-medium text-muted-foreground"
+      className="flex justify-center items-center text-sm font-medium text-muted-foreground"
     >
       {segments.map((segment, index) => {
         const isLastSegment = index === segments.length - 1
@@ -29,16 +29,16 @@ export function Breadcrumbs({ segments, separator }: BreadcrumbsProps) {
               aria-current={isLastSegment ? "page" : undefined}
               href={segment.href}
               className={cn(
-                "truncate transition-colors hover:text-muted-foreground",
+                "truncate transition-colors hover:text-textdark hover:underline underline-offset-2 underline-textdark sm:text-lg",
                 isLastSegment
-                  ? "pointer-events-none text-muted-foreground"
-                  : "text-foreground"
+                  ? "pointer-events-none text-muted-foreground sm:text-lg"
+                  : "text-foreground sm:text-lg"
               )}
             >
               {segment.title}
             </Link>
             {!isLastSegment && (
-              <Icons.horizontalSliders className="mx-2 h-4 w-4" aria-hidden="true" />
+              <Icons.chevronRight className="sm:mx-2 mx-1 h-4 w-4" aria-hidden="true" />
             )}
           </React.Fragment>
         )

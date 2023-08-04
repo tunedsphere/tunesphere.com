@@ -17,7 +17,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Icons } from "@/components/icons"
-import { ProductCard } from "@components/products/product-card"
+import { FeaturedProductCard } from "@components/products/featured-product-card"
 import { Shell } from "@components/shells/shell"
 
 // Running out of edge function execution units on vercel free plan
@@ -48,16 +48,17 @@ export default async function ShopPage() {
     .orderBy(desc(sql<number>`count(${products.id})`))
 
   return (
-    <Shell className="gap-12 divide-y">
+    <>
+    <Shell className="px-0 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-28 mx-auto container">
       <section
-        id="hero"
-        aria-labelledby="hero-heading"
-        className="flex w-full flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
+        id="shop"
+        aria-labelledby="shop-heading"
+        className="px-2 text-center"
       >
-        <h1 className="z-10 text-3xl text-textdark font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
+        <h1 className="justify-center z-10 text-3xl text-textdark font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           A Store specially built for You with everything you would expect
         </h1>
-        <div className="relative max-w-full w-[400px] mx-auto py-8">
+        <div className="relative w-full max-w-[400px] mx-auto py-8">
         <div className="flex flex-wrap items-center justify-center gap-4">  
         <div className="absolute button_bg-gradient-colortheme left-0 right-0"></div>
              <div className='hero_gradient-button-wrapper flex-1 flex-start items-stretch z-20'>
@@ -104,7 +105,7 @@ export default async function ShopPage() {
       <section
         id="categories"
         aria-labelledby="categories-heading"
-        className="space-y-6 py-6 md:pt-10  w-full"
+        className="space-y-6 py-6 md:pt-10 w-full"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <h2 className="text-3xl text-textdark font-bold leading-[1.1] sm:text-3xl md:text-5xl">
@@ -147,7 +148,7 @@ export default async function ShopPage() {
       <section
         id="create-a-store-banner"
         aria-labelledby="create-a-store-banner-heading"
-        className="section-max-width w-full grid place-items-center gap-6 rounded-lg border bg-card px-6 py-16 text-center text-card-foreground shadow-sm"
+        className="section-max-width w-full grid place-items-center gap-6 sm:rounded-lg bg-card px-6 py-16 text-center text-card-foreground shadow-sm"
       >
         <h2 className="text-2xl font-medium sm:text-3xl">
           Do you want to sell your products on our website?
@@ -162,9 +163,9 @@ export default async function ShopPage() {
       <section
         id="featured-products"
         aria-labelledby="featured-products-heading"
-        className="w-full section-max-width space-y-6"
+        className="px-0 space-y-6"
       >
-        <div className="w-full flex items-center">
+        <div className="w-full px-2 flex items-center">
           <h2 className="flex-1 text-2xl font-medium sm:text-3xl">
             Featured products
           </h2>
@@ -181,16 +182,16 @@ export default async function ShopPage() {
             </div>
           </Link>
         </div>
-        <div className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="px-0 w-full grid grid-cols-2 gap-0 sm:gap-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
           {allProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <FeaturedProductCard key={product.id} product={product} />
           ))}
         </div>
       </section>
       <section
         id="featured-stores"
         aria-labelledby="featured-stores-heading"
-        className="section-max-width space-y-6"
+        className="px-0 space-y-6"
       >
         <h2 className="text-2xl font-medium sm:text-3xl">Featured stores</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -243,5 +244,6 @@ export default async function ShopPage() {
         ))}
       </section>
     </Shell>
+    </>
   )
 }

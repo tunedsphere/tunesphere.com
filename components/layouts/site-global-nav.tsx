@@ -54,7 +54,7 @@ export function SiteGlobalNav() {
               </Link>
 
             </div>
-            <div className="sm:w-1/3 w-2/6 shrink-0 relative items-center sm:gap-2 gap-1 flex flex-row justify-end pr-12">
+            <div className="sm:w-1/3 w-2/6 shrink-0 relative items-center sm:gap-2 gap-1 flex flex-row justify-end @xs:pr-12 pr-7">
             <SiteCombobox/>
             <CartSheet /> 
               <div  className='hidden @sm:block'>
@@ -64,9 +64,6 @@ export function SiteGlobalNav() {
               <SignedIn>
                <LoginNavbar/>
                </SignedIn>
-               <SignedOut>
-                   
-               </SignedOut>
                </div>
                
                {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}

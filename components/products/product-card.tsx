@@ -47,7 +47,7 @@ export function ProductCard({
 
   return (
     <Card
-      className={cn("h-full overflow-hidden rounded-sm bg-primary", className)}
+      className={cn("overflow-hidden h-full sm:rounded-lg rounded-none border-0 sm:border-2 bg-primary", className)}
       {...props}
     >
       <Link
@@ -87,7 +87,7 @@ export function ProductCard({
         aria-label={`View ${product.name} details`}
         href={`/shop/product/${product.id}`}
       >
-        <CardContent className="grid gap-2.5 p-4">
+        <CardContent className="grid gap-2.5 pb-4">
           <CardTitle className="line-clamp-1 text-textdark">{product.name}</CardTitle>
           <CardDescription className="line-clamp-2 text-textdark">
             {formatPrice(product.price)}

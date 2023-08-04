@@ -268,7 +268,7 @@ export function DataTable<TData, TValue>({
         newRowLink={newRowLink}
         deleteRowsAction={deleteRowsAction}
       />
-      <div className="rounded-md border">
+      <div className="rounded-md border border-border bg-muted">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

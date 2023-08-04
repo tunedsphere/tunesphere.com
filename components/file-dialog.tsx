@@ -74,13 +74,15 @@ export function FileDialog<TFieldValues extends FieldValues>({
 
       if (rejectedFiles.length > 0) {
         rejectedFiles.forEach(({ errors }) => {
-          if (errors[0]?.code === "file-too-large") {
-            toast.error(
-              `File is too large. Max size is ${formatBytes(maxSize)}`
-            )
-            return
-          }
-          errors[0]?.message && toast.error(errors[0].message)
+          if (errors[0]?.code === "file-invalid-type") {
+            toast.error(`Invalid file type. Allowed types: ${accept}`);
+          } else if (errors[1]?.code === "file-too-large") {
+            toast.error(`File is too large. Max size is ${formatBytes(maxSize)}`);
+          } else if (errors[2]?.code === "file-too-small") {
+            toast.error(`File is too small.`);
+          } else if (errors[3]?.code === "too-many-files") {
+            toast.error(`You can upload up to ${maxFiles} files.`);
+          } 
         })
       }
     },

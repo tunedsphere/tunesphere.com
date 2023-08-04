@@ -50,7 +50,7 @@ export default async function StoreLayout({
           <StorePager storeId={storeId} userId={user.id} />
         ) : null}
       </div>
-      <div className="space-y-4 overflow-hidden px-8 gap-8 grid">
+      <div className="space-y-4 overflow-hidden px-8 gap-8 grid max-w-screen ">
         <StoreTabs storeId={storeId} />
         {children}
       </div>

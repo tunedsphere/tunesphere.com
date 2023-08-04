@@ -16,9 +16,14 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { AddToCartForm } from "@/components/forms/add-to-cart-form"
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
-import { ProductCard } from "@components/products/product-card"
-import { ProductImageCarousel } from "@components/products/product-image-carousel"
+import { ProductCard } from "@/components/products/product-card"
+import { ProductImageCarousel } from "@/components/products/product-image-carousel"
 import { Shell } from "@/components/shells/shell"
+
+import Image from "next/image"
+import { AspectRatio } from "@components/ui/aspect-ratio"
+import { CardHeader } from "@components/ui/card"
+import { Icons } from "@components/icons"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -66,7 +71,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     : []
 
   return (
-    <Shell>
+    <Shell> <div className="overflow-hidden mx-auto">
       <Breadcrumbs
         segments={[
           {
@@ -83,19 +88,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
           },
         ]}
       />
-      <div className="flex flex-col gap-8 md:flex-row md:gap-16">
+      </div>
+      <div className="flex flex-col gap-8 md:flex-row md:gap-16 justify-center">
         <ProductImageCarousel
-          className="w-full md:w-1/2"
+          className="w-full md:w-1/3"
           images={product.images ?? []}
           options={{
             loop: true,
           }}
         />
         <Separator className="mt-4 md:hidden" />
-        <div className="flex w-full flex-col gap-4 md:w-1/2">
+        <div className="flex w-full flex-col gap-4 md:w-1/3 text-textdark">
           <div className="space-y-2">
-            <h2 className="line-clamp-1 text-2xl font-bold">{product.name}</h2>
-            <p className="text-base text-muted-foreground">
+            <h2 className="line-clamp-1 text-2xl text-textdark font-bold">{product.name}</h2>
+            <p className="text-xl text-textdark font-semibold">
               {formatPrice(product.price)}
             </p>
             {store ? (
@@ -110,9 +116,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <Separator className="my-1.5" />
           <AddToCartForm productId={productId} />
           <Separator className="mt-5" />
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full text-textdark">
             <AccordionItem value="description">
-              <AccordionTrigger>Description</AccordionTrigger>
+              <AccordionTrigger className="text-textdark">Description</AccordionTrigger>
               <AccordionContent>
                 {product.description ??
                   "No description is available for this product."}
@@ -122,12 +128,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </div>
       {store && productsFromStore.length > 0 ? (
-        <div className="overflow-hidden md:pt-6">
-          <h2 className="line-clamp-1 flex-1 text-2xl font-bold">
+        <div className="overflow-hidden md:pt-6 ">
+          <h2 className="line-clamp-1 flex-1 text-2xl font-bold text-textdark">
             More products from {store.name}
           </h2>
-          <div className="overflow-x-auto pb-2 pt-6">
-            <div className="flex w-fit gap-4">
+          <div className="overflow-x-auto pb-2 pt-6 ">
+            <div className="flex gap-4">
               {productsFromStore.map((product) => (
                 <ProductCard
                   key={product.id}

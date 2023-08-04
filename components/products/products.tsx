@@ -399,7 +399,7 @@ export function Products({
           </p>
         </div>
       ) : null}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="px-0 w-full grid grid-cols-2 gap-0 sm:gap-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} stores={stores}/>
         ))}

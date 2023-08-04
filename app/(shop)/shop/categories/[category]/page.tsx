@@ -1,45 +1,42 @@
+import { type Product } from "@/db/schema"
 
-import { products } from "@/db/schema"
-import { env } from "@/env.mjs"
-
-import { Products } from "@components/products/products"
-import { Shell } from "@components/shells/shell"
+import { toTitleCase } from "@/lib/utils"
+import { Header } from "@/components/header"
+import { Products } from "@/components/products/products"
+import { Shell } from "@/components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
 
-import { Header } from "@components/header"
-
-
-import type { Metadata } from "next"
-
-
-
-
-
-export const metadata: Metadata = {
-  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: "Products",
-  description: "Buy products from our stores",
-}
-
+import { Breadcrumbs } from "@components/pagers/breadcrumbs"
 
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"
 
-interface ProductsPageProps {
+interface CategoryPageProps {
+  params: {
+    category: Product["category"]
+  }
   searchParams: {
     [key: string]: string | string[] | undefined
   }
 }
 
-export default async function ProductsPage({
-  searchParams, 
-}: ProductsPageProps) {
+export function generateMetadata({ params }: CategoryPageProps) {
+  return {
+    title: toTitleCase(params.category),
+    description: `Buy products from the ${params.category} category`,
+  }
+}
+
+export default async function CategoryPage({
+  params,
+  searchParams,
+}: CategoryPageProps) {
+  const { category } = params
   const {
     page,
     per_page,
     sort,
-    categories,
     subcategories,
     price_range,
     store_ids,
@@ -54,7 +51,7 @@ export default async function ProductsPage({
     limit,
     offset,
     sort: typeof sort === "string" ? sort : null,
-    categories: typeof categories === "string" ? categories : null,
+    categories: category,
     subcategories: typeof subcategories === "string" ? subcategories : null,
     price_range: typeof price_range === "string" ? price_range : null,
     store_ids: typeof store_ids === "string" ? store_ids : null,
@@ -78,23 +75,33 @@ export default async function ProductsPage({
   const storePageCount = Math.ceil(storesTransaction.total / storesLimit)
 
   return (
-    <>
     <Shell className="px-0 mx-auto container">
-            <Header
-            variant="shop"
-            size="shop"
-        title="Products"
-        description="Buy products from our stores"
-        
+          <Breadcrumbs
+        segments={[
+          {
+            title: "Products",
+            href: "/shop/products",
+          },
+          {
+            title: toTitleCase(category),
+            href: `/shop/products?category=${category}`,
+          },
+          
+        ]}
+      />
+      <Header
+        title={toTitleCase(category)}
+        description={`Buy ${category} from the best stores`}
+        variant="shop"
+        size="shop"
       />
       <Products
         products={productsTransaction.items}
         pageCount={pageCount}
-        categories={Object.values(products.category.enumValues)}
+        category={category}
         stores={storesTransaction.items}
         storePageCount={storePageCount}
       />
     </Shell>
-   </>
   )
 }

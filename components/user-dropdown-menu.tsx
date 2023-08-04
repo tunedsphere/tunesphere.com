@@ -37,13 +37,13 @@ export function UserDropdownMenu({ user }: UserDropdownMenuProps) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button size="xs" variant="nav" className="">
-          <Avatar className="h-7 w-7 flex items-center justify-center border border-accent8">
+          <Avatar className="h-7 w-7 flex items-center justify-center ">
             <AvatarImage src={user.imageUrl} alt={user.username ?? ""} />
             <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 z-10000 p-2" align="center" forceMount>
+      <DropdownMenuContent className="w-56 p-2 border-colortheme z-10000" align="center" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-base font-medium leading-none py-1">

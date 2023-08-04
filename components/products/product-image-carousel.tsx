@@ -89,7 +89,7 @@ export function ProductImageCarousel({
   return (
     <div
       aria-label="Product image carousel"
-      className={cn("flex flex-col gap-2", className)}
+      className={cn("flex flex-col gap-2 w-2/3", className)}
       {...props}
     >
       <div ref={emblaRef} className="overflow-hidden">

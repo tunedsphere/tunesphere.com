@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 const shellVariants = cva("grid gap-8 pb-8 pt-6 md:py-8", {
   variants: {
     variant: {
-      default: "container max-w-screen-2xl",
+      default: "container max-w-screen-2xl mx-auto justify-center",
       auth: "max-w-lg mx-auto",
       dashboard: "mx-auto w-full pt-0 md:py-0 gap-8",
       sidebar: "pt-0 md:py-0",

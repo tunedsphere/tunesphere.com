@@ -25,8 +25,8 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
   return (
     <div className="hidden gap-6 lg:flex">
       <Link
-        aria-label="Home"
-        href="/"
+        aria-label="Explore & Shop"
+        href="/shop"
         className="hidden items-center space-x-2 lg:flex"
       > 
         <span className="text-textdark hidden font-bold lg:inline-block text-lg">Explore & Shop

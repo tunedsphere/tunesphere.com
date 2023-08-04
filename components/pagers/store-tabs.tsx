@@ -39,7 +39,7 @@ export function StoreTabs({ className, storeId, ...props }: StoreTabsProps) {
   return (
     <Tabs
       {...props}
-      className={cn("w-full overflow-x-auto", className)}
+      className={cn("w-full overflow-x-auto gap-1", className)}
       onValueChange={(value) => router.push(value)}
     >
       <TabsList>

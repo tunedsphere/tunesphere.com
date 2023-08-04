@@ -10,7 +10,7 @@ export default function SiteHeaderMenuBurger() {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); 
+  const [isOpen, setIsOpen] = useState(true); 
 
 
   const [rotation, setRotation] = useState(0);

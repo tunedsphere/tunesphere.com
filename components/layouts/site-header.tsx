@@ -49,7 +49,7 @@ export function SiteHeader() {
 
           <div className="py-2 navbar-container h-[--headerHeight] flex md:px-8 px-4">
           
-          <div className="sm:w-1/3 hidden relative items-center sm:gap-2 gap-1 sm:flex flex-row justify-start">    
+          <div className="sm:w-1/3 hidden relative items-center sm:gap-2 sm:flex flex-row justify-start">    
           
           <Icons.logo className='absolute mx-auto right-0 left-0 -z-10 sm:block hidden'
               width={100}
@@ -64,7 +64,7 @@ export function SiteHeader() {
                 </h2>
               </Link>
             </div>
-            <div className="sm:w-1/3 w-2/6 relative items-center sm:gap-2 gap-[1px] flex flex-row justify-end pr-12">
+            <div className="sm:w-1/3 w-2/6 relative items-center sm:gap-2 flex flex-row justify-end sm:pr-12 pr-4">
             <CartSheet />
               <div  className='hidden sm:block'>
               <ThemeToggle/>

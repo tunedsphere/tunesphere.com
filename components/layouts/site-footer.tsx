@@ -39,16 +39,6 @@ export function SiteFooter() {
 
   return (
     <footer className="bottom-0 relative items-center mx-auto py-8 px-4">
-      <Image
-        src={stars6}
-        priority
-        placeholder="blur"
-        width={500}
-        height={500}
-        alt="Footer Stars"
-        className="-z-10 absolute right-0 bottom-0 w-1/2 lg:w-1/4 object-contain opacity-80"
-      />
-
       <div className="footer-gradient w-1/5 -z-10" />
       
       <div className="gap-5">

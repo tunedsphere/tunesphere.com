@@ -155,7 +155,7 @@ export default async function MyApp() {
       <Shell
         id="hero"
         aria-labelledby="hero-heading"
-        className="grid items-center justify-center pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
+        className="pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           A Store built for You with everything you would expect.
@@ -202,7 +202,7 @@ export default async function MyApp() {
               }),
               "hero_gradient-button-outline"
             )}
-          ><span className='text-texthigh'>Sell Now</span>
+          ><span className='text-texthigh absolute'>Sell Now</span>
             
           </Link>
           </div>

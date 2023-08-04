@@ -7,8 +7,8 @@ interface HeaderProps
   > {
   title: string
   description?: string | null
-  size?: "default" | "sm" | "auth"
-  variant?: "default" | "dashboard" | "auth"
+  size?: "default" | "sm" | "auth" | "shop"
+  variant?: "default" | "dashboard" | "auth" | "shop"
 }
 
 export function Header({
@@ -24,6 +24,7 @@ export function Header({
       variant === "dashboard" && "bg-accent2 p-8",
       variant === "auth" && "",
       variant === "default" && "",
+      variant === "shop" && "justify-center text-center",
        className)} {...props}>
         
       <h1
@@ -31,6 +32,7 @@ export function Header({
           "text-3xl font-bold tracking-tight",
           size === "default" && "md:text-4xl",
           size === "auth" && "text-4xl",
+          size === "shop" && "text-4xl text-textdark",
 
         )}
       >
@@ -39,8 +41,9 @@ export function Header({
       {description ? (
         <p
           className={cn(
-            "text-textlow",
-            size === "default" && "text-lg"
+            "text-muted-foreground",
+            size === "default" && "text-lg",
+            size === "shop" && "text-lg "
           )}
         >
           {description}

@@ -90,7 +90,7 @@ export function PaginationButton({
         }}
         disabled={Number(page) === 1 || isPending}
       >
-        <Icons.chevronLeft className="h-4 w-4" aria-hidden="true" />
+        <Icons.chevronsLeft className="h-4 w-4" aria-hidden="true" />
       </Button>
       <Button
         aria-label="Go to previous page"
@@ -184,7 +184,7 @@ export function PaginationButton({
         }}
         disabled={Number(page) === (pageCount ?? 10) || isPending}
       >
-        <Icons.chevronRight className="h-4 w-4" aria-hidden="true" />
+        <Icons.chevronsRight className="h-4 w-4" aria-hidden="true" />
       </Button>
     </div>
   )
