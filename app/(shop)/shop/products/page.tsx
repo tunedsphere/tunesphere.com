@@ -79,7 +79,7 @@ export default async function ProductsPage({
 
   return (
     <>
-    <Shell className="px-0 mx-auto container">
+    <Shell variant="shop">
             <Header
             variant="shop"
             size="shop"

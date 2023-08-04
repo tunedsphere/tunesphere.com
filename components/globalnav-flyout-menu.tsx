@@ -70,19 +70,14 @@ const GlobalNavFlyout: React.FC = () => {
       <span className="text-lg font-semibold pr-2">Back</span>
     </span>
   </Button>
-
             </div>
-     
             <div className="@sm:hidden flex py-3 w-1/2 justify-end">
               <ThemeToggle />
             </div>
           </div>
-        
-
           <div className="flex justify-center py-6">
             <SignedOut>
-              <LogInButton handleModalOpen={handleModalOpen} />
-              
+              <LogInButton handleModalOpen={handleModalOpen} /> 
             </SignedOut>
             <SignedIn>
             <div className='flex flex-col items-center p-2'>
