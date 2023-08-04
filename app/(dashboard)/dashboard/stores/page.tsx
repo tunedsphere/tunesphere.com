@@ -67,9 +67,9 @@ export default async function StoresPage() {
     <Shell variant="dashboard">
     <Header variant='dashboard' title="Stores" description="Manage your stores" size="sm" />
     <div className="px-8 gap-8 grid">
-      <Alert>
+      <Alert className="bg-accent1">
         <Icons.terminal className="h-4 w-4" aria-hidden="true" />
-        <AlertTitle>Heads up!</AlertTitle>
+        <AlertTitle className="">Heads up!</AlertTitle>
         <AlertDescription>
           You are currently on the{" "}
           <span className="font-semibold">{subscriptionPlan.name}</span> plan.{" "}
@@ -89,7 +89,9 @@ export default async function StoresPage() {
       </Alert>
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         {userStores.map((store) => (
-          <Card key={store.id} className="flex h-full flex-col">
+          <Card 
+          variant="dashboard"
+          key={store.id} className="flex h-full flex-col">
             <CardHeader className="flex-1">
               <CardTitle className="line-clamp-1">{store.name}</CardTitle>
               <CardDescription className="line-clamp-2">
@@ -114,7 +116,9 @@ export default async function StoresPage() {
           </Card>
         ))}
         {userStores.length < 3 && (
-          <Card className="flex h-full flex-col">
+          <Card 
+          variant="dashboard"
+          className="flex h-full flex-col">
             <CardHeader className="flex-1">
               <CardTitle className="line-clamp-1">Create a new store</CardTitle>
               <CardDescription className="line-clamp-2">

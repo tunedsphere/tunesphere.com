@@ -107,9 +107,11 @@ export default async function UpdateStorePage({
   return (
     <div className="space-y-6">
       <Card
+        variant="dashboard"
         as="section"
         id="connect-store-to-stripe"
         aria-labelledby="connect-store-to-stripe-heading"
+        
       >
         <CardHeader className="space-y-1">
           <CardTitle className="line-clamp-1 text-2xl">
@@ -130,6 +132,7 @@ export default async function UpdateStorePage({
         </CardContent>
       </Card>
       <Card
+        variant="dashboard"
         as="section"
         id="update-store"
         aria-labelledby="update-store-heading"

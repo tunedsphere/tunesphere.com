@@ -21,7 +21,7 @@ export function Header({
 }: HeaderProps) {
   return (
     <div className={cn("grid gap-1",
-      variant === "dashboard" && "bg-accent2 p-8",
+      variant === "dashboard" && "bg-muted p-8",
       variant === "auth" && "",
       variant === "default" && "",
       variant === "shop" && "justify-center text-center",

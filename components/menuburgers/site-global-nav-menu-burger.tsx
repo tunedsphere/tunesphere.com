@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import GlobalNavFlyout from '@/components/globalnav-flyout-menu';
-import { NavbarBottom } from '@/components/layouts/navbar-bottom';
+import { GlobalNavbarBottom } from '@/components/layouts/global-navbar-bottom';
 
 export default function SiteGlobalNavMenuBurger() {
   const [isMenuOpen, setMenuOpen] = useState(true);
@@ -57,7 +57,7 @@ className="block md:hidden text-texthigh hover:text-colortheme object-contain px
           </div>
         </div>
 
-    {isMenuOpen && <NavbarBottom />}
+    {isMenuOpen && <GlobalNavbarBottom />}
     {isGlobalNavFlyoutOpen && <GlobalNavFlyout/> }
 
     </>

@@ -43,7 +43,8 @@ export default async function UpdateProductPage({
   }
 
   return (
-    <Card>
+    <Card
+    variant="dashboard">
       <CardHeader className="space-y-1">
         <div className="flex items-center justify-between space-x-2">
           <CardTitle className="text-2xl">Update product</CardTitle>

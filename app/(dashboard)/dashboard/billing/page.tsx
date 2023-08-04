@@ -56,7 +56,9 @@ export default async function BillingPage() {
         className="space-y-5"
       >
         <h2 className="text-xl font-semibold sm:text-2xl">Billing info</h2>
-        <Card className="grid gap-4 p-6">
+        <Card 
+        variant="dashboard"
+        className="grid gap-4 p-6">
           <h3 className="text-lg font-semibold sm:text-xl"><span>Current Plan :</span><span className="font-normal"> <strong>
             {subscriptionPlan?.name}</strong></span> 
           </h3>
@@ -83,6 +85,7 @@ export default async function BillingPage() {
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
           {storeSubscriptionPlans.map((plan, i) => (
             <Card
+              variant="dashboard"
               key={plan.name}
               className={cn(
                 "flex flex-col",
