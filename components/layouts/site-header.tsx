@@ -17,7 +17,7 @@ import { SignedOut, SignedIn } from '@clerk/nextjs';
 
 import { Icons } from '@components/icons';
 
-import LoginNavbar from '@components/ui/login-navbar';
+import LoginNavbar from '@components/login-navbar';
 
 
 export function SiteHeader() {
@@ -64,18 +64,13 @@ export function SiteHeader() {
                 </h2>
               </Link>
             </div>
-            <div className="sm:w-1/3 w-2/6 relative items-center sm:gap-2 flex flex-row justify-end sm:pr-12 pr-4">
+            <div className="sm:w-1/3 w-2/6 relative items-center sm:gap-2 flex flex-row justify-end pr-12">
             <CartSheet />
-              <div  className='hidden sm:block'>
+              <div className='hidden sm:block'>
               <ThemeToggle/>
               </div>
               <div className='flex items-center justify-center'>
-              <SignedIn>
-            <LoginNavbar/> 
-                </SignedIn>
-                <SignedOut>
-                <LoginModalButton/> 
-               </SignedOut>
+                <LoginNavbar/> 
                </div>
                {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
             </div>

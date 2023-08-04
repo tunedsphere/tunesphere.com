@@ -143,7 +143,7 @@ const sortedAndFilteredLabels = recordLabels
     <div className=''>
     <div className=" mx-auto relative w-full flex justify-center items-center">
 
-        <div className="flex justify center py-8 px-4 mx-auto right-0 left-0 gap-2 md:gap-6">
+        <div className="flex justify center sm:py-4 py-2 px-4 mx-auto right-0 left-0 gap-2 md:gap-6">
           <Button className="text-texthigh px-1 sm:px-4" variant="outline">Albums</Button>
           <Button className="text-texthigh px-1 sm:px-4" variant="outline">Artists</Button>
           <Button className="text-texthigh px-1 sm:px-4" variant="outline">Djs</Button>

@@ -14,7 +14,7 @@ import { CartSheet } from "@/components/cart/cart-sheet"
 import { SiteCombobox } from '@components/site-combobox';
 import { SignedOut, SignedIn } from '@clerk/nextjs';
 
-import LoginNavbar from '@components/ui/login-navbar';
+import LoginNavbar from '@components/login-navbar';
 export function SiteGlobalNav() {
 
       // const [isMenuOpen, setMenuOpen] = useState(true);
@@ -61,9 +61,7 @@ export function SiteGlobalNav() {
               <ThemeToggle/>
               </div>
               <div className='flex items-center justify-center'>
-              <SignedIn>
-               <LoginNavbar/>
-               </SignedIn>
+              <LoginNavbar/> 
                </div>
                
                {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
