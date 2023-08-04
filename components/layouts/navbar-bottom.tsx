@@ -13,7 +13,7 @@ import type { NavbarNavItem } from "@/types"
     export function NavbarBottom({ items }: NavbarNavProps) {
   return (
     <>
-    <nav className="navbar md:bg-backgroundNavbarBottom bg-background  relative hidden sm:block">
+    <nav className="navbar md:bg-navbarbottom-background bg-background  relative hidden sm:block">
     <div className="flex justify-center navbar-container py-4 items-center">
       <ul className="navbar-list items-center divide-y sm:divide-none">
       {siteConfig.navbarNav.map((item) => (

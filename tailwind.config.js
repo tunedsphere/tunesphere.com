@@ -50,7 +50,14 @@ module.exports = {
       colors: {
         background: "var(--background)",
         backgroundNavbarTop: "var(--background-navbartop)",
-        backgroundNavbarBottom: "var(--background-navbarbottom)",
+        globalnav: {
+          DEFAULT: "",
+          background: "var(--globalnav-background)",
+        },
+        navbarbottom: {
+          DEFAULT: "",
+          background: "var(--navbarbottom-background)",
+        },
         brand: "var(--brand)",
         texthigh: "var(--texthigh)",
         textlow: "var(--textlow)",

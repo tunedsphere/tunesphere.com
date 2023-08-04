@@ -42,10 +42,10 @@ export function SiteHeader() {
 
 
   return (
-    <nav id="globalnav" className="@container globalnav fixed h-auto border-b-2 border-accent2">
+    <nav id="globalnav" className="@container bg-globalnav-background globalnav fixed h-auto border-b-2 border-accent2">
       <div id="globalnav-content" className="relative">
         
-        <nav className="md:bg-backgroundNavbarTop bg-background z-9999">
+        <nav className="z-9999">
 
           <div className="py-2 navbar-container h-[--headerHeight] flex md:px-8 px-4">
           
@@ -81,16 +81,6 @@ export function SiteHeader() {
         {isGlobalNavFlyoutOpen &&
            <GlobalNavFlyout/> } */}
       </div>
-
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden md:block"
-        style={{ zIndex: -10 }}
-      >
-        <source src="/bgvideo.mp4" type="video/mp4" />
-      </video>
     </nav>
   );
 }

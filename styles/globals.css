@@ -786,6 +786,9 @@
     --textlow: hsl(290 5% 60%);
     --textdark:hsl(0, 0%, 5%);
     
+
+    --globalnav-background: hsl(252 40% 8%);
+    --navbarbottom-background: hsl(252 40% 8%);
     --colorfooter: hsl(280 41% 20%);
     --orange: hsl(24 100% 58%);
 
@@ -848,6 +851,9 @@
     --texthigh: hsl(199 80% 97%);
     --textlow:  hsl(206 5% 80%);
 
+
+    --globalnav-background: hsl(221 41% 12%);
+    --navbarbottom-background: hsl(221 41% 12%);
     --colorfooter: hsl(221 41% 20%);
     --orange: hsl(24 100% 58%);
 
