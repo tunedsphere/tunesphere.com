@@ -71,7 +71,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     : []
 
   return (
-    <Shell> <div className="overflow-hidden mx-auto">
+    <Shell variant="shop">
       <Breadcrumbs
         segments={[
           {
@@ -88,7 +88,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
           },
         ]}
       />
-      </div>
       <div className="flex flex-col gap-8 md:flex-row md:gap-16 justify-center">
         <ProductImageCarousel
           className="w-full md:w-1/3"

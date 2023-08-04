@@ -75,7 +75,7 @@ export default async function CategoryPage({
   const storePageCount = Math.ceil(storesTransaction.total / storesLimit)
 
   return (
-    <Shell className="px-0 mx-auto container">
+    <Shell variant="shop">
           <Breadcrumbs
         segments={[
           {
