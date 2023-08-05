@@ -14,7 +14,7 @@ export default async function ShopLayout({ children }: ShopLayoutProps) {
       
         <SiteHeader/>
         <ShopHeader/>
-        <main className='bg-white flex-1'>
+        <main className='bg-background-shop flex-1'>
           {children}
           </main>
         <SiteFooter/>

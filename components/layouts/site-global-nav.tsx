@@ -31,12 +31,8 @@ export function SiteGlobalNav() {
   return (
     <>
     <nav id="globalnav" className="@container globalnav fixed h-auto border-b-2 border-accent2">
-      <div id="globalnav-content" className="relative">
-        
-        <nav className="md:bg-backgroundNavbarTop bg-background z-9999">
-
+      <div id="globalnav-content" className="relative md:bg-background-globalnav bg-background-navbartop">
           <div className="py-2 navbar-container h-[--headerHeight] flex md:px-8 px-4">
-          
           <div className="sm:w-1/3 hidden relative items-center sm:gap-2 gap-1 sm:flex flex-row justify-start">    
          
              <Icons.logo className=''
@@ -67,7 +63,7 @@ export function SiteGlobalNav() {
                {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
             </div>
           </div>
-        </nav>
+
         <SiteGlobalNavMenuBurger/>
         {/* {isMenuOpen && <NavbarBottom />}
         {isGlobalNavFlyoutOpen && <GlobalNavFlyout/> } */}
@@ -77,7 +73,7 @@ export function SiteGlobalNav() {
         autoPlay
         loop
         muted
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden md:block"
+        className="absolute top-0 left-0 w-full h-full object-cover -z-10 hidden md:block"
         style={{ zIndex: -10 }}
       >
         <source src="/bgvideo.mp4" type="video/mp4" />

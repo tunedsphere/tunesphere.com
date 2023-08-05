@@ -48,15 +48,14 @@ module.exports = {
         '20000': '20000',
       },
       colors: {
-        background: "var(--background)",
-        backgroundNavbarTop: "var(--background-navbartop)",
-        globalnav: {
-          DEFAULT: "",
-          background: "var(--globalnav-background)",
-        },
-        navbarbottom: {
-          DEFAULT: "",
-          background: "var(--navbarbottom-background)",
+        background: { 
+          DEFAULT: "var(--background)",
+          globalnav: "var(--background-globalnav)",
+          navbarbottom: "var(--background-navbarbottom)",
+          navbartop: "var(--background-navbartop)",
+          footer: "var(--background-footer)",
+          shop: "var(--background-shop)",  
+          dashboard: "var(--background-dashboard)",
         },
         brand: "var(--brand)",
         texthigh: "var(--texthigh)",

@@ -42,11 +42,9 @@ export function SiteHeader() {
 
 
   return (
-    <nav id="globalnav" className="@container bg-globalnav-background globalnav fixed h-auto border-b-2 border-accent2">
-      <div id="globalnav-content" className="relative">
-        
-        <nav className="z-9999">
-
+    <nav id="globalnav" className="@container globalnav fixed h-auto border-b-2 border-accent2">
+      <div id="globalnav-content" className="relative">    
+        <nav className="bg-background-navbartop z-9999">
           <div className="py-2 navbar-container h-[--headerHeight] flex md:px-8 px-4">
           
           <div className="sm:w-1/3 hidden relative items-center sm:gap-2 sm:flex flex-row justify-start">    

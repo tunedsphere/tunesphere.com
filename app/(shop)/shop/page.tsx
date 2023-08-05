@@ -145,10 +145,10 @@ export default async function ShopPage() {
           ))}
         </div>
       </section>
-      <section
+      <Shell
         id="create-a-store-banner"
         aria-labelledby="create-a-store-banner-heading"
-        className="section-max-width w-full grid place-items-center gap-6 sm:rounded-lg bg-card px-6 py-16 text-center text-card-foreground shadow-sm"
+        className="place-items-center gap-6 sm:rounded-lg bg-card px-6 py-16 text-center text-card-foreground shadow-sm"
       >
         <h2 className="text-2xl font-medium sm:text-3xl">
           Do you want to sell your products on our website?
@@ -159,7 +159,7 @@ export default async function ShopPage() {
             <span className="sr-only">Create a store</span>
           </div>
         </Link>
-      </section>
+      </Shell>
       <section
         id="featured-products"
         aria-labelledby="featured-products-heading"
