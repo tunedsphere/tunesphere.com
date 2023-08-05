@@ -5,6 +5,9 @@ import { currentUser } from "@clerk/nextjs"
 import { Header } from "@/components/header"
 import { Shell } from "@components/shells/shell"
 
+import { Suspense } from "react";
+import PurchasesLoading from "./loading"
+
 export const metadata: Metadata = {
   title: "Purchases",
   description: "Manage your purchases",
@@ -19,6 +22,8 @@ export default async function PurchasesPage() {
 
   return (
     <>
+
+    <Suspense fallback={<PurchasesLoading/>}>
     <Shell variant="dashboard">
     <Header
         variant='dashboard'
@@ -30,6 +35,7 @@ export default async function PurchasesPage() {
       <div>Purchases Table</div>
       </div>
     </Shell>
+    </Suspense>
     </>
   )
 }

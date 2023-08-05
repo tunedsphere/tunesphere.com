@@ -9,8 +9,8 @@ import { SidebarNav } from "@/components/layouts/sidebar-nav";
 import { SiteHeader } from "@components/layouts/site-header";
 import { SiteFooter } from '@components/layouts/site-footer';
 import { Sidebar } from "@components/ui/sidebar"
-
-
+import { Suspense } from "react";
+import BillingLoading from "./billing/loading";
 interface DashboardLayoutProps {
   children: React.ReactNode
 }
@@ -33,9 +33,13 @@ export default async function DashboardLayout({
           <SidebarNav items={dashboardConfig.sidebarNav} />
         </ScrollArea>
       </Sidebar>
+      <Suspense fallback={<BillingLoading/>}>
     <main className="overflow-hidden w-full flex flex-col bg-background-dashboard">
+   
       {children} 
+     
     </main>
+    </Suspense>
   </section>
   <SiteFooter />
   </>

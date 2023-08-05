@@ -21,6 +21,9 @@ import { Header } from "@/components/header"
 import { Icons } from "@/components/icons"
 import { Shell } from "@/components/shells/shell"
 
+import { Suspense } from "react"
+import BillingLoading from "./loading"
+
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: "Billing",
@@ -42,6 +45,7 @@ export default async function BillingPage() {
 
   return (
     <>   
+    <Suspense fallback={<BillingLoading/>}>
       <Shell variant="dashboard">
       <Header
         variant='dashboard'
@@ -149,6 +153,7 @@ export default async function BillingPage() {
       </section>
       </div>
     </Shell>
+    </Suspense>
     </>
   )
 }
