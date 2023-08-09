@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation"
 import { useSignIn } from "@clerk/nextjs"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-
 import type { z } from "zod"
+
 import { catchClerkError } from "@/lib/utils"
 import { authSignInSchema } from "@/lib/validations/auth"
 import { Button } from "@/components/ui/button"
@@ -37,7 +37,6 @@ export function SignInForm() {
       password: "",
     },
   })
-  
 
   function onSubmit(data: Inputs) {
     if (!isLoaded) return
@@ -76,7 +75,7 @@ export function SignInForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email" {...field} />
+                <Input className="bg-background" placeholder="Email" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -89,17 +88,18 @@ export function SignInForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <PasswordInput placeholder="**********" {...field} />
+                <PasswordInput className="bg-background" placeholder="**********" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button 
-        type="submit"
-        variant="logInButton"
-        className="my-8 p-2 text-xl w-full items-center"
-        disabled={isPending}>
+        <Button
+          type="submit"
+          variant="logInButton"
+          className="my-8 w-full items-center p-2 text-xl"
+          disabled={isPending}
+        >
           {isPending && (
             <Icons.spinner
               className="mr-2 h-4 w-4 animate-spin"

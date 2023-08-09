@@ -268,7 +268,7 @@ export function DataTable<TData, TValue>({
         newRowLink={newRowLink}
         deleteRowsAction={deleteRowsAction}
       />
-      <div className="rounded-md border border-muted bg-accent2">
+      <div className="rounded-md border border-muted bg-accent-2">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -292,7 +292,7 @@ export function DataTable<TData, TValue>({
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
-                className="border-input"
+                  className="border-input"
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >

@@ -3,11 +3,7 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
-
-
-
-import { type Product} from "@/db/schema"
-import { type Store } from "@/db/schema"
+import { type Product, type Store } from "@/db/schema"
 import { toast } from "sonner"
 
 import { cn, formatPrice } from "@/lib/utils"
@@ -24,7 +20,8 @@ import {
 import { Icons } from "@/components/icons"
 import { addToCartAction } from "@/app/_actions/cart"
 
-interface FeaturedProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface FeaturedProductCardProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   product: Product
   stores?: Pick<Store, "id" | "name">[]
   variant?: "default" | "switchable"
@@ -43,19 +40,20 @@ export function FeaturedProductCard({
 }: FeaturedProductCardProps) {
   const [isPending, startTransition] = React.useTransition()
 
-
-
   return (
     <div className="relative">
-    <Card
-      className={cn("overflow-hidden h-full sm:rounded-lg rounded-none border-0 sm:border-2 bg-primary", className)}
-      {...props}
-    >
-      <Link
-        aria-label={`View ${product.name} details`}
-        href={`/shop/product/${product.id}`}
+      <Card
+        className={cn(
+          "h-full overflow-hidden rounded-none border-0 bg-primary sm:border-2 lg:rounded-md",
+          className
+        )}
+        {...props}
       >
-          <AspectRatio ratio={4/3}>
+        <Link
+          aria-label={`View ${product.name} details`}
+          href={`/shop/product/${product.id}`}
+        >
+          <AspectRatio ratio={4 / 3}>
             {product?.images?.length ? (
               <Image
                 src={
@@ -80,13 +78,12 @@ export function FeaturedProductCard({
                 />
               </div>
             )}
-      </AspectRatio>
-    
-      </Link>
-      <div className="ml-2 absolute left-0 top-2 z-20 rounded-lg px-2 font-semibold bg-primary line-clamp-2 text-textdark">
-            {formatPrice(product.price)}
-          </div>
-    </Card>
+          </AspectRatio>
+        </Link>
+        <div className="absolute left-0 top-2 z-20 ml-2 line-clamp-2 rounded-lg bg-primary px-2 font-semibold text-textdark">
+          {formatPrice(product.price)}
+        </div>
+      </Card>
     </div>
   )
 }

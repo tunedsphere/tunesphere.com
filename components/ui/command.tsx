@@ -1,11 +1,10 @@
 "use client"
 
 import * as React from "react"
+import { Icons } from "@components/icons"
 import { type DialogProps } from "@radix-ui/react-dialog"
 import { Command as CommandPrimitive } from "cmdk"
 import { Search } from "lucide-react"
-import { Icons } from "@components/icons"
-
 
 import { cn } from "@/lib/utils"
 import {
@@ -21,7 +20,7 @@ const Command = React.forwardRef<
   <CommandPrimitive
     ref={ref}
     className={cn(
-      "flex h-full w-full flex-col overflow-hidden bg-accent1 rounded-lg border-colortheme/80 text-texthigh",
+      "flex h-full w-full flex-col overflow-hidden rounded-lg border-theme-800 bg-accent-1 text-texthigh",
       className
     )}
     {...props}
@@ -63,7 +62,7 @@ const CommandInput = React.forwardRef<
         className
       )}
       {...props}
-    />  
+    />
   </div>
 ))
 
@@ -75,7 +74,10 @@ const CommandList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.List
     ref={ref}
-    className={cn("max-h-[300px] min-h-[120px] overflow-y-auto overflow-x-hidden", className)}
+    className={cn(
+      "max-h-[300px] min-h-[120px] overflow-y-auto overflow-x-hidden",
+      className
+    )}
     {...props}
   />
 ))
@@ -146,7 +148,7 @@ const CommandShortcut = ({
   return (
     <span
       className={cn(
-        "ml-auto text-Base tracking-widest text-muted-foreground",
+        "text-Base ml-auto tracking-widest text-muted-foreground",
         className
       )}
       {...props}

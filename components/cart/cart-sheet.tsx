@@ -1,4 +1,3 @@
-
 import Image from "next/image"
 
 import { formatPrice } from "@/lib/utils"
@@ -31,30 +30,26 @@ export async function CartSheet() {
     0
   )
 
-
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button
-          aria-label="Open cart"
-          variant="nav"
-          size="xs"
-          className='px-2'
-        >
+        <Button aria-label="Open cart" variant="nav" size="xs" className="px-2">
           {itemCount > 0 && (
             <Badge
               variant="destructive"
-              className="absolute transform translate-x-1/2 -translate-y-1/2"
+              className="absolute -translate-y-1/2 translate-x-1/2 transform"
             >
               {itemCount}
             </Badge>
           )}
-          <Icons.basket className='transition-all' aria-hidden="true" />
+          <Icons.basket className="transition-all" aria-hidden="true" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg z-10000">
+      <SheetContent className="z-10000 flex w-full flex-col pr-0 sm:max-w-lg">
         <SheetHeader className="px-1">
-          <SheetTitle>Your Basket {itemCount > 0 && `(${itemCount})`}</SheetTitle>
+          <SheetTitle>
+            Your Basket {itemCount > 0 && `(${itemCount})`}
+          </SheetTitle>
         </SheetHeader>
         <Separator />
         {itemCount > 0 ? (
@@ -79,7 +74,7 @@ export async function CartSheet() {
                               loading="lazy"
                             />
                           ) : (
-                            <div className="flex h-full items-center justify-center bg-secondary">
+                            <div className="bg-destructive-500 flex h-full items-center justify-center">
                               <Icons.placeholder
                                 className="h-4 w-4 text-muted-foreground"
                                 aria-hidden="true"

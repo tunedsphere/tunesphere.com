@@ -89,7 +89,7 @@ export function ProductImageCarousel({
   return (
     <div
       aria-label="Product image carousel"
-      className={cn("flex flex-col gap-2 w-2/3", className)}
+      className={cn("flex w-2/3 flex-col gap-2", className)}
       {...props}
     >
       <div ref={emblaRef} className="overflow-hidden">
@@ -100,7 +100,7 @@ export function ProductImageCarousel({
           }}
         >
           {images.map((image, index) => (
-            <div className="relative min-w-0 flex-full pl-4" key={index}>
+            <div className="flex-full relative min-w-0 pl-4" key={index}>
               <AspectRatio ratio={1}>
                 <Image
                   aria-label={`Slide ${index + 1} of ${images.length}`}

@@ -1,27 +1,18 @@
-
+import type { Metadata } from "next"
 import { products } from "@/db/schema"
 import { env } from "@/env.mjs"
-
+import { Header } from "@components/header"
 import { Products } from "@components/products/products"
 import { Shell } from "@components/shells/shell"
+
 import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
-
-import { Header } from "@components/header"
-
-
-import type { Metadata } from "next"
-
-
-
-
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: "Products",
   description: "Buy products from our stores",
 }
-
 
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"
@@ -33,7 +24,7 @@ interface ProductsPageProps {
 }
 
 export default async function ProductsPage({
-  searchParams, 
+  searchParams,
 }: ProductsPageProps) {
   const {
     page,
@@ -79,22 +70,21 @@ export default async function ProductsPage({
 
   return (
     <>
-    <Shell variant="shop">
-            <Header
-            variant="shop"
-            size="shop"
-        title="Products"
-        description="Buy products from our stores"
-        
-      />
-      <Products
-        products={productsTransaction.items}
-        pageCount={pageCount}
-        categories={Object.values(products.category.enumValues)}
-        stores={storesTransaction.items}
-        storePageCount={storePageCount}
-      />
-    </Shell>
-   </>
+      <Shell variant="shop">
+        <Header
+          variant="shop"
+          size="shop"
+          title="Products"
+          description="Buy products from our stores"
+        />
+        <Products
+          products={productsTransaction.items}
+          pageCount={pageCount}
+          categories={Object.values(products.category.enumValues)}
+          stores={storesTransaction.items}
+          storePageCount={storePageCount}
+        />
+      </Shell>
+    </>
   )
 }

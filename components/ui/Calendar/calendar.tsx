@@ -1,85 +1,78 @@
-"use client";
- 
-import * as React from "react";
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import {  DateFormatter, DayPicker, useInput } from "react-day-picker";
- 
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { addMonths, isSameMonth } from 'date-fns';
+"use client"
 
+import * as React from "react"
+import { useEffect, useState } from "react"
+import { addMonths, format, isSameMonth } from "date-fns"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { DateFormatter, DayPicker, useInput } from "react-day-picker"
 
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
 
-import { format } from 'date-fns';
-export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+export type CalendarProps = React.ComponentProps<typeof DayPicker>
 const seasonEmoji: Record<string, string> = {
-    winter: '⛄️',
-    spring: '🌸',
-    summer: '🌻',
-    autumn: '🍂'
+  winter: "⛄️",
+  spring: "🌸",
+  summer: "🌻",
+  autumn: "🍂",
+}
 
-  };
-  
-  const getSeason = (month: Date): string => {
-    const monthNumber = month.getMonth();
-    if (monthNumber >= 0 && monthNumber < 3) return 'winter';
-    if (monthNumber >= 3 && monthNumber < 6) return 'spring';
-    if (monthNumber >= 6 && monthNumber < 9) return 'summer';
-    else return 'autumn';
-  };
-  
-  const formatCaption: DateFormatter = (month, options) => {
-    const season = getSeason(month);
-    return (
-      <>
-        <span role="img" aria-label={season}>
-          {seasonEmoji[season]}
-        </span>{' '}
-        {format(month, 'LLLL', { locale: options?.locale })}
-      </>
-    );
-  };
-  
-function Calendar({
-  className,
-  classNames,
-  showOutsideDays = true,
-  ...props
-}) {
-  const today = new Date();
-  const nextMonth = addMonths(new Date(), 1);
-  const [month, setMonth] = useState(nextMonth);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+const getSeason = (month: Date): string => {
+  const monthNumber = month.getMonth()
+  if (monthNumber >= 0 && monthNumber < 3) return "winter"
+  if (monthNumber >= 3 && monthNumber < 6) return "spring"
+  if (monthNumber >= 6 && monthNumber < 9) return "summer"
+  else return "autumn"
+}
+
+const formatCaption: DateFormatter = (month, options) => {
+  const season = getSeason(month)
+  return (
+    <>
+      <span role="img" aria-label={season}>
+        {seasonEmoji[season]}
+      </span>{" "}
+      {format(month, "LLLL", { locale: options?.locale })}
+    </>
+  )
+}
+
+function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
+  const today = new Date()
+  const nextMonth = addMonths(new Date(), 1)
+  const [month, setMonth] = useState(nextMonth)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 1024);
-    };
+      setIsSmallScreen(window.innerWidth <= 1024)
+    }
 
-    handleResize();
+    handleResize()
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
-  const numberOfMonths = isSmallScreen ? 1 : 3;
+  const numberOfMonths = isSmallScreen ? 1 : 3
   return (
     <div className="calendar-container">
       <DayPicker
-      numberOfMonths={numberOfMonths}
-      ISOWeek
-      pagedNavigation
-      formatters={{ formatCaption }}
+        numberOfMonths={numberOfMonths}
+        ISOWeek
+        pagedNavigation
+        formatters={{ formatCaption }}
         showOutsideDays={showOutsideDays}
         className={cn("p-3", className)}
         classNames={{
-          months: "flex flex-col divide-x sm:flex-row space-y-6 sm:space-x-2 sm:space-y-0",
+          months:
+            "flex flex-col divide-x sm:flex-row space-y-6 sm:space-x-2 sm:space-y-0",
           month: "space-y-8 p-8",
-          caption: "flex justify-center p-4 divide-x relative items-center text-texthigh font-bold",
+          caption:
+            "flex justify-center p-4 divide-x relative items-center text-texthigh font-bold",
           caption_label: "text-[28px] font-medium",
           nav: "space-x-4 flex items-center",
           nav_button: cn(
@@ -90,8 +83,7 @@ function Calendar({
           nav_button_next: "absolute right-1",
           table: "w-full border-collapse space-y-4",
           head_row: "flex  text-white font-medium",
-          head_cell:
-            "text-colortheme rounded-md w-9 font-normal text-[16px]",
+          head_cell: "text-theme rounded-md w-9 font-normal text-[16px]",
           row: "flex w-full mt-2 ",
           cell: "text-center text-texthigh text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
           day: cn(
@@ -114,20 +106,20 @@ function Calendar({
         }}
         {...props}
       />
-       <button
-      disabled={isSameMonth(today, month)}
-      onClick={() => setMonth(today)}
-    >
-      Go to Today
-    </button>
-      <div className="event-container mt-4 p-4 bg-gray-100 rounded-lg">
+      <button
+        disabled={isSameMonth(today, month)}
+        onClick={() => setMonth(today)}
+      >
+        Go to Today
+      </button>
+      <div className="event-container mt-4 rounded-lg bg-gray-100 p-4">
         {/* Render the list of events here */}
         {/* ... */}
       </div>
     </div>
-  );
+  )
 }
 
-Calendar.displayName = "Calendar";
+Calendar.displayName = "Calendar"
 
-export { Calendar };
+export { Calendar }

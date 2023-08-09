@@ -1,29 +1,29 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
-import { cn } from "@/lib/utils";
-
+import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
+  "inline-flex items-center justify-center rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
   {
     variants: {
       variant: {
-        paging: "text-texthigh bg-red",
-        default: "bg-colortheme text-texthigh hover:bg-colortheme-hover",
+        paging: "text-texthigh",
+        default: "bg-primary text-texthigh hover:bg-primary/80",
         destructive:
-          "bg-destructive text-destructive-foreground hover:opacity-80",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline:
-          "border border-input hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         outlineTheme:
-          "border border-colortheme hover:bg-accent hover:text-accent-foreground",
-        secondary: 
-          "bg-secondary text-secondary-foreground hover:opacity-80",
+          "text-primary border border-theme hover:bg-theme-950 hover:text-texthigh",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        nav: "hover:bg-accent hover:text-texthigh",
-        ghostline: "hover:bg-accent outline-colortheme outline outline-1 hover:outline-offset-1",
+        nav: "text-primary hover:bg-theme-950 hover:text-texthigh",
+        ghostline:
+          "hover:bg-accent outline-theme outline outline-1 hover:outline-offset-1",
         link: "underline-offset-4 hover:underline text-primary",
-        logInButton: "rounded-full text-texthigh bg-colortheme hover:opacity-90 "
+        logInButton:
+          "rounded-full text-texthigh bg-primary hover:bg-primary/70",
       },
       size: {
         icon: "h-9 w-9",
@@ -34,16 +34,16 @@ const buttonVariants = cva(
         xg: "h-12 px-8 rounded-md",
       },
       border: {
-        default:"",
+        default: "",
         transparent: "border-transparent",
-      }
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
     },
   }
-);
+)
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,

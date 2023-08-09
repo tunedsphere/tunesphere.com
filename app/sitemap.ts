@@ -30,7 +30,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     )
     .flat()
 
-
   const routes = [
     "",
     "/shop",

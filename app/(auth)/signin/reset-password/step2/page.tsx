@@ -1,3 +1,4 @@
+import { Shell } from "@components/shells/shell"
 
 import {
   Card,
@@ -7,7 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { ResetPasswordStep2Form } from "@/components/forms/reset-password-form-step2"
-import { Shell } from "@components/shells/shell"
 
 export const metadata = {
   title: "Reset Password",

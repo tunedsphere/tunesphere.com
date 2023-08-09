@@ -1,8 +1,9 @@
+import "@styles/globals.css"
 
-import '@styles/globals.css'
 import * as React from "react"
 import Link from "next/link"
 import type { ShopMainNavItem } from "@/types"
+import { Icons } from "@components/icons"
 
 import { siteConfig } from "@/configs/site"
 import { cn } from "@/lib/utils"
@@ -15,7 +16,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { Icons } from '@components/icons'
 
 interface ShopMainNavProps {
   items?: ShopMainNavItem[]
@@ -28,8 +28,9 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
         aria-label="Explore & Shop"
         href="/shop"
         className="hidden items-center space-x-2 lg:flex"
-      > 
-        <span className="text-textdark hidden font-bold lg:inline-block text-lg">Explore & Shop
+      >
+        <span className="hidden text-lg font-bold text-textdark lg:inline-block">
+          Explore & Shop
         </span>
       </Link>
       <NavigationMenu>
@@ -48,10 +49,12 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none"
                         href="/"
                       >
-                         <Icons.logo className='left-0 z-100'
-              width={100}
-              height={100}></Icons.logo>
-              
+                        <Icons.logo
+                          className="left-0 z-100"
+                          width={100}
+                          height={100}
+                        ></Icons.logo>
+
                         <div className="mb-2 mt-4 text-lg font-medium">
                           {siteConfig.name}
                         </div>
@@ -63,7 +66,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                   </li>
                   {items[0].items.map((item) => (
                     <ListItem
-                    className="text-textdark hover:text-colortheme"
+                      className="bg-theme-50 text-textdark hover:text-theme"
                       key={item.title}
                       title={item.title}
                       href={item.href}
@@ -87,7 +90,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                       {item.items.map((item) => (
                         <ListItem
-                        className='hover:bg-accent hover:text-colortheme'
+                          className="hover:bg-accent hover:text-theme-900"
                           key={item.title}
                           title={item.title}
                           href={item.href}
@@ -134,7 +137,9 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none transition-colors hover:bg-accent hover:text-accent-foreground">{title}</div>
+          <div className="text-sm font-medium leading-none transition-colors hover:bg-accent hover:text-accent-foreground">
+            {title}
+          </div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground ">
             {children}
           </p>

@@ -1,55 +1,53 @@
 "use client"
 
-import * as React from "react";
+import * as React from "react"
+import { format } from "date-fns"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { DayPicker } from "react-day-picker"
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { DayPicker } from "react-day-picker";
-import { format } from 'date-fns';
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
 const seasonEmoji = {
-  winter: '⛄️',
-  spring: '🌸',
-  summer: '🌻',
-  autumn: '🍂'
-};
+  winter: "⛄️",
+  spring: "🌸",
+  summer: "🌻",
+  autumn: "🍂",
+}
 
 const getSeason = (month) => {
-  const monthNumber = month.getMonth();
-  if (monthNumber >= 0 && monthNumber < 3) return 'winter';
-  if (monthNumber >= 3 && monthNumber < 6) return 'spring';
-  if (monthNumber >= 6 && monthNumber < 9) return 'summer';
-  else return 'autumn';
-};
+  const monthNumber = month.getMonth()
+  if (monthNumber >= 0 && monthNumber < 3) return "winter"
+  if (monthNumber >= 3 && monthNumber < 6) return "spring"
+  if (monthNumber >= 6 && monthNumber < 9) return "summer"
+  else return "autumn"
+}
 const formatCaption = (month, options) => {
-  const season = getSeason(month);
+  const season = getSeason(month)
   return (
     <>
       <span role="img" aria-label={season}>
         {seasonEmoji[season]}
-      </span>{' '}
-      {format(month, 'LLLL', { locale: options?.locale })}
+      </span>{" "}
+      {format(month, "LLLL", { locale: options?.locale })}
     </>
-  );
-};
+  )
+}
 
 function Calendar({
-  
   className,
   classNames,
   showOutsideDays = true,
 
   ...props
 }: CalendarProps) {
-
   return (
     <DayPicker
-
-    captionLayout="dropdown-buttons" fromYear={2015} toYear={2025}
+      captionLayout="dropdown-buttons"
+      fromYear={2015}
+      toYear={2025}
       numberOfMonths={1}
       formatters={{ formatCaption }}
       ISOWeek
@@ -133,7 +131,6 @@ function Calendar({
 Calendar.displayName = "Calendar"
 
 export { Calendar }
-
 
 // "use client";
 // import React from "react";

@@ -85,7 +85,7 @@ export function MultiSelect({
             return (
               <Badge
                 key={option.value}
-                className="rounded bg-colortheme hover:bg-colortheme2"
+                className="rounded bg-theme hover:bg-theme-900"
               >
                 {option.label}
                 <Button

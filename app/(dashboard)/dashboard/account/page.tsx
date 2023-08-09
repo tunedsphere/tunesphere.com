@@ -1,16 +1,16 @@
-import '@styles/globals.css';
+import "@styles/globals.css"
+
 import type { Metadata } from "next"
-import { UserProfile } from "@clerk/nextjs"
-import { currentUser } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
-import { Header } from "@/components/header"
+import { redirect } from "next/navigation"
+import { currentUser, UserProfile } from "@clerk/nextjs"
 import { Shell } from "@components/shells/shell"
+
+import { Header } from "@/components/header"
 
 export const metadata: Metadata = {
   title: "Account",
   description: "Manage your account settings",
 }
-
 
 export default async function AccountPage() {
   const user = await currentUser()
@@ -24,7 +24,7 @@ export default async function AccountPage() {
       colorText: "hsl(199 80% 97%)",
       colorInputBackground: "hsl(240 4% 16%)",
       borderRadius: "",
-      fontSize: "text-2xl"
+      fontSize: "text-2xl",
     },
 
     elements: {
@@ -33,29 +33,28 @@ export default async function AccountPage() {
       navbarMobileMenuButton: "hidden",
       headerTitle: "hidden",
       headerSubtitle: "hidden",
-      profilePage: "divide-y divide-[var(--accent6)] gap-0 ",
-      profileSectionTitle: "font-semibold text-2xl underline underline-offset-4 decoration-2",
+      profilePage: "divide-y divide-[var(--accent-5)] gap-0 ",
+      profileSectionTitle:
+        "font-semibold text-2xl underline underline-offset-4 decoration-2",
       profileSectionPrimaryButton: "hidden",
-      profileSection: "py-4",   
+      profileSection: "py-4",
       pageScrollBox: "",
     },
-  };
+  }
 
   return (
     <>
-   
-    <Shell variant="dashboard">
-    <Header
-    variant='dashboard'
-    title="Account"
-    description="Manage your account settings."
-    size="sm"
-  />
-      <div className="px-8 gap-8 grid">
-        <UserProfile appearance={appearance} />
+      <Shell variant="dashboard">
+        <Header
+          variant="dashboard"
+          title="Account"
+          description="Manage your account settings."
+          size="sm"
+        />
+        <div className="grid gap-8 px-8">
+          <UserProfile appearance={appearance} />
         </div>
-    </Shell>
+      </Shell>
     </>
   )
 }
-

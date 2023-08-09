@@ -1,26 +1,27 @@
-"use client";
-import React, { useState } from 'react';
-import { Icons } from '@/components/icons';
-import { Button } from '@/components/ui/button';
+"use client"
+
+import React, { useState } from "react"
+
+import { Button } from "@/components/ui/button"
+import { Icons } from "@/components/icons"
 
 interface LogInButtonProps {
-
-  handleModalOpen : () => void;
+  handleModalOpen: () => void
 }
 const LogInButton: React.FC<LogInButtonProps> = ({ handleModalOpen }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isPending, startTransition] = React.useTransition();
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isPending, startTransition] = React.useTransition()
 
   const handleClick = () => {
-    setIsModalOpen(!isModalOpen);
-    handleModalOpen (); // Call the handleToggle prop to toggle NavbarBottom
-  };
+    setIsModalOpen(!isModalOpen)
+    handleModalOpen() // Call the handleToggle prop to toggle NavbarBottom
+  }
 
   return (
     <Button
-      variant='logInButton'
+      variant="logInButton"
       onClick={handleClick}
-      className="p-4 text-3xl leading-7 w-4/5"
+      className="w-4/5 p-4 text-3xl leading-7"
       disabled={isPending}
     >
       {isPending && (
@@ -31,7 +32,7 @@ const LogInButton: React.FC<LogInButtonProps> = ({ handleModalOpen }) => {
       )}
       Log In
     </Button>
-  );
-};
+  )
+}
 
-export default LogInButton;
+export default LogInButton

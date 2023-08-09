@@ -15,7 +15,9 @@
     "db:push": "drizzle-kit push:mysql",
     "db:introspect": "drizzle-kit introspect:mysql",
     "db:studio": "drizzle-kit studio",
-    "stripe:listen": "stripe listen --forward-to localhost:3000/api/webhooks/stripe --latest"
+    "stripe:listen": "stripe listen --forward-to localhost:3000/api/webhooks/stripe --latest",
+    "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.21.15",
@@ -71,6 +73,7 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-medium-image-zoom": "^5.1.7",
+    "rehype-pretty-code": "^0.10.0",
     "sonner": "^0.5.0",
     "stripe": "^12.16.0",
     "tailwind-merge": "^1.13.2",
@@ -82,12 +85,21 @@
   "devDependencies": {
     "@clerk/types": "^3.46.1",
     "@faker-js/faker": "^8.0.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "@next/bundle-analyzer": "^13.4.10",
+    "@types/eslint": "^8.44.2",
     "@types/node": "^20.2.6",
     "@types/react": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
     "cross-env": "^7.0.3",
     "drizzle-kit": "^0.19.10",
-    "eslint-config-next": "^13.4.10",
+    "eslint": "^8.46.0",
+    "eslint-config-next": "^13.4.13",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "prettier": "3.0.1",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "rehype-slug": "^5.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"

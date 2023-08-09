@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react"
 
-export default function AuthorsRightsPage () {
+export default function AuthorsRightsPage() {
   return (
     <main>
-      <section className='section-max-width'>
+      <section className="section-max-width">
         <h4>AuthorsRights</h4>
       </section>
     </main>
   )
 }
-
-

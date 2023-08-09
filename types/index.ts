@@ -1,8 +1,9 @@
-import { type z } from "zod"
+import { type Product } from "@/db/schema"
 import { type FileWithPath } from "react-dropzone"
+import { type z } from "zod"
+
 import type { cartItemSchema, checkoutItemSchema } from "@/lib/validations/cart"
 import { type Icons } from "@/components/icons"
-import { type Product } from "@/db/schema"
 
 export interface NavItem {
   title: string
@@ -62,7 +63,6 @@ export interface DataTableFilterableColumn<TData>
   extends DataTableSearchableColumn<TData> {
   options: Option[]
 }
-
 
 export type CartItem = z.infer<typeof cartItemSchema>
 

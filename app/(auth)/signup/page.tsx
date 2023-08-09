@@ -1,5 +1,5 @@
-
 import Link from "next/link"
+import { Shell } from "@components/shells/shell"
 
 import {
   Card,
@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/card"
 import { OAuthSignIn } from "@/components/auth/oauth-signin"
 import { SignUpForm } from "@/components/forms/signup-form"
-import { Shell } from "@components/shells/shell"
 
 export const metadata = {
   title: "Sign Up",
@@ -22,7 +21,7 @@ export default function SignUpPage() {
   return (
     <Shell variant="auth">
       <Card variant="signup">
-        <CardHeader className="space-y-1 items-center sm:p-12 gap-1">
+        <CardHeader className="items-center gap-1 space-y-1 sm:p-12">
           <CardTitle className="text-3xl">Sign up</CardTitle>
           <CardDescription>
             Choose your preferred sign up method

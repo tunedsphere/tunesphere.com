@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image from "next/image"
+import { siteConfig } from "@configs/site"
 
-import { siteConfig } from '@configs/site';
- import AuthHeader from '@/components/layouts/auth-header';
+import AuthHeader from "@/components/layouts/auth-header"
 
 interface AuthLayoutProps {
   children: React.ReactNode
@@ -10,8 +10,8 @@ interface AuthLayoutProps {
 export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <>
-    <div className="absolute object-cover inset-0 md:block hidden min-h-full">
-      <Image
+      <div className="absolute inset-0 hidden min-h-full object-cover md:block">
+        <Image
           src="/bggenre/retina.png"
           alt="retina bggenre"
           fill
@@ -19,25 +19,27 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
           quality={70}
           sizes="(min-width: 808px) 50vw, 100vw"
           style={{
-            objectFit: 'cover', // cover, contain, none
+            objectFit: "cover", // cover, contain, none
           }}
         />
-        </div>
-            <AuthHeader/>
-    <div className="md:grid min-h-screen justify-center overflow-hidden md:grid-cols-3 lg:grid-cols-2">
-     
-        <main className="container absolute md:top-1/2 md:col-span-1 justify-center items-center md:static md:flex md:translate-y-0 lg:col-span-1 invisible md:visible">
-      <div className="grid max-w-lg items-center gap-8 p-8 justify-center">
-      <span className="text-texthigh text-3xl font-bold">{siteConfig.name}</span>
-      <p className="text-texthigh font-semibold">Join and build together a dedidcated Wonderland of Psychedelic Art.
-      Join us, 
-      Drop On and Tune In  </p>
       </div>
+      <AuthHeader />
+      <div className="min-h-screen justify-center overflow-hidden md:grid md:grid-cols-3 lg:grid-cols-2">
+        <main className="container invisible absolute items-center justify-center md:visible md:static md:top-1/2 md:col-span-1 md:flex md:translate-y-0 lg:col-span-1">
+          <div className="grid max-w-lg items-center justify-center gap-8 p-8">
+            <span className="text-3xl font-bold text-texthigh">
+              {siteConfig.name}
+            </span>
+            <p className="font-semibold text-texthigh">
+              Join and build together a dedidcated Wonderland of Psychedelic
+              Art. Join us, Drop On and Tune In{" "}
+            </p>
+          </div>
         </main>
-      <main className="flex justify-center absolute sm:p-4 col-span-1 mt-20 mx-auto min-w-full items-center md:static md:top-0 md:col-span-2 md:flex md:translate-y-0 lg:col-span-1">
-        {children}
-      </main>
-    </div>
+        <main className="absolute col-span-1 mx-auto mt-20 flex min-w-full items-center justify-center sm:p-4 md:static md:top-0 md:col-span-2 md:flex md:translate-y-0 lg:col-span-1">
+          {children}
+        </main>
+      </div>
     </>
   )
 }

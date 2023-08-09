@@ -1,11 +1,5 @@
-import SelectGenre from "./SelectGenre";
-import SelectYear from "./SelectYear";
-import SelectCountry from "./SelectCountry";
+import SelectCountry from "./SelectCountry"
+import SelectGenre from "./SelectGenre"
+import SelectYear from "./SelectYear"
 
-export {
-    SelectGenre,
-    SelectYear,
-    SelectCountry,
-
-
-};
+export { SelectGenre, SelectYear, SelectCountry }

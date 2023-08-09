@@ -1,3 +1,4 @@
+import { Shell } from "@components/shells/shell"
 
 import {
   Card,
@@ -7,7 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { VerifyEmailForm } from "@/components/forms/verify-email-form"
-import { Shell } from "@components/shells/shell"
 
 export const metadata = {
   title: "Verify Email",

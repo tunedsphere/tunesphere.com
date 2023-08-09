@@ -28,9 +28,9 @@ export async function getCartAction(): Promise<CartLineItem[]> {
   if (productIds.length === 0) return []
 
   const uniqueProductIds = productIds.filter((value, index, self) => {
-    return self.indexOf(value) === index;
-  });
-  
+    return self.indexOf(value) === index
+  })
+
   const cartLineItems = await db
     .select({
       id: products.id,
@@ -46,19 +46,19 @@ export async function getCartAction(): Promise<CartLineItem[]> {
     .from(products)
     .leftJoin(stores, eq(stores.id, products.storeId))
     .where(inArray(products.id, uniqueProductIds))
-  
+
   const allCartLineItems = cartLineItems.map((item) => {
     const quantity = cart?.items?.find(
       (cartItem) => cartItem.productId === item.id
-    )?.quantity;
-  
+    )?.quantity
+
     return {
       ...item,
       quantity,
-    };
-  });
-  
-  return allCartLineItems;
+    }
+  })
+
+  return allCartLineItems
 }
 
 export async function getCartItemsAction(input: { cartId?: number }) {
@@ -244,4 +244,3 @@ export async function deleteCartItemsAction(
 
   revalidatePath("/")
 }
-

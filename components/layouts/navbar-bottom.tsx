@@ -1,35 +1,34 @@
+import "@/styles/globals.css"
+import "@/styles/globalnav.css"
 
-import '@/styles/globals.css';
-import '@/styles/globalnav.css';
-
-import Link from "next/link";
-import { siteConfig } from "@/configs/site";
+import Link from "next/link"
 import type { NavbarNavItem } from "@/types"
 
-    interface NavbarNavProps {
-      items?: NavbarNavItem[]
-    }
-    
-    export function NavbarBottom({ items }: NavbarNavProps) {
-  return (
-    <>
-    <nav className="navbar bg-background-navbarbottom relative hidden sm:block">
-    <div className="flex justify-center navbar-container py-4 items-center">
-      <ul className="navbar-list items-center divide-y sm:divide-none">
-      {siteConfig.navbarNav.map((item) => (
-          <li key={item.title} className="navbar-item px-3">
-            <Link
-              href={item.href}
-              className="text-texthigh hover:text-colortheme"
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </nav>
-  </>
-  )
+import { siteConfig } from "@/configs/site"
+
+interface NavbarNavProps {
+  items?: NavbarNavItem[]
 }
 
+export function NavbarBottom({ items }: NavbarNavProps) {
+  return (
+    <>
+      <nav className="navbar relative hidden bg-background-navbarbottom sm:block">
+        <div className="navbar-container flex items-center justify-center py-4">
+          <ul className="navbar-list items-center divide-y sm:divide-none">
+            {siteConfig.navbarNav.map((item) => (
+              <li key={item.title} className="navbar-item px-3">
+                <Link
+                  href={item.href}
+                  className="text-texthigh hover:text-theme-500"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </>
+  )
+}

@@ -1,11 +1,10 @@
-import { authMiddleware } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server"
 import { type UserRole } from "@/types"
 import { clerkClient } from "@clerk/nextjs"
-
+import { authMiddleware } from "@clerk/nextjs/server"
 
 export default authMiddleware({
-   // Public routes are routes that don't require authentication
+  // Public routes are routes that don't require authentication
   publicRoutes: [
     "/",
     "/signin(.*)",
@@ -17,14 +16,13 @@ export default authMiddleware({
     "/shop/categories(.*)",
     "/shop/products(.*)",
     "/shop/product(.*)",
-  
-    "/music(.*)", 
-    "/genres(.*)", 
-    "/festivals(.*)", 
-    "/artsits(.*)", 
-   
-    "/albums(.*)", 
-    "/uipage(.*)",
+
+    "/music(.*)",
+    "/genres(.*)",
+    "/festivals(.*)",
+    "/artsits(.*)",
+
+    "/albums(.*)",
   ],
   async afterAuth(auth, req) {
     if (auth.isPublicRoute) {
@@ -60,6 +58,5 @@ export default authMiddleware({
 })
 
 export const config = {
-
   matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api)(.*)"],
-};
+}

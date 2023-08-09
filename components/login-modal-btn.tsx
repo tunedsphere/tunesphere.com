@@ -1,30 +1,33 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState } from "react"
 
-import { Button } from '@/components/ui/button';
-import Modal from './auth/modal';
+import { Button } from "@/components/ui/button"
+
+import Modal from "./auth/modal"
 
 export default function LoginModalButton() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleClick = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+    setIsModalOpen(!isModalOpen)
+  }
 
   const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
+    setIsModalOpen(false)
+  }
 
   return (
     <>
       <Button
         variant="outlineTheme"
-        className='hidden sm:block shrink-0 font-semibold px-2'
-        size="xs" onClick={handleClick}>
+        className="hidden shrink-0 px-2 font-semibold sm:block"
+        size="xs"
+        onClick={handleClick}
+      >
         Log In
       </Button>
       {isModalOpen && <Modal handleModalClose={handleModalClose} />}
     </>
-  );
+  )
 }

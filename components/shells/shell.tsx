@@ -3,14 +3,13 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-
 const shellVariants = cva("grid gap-8 pb-8 pt-6 md:py-8", {
   variants: {
     variant: {
-      default: "container  max-w-screen-2xl mx-auto justify-center",
+      default: "container max-w-screen-2xl mx-auto justify-center",
       auth: "max-w-lg mx-auto",
       shop: "px-0 mx-auto max-w-screen-2xl",
-      dashboard: "mx-auto w-full pt-0 md:py-0 gap-8",
+      dashboard: "pt-0 md:py-0 md:pb-8 pb-8 gap-8",
       sidebar: "pt-0 md:py-0",
       centered: "mx-auto mb-16 mt-20 max-w-md justify-center",
       markdown: "container max-w-3xl gap-0 py-8 md:py-10 lg:py-10",

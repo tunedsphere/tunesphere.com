@@ -20,20 +20,23 @@ export function Header({
   ...props
 }: HeaderProps) {
   return (
-    <div className={cn("grid gap-1",
-      variant === "dashboard" && "bg-muted p-8",
-      variant === "auth" && "",
-      variant === "default" && "",
-      variant === "shop" && "justify-center text-center",
-       className)} {...props}>
-        
+    <div
+      className={cn(
+        "grid gap-1",
+        variant === "dashboard" && "bg-muted p-8",
+        variant === "auth" && "",
+        variant === "default" && "",
+        variant === "shop" && "justify-center text-center",
+        className
+      )}
+      {...props}
+    >
       <h1
         className={cn(
           "text-3xl font-bold tracking-tight",
           size === "default" && "md:text-4xl",
           size === "auth" && "text-4xl",
-          size === "shop" && "text-4xl text-textdark",
-
+          size === "shop" && "text-4xl text-textdark"
         )}
       >
         {title}

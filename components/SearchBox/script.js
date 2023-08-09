@@ -1,12 +1,14 @@
 const labelCardTemplate = document.querySelector("[data-label-template]")
-const labelCardContainer = document.querySelector("[data-label-cards-container]")
+const labelCardContainer = document.querySelector(
+  "[data-label-cards-container]"
+)
 const searchInput = document.querySelector("[data-search]")
 
 let labels = []
 
-searchInput.addEventListener("input", e => {
+searchInput.addEventListener("input", (e) => {
   const value = e.target.value.toLowerCase()
-  labels.forEach(label => {
+  labels.forEach((label) => {
     const isVisible =
       label.name.toLowerCase().includes(value) ||
       label.genre.toLowerCase().includes(value)
@@ -15,9 +17,9 @@ searchInput.addEventListener("input", e => {
 })
 
 fetch("https://jsonplaceholder.typicode.com/labels")
-  .then(res => res.json())
-  .then(data => {
-    labels = data.map(label => {
+  .then((res) => res.json())
+  .then((data) => {
+    labels = data.map((label) => {
       const card = labelCardTemplate.content.cloneNode(true).children[0]
       const header = card.querySelector("[data-header]")
       const body = card.querySelector("[data-body]")

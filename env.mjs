@@ -16,7 +16,6 @@ export const env = createEnv({
     STRIPE_STD_MONTHLY_PRICE_ID: z.string(),
     STRIPE_PRO_MONTHLY_PRICE_ID: z.string(),
     NODE_ENV: z.enum(["development", "test", "production"]),
-
   },
 
   /**
@@ -53,4 +52,3 @@ export const env = createEnv({
    */
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
 })
-

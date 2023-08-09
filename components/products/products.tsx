@@ -1,11 +1,12 @@
 "use client"
+
 import "@/styles/globals.css"
+
 import * as React from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-
-import { type Product} from "@/db/schema"
-import { type Store } from "@/db/schema"
+import { type Product, type Store } from "@/db/schema"
 import type { Option } from "@/types"
+import { ProductCard } from "@components/products/product-card"
 
 import { getSubcategories, sortOptions } from "@/configs/products"
 import { cn, toTitleCase } from "@/lib/utils"
@@ -36,7 +37,6 @@ import { Slider } from "@/components/ui/slider"
 import { Icons } from "@/components/icons"
 import { MultiSelect } from "@/components/multi-select"
 import { PaginationButton } from "@/components/pagers/pagination-button"
-import { ProductCard } from "@components/products/product-card"
 
 interface ProductsProps {
   stores?: Pick<Store, "id" | "name">[]
@@ -157,15 +157,14 @@ export function Products({
 
   return (
     <div className="flex flex-col space-y-6">
-      <div className="px-12 flex justify-between items-center space-x-2">
+      <div className="flex items-center justify-between space-x-2 px-12">
         <Sheet>
           <SheetTrigger asChild>
             <Button aria-label="Filter products" size="sm" disabled={isPending}>
               All Filters
             </Button>
           </SheetTrigger>
-          <SheetContent className="flex flex-col" side="left"
-          >
+          <SheetContent className="flex flex-col" side="left">
             <SheetHeader className="px-1">
               <SheetTitle className="text-4xl">Filters</SheetTitle>
             </SheetHeader>
@@ -373,7 +372,9 @@ export function Products({
             {sortOptions.map((option) => (
               <DropdownMenuItem
                 key={option.label}
-                className={cn(option.value === sort && "font-bold text-textdark")}
+                className={cn(
+                  option.value === sort && "font-bold text-textdark"
+                )}
                 onClick={() => {
                   startTransition(() => {
                     router.push(
@@ -390,18 +391,20 @@ export function Products({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      
+
       {!isPending && !products.length ? (
         <div className="mx-auto flex max-w-xs flex-col space-y-1.5">
-          <h1 className="text-center text-2xl font-bold text-textdark">No products found</h1>
+          <h1 className="text-center text-2xl font-bold text-textdark">
+            No products found
+          </h1>
           <p className="text-center text-muted-foreground">
             Try changing your filters, or check back later for new products
           </p>
         </div>
       ) : null}
-      <div className="px-0 w-full grid grid-cols-2 gap-0 sm:gap-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6">
+      <div className="grid w-full grid-cols-2 gap-0 px-0 sm:grid-cols-4 sm:gap-2 lg:grid-cols-4 xl:grid-cols-6">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} stores={stores}/>
+          <ProductCard key={product.id} product={product} stores={stores} />
         ))}
       </div>
       {products.length ? (

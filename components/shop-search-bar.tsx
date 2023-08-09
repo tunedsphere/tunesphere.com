@@ -1,5 +1,7 @@
 "use client"
-import '@styles/globals.css';
+
+import "@styles/globals.css"
+
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { type Product } from "@/db/schema"
@@ -67,14 +69,14 @@ export function ShopSearchBar() {
   }, [isOpen])
 
   return (
-    <><div className='flex items-center h-12 w-full border-2 rounded-md bg-transparent py-3 px-4'>
-        <input 
-        className="w-full bg-transparent py-3 text-lg outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
-        placeholder="Search products..."
-          ></input>
-          <Icons.search className="right-2"></Icons.search>
-</div>
- 
+    <>
+      <div className="flex h-12 w-full items-center rounded-md border-2 bg-transparent px-4 py-3">
+        <input
+          className="w-full bg-transparent py-3 text-lg outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
+          placeholder="Search products..."
+        ></input>
+        <Icons.search className="right-2"></Icons.search>
+      </div>
     </>
   )
 }

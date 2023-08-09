@@ -111,7 +111,6 @@ export default async function UpdateStorePage({
         as="section"
         id="connect-store-to-stripe"
         aria-labelledby="connect-store-to-stripe-heading"
-        
       >
         <CardHeader className="space-y-1">
           <CardTitle className="line-clamp-1 text-2xl">
@@ -175,8 +174,7 @@ export default async function UpdateStorePage({
               />
             </fieldset>
             <div className="flex space-x-2">
-              <LoadingButton
-              variant="outlineTheme">
+              <LoadingButton variant="outlineTheme">
                 Update Store
                 <span className="sr-only">Update store</span>
               </LoadingButton>

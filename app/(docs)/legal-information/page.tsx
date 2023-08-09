@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react"
 
-export default function LegalInformationPage () {
+export default function LegalInformationPage() {
   return (
     <main>
-      <section className='section-max-width'>
+      <section className="section-max-width">
         <h4>LegalInformation</h4>
       </section>
     </main>
   )
 }
-
-

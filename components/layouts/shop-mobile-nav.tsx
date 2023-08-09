@@ -23,7 +23,10 @@ interface ShopMobileNavProps {
   sidebarNavItems: SidebarNavItem[]
 }
 
-export function ShopMobileNav({ shopMainNavItems, sidebarNavItems }: ShopMobileNavProps) {
+export function ShopMobileNav({
+  shopMainNavItems,
+  sidebarNavItems,
+}: ShopMobileNavProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = React.useState(false)
 
@@ -47,7 +50,7 @@ export function ShopMobileNav({ shopMainNavItems, sidebarNavItems }: ShopMobileN
             onClick={() => setIsOpen(false)}
           >
             <Icons.logo className="mr-2 h-12 w-12" aria-hidden="true" />
-            <span className="font-bold text-xl">{siteConfig.name}</span>
+            <span className="text-xl font-bold">{siteConfig.name}</span>
           </Link>
         </div>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">

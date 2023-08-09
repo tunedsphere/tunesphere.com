@@ -1,11 +1,11 @@
+import { Suspense } from "react"
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { currentUser } from "@clerk/nextjs"
-
-import { Header } from "@/components/header"
 import { Shell } from "@components/shells/shell"
 
-import { Suspense } from "react";
+import { Header } from "@/components/header"
+
 import PurchasesLoading from "./loading"
 
 export const metadata: Metadata = {
@@ -22,20 +22,17 @@ export default async function PurchasesPage() {
 
   return (
     <>
-
-    <Suspense fallback={<PurchasesLoading/>}>
-    <Shell variant="dashboard">
-    <Header
-        variant='dashboard'
-        title="Purchases"
-        description="Manage your purchases."
-        size="sm"
-      />
-      <div className="px-8 gap-8 grid">
-      <div>Purchases Table</div>
-      </div>
-    </Shell>
-    </Suspense>
+      <Shell variant="dashboard">
+        <Header
+          variant="dashboard"
+          title="Purchases"
+          description="Manage your purchases."
+          size="sm"
+        />
+        <div className="grid gap-8 px-8">
+          <div>Purchases Table</div>
+        </div>
+      </Shell>
     </>
   )
 }

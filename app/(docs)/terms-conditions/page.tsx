@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react"
 
-export default function TermsAndConditionsPage () {
+export default function TermsAndConditionsPage() {
   return (
     <main>
-      <section className='section-max-width'>
+      <section className="section-max-width">
         <h4>TermsAndConditions</h4>
       </section>
     </main>
   )
 }
-
-

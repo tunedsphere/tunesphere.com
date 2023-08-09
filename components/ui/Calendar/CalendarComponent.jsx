@@ -1,27 +1,28 @@
-import React, { useEffect } from "react";
-import "./calendar.css";
+import React, { useEffect } from "react"
+
+import "./calendar.css"
 
 const CalendarComponent = () => {
   useEffect(() => {
     function setupCalendar() {
-      const monthEl = document.querySelector(".date");
-      const prev = document.querySelector(".prev");
-      const next = document.querySelector(".next");
-      const weekdays = document.querySelector(".weekdays");
-      const daysContainer = document.querySelector(".days");
-      const todayBtn = document.querySelector(".today-btn");
-      const dateInput = document.querySelector(".date-input");
-      const gotoBtn = document.querySelector(".goto-btn");
-      const eventDay = document.querySelector(".event-day");
-      const eventDate = document.querySelector(".event-date");
-      const eventsContainer = document.querySelector(".events");
-      const addEventWrapper = document.querySelector(".add-event-wrapper");
-      const addEventTitle = document.querySelector(".event-name");
-      const addEventFrom = document.querySelector(".event-time-from");
-      const addEventTo = document.querySelector(".event-time-to");
-      const addEventCloseBtn = document.querySelector(".close");
-      const addEventSubmit = document.querySelector(".add-event-btn");
-      const addEventBtn = document.querySelector(".add-event");
+      const monthEl = document.querySelector(".date")
+      const prev = document.querySelector(".prev")
+      const next = document.querySelector(".next")
+      const weekdays = document.querySelector(".weekdays")
+      const daysContainer = document.querySelector(".days")
+      const todayBtn = document.querySelector(".today-btn")
+      const dateInput = document.querySelector(".date-input")
+      const gotoBtn = document.querySelector(".goto-btn")
+      const eventDay = document.querySelector(".event-day")
+      const eventDate = document.querySelector(".event-date")
+      const eventsContainer = document.querySelector(".events")
+      const addEventWrapper = document.querySelector(".add-event-wrapper")
+      const addEventTitle = document.querySelector(".event-name")
+      const addEventFrom = document.querySelector(".event-time-from")
+      const addEventTo = document.querySelector(".event-time-to")
+      const addEventCloseBtn = document.querySelector(".close")
+      const addEventSubmit = document.querySelector(".add-event-btn")
+      const addEventBtn = document.querySelector(".add-event")
 
       const months = [
         "January",
@@ -36,16 +37,16 @@ const CalendarComponent = () => {
         "October",
         "November",
         "December",
-      ];
+      ]
 
-      let today = new Date();
-      let month = today.getMonth();
-      let year = today.getFullYear();
-      let activeDay = today.getDate();
-      let eventsArr = [];
+      let today = new Date()
+      let month = today.getMonth()
+      let year = today.getFullYear()
+      let activeDay = today.getDate()
+      let eventsArr = []
 
       function initCalendar() {
-        monthEl.textContent = months[month] + " " + year;
+        monthEl.textContent = months[month] + " " + year
         weekdays.innerHTML = `
           <div>Mon</div>
           <div>Tue</div>
@@ -54,14 +55,14 @@ const CalendarComponent = () => {
           <div>Fri</div>
           <div>Sat</div>
           <div>Sun</div>
-        `;
+        `
 
-        const firstDay = new Date(year, month, 1).getDay();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDay = new Date(year, month, 1).getDay()
+        const daysInMonth = new Date(year, month + 1, 0).getDate()
 
-        let daysHTML = "";
+        let daysHTML = ""
         for (let i = 0; i < firstDay; i++) {
-          daysHTML += `<div class="day prev-date"></div>`;
+          daysHTML += `<div class="day prev-date"></div>`
         }
 
         for (let day = 1; day <= daysInMonth; day++) {
@@ -70,51 +71,51 @@ const CalendarComponent = () => {
             month === today.getMonth() &&
             year === today.getFullYear()
           ) {
-            daysHTML += `<div class="day active">${day}</div>`;
+            daysHTML += `<div class="day active">${day}</div>`
           } else {
-            daysHTML += `<div class="day">${day}</div>`;
+            daysHTML += `<div class="day">${day}</div>`
           }
         }
 
-        daysContainer.innerHTML = daysHTML;
+        daysContainer.innerHTML = daysHTML
 
-        getEvents();
-        addListner();
+        getEvents()
+        addListner()
       }
 
       function prevMonth() {
-        month--;
+        month--
         if (month < 0) {
-          month = 11;
-          year--;
+          month = 11
+          year--
         }
-        initCalendar();
+        initCalendar()
       }
 
       function nextMonth() {
-        month++;
+        month++
         if (month > 11) {
-          month = 0;
-          year++;
+          month = 0
+          year++
         }
-        initCalendar();
+        initCalendar()
       }
 
       function getActiveDay(day) {
-        eventDay.textContent = day;
-        eventDate.textContent = months[month] + " " + year;
+        eventDay.textContent = day
+        eventDate.textContent = months[month] + " " + year
       }
 
       function updateEvents(day) {
-        eventsContainer.innerHTML = "";
+        eventsContainer.innerHTML = ""
         eventsArr.forEach((eventObj) => {
           if (
             eventObj.day === day &&
             eventObj.month === month + 1 &&
             eventObj.year === year
           ) {
-            const event = document.createElement("div");
-            event.classList.add("event");
+            const event = document.createElement("div")
+            event.classList.add("event")
             event.innerHTML = `
               <div class="event-info">
                 <div class="event-name">${eventObj.name}</div>
@@ -123,25 +124,25 @@ const CalendarComponent = () => {
               <div class="delete-event">
                 <i class="fas fa-trash"></i>
               </div>
-            `;
-            eventsContainer.appendChild(event);
+            `
+            eventsContainer.appendChild(event)
           }
-        });
+        })
       }
 
       function getEvents() {
-        const savedEvents = localStorage.getItem("events");
+        const savedEvents = localStorage.getItem("events")
         if (savedEvents) {
-          eventsArr = JSON.parse(savedEvents);
+          eventsArr = JSON.parse(savedEvents)
         } else {
-          eventsArr = [];
+          eventsArr = []
         }
       }
 
       function saveEvent() {
-        const eventName = addEventTitle.value;
-        const eventFrom = addEventFrom.value;
-        const eventTo = addEventTo.value;
+        const eventName = addEventTitle.value
+        const eventFrom = addEventFrom.value
+        const eventTo = addEventTo.value
 
         const eventObj = {
           name: eventName,
@@ -150,77 +151,77 @@ const CalendarComponent = () => {
           year: year,
           from: eventFrom,
           to: eventTo,
-        };
+        }
 
-        eventsArr.push(eventObj);
-        localStorage.setItem("events", JSON.stringify(eventsArr));
+        eventsArr.push(eventObj)
+        localStorage.setItem("events", JSON.stringify(eventsArr))
 
-        updateEvents(activeDay);
+        updateEvents(activeDay)
 
-        addEventTitle.value = "";
-        addEventFrom.value = "";
-        addEventTo.value = "";
-        addEventWrapper.classList.remove("show");
+        addEventTitle.value = ""
+        addEventFrom.value = ""
+        addEventTo.value = ""
+        addEventWrapper.classList.remove("show")
       }
 
       function deleteEvent(event) {
-        const eventInfo = event.target.closest(".event-info");
+        const eventInfo = event.target.closest(".event-info")
         if (eventInfo) {
-          const eventName = eventInfo.querySelector(".event-name").textContent;
-          const eventTime = eventInfo.querySelector(".event-time").textContent;
+          const eventName = eventInfo.querySelector(".event-name").textContent
+          const eventTime = eventInfo.querySelector(".event-time").textContent
 
           eventsArr = eventsArr.filter((eventObj) => {
             return (
               eventObj.name !== eventName ||
               (eventObj.name === eventName && eventObj.from !== eventTime)
-            );
-          });
+            )
+          })
 
-          localStorage.setItem("events", JSON.stringify(eventsArr));
-          updateEvents(activeDay);
+          localStorage.setItem("events", JSON.stringify(eventsArr))
+          updateEvents(activeDay)
         }
       }
 
       function addListner() {
-        prev.addEventListener("click", prevMonth);
-        next.addEventListener("click", nextMonth);
+        prev.addEventListener("click", prevMonth)
+        next.addEventListener("click", nextMonth)
         daysContainer.addEventListener("click", (event) => {
-          const selectedDay = event.target.closest(".day");
+          const selectedDay = event.target.closest(".day")
           if (selectedDay && !selectedDay.classList.contains("prev-date")) {
-            activeDay = parseInt(selectedDay.textContent);
-            updateEvents(activeDay);
+            activeDay = parseInt(selectedDay.textContent)
+            updateEvents(activeDay)
           }
-        });
+        })
         todayBtn.addEventListener("click", () => {
-          today = new Date();
-          month = today.getMonth();
-          year = today.getFullYear();
-          activeDay = today.getDate();
-          initCalendar();
-        });
+          today = new Date()
+          month = today.getMonth()
+          year = today.getFullYear()
+          activeDay = today.getDate()
+          initCalendar()
+        })
         gotoBtn.addEventListener("click", () => {
-          const [inputMonth, inputYear] = dateInput.value.split("/");
+          const [inputMonth, inputYear] = dateInput.value.split("/")
           if (inputMonth && inputYear) {
-            month = parseInt(inputMonth) - 1;
-            year = parseInt(inputYear);
-            initCalendar();
+            month = parseInt(inputMonth) - 1
+            year = parseInt(inputYear)
+            initCalendar()
           }
-        });
+        })
         addEventBtn.addEventListener("click", () => {
-          addEventWrapper.classList.add("show");
-        });
+          addEventWrapper.classList.add("show")
+        })
         addEventCloseBtn.addEventListener("click", () => {
-          addEventWrapper.classList.remove("show");
-        });
-        addEventSubmit.addEventListener("click", saveEvent);
-        eventsContainer.addEventListener("click", deleteEvent);
+          addEventWrapper.classList.remove("show")
+        })
+        addEventSubmit.addEventListener("click", saveEvent)
+        eventsContainer.addEventListener("click", deleteEvent)
       }
 
-      initCalendar();
+      initCalendar()
     }
 
-    setupCalendar();
-  }, []);
+    setupCalendar()
+  }, [])
 
   return (
     <div className="container">
@@ -263,7 +264,11 @@ const CalendarComponent = () => {
           </div>
           <div className="add-event-body">
             <div className="add-event-input">
-              <input type="text" placeholder="Event Name" className="event-name" />
+              <input
+                type="text"
+                placeholder="Event Name"
+                className="event-name"
+              />
             </div>
             <div className="add-event-input">
               <input
@@ -289,7 +294,7 @@ const CalendarComponent = () => {
         <i className="fas fa-plus"></i>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default CalendarComponent;
+export default CalendarComponent

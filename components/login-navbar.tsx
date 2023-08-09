@@ -1,17 +1,14 @@
 import { currentUser } from "@clerk/nextjs"
-
-
 import { UserDropdownMenu } from "@components/user-dropdown-menu"
-interface LoginNavbarProps {
 
-}
+interface LoginNavbarProps {}
 
-export default async function LoginNavbar({ }: LoginNavbarProps) {
+export default async function LoginNavbar({}: LoginNavbarProps) {
   const user = await currentUser()
-  
+
   return (
     <>
-  <UserDropdownMenu user={user} />    
-  </>
+      <UserDropdownMenu user={user} />
+    </>
   )
 }

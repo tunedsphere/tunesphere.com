@@ -1,5 +1,4 @@
-import * as z from "zod";
-
+import * as z from "zod"
 
 export const authSignInSchema = z.object({
   email: z.string().email({
@@ -17,9 +16,13 @@ export const authSignInSchema = z.object({
     .refine((value) => /^(?=.*[0-9]).+$/.test(value), {
       message: "Password must contain at least one digit",
     })
-    .refine((value) => /^(?=.*[!@#$%^&*+=_~`|()\{\}[\]:;<>?/\\'".,\\\-]).+$/.test(value), {
-      message: "Password must contain at least one special character",
-    })
+    .refine(
+      (value) =>
+        /^(?=.*[!@#$%^&*+=_~`|()\{\}[\]:;<>?/\\'".,\\\-]).+$/.test(value),
+      {
+        message: "Password must contain at least one special character",
+      }
+    )
     .refine((value) => /^\S*$/.test(value), {
       message: "Spaces are not allowed",
     }),
@@ -41,13 +44,18 @@ export const authSchema = z.object({
     .refine((value) => /^(?=.*[0-9]).+$/.test(value), {
       message: "Password must contain at least one digit",
     })
-    .refine((value) => /^(?=.*[!@#$%^&*+=_~`|()\{\}[\]:;<>?/\\'".,\\\-]).+$/.test(value), {
-      message: "Password must contain at least one special character",
-    })
+    .refine(
+      (value) =>
+        /^(?=.*[!@#$%^&*+=_~`|()\{\}[\]:;<>?/\\'".,\\\-]).+$/.test(value),
+      {
+        message: "Password must contain at least one special character",
+      }
+    )
     .refine((value) => /^\S*$/.test(value), {
       message: "Spaces are not allowed",
     }),
-  username: z.string()
+  username: z
+    .string()
     .min(2, {
       message: "Username must be at least 2 characters long",
     })
@@ -55,7 +63,8 @@ export const authSchema = z.object({
     .regex(/^[a-zA-Z0-9]+$/, {
       message: "Username must contain only letters and numbers",
     }),
-  first_name: z.string()
+  first_name: z
+    .string()
     .min(2, {
       message: "At least 1 character",
     })
@@ -63,7 +72,8 @@ export const authSchema = z.object({
     .refine((value) => /^[A-Za-z]+$/.test(value), {
       message: "Name can only contain letters",
     }),
-  last_name: z.string()
+  last_name: z
+    .string()
     .min(2, {
       message: "At least 1 character",
     })
@@ -71,31 +81,31 @@ export const authSchema = z.object({
     .refine((value) => /^[A-Za-z]+$/.test(value), {
       message: "Last Name can only contain letters",
     }),
-});
+})
 
 export const verfifyEmailSchema = z.object({
-  code: z.string()
+  code: z
+    .string()
     .min(6, {
       message: "Verification code must be 6 characters long",
     })
     .max(6),
-});
+})
 
 export const checkEmailSchema = z.object({
   email: authSchema.shape.email,
-});
+})
 
-export const resetPasswordSchema = z.object({
-  password: authSchema.shape.password,
-  confirmPassword: authSchema.shape.password,
-  code: verfifyEmailSchema.shape.code,
-}).refine(
-  (data) => data.password === data.confirmPassword,
-  {
+export const resetPasswordSchema = z
+  .object({
+    password: authSchema.shape.password,
+    confirmPassword: authSchema.shape.password,
+    code: verfifyEmailSchema.shape.code,
+  })
+  .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
     path: ["confirmPassword"],
-  }
-);
+  })
 
 export const userPrivateMetadataSchema = z.object({
   role: z.enum(["user", "admin"]),

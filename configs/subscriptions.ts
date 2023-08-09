@@ -5,7 +5,8 @@ export const storeSubscriptionPlans: SubscriptionPlan[] = [
   {
     id: "basic",
     name: "Basic",
-    description: "Ideal for crafters and small businesses that want to sell online. Cost less than a Coffee",
+    description:
+      "Ideal for crafters and small businesses that want to sell online. Cost less than a Coffee",
     features: ["Create up to 1 store", "Create up to 20 products"],
     stripePriceId: "",
     price: 0,
@@ -13,7 +14,8 @@ export const storeSubscriptionPlans: SubscriptionPlan[] = [
   {
     id: "standard",
     name: "Tuned",
-    description: "Perfect for midsize businesses that want to sell online. Cost more than a Coffee",
+    description:
+      "Perfect for midsize businesses that want to sell online. Cost more than a Coffee",
     features: ["Create up to 2 store", "Create up to 20 products per store"],
     stripePriceId: env.STRIPE_STD_MONTHLY_PRICE_ID,
     price: 10,

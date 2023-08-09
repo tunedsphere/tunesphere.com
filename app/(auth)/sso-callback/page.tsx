@@ -1,7 +1,7 @@
 import type { HandleOAuthCallbackParams } from "@clerk/types"
+import { Shell } from "@components/shells/shell"
 
 import SSOCallback from "@/components/auth/sso-callback"
-import { Shell } from "@components/shells/shell"
 
 export const runtime = "edge"
 

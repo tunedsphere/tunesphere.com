@@ -45,12 +45,17 @@ export default async function StoreLayout({
   return (
     <Shell variant="sidebar" className="gap-4">
       <div className="flex items-center space-x-4">
-        <Header variant="dashboard" title={store.name} size="sm" className="flex-1" />
+        <Header
+          variant="dashboard"
+          title={store.name}
+          size="sm"
+          className="flex-1"
+        />
         {allStores.length > 1 ? (
           <StorePager storeId={storeId} userId={user.id} />
         ) : null}
       </div>
-      <div className="space-y-4 overflow-hidden px-8 gap-8 grid max-w-screen">
+      <div className="grid gap-4 space-y-4 overflow-hidden px-8 pt-4">
         <StoreTabs storeId={storeId} />
         {children}
       </div>

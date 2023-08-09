@@ -72,8 +72,7 @@ export const productCategories = [
     subcategories: [
       {
         title: "tapistery",
-        description:
-          "Essentials",
+        description: "Essentials",
         slug: "decorations",
       },
     ],

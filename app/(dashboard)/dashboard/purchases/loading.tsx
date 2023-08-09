@@ -1,16 +1,18 @@
+import { Shell } from "@components/shells/shell"
+
 import { Skeleton } from "@/components/ui/skeleton"
 import { Header } from "@/components/header"
-import { Shell } from "@components/shells/shell"
 
 export default function PurchasesLoading() {
   return (
     <Shell variant="dashboard">
       <Header
+        variant="dashboard"
         title="Purchases"
         description="Manage your purchases."
         size="sm"
       />
-      <div className="grid gap-10 rounded-lg border p-4">
+      <div className="grid gap-10 rounded-lg p-4 px-8">
         <div className="space-y-2">
           <Skeleton className="h-5 w-20" />
           <Skeleton className="h-4 w-72" />

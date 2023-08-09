@@ -1,5 +1,7 @@
 "use client"
-import '@styles/globals.css';
+
+import "@styles/globals.css"
+
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { type Product } from "@/db/schema"
@@ -68,56 +70,56 @@ export function SiteCombobox() {
 
   return (
     <>
-      <Button
-          variant="nav"
-          size="xs"
-        onClick={() => setIsOpen(true)} 
-      >
-        <Icons.search className="object-contain cursor-pointer search-trigger" aria-hidden="true" />
+      <Button variant="nav" size="xs" onClick={() => setIsOpen(true)}>
+        <Icons.search
+          className="cursor-pointer object-contain"
+          aria-hidden="true"
+        />
       </Button>
       <CommandDialog position="top" open={isOpen} onOpenChange={setIsOpen}>
-      <div
-
-            className="bg-accent1 rounded-lg border border-colortheme"
-          >
-        <CommandInput
-          placeholder="Search artists, labels, products..."
-          value={query}
-          onValueChange={setQuery}
-        />
-        <CommandList>
-          <CommandEmpty
-            className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
-          >
-            {query ? `No products found for "${query}"` : "Hoping to find what you need."}
-          </CommandEmpty>
-          {isPending ? (
-            <div className="space-y-1 overflow-hidden px-1 py-2">
-              <Skeleton className="h-4 w-10 rounded" />
-              <Skeleton className="h-8 rounded-sm" />
-              <Skeleton className="h-8 rounded-sm" />
-            </div>
-          ) : (
-            data?.map((group) => (
-              <CommandGroup
-                key={group.category}
-                className="capitalize"
-                heading={group.category}
-              >
-                {group.products.map((item) => (
-                  <CommandItem
-                    key={item.id}
-                    onSelect={() =>
-                      handleSelect(() => router.push(`/shop/product/${item.id}`))
-                    }
-                  >
-                    {item.name}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            ))
-          )}
-        </CommandList>
+        <div className="rounded-lg border border-theme bg-accent-1">
+          <CommandInput
+            placeholder="Search artists, labels, products..."
+            value={query}
+            onValueChange={setQuery}
+          />
+          <CommandList>
+            <CommandEmpty
+              className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
+            >
+              {query
+                ? `No products found for "${query}"`
+                : "Hoping to find what you need."}
+            </CommandEmpty>
+            {isPending ? (
+              <div className="space-y-1 overflow-hidden px-1 py-2">
+                <Skeleton className="h-4 w-10 rounded" />
+                <Skeleton className="h-8 rounded-sm" />
+                <Skeleton className="h-8 rounded-sm" />
+              </div>
+            ) : (
+              data?.map((group) => (
+                <CommandGroup
+                  key={group.category}
+                  className="capitalize"
+                  heading={group.category}
+                >
+                  {group.products.map((item) => (
+                    <CommandItem
+                      key={item.id}
+                      onSelect={() =>
+                        handleSelect(() =>
+                          router.push(`/shop/product/${item.id}`)
+                        )
+                      }
+                    >
+                      {item.name}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              ))
+            )}
+          </CommandList>
         </div>
       </CommandDialog>
     </>

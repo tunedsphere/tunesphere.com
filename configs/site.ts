@@ -9,7 +9,6 @@ const links = {
   facebook: "https://facebook.com/",
   instagram: "https://instagram.com/",
   twitter: "https://twitter.com/",
-
 }
 
 export const siteConfig = {
@@ -72,7 +71,9 @@ export const siteConfig = {
         },
         ...category.subcategories.map((subcategory) => ({
           title: subcategory.title,
-          href: `/shop/categories/${slugify(category.title)}/${subcategory.slug}`,
+          href: `/shop/categories/${slugify(category.title)}/${
+            subcategory.slug
+          }`,
           description: subcategory.description,
           items: [],
         })),
@@ -81,7 +82,7 @@ export const siteConfig = {
   ] satisfies ShopNavItem[],
   footerNav: [
     {
-      title: "Products",// Default href for "Products" title
+      title: "Products", // Default href for "Products" title
       items: [
         {
           title: "Music",
@@ -94,7 +95,7 @@ export const siteConfig = {
       ],
     },
     {
-      title: "Docs",// Default href for "Docs" title
+      title: "Docs", // Default href for "Docs" title
       items: [
         {
           title: "Legal Information",
@@ -115,7 +116,7 @@ export const siteConfig = {
       ],
     },
     {
-      title: "About Us",// Default href for "About Us" title
+      title: "About Us", // Default href for "About Us" title
       items: [
         {
           title: "Spirit",

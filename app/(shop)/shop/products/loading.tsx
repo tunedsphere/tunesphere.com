@@ -1,8 +1,8 @@
+import { Shell } from "@components/shells/shell"
 
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Icons } from "@/components/icons"
-import { Shell } from "@components/shells/shell"
 
 export default function ProductsLoading() {
   return (
@@ -20,14 +20,12 @@ export default function ProductsLoading() {
           {Array.from({ length: 8 }).map((_, i) => (
             <Card key={i} className="rounded-sm">
               <CardHeader className="border-b p-0">
-
-                  <div className="flex h-full items-center justify-center bg-secondary">
-                    <Icons.placeholder
-                      className="h-9 w-9 text-muted-foreground"
-                      aria-hidden="true"
-                    />
-                  </div>
-
+                <div className="flex h-full items-center justify-center bg-secondary">
+                  <Icons.placeholder
+                    className="h-9 w-9 text-muted-foreground"
+                    aria-hidden="true"
+                  />
+                </div>
               </CardHeader>
               <CardContent className="grid gap-2.5 p-4">
                 <Skeleton className="h-4 w-1/2" />

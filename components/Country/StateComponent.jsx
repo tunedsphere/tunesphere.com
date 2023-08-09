@@ -1,12 +1,13 @@
-import { State } from 'country-state-city';
-import Dropdown from './Commons/Dropdown'
+import { State } from "country-state-city"
 
-const StateComponent = ({countryCode = 'IN'}) => {
-    const data = State.getStatesOfCountry(countryCode).map(state => ({
-        value: state.name,
-        displayValue: `${state.name} - ${state.isoCode}`
-    }))
-	return <Dropdown options={data}></Dropdown>
+import Dropdown from "./Commons/Dropdown"
+
+const StateComponent = ({ countryCode = "IN" }) => {
+  const data = State.getStatesOfCountry(countryCode).map((state) => ({
+    value: state.name,
+    displayValue: `${state.name} - ${state.isoCode}`,
+  }))
+  return <Dropdown options={data}></Dropdown>
 }
 
-export default StateComponent;
+export default StateComponent

@@ -1,4 +1,5 @@
 import { type Product } from "@/db/schema"
+import { Breadcrumbs } from "@components/pagers/breadcrumbs"
 
 import { toTitleCase } from "@/lib/utils"
 import { Header } from "@/components/header"
@@ -6,8 +7,6 @@ import { Products } from "@/components/products/products"
 import { Shell } from "@/components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
-
-import { Breadcrumbs } from "@components/pagers/breadcrumbs"
 
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"
@@ -76,7 +75,7 @@ export default async function CategoryPage({
 
   return (
     <Shell variant="shop">
-          <Breadcrumbs
+      <Breadcrumbs
         segments={[
           {
             title: "Products",
@@ -86,7 +85,6 @@ export default async function CategoryPage({
             title: toTitleCase(category),
             href: `/shop/products?category=${category}`,
           },
-          
         ]}
       />
       <Header

@@ -5,6 +5,7 @@ import { db } from "@/db"
 import { stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { currentUser } from "@clerk/nextjs"
+import { Shell } from "@components/shells/shell"
 import dayjs from "dayjs"
 import { eq } from "drizzle-orm"
 
@@ -24,7 +25,6 @@ import {
 } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Icons } from "@/components/icons"
-import { Shell } from "@components/shells/shell"
 
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"
@@ -63,102 +63,106 @@ export default async function StoresPage() {
     getFeaturedStoreAndProductCounts(subscriptionPlan.id)
 
   return (
-    <>
     <Shell variant="dashboard">
-    <Header variant='dashboard' title="Stores" description="Manage your stores" size="sm" />
-    <div className="px-8 gap-8 grid">
-      <Alert className="bg-accent1">
-        <Icons.terminal className="h-4 w-4" aria-hidden="true" />
-        <AlertTitle className="">Heads up!</AlertTitle>
-        <AlertDescription>
-          You are currently on the{" "}
-          <span className="font-semibold">{subscriptionPlan.name}</span> plan.{" "}
-          {!subscriptionPlan.isSubscribed
-            ? "Upgrade to create more stores and products."
-            : subscriptionPlan.isCanceled
-            ? "Your plan will be canceled on "
-            : "Your plan renews on "}
-          {subscriptionPlan?.stripeCurrentPeriodEnd
-            ? `${formatDate(subscriptionPlan.stripeCurrentPeriodEnd)}.`
-            : null}{" "}
-          You can create up to{" "}
-          <span className="font-semibold">{featuredStoreCount}</span> stores and{" "}
-          <span className="font-semibold">{featuredProductCount}</span> products
-          on this plan.
-        </AlertDescription>
-      </Alert>
-      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {userStores.map((store) => (
-          <Card 
-          variant="dashboard"
-          key={store.id} className="flex h-full flex-col">
-            <CardHeader className="flex-1">
-              <CardTitle className="line-clamp-1">{store.name}</CardTitle>
-              <CardDescription className="line-clamp-2">
-                {store.description}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Link key={store.id} href={`/dashboard/stores/${store.id}`}>
-                <div
-                  className={cn(
-                    buttonVariants({
-                      size: "sm",
-                      className: "h-8 w-full",
-                    })
-                  )}
+      <Header
+        variant="dashboard"
+        title="Stores"
+        description="Manage your stores"
+        size="sm"
+      />
+      <div className="grid gap-8 px-8">
+        <Alert className="border-0 bg-accent-1">
+          <AlertTitle className="">Heads up!</AlertTitle>
+          <AlertDescription>
+            You are currently on the{" "}
+            <span className="font-semibold">{subscriptionPlan.name}</span> plan.{" "}
+            {!subscriptionPlan.isSubscribed
+              ? "Upgrade to create more stores and products."
+              : subscriptionPlan.isCanceled
+              ? "Your plan will be canceled on "
+              : "Your plan renews on "}
+            {subscriptionPlan?.stripeCurrentPeriodEnd
+              ? `${formatDate(subscriptionPlan.stripeCurrentPeriodEnd)}.`
+              : null}{" "}
+            You can create up to{" "}
+            <span className="font-semibold">{featuredStoreCount}</span> stores
+            and <span className="font-semibold">{featuredProductCount}</span>{" "}
+            products on this plan.
+          </AlertDescription>
+        </Alert>
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {userStores.map((store) => (
+            <Card
+              variant="dashboard"
+              key={store.id}
+              className="flex h-full flex-col"
+            >
+              <CardHeader className="flex-1">
+                <CardTitle className="line-clamp-1">{store.name}</CardTitle>
+                <CardDescription className="line-clamp-2">
+                  {store.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Link key={store.id} href={`/dashboard/stores/${store.id}`}>
+                  <div
+                    className={cn(
+                      buttonVariants({
+                        size: "sm",
+                        className: "h-8 w-full",
+                      })
+                    )}
+                  >
+                    View store
+                    <span className="sr-only">View {store.name} store</span>
+                  </div>
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
+          {userStores.length < 3 && (
+            <Card variant="dashboard" className="flex h-full flex-col">
+              <CardHeader className="flex-1">
+                <CardTitle className="line-clamp-1">
+                  Create a new store
+                </CardTitle>
+                <CardDescription className="line-clamp-2">
+                  Create a new store to start selling your products.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Link
+                  href={
+                    subscriptionPlan.id === "basic" && userStores.length >= 1
+                      ? "/dashboard/billing"
+                      : subscriptionPlan.id === "standard" &&
+                        isSubscriptionPlanActive &&
+                        userStores.length >= 2
+                      ? "/dashboard/billing"
+                      : subscriptionPlan.id === "pro" &&
+                        isSubscriptionPlanActive &&
+                        userStores.length >= 3
+                      ? "/dashboard/billing"
+                      : "/dashboard/stores/new"
+                  }
                 >
-                  View store
-                  <span className="sr-only">View {store.name} store</span>
-                </div>
-              </Link>
-            </CardContent>
-          </Card>
-        ))}
-        {userStores.length < 3 && (
-          <Card 
-          variant="dashboard"
-          className="flex h-full flex-col">
-            <CardHeader className="flex-1">
-              <CardTitle className="line-clamp-1">Create a new store</CardTitle>
-              <CardDescription className="line-clamp-2">
-                Create a new store to start selling your products.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Link
-                href={
-                  subscriptionPlan.id === "basic" && userStores.length >= 1
-                    ? "/dashboard/billing"
-                    : subscriptionPlan.id === "standard" &&
-                      isSubscriptionPlanActive &&
-                      userStores.length >= 2
-                    ? "/dashboard/billing"
-                    : subscriptionPlan.id === "pro" &&
-                      isSubscriptionPlanActive &&
-                      userStores.length >= 3
-                    ? "/dashboard/billing"
-                    : "/dashboard/stores/new"
-                }
-              >
-                <div
-                  className={cn(
-                    buttonVariants({
-                      size: "sm",
-                      className: "h-8 w-full",
-                    })
-                  )}
-                >
-                  Create a store
-                  <span className="sr-only">Create a new store</span>
-                </div>
-              </Link>
-            </CardContent>
-          </Card>
-        )}
-      </div>
+                  <div
+                    className={cn(
+                      buttonVariants({
+                        size: "sm",
+                        className: "h-8 w-full",
+                      })
+                    )}
+                  >
+                    Create a store
+                    <span className="sr-only">Create a new store</span>
+                  </div>
+                </Link>
+              </CardContent>
+            </Card>
+          )}
+        </div>
       </div>
     </Shell>
-    </>
   )
 }

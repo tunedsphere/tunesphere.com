@@ -1,9 +1,13 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { db } from "@/db"
 import { products, stores } from "@/db/schema"
 import { env } from "@/env.mjs"
+import { Icons } from "@components/icons"
+import { AspectRatio } from "@components/ui/aspect-ratio"
+import { CardHeader } from "@components/ui/card"
 import { and, desc, eq, not } from "drizzle-orm"
 
 import { formatPrice, toTitleCase } from "@/lib/utils"
@@ -19,11 +23,6 @@ import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
 import { ProductCard } from "@/components/products/product-card"
 import { ProductImageCarousel } from "@/components/products/product-image-carousel"
 import { Shell } from "@/components/shells/shell"
-
-import Image from "next/image"
-import { AspectRatio } from "@components/ui/aspect-ratio"
-import { CardHeader } from "@components/ui/card"
-import { Icons } from "@components/icons"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -88,7 +87,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           },
         ]}
       />
-      <div className="flex flex-col gap-8 md:flex-row md:gap-16 justify-center">
+      <div className="flex flex-col justify-center gap-8 md:flex-row md:gap-16">
         <ProductImageCarousel
           className="w-full md:w-1/3"
           images={product.images ?? []}
@@ -97,10 +96,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
           }}
         />
         <Separator className="mt-4 md:hidden" />
-        <div className="flex w-full flex-col gap-4 md:w-1/3 text-textdark">
+        <div className="flex w-full flex-col gap-4 text-textdark md:w-1/3">
           <div className="space-y-2">
-            <h2 className="line-clamp-1 text-2xl text-textdark font-bold">{product.name}</h2>
-            <p className="text-xl text-textdark font-semibold">
+            <h2 className="line-clamp-1 text-2xl font-bold text-textdark">
+              {product.name}
+            </h2>
+            <p className="text-xl font-semibold text-textdark">
               {formatPrice(product.price)}
             </p>
             {store ? (
@@ -117,7 +118,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <Separator className="mt-5" />
           <Accordion type="single" collapsible className="w-full text-textdark">
             <AccordionItem value="description">
-              <AccordionTrigger className="text-textdark">Description</AccordionTrigger>
+              <AccordionTrigger className="text-textdark">
+                Description
+              </AccordionTrigger>
               <AccordionContent>
                 {product.description ??
                   "No description is available for this product."}

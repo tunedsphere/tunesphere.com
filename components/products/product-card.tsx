@@ -3,11 +3,7 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
-
-
-
-import { type Product} from "@/db/schema"
-import { type Store } from "@/db/schema"
+import { type Product, type Store } from "@/db/schema"
 import { toast } from "sonner"
 
 import { cn, formatPrice } from "@/lib/utils"
@@ -43,11 +39,12 @@ export function ProductCard({
 }: ProductCardProps) {
   const [isPending, startTransition] = React.useTransition()
 
-
-
   return (
     <Card
-      className={cn("overflow-hidden h-full sm:rounded-lg rounded-none border-0 sm:border-2 bg-primary", className)}
+      className={cn(
+        "h-full overflow-hidden rounded-none border-0 bg-primary sm:rounded-lg sm:border-2",
+        className
+      )}
       {...props}
     >
       <Link
@@ -80,7 +77,7 @@ export function ProductCard({
                 />
               </div>
             )}
-      </AspectRatio>
+          </AspectRatio>
         </CardHeader>
       </Link>
       <Link
@@ -88,14 +85,15 @@ export function ProductCard({
         href={`/shop/product/${product.id}`}
       >
         <CardContent className="grid gap-2.5 pb-4">
-          <CardTitle className="line-clamp-1 text-textdark">{product.name}</CardTitle>
+          <CardTitle className="line-clamp-1 text-textdark">
+            {product.name}
+          </CardTitle>
           <CardDescription className="line-clamp-2 text-textdark">
             {formatPrice(product.price)}
           </CardDescription>
-          <CardTitle 
-           
-           as="h6" 
-           className="line-clamp-1 text-muted-foreground">StoreName</CardTitle>
+          <CardTitle as="h6" className="line-clamp-1 text-muted-foreground">
+            StoreName
+          </CardTitle>
         </CardContent>
       </Link>
       <CardFooter className="p-4">

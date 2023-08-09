@@ -1,8 +1,8 @@
 import * as React from "react"
 import Link from "next/link"
-import { Icons } from "@/components/icons"
 
 import { cn } from "@/lib/utils"
+import { Icons } from "@/components/icons"
 
 interface BreadcrumbsProps {
   segments: {
@@ -18,7 +18,7 @@ export function Breadcrumbs({ segments, separator }: BreadcrumbsProps) {
   return (
     <nav
       aria-label="breadcrumbs"
-      className="flex justify-center items-center text-sm font-medium text-muted-foreground"
+      className="flex items-center justify-center text-sm font-medium text-muted-foreground"
     >
       {segments.map((segment, index) => {
         const isLastSegment = index === segments.length - 1
@@ -29,7 +29,7 @@ export function Breadcrumbs({ segments, separator }: BreadcrumbsProps) {
               aria-current={isLastSegment ? "page" : undefined}
               href={segment.href}
               className={cn(
-                "truncate transition-colors hover:text-textdark hover:underline underline-offset-2 underline-textdark sm:text-lg",
+                "underline-textdark truncate underline-offset-2 transition-colors hover:text-textdark hover:underline sm:text-lg",
                 isLastSegment
                   ? "pointer-events-none text-muted-foreground sm:text-lg"
                   : "text-foreground sm:text-lg"
@@ -38,7 +38,10 @@ export function Breadcrumbs({ segments, separator }: BreadcrumbsProps) {
               {segment.title}
             </Link>
             {!isLastSegment && (
-              <Icons.chevronRight className="sm:mx-2 mx-1 h-4 w-4" aria-hidden="true" />
+              <Icons.chevronRight
+                className="mx-1 h-4 w-4 sm:mx-2"
+                aria-hidden="true"
+              />
             )}
           </React.Fragment>
         )
