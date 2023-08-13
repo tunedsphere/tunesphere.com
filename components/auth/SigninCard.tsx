@@ -3,8 +3,8 @@ import Link from "next/link"
 import { redirect } from "next/navigation"
 import { useRouter } from "next/router"
 import { currentUser, SignedOut } from "@clerk/nextjs"
-import { Icons } from "@components/icons"
-import { Button } from "@components/ui/button"
+import { Icons } from "@/components/icons"
+import { Button } from "@/components/ui/button"
 
 import {
   Card,

@@ -1,15 +1,15 @@
-import { Suspense } from "react"
+
 import { redirect } from "next/navigation"
 import { currentUser } from "@clerk/nextjs"
-import { SiteFooter } from "@components/layouts/site-footer"
-import { SiteHeader } from "@components/layouts/site-header"
-import { Sidebar } from "@components/ui/sidebar"
+import { SiteFooter } from "@/components/layouts/site-footer"
+import { SiteHeader } from "@/components/layouts/site-header"
+import { Sidebar } from "@/components/ui/sidebar"
 
 import { dashboardConfig } from "@/configs/dashboard"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { SidebarNav } from "@/components/layouts/sidebar-nav"
 
-import BillingLoading from "./billing/loading"
+
 
 interface DashboardLayoutProps {
   children: React.ReactNode

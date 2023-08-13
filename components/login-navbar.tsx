@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs"
-import { UserDropdownMenu } from "@components/user-dropdown-menu"
+import { UserDropdownMenu } from "@/components/user-dropdown-menu"
 
 interface LoginNavbarProps {}
 

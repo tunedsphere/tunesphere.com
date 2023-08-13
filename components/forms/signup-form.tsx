@@ -116,7 +116,7 @@ export function SignUpForm() {
         />
 
         <div className="flex flex-row">
-          <div className="mr-2 flex flex-grow flex-col">
+          <div className="mr-2 flex flex-col">
             <FormField
               control={form.control}
               name="first_name"
@@ -130,7 +130,7 @@ export function SignUpForm() {
               )}
             />
           </div>
-          <div className="flex flex-grow flex-col">
+          <div className="flex flex-col">
             <FormField
               control={form.control}
               name="last_name"

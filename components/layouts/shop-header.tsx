@@ -1,6 +1,6 @@
-import { ShopMainNav } from "@components/layouts/shop-main-nav"
-import { ShopMobileNav } from "@components/layouts/shop-mobile-nav"
-import { Shell } from "@components/shells/shell"
+import { ShopMainNav } from "@/components/layouts/shop-main-nav"
+import { ShopMobileNav } from "@/components/layouts/shop-mobile-nav"
+import { Shell } from "@/components/shells/shell"
 
 import { dashboardConfig } from "@/configs/dashboard"
 import { siteConfig } from "@/configs/site"

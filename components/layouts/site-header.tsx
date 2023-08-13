@@ -1,12 +1,12 @@
-import "@/styles/globalnav.css"
+
 import "@/styles/globals.css"
 
 import React from "react"
 import Link from "next/link"
-import { SignedIn, SignedOut } from "@clerk/nextjs"
-import { Icons } from "@components/icons"
-import LoginModalButton from "@components/login-modal-btn"
-import LoginNavbar from "@components/login-navbar"
+
+import { Icons } from "@/components/icons"
+
+import LoginNavbar from "@/components/login-navbar"
 
 import { CartSheet } from "@/components/cart/cart-sheet"
 import SiteHeaderMenuBurger from "@/components/menuburgers/site-header-menu-burger"

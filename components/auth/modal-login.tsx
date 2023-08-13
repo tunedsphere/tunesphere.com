@@ -1,21 +1,17 @@
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import * as React from "react"
-import { SignedIn, SignedOut, useSignIn } from "@clerk/nextjs"
-import { Shell } from "@components/shells/shell"
-import { Button } from "@components/ui/button"
+import { SignedOut } from "@clerk/nextjs"
+import { Shell } from "@/components/shells/shell"
+import { Button } from "@/components/ui/button"
 
-import { cn } from "@/lib/utils"
 import { useDebounce } from "@/hooks/use-debounce"
 import {
   CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
+
 } from "@/components/ui/command"
 import SigninCard from "@/components/auth/SigninCard"
+
 
 export function ModalLogIn() {
   const [isOpen, setIsOpen] = React.useState(false)

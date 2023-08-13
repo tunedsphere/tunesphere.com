@@ -5,7 +5,7 @@ import { db } from "@/db"
 import { stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { currentUser } from "@clerk/nextjs"
-import { Shell } from "@components/shells/shell"
+import { Shell } from "@/components/shells/shell"
 import dayjs from "dayjs"
 import { eq } from "drizzle-orm"
 
@@ -24,7 +24,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Header } from "@/components/header"
-import { Icons } from "@/components/icons"
+
 
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"

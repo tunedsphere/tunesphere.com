@@ -2,52 +2,50 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
+   './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+	],
+  theme: {   
     container: {
       center: true,
       padding: "1rem",
       screens: {
-        s: { max: "375px" },
-        sm: { min: "640px", max: "767px" },
-        md: { min: "768px", max: "1023px" },
-        lg: { min: "1024px", max: "1279px" },
-        xl: { min: "1280px", max: "1535px" },
-        "2xl": { min: "1536px" },
-        "8xl": { min: "3456px" },
-        "&xs": { raw: "(min-width: 320px)" },
-        "&sm": { raw: "(min-width: 384px)" },
-        "&md": { raw: "(min-width: 448px)" },
-        "&lg": { raw: "(min-width: 512px)" },
-        "&xl": { raw: "(min-width: 576px)" },
-        "&2xl": { raw: "(min-width: 672px)" },
-      },
+        's': {'max': '375px'},
+        'sm': {'min': '640px', 'max': '767px'},
+        'md': {'min': '768px', 'max': '1023px'},
+        'lg': {'min': '1024px', 'max': '1279px'},
+        'xl': {'min': '1280px', 'max': '1535px'},
+        '2xl': {'min': '1536px'},
+        '7xl': { 'min': '2880px' },
+        '8xl': { 'min': '3456px' },
+        '&xs': {'raw': '(min-width: 320px)'},
+        '&sm': {'raw': '(min-width: 384px)'},
+        '&md': {'raw': '(min-width: 448px)'},
+        '&lg': {'raw': '(min-width: 512px)'},
+        '&xl': {'raw': '(min-width: 576px)'},
+        '&2xl': {'raw': '(min-width: 672px)'},
+      }
     },
     extend: {
-      blur: {
-        xs: "2px",
-      },
       spacing: {
-        sidebar: "240px",
-        headerHeight: "380px",
-        sidebarDashboardWidth: "var(--sidebar-dashboard-width)",
+        sidebar: '240px',
+        headerHeight: '380px',
+        sidebarDashboardWidth: 'var(--sidebar-dashboard-width)',
       },
       zIndex: {
-        100: "100",
-        200: "200",
-        300: "300",
-        400: "400",
-        500: "500",
-        600: "600",
-        700: "700",
-        800: "800",
-        900: "900",
-        9999: "9999",
-        10000: "10000",
-        20000: "20000",
+        '100': '100',
+        '200': '200',
+        '300': '300',
+        '400': '400',
+        '500': '500',
+        '600': '600',
+        '700': '700',
+        '800': '800',
+        '900': '900',
+        '9999': '9999',
+        '10000': '10000',
+        '20000': '20000',
       },
       colors: {
         theme: {
@@ -125,6 +123,9 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      boxShadow: {
+        'avatar': "inset 0 10px 10px 10px",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -147,9 +148,9 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/container-queries"),
+    require('@tailwindcss/container-queries'),
     // ...
-    require("tailwindcss-animate"),
+    require('tailwindcss-animate'),
     // ...
   ],
   // ...

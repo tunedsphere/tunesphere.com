@@ -1,9 +1,9 @@
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import * as React from "react"
 import Link from "next/link"
 import type { ShopMainNavItem } from "@/types"
-import { Icons } from "@components/icons"
+import { Icons } from "@/components/icons"
 
 import { siteConfig } from "@/configs/site"
 import { cn } from "@/lib/utils"

@@ -1,9 +1,9 @@
 "use client"
 
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import React from "react"
-import { recordLabels } from "@public/data.js"
+import { recordLabels } from "@/public/data.js"
 
 const SelectGenre = ({ selectedGenre, onGenreChange }) => {
   const handleGenreChange = (e) => {

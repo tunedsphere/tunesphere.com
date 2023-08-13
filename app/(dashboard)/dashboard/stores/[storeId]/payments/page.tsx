@@ -4,7 +4,8 @@ import { db } from "@/db"
 import { stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { eq } from "drizzle-orm"
-import { Activity, CreditCard, DollarSign, Users } from "lucide-react"
+
+import { Icons } from "@/components/icons"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -41,7 +42,7 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
       <Card variant="dashboard">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-          <DollarSign className="h-4 w-4 text-muted-foreground" />
+          <Icons.dollarSign className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">$45,231.89</div>
@@ -53,7 +54,7 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Subscriptions</CardTitle>
-          <Users className="h-4 w-4 text-muted-foreground" />
+          <Icons.user className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">+2350</div>
@@ -65,7 +66,7 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Sales</CardTitle>
-          <CreditCard className="h-4 w-4 text-muted-foreground" />
+          <Icons.creditCard className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">+12,234</div>
@@ -75,7 +76,7 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Active Now</CardTitle>
-          <Activity className="h-4 w-4 text-muted-foreground" />
+          <Icons.activity className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">+573</div>

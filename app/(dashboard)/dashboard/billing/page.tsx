@@ -59,7 +59,7 @@ export default async function BillingPage() {
             <Card variant="dashboard" className="grid gap-4 p-6">
               <h3 className="text-lg font-semibold sm:text-xl">
                 <span>Current Plan :</span>
-                <span className="font-normal">
+                <span className="font-normal text-primary">
                   {" "}
                   <strong>{subscriptionPlan?.name}</strong>
                 </span>
@@ -97,7 +97,7 @@ export default async function BillingPage() {
                 >
                   <CardHeader>
                     <CardTitle className="line-clamp-1">{plan.name}</CardTitle>
-                    <CardDescription className="line-clamp-2 text-secondary">
+                    <CardDescription className="line-clamp-2 text-theme-300">
                       {plan.description}
                     </CardDescription>
                   </CardHeader>

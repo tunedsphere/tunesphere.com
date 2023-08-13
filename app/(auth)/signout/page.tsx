@@ -1,5 +1,5 @@
-import { Shell } from "@components/shells/shell"
-import { Card } from "@components/ui/card"
+import { Shell } from "@/components/shells/shell"
+
 
 import { LogOutButtons } from "@/components/auth/logout-buttons"
 import { Header } from "@/components/header"

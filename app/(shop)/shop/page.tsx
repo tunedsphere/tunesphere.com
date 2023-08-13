@@ -2,12 +2,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { db } from "@/db"
 import { products, stores } from "@/db/schema"
-import { FeaturedProductCard } from "@components/products/featured-product-card"
-import { Shell } from "@components/shells/shell"
+import { FeaturedProductCard } from "@/components/products/featured-product-card"
+import { Shell } from "@/components/shells/shell"
 import { desc, eq, sql } from "drizzle-orm"
 
 import { productCategories } from "@/configs/products"
-import { siteConfig } from "@/configs/site"
+
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
@@ -59,8 +59,8 @@ export default async function ShopPage() {
           </h1>
           <div className="relative mx-auto w-full max-w-[400px] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="button_bg-gradient-theme absolute left-0 right-0"></div>
-              <div className="hero_gradient-button-wrapper flex-start z-20 flex-1 items-stretch">
+              <div className="button_bg-gradient-theme absolute inset-x-0"></div>
+              <div className="hero_gradient-button-wrapper z-20 flex-1 items-stretch">
                 <Link
                   href="/shop/products"
                   className={cn(
@@ -78,7 +78,7 @@ export default async function ShopPage() {
                 </Link>
               </div>
 
-              <div className="hero_gradient-button-wrapper flex-start z-20 flex-1 items-stretch">
+              <div className="hero_gradient-button-wrapper z-20 flex-1 items-stretch">
                 <div className="hero_gradient-button-bg hero_bg-theme blur"></div>
 
                 <Link
@@ -94,7 +94,7 @@ export default async function ShopPage() {
                 </Link>
               </div>
 
-              <div className="button_bg-gradient-theme absolute left-0 right-0 -z-10"></div>
+              <div className="button_bg-gradient-theme absolute inset-x-0 -z-10"></div>
             </div>
           </div>
         </section>

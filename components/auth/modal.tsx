@@ -1,11 +1,10 @@
 "use client"
 
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import React, { useEffect, useRef, useState } from "react"
 import { SignedOut } from "@clerk/nextjs"
-import { Shell } from "@components/shells/shell"
-import { Overlay } from "@radix-ui/react-dialog"
+import { Shell } from "@/components/shells/shell"
 
 import { useDebounce } from "@/hooks/use-debounce"
 import SigninCard from "@/components/auth/SigninCard"

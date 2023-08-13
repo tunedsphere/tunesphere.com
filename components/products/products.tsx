@@ -6,7 +6,7 @@ import * as React from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { type Product, type Store } from "@/db/schema"
 import type { Option } from "@/types"
-import { ProductCard } from "@components/products/product-card"
+import { ProductCard } from "@/components/products/product-card"
 
 import { getSubcategories, sortOptions } from "@/configs/products"
 import { cn, toTitleCase } from "@/lib/utils"

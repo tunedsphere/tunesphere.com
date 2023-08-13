@@ -1,12 +1,12 @@
 "use client"
 
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import * as React from "react"
 import { useEffect, useState } from "react"
 import { genres } from "@/constants/genres.js"
 import { recordLabels } from "@/public/data.js"
-import { Icons } from "@components/icons"
+import { Icons } from "@/components/icons"
 
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"

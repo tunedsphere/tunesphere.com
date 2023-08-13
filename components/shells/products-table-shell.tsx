@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { products, type Product } from "@/db/schema"
-import { Icons } from "@components/icons"
+import { Icons } from "@/components/icons"
 import { type ColumnDef } from "@tanstack/react-table"
 import { toast } from "sonner"
 

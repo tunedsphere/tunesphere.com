@@ -1,4 +1,5 @@
 import {
+  Activity,
   AlarmClock,
   AlertTriangle,
   BarChart3,
@@ -64,13 +65,16 @@ import {
   VolumeX,
   Wallet,
   X,
-  type Icon as LucideIcon,
+  type LucideIcon,
   type LucideProps,
 } from "lucide-react"
 
 export type Icon = LucideIcon
 
 export const Icons = {
+  activity: Activity,
+  alarmClock: AlarmClock,
+  alertTriangle: AlertTriangle,
   sun: SunMedium,
   moon: Moon,
   twitter: Twitter,
@@ -83,6 +87,7 @@ export const Icons = {
   chevronUp: ChevronUp,
   chevronDown: ChevronDown,
   chevronUpDown: ChevronsUpDown,
+  creditCard: CreditCard,
   menu: Menu,
   verticalThreeDots: MoreVertical,
   horizontalThreeDots: MoreHorizontal,
@@ -210,7 +215,7 @@ export const Icons = {
     </svg>
   ),
 
-  basket: (props: LucideProps) => (
+  basket: ({ ...props}: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -218,10 +223,10 @@ export const Icons = {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}>
       <path d="m5 11 4-7" />
       <path d="m19 11-4-7" />
       <path d="M2 11h20" />

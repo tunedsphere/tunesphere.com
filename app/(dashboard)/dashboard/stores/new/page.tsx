@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { env } from "@/env.mjs"
 import { currentUser } from "@clerk/nextjs"
-import { Shell } from "@components/shells/shell"
+import { Shell } from "@/components/shells/shell"
 
 import {
   Card,

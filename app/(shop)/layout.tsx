@@ -1,12 +1,12 @@
-import { ShopHeader } from "@components/layouts/shop-header"
-import { SiteFooter } from "@components/layouts/site-footer"
-import { SiteHeader } from "@components/layouts/site-header"
+import { ShopHeader } from "@/components/layouts/shop-header"
+import { SiteFooter } from "@/components/layouts/site-footer"
+import { SiteHeader } from "@/components/layouts/site-header"
 
 interface ShopLayoutProps {
   children: React.ReactNode
 }
 
-export default async function ShopLayout({ children }: ShopLayoutProps) {
+export default function ShopLayout({ children }: ShopLayoutProps) {
   return (
     <>
       <SiteHeader />

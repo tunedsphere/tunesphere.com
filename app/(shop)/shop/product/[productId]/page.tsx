@@ -1,13 +1,11 @@
 import type { Metadata } from "next"
-import Image from "next/image"
+
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { db } from "@/db"
 import { products, stores } from "@/db/schema"
 import { env } from "@/env.mjs"
-import { Icons } from "@components/icons"
-import { AspectRatio } from "@components/ui/aspect-ratio"
-import { CardHeader } from "@components/ui/card"
+
 import { and, desc, eq, not } from "drizzle-orm"
 
 import { formatPrice, toTitleCase } from "@/lib/utils"

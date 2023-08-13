@@ -1,12 +1,11 @@
-import { Suspense } from "react"
+
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { currentUser } from "@clerk/nextjs"
-import { Shell } from "@components/shells/shell"
+import { Shell } from "@/components/shells/shell"
 
 import { Header } from "@/components/header"
 
-import PurchasesLoading from "./loading"
 
 export const metadata: Metadata = {
   title: "Purchases",

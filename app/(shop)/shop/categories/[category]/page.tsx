@@ -1,5 +1,5 @@
 import { type Product } from "@/db/schema"
-import { Breadcrumbs } from "@components/pagers/breadcrumbs"
+import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
 
 import { toTitleCase } from "@/lib/utils"
 import { Header } from "@/components/header"

@@ -1,9 +1,9 @@
 "use client"
 
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import React, { useEffect, useRef, useState } from "react"
-import { Icons } from "@components/icons"
+import { Icons } from "@/components/icons"
 
 import { Button } from "@/components/ui/button"
 

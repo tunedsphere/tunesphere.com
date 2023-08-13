@@ -4,21 +4,17 @@ Version 0.1.0, 15/06/2023
 By obtaining, using, or accessing TunedSphere, you agree to the terms and conditions of this license. If you do not agree to these terms, you are prohibited from using or accessing the TunedSphere.
 
 1. Ownership :
-
-   - TunedSphere retains all ownership rights and intellectual property rights to TunedSphere. This license does not transfer any ownership or intellectual property rights to the licensee.
+   - TunedSphere retains all ownership rights and intellectual property rights to  TunedSphere. This license does not transfer any ownership or intellectual property rights to the licensee.
 
 2. Permitted Use :
-
    - The licensee, TunedSphere, is granted a non-exclusive, non-transferable right to use TunedSphere for internal purposes within the organization only.
    - The licensee shall not sublicense, sell, distribute, or make any commercial use of TunedSphere without explicit written permission from TunedSphere.
 
 3. Restrictions :
-
    - The licensee shall not modify, adapt, reverse engineer, decompile, disassemble, or create derivative works based on TunedSphere.
    - The licensee shall not distribute or make TunedSphere publicly available in any form, including open-source distribution.
 
 4. Support and Updates :
-
    - TunedSphere is not obligated to provide any technical support, maintenance, or updates for TunedSphere.
    - TunedSphere may, at its discretion, provide updates or new versions of TunedSphere, which will be subject to the terms of this license.
 

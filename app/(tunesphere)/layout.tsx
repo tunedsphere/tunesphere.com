@@ -1,4 +1,4 @@
-import { SiteFooter } from "@components/layouts/site-footer"
+import { SiteFooter } from "@/components/layouts/site-footer"
 
 export const metadata = {
   title: "TunedSphere",
@@ -26,7 +26,7 @@ interface TunedLayoutProps {
   children: React.ReactNode
 }
 
-export default async function TunedLayout({ children }: TunedLayoutProps) {
+export default function TunedLayout({ children }: TunedLayoutProps) {
   return (
     <>
       <main className="flex-1">{children}</main>

@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "paths": {
+      "@*": ["./*"],
+    },
+    "lib": ["dom", "dom.iterable","esnext"],
     "allowJs": true,
-    "checkJs": true,
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -15,20 +17,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "paths": {
-      "@*": ["./*"],
-      "@app/*": ["./app/*"],
-      "@/components/*": ["./components/*"],
-      "@/configs/*": ["./configs/*"],
-      "@/constants/*": ["./constants/*"],
-      "@/styles/*": ["./styles/*"],
-      "@/types/*": ["./types/*"],
-      "@/themes/*": ["./themes/*"],
-      "@/utils/*": ["./utils/*"],
-      "@/lib/*": ["./lib/*"],
-      "@/public/*": ["./public/*"],
-      "@/sections/*": ["./sections/*"]
-    },
     "plugins": [
       {
         "name": "next"
@@ -36,15 +24,11 @@
     ]
   },
   "include": [
-    ".eslintrc.js",
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.mjs",
-    "**/*.cjs",
-    "components/SearchBox/SearchBox.tsx",
-    "components/auth/modal.js"
-  ],
+    "**/*.mjs"
+, "components/SearchBox/SearchBox.tsx", "components/auth/modal.js"  ],
   "exclude": ["node_modules"]
 }

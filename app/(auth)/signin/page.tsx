@@ -2,7 +2,7 @@ import { type Metadata } from "next"
 import Link from "next/link"
 import { redirect } from "next/navigation"
 import { currentUser } from "@clerk/nextjs"
-import { Shell } from "@components/shells/shell"
+import { Shell } from "@/components/shells/shell"
 
 import {
   Card,

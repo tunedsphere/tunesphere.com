@@ -1,12 +1,12 @@
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import planet2 from "@/public/bghome/planet2.png"
-import { Icons } from "@components/icons"
-import { SiteGlobalNav } from "@components/layouts/site-global-nav"
-import { Shell } from "@components/shells/shell"
+import { Icons } from "@/components/icons"
+import { SiteGlobalNav } from "@/components/layouts/site-global-nav"
+import { Shell } from "@/components/shells/shell"
 
 import { productCategories } from "@/configs/products"
 import { cn } from "@/lib/utils"
@@ -171,17 +171,17 @@ export default function MyApp() {
         </h1>
         <div className="relative mx-auto w-full max-w-[400px] py-8">
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <div className="button_bg-gradient-1 absolute left-0 right-0 -z-10"></div>
-            <div className="button_bg-gradient-2 absolute left-0 right-0 -z-10"></div>
-            <div className="button_bg-gradient-3 absolute left-0 right-0 -z-10"></div>
-            <div className="hero_gradient-button-wrapper flex-start flex-1 items-stretch ">
+            <div className="button_bg-gradient-1 absolute inset-x-0 -z-10"></div>
+            <div className="button_bg-gradient-2 absolute inset-x-0 -z-10"></div>
+            <div className="button_bg-gradient-3 absolute inset-x-0 -z-10"></div>
+            <div className="hero_gradient-button-wrapper flex-1 items-stretch ">
               <Link
                 href="/shop/products"
                 className={cn(
                   buttonVariants({
                     size: "lg",
                   }),
-                  "hero_gradient-button text-textblack"
+                  "hero_gradient-button text-textdark"
                 )}
               >
                 <Icons.chevronRight className="absolute left-1 text-textdark sm:left-4"></Icons.chevronRight>
@@ -194,7 +194,7 @@ export default function MyApp() {
               </Link>
             </div>
 
-            <div className="hero_gradient-button-wrapper flex-start flex-1 items-stretch">
+            <div className="hero_gradient-button-wrapper flex-1 items-stretch">
               <div className="hero_gradient-button-bg hero_bg-1 blur"></div>
               <div className="hero_gradient-button-bg hero_bg-2 blur"></div>
               <div className="hero_gradient-button-bg hero_bg-3 blur "></div>

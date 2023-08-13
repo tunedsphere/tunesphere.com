@@ -1,12 +1,11 @@
 "use client"
 
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import * as React from "react"
 import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+
 import Link from "next/link"
-import stars6 from "@/public/bghome/stars6.png"
 
 import { siteConfig } from "@/configs/site"
 import {
@@ -41,7 +40,7 @@ export function SiteFooter() {
       <div className="footer-gradient -z-10 w-1/5" />
 
       <div className="gap-5">
-        <h3 className="text-high py-8 text-center font-bold md:text-4xl">
+        <h3 className="py-8 text-center font-bold text-texthigh md:text-4xl">
           A Psychedelic dedicated Platform
         </h3>
       </div>

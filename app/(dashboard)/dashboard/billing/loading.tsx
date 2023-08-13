@@ -1,5 +1,5 @@
-import { Shell } from "@components/shells/shell"
-import { Card } from "@components/ui/card"
+import { Shell } from "@/components/shells/shell"
+import { Card } from "@/components/ui/card"
 
 import { Skeleton } from "@/components/ui/skeleton"
 import { Header } from "@/components/header"

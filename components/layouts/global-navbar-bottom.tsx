@@ -1,5 +1,4 @@
 import "@/styles/globals.css"
-import "@/styles/globalnav.css"
 
 import Link from "next/link"
 import type { NavbarNavItem } from "@/types"
@@ -13,11 +12,11 @@ interface NavbarNavProps {
 export function GlobalNavbarBottom({ items }: NavbarNavProps) {
   return (
     <>
-      <nav className="navbar relative hidden sm:block">
+      <nav className="relative hidden sm:block">
         <div className="navbar-container flex items-center justify-center py-4">
           <ul className="navbar-list items-center divide-y sm:divide-none">
             {siteConfig.navbarNav.map((item) => (
-              <li key={item.title} className="navbar-item px-3">
+              <li key={item.title} className="px-3">
                 <Link
                   href={item.href}
                   className="text-texthigh hover:text-theme-500"

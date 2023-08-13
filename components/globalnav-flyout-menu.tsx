@@ -5,12 +5,12 @@ import "@/styles/globals.css"
 import * as React from "react"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { SignedIn, SignedOut, useUser } from "@clerk/nextjs"
-import { ThemeToggle } from "@components/theme-toggle"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 import { siteConfig } from "@/configs/site"
-// Assuming NavbarItems is exported from a separate file
-import { Collapsible, CollapsibleTrigger } from "@/components/ui/collapsible"
+
 import Modal from "@/components/auth/modal"
 import { Icons } from "@/components/icons"
 import LogInButton from "@/components/login-btn"
@@ -27,7 +27,9 @@ const GlobalNavFlyout: React.FC = () => {
     if (!user) return null
     return (
       <div className="flex items-center justify-center ">
-        <img
+        <Image
+         width={60}
+         height={60}
           src={user.profileImageUrl}
           className="my-6 h-20 w-20 flex-none rounded-full border-4 border-white"
           alt="Profile image"

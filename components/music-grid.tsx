@@ -1,12 +1,12 @@
 "use client"
 
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import * as React from "react"
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { recordLabels } from "@public/data.js"
+import { recordLabels } from "@/public/data.js"
 
 import { Button } from "@/components/ui/button"
 import {

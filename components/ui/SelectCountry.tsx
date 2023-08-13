@@ -1,9 +1,9 @@
 "use client"
 
-import "@styles/globals.css"
+import "@/styles/globals.css"
 
 import * as React from "react"
-import { recordLabels } from "@public/data.js"
+import { recordLabels } from "@/public/data.js"
 
 interface SelectCountryProps {
   selectedCountry: string | null

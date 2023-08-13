@@ -1,5 +1,5 @@
 import type { HandleOAuthCallbackParams } from "@clerk/types"
-import { Shell } from "@components/shells/shell"
+import { Shell } from "@/components/shells/shell"
 
 import SSOCallback from "@/components/auth/sso-callback"
 

@@ -1,6 +1,8 @@
+
 /** @type {import('next').NextConfig} */
 
-const { withAxiom } = require("next-axiom")
+
+const { withAxiom } = require('next-axiom');
 
 const nextConfig = {
   reactStrictMode: true,
@@ -10,16 +12,10 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
-  /** Linting and typechecking are already done as separate tasks in the CI pipeline */
-  // eslint: {
-  //   ignoreDuringBuilds: true,
-  // },
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
-}
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-})
+  // ... your other Next.js configuration options
+};
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
-module.exports = withBundleAnalyzer(withAxiom(nextConfig))
+module.exports = withBundleAnalyzer(withAxiom(nextConfig));

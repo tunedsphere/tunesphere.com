@@ -1,4 +1,4 @@
-import { Shell } from "@components/shells/shell"
+import { Shell } from "@/components/shells/shell"
 
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
