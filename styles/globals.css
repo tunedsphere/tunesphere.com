@@ -78,13 +78,13 @@
     --scrollbar-track-color: hsl(var(--secondary));
 
     --theme: 280 71% 60%;
-    --theme-50: 289.1, 100%, 97.8%;
+    --theme-50: 289 100% 97.8%;
     --theme-100: 249 100% 94%;
     --theme-200: 247 100% 89%;
     --theme-300: 250 83% 81%;
     --theme-400: 257 76% 67%;
     --theme-500: 280 100% 50%;
-    --theme-600: 293.4, 69.5%, 48.8%;
+    --theme-600: 293 69% 49%;
     --theme-700: 277 70% 40%;
     --theme-800: 282 67% 35%;
     --theme-900: 288 63% 29%;
@@ -93,8 +93,8 @@
     --primary: var(--theme-500);
     --primary-foreground: var(--theme-900);
 
-    --secondary: 245, 100%, 70%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: var(--theme-200);
+    --secondary-foreground: var(--theme-600);
 
     --secondary-hero-2: 270 100% 60%;
 
@@ -123,7 +123,7 @@
     --muted: 240 4% 16%;
     --muted-foreground: 240 5% 60%;
 
-    --popover: 270 100% 80%;
+    --popover: 270 100% 90%;
     --popover-foreground: 280 47% 11%;
 
     --card: var(--accent-2);
@@ -144,10 +144,6 @@
     --accent-1: 0 0% 7.6%;
     --accent: 0 0% 4%;
 
-    --secondary-lighter: var(--accent-2);
-    --secondary-light: var(--accent-3);
-    --secondary: var(--accent-5);
-    --secondary-dark: var(--accent-7);
 
     --destructive: 358 65% 40%;
     --destructive-hover: 358 65% 30%;
@@ -231,8 +227,8 @@
     --accent-1: 0 0% 7.6%;
     --accent: 0 0% 4%;
 
-    --secondary: 157 45% 43%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: var(--theme-200);
+    --secondary-foreground: var(--theme-600);
 
     --accent-theme: 252 40.1% 22.5%;
 

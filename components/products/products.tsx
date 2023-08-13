@@ -164,7 +164,7 @@ export function Products({
               All Filters
             </Button>
           </SheetTrigger>
-          <SheetContent className="flex flex-col" side="left">
+          <SheetContent className="flex flex-col bg-background-shop" side="left">
             <SheetHeader className="px-1">
               <SheetTitle className="text-4xl">Filters</SheetTitle>
             </SheetHeader>

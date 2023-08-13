@@ -42,7 +42,7 @@ export function ProductCard({
   return (
     <Card
       className={cn(
-        "h-full overflow-hidden rounded-none border-0 bg-primary sm:rounded-lg sm:border-2",
+        "h-full overflow-hidden rounded-none border-0 bg-background-shop sm:rounded-lg sm:border-2",
         className
       )}
       {...props}
@@ -96,24 +96,24 @@ export function ProductCard({
           </CardTitle>
         </CardContent>
       </Link>
-      <CardFooter className="p-4">
+      <CardFooter className="p-4 flex-wrap">
         {variant === "default" ? (
-          <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:justify-between">
+          <div className="flex w-full flex-col items-center gap-2 sm:flex-row ">
             <Link
               aria-label="Preview product"
               href={`/shop/product-preview/${product.id}`}
               className={buttonVariants({
-                variant: "outline",
+                variant: "secondary",
                 size: "sm",
-                className: "h-8 w-full rounded-sm text-textdark",
+                className: "h-8 w-full rounded-sm font-semibold ",
               })}
             >
-              Preview
+              PREVIEW
             </Link>
             <Button
               aria-label="Add to cart"
               size="sm"
-              className="h-8 w-full rounded-sm"
+              className="h-8 w-full rounded-sm font-semibold"
               onClick={() => {
                 startTransition(async () => {
                   try {
@@ -144,7 +144,7 @@ export function ProductCard({
           <Button
             aria-label={isAddedToCart ? "Remove from cart" : "Add to cart"}
             size="sm"
-            className="h-8 w-full rounded-sm"
+            className="h-8 w-full rounded-sm font-semibold"
             onClick={() => {
               startTransition(async () => {
                 await onSwitch?.()

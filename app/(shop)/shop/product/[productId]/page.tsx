@@ -129,8 +129,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
       </div>
       {store && productsFromStore.length > 0 ? (
         <div className="overflow-hidden md:pt-6 ">
-          <h2 className="line-clamp-1 flex-1 text-2xl font-bold text-textdark">
-            More products from {store.name}
+          <h2 className="line-clamp-1 flex-1 text-xl text-textlow">
+            More products from <strong className="text-textdark">{store.name}</strong>
           </h2>
           <div className="overflow-x-auto pb-2 pt-6 ">
             <div className="flex gap-4">

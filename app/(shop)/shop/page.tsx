@@ -18,6 +18,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { StoreCard } from "@/components/store-card"
 
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"
@@ -33,18 +34,18 @@ export default async function ShopPage() {
     .limit(10)
     .orderBy(desc(products.createdAt))
 
-  const allStoresWithProductCount = await db
+    const storesWithProductCount = await db
     .select({
       id: stores.id,
       name: stores.name,
       description: stores.description,
-      productCount: sql<number>`count(${products.id})`,
+      productCount: sql<number>`count(*)`,
     })
     .from(stores)
     .limit(4)
     .leftJoin(products, eq(products.storeId, stores.id))
     .groupBy(stores.id)
-    .orderBy(desc(sql<number>`count(${products.id})`))
+    .orderBy(desc(sql<number>`count(*)`))
 
   return (
     <>
@@ -143,7 +144,7 @@ export default async function ShopPage() {
         <Shell
           id="create-a-store-banner"
           aria-labelledby="create-a-store-banner-heading"
-          className="place-items-center gap-6 bg-card px-6 py-16 text-center text-card-foreground shadow-sm sm:rounded-lg"
+          className="place-items-center gap-6 bg-accent-1 px-6 py-16 text-center text-card-foreground shadow-sm sm:rounded-lg"
         >
           <h2 className="text-2xl font-medium sm:text-3xl">
             Do you want to sell your products on our website?
@@ -161,7 +162,7 @@ export default async function ShopPage() {
           className="space-y-6 px-0"
         >
           <div className="flex w-full items-center px-2">
-            <h2 className="flex-1 text-2xl font-medium sm:text-3xl">
+            <h2 className="flex-1 text-2xl font-medium sm:text-3xl text-textdark">
               Featured products
             </h2>
             <Link href="/shop/products">
@@ -188,34 +189,16 @@ export default async function ShopPage() {
           aria-labelledby="featured-stores-heading"
           className="space-y-6 px-0"
         >
-          <h2 className="text-2xl font-medium sm:text-3xl">Featured stores</h2>
+          <h2 className="text-2xl font-medium sm:text-3xl text-textdark">Featured stores</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {allStoresWithProductCount.map((store) => (
-              <Card key={store.id} className="flex h-full flex-col">
-                <CardHeader className="flex-1">
-                  <CardTitle className="line-clamp-1">{store.name}</CardTitle>
-                  <CardDescription className="line-clamp-2">
-                    {store.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Link href={`/shop/products?store_ids=${store.id}`}>
-                    <div
-                      className={cn(
-                        buttonVariants({
-                          size: "sm",
-                          className: "h-8 w-full",
-                        })
-                      )}
-                    >
-                      View products ({store.productCount})
-                      <span className="sr-only">{`${store.name} store products`}</span>
-                    </div>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {storesWithProductCount.map((store) => (
+            <StoreCard
+              key={store.id}
+              store={store}
+              route={`/products?store_ids=${store.id}`}
+            />
+          ))}
+        </div>
         </section>
         <section
           id="random-subcategories"

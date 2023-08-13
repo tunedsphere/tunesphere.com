@@ -44,7 +44,7 @@ export function FeaturedProductCard({
     <div className="relative">
       <Card
         className={cn(
-          "h-full overflow-hidden rounded-none border-0 bg-primary sm:border-2 lg:rounded-md",
+          "h-full overflow-hidden rounded-none border-0 bg-theme-100 sm:border-2 lg:rounded-md",
           className
         )}
         {...props}
@@ -80,7 +80,7 @@ export function FeaturedProductCard({
             )}
           </AspectRatio>
         </Link>
-        <div className="absolute left-0 top-2 z-20 ml-2 line-clamp-2 rounded-lg bg-primary px-2 font-semibold text-textdark">
+        <div className="absolute left-0 top-2 z-20 ml-2 line-clamp-2 rounded-full bg-theme-50 px-2 font-semibold text-textdark">
           {formatPrice(product.price)}
         </div>
       </Card>

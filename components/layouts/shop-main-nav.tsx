@@ -40,13 +40,13 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
               <NavigationMenuTrigger className="h-auto text-textdark">
                 {items[0].title}
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="bg-theme-100 shadow-xl">
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
                         aria-label="Home"
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none"
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-theme-200/50 to-theme-300 p-6 no-underline outline-none"
                         href="/"
                       >
                         <Icons.logo
@@ -64,9 +64,10 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                       </a>
                     </NavigationMenuLink>
                   </li>
+                  <div className="bg-theme-50 grid gap-3 p-6">
                   {items[0].items.map((item) => (
                     <ListItem
-                      className="bg-theme-50 text-textdark hover:text-theme"
+                      className="h-full w-full flex-col text-textdark hover:text-theme-500 "
                       key={item.title}
                       title={item.title}
                       href={item.href}
@@ -74,6 +75,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                       {item.description}
                     </ListItem>
                   ))}
+                  </div>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -86,11 +88,11 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                   <NavigationMenuTrigger className="h-auto capitalize text-textdark">
                     {item.title}
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  <NavigationMenuContent className="bg-theme-100 shadow-xl">
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       {item.items.map((item) => (
                         <ListItem
-                          className="hover:bg-accent hover:text-theme-900"
+                          className="hover:bg-theme-200 hover:text-theme-900"
                           key={item.title}
                           title={item.title}
                           href={item.href}
@@ -132,12 +134,12 @@ const ListItem = React.forwardRef<
           ref={ref}
           href={String(href)}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-theme-200 hover:text-accent-foreground focus:bg-theme-200 focus:text-accent-foreground",
             className
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none transition-colors hover:bg-accent hover:text-accent-foreground">
+          <div className="text-sm font-medium leading-none">
             {title}
           </div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground ">

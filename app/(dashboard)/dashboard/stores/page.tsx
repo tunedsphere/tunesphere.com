@@ -71,7 +71,7 @@ export default async function StoresPage() {
         size="sm"
       />
       <div className="grid gap-8 px-8">
-        <Alert className="border-0 bg-accent-1">
+        <Alert className="rounded-lg border border-muted">
           <AlertTitle className="">Heads up!</AlertTitle>
           <AlertDescription>
             You are currently on the{" "}
