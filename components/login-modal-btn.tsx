@@ -20,8 +20,7 @@ export default function LoginModalButton() {
   return (
     <>
       <Button
-        variant="outlineTheme"
-        className="hidden shrink-0 px-2 font-semibold sm:block"
+        variant="logInModal"
         size="xs"
         onClick={handleClick}
       >
