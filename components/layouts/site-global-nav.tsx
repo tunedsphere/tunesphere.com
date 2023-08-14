@@ -53,16 +53,10 @@ export function SiteGlobalNav() {
               <div className="flex items-center justify-center">
                 <LoginNavbar />
               </div>
-
-              {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
             </div>
           </div>
-
           <SiteGlobalNavMenuBurger />
-          {/* {isMenuOpen && <NavbarBottom />}
-        {isGlobalNavFlyoutOpen && <GlobalNavFlyout/> } */}
         </div>
-
         <video
           autoPlay
           loop

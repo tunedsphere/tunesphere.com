@@ -209,7 +209,7 @@
     --muted: 240 4% 16%;
     --muted-foreground: 240 5% 65%;
 
-    --popover: 195, 70%, 46%;
+    --popover: 195 100% 90%;
     --popover-foreground: 222 47% 11%;
 
     --card: var(--accent-1);
@@ -902,9 +902,9 @@
   width: 33.333333%;
   height: 100px;
   right: 0;
-  top: 0;
+  top: 80px;
   background: hsl(var(--background-footer));
-  filter: blur(150px);
+  filter: blur(130px);
 }
 .left-gradient {
   position: absolute;

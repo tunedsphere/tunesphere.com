@@ -164,7 +164,7 @@ export function Products({
               All Filters
             </Button>
           </SheetTrigger>
-          <SheetContent className="flex flex-col bg-background-shop" side="left">
+          <SheetContent className="flex flex-col bg-background-shop text-textdark" side="left">
             <SheetHeader className="px-1">
               <SheetTitle className="text-4xl">Filters</SheetTitle>
             </SheetHeader>
@@ -418,7 +418,6 @@ export function Products({
           pathname={pathname}
           isPending={isPending}
           startTransition={startTransition}
-          className="bg-background-shop"
         />
       ) : null}
     </div>

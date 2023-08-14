@@ -144,18 +144,17 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="flex w-full flex-col">
+
         <div className="mb-[50px] h-[2px] bg-white opacity-10" />
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <h3 className="text-2xl font-extrabold text-texthigh hover:text-primary">
+        <div className="flex flex-wrap justify-center items-center gap-4">
+          <h3 className="text-2xl font-extrabold text-texthigh">
             TUNEDSPHERE
           </h3>
           <p className="text-sm font-normal text-textlow opacity-75">
             Copyright © 2023 - 2023 TunedSPhere. All rights reserved.
           </p>
         </div>
-      </div>
     </footer>
   )
 }

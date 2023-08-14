@@ -27,11 +27,11 @@ const GlobalNavFlyout: React.FC = () => {
     if (!user) return null
     return (
       <div className="flex items-center justify-center ">
-        <Image
+        <img
          width={60}
          height={60}
           src={user.profileImageUrl}
-          className="my-6 h-20 w-20 flex-none rounded-full border-4 border-white"
+          className="my-6 h-20 w-20 flex-none rounded-full border border-muted/30 shadow-sm"
           alt="Profile image"
         />
       </div>

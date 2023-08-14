@@ -46,7 +46,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                     <NavigationMenuLink asChild>
                       <a
                         aria-label="Home"
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-theme-200/50 to-theme-300 p-6 no-underline outline-none"
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-theme-50/50 to-theme-100 p-6 no-underline outline-none"
                         href="/"
                       >
                         <Icons.logo
@@ -64,10 +64,10 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <div className="bg-theme-50 grid gap-3 p-6">
+                  <div className="bg-theme-50 gap-4 p-6">
                   {items[0].items.map((item) => (
                     <ListItem
-                      className="h-full w-full flex-col text-textdark hover:text-theme-500 "
+                      className="flex-col text-textdark hover:text-theme-500 "
                       key={item.title}
                       title={item.title}
                       href={item.href}
