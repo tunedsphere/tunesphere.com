@@ -11,7 +11,7 @@ export default function ShopLayout({ children }: ShopLayoutProps) {
     <>
       <SiteHeader />
       <ShopHeader />
-      <main className="flex-1 bg-background-shop pb-8">{children}</main>
+      <main className="flex-1 bg-background-shop pb-8 md:px-4">{children}</main>
       <SiteFooter />
     </>
   )

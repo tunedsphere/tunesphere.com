@@ -76,7 +76,7 @@ export function PaginationButton({
         aria-label="Go to first page"
         variant="outline"
         size="icon"
-        className="hidden h-8 w-8 lg:flex"
+        className="hidden h-8 w-8 lg:flex bg-theme-100 hover:bg-theme-300 border-muted/30"
         onClick={() => {
           startTransition(() => {
             router.push(
@@ -96,7 +96,7 @@ export function PaginationButton({
         aria-label="Go to previous page"
         variant="outline"
         size="icon"
-        className="h-8 w-8"
+        className="h-8 w-8 bg-theme-100 hover:bg-theme-300 border-muted/30"
         onClick={() => {
           startTransition(() => {
             router.push(
@@ -119,7 +119,7 @@ export function PaginationButton({
             key={i}
             variant="outline"
             size="icon"
-            className="h-8 w-8"
+            className="h-8 w-8 hover:bg-theme-300 border-muted/30"
             disabled
           >
             ...
@@ -130,7 +130,7 @@ export function PaginationButton({
             key={i}
             variant={Number(page) === pageNumber ? "default" : "outline"}
             size="icon"
-            className="h-8 w-8"
+            className="h-8 w-8 bg-theme-100 hover:bg-theme-300 border-muted/30"
             onClick={() => {
               startTransition(() => {
                 router.push(
@@ -152,7 +152,7 @@ export function PaginationButton({
         aria-label="Go to next page"
         variant="outline"
         size="icon"
-        className="h-8 w-8"
+        className="h-8 w-8 bg-theme-100 hover:bg-theme-300 border-muted/30"
         onClick={() => {
           startTransition(() => {
             router.push(
@@ -172,7 +172,7 @@ export function PaginationButton({
         aria-label="Go to last page"
         variant="outline"
         size="icon"
-        className="hidden h-8 w-8 lg:flex"
+        className="hidden h-8 w-8 lg:flex bg-theme-100 hover:bg-theme-300 border-muted/30"
         onClick={() => {
           router.push(
             `${pathname}?${createQueryString({

@@ -160,7 +160,7 @@ export function Products({
       <div className="flex items-center justify-between space-x-2 px-12">
         <Sheet>
           <SheetTrigger asChild>
-            <Button aria-label="Filter products" size="sm" disabled={isPending}>
+            <Button aria-label="Filter products" size="sm" disabled={isPending} className="font-semibold leading-6">
               All Filters
             </Button>
           </SheetTrigger>
@@ -361,19 +361,19 @@ export function Products({
         </Sheet>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button aria-label="Sort products" size="sm" disabled={isPending}>
+            <Button aria-label="Sort products" size="sm" disabled={isPending} className="font-semibold leading-6">
               Sort
               <Icons.chevronDown className="ml-2 h-4 w-4" aria-hidden="true" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="w-48">
+          <DropdownMenuContent align="start" className="w-48 bg-background-shop text-textdark">
             <DropdownMenuLabel>Sort by</DropdownMenuLabel>
             <DropdownMenuSeparator />
             {sortOptions.map((option) => (
               <DropdownMenuItem
                 key={option.label}
                 className={cn(
-                  option.value === sort && "font-bold text-textdark"
+                  option.value === sort && "font-bold text-textdark hover:bg-muted"
                 )}
                 onClick={() => {
                   startTransition(() => {
@@ -418,6 +418,7 @@ export function Products({
           pathname={pathname}
           isPending={isPending}
           startTransition={startTransition}
+          className="bg-background-shop"
         />
       ) : null}
     </div>

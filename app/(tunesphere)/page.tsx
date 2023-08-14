@@ -181,7 +181,7 @@ export default function MyApp() {
                   buttonVariants({
                     size: "lg",
                   }),
-                  "hero_gradient-button text-textdark"
+                  "hero_gradient-button text-textdark hover:bg-theme-300"
                 )}
               >
                 <Icons.chevronRight className="absolute left-1 text-textdark sm:left-4"></Icons.chevronRight>
@@ -207,7 +207,7 @@ export default function MyApp() {
                   buttonVariants({
                     size: "lg",
                   }),
-                  "hero_gradient-button-outline"
+                  "hero_gradient-button-outline hover:text-theme-300 hover:bg-transparent"
                 )}
               >
                 <span className="absolute text-texthigh">Sell Now</span>

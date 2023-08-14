@@ -73,8 +73,11 @@ const SheetContent = React.forwardRef<
     >
       {children}
       <SheetPrimitive.Close className="absolute right-2 top-4 rounded-sm disabled:pointer-events-none">
-        <Button variant="nav" className="text-textdark hover:text-theme-900">
-          <Icons.close className="h-8 w-8" />
+        <Button 
+        variant="nav"
+        size="sm"
+         className="text-textdark hover:text-theme-500">
+          <Icons.close className="" />
           <span className="sr-only">Close</span>
         </Button>
       </SheetPrimitive.Close>
