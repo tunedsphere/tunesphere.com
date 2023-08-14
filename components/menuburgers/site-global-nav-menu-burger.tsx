@@ -63,7 +63,6 @@ export default function SiteGlobalNavMenuBurger() {
           {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
         </div>
       </div>
-
       {isMenuOpen && <GlobalNavbarBottom />}
       {isGlobalNavFlyoutOpen && <GlobalNavFlyout />}
     </>
