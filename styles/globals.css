@@ -24,6 +24,10 @@
 
   :root {
 
+    --animation-duration: 200ms;
+    --animation-timing-curve: ease-in-out;
+
+
     --gray-100-value: 0 0% 10%;
     --gray-200-value: 0 0% 12%;
     --gray-300-value: 0 0% 16%;
@@ -57,26 +61,6 @@
     --destructive-900: 0 62% 29.5%;
     --destructive-950: 0 76% 18%;
 
-
-
-
-
-
-    --animation-duration: 200ms;
-    --animation-timing-curve: ease-in-out;
-
-    --background-navbartop: hsla(0, 0%, 2%, 0.5);
-    --background-navbarbottom: hsla(0, 0%, 2%, 0.5);
-
-    --sidebar-dashboard-width: 220px;
-    --headerHeight: 72px;
-    --globalNavHeight: 128px;
-    --music-grid-banner-height: 108px;
-    --music-grid-banner-height-mobile: 68px;
-
-    --scrollbar-thumb-color: white;
-    --scrollbar-track-color: hsl(var(--secondary));
-
     --theme: 280 71% 60%;
     --theme-50: 289 100% 97.8%;
     --theme-100: 249 100% 94%;
@@ -90,11 +74,24 @@
     --theme-900: 288 63% 29%;
     --theme-950: 269 82% 16%;
 
-    --primary: var(--theme-500);
-    --primary-foreground: var(--theme-900);
 
-    --secondary: var(--theme-200);
-    --secondary-foreground: var(--theme-600);
+    --background-navbartop: hsla(0, 0%, 2%, 0.5);
+    --background-navbarbottom: hsla(0, 0%, 2%, 0.5);
+
+    --sidebar-dashboard-width: 220px;
+    --headerHeight: 72px;
+    --globalNavHeight: 128px;
+    --music-grid-banner-height: 108px;
+    --music-grid-banner-height-mobile: 68px;
+
+    --scrollbar-thumb-color: white;
+    --scrollbar-track-color: hsl(var(--secondary));
+
+    --primary: 263.4 70% 50.4%;    
+    --primary-foreground: 210 20% 98%;   
+
+    --secondary: 215 27.9% 16.9%;    
+    --secondary-foreground: 210 20% 98%;
 
     --secondary-hero-2: 270 100% 60%;
 
@@ -108,31 +105,32 @@
     --background-navbarbottom: 252 40% 6%;
     --background-footer: 280 41% 20%;
 
-    --background: 269 82% 4%;
     --background-dashboard: 0 0% 4%;
     --background-shop: 211 87% 98%;
-
+    --background: 224 71.4% 1%;    
+  
     --backgroundgradient: linear-gradient(
       120deg,
       var(--colors-indigo4),
       var(--colors-plum3)
     );
 
-    --foreground: 0 0% 53%;
+    --foreground: 210 20% 98%;  
 
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 60%;
+    --muted: 215 27.9% 16.9%;    
+    --muted-foreground: 217.9 10.6% 64.9%;    
 
-    --popover: 270 100% 90%;
-    --popover-foreground: 280 47% 11%;
+    --popover: 224 71.4% 4.1%;    
+    --popover-foreground: 210 20% 98%; 
 
-    --card: var(--accent-2);
-    --card-foreground: 0 0% 98%;
+    --card: 224 71.4% 0%;    
+    --card-foreground: 210 20% 98%;   
 
-    --border: 214 31% 91%;
-    --input: 240 4% 16%;
+    --border: 215 27.9% 16.9%;    
+    --input: 215 27.9% 16.9%;    
 
-    --accent: 252 40% 22%;
+    --accent: 0 0% 4%;
+    --accent-foreground: 210 20% 98%;  
 
     --accent-theme: hsl(252 40% 22%);
     --accent-7: 0 0% 93%;
@@ -142,14 +140,11 @@
     --accent-3: 0 0% 24.3%;
     --accent-2: 0 0% 10.5%;
     --accent-1: 0 0% 7.6%;
-    --accent: 0 0% 4%;
 
+    --destructive: 0 62.8% 30.6%;    
+    --destructive-foreground: 210 20% 98%;   
 
-    --destructive: 358 65% 40%;
-    --destructive-hover: 358 65% 30%;
-    --destructive-foreground: 0 0% 98%;
-
-    --ring: var(--accent-6);
+    --ring: 263.4 70% 50.4%;
 
     --radius: 0.5rem;
   }
@@ -1008,7 +1003,6 @@
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  transition: width var(--animation-duration) var(--animation-timing-curve);
   position: sticky;
   left: 0;
   height: auto;

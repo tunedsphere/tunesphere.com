@@ -13,7 +13,7 @@ export default function StoresLoading() {
         description="Manage your stores"
         size="sm"
       />
-      <div className="grid gap-8 px-8">
+      <div className="grid gap-8 sm:px-8 px-2">
         <Card variant="dashboard" className="flex space-x-4 px-4 py-3">
           <Skeleton className="mt-2 h-4 w-4 rounded" />
           <div className="flex-1 space-y-2">

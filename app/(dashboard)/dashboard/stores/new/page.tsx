@@ -36,7 +36,7 @@ export default async function NewStorePage() {
           description="New store for your account."
           size="sm"
         />
-        <div className="grid gap-8 px-8">
+        <div className="grid gap-8 sm:px-8 px-2">
           <Card>
             <CardHeader className="space-y-1">
               <CardTitle className="text-2xl">Add store</CardTitle>

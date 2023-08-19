@@ -45,9 +45,9 @@ export async function CartSheet() {
           <Icons.basket className="transition-all" aria-hidden="true" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="z-10000 flex w-full flex-col pr-0 sm:max-w-lg bg-background-shop">
+      <SheetContent className="z-10000 flex w-full flex-col pr-0 sm:max-w-lg bg-background-shop text-textdark">
         <SheetHeader className="px-1">
-          <SheetTitle>
+          <SheetTitle className="text-textdark">
             Your Basket {itemCount > 0 && `(${itemCount})`}
           </SheetTitle>
         </SheetHeader>

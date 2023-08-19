@@ -108,7 +108,7 @@ export default async function ShopPage() {
             <h2 className="text-3xl font-bold leading-[1.1] text-textdark sm:text-3xl md:text-5xl">
               Categories
             </h2>
-            <h2 className="max-w-[46rem] text-lg leading-normal text-muted-foreground sm:leading-7">
+            <h2 className="max-w-[46rem] text-lg leading-normal text-muted-foreground sm:leading-7 px-2">
               Explore our categories and find the best products for you
             </h2>
           </div>
@@ -187,7 +187,7 @@ export default async function ShopPage() {
         <section
           id="featured-stores"
           aria-labelledby="featured-stores-heading"
-          className="space-y-6 px-0"
+          className="space-y-6 px-2"
         >
           <h2 className="text-2xl font-medium sm:text-3xl text-textdark">Featured stores</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

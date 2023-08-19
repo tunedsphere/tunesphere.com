@@ -30,9 +30,9 @@ export function SidebarNav({ items }: SidebarNavProps) {
           >
             <span
               className={cn(
-                "group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:bg-muted hover:text-primary/80",
+                "group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:text-primary leading-6 font-medium",
                 pathname === item.href
-                  ? "bg-muted font-medium text-primary"
+                  ? "bg-accent-1 font-medium text-primary"
                   : "text-muted-foreground",
                 item.disabled && "pointer-events-none opacity-60"
               )}

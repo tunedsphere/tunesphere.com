@@ -26,7 +26,7 @@ export default function MyApp() {
             width={500}
             height={500}
             alt="planet Home"
-            className="absolute left-0 top-0 -z-10 w-3/5 md:w-2/5"
+            className="absolute left-0 top-0 -z-10 md:w-2/5"
           ></Image>
         </div>
       </div>

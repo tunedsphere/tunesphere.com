@@ -12,17 +12,14 @@ export default authMiddleware({
     "/signup(.*)",
     "/sso-callback(.*)",
     "/api(.*)",
-
     "/shop(.*)",
     "/shop/categories(.*)",
     "/shop/products(.*)",
     "/shop/product(.*)",
-  
     "/music(.*)", 
     "/genres(.*)", 
     "/festivals(.*)", 
     "/artsits(.*)", 
-   
     "/albums(.*)", 
     "/uipage(.*)",
   ],

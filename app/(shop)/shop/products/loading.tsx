@@ -3,14 +3,16 @@ import { Shell } from "@/components/shells/shell"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Icons } from "@/components/icons"
+import { Header } from "@/components/header"
 
 export default function ProductsLoading() {
   return (
-    <Shell>
-      <div className="space-y-2">
-        <Skeleton className="h-10 w-28" />
-        <Skeleton className="h-4 w-48" />
-      </div>
+    <Shell variant="shop">
+      <Header title=""
+                size="shop"
+      variant="shop">          
+      <Skeleton className="h-9 w-14" />
+      <Skeleton className="h-9 w-20" /></Header>
       <div className="flex flex-col space-y-6">
         <div className="flex items-center gap-2">
           <Skeleton className="h-9 w-14" />

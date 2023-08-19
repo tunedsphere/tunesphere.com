@@ -24,7 +24,7 @@ const MusicGrid: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState(null)
   const [selectedCountry, setSelectedCountry] = useState(null)
   const expandedLabelRef = useRef(null)
-  const [isExpanded, setIsExpanded] = useState(false)
+
   const [genreExpanded, setGenreExpanded] = useState(false)
   const [yearExpanded, setYearExpanded] = useState(false)
   const [countryExpanded, setCountryExpanded] = useState(false)
@@ -170,10 +170,10 @@ const MusicGrid: React.FC = () => {
                 setIsOpen={setIsSidebarOpen}
               />
             </div>
-            {/* // Sort the genreOptions */}
+
             <div className="middle-sidebar py-2">
-              {/* // Sort the CountryOptions */}
-              <div className="@container">
+
+              {/* // Sort the GenreOptions */}
                 <Collapsible>
                   <CollapsibleTrigger
                     onClick={handleGenreToggle}
@@ -230,10 +230,8 @@ const MusicGrid: React.FC = () => {
                     </CollapsibleContent>
                   )}
                 </Collapsible>
-              </div>
 
               {/* // Sort the CountryOptions */}
-              <div className="@container">
                 <Collapsible>
                   <CollapsibleTrigger
                     onClick={handleCountryToggle}
@@ -292,10 +290,8 @@ const MusicGrid: React.FC = () => {
                     </CollapsibleContent>
                   )}
                 </Collapsible>
-              </div>
 
               {/* // Sort the YearOptions */}
-              <div className="@container">
                 <Collapsible>
                   <CollapsibleTrigger
                     onClick={handleYearToggle}
@@ -353,7 +349,6 @@ const MusicGrid: React.FC = () => {
                   )}
                 </Collapsible>
               </div>
-            </div>
           </Sidebar>
           <div
             id="GridMusicView"

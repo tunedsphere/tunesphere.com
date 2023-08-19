@@ -53,7 +53,7 @@ export function SiteHeader() {
                 </h2>
               </Link>
             </div>
-            <div className="relative flex w-2/6 flex-row items-center justify-end pr-12 sm:w-1/3 sm:gap-2">
+            <div className="relative flex w-2/6 flex-row items-center justify-end sm:pr-11 pr-8 sm:w-1/3 sm:gap-2">
               <CartSheet />
               <div className="hidden sm:block">
                 <ThemeToggle />
@@ -61,14 +61,10 @@ export function SiteHeader() {
               <div className="flex items-center justify-center">
                 <LoginNavbar />
               </div>
-              {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
             </div>
           </div>
         </nav>
         <SiteHeaderMenuBurger />
-        {/* {isMenuOpen && <NavbarBottom />}
-        {isGlobalNavFlyoutOpen &&
-           <GlobalNavFlyout/> } */}
       </div>
     </nav>
   )

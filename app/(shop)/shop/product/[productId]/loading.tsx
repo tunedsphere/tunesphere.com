@@ -7,7 +7,7 @@ import { Shell } from "@/components/shells/shell"
 
 export default function ProductLoading() {
   return (
-    <Shell>
+    <Shell variant="shop">
       <div className="flex items-center space-x-2">
         <Skeleton className="h-6 w-14" />
         <Skeleton className="h-6 w-14" />

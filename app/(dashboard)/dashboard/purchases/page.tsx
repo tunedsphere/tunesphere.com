@@ -28,7 +28,7 @@ export default async function PurchasesPage() {
           description="Manage your purchases."
           size="sm"
         />
-        <div className="grid gap-8 px-8">
+        <div className="grid gap-8 sm:px-8 px-2">
           <div>Purchases Table</div>
         </div>
       </Shell>

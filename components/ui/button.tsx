@@ -18,9 +18,9 @@ const buttonVariants = cva(
           "text-primary border border-theme hover:bg-theme-950 hover:text-texthigh",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        nav: "text-primary hover:bg-theme-950 hover:text-texthigh",
         ghostline:
-          "hover:bg-accent outline-theme outline outline-1 hover:outline-offset-1",
+        "hover:bg-accent outline-theme outline outline-1 hover:outline-offset-1",
+        nav: "text-primary hover:bg-theme-950 hover:text-texthigh",
         link: "underline-offset-4 hover:underline text-primary",
         logInButton:
           "rounded-full text-texthigh bg-primary hover:bg-primary/70",

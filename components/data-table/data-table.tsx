@@ -268,14 +268,15 @@ export function DataTable<TData, TValue>({
         newRowLink={newRowLink}
         deleteRowsAction={deleteRowsAction}
       />
-      <div className="rounded-md border border-muted bg-accent-2">
+      <div className="rounded-md border border-muted bg-background">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+              <TableRow className="bg-muted/50 hover:bg-muted/50"
+              key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} className="whitespace-nowrap">
+                    <TableHead key={header.id} className="">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -292,7 +293,7 @@ export function DataTable<TData, TValue>({
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
-                  className="border-input"
+                  className="border-input hover:bg-muted"
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >

@@ -49,7 +49,7 @@ export default async function BillingPage() {
           description="Manage your billing and subscription"
           size="sm"
         />
-        <div className="grid gap-8 px-8">
+        <div className="grid gap-8 sm:px-8 px-2">
           <section
             id="billing-info"
             aria-labelledby="billing-info-heading"

@@ -70,7 +70,7 @@ export default async function StoresPage() {
         description="Manage your stores"
         size="sm"
       />
-      <div className="grid gap-8 px-8">
+      <div className="grid gap-8 px-4 sm:px-8">
         <Alert className="rounded-lg border border-muted">
           <AlertTitle className="">Heads up!</AlertTitle>
           <AlertDescription>

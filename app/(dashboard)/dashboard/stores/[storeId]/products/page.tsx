@@ -120,7 +120,7 @@ export default async function ProductsPage({
   const pageCount = Math.ceil(totalProducts / limit)
 
   return (
-    <div className="space-y-2.5">
+    <div className="space-y-2.5 overflow-x-auto">
       {env.NODE_ENV !== "production" && <GenerateButton storeId={storeId} />}
       <ProductsTableShell
         data={storeProducts}

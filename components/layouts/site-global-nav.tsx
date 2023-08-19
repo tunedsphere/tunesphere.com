@@ -13,15 +13,6 @@ import { Icons } from "@/components/icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteGlobalNav() {
-  // const [isMenuOpen, setMenuOpen] = useState(true);
-
-  // const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = useState(false);
-  // const [isOpen, setIsOpen] = useState(false);
-
-  // const handleNavbarOpen = () => {
-  //   setGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
-  //   setMenuOpen(!isMenuOpen);
-  // };
 
   return (
     <>
@@ -44,7 +35,7 @@ export function SiteGlobalNav() {
                 </h2>
               </Link>
             </div>
-            <div className="relative flex w-2/6 shrink-0 flex-row items-center justify-end gap-1 pr-7 @xs:pr-12 sm:w-1/3 sm:gap-2">
+            <div className="relative flex w-2/6 shrink-0 flex-row items-center justify-end gap-1 sm:pr-11 pr-8 sm:w-1/3 sm:gap-2">
               <SiteCombobox />
               <CartSheet />
               <div className="hidden @sm:block">

@@ -51,7 +51,7 @@ export default async function AccountPage() {
           description="Manage your account settings."
           size="sm"
         />
-        <div className="grid gap-8 px-8">
+        <div className="grid gap-8 sm:px-8 px-2">
           <UserProfile appearance={appearance} />
         </div>
       </Shell>

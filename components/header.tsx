@@ -23,7 +23,7 @@ export function Header({
     <div
       className={cn(
         "grid gap-1",
-        variant === "dashboard" && "bg-muted p-8",
+        variant === "dashboard" && "bg-accent-1 sm:p-8 p-4",
         variant === "auth" && "",
         variant === "default" && "",
         variant === "shop" && "justify-center text-center",
