@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 
 import { Button } from "@/components/ui/button"
-import GlobalNavFlyout from "@/components/globalnav-flyout-menu"
+import GlobalNavFlyout from "@/components/layouts/globalnav-flyout-menu"
 import { Icons } from "@/components/icons"
 import { GlobalNavbarBottom } from "@/components/layouts/global-navbar-bottom"
 
@@ -23,7 +23,12 @@ export default function SiteGlobalNavMenuBurger() {
     setRotation(rotation === 0 ? 90 : 0)
     setScale(scale === 100 ? 0 : 100) // Call the handleToggle prop to toggle NavbarBottom
   }
-
+  const handleFlyoutClose = () => {
+    setGlobalNavFlyoutOpen(false);
+  }
+  const handleFlyoutOpen = () => {
+    setGlobalNavFlyoutOpen(true);
+  }
   return (
     <>
       <div className="navbar-container invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end bg-white px-2 py-2 md:px-8">
@@ -50,21 +55,19 @@ export default function SiteGlobalNavMenuBurger() {
           <Button
             size="xs"
             variant="nav"
-            onClick={handleNavbarClick}
+            onClick={handleFlyoutOpen}
             className="block object-contain px-2 text-texthigh hover:text-theme md:hidden"
           >
             <Icons.menu
-              className={`rotate-${rotation}scale -${
-                isOpen ? "0" : "100"
-              } transition-all`}
               aria-hidden="true"
             />
+
           </Button>
           {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
         </div>
       </div>
       {isMenuOpen && <GlobalNavbarBottom />}
-      {isGlobalNavFlyoutOpen && <GlobalNavFlyout />}
+      {isGlobalNavFlyoutOpen && <GlobalNavFlyout handleClose={handleFlyoutClose} />}
     </>
   )
 }

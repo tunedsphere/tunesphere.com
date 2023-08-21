@@ -46,7 +46,7 @@ export function SiteHeader() {
                 height={100}
               ></Icons.logo>
             </div>
-            <div className="left-0 flex w-4/6 items-center px-4 sm:justify-center">
+            <div className="left-0 flex w-4/6 items-center sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
                 <h2 className="cursor-pointer text-center text-[20px] font-extrabold leading-[24px] text-brand hover:text-primary md:text-[24px] md:leading-[30.24px]">
                   TUNEDSPHERE

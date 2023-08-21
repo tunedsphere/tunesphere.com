@@ -29,7 +29,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
         href="/shop"
         className="hidden items-center space-x-2 lg:flex"
       >
-        <span className="hidden text-lg font-bold text-textdark lg:inline-block">
+        <span className="hidden text-lg text-textdark lg:inline-block leading-6 font-semibold">
           Explore & Shop
         </span>
       </Link>
@@ -37,7 +37,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
         <NavigationMenuList>
           {items?.[0]?.items ? (
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="h-auto text-textdark">
+              <NavigationMenuTrigger className="h-auto text-textdark bg-theme-200">
                 {items[0].title}
               </NavigationMenuTrigger>
               <NavigationMenuContent className="bg-theme-100 shadow-xl">
@@ -85,14 +85,14 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
             .map((item) =>
               item?.items ? (
                 <NavigationMenuItem key={item.title}>
-                  <NavigationMenuTrigger className="h-auto capitalize text-textdark">
+                  <NavigationMenuTrigger className="h-auto capitalize text-textdark bg-theme-200">
                     {item.title}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="bg-theme-100 shadow-xl">
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       {item.items.map((item) => (
                         <ListItem
-                          className="hover:bg-theme-200 hover:text-theme-900"
+                          className="hover:bg-theme-200 hover:text-theme-900 text-textdark"
                           key={item.title}
                           title={item.title}
                           href={item.href}

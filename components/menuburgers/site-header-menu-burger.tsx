@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 
 import { Button } from "@/components/ui/button"
-import GlobalNavFlyout from "@/components/globalnav-flyout-menu"
+import GlobalNavFlyout from "@/components/layouts/globalnav-flyout-menu"
 import { Icons } from "@/components/icons"
 import { NavbarBottom } from "@/components/layouts/navbar-bottom"
 
@@ -23,16 +23,20 @@ export default function SiteHeaderMenuBurger() {
     setRotation(rotation === 0 ? 90 : 0)
     setScale(scale === 100 ? 0 : 100) // Call the handleToggle prop to toggle NavbarBottom
   }
-
+  const handleFlyoutClose = () => {
+    setGlobalNavFlyoutOpen(false);
+  }
+  const handleFlyoutOpen = () => {
+    setGlobalNavFlyoutOpen(true);
+  }
   return (
     <>
       <div className="navbar-container invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end bg-white px-2 py-2 md:px-8">
-        <div className="visible -z-20000">
+        <div className="visible z-20000">
           <Button
             size="xs"
-            variant="nav"
             onClick={handleNavbarClick}
-            className="hidden text-texthigh hover:text-theme md:block"
+            className="z-20 hidden text-texthigh hover:text-primary md:block  hover:bg-theme-950 bg-transparent"
           >
             <Icons.menu
               className={`absolute rotate-${isOpen ? "0" : "90"} scale-${
@@ -49,14 +53,10 @@ export default function SiteHeaderMenuBurger() {
           </Button>
           <Button
             size="xs"
-            variant="nav"
             onClick={handleNavbarClick}
-            className="block object-contain px-2 text-texthigh hover:text-theme md:hidden"
+            className="z-20 md:hidden block px-2 text-texthigh hover:text-primary hover:bg-theme-950 bg-transparent"
           >
             <Icons.menu
-              className={`rotate-${rotation}scale -${
-                isOpen ? "0" : "100"
-              } transition-all`}
               aria-hidden="true"
             />
           </Button>
@@ -65,7 +65,7 @@ export default function SiteHeaderMenuBurger() {
       </div>
 
       {isMenuOpen && <NavbarBottom />}
-      {isGlobalNavFlyoutOpen && <GlobalNavFlyout />}
+      {isGlobalNavFlyoutOpen && <GlobalNavFlyout handleClose={handleFlyoutClose} />}
     </>
   )
 }

@@ -72,10 +72,11 @@ export function ShopSearchBar() {
     <>
       <div className="flex h-12 w-full items-center rounded-md border-2 bg-transparent px-4 py-3">
         <input
-          className="w-full bg-transparent py-3 text-lg outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
+          type="text"
+          className="w-full bg-transparent py-3 text-lg text-textdark outline-none placeholder:text-muted-foreground focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
           placeholder="Search products..."
         ></input>
-        <Icons.search className="right-2"></Icons.search>
+        <Icons.search className="right-2 text-muted-foreground"></Icons.search>
       </div>
     </>
   )

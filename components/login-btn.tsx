@@ -21,7 +21,7 @@ const LogInButton: React.FC<LogInButtonProps> = ({ handleModalOpen }) => {
     <Button
       variant="logInButton"
       onClick={handleClick}
-      className="w-4/5 p-4 text-3xl leading-7"
+      className="w-4/5 p-4 text-3xl leading-7 font-semibold"
       disabled={isPending}
     >
       {isPending && (

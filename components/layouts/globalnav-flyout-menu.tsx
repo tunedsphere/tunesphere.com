@@ -5,7 +5,6 @@ import "@/styles/globals.css"
 import * as React from "react"
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { SignedIn, SignedOut, useUser } from "@clerk/nextjs"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -15,9 +14,13 @@ import Modal from "@/components/auth/modal"
 import { Icons } from "@/components/icons"
 import LogInButton from "@/components/login-btn"
 
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 
-const GlobalNavFlyout: React.FC = () => {
+
+interface GlobalNavFlyoutProps {
+  handleClose: () => void
+}
+const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ handleClose }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [isModalOpen, setModalOpen] = useState(false)
   const [isFlyoutOpen, setFlyoutOpen] = useState(true)
@@ -46,19 +49,17 @@ const GlobalNavFlyout: React.FC = () => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index))
   }
 
-  const handleFlyoutMenuClose = () => {
-    setFlyoutOpen(false)
-  }
+ 
 
   return (
     <>
       {isFlyoutOpen && (
-        <div className="no-scrollbar absolute top-0 z-9999 block h-screen w-screen overflow-y-auto bg-background px-1 @container sm:hidden">
+        <div className="no-scrollbar absolute top-0 z-9999 block h-screen w-screen overflow-y-auto bg-background px-2 @container sm:hidden space-y-4">
           <div className="flex w-full flex-1 flex-row justify-between">
             <div className="flex w-1/4 py-3">
               <Button
                 size="sm"
-                onClick={handleFlyoutMenuClose}
+                onClick={handleClose}
                 variant="ghost"
                 className="mx-0 px-0"
               >
@@ -78,12 +79,14 @@ const GlobalNavFlyout: React.FC = () => {
             </SignedOut>
             <SignedIn>
               <div className="flex flex-col items-center p-2">
-                <UserProfileImage></UserProfileImage>
+                <Link href="/dashboard/account" className="cursor-pointer">
+                <UserProfileImage ></UserProfileImage>
+              </Link>
               </div>
             </SignedIn>
           </div>
 
-          <div className="justify-between divide-y divide-theme px-4  pb-8">
+          <div className="justify-between divide-y divide-theme px-2 pb-8">
             {siteConfig.navbarNav.map((item) => (
               <li
                 key={item.title}
@@ -104,5 +107,4 @@ const GlobalNavFlyout: React.FC = () => {
     </>
   )
 }
-
 export default GlobalNavFlyout

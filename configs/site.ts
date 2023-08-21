@@ -47,9 +47,9 @@ export const siteConfig = {
           items: [],
         },
         {
-          title: "Build a Board",
-          href: "/shop/build-a-board",
-          description: "Build your own custom skateboard.",
+          title: "TunedSPhere Products",
+          href: "/shop/tunedsphere-products",
+          description: "Create custom products.",
           items: [],
         },
         {

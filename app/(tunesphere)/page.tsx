@@ -181,7 +181,7 @@ export default function MyApp() {
                   buttonVariants({
                     size: "lg",
                   }),
-                  "hero_gradient-button text-textdark hover:bg-theme-300"
+                  "hero_gradient-button hover:bg-white/80"
                 )}
               >
                 <Icons.chevronRight className="absolute left-1 text-textdark sm:left-4"></Icons.chevronRight>

@@ -38,7 +38,7 @@ const SigninCard: React.FC<SigninCardProps> = ({ onClose }) => {
   return (
     <div id="SigninCard" className="z-20 @container">
       <div className="modal-gradient z-60"></div>
-      <Card className="border-0 border-accent-6 bg-accent-1 @md:border">
+      <Card className="border-0 border-border bg-accent-1 @md:border">
         <div className="signin-card-gradient -z-10"></div>
         <div className="flex justify-end p-2 sm:p-4">
           <Button
