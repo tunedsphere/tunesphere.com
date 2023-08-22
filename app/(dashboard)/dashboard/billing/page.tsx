@@ -16,8 +16,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { ManageStoreSubscriptionForm } from "@/components/forms/manage-store-subscription-form"
-import { Header } from "@/components/header"
+import { ManageSubscriptionForm } from "@/components/forms/manage-subscription-form"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
 import { Icons } from "@/components/icons"
 import { Shell } from "@/components/shells/shell"
 
@@ -34,22 +38,17 @@ export default async function BillingPage() {
     redirect("/signin")
   }
 
-  const email =
-    user.emailAddresses?.find((e) => e.id === user.primaryEmailAddressId)
-      ?.emailAddress ?? ""
-
   const subscriptionPlan = await getUserSubscriptionPlan(user.id)
 
   return (
     <>
       <Shell variant="dashboard">
-        <Header
-          variant="dashboard"
-          title="Billing"
-          description="Manage your billing and subscription"
-          size="sm"
-        />
-        <div className="grid gap-8 sm:px-8 px-2">
+      <PageHeader variant="dashboard" id="billing-header" aria-labelledby="billing-header-heading">
+        <PageHeaderHeading size="sm">Billing</PageHeaderHeading>
+        <PageHeaderDescription size="sm">
+          Manage your billing and subscription
+        </PageHeaderDescription>
+      </PageHeader>
           <section
             id="billing-info"
             aria-labelledby="billing-info-heading"
@@ -61,19 +60,19 @@ export default async function BillingPage() {
                 <span>Current Plan :</span>
                 <span className="font-normal text-primary">
                   {" "}
-                  <strong>{subscriptionPlan?.name}</strong>
+                  <strong>{subscriptionPlan?.name ?? "Ollie"}</strong>
                 </span>
               </h3>
               <p className="text-sm text-muted-foreground">
-                {!subscriptionPlan.isSubscribed
-                  ? "Upgrade to create more stores and products."
-                  : subscriptionPlan.isCanceled
-                  ? "Your plan will be canceled on "
-                  : "Your plan renews on "}
-                {subscriptionPlan?.stripeCurrentPeriodEnd
-                  ? `${formatDate(subscriptionPlan.stripeCurrentPeriodEnd)}.`
-                  : null}
-              </p>
+            {!subscriptionPlan?.isSubscribed
+              ? "Upgrade to create more stores and products."
+              : subscriptionPlan.isCanceled
+              ? "Your plan will be canceled on "
+              : "Your plan renews on "}
+            {/* {subscriptionPlan?.stripeCurrentPeriodEnd
+              ? `${formatDate(subscriptionPlan.stripeCurrentPeriodEnd)}.`
+              : null} */}
+          </p>
             </Card>
           </section>
           <section
@@ -132,24 +131,21 @@ export default async function BillingPage() {
                         </div>
                       </Link>
                     ) : (
-                      <ManageStoreSubscriptionForm
-                        userId={user.id}
-                        email={email}
-                        stripePriceId={plan.stripePriceId}
-                        stripeCustomerId={subscriptionPlan?.stripeCustomerId}
-                        stripeSubscriptionId={
-                          subscriptionPlan?.stripeSubscriptionId
-                        }
-                        isSubscribed={subscriptionPlan.isSubscribed}
-                        isCurrentPlan={subscriptionPlan?.name === plan.name}
-                      />
+                      <ManageSubscriptionForm
+                    stripePriceId={plan.stripePriceId}
+                    stripeCustomerId={subscriptionPlan?.stripeCustomerId}
+                    stripeSubscriptionId={
+                      subscriptionPlan?.stripeSubscriptionId
+                    }
+                    isSubscribed={subscriptionPlan?.isSubscribed ?? false}
+                    isCurrentPlan={subscriptionPlan?.name === plan.name}
+                  />
                     )}
                   </CardFooter>
                 </Card>
               ))}
             </div>
           </section>
-        </div>
       </Shell>
     </>
   )

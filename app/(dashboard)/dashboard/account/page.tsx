@@ -5,7 +5,11 @@ import { redirect } from "next/navigation"
 import { currentUser, UserProfile } from "@clerk/nextjs"
 import { Shell } from "@/components/shells/shell"
 
-import { Header } from "@/components/header"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
 
 export const metadata: Metadata = {
   title: "Account",
@@ -45,15 +49,18 @@ export default async function AccountPage() {
   return (
     <>
       <Shell variant="dashboard">
-        <Header
-          variant="dashboard"
-          title="Account"
-          description="Manage your account settings."
-          size="sm"
-        />
-        <div className="grid gap-8 sm:px-8 px-2">
+      <PageHeader variant="dashboard" id="account-header" aria-labelledby="account-header-heading">
+        <PageHeaderHeading size="sm">Account</PageHeaderHeading>
+        <PageHeaderDescription size="sm">
+          Manage your account settings
+        </PageHeaderDescription>
+      </PageHeader>
+        <section
+        className="grid gap-8 sm:px-8 px-2"
+        id="user-account-info"
+        aria-labelledby="user-account-info-heading">
           <UserProfile appearance={appearance} />
-        </div>
+        </section>
       </Shell>
     </>
   )

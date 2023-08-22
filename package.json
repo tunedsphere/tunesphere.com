@@ -71,6 +71,7 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-medium-image-zoom": "^5.1.7",
+    "react-wrap-balancer": "^1.1.0",
     "sonner": "^0.5.0",
     "stripe": "^12.16.0",
     "tailwind-merge": "^1.13.2",

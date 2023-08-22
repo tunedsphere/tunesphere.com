@@ -4,8 +4,11 @@ import { redirect } from "next/navigation"
 import { currentUser } from "@clerk/nextjs"
 import { Shell } from "@/components/shells/shell"
 
-import { Header } from "@/components/header"
-
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
 
 export const metadata: Metadata = {
   title: "Purchases",
@@ -22,12 +25,16 @@ export default async function PurchasesPage() {
   return (
     <>
       <Shell variant="dashboard">
-        <Header
-          variant="dashboard"
-          title="Purchases"
-          description="Manage your purchases."
-          size="sm"
-        />
+      <PageHeader
+        variant="dashboard"
+        id="dashboard-purchases-header"
+        aria-labelledby="dashboard-purchases-header-heading"
+      >
+        <PageHeaderHeading size="sm">Purchases</PageHeaderHeading>
+        <PageHeaderDescription size="sm">
+          Manage your purchases
+        </PageHeaderDescription>
+      </PageHeader>
         <div className="grid gap-8 sm:px-8 px-2">
           <div>Purchases Table</div>
         </div>

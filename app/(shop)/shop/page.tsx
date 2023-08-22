@@ -34,18 +34,18 @@ export default async function ShopPage() {
     .limit(10)
     .orderBy(desc(products.createdAt))
 
-    const storesWithProductCount = await db
+    const someStores = await db
     .select({
       id: stores.id,
       name: stores.name,
       description: stores.description,
-      productCount: sql<number>`count(*)`,
+      stripeAccountId: stores.stripeAccountId,
     })
     .from(stores)
     .limit(4)
     .leftJoin(products, eq(products.storeId, stores.id))
     .groupBy(stores.id)
-    .orderBy(desc(sql<number>`count(*)`))
+    .orderBy(desc(stores.stripeAccountId), desc(sql<number>`count(*)`))
 
   return (
     <>
@@ -185,21 +185,36 @@ export default async function ShopPage() {
           </div>
         </section>
         <section
-          id="featured-stores"
-          aria-labelledby="featured-stores-heading"
-          className="space-y-6 px-2"
-        >
-          <h2 className="text-2xl font-medium sm:text-3xl text-textdark">Featured stores</h2>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {storesWithProductCount.map((store) => (
+        id="featured-stores"
+        aria-labelledby="featured-stores-heading"
+        className="space-y-6"
+      >
+        <div className="flex items-center">
+          <h2 className="flex-1 text-2xl font-medium sm:text-3xl">
+            Featured stores
+          </h2>
+          <Link aria-label="Stores" href="/stores">
+            <div
+              className={cn(
+                buttonVariants({
+                  size: "sm",
+                })
+              )}
+            >
+              View all
+            </div>
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {someStores.map((store) => (
             <StoreCard
               key={store.id}
               store={store}
-              route={`/products?store_ids=${store.id}`}
+              href={`/products?store_ids=${store.id}`}
             />
           ))}
         </div>
-        </section>
+      </section>
         <section
           id="random-subcategories"
           aria-labelledby="random-subcategories-heading"

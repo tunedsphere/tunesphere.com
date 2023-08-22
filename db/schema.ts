@@ -19,7 +19,7 @@ export const stores = mysqlTable("stores", {
   name: varchar("name", { length: 191 }).notNull(),
   description: text("description"),
   slug: text("slug"),
-  active: boolean("active").notNull().default(true),
+  active: boolean("active").notNull().default(false),
   stripeAccountId: varchar("stripeAccountId", { length: 191 }),
   createdAt: timestamp("createdAt").defaultNow(),
 })
@@ -82,19 +82,21 @@ export const emailPreferences = mysqlTable("email_preferences", {
 
 export type EmailPreference = InferModel<typeof emailPreferences>
 
+// Original source: https://github.com/jackblatch/OneStopShop/blob/main/db/schema.ts
 export const payments = mysqlTable("payments", {
   id: serial("id").primaryKey(),
   userId: varchar("userId", { length: 191 }),
   storeId: int("storeId").notNull(),
   stripeAccountId: varchar("stripeAccountId", { length: 191 }).notNull(),
-  stripeAccountCreatedAt: int("stripeAccountCreatedAt").notNull(),
-  stripeAccountExpiresAt: int("stripeAccountExpiresAt").notNull(),
+  stripeAccountCreatedAt: int("stripeAccountCreatedAt"),
+  stripeAccountExpiresAt: int("stripeAccountExpiresAt"),
   detailsSubmitted: boolean("detailsSubmitted").notNull().default(false),
   createdAt: timestamp("createdAt").defaultNow(),
 })
 
 export type Payment = InferModel<typeof payments>
 
+// Original source: https://github.com/jackblatch/OneStopShop/blob/main/db/schema.ts
 export const orders = mysqlTable("orders", {
   id: serial("id").primaryKey(),
   userId: varchar("userId", { length: 191 }),
@@ -115,6 +117,7 @@ export const orders = mysqlTable("orders", {
 
 export type Order = InferModel<typeof orders>
 
+// Original source: https://github.com/jackblatch/OneStopShop/blob/main/db/schema.ts
 export const addresses = mysqlTable("addresses", {
   id: serial("id").primaryKey(),
   line1: varchar("line1", { length: 191 }),

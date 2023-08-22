@@ -1,68 +1,50 @@
 import Link from "next/link"
-import { type Store } from "@/db/schema"
+import { type CuratedStore } from "@/types"
 
+import { getRandomPatternStyle } from "@/lib/generate-pattern"
 import { cn } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { buttonVariants } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 
 interface StoreCardProps {
-  store?: Pick<Store, "id" | "name"> &
-    Partial<Pick<Store, "description">> & {
-      productCount: number
-    }
-  cardTitle?: string
-  cardDescription?: string
-  route: string
-  buttonText?: string
+  store: CuratedStore
+  href: string
 }
 
-export function StoreCard({
-  cardTitle,
-  cardDescription,
-  store,
-  route,
-  buttonText = `View products (${store?.productCount})`,
-}: StoreCardProps) {
+export function StoreCard({ store, href }: StoreCardProps) {
   return (
-    <Card className="flex h-full flex-col bg-theme-100">
-      <Link aria-label={buttonText ?? store?.name} href={route}>
+    <Link aria-label={store.name} href={href}>
+      <Card className="h-full">
         <AspectRatio ratio={21 / 9}>
-          <div
-            className="h-full rounded-t-md"      
-          />
-        </AspectRatio>
-      </Link>
-      <CardHeader className="flex-1">
-        <CardTitle className="line-clamp-1 text-textdark">
-          {cardTitle ?? store?.name}
-        </CardTitle>
-        {(cardDescription || store?.description) && (
-          <CardDescription className="line-clamp-2">
-            {cardDescription ?? store?.description}
-          </CardDescription>
-        )}
-      </CardHeader>
-      <CardContent>
-        <Link aria-label={buttonText ?? store?.name} href={route}>
-          <div
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-950/20" />
+          <Badge
             className={cn(
-              buttonVariants({
-                size: "sm",
-                className: "h-8 w-full",
-              })
+              "pointer-events-none absolute right-2 top-2 text-white",
+              store.stripeAccountId ? "bg-green-600" : "bg-red-600"
             )}
           >
-            {buttonText}
-          </div>
-        </Link>
-      </CardContent>
-    </Card>
+            {store.stripeAccountId ? "Active" : "Inactive"}
+          </Badge>
+          <div
+            className="h-full rounded-t-md"
+            style={getRandomPatternStyle(String(store.id))}
+          />
+        </AspectRatio>
+        <CardHeader>
+          <CardTitle className="line-clamp-1 text-lg">{store.name}</CardTitle>
+          {store.description ? (
+            <CardDescription className="line-clamp-2">
+              {store.description}
+            </CardDescription>
+          ) : null}
+        </CardHeader>
+      </Card>
+    </Link>
   )
 }

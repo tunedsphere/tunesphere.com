@@ -4,8 +4,12 @@ import { stores } from "@/db/schema"
 import { currentUser } from "@clerk/nextjs"
 import { eq } from "drizzle-orm"
 
-import { Header } from "@/components/header"
-import { StorePager } from "@/components/pagers/store-pager"
+import {
+  getDashboardRedirectPath,
+  getUserSubscriptionPlan,
+} from "@/lib/subscription"
+import { PageHeader, PageHeaderHeading } from "@/components/page-header"
+import { StoreSwitcher } from "@/components/pagers/store-switcher"
 import { StoreTabs } from "@/components/pagers/store-tabs"
 import { Shell } from "@/components/shells/shell"
 
@@ -42,20 +46,30 @@ export default async function StoreLayout({
     notFound()
   }
 
+  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
+
   return (
-    <Shell variant="sidebar" className="gap-4">
-      <div className="flex items-center space-x-4">
-        <Header
-          variant="dashboard"
-          title={store.name}
-          size="sm"
-          className="flex-1"
-        />
+    <Shell variant="dashboard" className="gap-4">
+           <PageHeader variant="dashboard" >
+         <div className="flex space-x-4">
+          <PageHeaderHeading size="sm" className="flex-1">
+          {store.name}
+        </PageHeaderHeading>
+        </div>
+        </PageHeader>
+        <div className="flex items-center space-x-4 pr-1">
         {allStores.length > 1 ? (
-          <StorePager storeId={storeId} userId={user.id} />
+          <StoreSwitcher
+            currentStore={store}
+            stores={allStores}
+            dashboardRedirectPath={getDashboardRedirectPath({
+              subscriptionPlan,
+              storeCount: allStores.length,
+            })}
+          />
         ) : null}
       </div>
-      <div className="grid gap-4 space-y-4 overflow-x-auto px-4 sm:px-8 pt-4">
+      <div className="space-y-4 overflow-hidden">
         <StoreTabs storeId={storeId} />
         {children}
       </div>

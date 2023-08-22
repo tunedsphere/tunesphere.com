@@ -12,7 +12,11 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { AddStoreForm } from "@/components/forms/add-store-form"
-import { Header } from "@/components/header"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -30,12 +34,16 @@ export default async function NewStorePage() {
   return (
     <>
       <Shell variant="dashboard">
-        <Header
-          variant="dashboard"
-          title="New Store"
-          description="New store for your account."
-          size="sm"
-        />
+      <PageHeader
+        variant="dashboard"
+        id="new-store-page-header"
+        aria-labelledby="new-store-page-header-heading"
+      >
+        <PageHeaderHeading size="sm">New Store</PageHeaderHeading>
+        <PageHeaderDescription size="sm">
+          Add a new store to your account
+        </PageHeaderDescription>
+      </PageHeader>
         <div className="grid gap-8 sm:px-8 px-2">
           <Card>
             <CardHeader className="space-y-1">

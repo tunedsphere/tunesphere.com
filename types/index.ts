@@ -1,6 +1,7 @@
-import { type Product } from "@/db/schema"
+import type { Product, Store } from "@/db/schema"
 import { type FileWithPath } from "react-dropzone"
 import { type z } from "zod"
+import { type userPrivateMetadataSchema } from "@/lib/validations/auth"
 
 import type { cartItemSchema, checkoutItemSchema } from "@/lib/validations/cart"
 import { type Icons } from "@/components/icons"
@@ -38,7 +39,7 @@ export type NavbarNavItem = NavItemWithOptionalChildren
 
 export type SidebarNavItem = NavItemWithChildren
 
-export type UserRole = "user" | "admin" | "artist" | "label" | "dj" | "seller"
+export type UserRole = z.infer<typeof userPrivateMetadataSchema.shape.role>
 
 export type Option = {
   label: string
@@ -62,6 +63,13 @@ export interface DataTableSearchableColumn<TData> {
 export interface DataTableFilterableColumn<TData>
   extends DataTableSearchableColumn<TData> {
   options: Option[]
+}
+export interface CuratedStore {
+  id: Store["id"]
+  name: Store["name"]
+  description?: Store["description"]
+  stripeAccountId?: Store["stripeAccountId"]
+  productCount?: number
 }
 
 export type CartItem = z.infer<typeof cartItemSchema>
@@ -90,5 +98,13 @@ export interface SubscriptionPlan {
   features: string[]
   stripePriceId: string
   price: number
-  isCanceled?: boolean
+}
+
+export interface UserSubscriptionPlan extends SubscriptionPlan {
+  stripeSubscriptionId?: string | null
+  stripeCurrentPeriodEnd?: string | null
+  stripeCustomerId?: string | null
+  isSubscribed: boolean
+  isCanceled: boolean
+  isActive: boolean
 }
