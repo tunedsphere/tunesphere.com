@@ -19,7 +19,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { StoreCard } from "@/components/store-card"
-
+import { PageHeaderHeading, PageHeaderDescription } from "@/components/page-header"
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"
 
@@ -49,15 +49,15 @@ export default async function ShopPage() {
 
   return (
     <>
-      <Shell className="container mx-auto px-0 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-28">
+      <Shell variant="shop"> 
         <section
-          id="shop"
+          id="shop-heading"
           aria-labelledby="shop-heading"
           className="px-2 text-center"
         >
-          <h1 className="z-10 justify-center text-4xl font-bold leading-tight tracking-tighter text-textdark md:text-5xl lg:text-6xl lg:leading-[1.1]">
+          <PageHeaderHeading size="lg" className="py-6 text-textdark tracking-tighter">
             A Store specially built for You with everything you would expect
-          </h1>
+          </PageHeaderHeading>
           <div className="relative mx-auto w-full max-w-[400px] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className="button_bg-gradient-theme absolute inset-x-0"></div>
@@ -105,12 +105,12 @@ export default async function ShopPage() {
           className="w-full space-y-6 py-6 @container md:pt-10"
         >
           <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <h2 className="text-3xl font-bold leading-[1.1] text-textdark sm:text-3xl md:text-5xl">
+          <PageHeaderHeading size="lg" className="text-textdark tracking-tighter">
               Categories
-            </h2>
-            <h2 className="max-w-[46rem] text-lg leading-normal text-muted-foreground sm:leading-7 px-2">
+            </PageHeaderHeading>
+            <PageHeaderDescription size="sm">
               Explore our categories and find the best products for you
-            </h2>
+            </PageHeaderDescription>
           </div>
           <div className="grid grid-cols-1 gap-4 @sm:grid-cols-2 @lg:grid-cols-4">
             {productCategories.map((category) => (
@@ -162,9 +162,9 @@ export default async function ShopPage() {
           className="space-y-6 px-0"
         >
           <div className="flex w-full items-center px-2">
-            <h2 className="flex-1 text-2xl font-medium sm:text-3xl text-textdark">
+          <PageHeaderHeading size="sm" className="flex-1 text-textdark">
               Featured products
-            </h2>
+            </PageHeaderHeading>
             <Link href="/shop/products">
               <div
                 className={cn(
@@ -189,10 +189,10 @@ export default async function ShopPage() {
         aria-labelledby="featured-stores-heading"
         className="space-y-6"
       >
-        <div className="flex items-center">
-          <h2 className="flex-1 text-2xl font-medium sm:text-3xl">
+        <div className="flex items-center px-2">
+         <PageHeaderHeading size="sm" className="flex-1 text-textdark">
             Featured stores
-          </h2>
+         </PageHeaderHeading>
           <Link aria-label="Stores" href="/stores">
             <div
               className={cn(
