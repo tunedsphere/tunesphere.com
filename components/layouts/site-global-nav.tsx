@@ -12,6 +12,7 @@ import { CartSheet } from "@/components/cart/cart-sheet"
 import { Icons } from "@/components/icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+import NavbarVideo from "../navbar-video"
 export function SiteGlobalNav() {
 
   return (
@@ -48,7 +49,8 @@ export function SiteGlobalNav() {
           </div>
           <SiteGlobalNavMenuBurger />
         </div>
-        <video
+        <NavbarVideo/>
+        {/* <video
           autoPlay
           loop
           muted
@@ -56,7 +58,7 @@ export function SiteGlobalNav() {
           style={{ zIndex: -10 }}
         >
           <source src="/bgvideo.mp4" type="video/mp4" />
-        </video>
+        </video> */}
       </nav>
     </>
   )
