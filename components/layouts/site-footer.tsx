@@ -48,14 +48,14 @@ export function SiteFooter() {
       <div className="hidden @container md:block">
         <div className="mx-auto grid max-w-[1400px] py-8 @sm:grid-cols-9">
           <div className="col-start-2">
-            <h6 className="py-2 text-left text-texthigh underline decoration-theme-600 underline-offset-4">
+            <h6 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
               {siteConfig.footerNav[0].title}
             </h6>
             <ul className="text-sm">
               {siteConfig.footerNav[0].items.map((item, index) => (
                 <li key={index}>
                   <Link href={item.href}>
-                    <p className="cursor-pointer text-textlow hover:underline">
+                    <p className="cursor-pointer text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh">
                       {item.title}
                     </p>
                   </Link>
@@ -64,14 +64,14 @@ export function SiteFooter() {
             </ul>
           </div>
           <div className="col-start-4">
-            <h6 className="py-2 text-left text-texthigh underline decoration-theme-600 underline-offset-4">
+            <h6 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
               {siteConfig.footerNav[1].title}
             </h6>
             <ul className="text-sm">
               {siteConfig.footerNav[1].items.map((item, index) => (
                 <li key={index}>
                   <Link href={item.href}>
-                    <p className="cursor-pointer text-textlow hover:underline">
+                    <p className="cursor-pointer text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh">
                       {item.title}
                     </p>
                   </Link>
@@ -80,14 +80,14 @@ export function SiteFooter() {
             </ul>
           </div>
           <div className="col-start-6">
-            <h6 className="py-2 text-left text-texthigh underline decoration-theme-600 underline-offset-4">
+            <h6 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
               {siteConfig.footerNav[2].title}
             </h6>
             <ul className="text-sm">
               {siteConfig.footerNav[2].items.map((item, index) => (
                 <li key={index}>
                   <Link href={item.href}>
-                    <p className="cursor-pointer text-textlow hover:underline">
+                    <p className="cursor-pointer text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh">
                       {item.title}
                     </p>
                   </Link>
@@ -96,14 +96,14 @@ export function SiteFooter() {
             </ul>
           </div>
           <div className="col-start-8">
-            <h6 className="py-2 text-left text-texthigh underline decoration-theme-600 underline-offset-4">
+            <h6 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
               {siteConfig.footerNav[3].title}
             </h6>
             <ul className="text-sm">
               {siteConfig.footerNav[3].items.map((item, index) => (
                 <li key={index}>
                   <Link href={item.href}>
-                    <p className="cursor-pointer text-textlow hover:underline">
+                    <p className="cursor-pointer text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh">
                       {item.title}
                     </p>
                   </Link>
@@ -115,7 +115,7 @@ export function SiteFooter() {
       </div>
 
       <div className="block @container md:hidden" ref={containerRef}>
-        <div className="divide-y divide-theme-600">
+        <div className="divide-y divide-primary">
           {siteConfig.footerNav.map((item, index) => (
             <Collapsible
               key={index}
@@ -131,7 +131,7 @@ export function SiteFooter() {
               <CollapsibleContent className="w-full pb-4 pl-4">
                 {item.items.map((subItem, subIndex) => (
                   <Link
-                    className="left-0 flex text-textlow hover:underline"
+                    className="left-0 flex text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh"
                     key={subIndex}
                     href={subItem.href}
                   >
