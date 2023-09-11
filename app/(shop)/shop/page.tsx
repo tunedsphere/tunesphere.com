@@ -19,7 +19,11 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { StoreCard } from "@/components/store-card"
-import { PageHeaderHeading, PageHeaderDescription } from "@/components/page-header"
+import { 
+  PageHeader,
+  PageHeaderHeading, 
+  PageHeaderDescription 
+} from "@/components/page-header"
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"
 
@@ -105,12 +109,16 @@ export default async function ShopPage() {
           className="w-full space-y-6 py-6 @container md:pt-10"
         >
           <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-          <PageHeaderHeading size="lg" className="text-textdark tracking-tighter">
-              Categories
-            </PageHeaderHeading>
-            <PageHeaderDescription size="sm">
-              Explore our categories and find the best products for you
-            </PageHeaderDescription>
+            <PageHeader
+        
+        id="shop-categories-header"
+        aria-labelledby="shop-categories-header-heading"
+      >
+        <PageHeaderHeading size="lg" className="text-textdark">Categories</PageHeaderHeading>
+        <PageHeaderDescription size="lg">
+        Explore our categories and find the best products for you
+        </PageHeaderDescription>
+      </PageHeader>
           </div>
           <div className="grid grid-cols-1 gap-4 @sm:grid-cols-2 @lg:grid-cols-4">
             {productCategories.map((category) => (

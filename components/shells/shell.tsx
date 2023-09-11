@@ -8,7 +8,7 @@ const shellVariants = cva("grid gap-8 pb-8 pt-6 md:py-8", {
     variant: {
       default: "container max-w-screen-2xl mx-auto justify-center",
       auth: "max-w-lg mx-auto pt-0",
-      shop: "px-0 mx-auto max-w-screen-2xl",
+      shop: "px-0 mx-auto max-w-screen-2xl ",
       dashboard: "pb-8 gap-8 md:px-8 xl:px-10",
       sidebar: "pt-0 md:py-0",
       centered: "mx-auto mb-16 mt-20 max-w-md justify-center",

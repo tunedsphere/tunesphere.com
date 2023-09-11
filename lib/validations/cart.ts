@@ -28,9 +28,10 @@ export const cartLineItemSchema = z.object({
   subcategory: z.string().optional().nullable(),
   price: z.string().regex(/^\d+(\.\d{1,2})?$/),
   inventory: z.number().default(0),
+  quantity: z.number(),
   storeId: z.number(),
   storeName: z.string().optional().nullable(),
-  quantity: z.number(),
+  storeStripeAccountId: z.string().optional().nullable(),
 })
 
 export const deleteCartItemSchema = z.object({

@@ -2,18 +2,26 @@ import { Shell } from "@/components/shells/shell"
 import { Card } from "@/components/ui/card"
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { Header } from "@/components/header"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
 
 export default function BillingLoading() {
   return (
     <>
       <Shell variant="dashboard">
-        <Header
+        <PageHeader
           variant="dashboard"
-          title="Billing"
-          description="Manage your billing and subscription."
-          size="sm"
-        />
+          title="Billing">
+         <PageHeaderHeading size="sm">Billing</PageHeaderHeading>
+        <PageHeaderDescription size="sm">
+          Manage your billing and subscription
+        </PageHeaderDescription>
+
+          </PageHeader>
+
         <div className="grid gap-8 px-8">
           <div className="grid gap-10 rounded-lg p-4">
             <div className="space-y-2">

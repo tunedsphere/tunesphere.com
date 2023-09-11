@@ -2,17 +2,30 @@ import { Shell } from "@/components/shells/shell"
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Header } from "@/components/header"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
 
 export default function StoresLoading() {
   return (
     <Shell variant="dashboard">
-      <Header
+   <PageHeader
         variant="dashboard"
-        title="Stores"
-        description="Manage your stores"
-        size="sm"
-      />
+        id="dashboard-stores-page-header"
+        aria-labelledby="dashboard-stores-page-header-heading"
+      >
+        <div className="flex space-x-4">
+          <PageHeaderHeading size="sm" className="flex-1">
+            Stores
+          </PageHeaderHeading>
+          
+        </div>
+        <PageHeaderDescription size="sm">
+          Manage your stores
+        </PageHeaderDescription>
+      </PageHeader>
       <div className="grid gap-8 sm:px-8 px-2">
         <Card variant="dashboard" className="flex space-x-4 px-4 py-3">
           <Skeleton className="mt-2 h-4 w-4 rounded" />

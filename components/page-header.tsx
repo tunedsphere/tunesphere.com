@@ -46,6 +46,7 @@ const headingVariants = cva(
         default: "text-3xl md:text-4xl",
         sm: "text-2xl md:text-3xl",
         lg: "text-4xl md:text-5xl",
+        xl: "text-4xl md:text-5xl lg:text-6xl",
       },
     },
     defaultVariants: {
@@ -78,6 +79,7 @@ const descriptionVariants = cva("text-muted-foreground max-w-[750px]", {
       default: "text-base sm:text-lg",
       sm: "text-sm sm:text-base",
       lg: "text-lg sm:text-xl",
+
     },
   },
   defaultVariants: {

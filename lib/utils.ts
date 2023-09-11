@@ -1,7 +1,8 @@
 import { env } from "@/env.mjs"
 import { isClerkAPIResponseError } from "@clerk/nextjs"
+import type { User } from "@clerk/nextjs/server"
+
 import { clsx, type ClassValue } from "clsx"
-import dayjs from "dayjs"
 import { toast } from "sonner"
 import { twMerge } from "tailwind-merge"
 import * as z from "zod"
@@ -12,9 +13,13 @@ export function cn(...inputs: ClassValue[]) {
 
 export function formatPrice(
   price: number | string,
-  currency: "EUR" | "USD" | "GBP" | "BDT" = "EUR",
-  notation: "compact" | "engineering" | "scientific" | "standard" = "standard"
+  options: {
+    currency?: "USD" | "EUR" | "GBP" | "BDT"
+    notation?: Intl.NumberFormatOptions["notation"]
+  } = {}
 ) {
+  const { currency = "EUR", notation = "compact" } = options
+
   return new Intl.NumberFormat("en-EU", {
     style: "currency",
     currency,
@@ -22,8 +27,30 @@ export function formatPrice(
   }).format(Number(price))
 }
 
+export function formatNumber(
+  number: number | string,
+  options: {
+    decimals?: number
+    style?: Intl.NumberFormatOptions["style"]
+    notation?: Intl.NumberFormatOptions["notation"]
+  } = {}
+) {
+  const { decimals = 0, style = "decimal", notation = "standard" } = options
+
+  return new Intl.NumberFormat("en-US", {
+    style,
+    notation,
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  }).format(Number(number))
+}
+
 export function formatDate(date: Date | string | number) {
-  return dayjs(date).format("MMMM D, YYYY")
+  return new Intl.DateTimeFormat("en-EU", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(date))
 }
 
 export function formatBytes(
@@ -38,6 +65,10 @@ export function formatBytes(
   return `${(bytes / Math.pow(1024, i)).toFixed(decimals)} ${
     sizeType === "accurate" ? accurateSizes[i] ?? "Bytest" : sizes[i] ?? "Bytes"
   }`
+}
+
+export function formatId(id: number) {
+  return `#${id.toString().padStart(4, "0")}`
 }
 
 export function slugify(str: string) {
@@ -72,9 +103,19 @@ export function isArrayOfFile(files: unknown): files is File[] {
   if (!isArray) return false
   return files.every((file) => file instanceof File)
 }
+
 export function absoluteUrl(path: string) {
   return `${env.NEXT_PUBLIC_APP_URL}${path}`
 }
+
+export function getUserEmail(user: User | null) {
+  const email =
+    user?.emailAddresses?.find((e) => e.id === user.primaryEmailAddressId)
+      ?.emailAddress ?? ""
+
+  return email
+}
+
 export function catchError(err: unknown) {
   if (err instanceof z.ZodError) {
     const errors = err.issues.map((issue) => {

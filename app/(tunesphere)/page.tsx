@@ -8,6 +8,12 @@ import { Icons } from "@/components/icons"
 import { SiteGlobalNav } from "@/components/layouts/site-global-nav"
 import { Shell } from "@/components/shells/shell"
 
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
+
 import { productCategories } from "@/configs/products"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
@@ -166,9 +172,9 @@ export default function MyApp() {
         aria-labelledby="hero-heading"
         className="pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
-        <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
-          A Store built for You with everything you would expect.
-        </h1>
+          <PageHeader id="home-shop" aria-labelledby="home-shop-header-heading">
+        <PageHeaderHeading size="xl">A Store built for You with everything you would expect.</PageHeaderHeading>
+      </PageHeader>
         <div className="relative mx-auto w-full max-w-[400px] py-8">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <div className="button_bg-gradient-1 absolute inset-x-0 -z-10"></div>
@@ -222,12 +228,12 @@ export default function MyApp() {
         className="space-y-6 py-6 md:pt-10 lg:pt-24"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-          <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
-            Categories
-          </h2>
-          <h2 className="text-sm font-normal leading-normal text-textlow sm:leading-7">
-            Explore our categories and find the best products for you
-          </h2>
+        <PageHeader id="home-categories" aria-labelledby="home-header-heading">
+        <PageHeaderHeading size="lg">Categories</PageHeaderHeading>
+        <PageHeaderDescription size="lg">
+        Explore our categories and find the best products for you
+        </PageHeaderDescription>
+      </PageHeader>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {productCategories.map((category) => (

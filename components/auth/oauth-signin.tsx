@@ -52,7 +52,7 @@ export function OAuthSignIn() {
             aria-label={`Sign in with ${provider.name}`}
             key={provider.strategy}
             variant="outline"
-            className="w-full text-base sm:w-auto bg-background hover:bg-accent-foreground hover:text-primary"
+            className="w-full text-base sm:w-auto bg-background hover:bg-muted hover:text-primary"
             onClick={() => void oauthSignIn(provider.strategy)}
           >
             {isLoading === provider.strategy ? (

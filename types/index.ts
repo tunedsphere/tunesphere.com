@@ -2,8 +2,12 @@ import type { Product, Store } from "@/db/schema"
 import { type FileWithPath } from "react-dropzone"
 import { type z } from "zod"
 import { type userPrivateMetadataSchema } from "@/lib/validations/auth"
+import type Stripe from "stripe"
 
-import type { cartItemSchema, checkoutItemSchema } from "@/lib/validations/cart"
+import type { 
+  cartItemSchema,
+  cartLineItemSchema, 
+  checkoutItemSchema } from "@/lib/validations/cart"
 import { type Icons } from "@/components/icons"
 
 export interface NavItem {
@@ -76,21 +80,10 @@ export type CartItem = z.infer<typeof cartItemSchema>
 
 export type CheckoutItem = z.infer<typeof checkoutItemSchema>
 
-export interface CartLineItem
-  extends Pick<
-    Product,
-    | "id"
-    | "name"
-    | "images"
-    | "category"
-    | "subcategory"
-    | "price"
-    | "inventory"
-    | "storeId"
-  > {
-  quantity?: number
-  storeName: string | null
-}
+export type CartLineItem = z.infer<typeof cartLineItemSchema>
+
+export type StripePaymentStatus = Stripe.PaymentIntent.Status
+
 export interface SubscriptionPlan {
   id: "basic" | "standard" | "pro"
   name: string

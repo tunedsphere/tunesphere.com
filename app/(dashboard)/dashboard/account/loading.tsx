@@ -1,17 +1,21 @@
 import { Shell } from "@/components/shells/shell"
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { Header } from "@/components/header"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
 
 export default function AccountLoading() {
   return (
     <Shell variant="dashboard">
-      <Header
-        variant="dashboard"
-        title="Stores"
-        description="Manage your stores."
-        size="sm"
-      />
+         <PageHeader variant="dashboard" id="account-header" aria-labelledby="account-header-heading">
+        <PageHeaderHeading size="sm">Account</PageHeaderHeading>
+        <PageHeaderDescription size="sm">
+          Manage your account settings
+        </PageHeaderDescription>
+      </PageHeader>
       <div className="grid gap-8 px-8">
         <div className="grid gap-10 rounded-lg p-4">
           <div className="space-y-2">

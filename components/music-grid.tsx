@@ -160,7 +160,7 @@ const MusicGrid: React.FC = () => {
             }`}
           >
             <div
-              className={`flex border-b-2 border-accent-4 py-2 ${
+              className={`flex border-b-2 border-muted py-2 ${
                 isSidebarOpen ? "flex-row-reverse" : "justify-center"
               }`}
             >
@@ -171,7 +171,7 @@ const MusicGrid: React.FC = () => {
               />
             </div>
 
-            <div className="middle-sidebar py-2">
+            <div className="middle-sidebar py-2 overflow-y-auto scroll-m-2">
 
               {/* // Sort the GenreOptions */}
                 <Collapsible>
@@ -218,8 +218,8 @@ const MusicGrid: React.FC = () => {
                           .map((genre) => (
                             <div
                               key={genre}
-                              className={`cursor-pointer py-2 pl-8 text-lg font-normal ${
-                                genre === selectedGenre ? " text-texthigh" : ""
+                              className={`cursor-pointer py-2 pl-8 text-lg font-normal border-y border-muted ${
+                                genre === selectedGenre ? "text-texthigh bg-primary font-semibold" : "text-textlow"
                               }`}
                               onClick={() => handleGenreSelection(genre)}
                             >
@@ -276,10 +276,10 @@ const MusicGrid: React.FC = () => {
                           .map((country) => (
                             <div
                               key={country}
-                              className={`cursor-pointer py-2 pl-8 text-lg font-normal ${
+                              className={`cursor-pointer py-2 pl-8 text-lg font-normal border-y border-muted ${
                                 country === selectedCountry
-                                  ? "text-texthigh"
-                                  : ""
+                                  ? "text-texthigh bg-primary font-semibold"
+                                  : "text-textlow"
                               }`}
                               onClick={() => handleCountrySelection(country)}
                             >
@@ -328,7 +328,7 @@ const MusicGrid: React.FC = () => {
                   </CollapsibleTrigger>
                   {yearExpanded && (
                     <CollapsibleContent
-                      className={`${isSidebarOpen ? "w-full" : "hidden"}`}
+                      className={`${isSidebarOpen ? "w-full divide-y" : "hidden"}`}
                     >
                       <div>
                         {yearOptions
@@ -336,8 +336,8 @@ const MusicGrid: React.FC = () => {
                           .map((year) => (
                             <div
                               key={year}
-                              className={`cursor-pointer py-2 pl-8 text-lg font-normal ${
-                                year === selectedYear ? "text-texthigh" : ""
+                              className={`cursor-pointer py-2 pl-8 text-lg font-normal border-y border-muted ${
+                                year === selectedYear ? "text-texthigh bg-primary font-semibold" : "text-textlow"
                               }`}
                               onClick={() => handleYearSelection(year)}
                             >
@@ -352,11 +352,11 @@ const MusicGrid: React.FC = () => {
           </Sidebar>
           <div
             id="GridMusicView"
-            className="grow border-2 border-accent-4 @container"
+            className="grow border-2 border-muted @container"
           >
             <div
               id="MusicGridBanner"
-              className="relative z-10 ml-4 flex min-h-[--music-grid-banner-height-mobile] w-full justify-center border-b-2 border-accent-4 bg-transparent sm:ml-12 sm:min-h-[--music-grid-banner-height]"
+              className="relative z-10 ml-4 flex min-h-[--music-grid-banner-height-mobile] w-full justify-center border-b-2 border-muted bg-transparent sm:ml-12 sm:min-h-[--music-grid-banner-height]"
             >
               <div className="absolute inset-x-0 bottom-2 w-full items-center ">
                 <h3 className="text-2xl font-semibold text-texthigh sm:text-3xl md:text-4xl">
@@ -372,7 +372,7 @@ const MusicGrid: React.FC = () => {
             </div>
             <div
               id="GridMusicView"
-              className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-accent-4 p-4 @container sm:pl-12"
+              className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted p-4 @container sm:pl-12"
             >
               <div className="grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9 @5xl:grid-cols-10 @6xl:grid-cols-12">
                 {sortedAndFilteredLabels.map((label, index) => (
@@ -405,7 +405,7 @@ const MusicGrid: React.FC = () => {
                       >
 
                         <div className="grid gap-4 @xs:grid-cols-2 @xs:grid-rows-1 @md:grid-cols-3 @md:grid-rows-1 @2xl:grid-flow-col @2xl:grid-rows-2 @3xl:grid-rows-2">
-                          <div className=" flex justify-center border-r-2 border-accent-5 pr-8 @xs:row-start-1 @xs:row-end-1 @2xl:row-span-3 @3xl:row-span-2">
+                          <div className=" flex justify-center border-r-2 border-muted pr-8 @xs:row-start-1 @xs:row-end-1 @2xl:row-span-3 @3xl:row-span-2">
                             <Link href={`label/${label.id}`} className="">
                               <Image
                                 src={label.image}

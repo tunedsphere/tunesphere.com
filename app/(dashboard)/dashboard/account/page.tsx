@@ -32,17 +32,18 @@ export default async function AccountPage() {
     },
 
     elements: {
-      card: "shadow-none flex justify-center items-center mx-auto object-contain w-10/12 lg:w-full",
+      card: "shadow-none items-center mx-auto w-10/12 lg:w-full",
       navbar: "hidden",
       navbarMobileMenuButton: "hidden",
       headerTitle: "hidden",
       headerSubtitle: "hidden",
-      profilePage: "divide-y divide-[var(--accent-5)] gap-0 ",
+      profilePage: "divide-y divide-muted gap-0 ",
       profileSectionTitle:
-        "font-semibold text-2xl underline underline-offset-4 decoration-2",
-      profileSectionPrimaryButton: "hidden",
+        "font-semibold text-2xl underline underline-offset-4 decoration-2 decoration-theme",
+      profileSectionContent: "border rounded-md border-muted bg-card ",
+      profileSectionPrimaryButton: "text-base text-primary",
       profileSection: "py-4",
-      pageScrollBox: "",
+      pageScrollBox: "p-0",
     },
   }
 
@@ -56,7 +57,7 @@ export default async function AccountPage() {
         </PageHeaderDescription>
       </PageHeader>
         <section
-        className="grid gap-8 sm:px-8 px-2"
+        className="grid gap-8"
         id="user-account-info"
         aria-labelledby="user-account-info-heading">
           <UserProfile appearance={appearance} />

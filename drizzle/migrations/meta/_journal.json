@@ -15,6 +15,13 @@
       "when": 1692728381708,
       "tag": "0001_deep_revanche",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1694435028560,
+      "tag": "0002_gorgeous_moondragon",
+      "breakpoints": true
     }
   ]
 }

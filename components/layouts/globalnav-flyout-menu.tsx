@@ -34,7 +34,7 @@ const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ handleClose }) => {
          width={60}
          height={60}
           src={user.profileImageUrl}
-          className="my-6 h-20 w-20 flex-none rounded-full border border-muted/30 shadow-sm"
+          className="h-32 w-32 flex-none rounded-full border border-muted/30 shadow-sm"
           alt="Profile image"
         />
       </div>
