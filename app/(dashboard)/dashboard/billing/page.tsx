@@ -69,9 +69,9 @@ export default async function BillingPage() {
               : subscriptionPlan.isCanceled
               ? "Your plan will be canceled on "
               : "Your plan renews on "}
-            {/* {subscriptionPlan?.stripeCurrentPeriodEnd
+            {subscriptionPlan?.stripeCurrentPeriodEnd
               ? `${formatDate(subscriptionPlan.stripeCurrentPeriodEnd)}.`
-              : null} */}
+              : null}
           </p>
             </Card>
           </section>
@@ -91,7 +91,7 @@ export default async function BillingPage() {
                   className={cn(
                     "flex flex-col",
                     i === storeSubscriptionPlans.length - 1 &&
-                      "lg:col-span-2 xl:col-span-1"
+                      "lg:col-span-2 xl:col-span-1" && "border-primary shadow-md"
                   )}
                 >
                   <CardHeader>
@@ -102,7 +102,9 @@ export default async function BillingPage() {
                   </CardHeader>
                   <CardContent className="grid flex-1 place-items-start gap-6">
                     <div className="text-3xl font-bold">
-                      {formatPrice(plan.price, "EUR", "compact")}
+                    {formatPrice(plan.price, {
+                    currency: "EUR",
+                  })}
                       <span className="text-sm font-normal text-muted-foreground">
                         /month
                       </span>
