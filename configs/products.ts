@@ -77,6 +77,86 @@ export const productCategories = [
       },
     ],
   },
+  {
+    title: "plants",
+    image: "/images/plant-one.webp",
+    subcategories: [
+      {
+        title: "cacti",
+        description: "Cacti",
+        slug: "cacti",
+      },
+      {
+        title: "succulents",
+        description: "Succulents",
+        slug: "succulents",
+      },
+    ],
+  },
+  {
+    title: "literature",
+    image: "/images/book-one.webp",
+    subcategories: [
+      {
+        title: "books",
+        description: "Books",
+        slug: "books",
+      },
+      {
+        title: "magazines",
+        description: "Magazines",
+        slug: "magazines",
+      },
+    ],
+  },
+  {
+    title: "music",
+    image: "/images/music-one.webp",
+    subcategories: [
+      {
+        title: "albums",
+        description: "Albums",
+        slug: "albums",
+      },
+      {
+        title: "vinyls",
+        description: "Vinyls",
+        slug: "vinyls",
+      },
+    ],
+  },
+  {
+    title: "tools",
+    image: "/images/tools-one.webp",
+    subcategories: [
+      {
+        title: "vaporizers",
+        description: "Vaporizers",
+        slug: "vaporizers",
+      },
+      {
+        title: "smoking accessories",
+        description: "Smoking Accessories",
+        slug: "smoking-accessories",
+      },
+    ],
+  },
+  {
+    title: "education",
+    image: "/images/education-one.webp",
+    subcategories: [
+      {
+        title: "courses",
+        description: "Courses",
+        slug: "courses",
+      },
+      {
+        title: "workshops",
+        description: "Workshops",
+        slug: "workshops",
+      },
+    ],
+  },
 ] satisfies {
   title: Product["category"]
   image: string
