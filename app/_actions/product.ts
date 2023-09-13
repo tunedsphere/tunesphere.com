@@ -25,7 +25,6 @@ import type {
   getProductsSchema,
   productSchema,
 } from "@/lib/validations/product"
-
 export async function filterProductsAction(query: string) {
   if (query.length === 0) return null
 
@@ -66,7 +65,7 @@ export async function getProductsAction(
   const subcategories = input.subcategories?.split(".") ?? []
   const storeIds = input.store_ids?.split(".").map(Number) ?? []
 
-  const { items, total } = await db.transaction(async (tx) => {
+  const { items, count } = await db.transaction(async (tx) => {
     const items = await tx
       .select()
       .from(products)
@@ -85,6 +84,7 @@ export async function getProductsAction(
           storeIds.length ? inArray(products.storeId, storeIds) : undefined
         )
       )
+      .groupBy(products.id)
       .orderBy(
         column && column in products
           ? order === "asc"
@@ -93,9 +93,9 @@ export async function getProductsAction(
           : desc(products.createdAt)
       )
 
-    const total = await tx
+    const count = await tx
       .select({
-        count: sql<number>`count(${products.id})`,
+        count: sql<number>`count(*)`,
       })
       .from(products)
       .where(
@@ -111,16 +111,18 @@ export async function getProductsAction(
           storeIds.length ? inArray(products.storeId, storeIds) : undefined
         )
       )
+      .execute()
+      .then((res) => res[0]?.count ?? 0)
 
     return {
       items,
-      total: Number(total[0]?.count) ?? 0,
+      count,
     }
   })
 
   return {
     items,
-    total,
+    count,
   }
 }
 
@@ -143,6 +145,9 @@ export async function addProductAction(
   }
 ) {
   const productWithSameName = await db.query.products.findFirst({
+    columns: {
+      id: true,
+    },
     where: eq(products.name, input.name),
   })
 
@@ -183,12 +188,18 @@ export async function updateProductAction(
 export async function deleteProductAction(
   input: z.infer<typeof getProductSchema>
 ) {
-  and(eq(products.id, input.id), eq(products.storeId, input.storeId)),
-    await db
-      .delete(products)
-      .where(
-        and(eq(products.id, input.id), eq(products.storeId, input.storeId))
-      )
+  const product = await db.query.products.findFirst({
+    columns: {
+      id: true,
+    },
+    where: and(eq(products.id, input.id), eq(products.storeId, input.storeId)),
+  })
+
+  if (!product) {
+    throw new Error("Product not found.")
+  }
+
+  await db.delete(products).where(eq(products.id, input.id))
 
   revalidatePath(`/dashboard/stores/${input.storeId}/products`)
 }
@@ -197,6 +208,9 @@ export async function getNextProductIdAction(
   input: z.infer<typeof getProductSchema>
 ) {
   const product = await db.query.products.findFirst({
+    columns: {
+      id: true,
+    },
     where: and(eq(products.storeId, input.storeId), gt(products.id, input.id)),
     orderBy: asc(products.id),
   })
@@ -212,6 +226,9 @@ export async function getPreviousProductIdAction(
   input: z.infer<typeof getProductSchema>
 ) {
   const product = await db.query.products.findFirst({
+    columns: {
+      id: true,
+    },
     where: and(eq(products.storeId, input.storeId), lt(products.id, input.id)),
     orderBy: desc(products.id),
   })

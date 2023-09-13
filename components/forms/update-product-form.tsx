@@ -84,7 +84,6 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
     },
   })
 
-  const previews = form.watch("images") as FileWithPreview[] | null
   const subcategories = getSubcategories(form.watch("category"))
 
   function onSubmit(data: Inputs) {
@@ -98,9 +97,9 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
         const images = isArrayOfFile(data.images)
           ? await startUpload(data.images).then((res) => {
               const formattedImages = res?.map((image) => ({
-                id: image.fileKey,
-                name: image.fileKey.split("_")[1] ?? image.fileKey,
-                url: image.fileUrl,
+                id: image.key,
+                name: image.key.split("_")[1] ?? image.key,
+                url: image.url,
               }))
               return formattedImages ?? null
             })
@@ -259,10 +258,10 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
         </div>
         <FormItem className="flex w-full flex-col gap-1.5">
           <FormLabel>Images</FormLabel>
-          {!isUploading && previews?.length ? (
+          {files?.length ? (
             <div className="flex items-center gap-2">
-              {previews.map((file) => (
-                <Zoom key={file.name}>
+              {files.map((file, i) => (
+                <Zoom key={i}>
                   <Image
                     src={file.preview}
                     alt={file.name}
@@ -305,6 +304,7 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
             variant="destructive"
             onClick={() => {
               startTransition(async () => {
+                void form.trigger(["name", "price", "inventory"])
                 await deleteProductAction({
                   storeId: product.storeId,
                   id: product.id,

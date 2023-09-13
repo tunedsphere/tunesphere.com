@@ -44,7 +44,7 @@ export function FeaturedProductCard({
     <div className="relative">
       <Card
         className={cn(
-          "h-full overflow-hidden rounded-none border-0 bg-theme-100 sm:border-2 lg:rounded-md",
+          "h-full overflow-hidden rounded-none border-0 bg-theme-100 sm:border-2 border-muted/30 lg:rounded-md",
           className
         )}
         {...props}

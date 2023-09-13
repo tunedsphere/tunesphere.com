@@ -2,7 +2,11 @@ import { type Product } from "@/db/schema"
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
 
 import { toTitleCase } from "@/lib/utils"
-import { Header } from "@/components/header"
+import { 
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+ } from "@/components/page-header"
 import { Products } from "@/components/products/products"
 import { Shell } from "@/components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
@@ -56,7 +60,7 @@ export default async function CategoryPage({
     store_ids: typeof store_ids === "string" ? store_ids : null,
   })
 
-  const pageCount = Math.ceil(productsTransaction.total / limit)
+  const pageCount = Math.ceil(productsTransaction.count / limit)
 
   // Stores transaction
   const storesLimit = 25
@@ -71,7 +75,7 @@ export default async function CategoryPage({
     sort: "productCount.desc",
   })
 
-  const storePageCount = Math.ceil(storesTransaction.total / storesLimit)
+  const storePageCount = Math.ceil(storesTransaction.count / storesLimit)
 
   return (
     <Shell variant="shop">
@@ -87,13 +91,19 @@ export default async function CategoryPage({
           },
         ]}
       />
-      <Header
-        title={toTitleCase(category)}
-        description={`Buy ${category} from the best stores`}
-        variant="shop"
-        size="shop"
-      />
+       <PageHeader
+        variant="shopProducts"
+        id="category-page-header"
+        aria-labelledby="category-page-header-heading"
+      >
+        <PageHeaderHeading variant="shop" size="sm">{toTitleCase(category)}</PageHeaderHeading>
+        <PageHeaderDescription size="sm">
+          {`Buy ${category} from the best stores`}
+        </PageHeaderDescription>
+      </PageHeader>
       <Products
+        id="category-page-products"
+        aria-labelledby="category-page-products-heading"
         products={productsTransaction.items}
         pageCount={pageCount}
         category={category}

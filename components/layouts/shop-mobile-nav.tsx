@@ -53,7 +53,7 @@ export function ShopMobileNav({
             <span className="text-xl font-bold">{siteConfig.name}</span>
           </Link>
         </div>
-        <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+        <ScrollArea className="my-4 h-[calc(100dvh-8rem)] pb-10 pl-6">
           <div className="pl-1 pr-7">
             <Accordion type="single" collapsible className="w-full">
               {shopMainNavItems?.map((item, index) => (

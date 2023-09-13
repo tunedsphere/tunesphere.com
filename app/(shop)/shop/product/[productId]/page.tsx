@@ -21,6 +21,7 @@ import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
 import { ProductCard } from "@/components/products/product-card"
 import { ProductImageCarousel } from "@/components/products/product-image-carousel"
 import { Shell } from "@/components/shells/shell"
+import { PageHeader, PageHeaderHeading } from "@/components/page-header"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -85,16 +86,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
           },
         ]}
       />
-      <div className="flex flex-col justify-center gap-8 md:flex-row md:gap-16">
+      <div className="flex flex-col gap-8 md:flex-row md:gap-16 px-16">
         <ProductImageCarousel
-          className="w-full md:w-1/3"
+          className="w-full md:w-1/2"
           images={product.images ?? []}
           options={{
             loop: true,
           }}
         />
         <Separator className="mt-4 md:hidden" />
-        <div className="flex w-full flex-col gap-4 text-textdark md:w-1/3">
+        <div className="flex w-full flex-col gap-4 text-textdark md:w-1/2">
           <div className="space-y-2">
             <h2 className="line-clamp-1 text-2xl font-bold text-textdark">
               {product.name}
@@ -127,24 +128,31 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </Accordion>
         </div>
       </div>
+      <section
+          id="products-from-store"
+          aria-labelledby="products-from-store-heading"
+          className="space-y-6 px-0"
+        >
       {store && productsFromStore.length > 0 ? (
         <div className="overflow-hidden md:pt-6 ">
-          <h2 className="line-clamp-1 flex-1 text-xl text-textlow">
-            More products from <strong className="text-textdark">{store.name}</strong>
-          </h2>
-          <div className="overflow-x-auto pb-2 pt-6 ">
-            <div className="flex gap-4">
+          <PageHeader>
+            <PageHeaderHeading size="sm" className="text-textdark/80">
+            More products from <span className="text-4xl text-textdark underline-offset-4 underline decoration-4 decoration-theme">{store.name}</span>
+            </PageHeaderHeading>
+            </PageHeader>
+
+          <div className="pt-6 grid w-full grid-cols-2 gap-0 px-0 sm:gap-2 md:grid-cols-3 lg:grid-cols-4">
               {productsFromStore.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}
-                  className="min-w-[260px]"
+                  className="w-full"
                 />
               ))}
             </div>
-          </div>
         </div>
       ) : null}
+      </section>
     </Shell>
   )
 }

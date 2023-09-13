@@ -57,7 +57,6 @@
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.28.6",
     "embla-carousel-react": "^8.0.0-rc11",
-    "lucide-react": "^0.274.0",
     "next": "^13.4.10",
     "next-axiom": "^0.17.0",
     "next-contentlayer": "^0.3.4",
@@ -76,7 +75,7 @@
     "tailwind-merge": "^1.13.2",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.6",
-    "uploadthing": "^5.2.1",
+    "uploadthing": "^5.5.3",
     "zod": "^3.21.4"
   },
   "devDependencies": {

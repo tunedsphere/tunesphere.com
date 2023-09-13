@@ -954,20 +954,20 @@
   filter: blur(300px);
 }
 .music-grid-banner {
-  height: calc(100vh - var(--headerHeight));
+  height: calc(100dvh - var(--headerHeight));
 }
 .music-grid {
-  height: calc(100vh - var(--headerHeight) - var(--music-grid-banner-height));
+  height: calc(100dvh - var(--headerHeight) - var(--music-grid-banner-height));
 }
 .music-grid-mobile {
   height: calc(
-    100vh - var(--headerHeight) - var(--music-grid-banner-height-mobile)
+    100dvh - var(--headerHeight) - var(--music-grid-banner-height-mobile)
   );
 }
 .sidebar {
   flex-shrink: 0;
   overflow: hidden;
-  height: calc(100vh - var(--headerHeight));
+  height: calc(100dvh - var(--headerHeight));
   display: flex;
   flex-direction: column;
   justify-content: stretch;

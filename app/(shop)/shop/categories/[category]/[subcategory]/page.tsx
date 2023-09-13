@@ -2,14 +2,15 @@ import { type Product } from "@/db/schema"
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
 
 import { toTitleCase, unslugify } from "@/lib/utils"
-import { Header } from "@/components/header"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
 import { Products } from "@/components/products/products"
 import { Shell } from "@/components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
-
-// Running out of edge function execution units on vercel free plan
-// export const runtime = "edge"
 
 interface SubcategoryPageProps {
   params: {
@@ -53,7 +54,7 @@ export default async function SubcategoryPage({
     store_ids: typeof store_ids === "string" ? store_ids : null,
   })
 
-  const pageCount = Math.ceil(productsTransaction.total / limit)
+  const pageCount = Math.ceil(productsTransaction.count / limit)
 
   // Stores transaction
   const storesLimit = 25
@@ -68,7 +69,7 @@ export default async function SubcategoryPage({
     sort: "productCount.desc",
   })
 
-  const storePageCount = Math.ceil(storesTransaction.total / storesLimit)
+  const storePageCount = Math.ceil(storesTransaction.count / storesLimit)
 
   return (
     <Shell variant="shop">
@@ -88,13 +89,21 @@ export default async function SubcategoryPage({
           },
         ]}
       />
-      <Header
-        title={toTitleCase(unslugify(subcategory))}
-        description={`Buy the best ${unslugify(subcategory)}`}
-        variant="shop"
-        size="shop"
-      />
+        <PageHeader
+        variant="shopProducts"
+        id="subcategory-page-header"
+        aria-labelledby="subcategory-page-header-heading"
+      >
+        <PageHeaderHeading size="sm" variant="shopProducts">
+          {toTitleCase(unslugify(subcategory))}
+        </PageHeaderHeading>
+        <PageHeaderDescription size="sm">
+          {`Buy the best ${unslugify(subcategory)}`}
+        </PageHeaderDescription>
+      </PageHeader>
       <Products
+        id="subcategory-page-products"
+        aria-labelledby="subcategory-page-products-heading"
         products={productsTransaction.items}
         pageCount={pageCount}
         stores={storesTransaction.items}

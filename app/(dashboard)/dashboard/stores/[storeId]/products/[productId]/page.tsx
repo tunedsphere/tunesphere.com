@@ -1,4 +1,5 @@
 import { type Metadata } from "next"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import { db } from "@/db"
 import { products } from "@/db/schema"
@@ -52,6 +53,7 @@ export default async function UpdateProductPage({
         <CardDescription>
           Update your product information, or delete it
         </CardDescription>
+        <Link href={`/shop/product/${storeId}`}>View</Link>
       </CardHeader>
       <CardContent>
         <UpdateProductForm product={product} />

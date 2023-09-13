@@ -74,9 +74,9 @@ export function PaginationButton({
     >
       <Button
         aria-label="Go to first page"
-        variant="outline"
+        variant="shopPagination"
         size="icon"
-        className="hidden h-8 w-8 lg:flex bg-theme-100 hover:bg-theme-300 border-muted/30"
+        className="flex sm:h-8 sm:w-8 h-6 w-6"
         onClick={() => {
           startTransition(() => {
             router.push(
@@ -94,9 +94,9 @@ export function PaginationButton({
       </Button>
       <Button
         aria-label="Go to previous page"
-        variant="outline"
+        variant="shopPagination"
         size="icon"
-        className="h-8 w-8 bg-theme-100 hover:bg-theme-300 border-muted/30"
+        className="sm:h-8 sm:w-8 h-6 w-6"
         onClick={() => {
           startTransition(() => {
             router.push(
@@ -110,16 +110,16 @@ export function PaginationButton({
         }}
         disabled={Number(page) === 1 || isPending}
       >
-        <Icons.chevronRight className="h-4 w-4" aria-hidden="true" />
+        <Icons.chevronLeft className="h-4 w-4" aria-hidden="true" />
       </Button>
       {paginationRange.map((pageNumber, i) =>
         pageNumber === "..." ? (
           <Button
             aria-label="Page separator"
             key={i}
-            variant="outline"
+            variant="shopPagination"
             size="icon"
-            className="h-8 w-8 hover:bg-theme-300 border-muted/30"
+            className="sm:h-8 sm:w-8 h-6 w-6"
             disabled
           >
             ...
@@ -128,9 +128,9 @@ export function PaginationButton({
           <Button
             aria-label={`Page ${pageNumber}`}
             key={i}
-            variant={Number(page) === pageNumber ? "default" : "outline"}
+            variant={Number(page) === pageNumber ? "default" : "shopPagination"}
             size="icon"
-            className="h-8 w-8 bg-theme-100 hover:bg-theme-300 border-muted/30"
+            className="sm:h-8 sm:w-8 h-6 w-6"
             onClick={() => {
               startTransition(() => {
                 router.push(
@@ -150,9 +150,9 @@ export function PaginationButton({
       )}
       <Button
         aria-label="Go to next page"
-        variant="outline"
+        variant="shopPagination"
         size="icon"
-        className="h-8 w-8 bg-theme-100 hover:bg-theme-300 border-muted/30"
+        className="sm:h-8 sm:w-8 h-6 w-6"
         onClick={() => {
           startTransition(() => {
             router.push(
@@ -170,9 +170,9 @@ export function PaginationButton({
       </Button>
       <Button
         aria-label="Go to last page"
-        variant="outline"
+        variant="shopPagination"
         size="icon"
-        className="hidden h-8 w-8 lg:flex bg-theme-100 hover:bg-theme-300 border-muted/30"
+        className="flex sm:h-8 sm:w-8 h-6 w-6"
         onClick={() => {
           router.push(
             `${pathname}?${createQueryString({

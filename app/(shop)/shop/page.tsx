@@ -11,14 +11,9 @@ import { productCategories } from "@/configs/products"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+
 import { StoreCard } from "@/components/store-card"
+import { WhatIsTunedSphere } from "@/components/whatistunedsphere-card"
 import { 
   PageHeader,
   PageHeaderHeading, 
@@ -59,7 +54,7 @@ export default async function ShopPage() {
           aria-labelledby="shop-heading"
           className="px-2 text-center"
         >
-          <PageHeaderHeading size="lg" className="py-6 text-textdark tracking-tighter">
+          <PageHeaderHeading size="lg" className="md:py-24 py-6 text-textdark tracking-tighter">
             A Store specially built for You with everything you would expect
           </PageHeaderHeading>
           <div className="relative mx-auto w-full max-w-[400px] py-8">
@@ -114,7 +109,7 @@ export default async function ShopPage() {
         id="shop-categories-header"
         aria-labelledby="shop-categories-header-heading"
       >
-        <PageHeaderHeading size="lg" className="text-textdark">Categories</PageHeaderHeading>
+        <PageHeaderHeading size="lg" className="py-8 text-textdark">Categories</PageHeaderHeading>
         <PageHeaderDescription size="lg">
         Explore our categories and find the best products for you
         </PageHeaderDescription>
@@ -245,6 +240,7 @@ export default async function ShopPage() {
           ))}
         </section>
       </Shell>
+        <WhatIsTunedSphere />
     </>
   )
 }

@@ -6,10 +6,9 @@ import * as React from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { type Product, type Store } from "@/db/schema"
 import type { Option } from "@/types"
-import { ProductCard } from "@/components/products/product-card"
 
 import { getSubcategories, sortOptions } from "@/configs/products"
-import { cn, toTitleCase } from "@/lib/utils"
+import { cn, toTitleCase, truncate } from "@/lib/utils"
 import { useDebounce } from "@/hooks/use-debounce"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -34,26 +33,27 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Slider } from "@/components/ui/slider"
+import { ProductCard } from "@/components/products/product-card"
 import { Icons } from "@/components/icons"
 import { MultiSelect } from "@/components/multi-select"
 import { PaginationButton } from "@/components/pagers/pagination-button"
 
-interface ProductsProps {
-  stores?: Pick<Store, "id" | "name">[]
+interface ProductsProps extends React.HTMLAttributes<HTMLDivElement> {
   products: Product[]
   pageCount: number
   category?: Product["category"]
   categories?: Product["category"][]
+  stores?: Pick<Store, "id" | "name">[]
   storePageCount?: number
 }
-
 export function Products({
-  stores,
   products,
   pageCount,
   category,
   categories,
+  stores,
   storePageCount,
+  ...props
 }: ProductsProps) {
   const router = useRouter()
   const pathname = usePathname()
@@ -62,7 +62,7 @@ export function Products({
 
   // Search params
   const page = searchParams?.get("page") ?? "1"
-  const per_page = searchParams?.get("per_page") ?? "8"
+  const per_page = searchParams?.get("per_page") ?? "16"
   const sort = searchParams?.get("sort") ?? "createdAt.desc"
   const store_ids = searchParams?.get("store_ids")
   const store_page = searchParams?.get("store_page") ?? "1"
@@ -95,11 +95,15 @@ export function Products({
       router.push(
         `${pathname}?${createQueryString({
           price_range: `${min}-${max}`,
-        })}`
+        })}`,
+        {
+          scroll: false,
+        }
       )
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedPrice])
+
 
   // Category filter
   const [selectedCategories, setSelectedCategories] = React.useState<
@@ -114,7 +118,10 @@ export function Products({
             ? // Join categories with a dot to make search params prettier
               selectedCategories.map((c) => c.value).join(".")
             : null,
-        })}`
+        })}`,
+        {
+          scroll: false,
+        }
       )
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -133,7 +140,10 @@ export function Products({
           subcategories: selectedSubcategories?.length
             ? selectedSubcategories.map((s) => s.value).join(".")
             : null,
-        })}`
+        })}`,
+        {
+          scroll: false,
+        }
       )
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -149,15 +159,31 @@ export function Products({
       router.push(
         `${pathname}?${createQueryString({
           store_ids: storeIds?.length ? storeIds.join(".") : null,
-        })}`
+        })}`,
+        {
+          scroll: false,
+        }
       )
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storeIds])
 
+  const handlePerPageChange = (newValue) => {
+    startTransition(() => {
+      router.push(
+        `${pathname}?${createQueryString({
+          per_page: newValue,
+        })}`,
+        {
+          scroll: false,
+        }
+      );
+    });
+  };
+
   return (
-    <div className="flex flex-col space-y-6">
-      <div className="flex items-center justify-between space-x-2 px-12">
+    <div className="flex flex-col space-y-6"  {...props}>
+      <div className="flex justify-between content-center items-stretch sm:px-12 px-4">
         <Sheet>
           <SheetTrigger asChild>
             <Button aria-label="Filter products" size="sm" disabled={isPending} className="font-semibold leading-6">
@@ -185,7 +211,7 @@ export function Products({
                     setPriceRange(value)
                   }}
                 />
-                <div className="flex items-center space-x-4">
+                <div className="flex space-x-4">
                   <Input
                     type="number"
                     inputMode="numeric"
@@ -318,7 +344,7 @@ export function Products({
                             htmlFor={`store-${store.id}`}
                             className="line-clamp-1 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                           >
-                            {store.name}
+                             {truncate(store.name, 20)}
                           </Label>
                         </div>
                       ))}
@@ -359,11 +385,35 @@ export function Products({
             </div>
           </SheetContent>
         </Sheet>
+        <div className="flex space-x-2">
+          <DropdownMenu>
+  <DropdownMenuTrigger asChild className="gap-1">
+    <Button aria-label="Items per page" size="sm" disabled={isPending} className="font-semibold leading-6">
+    {per_page}
+      <Icons.pageLayout className="h-4 w-4" aria-hidden="true" />
+    </Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent align="start" className="w-4 bg-background-shop text-textdark">
+  {[8, 16, 32].map((value) => (
+    <DropdownMenuItem
+      key={value}
+      className={cn(
+        value === +per_page && "",
+        "hover:bg-muted/30 focus:bg-muted/30"
+      )}
+      onClick={() => handlePerPageChange(value)}
+    >
+      {value}
+    </DropdownMenuItem>
+    ))}
+  </DropdownMenuContent>
+            </DropdownMenu>
+            <div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button aria-label="Sort products" size="sm" disabled={isPending} className="font-semibold leading-6">
               Sort
-              <Icons.chevronDown className="ml-2 h-4 w-4" aria-hidden="true" />
+              <Icons.chevronDown className="" aria-hidden="true" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-48 bg-background-shop text-textdark">
@@ -389,7 +439,9 @@ export function Products({
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>
-        </DropdownMenu>
+         </DropdownMenu>
+         </div>
+        </div>
       </div>
 
       {!isPending && !products.length ? (
@@ -402,9 +454,9 @@ export function Products({
           </p>
         </div>
       ) : null}
-      <div className="grid w-full grid-cols-2 gap-0 px-0 sm:grid-cols-4 sm:gap-2 lg:grid-cols-4 xl:grid-cols-6">
+      <div className="grid w-full grid-cols-2 px-0 sm:grid-cols-4 gap-2 lg:grid-cols-4">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} stores={stores} />
+          <ProductCard key={product.id} product={product}/>
         ))}
       </div>
       {products.length ? (

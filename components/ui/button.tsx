@@ -8,7 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        paging: "text-texthigh",
+        shopPagination: "border border-muted/30 shadow-sm text-textdark hover:bg-theme-100",
         default: "bg-primary text-texthigh hover:bg-primary/80",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/80",
@@ -16,7 +16,7 @@ const buttonVariants = cva(
           "border border-input shadow-sm hover:bg-accent hover:text-accent-foreground",
         outlineTheme:
           "text-primary border border-theme hover:bg-theme-950 hover:text-texthigh",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:text-secondary-foreground/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         ghostline:
         "hover:bg-accent outline-theme outline outline-1 hover:outline-offset-1",

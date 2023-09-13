@@ -7,7 +7,7 @@ const { withAxiom } = require('next-axiom');
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["uploadthing.com"],
+    domains: ["uploadthing.com", "utfs.io"],
   }, // Corrected the value to a boolean
   experimental: {
     serverActions: true,

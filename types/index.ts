@@ -68,6 +68,21 @@ export interface DataTableFilterableColumn<TData>
   extends DataTableSearchableColumn<TData> {
   options: Option[]
 }
+
+export interface Category {
+  title: Product["category"]
+  image: string
+  icon: React.ComponentType<{ className?: string }>
+  subcategories: Subcategory[]
+}
+
+export interface Subcategory {
+  title: string
+  description?: string
+  image?: string
+  slug: string
+}
+
 export interface CuratedStore {
   id: Store["id"]
   name: Store["name"]

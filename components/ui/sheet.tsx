@@ -76,7 +76,7 @@ const SheetContent = React.forwardRef<
         <Button
           variant="link"
           size="sm"
-          className="text-textdark hover:text-theme-500">
+          className="text-textdark hover:text-theme">
           <Icons.close />
           <span className="sr-only">Close</span>
         </Button>
@@ -120,7 +120,7 @@ const SheetTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Title
     ref={ref}
-    className={cn("text-lg font-semibold text-foreground", className)}
+    className={cn("text-lg font-semibold text-textdark", className)}
     {...props}
   />
 ))
@@ -132,7 +132,7 @@ const SheetDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-sm text-muted", className)}
     {...props}
   />
 ))

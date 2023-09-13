@@ -48,9 +48,9 @@ export function SiteFooter() {
       <div className="hidden @container md:block">
         <div className="mx-auto grid max-w-[1400px] py-8 @sm:grid-cols-9">
           <div className="col-start-2">
-            <h2 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
+            <h5 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
               {siteConfig.footerNav[0].title}
-            </h2>
+            </h5>
             <ul className="text-sm">
               {siteConfig.footerNav[0].items.map((item, index) => (
                 <li key={index}>
@@ -64,9 +64,9 @@ export function SiteFooter() {
             </ul>
           </div>
           <div className="col-start-4">
-            <h2 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
+            <h5 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
               {siteConfig.footerNav[1].title}
-            </h2>
+            </h5>
             <ul className="text-sm">
               {siteConfig.footerNav[1].items.map((item, index) => (
                 <li key={index}>
@@ -80,9 +80,9 @@ export function SiteFooter() {
             </ul>
           </div>
           <div className="col-start-6">
-            <h2 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
+            <h5 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
               {siteConfig.footerNav[2].title}
-            </h2>
+            </h5>
             <ul className="text-sm">
               {siteConfig.footerNav[2].items.map((item, index) => (
                 <li key={index}>
@@ -96,9 +96,9 @@ export function SiteFooter() {
             </ul>
           </div>
           <div className="col-start-8">
-            <h2 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
+            <h5 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
               {siteConfig.footerNav[3].title}
-            </h2>
+            </h5>
             <ul className="text-sm">
               {siteConfig.footerNav[3].items.map((item, index) => (
                 <li key={index}>

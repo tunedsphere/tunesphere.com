@@ -3,28 +3,31 @@ import { Shell } from "@/components/shells/shell"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Icons } from "@/components/icons"
-import { Header } from "@/components/header"
+import { PageHeader } from "@/components/page-header"
 
 export default function ProductsLoading() {
   return (
     <Shell variant="shop">
-      <Header title=""
-                size="shop"
+      <PageHeader
       variant="shop">          
       <Skeleton className="h-9 w-14" />
-      <Skeleton className="h-9 w-20" /></Header>
+      <Skeleton className="h-9 w-20" /></PageHeader>
       <div className="flex flex-col space-y-6">
         <div className="flex items-center gap-2">
           <Skeleton className="h-9 w-14" />
           <Skeleton className="h-9 w-20" />
+        </div>
+        <div className="flex justify-between content-center items-stretch px-12">
+        <Skeleton className="h-9 w-14" />
+        <Skeleton className="h-9 w-14" />
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 8 }).map((_, i) => (
             <Card key={i} className="rounded-sm">
               <CardHeader className="border-b p-0">
                 <div className="flex h-full items-center justify-center bg-secondary">
-                  <Icons.placeholder
-                    className="h-9 w-9 text-muted-foreground"
+                <Skeleton
+                    className="h-36 text-muted-foreground"
                     aria-hidden="true"
                   />
                 </div>

@@ -17,6 +17,7 @@ const PageHeaderVariants = cva(
         dashboard:"pb-8 pt-2 border-muted border-b",
         auth: "",
         shop: "justify-center text-center",
+        shopProducts: "justify-center text-center",
       }
     }
   }
@@ -42,6 +43,11 @@ const headingVariants = cva(
   "font-bold leading-tight tracking-tighter lg:leading-[1.1]",
   {
     variants: {
+      variant: { 
+        default: "",
+        shop: "text-textdark",
+        shopProducts: "text-textdark justify-center",
+      },
       size: {
         default: "text-3xl md:text-4xl",
         sm: "text-2xl md:text-3xl",
@@ -64,12 +70,13 @@ interface PageHeaderHeadingProps
 function PageHeaderHeading({
   className,
   size,
+  variant,
   as: Comp = "h1",
 
   ...props
 }: PageHeaderHeadingProps) {
   return (
-    <Comp className={cn(headingVariants({ size, className }))} {...props} />
+    <Comp className={cn(headingVariants({ size, className, variant }))} {...props} />
   )
 }
 

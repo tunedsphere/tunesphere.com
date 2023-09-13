@@ -1,7 +1,11 @@
 import type { Metadata } from "next"
 import { products } from "@/db/schema"
 import { env } from "@/env.mjs"
-import { Header } from "@/components/header"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header"
 import { Products } from "@/components/products/products"
 import { Shell } from "@/components/shells/shell"
 
@@ -38,7 +42,7 @@ export default async function ProductsPage({
   } = searchParams
 
   // Products transaction
-  const limit = typeof per_page === "string" ? parseInt(per_page) : 8
+  const limit = typeof per_page === "string" ? parseInt(per_page) : 16
   const offset = typeof page === "string" ? (parseInt(page) - 1) * limit : 0
 
   const productsTransaction = await getProductsAction({
@@ -51,7 +55,7 @@ export default async function ProductsPage({
     store_ids: typeof store_ids === "string" ? store_ids : null,
   })
 
-  const pageCount = Math.ceil(productsTransaction.total / limit)
+  const pageCount = Math.ceil(productsTransaction.count / limit)
 
   // Stores transaction
   const storesLimit = 25
@@ -66,17 +70,21 @@ export default async function ProductsPage({
     sort: "productCount.desc",
   })
 
-  const storePageCount = Math.ceil(storesTransaction.total / storesLimit)
+  const storePageCount = Math.ceil(storesTransaction.count / storesLimit)
 
   return (
     <>
       <Shell variant="shop">
-        <Header
-          variant="shop"
-          size="shop"
-          title="Products"
-          description="Buy products from our stores"
-        />
+              <PageHeader
+        variant="shopProducts"
+        id="products-page-header"
+        aria-labelledby="products-page-header-heading"
+      >
+        <PageHeaderHeading variant="shopProducts" size="sm">Products</PageHeaderHeading>
+        <PageHeaderDescription size="sm">
+          Explore, discover, buy, and elevate your psychedelic creativity
+        </PageHeaderDescription>
+      </PageHeader>
         <Products
           products={productsTransaction.items}
           pageCount={pageCount}
