@@ -22,7 +22,7 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
-import { StoreCard } from "@/components/store-card"
+import { StoreCard } from "@/components/cards/store-card"
 
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"

@@ -3,10 +3,10 @@ import { Shell } from "@/components/shells/shell"
 
 export default function ProductNotFound() {
   return (
-    <Shell variant="centered">
+    <Shell variant="centered" className="max-w-md">
       <ErrorCard
-        title="Product not found"
-        description="The product may have expired or you may have already updated your product"
+        title="Store not found"
+        description="The Store may have been deleted"
         retryLink="/"
         retryLinkText="Go to Home"
       />

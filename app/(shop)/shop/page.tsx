@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 
-import { StoreCard } from "@/components/store-card"
+import { StoreCard } from "@/components/cards/store-card"
 import { WhatIsTunedSphere } from "@/components/whatistunedsphere-card"
 import { 
   PageHeader,
