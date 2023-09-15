@@ -41,7 +41,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                 {items[0].title}
               </NavigationMenuTrigger>
               <NavigationMenuContent className="bg-theme-100 shadow-xl">
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[790px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
@@ -89,7 +89,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                     {item.title}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="bg-theme-100 shadow-xl">
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[790px]">
                       {item.items.map((item) => (
                         <ListItem
                           className="hover:bg-theme-200 hover:text-theme-900 text-textdark"

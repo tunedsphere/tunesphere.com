@@ -46,28 +46,35 @@ export function ProductCard({
 
 
   return (
+    <>
+
     <Card
       className={cn(
-        "h-full overflow-hidden rounded-none border-0 bg-background-shop sm:rounded-lg sm:border border-muted/10 shadow-xl ",
+        "group rounded-none border-0 bg-background-shop sm:rounded-lg sm:border border-muted/10 shadow-xl relative z-20",
         className
       )}
       {...props}
     >
-      <Link href={`/shop/product/${product.id}`}>
-        <CardHeader className=" p-0">
-          <AspectRatio ratio={4 / 3}>
-          <div className="absolute inset-0 z-10 bg-muted/70 transition-colors group-hover:bg-zinc-950/75" />
+              
+      <Link className=""
+      href={`/shop/product/${product.id}`}>
+
+<div className="absolute -inset-1 group-hover:bg-muted/20 rounded-lg blur-sm -z-10" />  
+        <CardHeader className="p-0 relative"> 
+          <AspectRatio ratio={4 / 3}>  
           {product?.images?.length ? (
+            <div>
               <Image
                 src={
                   product.images[0]?.url ?? "/images/product-placeholder.webp"
                 }
                 alt={product.images[0]?.name ?? product.name}
-                className="object-cover transition-transform group-hover:scale-105"
+                className="object-cover rounded-sm"
                 sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
                 fill
                 loading="lazy"
               />
+              </div>
             ) : (
               <div
                 aria-label="Placeholder"
@@ -84,34 +91,25 @@ export function ProductCard({
           </AspectRatio>
         </CardHeader>
       </Link>
-      <Link href={`/product/${product.id}`} tabIndex={-1}>
-        <CardContent className="grid pb-4">
+      <Link
+      href={`shop/product/${product.id}`} tabIndex={-1}>
+        
+        <CardContent className="grid pb-4 bg-background-shop">
+        
           <CardTitle className="line-clamp-1 text-textdark py-2 text-2xl">
             {product.name}
           </CardTitle>
           <CardDescription className="line-clamp-2 text-textdark">
             {formatPrice(product.price)}
           </CardDescription>
-          <CardTitle as="h6" className="line-clamp-1 text-muted-foreground pt-2">
+          <CardTitle as="h6" className="line-clamp-1 text-muted-foreground pt-2 cursor-pointer">
           Store: 
           </CardTitle>
         </CardContent>
       </Link>
-      <CardFooter className="p-4">
+      <CardFooter className="p-4 bg-background-shop">
           <div className="flex w-full flex-col items-center gap-2 sm:flex-row align-middle">
-            <Link
-              aria-label="Preview product"
-              href={`/shop/product-preview/${product.id}`}
-              className={buttonVariants({
-                variant: "secondary",
-                size: "sm",
-                className: "h-8 w-full rounded-sm font-semibold ",
-              })}
-            >
-              PREVIEW
-            </Link>
-            {variant === "default" ? (
-              
+            {variant === "default" ? (           
           <Button
             aria-label="Add to cart"
             size="sm"
@@ -170,5 +168,6 @@ export function ProductCard({
         </div>
       </CardFooter>
     </Card>
+    </>
   )
 }

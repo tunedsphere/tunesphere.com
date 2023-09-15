@@ -19,10 +19,13 @@ interface StoreCardProps {
 
 export function StoreCard({ store, href }: StoreCardProps) {
   return (
-    <Link aria-label={store.name} href={href}>
-      <Card className="h-full">
+    <>
+    <Link 
+    className=""
+    aria-label={store.name}
+    href={href}>
+      <Card className="group h-full border-none shadow-xl hover:shadow-2xl">
         <AspectRatio ratio={21 / 9}>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-950/20" />
           <Badge
             className={cn(
               "pointer-events-none absolute right-2 top-2 text-white",
@@ -46,5 +49,6 @@ export function StoreCard({ store, href }: StoreCardProps) {
         </CardHeader>
       </Card>
     </Link>
+    </>
   )
 }

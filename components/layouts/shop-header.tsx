@@ -9,7 +9,7 @@ import { ShopSearchBar } from "@/components/shop-search-bar"
 export function ShopHeader() {
   return (
     <header className="relative z-50 mt-[--headerHeight] w-full border-b bg-white">
-      <Shell className="flex items-center justify-between">
+      <Shell className="flex items-center justify-between py-6">
         <ShopMainNav items={siteConfig.shopNav} />
         <ShopMobileNav
           shopMainNavItems={siteConfig.shopNav}

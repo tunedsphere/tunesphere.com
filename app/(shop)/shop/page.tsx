@@ -2,13 +2,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { db } from "@/db"
 import { products, stores } from "@/db/schema"
-import { FeaturedProductCard } from "@/components/products/featured-product-card"
+import { FeaturedProductCard } from "@/components/cards/featured-product-card"
 import { Shell } from "@/components/shells/shell"
 import { desc, eq, sql } from "drizzle-orm"
 
 import { productCategories } from "@/configs/products"
 
-import heroShop from "@/public/bghome/heroShop.png"
+import heroShop3 from "@/public/bghome/heroShop3.png"
 
 import { cn } from "@/lib/utils"
 import { CategoryCard } from "@/components/cards/category-card"
@@ -46,21 +46,21 @@ export default async function ShopPage() {
 
   return (
     <>
-      {/* <Image
-    src={heroShop}
-    width={600}
-    height={600}
-    alt="planet Home"
-    className="absolute w-full h-[600px] max-w-7xl mx-auto left-0 right-0"
-  ></Image> */}
+
       <Shell variant="shop"
         className="bg-transparent">
-
         <section
           id="shop-heading"
           aria-labelledby="shop-heading"
-          className="px-2 text-center z-100"
+          className="px-2 pt-8 text-center z-10"
         >
+           <Image
+    src={heroShop3}
+    width={4000}
+    height={600}
+    alt="planet Home"
+    className="absolute object-cover max-w-8xl h-[600px] mx-auto left-0 right-0 -z-10 opacity-50"
+  ></Image>
           <PageHeaderHeading size="lg" className="md:py-24 py-6 text-textdark tracking-tighter">
             A Store specially built for You with everything you would expect
           </PageHeaderHeading>
@@ -108,21 +108,19 @@ export default async function ShopPage() {
         <section
           id="categories"
           aria-labelledby="categories-heading"
-          className="w-full space-y-6 py-6 @container md:pt-10"
+          className="w-full space-y-6 py-6 @container md:pt-10 z-10"
         >
           <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
             <PageHeader
-
               id="shop-categories-header"
-              aria-labelledby="shop-categories-header-heading"
-            >
+              aria-labelledby="shop-categories-header-heading">
               <PageHeaderHeading size="lg" className="py-8 text-textdark">Categories</PageHeaderHeading>
               <PageHeaderDescription size="lg">
                 Explore our categories and find the best products for you
               </PageHeaderDescription>
             </PageHeader>
           </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-3 sm:gap-8 gap-1.5 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {productCategories.map((category) => (
               <CategoryCard key={category.title} category={category} />
             ))}
@@ -134,7 +132,7 @@ export default async function ShopPage() {
           className="space-y-6 px-0"
         >
           <div className="flex w-full items-center px-2">
-            <PageHeaderHeading size="sm" className="flex-1 text-textdark underline-offset-4 underline decoration-primary font-semibold">
+            <PageHeaderHeading size="xs" className="flex-1 text-textdark/90 underline-offset-4 underline decoration-primary font-semibold">
               Recently Added
             </PageHeaderHeading>
             <Link href="/shop/products">
@@ -150,7 +148,7 @@ export default async function ShopPage() {
               </div>
             </Link>
           </div>
-          <div className="grid w-full grid-cols-2 gap-0 px-0 sm:gap-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <div className="grid w-full grid-cols-2 gap-1.5 px-0 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {allProducts.map((product) => (
               <FeaturedProductCard key={product.id} product={product} />
             ))}
@@ -162,7 +160,7 @@ export default async function ShopPage() {
           className="space-y-6"
         >
           <div className="flex items-center px-2">
-            <PageHeaderHeading size="sm" className="flex-1 text-textdark underline-offset-4 underline decoration-primary font-semibold">
+            <PageHeaderHeading size="xs" className="flex-1 text-textdark/90 underline-offset-4 underline decoration-primary font-semibold">
               Featured Stores
             </PageHeaderHeading>
             <Link aria-label="Stores" href="/stores">

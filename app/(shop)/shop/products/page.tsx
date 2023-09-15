@@ -76,6 +76,7 @@ export default async function ProductsPage({
     <>
       <Shell variant="shop">
               <PageHeader
+              className=""
         variant="shopProducts"
         id="products-page-header"
         aria-labelledby="products-page-header-heading"
