@@ -47,10 +47,9 @@ export function ProductCard({
 
   return (
     <>
-
     <Card
       className={cn(
-        "group rounded-none border-0 bg-background-shop sm:rounded-lg sm:border border-muted/10 shadow-xl relative z-20",
+        "group rounded-none border-0 bg-background-shop sm:rounded-lg sm:border border-muted/10 relative z-20",
         className
       )}
       {...props}

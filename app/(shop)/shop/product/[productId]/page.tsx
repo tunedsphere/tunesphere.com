@@ -141,12 +141,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </PageHeaderHeading>
             </PageHeader>
 
-          <div className="pt-6 grid w-full grid-cols-2 gap-0 px-0 sm:gap-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="pt-6 px-2 grid w-full grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
               {productsFromStore.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}
-                  className="w-full"
+                  className=""
                 />
               ))}
             </div>

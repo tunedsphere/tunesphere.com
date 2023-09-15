@@ -46,7 +46,6 @@ export default async function ShopPage() {
 
   return (
     <>
-
       <Shell variant="shop"
         className="bg-transparent">
         <section
