@@ -30,7 +30,7 @@ export async function CategoryCard({ category }: CategoryCardProps) {
       className="group relative overflow-hidden rounded-md border"
     >
       <AspectRatio ratio={16 / 9}>
-        <div className="absolute inset-0 z-10 bg-muted/70 transition-colors group-hover:bg-zinc-950/75" />
+        <div className="absolute inset-0 z-10 bg-muted/70 transition-color group-hover:bg-zinc-950/75" />
         <Image
           src={category.image}
           alt={`${category.title} category`}

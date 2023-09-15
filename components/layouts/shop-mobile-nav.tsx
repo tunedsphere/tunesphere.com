@@ -114,7 +114,7 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        "text-textdark/80 transition-colors hover:text-primary hover:bg-muted/30 rounded-md pl-4 py-1",
+        "text-textdark/80 transition-colors hover:secondary-foreground/80 hover:bg-secondary/80 focus:secondary-foreground/80 focus:bg-secondary/80 rounded-md pl-4 py-1",
         pathname === href && "text-textdark",
         disabled && "pointer-events-none opacity-60"
       )}

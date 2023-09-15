@@ -8,6 +8,8 @@ import { desc, eq, sql } from "drizzle-orm"
 
 import { productCategories } from "@/configs/products"
 
+import heroShop from "@/public/bggenre/heroShop.jpg"
+
 import { cn } from "@/lib/utils"
 import { CategoryCard } from "@/components/cards/category-card"
 import { Badge } from "@/components/ui/badge"
@@ -47,6 +49,13 @@ export default async function ShopPage() {
 
   return (
     <>
+        <Image
+    src={heroShop}
+    width={1200}
+    height={1200}
+    alt="planet Home"
+    className="absolute w-full h-[600px]"
+  ></Image>
       <Shell variant="shop"> 
         <section
           id="shop-heading"
@@ -127,7 +136,7 @@ export default async function ShopPage() {
         >
           <div className="flex w-full items-center px-2">
           <PageHeaderHeading size="sm" className="flex-1 text-textdark underline-offset-4 underline decoration-primary font-semibold">
-              Featured Products
+              Recently Added
             </PageHeaderHeading>
             <Link href="/shop/products">
               <div

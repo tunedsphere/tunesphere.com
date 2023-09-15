@@ -1,6 +1,4 @@
-import { type Product } from "@/db/schema"
-
-import { Icons, StoreIcons } from "@/components/icons"
+import { StoreIcons } from "@/components/icons"
 import type { Category, Option } from "@/types"
 
 

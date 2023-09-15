@@ -54,7 +54,7 @@ export function ProductCard({
       {...props}
     >
       <Link href={`/shop/product/${product.id}`}>
-        <CardHeader className="border-b p-0">
+        <CardHeader className=" p-0">
           <AspectRatio ratio={4 / 3}>
           <div className="absolute inset-0 z-10 bg-muted/70 transition-colors group-hover:bg-zinc-950/75" />
           {product?.images?.length ? (
@@ -86,7 +86,7 @@ export function ProductCard({
       </Link>
       <Link href={`/product/${product.id}`} tabIndex={-1}>
         <CardContent className="grid pb-4">
-          <CardTitle className="line-clamp-1 text-textdark py-2">
+          <CardTitle className="line-clamp-1 text-textdark py-2 text-2xl">
             {product.name}
           </CardTitle>
           <CardDescription className="line-clamp-2 text-textdark">
