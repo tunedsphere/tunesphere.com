@@ -8,7 +8,7 @@ import { desc, eq, sql } from "drizzle-orm"
 
 import { productCategories } from "@/configs/products"
 
-import heroShop from "@/public/bggenre/heroShop.jpg"
+import heroShop from "@/public/bghome/heroShop.png"
 
 import { cn } from "@/lib/utils"
 import { CategoryCard } from "@/components/cards/category-card"
@@ -22,9 +22,6 @@ import {
   PageHeaderHeading, 
   PageHeaderDescription 
 } from "@/components/page-header"
-
-import { Icons } from "@/components/icons"
-
 
 
 export default async function ShopPage() {
@@ -51,16 +48,18 @@ export default async function ShopPage() {
     <>
         <Image
     src={heroShop}
-    width={1200}
-    height={1200}
+    width={600}
+    height={600}
     alt="planet Home"
-    className="absolute w-full h-[600px]"
+    className="absolute w-full h-[600px] max-w-7xl mx-auto left-0 right-0"
   ></Image>
-      <Shell variant="shop"> 
+      <Shell variant="shop"
+      className="bg-transparent"> 
+      
         <section
           id="shop-heading"
           aria-labelledby="shop-heading"
-          className="px-2 text-center"
+          className="px-2 text-center z-100"
         >
           <PageHeaderHeading size="lg" className="md:py-24 py-6 text-textdark tracking-tighter">
             A Store specially built for You with everything you would expect
