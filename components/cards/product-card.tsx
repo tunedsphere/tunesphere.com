@@ -25,18 +25,15 @@ import { addToCartAction } from "@/app/_actions/cart"
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
   product: Pick<
     Product,
-    "id" | "name" | "price" | "images" | "category" | "inventory" | "storeId"
+    "id" | "name" | "price" | "images" | "category" | "inventory" | "storeId" 
   >
-  stores?: Pick<Store, "id" | "name">[]
   variant?: "default" | "switchable"
   isAddedToCart?: boolean
   onSwitch?: () => Promise<void>
 }
 
 
-
 export function ProductCard({
-  stores,
   product,
   variant = "default",
   isAddedToCart = false,
@@ -46,10 +43,12 @@ export function ProductCard({
 }: ProductCardProps) {
   const [isPending, startTransition] = React.useTransition()
 
+
+
   return (
     <Card
       className={cn(
-        "h-full overflow-hidden rounded-none border-0 bg-background-shop sm:rounded-lg sm:border border-muted/10 shadow-xl",
+        "h-full overflow-hidden rounded-none border-0 bg-background-shop sm:rounded-lg sm:border border-muted/10 shadow-xl ",
         className
       )}
       {...props}
@@ -57,13 +56,14 @@ export function ProductCard({
       <Link href={`/shop/product/${product.id}`}>
         <CardHeader className="border-b p-0">
           <AspectRatio ratio={4 / 3}>
+          <div className="absolute inset-0 z-10 bg-muted/70 transition-colors group-hover:bg-zinc-950/75" />
           {product?.images?.length ? (
               <Image
                 src={
                   product.images[0]?.url ?? "/images/product-placeholder.webp"
                 }
                 alt={product.images[0]?.name ?? product.name}
-                className="object-cover"
+                className="object-cover transition-transform group-hover:scale-105"
                 sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
                 fill
                 loading="lazy"
@@ -93,7 +93,7 @@ export function ProductCard({
             {formatPrice(product.price)}
           </CardDescription>
           <CardTitle as="h6" className="line-clamp-1 text-muted-foreground pt-2">
-          {product.storeId}
+          Store: 
           </CardTitle>
         </CardContent>
       </Link>

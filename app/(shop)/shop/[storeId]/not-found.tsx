@@ -7,7 +7,7 @@ export default function ProductNotFound() {
       <ErrorCard
         title="Store not found"
         description="The Store may have been deleted"
-        retryLink="/"
+        retryLink="/shop"
         retryLinkText="Go to Home"
       />
     </Shell>

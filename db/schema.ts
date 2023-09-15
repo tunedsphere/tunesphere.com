@@ -63,7 +63,10 @@ export type Product = typeof products.$inferSelect
 export type NewProduct = typeof products.$inferInsert
 
 export const productsRelations = relations(products, ({ one }) => ({
-  store: one(stores, { fields: [products.storeId], references: [stores.id] }),
+  store: one(stores, { 
+    fields: [products.storeId],
+    references: [stores.id],
+  }),
 }))
 
 // Original source: https://github.com/jackblatch/OneStopShop/blob/main/db/schema.ts

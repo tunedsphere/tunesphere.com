@@ -1,5 +1,8 @@
 import { type Product } from "@/db/schema"
-import type { Option } from "@/types"
+
+import { Icons, StoreIcons } from "@/components/icons"
+import type { Category, Option } from "@/types"
+
 
 export const sortOptions = [
   { label: "Date: Old to new", value: "createdAt.asc" },
@@ -23,6 +26,7 @@ export const productCategories = [
   {
     title: "clothing",
     image: "/images/skateboard-one.webp",
+    icon: StoreIcons.Shirt,
     subcategories: [
       {
         title: "pants",
@@ -47,6 +51,7 @@ export const productCategories = [
   {
     title: "accessories",
     image: "/images/clothing-one.webp",
+    icon: StoreIcons.Backpack,
     subcategories: [
       {
         title: "pipe",
@@ -58,6 +63,7 @@ export const productCategories = [
   {
     title: "art",
     image: "/images/shoe-one.webp",
+    icon: StoreIcons.Component,
     subcategories: [
       {
         title: "Painting",
@@ -69,6 +75,7 @@ export const productCategories = [
   {
     title: "decorations",
     image: "/images/backpack-one.webp",
+    icon: StoreIcons.Spray,
     subcategories: [
       {
         title: "tapistery",
@@ -80,6 +87,7 @@ export const productCategories = [
   {
     title: "plants",
     image: "/images/plant-one.webp",
+    icon: StoreIcons.Leaf,
     subcategories: [
       {
         title: "cacti",
@@ -96,6 +104,7 @@ export const productCategories = [
   {
     title: "literature",
     image: "/images/book-one.webp",
+    icon: StoreIcons.Book,
     subcategories: [
       {
         title: "books",
@@ -110,24 +119,9 @@ export const productCategories = [
     ],
   },
   {
-    title: "music",
-    image: "/images/music-one.webp",
-    subcategories: [
-      {
-        title: "albums",
-        description: "Albums",
-        slug: "albums",
-      },
-      {
-        title: "vinyls",
-        description: "Vinyls",
-        slug: "vinyls",
-      },
-    ],
-  },
-  {
     title: "tools",
     image: "/images/tools-one.webp",
+    icon: StoreIcons.Cigarette,
     subcategories: [
       {
         title: "vaporizers",
@@ -141,32 +135,7 @@ export const productCategories = [
       },
     ],
   },
-  {
-    title: "education",
-    image: "/images/education-one.webp",
-    subcategories: [
-      {
-        title: "courses",
-        description: "Courses",
-        slug: "courses",
-      },
-      {
-        title: "workshops",
-        description: "Workshops",
-        slug: "workshops",
-      },
-    ],
-  },
-] satisfies {
-  title: Product["category"]
-  image: string
-  subcategories: {
-    title: string
-    description?: string
-    image?: string
-    slug: string
-  }[]
-}[]
+] satisfies Category[]
 
 export const productTags = [
   "new",

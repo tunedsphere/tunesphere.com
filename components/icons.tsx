@@ -9,6 +9,10 @@ interface IconsProps extends ComponentAttributes {
   size?: string | number;
   absoluteStrokeWidth?: boolean;
 }
+// interface StoreIconsProps extends ComponentAttributes {
+//   size?: string | number;
+//   absoluteStrokeWidth?: boolean;
+// }
 
 
 export const Icons = {
@@ -1387,4 +1391,135 @@ filter: (props: IconsProps) => (
       <path d="m15 11-1 9" />
     </svg>
   ),
+}
+
+
+export const StoreIcons = {
+  Shirt: (props: IconsProps) => ( 
+    <svg xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-width="2" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+    {...props}
+    >
+      <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+    ),
+    Cigarette: (props: IconsProps) => (
+      <svg xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+      {...props}
+      >
+        <path d="M18 12H2v4h16"/>
+      <path d="M22 12v4"/>
+      <path d="M7 12v4"/>
+      <path d="M18 8c0-2.5-2-2.5-2-5"/>
+      <path d="M22 8c0-2.5-2-2.5-2-5"/>
+      </svg>
+    ),
+  
+    Backpack: (props: IconsProps) => (
+      <svg xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      {...props}
+      >
+        <path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/>
+        <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+        <path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/>
+        <path d="M8 10h8"/>
+        <path d="M8 18h8"/>
+        </svg>
+    ),
+    Book: (props: IconsProps) => (
+      <svg xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+      {...props}
+      >
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+    ),
+    Leaf: (props: IconsProps) => (
+      <svg xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      {...props}
+      >
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+        </svg>
+    ),
+    Spray: (props: IconsProps) => (
+      <svg xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      {...props}
+      >
+        <path d="M3 3h.01"/>
+        <path d="M7 5h.01"/>
+        <path d="M11 7h.01"/>
+        <path d="M3 7h.01"/>
+        <path d="M7 9h.01"/>
+        <path d="M3 11h.01"/>
+        <rect width="4" height="4" x="15" y="5"/>
+        <path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2"/>
+        <path d="m13 14 8-2"/>
+        <path d="m13 19 8-2"/>
+        </svg>
+    ),
+    Component: (props: IconsProps) => (
+      <svg xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      {...props}
+      >
+        <path d="M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z"/>
+        <path d="m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z"/>
+        <path d="M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z"/>
+        <path d="m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z"/>
+        </svg>
+    ),
 }

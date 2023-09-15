@@ -76,11 +76,11 @@ export default async function StorePage({
         segments={[
           {
             title: "Stores",
-            href: "/stores",
+            href: "shop/stores",
           },
           {
             title: store.name,
-            href: `/store/${store.id}`,
+            href: `shop/store/${store.name}`,
           },
         ]}
       />

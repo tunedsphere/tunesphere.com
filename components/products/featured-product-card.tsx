@@ -4,11 +4,10 @@ import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { type Product, type Store } from "@/db/schema"
-import { toast } from "sonner"
 
 import { cn, formatPrice } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Button, buttonVariants } from "@/components/ui/button"
+
 import {
   Card,
   CardContent,
@@ -44,7 +43,7 @@ export function FeaturedProductCard({
     <div className="relative">
       <Card
         className={cn(
-          "h-full overflow-hidden rounded-none border-0 bg-theme-100 sm:border-2 border-muted/30 lg:rounded-md",
+          "h-full overflow-hidden rounded-none border-0 bg-muted/70 hover:bg-muted sm:border-2 border-muted/30 lg:rounded-md",
           className
         )}
         {...props}

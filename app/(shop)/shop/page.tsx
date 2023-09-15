@@ -9,9 +9,10 @@ import { desc, eq, sql } from "drizzle-orm"
 import { productCategories } from "@/configs/products"
 
 import { cn } from "@/lib/utils"
+import { CategoryCard } from "@/components/cards/category-card"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
-
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { StoreCard } from "@/components/cards/store-card"
 import { WhatIsTunedSphere } from "@/components/whatistunedsphere-card"
 import { 
@@ -19,12 +20,10 @@ import {
   PageHeaderHeading, 
   PageHeaderDescription 
 } from "@/components/page-header"
-// Running out of edge function execution units on vercel free plan
-// export const runtime = "edge"
 
-// This is equivalent to getServersideProps() in the pages directory
-// Read more: https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
-export const dynamic = "force-dynamic"
+import { Icons } from "@/components/icons"
+
+
 
 export default async function ShopPage() {
   const allProducts = await db
@@ -115,58 +114,20 @@ export default async function ShopPage() {
         </PageHeaderDescription>
       </PageHeader>
           </div>
-          <div className="grid grid-cols-1 gap-4 @sm:grid-cols-2 @lg:grid-cols-4">
-            {productCategories.map((category) => (
-              <Link
-                aria-label={`Go to ${category.title}`}
-                key={category.title}
-                href={`/shop/categories/${category.title}`}
-              >
-                <div className="group relative overflow-hidden rounded-md">
-                  <div className="absolute inset-0 z-10 bg-black/60 transition-colors group-hover:bg-black/70" />
-                  <Image
-                    src={category.image}
-                    alt={category.title}
-                    width={500}
-                    height={500}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw h-[700px]"
-                    className="object-cover transition-transform group-hover:scale-105"
-                    priority
-                  />
-
-                  <div className="absolute inset-0 z-20 flex items-center justify-center">
-                    <h3 className="text-3xl font-medium capitalize text-textlow md:text-2xl">
-                      {category.title}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {productCategories.map((category) => (
+            <CategoryCard key={category.title} category={category} />
+          ))}
+        </div>
         </section>
-        <Shell
-          id="create-a-store-banner"
-          aria-labelledby="create-a-store-banner-heading"
-          className="place-items-center gap-6 bg-accent-1 px-6 py-16 text-center text-card-foreground shadow-sm sm:rounded-lg"
-        >
-          <h2 className="text-2xl font-medium sm:text-3xl">
-            Do you want to sell your products on our website?
-          </h2>
-          <Link href="/dashboard/stores">
-            <div className={cn(buttonVariants())}>
-              Create a store
-              <span className="sr-only">Create a store</span>
-            </div>
-          </Link>
-        </Shell>
         <section
           id="featured-products"
           aria-labelledby="featured-products-heading"
           className="space-y-6 px-0"
         >
           <div className="flex w-full items-center px-2">
-          <PageHeaderHeading size="sm" className="flex-1 text-textdark">
-              Featured products
+          <PageHeaderHeading size="sm" className="flex-1 text-textdark underline-offset-4 underline decoration-primary font-semibold">
+              Featured Products
             </PageHeaderHeading>
             <Link href="/shop/products">
               <div
@@ -193,8 +154,8 @@ export default async function ShopPage() {
         className="space-y-6"
       >
         <div className="flex items-center px-2">
-         <PageHeaderHeading size="sm" className="flex-1 text-textdark">
-            Featured stores
+         <PageHeaderHeading size="sm" className="flex-1 text-textdark underline-offset-4 underline decoration-primary font-semibold">
+            Featured Stores
          </PageHeaderHeading>
           <Link aria-label="Stores" href="/stores">
             <div
@@ -240,6 +201,49 @@ export default async function ShopPage() {
           ))}
         </section>
       </Shell>
+      <section
+          id="create-a-store-banner"
+          aria-labelledby="create-a-store-banner-heading"
+          className="place-items-center gap-6 bg-muted px-6 py-16 text-center text-card-foreground"
+        >
+          <div className="flex-1 flex mx-auto justify-center max-w-7xl">
+            <div className="w-1/2">
+            <h2 className="text-2xl font-medium sm:text-3xl">
+      Ready to Start Your Journey?
+    </h2>
+    <p className="text-lg mt-4">
+      Create Your Psychedelics Store Today and Explore New Horizons!
+    </p>
+  </div>
+  
+          <div className="w-1/2">
+          <Link href="/dashboard/stores">
+            <div className={cn(buttonVariants())}>
+              Create a store
+              <span className="sr-only">Create a store</span>
+            </div>
+          </Link>
+          </div>
+          </div>
+          <div className="@container gap-6 pt-8 flex mx-auto max-w-7xl align-middle text-center justify-center">
+            <div className="">
+    <p className="text-xl">
+      <span className="text-2xl font-semibold">Step 1:</span> Sign Up for an Account
+    </p>
+    </div>
+    <div>
+    <p className="text-xl">
+      <span className="text-2xl font-semibold">Step 2:</span> Set Up Your Store
+    </p>
+    </div>
+    <div>
+    <p className="text-xl">
+      <span className="text-2xl font-semibold">Step 3:</span> Start Selling Your Products
+    </p>
+    </div>
+          </div>
+          
+        </section>
         <WhatIsTunedSphere />
     </>
   )
