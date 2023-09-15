@@ -9,9 +9,10 @@ export default function ProductsLoading() {
   return (
     <Shell variant="shop">
       <PageHeader
-      variant="shop">          
-      <Skeleton className="h-9 w-14" />
-      <Skeleton className="h-9 w-20" /></PageHeader>
+      variant="shop">      
+      <Skeleton className="h-9 w-32 mx-auto" />
+      <Skeleton className="h-9 w-64 mx-auto" />
+      </PageHeader>
       <div className="flex flex-col space-y-6">
         <div className="flex items-center gap-2">
           <Skeleton className="h-9 w-14" />
