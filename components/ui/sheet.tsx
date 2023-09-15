@@ -76,7 +76,7 @@ const SheetContent = React.forwardRef<
         <Button
           variant="link"
           size="sm"
-          className="text-textdark hover:text-theme">
+          className="text-textdark hover:text-primary">
           <Icons.close />
           <span className="sr-only">Close</span>
         </Button>

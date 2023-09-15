@@ -55,14 +55,14 @@ export function ShopMobileNav({
         </div>
         <ScrollArea className="my-4 h-[calc(100dvh-8rem)] pb-10 pl-6">
           <div className="pl-1 pr-7">
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="w-full underline-offset-4 decoration-primary">
               {shopMainNavItems?.map((item, index) => (
                 <AccordionItem value={item.title} key={index}>
-                  <AccordionTrigger className="text-sm capitalize text-textdark hover:text-theme-500 leading-6 font-semibold focus:text-theme-500">
+                  <AccordionTrigger className="text-sm capitalize text-textdark hover:text-primary decoration-transparent leading-6 font-semibold focus:text-primary focus:font-bold focus:text-base">
                     {item.title}
                   </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="flex flex-col space-y-2">
+                  <AccordionContent className="text-textdark">
+                    <div className="flex flex-col space-y-2 text-textdark">
                       {item.items?.map((subItem, index) =>
                         subItem.href ? (
                           <MobileLink
@@ -77,7 +77,7 @@ export function ShopMobileNav({
                         ) : (
                           <div
                             key={index}
-                            className="text-foreground transition-colors"
+                            className="text-textdark transition-colors"
                           >
                             {item.title}
                           </div>
@@ -114,8 +114,8 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        "text-foreground/90 transition-colors hover:text-foreground",
-        pathname === href && "text-foreground",
+        "text-textdark/80 transition-colors hover:text-primary hover:bg-muted/30 rounded-md pl-4 py-1",
+        pathname === href && "text-textdark",
         disabled && "pointer-events-none opacity-60"
       )}
       onClick={() => setIsOpen(false)}
