@@ -17,10 +17,10 @@ import { buttonVariants } from "@/components/ui/button"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { StoreCard } from "@/components/cards/store-card"
 import { WhatIsTunedSphere } from "@/components/whatistunedsphere-card"
-import { 
+import {
   PageHeader,
-  PageHeaderHeading, 
-  PageHeaderDescription 
+  PageHeaderHeading,
+  PageHeaderDescription
 } from "@/components/page-header"
 
 
@@ -31,7 +31,7 @@ export default async function ShopPage() {
     .limit(10)
     .orderBy(desc(products.createdAt))
 
-    const someStores = await db
+  const someStores = await db
     .select({
       id: stores.id,
       name: stores.name,
@@ -46,16 +46,16 @@ export default async function ShopPage() {
 
   return (
     <>
-        <Image
+      {/* <Image
     src={heroShop}
     width={600}
     height={600}
     alt="planet Home"
     className="absolute w-full h-[600px] max-w-7xl mx-auto left-0 right-0"
-  ></Image>
+  ></Image> */}
       <Shell variant="shop"
-      className="bg-transparent"> 
-      
+        className="bg-transparent">
+
         <section
           id="shop-heading"
           aria-labelledby="shop-heading"
@@ -112,21 +112,21 @@ export default async function ShopPage() {
         >
           <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
             <PageHeader
-        
-        id="shop-categories-header"
-        aria-labelledby="shop-categories-header-heading"
-      >
-        <PageHeaderHeading size="lg" className="py-8 text-textdark">Categories</PageHeaderHeading>
-        <PageHeaderDescription size="lg">
-        Explore our categories and find the best products for you
-        </PageHeaderDescription>
-      </PageHeader>
+
+              id="shop-categories-header"
+              aria-labelledby="shop-categories-header-heading"
+            >
+              <PageHeaderHeading size="lg" className="py-8 text-textdark">Categories</PageHeaderHeading>
+              <PageHeaderDescription size="lg">
+                Explore our categories and find the best products for you
+              </PageHeaderDescription>
+            </PageHeader>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {productCategories.map((category) => (
-            <CategoryCard key={category.title} category={category} />
-          ))}
-        </div>
+            {productCategories.map((category) => (
+              <CategoryCard key={category.title} category={category} />
+            ))}
+          </div>
         </section>
         <section
           id="featured-products"
@@ -134,7 +134,7 @@ export default async function ShopPage() {
           className="space-y-6 px-0"
         >
           <div className="flex w-full items-center px-2">
-          <PageHeaderHeading size="sm" className="flex-1 text-textdark underline-offset-4 underline decoration-primary font-semibold">
+            <PageHeaderHeading size="sm" className="flex-1 text-textdark underline-offset-4 underline decoration-primary font-semibold">
               Recently Added
             </PageHeaderHeading>
             <Link href="/shop/products">
@@ -157,36 +157,36 @@ export default async function ShopPage() {
           </div>
         </section>
         <section
-        id="featured-stores"
-        aria-labelledby="featured-stores-heading"
-        className="space-y-6"
-      >
-        <div className="flex items-center px-2">
-         <PageHeaderHeading size="sm" className="flex-1 text-textdark underline-offset-4 underline decoration-primary font-semibold">
-            Featured Stores
-         </PageHeaderHeading>
-          <Link aria-label="Stores" href="/stores">
-            <div
-              className={cn(
-                buttonVariants({
-                  size: "sm",
-                })
-              )}
-            >
-              View all
-            </div>
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {someStores.map((store) => (
-            <StoreCard
-              key={store.id}
-              store={store}
-              href={`/products?store_ids=${store.id}`}
-            />
-          ))}
-        </div>
-      </section>
+          id="featured-stores"
+          aria-labelledby="featured-stores-heading"
+          className="space-y-6"
+        >
+          <div className="flex items-center px-2">
+            <PageHeaderHeading size="sm" className="flex-1 text-textdark underline-offset-4 underline decoration-primary font-semibold">
+              Featured Stores
+            </PageHeaderHeading>
+            <Link aria-label="Stores" href="/stores">
+              <div
+                className={cn(
+                  buttonVariants({
+                    size: "sm",
+                  })
+                )}
+              >
+                View all
+              </div>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {someStores.map((store) => (
+              <StoreCard
+                key={store.id}
+                store={store}
+                href={`/products?store_ids=${store.id}`}
+              />
+            ))}
+          </div>
+        </section>
         <section
           id="random-subcategories"
           aria-labelledby="random-subcategories-heading"
@@ -197,9 +197,8 @@ export default async function ShopPage() {
           ]?.subcategories.map((subcategory) => (
             <Link
               key={subcategory.slug}
-              href={`/shop/categories/${String(productCategories[0]?.title)}/${
-                subcategory.slug
-              }`}
+              href={`/shop/categories/${String(productCategories[0]?.title)}/${subcategory.slug
+                }`}
             >
               <Badge variant="secondary" className="rounded px-3 py-1">
                 {subcategory.title}
@@ -210,49 +209,49 @@ export default async function ShopPage() {
         </section>
       </Shell>
       <section
-          id="create-a-store-banner"
-          aria-labelledby="create-a-store-banner-heading"
-          className="place-items-center gap-6 bg-muted px-6 py-16 text-center text-card-foreground"
-        >
-          <div className="flex-1 flex mx-auto justify-center max-w-7xl">
-            <div className="w-1/2">
-            <h2 className="text-2xl font-medium sm:text-3xl">
-      Ready to Start Your Journey?
-    </h2>
-    <p className="text-lg mt-4">
-      Create Your Psychedelics Store Today and Explore New Horizons!
-    </p>
-  </div>
-  
+        id="create-a-store-banner"
+        aria-labelledby="create-a-store-banner-heading"
+        className="place-items-center gap-6 bg-muted px-6 py-16 text-center text-card-foreground"
+      >
+        <div className="flex-1 flex mx-auto justify-center max-w-7xl">
           <div className="w-1/2">
-          <Link href="/dashboard/stores">
-            <div className={cn(buttonVariants())}>
-              Create a store
-              <span className="sr-only">Create a store</span>
-            </div>
-          </Link>
+            <h2 className="text-2xl font-medium sm:text-3xl">
+              Ready to Start Your Journey?
+            </h2>
+            <p className="text-lg mt-4">
+              Create Your Psychedelics Store Today and Explore New Horizons!
+            </p>
           </div>
+
+          <div className="w-1/2">
+            <Link href="/dashboard/stores">
+              <div className={cn(buttonVariants())}>
+                Create a store
+                <span className="sr-only">Create a store</span>
+              </div>
+            </Link>
           </div>
-          <div className="@container gap-6 pt-8 flex mx-auto max-w-7xl align-middle text-center justify-center">
-            <div className="">
-    <p className="text-xl">
-      <span className="text-2xl font-semibold">Step 1:</span> Sign Up for an Account
-    </p>
-    </div>
-    <div>
-    <p className="text-xl">
-      <span className="text-2xl font-semibold">Step 2:</span> Set Up Your Store
-    </p>
-    </div>
-    <div>
-    <p className="text-xl">
-      <span className="text-2xl font-semibold">Step 3:</span> Start Selling Your Products
-    </p>
-    </div>
+        </div>
+        <div className="@container gap-6 pt-8 flex mx-auto max-w-7xl align-middle text-center justify-center">
+          <div className="">
+            <p className="text-xl">
+              <span className="text-2xl font-semibold">Step 1:</span> Sign Up for an Account
+            </p>
           </div>
-          
-        </section>
-        <WhatIsTunedSphere />
+          <div>
+            <p className="text-xl">
+              <span className="text-2xl font-semibold">Step 2:</span> Set Up Your Store
+            </p>
+          </div>
+          <div>
+            <p className="text-xl">
+              <span className="text-2xl font-semibold">Step 3:</span> Start Selling Your Products
+            </p>
+          </div>
+        </div>
+
+      </section>
+      <WhatIsTunedSphere />
     </>
   )
 }
