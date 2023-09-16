@@ -100,7 +100,7 @@ export function ProductImageCarousel({
           }}
         >
           {images.map((image, index) => (
-            <div className="flex-full relative min-w-0 pl-4 rounded-lg px-16" key={index}>
+            <div className="flex-full relative min-w-0 pl-4 rounded-lg" key={index}>
               <AspectRatio ratio={1}>
                 <Image
                   aria-label={`Slide ${index + 1} of ${images.length}`}

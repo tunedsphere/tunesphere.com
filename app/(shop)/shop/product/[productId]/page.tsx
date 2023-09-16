@@ -86,7 +86,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           },
         ]}
       />
-      <div className="flex flex-col gap-8 md:flex-row md:gap-16 px-16">
+      <div className="flex flex-col gap-8 md:flex-row md:gap-16 px-2">
         <ProductImageCarousel
           className="w-full md:w-1/2"
           images={product.images ?? []}
