@@ -143,7 +143,7 @@ export async function CartSheet() {
               aria-hidden="true"
             />
             <span className="text-lg font-medium text-muted-foreground">
-              We understand Inflation but Your cart is empty
+              We understand Inflation but your Basket is empty
             </span>
           </div>
         )}

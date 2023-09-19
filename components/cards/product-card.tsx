@@ -137,7 +137,7 @@ export function ProductCard({
 
             <span><Icons.add className="sm:hidden xl:block"/></span>
             <span><Icons.basket className="hidden sm:block lg:hidden"/></span>
-            <span className="w-full font-semibold sm:hidden block lg:block">Add to cart</span>
+            <span className="w-full font-semibold sm:hidden block lg:block">Add to Basket</span>
           </Button>
         ) : (
           <Button

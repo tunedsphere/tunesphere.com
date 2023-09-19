@@ -55,7 +55,7 @@ const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
     <>
       <SignedOut>
         {isModalOpen && (
-          <div className="fixed inset-0 z-20000 flex h-screen items-center justify-center bg-background/30 backdrop-blur-xs @container">
+          <div className="@container fixed inset-0 z-20000 flex h-screen items-center justify-center bg-background/30 backdrop-blur-sm">
             <div
               ref={modalRef}
               className="no-scrollbar no-scrollbar absolute bottom-0 top-0 z-20000 w-full overflow-y-auto"

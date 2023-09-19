@@ -53,7 +53,7 @@ export default function NewsletterWelcomeEmail({
   return (
     <Html>
       <Head>
-        <title>Skateshop13 Newsletter</title>
+        <title>TunedSphere Newsletter</title>
       </Head>
       <Preview>{previewText}</Preview>
       <Tailwind>
@@ -61,11 +61,11 @@ export default function NewsletterWelcomeEmail({
           <Container className="mx-auto my-[40px] max-w-2xl rounded p-4">
             <Section className="mt-4">
               <Heading className="text-center text-2xl font-semibold text-zinc-950">
-                Skateshop13
+                TunedSphere
               </Heading>
               <Hr className="my-4" />
               <Heading className="text-center text-3xl font-semibold text-zinc-800">
-                Welcome to Skateshop13!
+                Welcome to TunedSphere!
               </Heading>
               <Text className="mb-0 mt-6 text-center text-base">
                 {`We're`} so glad {`you're`} here. {`We're`} excited to share
@@ -111,7 +111,7 @@ export default function NewsletterWelcomeEmail({
                 </Link>
               </Text>
               <Text className="mb-0 mt-4">
-                @ Skateshop13 {new Date().getFullYear()}
+                @ TunedSphere {new Date().getFullYear()}
               </Text>
               <Text className="m-0">
                 If you no longer want to receive these emails, you can{" "}
@@ -119,7 +119,7 @@ export default function NewsletterWelcomeEmail({
                   href={`${baseUrl}/email-preferences?token=${token}`}
                   className="text-blue-500 underline"
                 >
-                  unsubscribe here
+                  Unsubscribe here
                 </Link>
               </Text>
             </Section>

@@ -13,6 +13,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
 
 export function SiteFooter() {
   const [activeIndex, setActiveIndex] = useState(null)
@@ -44,7 +45,16 @@ export function SiteFooter() {
           A Psychedelic dedicated Platform
         </h1>
       </div>
-
+      <section
+            id="newsletter"
+            aria-labelledby="newsletter-heading"
+            className="space-y-3 max-w-2xl flex flex-col justify-center mx-auto"
+          >
+            <h4 className="text-base font-medium text-center">
+              Subscribe to our newsletter
+            </h4>
+            <SubscribeToNewsletterForm />
+          </section>
       <div className="hidden @container md:block">
         <div className="mx-auto grid max-w-[1400px] py-8 @sm:grid-cols-9">
           <div className="col-start-2">

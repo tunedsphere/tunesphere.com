@@ -22,6 +22,7 @@ import {
   PageHeaderHeading,
   PageHeaderDescription
 } from "@/components/page-header"
+import { StartYourJourney } from "@/components/start-your-journey"
 
 
 export default async function ShopPage() {
@@ -205,49 +206,7 @@ export default async function ShopPage() {
           ))}
         </section>
       </Shell>
-      <section
-        id="create-a-store-banner"
-        aria-labelledby="create-a-store-banner-heading"
-        className="place-items-center gap-6 bg-muted px-6 py-16 text-center text-card-foreground"
-      >
-        <div className="flex-1 flex mx-auto justify-center max-w-7xl">
-          <div className="w-1/2">
-            <h2 className="text-2xl font-medium sm:text-3xl">
-              Ready to Start Your Journey?
-            </h2>
-            <p className="text-lg mt-4">
-              Create Your Psychedelics Store Today and Explore New Horizons!
-            </p>
-          </div>
-
-          <div className="w-1/2">
-            <Link href="/dashboard/stores">
-              <div className={cn(buttonVariants())}>
-                Create a store
-                <span className="sr-only">Create a store</span>
-              </div>
-            </Link>
-          </div>
-        </div>
-        <div className="@container gap-6 pt-8 flex mx-auto max-w-7xl align-middle text-center justify-center">
-          <div className="">
-            <p className="text-xl">
-              <span className="text-2xl font-semibold">Step 1:</span> Sign Up for an Account
-            </p>
-          </div>
-          <div>
-            <p className="text-xl">
-              <span className="text-2xl font-semibold">Step 2:</span> Set Up Your Store
-            </p>
-          </div>
-          <div>
-            <p className="text-xl">
-              <span className="text-2xl font-semibold">Step 3:</span> Start Selling Your Products
-            </p>
-          </div>
-        </div>
-
-      </section>
+       <StartYourJourney/>
       <WhatIsTunedSphere />
     </>
   )
