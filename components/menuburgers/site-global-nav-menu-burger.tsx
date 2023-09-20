@@ -1,7 +1,8 @@
 "use client"
 
 import React, { useState } from "react"
-
+import { dashboardConfig } from "@/configs/dashboard"
+import { siteConfig } from "@/configs/site"
 import { Button } from "@/components/ui/button"
 import GlobalNavFlyout from "@/components/layouts/globalnav-flyout-menu"
 import { Icons } from "@/components/icons"
@@ -67,7 +68,7 @@ export default function SiteGlobalNavMenuBurger() {
         </div>
       </div>
       {isMenuOpen && <GlobalNavbarBottom />}
-      {isGlobalNavFlyoutOpen && <GlobalNavFlyout handleClose={handleFlyoutClose} />}
+      {isGlobalNavFlyoutOpen && <GlobalNavFlyout handleClose={handleFlyoutClose}    />}
     </>
   )
 }

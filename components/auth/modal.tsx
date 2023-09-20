@@ -23,28 +23,6 @@ const Modal: React.FC<ModalProps> = ({ handleModalClose }) => {
     setIsModalOpen(false)
   }
 
-  const handleEscapeKey = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      handleModalClose()
-    }
-  }
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-      handleModalClose()
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener("keydown", handleEscapeKey)
-    document.addEventListener("mousedown", handleClickOutside)
-
-    return () => {
-      document.removeEventListener("keydown", handleEscapeKey)
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
-
   useEffect(() => {
     if (!isModalOpen) {
       setQuery("")

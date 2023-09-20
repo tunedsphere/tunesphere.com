@@ -7,40 +7,34 @@ import { Icons } from "@/components/icons"
 
 import { Button } from "@/components/ui/button"
 
-export default function SearchBox({}) {
+interface SearchBoxProps {
+  ref: React.RefObject<HTMLDivElement>;
+  handleClick?: boolean;
+}
+export default function SearchBox({ref, handleClick} : SearchBoxProps) {
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false)
   const searchBoxRef = useRef(null)
-
   const handleSearchTriggerClick = () => {
     setSearchBoxVisible(!isSearchBoxVisible)
   }
   const closeSearch = () => {
     setSearchBoxVisible(false)
   }
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        closeSearch()
-      }
-    }
-
-    const handleClickOutside = (event) => {
-      if (
-        searchBoxRef.current &&
-        !searchBoxRef.current.contains(event.target)
-      ) {
-        closeSearch()
-      }
-    }
-
-    document.addEventListener("keydown", handleKeyDown)
-    document.addEventListener("click", handleClickOutside)
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown)
-      document.removeEventListener("click", handleClickOutside)
-    }
-  }, [closeSearch])
+  
+    useEffect(() => {
+      const handleOutSideClick = (event: MouseEvent) => {
+        if (ref.current && !ref.current.contains(event.target as Node)) {
+          alert("Outside Clicked.");
+          console.log("Outside Clicked. ");
+        }
+      };
+  
+      window.addEventListener("mousedown", handleOutSideClick);
+  
+      return () => {
+        window.removeEventListener("mousedown", handleOutSideClick);
+      };
+    }, [ref, handleClick]);
 
   return (
     <>
@@ -55,7 +49,7 @@ export default function SearchBox({}) {
       {isSearchBoxVisible && (
         <div className="fixed inset-0 z-10000 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50">
           <div
-            ref={searchBoxRef}
+            ref={ref}
             id="search-box"
             className="m-h-[500px] absolute bottom-0 left-2 right-2 top-0 z-40 mx-auto my-auto max-h-[calc(100%-24px)] max-w-[calc(100%-8px)] rounded-lg border border-theme bg-accent-1 md:bottom-auto md:top-1/4 md:max-w-2xl"
           >

@@ -54,7 +54,7 @@ export const siteConfig = {
         },
         {
           title: "Blog",
-          href: "/shop/blog",
+          href: "/blog",
           description: "Read our latest blog posts.",
           items: [],
         },
@@ -87,10 +87,12 @@ export const siteConfig = {
         {
           title: "Music",
           href: "/music",
+          external: false,
         },
         {
           title: "Shop",
           href: "/shop",
+          external: false,
         },
       ],
     },
@@ -100,18 +102,22 @@ export const siteConfig = {
         {
           title: "Legal Information",
           href: "/legal-information",
+          external: false,
         },
         {
           title: "Authors' rights",
           href: "/authors-rights",
+          external: false,
         },
         {
           title: "Terms & Conditions",
           href: "/terms-conditions",
+           external: false,
         },
         {
           title: "Contact Us",
           href: "/contact-us",
+          external: false,
         },
       ],
     },
@@ -121,18 +127,22 @@ export const siteConfig = {
         {
           title: "Spirit",
           href: "/spirit",
+          external: false,
         },
         {
           title: "Team",
           href: "/team",
+          external: false,
         },
         {
           title: "Support",
           href: "/support",
+          external: false,
         },
         {
           title: "Donate",
           href: "/donate",
+          external: false,
         },
       ],
     },

@@ -55,10 +55,10 @@ export function ShopMobileNav({
         </div>
         <ScrollArea className="my-4 h-[calc(100dvh-8rem)] pb-10 pl-6">
           <div className="pl-1 pr-7">
-            <Accordion type="single" collapsible className="w-full underline-offset-4 decoration-primary">
+            <Accordion type="single" collapsible className="w-full">
               {shopMainNavItems?.map((item, index) => (
                 <AccordionItem value={item.title} key={index}>
-                  <AccordionTrigger className="text-sm capitalize text-textdark hover:text-primary decoration-transparent leading-6 font-semibold focus:text-primary focus:font-bold focus:text-base">
+                  <AccordionTrigger className="text-sm capitalize text-textdark hover:text-primary decoration-transparent leading-6 font-semibold">
                     {item.title}
                   </AccordionTrigger>
                   <AccordionContent className="text-textdark">

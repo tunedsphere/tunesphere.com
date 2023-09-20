@@ -22,6 +22,13 @@ export default authMiddleware({
     "/artsits(.*)", 
     "/albums(.*)", 
     "/uipage(.*)",
+    "/email-preferences(.*)",
+    "/blog(.*)",
+    "/about(.*)",
+    "/contact(.*)",
+    "/terms(.*)",
+    "/privacy(.*)",
+    "/api(.*)",
   ],
   async afterAuth(auth, req) {
     if (auth.isPublicRoute) {

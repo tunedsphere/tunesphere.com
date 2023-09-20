@@ -6,8 +6,8 @@ import * as React from "react"
 import { recordLabels } from "@/public/data.js"
 
 interface SelectCountryProps {
-  selectedCountry: string | null
-  onCountryChange: (country: string | null) => void
+  selectedCountry: string
+  onCountryChange: (country: string) => void
 }
 
 const SelectCountry: React.FC<SelectCountryProps> = ({

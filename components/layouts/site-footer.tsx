@@ -15,26 +15,14 @@ import {
 } from "@/components/ui/collapsible"
 import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
 
+
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
+
+import { Icons } from "@/components/icons"
+
+import { Shell } from "@/components/shells/shell"
 export function SiteFooter() {
-  const [activeIndex, setActiveIndex] = useState(null)
-  const containerRef = useRef(null)
-
-  const handleCollapsibleToggle = (index) => {
-    setActiveIndex((prevIndex) => (prevIndex === index ? null : index))
-  }
-
-  const handleClickOutside = (event) => {
-    if (containerRef.current && !containerRef.current.contains(event.target)) {
-      setActiveIndex(null)
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside)
-    return () => {
-      document.removeEventListener("click", handleClickOutside)
-    }
-  }, [])
 
   return (
     <footer className="relative bottom-0 mx-auto w-full items-center px-4 py-8">
@@ -48,123 +36,61 @@ export function SiteFooter() {
       <section
             id="newsletter"
             aria-labelledby="newsletter-heading"
-            className="space-y-3 max-w-2xl flex flex-col justify-center mx-auto"
+            className="space-y-3 max-w-2xl flex flex-col justify-center mx-auto py-4 gap-4"
           >
             <h4 className="text-base font-medium text-center">
-              Subscribe to our newsletter
-            </h4>
+  Subscribe to our <span className="underline decoration-primary underline-offset-4 font-semibold">Newsletter</span>
+</h4>
             <SubscribeToNewsletterForm />
           </section>
-      <div className="hidden @container md:block">
-        <div className="mx-auto grid max-w-[1400px] py-8 @sm:grid-cols-9">
-          <div className="col-start-2">
-            <h5 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
-              {siteConfig.footerNav[0].title}
-            </h5>
-            <ul className="text-sm">
-              {siteConfig.footerNav[0].items.map((item, index) => (
-                <li key={index}>
-                  <Link href={item.href}>
-                    <p className="cursor-pointer text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh">
-                      {item.title}
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="col-start-4">
-            <h5 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
-              {siteConfig.footerNav[1].title}
-            </h5>
-            <ul className="text-sm">
-              {siteConfig.footerNav[1].items.map((item, index) => (
-                <li key={index}>
-                  <Link href={item.href}>
-                    <p className="cursor-pointer text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh">
-                      {item.title}
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="col-start-6">
-            <h5 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
-              {siteConfig.footerNav[2].title}
-            </h5>
-            <ul className="text-sm">
-              {siteConfig.footerNav[2].items.map((item, index) => (
-                <li key={index}>
-                  <Link href={item.href}>
-                    <p className="cursor-pointer text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh">
-                      {item.title}
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="col-start-8">
-            <h5 className="py-2 text-left text-texthigh underline decoration-primary underline-offset-4">
-              {siteConfig.footerNav[3].title}
-            </h5>
-            <ul className="text-sm">
-              {siteConfig.footerNav[3].items.map((item, index) => (
-                <li key={index}>
-                  <Link href={item.href}>
-                    <p className="cursor-pointer text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh">
-                      {item.title}
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div className="block @container md:hidden" ref={containerRef}>
-        <div className="divide-y divide-primary">
-          {siteConfig.footerNav.map((item, index) => (
-            <Collapsible
-              key={index}
-              open={activeIndex === index}
-              onOpenChange={() => handleCollapsibleToggle(index)}
-            >
-              <CollapsibleTrigger className="w-full py-4 text-texthigh">
-                <span className="float-left">{item.title}</span>
-                <span className="float-right mr-2">
-                  {activeIndex === index ? "-" : "+"}
-                </span>
-              </CollapsibleTrigger>
-              <CollapsibleContent className="w-full pb-4 pl-4">
-                {item.items.map((subItem, subIndex) => (
-                  <Link
-                    className="left-0 flex text-textlow hover:underline hover:text-texthigh hover:decoration-text-texthigh"
-                    key={subIndex}
-                    href={subItem.href}
-                  >
-                    {subItem.title}
-                  </Link>
-                ))}
-              </CollapsibleContent>
-            </Collapsible>
-          ))}
-        </div>
-      </div>
-
-
-        <div className="mb-[50px] h-[2px] bg-white opacity-10" />
-
-        <div className="flex flex-wrap justify-center items-center gap-4">
-          <h3 className="text-2xl font-extrabold text-texthigh">
-            TUNEDSPHERE
-          </h3>
-          <p className="text-sm font-normal text-textlow opacity-75">
-            Copyright © 2023 - 2023 TunedSPhere. All rights reserved.
-          </p>
-        </div>
+          <Shell>
+        <section
+          id="footer-content"
+          aria-labelledby="footer-content-heading"
+          className="flex flex-col gap-10 lg:flex-row lg:gap-20"
+        >
+          <section
+            id="footer-links"
+            aria-labelledby="footer-links-heading"
+            className="grid flex-1 grid-cols-1 gap-10 xs:grid-cols-2 sm:grid-cols-4 md:gap-32 lg:gap-56 py-8"
+          >
+            {siteConfig.footerNav.map((item) => (
+              <div key={item.title} className="space-y-3">
+                <h4 className="text-base font-medium underline decoration-primary underline-offset-4">{item.title}</h4>
+                <ul className="space-y-3">
+                  {item.items.map((link) => (
+                    <li key={link.title}>
+                      <Link
+                        href={link.href}
+                        target={link?.external ? "_blank" : undefined}
+                        rel={link?.external ? "noreferrer" : undefined}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link.title}
+                        <span className="sr-only">{link.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+        </section>
+        <section
+          id="footer-bottom"
+          aria-labelledby="footer-bottom-heading"
+          className="flex items-center justify-center align-middle"
+        >
+<div className="flex flex-wrap justify-center items-center gap-4 pt-8">
+  <h3 className="text-2xl font-extrabold text-texthigh">
+    TUNEDSPHERE
+  </h3>
+  <p className="text-sm font-normal text-textlow opacity-75">
+    Copyright © 2023 - 2023 TunedSPhere. All rights reserved.
+  </p>
+  </div>
+        </section>
+      </Shell>
     </footer>
   )
 }

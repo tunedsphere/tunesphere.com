@@ -20,7 +20,7 @@ import { Button } from "../ui/button"
 interface GlobalNavFlyoutProps {
   handleClose: () => void
 }
-const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ handleClose }) => {
+  export default function GlobalNavFlyout({ handleClose }: GlobalNavFlyoutProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [isModalOpen, setModalOpen] = useState(false)
   const [isFlyoutOpen, setFlyoutOpen] = useState(true)
@@ -31,9 +31,10 @@ const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ handleClose }) => {
     return (
       <div className="flex items-center justify-center ">
         <img
+          onClick={handleClose}
          width={60}
          height={60}
-          src={user.profileImageUrl}
+          src={user.imageUrl}
           className="h-32 w-32 flex-none rounded-full border border-muted/30 shadow-sm"
           alt="Profile image"
         />
@@ -44,12 +45,6 @@ const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ handleClose }) => {
   const handleModalOpen = () => {
     setModalOpen(!isModalOpen)
   }
-
-  const handleCollapsibleToggle = (index: number) => {
-    setActiveIndex((prevIndex) => (prevIndex === index ? null : index))
-  }
-
- 
 
   return (
     <>
@@ -93,6 +88,7 @@ const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ handleClose }) => {
                 className="flex w-full justify-between py-4 text-2xl leading-7 text-texthigh"
               >
                 <Link
+                  onClick={handleClose}
                   href={item.href}
                   className="text-texthigh hover:text-theme"
                 >
@@ -107,4 +103,3 @@ const GlobalNavFlyout: React.FC<GlobalNavFlyoutProps> = ({ handleClose }) => {
     </>
   )
 }
-export default GlobalNavFlyout

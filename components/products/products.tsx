@@ -168,7 +168,7 @@ export function Products({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storeIds])
 
-  const handlePerPageChange = (newValue) => {
+  const handlePerPageChange = (newValue :number) => {
     startTransition(() => {
       router.push(
         `${pathname}?${createQueryString({

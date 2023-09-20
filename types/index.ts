@@ -19,14 +19,6 @@ export interface NavItem {
   label?: string
   description?: string
 }
-export interface FooterItem {
-  title: string
-  items: {
-    title: string
-    href?: string
-    external?: boolean
-  }[]
-}
 
 export interface NavItemWithChildren extends NavItem {
   items: NavItemWithChildren[]
@@ -35,6 +27,15 @@ export interface NavItemWithChildren extends NavItem {
 export interface NavItemWithOptionalChildren extends NavItem {
   items?: NavItemWithChildren[]
 }
+export interface FooterItem {
+  title: string
+  items: {
+    title: string
+    href: string
+    external?: boolean
+  }[]
+}
+
 export type ShopNavItem = NavItemWithOptionalChildren
 
 export type ShopMainNavItem = NavItemWithOptionalChildren
