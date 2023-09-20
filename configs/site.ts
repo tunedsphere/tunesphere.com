@@ -125,23 +125,23 @@ export const siteConfig = {
       title: "About Us", // Default href for "About Us" title
       items: [
         {
-          title: "Spirit",
-          href: "/spirit",
+          title: "About",
+          href: "/about",
           external: false,
         },
         {
-          title: "Team",
-          href: "/team",
+          title: "Contact",
+          href: "/contact",
           external: false,
         },
         {
-          title: "Support",
-          href: "/support",
+          title: "Terms",
+          href: "/terms",
           external: false,
         },
         {
-          title: "Donate",
-          href: "/donate",
+          title: "Privacy",
+          href: "/privacy",
           external: false,
         },
       ],

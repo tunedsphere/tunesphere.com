@@ -118,7 +118,7 @@ export const productCategories = [
   },
   {
     title: "tools",
-    image: "/images/tools-one.webp",
+    image: "/images/tools.webp",
     icon: StoreIcons.Cigarette,
     subcategories: [
       {

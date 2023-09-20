@@ -1,12 +1,21 @@
 import "@/styles/globals.css"
-
+import type { Metadata } from "next"
+import { env } from "@/env.mjs"
 import { ClerkProvider } from "@clerk/nextjs"
 
+import { siteConfig } from "@/configs/site"
+
 import { Toaster } from "@/components/ui/toaster"
+
+
 import { ThemeProvider } from "@/components/theme-provider"
 
-export const metadata = {
-  title: "TunedSphere",
+export const metadata: Metadata = {
+  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
   description: "Psychedelic Dedicated Platform",
 
   keywords: ["Psytrance", "Music Platform", "Psychedelic", "Art", "Shop"],
@@ -18,13 +27,19 @@ export const metadata = {
   ],
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "light" },
-    { media: "(prefers-color-scheme: dark)", color: "dark" },
-    { media: "(prefers-color-scheme: fire)", color: "fire" },
+    { media: "(prefers-color-scheme: dark)", color: "dark" }
   ],
   creator: "TunedSphere",
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
   },
 }
 

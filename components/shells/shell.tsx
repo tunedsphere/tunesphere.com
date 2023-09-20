@@ -12,7 +12,7 @@ const shellVariants = cva("grid gap-8 pb-8", {
       dashboard: "py-8 gap-8 md:px-8 xl:px-10",
       sidebar: "pt-0 md:py-0",
       centered: "mx-auto mb-16 mt-20 max-w-md justify-center",
-      markdown: "container max-w-3xl gap-0 py-8 md:py-10 lg:py-10",
+      markdown: "container max-w-5xl gap-0 py-8 md:py-10 lg:py-10",
     },
   },
   defaultVariants: {
