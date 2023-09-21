@@ -150,11 +150,3 @@ export const addresses = mysqlTable("addresses", {
 
 export type Address = typeof addresses.$inferSelect
 export type NewAddress = typeof addresses.$inferInsert
-
-export const recordLabels = mysqlTable("recordLabels", {
-  id: serial("id").primaryKey(),
-  name: varchar("name", { length: 191 }).notNull(),
-  bio: text("bio"),
-})
-
-export type RecordLabel = typeof recordLabels.$inferSelect

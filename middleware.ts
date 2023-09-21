@@ -28,7 +28,6 @@ export default authMiddleware({
     "/authors-rights(.*)",
     "/terms-conditions(.*)",
   ],
-  ignoredRoutes: ['/api/webhook/clerk'],
   async afterAuth(auth, req) {
     if (auth.isPublicRoute) {
       //  For public routes, we don't need to do anything
@@ -63,5 +62,5 @@ export default authMiddleware({
 })
 
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api)(.*)"],
 };
