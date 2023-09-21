@@ -1,7 +1,7 @@
-import { authMiddleware } from "@clerk/nextjs/server";
-import { NextResponse } from "next/server"
-import { type UserRole } from "@/types"
-import { clerkClient } from "@clerk/nextjs"
+import { authMiddleware } from "@clerk/nextjs";
+import { NextResponse } from "next/server";
+import { type UserRole } from "@/types";
+import { clerkClient } from "@clerk/nextjs";
 
 
 export default authMiddleware({
@@ -16,20 +16,19 @@ export default authMiddleware({
     "/shop/categories(.*)",
     "/shop/products(.*)",
     "/shop/product(.*)",
-    "/music(.*)", 
-    "/genres(.*)", 
     "/festivals(.*)", 
-    "/artsits(.*)", 
-    "/albums(.*)", 
-    "/uipage(.*)",
+    "/music(.*)",
     "/email-preferences(.*)",
     "/blog(.*)",
     "/about(.*)",
     "/contact(.*)",
     "/terms(.*)",
     "/privacy(.*)",
-    "/api(.*)",
+    "/legal-information(.*)",
+    "/authors-rights(.*)",
+    "/terms-conditions(.*)",
   ],
+  ignoredRoutes: ['/api/webhook/clerk'],
   async afterAuth(auth, req) {
     if (auth.isPublicRoute) {
       //  For public routes, we don't need to do anything
@@ -64,6 +63,5 @@ export default authMiddleware({
 })
 
 export const config = {
-
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api)(.*)"],
+  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
 };

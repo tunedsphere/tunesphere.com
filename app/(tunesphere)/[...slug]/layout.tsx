@@ -10,7 +10,7 @@ export default function ShopLayout({ children }: ShopLayoutProps) {
   return (
     <>
       <SiteHeader />
-      <main className="flex-1 py-32">{children}</main>
+      <main className="flex-1 pt-32">{children}</main>
     </>
   )
 }

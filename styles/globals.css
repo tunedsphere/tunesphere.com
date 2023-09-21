@@ -227,9 +227,9 @@
 
     --accent-theme: 252 40.1% 22.5%;
 
-    --destructive: var(--destructive-500);
-    --destructive-hover: 358 65% 30%;
-    --destructive-foreground: var(--destructive-200);
+
+    --destructive: 0 62.8% 30.6%;    
+    --destructive-foreground: 210 20% 98%;   
 
     --ring: var(--accent-6);
 

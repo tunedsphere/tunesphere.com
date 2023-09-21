@@ -3,18 +3,17 @@ import "@/styles/globals.css"
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import planet2 from "@/public/bghome/planet2.png"
+import planet2 from "@/public/bghome/planet2.webp"
 import { Icons } from "@/components/icons"
 import { SiteGlobalNav } from "@/components/layouts/site-global-nav"
 import { Shell } from "@/components/shells/shell"
 
 import {
   PageHeader,
-  PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
 
-import { productCategories } from "@/configs/products"
+
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
@@ -222,47 +221,6 @@ export default function MyApp() {
           </div>
         </div>
       </Shell>
-      <section
-        id="categories"
-        aria-labelledby="categories-heading"
-        className="space-y-6 py-6 md:pt-10 lg:pt-24"
-      >
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-        <PageHeader id="home-categories" aria-labelledby="home-header-heading">
-        <PageHeaderHeading size="lg">Categories</PageHeaderHeading>
-        <PageHeaderDescription size="lg">
-        Explore our categories and find the best products for you
-        </PageHeaderDescription>
-      </PageHeader>
-        </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {productCategories.map((category) => (
-            <Link
-              aria-label={`Go to ${category.title}`}
-              key={category.title}
-              href={`/shop/categories/${category.title}`}
-            >
-              <div className="group relative overflow-hidden rounded-md">
-                <div className="absolute inset-0 z-10 bg-black/60 transition-colors group-hover:bg-black/70" />
-                <Image
-                  src={category.image}
-                  alt={category.title}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                  priority
-                />
-
-                <div className="absolute inset-0 z-20 flex items-center justify-center">
-                  <h3 className="text-3xl font-medium capitalize text-slate-100 md:text-2xl">
-                    {category.title}
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
     </>
   )
 }
