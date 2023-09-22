@@ -13,6 +13,7 @@ export default authMiddleware({
     "/sso-callback(.*)",
     "/api(.*)",
     "/shop(.*)",
+    "/shop/tunedsphere-products(.*)",
     "/shop/c(.*)",
     "/shop/products(.*)",
     "/shop/product(.*)",
