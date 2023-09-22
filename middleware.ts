@@ -13,7 +13,7 @@ export default authMiddleware({
     "/sso-callback(.*)",
     "/api(.*)",
     "/shop(.*)",
-    "/shop/categories(.*)",
+    "/shop/c(.*)",
     "/shop/products(.*)",
     "/shop/product(.*)",
     "/festivals(.*)", 
