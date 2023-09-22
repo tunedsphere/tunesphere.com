@@ -171,8 +171,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {store && otherProducts.length > 0 ? (
         <div className="overflow-hidden md:pt-6 ">
           <PageHeader>
-            <PageHeaderHeading size="sm" className="text-textdark/80">
-            More products from <span className="text-4xl text-textdark underline-offset-4 underline decoration-4 decoration-theme">{store.name}</span>
+            <PageHeaderHeading size="xs" className="font-medium text-textdark/80">
+            More products from <span className="text-2xl font-semibold text-textdark underline-offset-4 underline decoration-2 hover:decoration-4 cursor-pointer decoration-theme">{store.name}</span>
             </PageHeaderHeading>
             </PageHeader>
 

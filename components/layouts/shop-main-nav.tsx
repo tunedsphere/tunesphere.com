@@ -37,9 +37,11 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
         <NavigationMenuList>
           {items?.[0]?.items ? (
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="h-auto text-textdark bg-theme-200">
+               <Link href="/shop">
+              <NavigationMenuTrigger className="h-auto text-textdark focus:text-textdark bg-theme-200">
                 {items[0].title}
               </NavigationMenuTrigger>
+              </Link>
               <NavigationMenuContent className="bg-theme-100 shadow-xl">
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[790px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
@@ -83,10 +85,14 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
             ?.filter((item) => item.title !== items[0]?.title)
             .map((item) =>
               item?.items ? (
+                
                 <NavigationMenuItem key={item.title}>
-                  <NavigationMenuTrigger className="h-auto capitalize text-textdark bg-theme-200">
+                  
+                  <Link href={`/shop/c/${encodeURIComponent(item.title)}`}>
+                  <NavigationMenuTrigger className="h-auto capitalize text-textdark focus:text-textdark bg-theme-200">
                     {item.title}
                   </NavigationMenuTrigger>
+                  </Link>
                   <NavigationMenuContent className="bg-theme-100 shadow-xl">
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[790px]">
                       {item.items.map((item) => (

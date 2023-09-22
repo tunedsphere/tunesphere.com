@@ -24,7 +24,7 @@ export function StoreCard({ store, href }: StoreCardProps) {
     className=""
     aria-label={store.name}
     href={href}>
-      <Card className="group h-full border-none shadow-xl hover:shadow-2xl">
+      <Card className="group h-full border-none shadow-xl hover:shadow-2xl bg-muted/70">
         <AspectRatio ratio={21 / 9}>
           <Badge
             className={cn(
@@ -40,7 +40,7 @@ export function StoreCard({ store, href }: StoreCardProps) {
           />
         </AspectRatio>
         <CardHeader>
-          <CardTitle className="line-clamp-1 text-lg">{store.name}</CardTitle>
+          <CardTitle className="line-clamp-1 text-lg font-semibold decoration-2 hover:decoration-4 underline underline-offset-4 decoration-primary">{store.name}</CardTitle>
           {store.description ? (
             <CardDescription className="line-clamp-2">
               {store.description}
