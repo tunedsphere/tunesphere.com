@@ -30,14 +30,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   const categories = productCategories.map((category) => ({
-    url: absoluteUrl(`/shop/categories/${category.title}`),
+    url: absoluteUrl(`/shop/c/${category.title}`),
     lastModified: new Date().toISOString(),
   }))
 
   const subcategories = productCategories
     .map((category) =>
       category.subcategories.map((subcategory) => ({
-        url: absoluteUrl(`/shop/categories/${category.title}/${subcategory.slug}`),
+        url: absoluteUrl(`/shop/c/${category.title}/${subcategory.slug}`),
         lastModified: new Date().toISOString(),
       }))
     )
