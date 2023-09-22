@@ -78,7 +78,7 @@ export const productCategories = [
       {
         title: "tapistery",
         description: "Essentials",
-        slug: "decorations",
+        slug: "tapistery",
       },
     ],
   },
@@ -145,11 +145,7 @@ export const productTags = [
   "limited",
   "exclusive",
 ]
-// export const productGenre = [
-//   "Men",
-//   "Woman",
-//   "Unisex",
-// ]
+
 export function getSubcategories(category?: string): Option[] {
   if (!category) return []
 

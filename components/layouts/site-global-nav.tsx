@@ -19,12 +19,10 @@ export function SiteGlobalNav() {
     <>
       <nav
         id="globalnav"
-        className="globalnav fixed h-auto border-b-2 border-accent-2 @container"
-      >
+        className="globalnav fixed h-auto border-b-2 border-accent-2 @container">
         <div
           id="globalnav-content"
-          className="relative bg-background-globalnav md:bg-background-globalnav/50"
-        >
+          className="relative bg-background-globalnav md:bg-background-globalnav/50">
           <div className="navbar-container flex h-[--headerHeight] px-4 py-2 md:px-8">
             <div className="relative hidden flex-row items-center justify-start gap-1 sm:flex sm:w-1/3 sm:gap-2">
               <Icons.logo className="" width={72} height={72}></Icons.logo>
@@ -50,15 +48,6 @@ export function SiteGlobalNav() {
           <SiteGlobalNavMenuBurger />
         </div>
         <NavbarVideo/>
-        {/* <video
-          autoPlay
-          loop
-          muted
-          className="absolute left-0 top-0 z-10 hidden h-full w-full object-cover md:block"
-          style={{ zIndex: -10 }}
-        >
-          <source src="/bgvideo.mp4" type="video/mp4" />
-        </video> */}
       </nav>
     </>
   )

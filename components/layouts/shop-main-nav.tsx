@@ -46,19 +46,18 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                     <NavigationMenuLink asChild>
                       <a
                         aria-label="Home"
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-theme-50/50 to-theme-100 p-6 no-underline outline-none"
+                        className="flex w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-theme-50/50 to-theme-100 p-6 no-underline outline-none"
                         href="/"
                       >
                         <Icons.logo
-                          className="left-0 z-100"
-                          width={100}
-                          height={100}
+                          className="left-0 z-100 text-textdark"
+                          width={72}
+                          height={72}
                         ></Icons.logo>
-
-                        <div className="mb-2 mt-4 text-lg font-medium">
+                        <div className="mb-2 mt-4 text-lg leading-6 tracking-tighter font-semibold text-textdark">
                           {siteConfig.name}
                         </div>
-                        <p className="text-sm leading-tight text-accent-foreground">
+                        <p className="text-sm leading-tight text-muted-foreground">
                           {siteConfig.description}
                         </p>
                       </a>
@@ -142,7 +141,7 @@ const ListItem = React.forwardRef<
           <div className="text-sm font-medium leading-none">
             {title}
           </div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground ">
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </Link>

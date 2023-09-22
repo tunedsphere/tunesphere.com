@@ -1,14 +1,13 @@
-import type { Metadata } from "next"
+
 
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { db } from "@/db"
-import { products, stores, storesRelations } from "@/db/schema"
-import { env } from "@/env.mjs"
-
+import { products, stores } from "@/db/schema"
+import { getSubcategories } from "@/configs/products"
 import { and, desc, eq, not } from "drizzle-orm"
 
-import { formatPrice, toTitleCase } from "@/lib/utils"
+import { formatPrice, toTitleCase, slugify } from "@/lib/utils"
 import {
   Accordion,
   AccordionContent,
@@ -23,15 +22,31 @@ import { ProductImageCarousel } from "@/components/products/product-image-carous
 import { Shell } from "@/components/shells/shell"
 import { PageHeader, PageHeaderHeading } from "@/components/page-header"
 
-export const metadata: Metadata = {
-  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: "Product",
-  description: "Product description",
-}
-
 interface ProductPageProps {
   params: {
     productId: string
+  }
+}
+
+export async function generateMetadata({ params }: ProductPageProps) {
+  const productId = Number(params.productId)
+
+
+  const product = await db.query.products.findFirst({
+    columns: {
+      name: true,
+      description: true,
+    },
+    where: eq(products.id, productId),
+  })
+
+  if (!product) {
+    return {}
+  }
+
+  return {
+    title: toTitleCase(product.name),
+    description: product.description ?? undefined,
   }
 }
 
@@ -39,6 +54,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const productId = Number(params.productId)
 
   const product = await db.query.products.findFirst({
+    columns: {
+      id: true,
+      name: true,
+      description: true,
+      price: true,
+      images: true,
+      category: true,
+      subcategory: true,
+      storeId: true,
+    },
     where: eq(products.id, productId),
   })
 
@@ -54,9 +79,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
     where: eq(stores.id, product.storeId),
   })
 
-  const productsFromStore = store
+  const otherProducts = store
     ? await db
-        .select()
+        .select({
+          id: products.id,
+          name: products.name,
+          price: products.price,
+          images: products.images,
+          category: products.category,
+          inventory: products.inventory,
+        })
         .from(products)
         .limit(4)
         .where(
@@ -67,10 +99,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
         )
         .orderBy(desc(products.inventory))
     : []
-
   return (
     <Shell variant="shop">
-      <Breadcrumbs
+    <Breadcrumbs
         segments={[
           {
             title: "Products",
@@ -78,7 +109,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
           },
           {
             title: toTitleCase(product.category),
-            href: `/shop/products?category=${product.category}`,
+            href: `/shop/c/${product.category}`,
+          },
+          {
+            title: toTitleCase(product.subcategory || ''),
+            href: `/shop/c/${product.category}/${product.subcategory || ''}`,
           },
           {
             title: product.name,
@@ -105,7 +140,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </p>
             {store ? (
               <Link
-                href={`/shop/products?store_ids=${store.id}`}
+                href={`/shop/store/${slugify(store.name)}`}
                 className="line-clamp-1 inline-block text-base text-muted-foreground hover:underline"
               >
                 {store.name}
@@ -133,7 +168,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           aria-labelledby="products-from-store-heading"
           className="space-y-6 px-0"
         >
-      {store && productsFromStore.length > 0 ? (
+      {store && otherProducts.length > 0 ? (
         <div className="overflow-hidden md:pt-6 ">
           <PageHeader>
             <PageHeaderHeading size="sm" className="text-textdark/80">
@@ -142,11 +177,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </PageHeader>
 
           <div className="pt-6 px-2 grid w-full grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
-              {productsFromStore.map((product) => (
+             {otherProducts.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}
-                  className=""
+                  className="min-w-[260px]"
                 />
               ))}
             </div>

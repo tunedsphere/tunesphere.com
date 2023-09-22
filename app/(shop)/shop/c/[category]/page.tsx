@@ -87,7 +87,7 @@ export default async function CategoryPage({
           },
           {
             title: toTitleCase(category),
-            href: `/shop/products?category=${category}`,
+            href: `/shop/${category}`,
           },
         ]}
       />

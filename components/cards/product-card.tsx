@@ -25,7 +25,7 @@ import { addToCartAction } from "@/app/_actions/cart"
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
   product: Pick<
     Product,
-    "id" | "name" | "price" | "images" | "category" | "inventory" | "storeId" 
+    "id" | "name" | "price" | "images" | "category" | "inventory"
   >
   variant?: "default" | "switchable"
   isAddedToCart?: boolean
@@ -53,8 +53,7 @@ export function ProductCard({
         className
       )}
       {...props}
-    >
-              
+    >       
       <Link className=""
       href={`/shop/product/${product.id}`}>
 

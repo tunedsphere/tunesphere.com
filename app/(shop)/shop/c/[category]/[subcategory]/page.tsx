@@ -81,11 +81,11 @@ export default async function SubcategoryPage({
           },
           {
             title: toTitleCase(category),
-            href: `/shop/products?category=${category}`,
+            href: `/shop/c/${category}`,
           },
           {
             title: toTitleCase(subcategory),
-            href: `/shop/products?category=${subcategory}`,
+            href: `/shop/c/${category}/${subcategory}`,
           },
         ]}
       />

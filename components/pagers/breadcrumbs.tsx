@@ -29,10 +29,10 @@ export function Breadcrumbs({ segments, separator }: BreadcrumbsProps) {
               aria-current={isLastSegment ? "page" : undefined}
               href={segment.href}
               className={cn(
-                "underline-textdark truncate underline-offset-2 transition-colors hover:text-textdark hover:underline sm:text-lg",
+                "underline-textdark truncate underline-offset-2 transition-colors hover:text-textdark hover:underline",
                 isLastSegment
-                  ? "pointer-events-none text-theme-500 sm:text-lg"
-                  : "text-textdark sm:text-lg"
+                  ? "pointer-events-none text-theme-500"
+                  : "text-textdark"
               )}
             >
               {segment.title}

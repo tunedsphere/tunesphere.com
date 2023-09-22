@@ -12,6 +12,8 @@ import { Shell } from "@/components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
 
+import { slugify } from "@/lib/utils"
+
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: "Store",
@@ -76,18 +78,18 @@ export default async function StorePage({
         segments={[
           {
             title: "Stores",
-            href: "shop/stores",
+            href: "/shop/stores",
           },
           {
             title: store.name,
-            href: `shop/store/${store.name}`,
+            href: `/shop/store/${slugify(store.name)}`,
           },
         ]}
       />
       <div className="flex flex-col gap-8 md:flex-row md:gap-16">
         <div className="flex w-full flex-col gap-4">
           <div className="space-y-2">
-            <h2 className="line-clamp-1 text-2xl font-bold">{store.name}</h2>
+            <h2 className="line-clamp-1 text-2xl font-bold text-textdark">{store.name}</h2>
             <p className="text-base text-muted-foreground">
               {store.description}
             </p>

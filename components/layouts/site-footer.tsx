@@ -86,7 +86,7 @@ export function SiteFooter() {
     TUNEDSPHERE
   </h3>
   <p className="text-sm font-normal text-textlow opacity-75">
-    Copyright © 2023 - 2023 TunedSPhere. All rights reserved.
+    Copyright © 2023 - 2023 TunedSphere. All rights reserved.
   </p>
   </div>
         </section>

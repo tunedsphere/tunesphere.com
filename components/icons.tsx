@@ -23,9 +23,9 @@ export const Icons = {
   viewBox="0 0 24 24" 
   fill="none" 
   stroke="currentColor" 
-  stroke-width="2" 
-  stroke-linecap="round" 
-  stroke-linejoin="round"
+  strokeWidth="2" 
+  strokeLinecap="round" 
+  strokeLinejoin="round"
   {...props}>
     <path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
   ),
@@ -115,9 +115,9 @@ export const Icons = {
  viewBox="0 0 24 24" 
  fill="none" 
  stroke="currentColor" 
- stroke-width="2" 
- stroke-linecap="round" 
- stroke-linejoin="round"
+ strokeWidth="2" 
+ strokeLinecap="round" 
+ strokeLinejoin="round"
  {...props}
  >
   <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
@@ -240,9 +240,9 @@ height="24"
 viewBox="0 0 24 24" 
 fill="none" 
 stroke="currentColor" 
-stroke-width="2" 
-stroke-linecap="round" 
-stroke-linejoin="round"
+strokeWidth="2" 
+strokeLinecap="round" 
+strokeLinejoin="round"
 {...props}
 >
   <path d="m11 17-5-5 5-5"/>
@@ -257,9 +257,9 @@ stroke-linejoin="round"
   viewBox="0 0 24 24" 
   fill="none" 
   stroke="currentColor" 
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
   {...props}
   >
     <path d="m6 17 5-5-5-5"/>
@@ -310,9 +310,9 @@ pageLayout: (props: IconsProps) => (
   viewBox="0 0 24 24" 
   fill="none" 
   stroke="currentColor" 
-  stroke-width="2" 
-  stroke-linecap="round" 
-  stroke-linejoin="round" 
+  strokeWidth="2" 
+  strokeLinecap="round" 
+  strokeLinejoin="round" 
   {...props}
   >
     <rect width="7" height="9" x="3" y="3" rx="1"/>
@@ -715,9 +715,9 @@ filter: (props: IconsProps) => (
     viewBox="0 0 24 24" 
     fill="none" 
     stroke="currentColor" 
-    stroke-width="2" 
-    stroke-linecap="round" 
-    stroke-linejoin="round"
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
     {...props}
     >
       <path d="M21 12V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h7.5"/>
@@ -1243,9 +1243,9 @@ filter: (props: IconsProps) => (
    viewBox="0 0 24 24" 
    fill="none" 
    stroke="currentColor" 
-   stroke-width="2" 
-   stroke-linecap="round" 
-   stroke-linejoin="round"
+   strokeWidth="2" 
+   strokeLinecap="round" 
+   strokeLinejoin="round"
    {...props}
    >
     <path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M7.5 12H9m7.5 0a4.5 4.5 0 1 1-4.5 4.5m4.5-4.5H15m-3 4.5V15"/>
@@ -1264,9 +1264,9 @@ filter: (props: IconsProps) => (
   viewBox="0 0 24 24" 
   fill="none" 
   stroke="currentColor" 
-  stroke-width="2" 
-  stroke-linecap="round" 
-  stroke-linejoin="round" 
+  strokeWidth="2" 
+  strokeLinecap="round" 
+  strokeLinejoin="round" 
   {...props}
   >
     <circle cx="12" cy="12" r="10"/>
@@ -1283,9 +1283,9 @@ filter: (props: IconsProps) => (
   viewBox="0 0 24 24" 
   fill="none" 
   stroke="currentColor" 
-  stroke-width="2" 
-  stroke-linecap="round" 
-  stroke-linejoin="round"
+  strokeWidth="2" 
+  strokeLinecap="round" 
+  strokeLinejoin="round"
   {...props}
   >
     <polyline points="4 17 10 11 4 5"/>
@@ -1300,9 +1300,9 @@ filter: (props: IconsProps) => (
     viewBox="0 0 24 24" 
     fill="none" 
     stroke="currentColor" 
-    stroke-width="2" 
-    stroke-linecap="round" 
-    stroke-linejoin="round"
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
     {...props}
     >
     <circle cx="12" cy="9" r="1"/>
@@ -1420,9 +1420,9 @@ export const StoreIcons = {
     viewBox="0 0 24 24" 
     fill="none" 
     stroke="currentColor" 
-    stroke-width="2" 
-    stroke-linecap="round" 
-    stroke-linejoin="round" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
     {...props}
     >
       <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
@@ -1434,9 +1434,9 @@ export const StoreIcons = {
       viewBox="0 0 24 24" 
       fill="none" 
       stroke="currentColor" 
-      stroke-width="2" 
-      stroke-linecap="round" 
-      stroke-linejoin="round"
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
       {...props}
       >
         <path d="M18 12H2v4h16"/>
@@ -1454,9 +1454,9 @@ export const StoreIcons = {
       viewBox="0 0 24 24" 
       fill="none" 
       stroke="currentColor" 
-      stroke-width="2" 
-      stroke-linecap="round" 
-      stroke-linejoin="round" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
       {...props}
       >
         <path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/>
@@ -1473,9 +1473,9 @@ export const StoreIcons = {
       viewBox="0 0 24 24" 
       fill="none" 
       stroke="currentColor" 
-      stroke-width="2" 
-      stroke-linecap="round" 
-      stroke-linejoin="round"
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
       {...props}
       >
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
@@ -1489,9 +1489,9 @@ export const StoreIcons = {
       viewBox="0 0 24 24" 
       fill="none" 
       stroke="currentColor" 
-      stroke-width="2" 
-      stroke-linecap="round" 
-      stroke-linejoin="round" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
       {...props}
       >
         <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
@@ -1505,9 +1505,9 @@ export const StoreIcons = {
       viewBox="0 0 24 24" 
       fill="none" 
       stroke="currentColor" 
-      stroke-width="2" 
-      stroke-linecap="round" 
-      stroke-linejoin="round" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
       {...props}
       >
         <path d="M3 3h.01"/>
@@ -1529,9 +1529,9 @@ export const StoreIcons = {
       viewBox="0 0 24 24" 
       fill="none" 
       stroke="currentColor" 
-      stroke-width="2" 
-      stroke-linecap="round" 
-      stroke-linejoin="round" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
       {...props}
       >
         <path d="M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z"/>

@@ -16,10 +16,11 @@ function NavbarVideo() {
         autoPlay
         loop
         muted
+        width="320" height="240"
         className="absolute left-0 top-0 z-10 h-full w-full object-cover md:block"
         style={{ zIndex: -10 }}
       >
-        <source src="@/public/bgvideo.mp4" type="video/mp4" />
+        <source src="/bgvideo.mp4"/>
       </video>
     )
   );
