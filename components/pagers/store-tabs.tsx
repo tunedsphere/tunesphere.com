@@ -44,6 +44,7 @@ export function StoreTabs({ storeId }: StoreTabsProps) {
 
   return (
     <Tabs
+      id="dashboard-store-tabs"
       defaultValue={tabs.find((tab) => tab.isActive)?.href ?? tabs[0]?.href}
       className="sticky top-0 z-30 w-full overflow-auto bg-background px-1"
       onValueChange={(value) => router.push(value)}

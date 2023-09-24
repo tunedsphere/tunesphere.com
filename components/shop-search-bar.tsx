@@ -1,12 +1,10 @@
 "use client"
 
-import "@/styles/globals.css"
-
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { type Product } from "@/db/schema"
 
-import { cn } from "@/lib/utils"
+import { cn, isMacOs } from "@/lib/utils"
 import { useDebounce } from "@/hooks/use-debounce"
 import { Button } from "@/components/ui/button"
 import {
@@ -70,14 +68,64 @@ export function ShopSearchBar() {
 
   return (
     <>
-      <div className="flex h-12 w-full items-center rounded-md border-2 bg-transparent px-4 py-3">
-        <input
-          type="text"
-          className="w-full bg-transparent py-3 text-lg text-textdark outline-none placeholder:text-muted-foreground focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
+      <Button
+        variant="outline"
+        className="relative h-9 w-9 p-0 xl:h-10 xl:w-full xl:justify-start xl:px-3 xl:py-2 hover:bg-theme-50"
+        onClick={() => setIsOpen(true)}
+      >
+        <Icons.search className="h-4 w-4 xl:mr-2 text-textdark" aria-hidden="true" />
+        <span className="hidden xl:inline-flex text-textdark">Search products...</span>
+        <span className="sr-only text-textdark">Search products</span>
+        <kbd className="bg-theme-50 text-textdark pointer-events-none absolute right-1.5 top-2 hidden h-6 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex">
+          <abbr title={isMacOs() ? 'Command' : 'Control'}>{isMacOs() ? '⌘' : 'Ctrl+'}</abbr>K
+        </kbd>
+      </Button>
+      <CommandDialog 
+      position="default" open={isOpen} onOpenChange={setIsOpen}>
+        <div className="bg-background-shop">
+        <CommandInput
+          className="bg-transparent text-textdark"
           placeholder="Search products..."
-        ></input>
-        <Icons.search className="right-2 text-muted-foreground"></Icons.search>
-      </div>
+          value={query}
+          onValueChange={setQuery}
+        />
+        <CommandList
+        className="text-textdark">
+          <CommandEmpty
+            className={cn(isPending ? "hidden" : "py-6 text-center text-sm text-textdark")}
+          >
+            No products found.
+          </CommandEmpty>
+          {isPending ? (
+            <div className="space-y-1 overflow-hidden px-1 py-2">
+              <Skeleton className="h-4 w-10 rounded" />
+              <Skeleton className="h-8 rounded-sm" />
+              <Skeleton className="h-8 rounded-sm" />
+            </div>
+          ) : (
+            data?.map((group) => (
+              <CommandGroup
+                key={group.category}
+                className="capitalize text-textdark bg-theme-50 border-b border-muted/30 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-dark"
+                heading={group.category}
+              >
+                {group.products.map((item) => (
+                  <CommandItem
+                  className="text-textdark cursor-pointer bg-theme-50 hover:bg-theme-200 focus:bg-theme-200 aria-selected:bg-theme-200 aria-selected:text-textdark"
+                    key={item.id}
+                    onSelect={() =>
+                      handleSelect(() => router.push(`/shop/product/${item.id}`))
+                    }
+                  >
+                    {item.name}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            ))
+          )}
+        </CommandList>
+        </div>
+      </CommandDialog>
     </>
   )
 }

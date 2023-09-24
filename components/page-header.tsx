@@ -15,7 +15,7 @@ const PageHeaderVariants = cva(
       variant: {
         default: "",
         dashboard:"pb-8 pt-2 border-muted border-b",
-        auth: "",
+        auth: "justify-center text-center",
         shop: "justify-center text-center",
         shopProducts: "justify-center text-center",
       }

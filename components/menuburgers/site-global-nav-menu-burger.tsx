@@ -1,21 +1,20 @@
 "use client"
 
-import React, { useState } from "react"
-import { dashboardConfig } from "@/configs/dashboard"
-import { siteConfig } from "@/configs/site"
+import * as React from "react"
+
 import { Button } from "@/components/ui/button"
 import GlobalNavFlyout from "@/components/layouts/globalnav-flyout-menu"
 import { Icons } from "@/components/icons"
 import { GlobalNavbarBottom } from "@/components/layouts/global-navbar-bottom"
 
 export default function SiteGlobalNavMenuBurger() {
-  const [isMenuOpen, setMenuOpen] = useState(true)
+  const [isMenuOpen, setMenuOpen] = React.useState(true)
 
-  const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
+  const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
 
-  const [rotation, setRotation] = useState(0)
-  const [scale, setScale] = useState(100)
+  const [rotation, setRotation] = React.useState(0)
+  const [scale, setScale] = React.useState(100)
 
   const handleNavbarClick = () => {
     setGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen)
@@ -30,6 +29,25 @@ export default function SiteGlobalNavMenuBurger() {
   const handleFlyoutOpen = () => {
     setGlobalNavFlyoutOpen(true);
   }
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      // Check if the user is scrolling down (you can adjust the threshold as needed)
+      if (window.scrollY > 50) {
+        // Close the GlobalNavbarBottom when scrolling down
+        setMenuOpen(false);
+        setIsOpen(true);
+
+      }
+    };
+
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
       <div className="navbar-container invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end bg-white px-2 py-2 md:px-8">

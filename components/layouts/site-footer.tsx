@@ -3,23 +3,10 @@
 import "@/styles/globals.css"
 
 import * as React from "react"
-import { useEffect, useRef, useState } from "react"
-
 import Link from "next/link"
 
 import { siteConfig } from "@/configs/site"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
 import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
-
-
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-
-import { Icons } from "@/components/icons"
 
 import { Shell } from "@/components/shells/shell"
 export function SiteFooter() {

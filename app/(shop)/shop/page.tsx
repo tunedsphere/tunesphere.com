@@ -74,7 +74,7 @@ export default async function ShopPage() {
                     buttonVariants({
                       size: "lg",
                     }),
-                    "hero_gradient-button hover:bg-theme-300"
+                    "hero_gradient-button"
                   )}
                 >
                   <span className="animated-gradient-text_background-theme animated-gradient-text_background-theme bg-clip-text font-semibold">
@@ -94,7 +94,7 @@ export default async function ShopPage() {
                     buttonVariants({
                       size: "lg",
                     }),
-                    "hero_gradient-button-shop z-30 hover:text-theme-300 hover:bg-transparent"
+                    "hero_gradient-button-shop z-30"
                   )}
                 >
                   <span className="font-semibold text-textdark">Sell Now</span>

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import * as React from "react"
 
 import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
@@ -15,8 +15,8 @@ const MusicSidebarMenuBurger: React.FC<MusicSidebarMenuBurgerProps> = ({
   setIsOpen,
   isOpen,
 }) => {
-  const [rotation, setRotation] = useState(0)
-  const [scale, setScale] = useState(100)
+  const [rotation, setRotation] = React.useState(0)
+  const [scale, setScale] = React.useState(100)
 
   const handleSidebarClick = () => {
     setIsOpen(!isOpen)
