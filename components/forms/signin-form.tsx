@@ -97,7 +97,7 @@ export function SignInForm({ handleLinkClick }: SignInFormProps){
               <Link
             aria-label="Reset password"
             href="/signin/reset-password"
-            className="flex text-xs text-secondary underline-offset-4 transition-colors hover:underline"
+            className="flex text-xs text-primary underline-offset-4 transition-colors hover:underline"
             onClick={handleLinkClick}
           >
             Forgot password?

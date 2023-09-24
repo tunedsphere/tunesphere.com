@@ -55,7 +55,7 @@ export default function SigninCard({ onClose }:SigninCardProps ) {
         </div>
         <CardHeader className="items-center space-y-1">
           <CardTitle as="h1">Log in</CardTitle>
-          <CardDescription className="p-2 text-center text-secondary">
+          <CardDescription className="p-2 text-center text-primary">
             Choose your preferred log in method
           </CardDescription>
         </CardHeader>
@@ -66,7 +66,7 @@ export default function SigninCard({ onClose }:SigninCardProps ) {
               <span className="w-full border-t" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background px-2 text-secondary">
+              <span className="bg-background px-2 text-muted-foreground">
                 Or continue with
               </span>
             </div>
