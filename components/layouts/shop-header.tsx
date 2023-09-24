@@ -4,7 +4,8 @@ import { Shell } from "@/components/shells/shell"
 
 import { dashboardConfig } from "@/configs/dashboard"
 import { siteConfig } from "@/configs/site"
-import { ShopSearchBar } from "@/components/shop-search-bar"
+import { ShopCombobox } from "../shop-combobox"
+import { ShopSearchBar } from "../shop-search-bar"
 
 export function ShopHeader() {
   return (

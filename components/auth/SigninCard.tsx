@@ -38,7 +38,7 @@ export default function SigninCard({ onClose }:SigninCardProps ) {
   }
 
   return (
-    <div id="SigninCard" className="z-20 @container">
+    <div id="signin-card" className="z-20 @container">
       <div className="modal-gradient z-60"></div>
       <Card className="border-0 border-border/70 bg-accent-1 @md:border">
         <div className="signin-card-gradient -z-10"></div>
