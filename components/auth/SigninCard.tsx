@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/card"
 import { OAuthSignIn } from "@/components/auth/oauth-signin"
 import { SignInForm } from "@/components/forms/signin-form"
+import { siteConfig } from "@/configs/site"
+import { FooterItem } from "@/types"
 
 export const metadata = {
   title: "Sign In",
@@ -25,7 +27,7 @@ export const metadata = {
 interface SigninCardProps {
   onClose?: () => void
 }
-const SigninCard: React.FC<SigninCardProps> = ({ onClose }) => {
+export default function SigninCard({ onClose }:SigninCardProps ) {
   const handleClose = () => {
     if (onClose) {
       onClose()
@@ -38,7 +40,7 @@ const SigninCard: React.FC<SigninCardProps> = ({ onClose }) => {
   return (
     <div id="SigninCard" className="z-20 @container">
       <div className="modal-gradient z-60"></div>
-      <Card className="border-0 border-border bg-accent-1 @md:border">
+      <Card className="border-0 border-border/70 bg-accent-1 @md:border">
         <div className="signin-card-gradient -z-10"></div>
         <div className="flex justify-end p-2 sm:p-4">
           <Button
@@ -53,7 +55,7 @@ const SigninCard: React.FC<SigninCardProps> = ({ onClose }) => {
         </div>
         <CardHeader className="items-center space-y-1">
           <CardTitle as="h1">Log in</CardTitle>
-          <CardDescription className="p-2 text-center">
+          <CardDescription className="p-2 text-center text-secondary">
             Choose your preferred log in method
           </CardDescription>
         </CardHeader>
@@ -64,14 +66,44 @@ const SigninCard: React.FC<SigninCardProps> = ({ onClose }) => {
               <span className="w-full border-t" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background px-2 text-muted-foreground">
+              <span className="bg-background px-2 text-secondary">
                 Or continue with
               </span>
             </div>
           </div>
-          <SignInForm />
+          <section className="">
+          <SignInForm handleLinkClick={handleClose}/>
+          <div className="flex justify-center">
+          <span className="text-sm text-muted-foreground">
+  By signing in you accept our{" "}
+  {siteConfig.footerNav && (
+    <>
+   <Link
+  href={siteConfig.footerNav[2]?.items[2]?.href as string} // "Terms" href
+  target="_blank"
+  rel="noreferrer"
+  className="text-primary transition-colors hover:text-foreground"
+>
+  Terms
+</Link>{" "}
+and{" "}
+<Link
+  href={siteConfig.footerNav[2]?.items[3]?.href as string} // "Privacy" href
+  target="_blank"
+  rel="noreferrer"
+  className="text-primary transition-colors hover:text-foreground"
+>
+  Privacy
+</Link>
+    </>
+  )}
+</span>
+
+</div>
+</section>
+
         </CardContent>
-        <CardFooter className="flex flex-wrap items-center space-x-2">
+        <CardFooter className="flex flex-wrap items-center space-x-2 pt-4">
           <div className="flex-1 text-sm text-muted-foreground">
             Don&apos;t have an account?{" "}
             <Link
@@ -83,18 +115,8 @@ const SigninCard: React.FC<SigninCardProps> = ({ onClose }) => {
               Sign up
             </Link>
           </div>
-          <Link
-            aria-label="Reset password"
-            href="/signin/reset-password"
-            className="text-sm text-texthigh underline-offset-4 transition-colors hover:underline"
-            onClick={handleLinkClick}
-          >
-            Reset password
-          </Link>
         </CardFooter>
       </Card>
     </div>
   )
 }
-
-export default SigninCard

@@ -1,11 +1,13 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useSignIn } from "@clerk/nextjs"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import type { z } from "zod"
+
 
 import { catchClerkError } from "@/lib/utils"
 import { authSignInSchema } from "@/lib/validations/auth"
@@ -24,10 +26,14 @@ import { PasswordInput } from "@/components/password-input"
 
 type Inputs = z.infer<typeof authSignInSchema>
 
-export function SignInForm() {
-  const router = useRouter()
+interface SignInFormProps {
+  handleLinkClick?: () => void
+}
+export function SignInForm({ handleLinkClick }: SignInFormProps){
+  const router = useRouter() 
   const { isLoaded, signIn, setActive } = useSignIn()
   const [isPending, startTransition] = React.useTransition()
+
 
   // react-hook-form
   const form = useForm<Inputs>({
@@ -86,7 +92,18 @@ export function SignInForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
+              <span className="flex justify-between text-center align-bottom">
               <FormLabel>Password</FormLabel>
+              <Link
+            aria-label="Reset password"
+            href="/signin/reset-password"
+            className="flex text-xs text-secondary underline-offset-4 transition-colors hover:underline"
+            onClick={handleLinkClick}
+          >
+            Forgot password?
+            
+          </Link>
+          </span>
               <FormControl>
                 <PasswordInput className="bg-background" placeholder="**********" {...field} />
               </FormControl>
@@ -94,6 +111,7 @@ export function SignInForm() {
             </FormItem>
           )}
         />
+          
         <Button
           type="submit"
           variant="logInButton"
