@@ -25,25 +25,20 @@ export const docsConfig: DocsConfig = {
       title: "Documentation",
       items: [
         {
-          title: "Introduction",
-          href: "/docs/documentation",
+          title: "Terms & Conditions",
+          href: "/docs/terms",    
         },
         {
-          title: "Contentlayer",
-          href: "/docs/in-progress",
-          disabled: true,
+          title: "Privacy Policy",
+          href: "/docs/privacy",
         },
         {
-          title: "Components",
-          href: "/docs/documentation/components",
+          title: "Cookies",
+          href: "/docs/cookies",
         },
         {
-          title: "Code Blocks",
-          href: "/docs/documentation/code-blocks",
-        },
-        {
-          title: "Style Guide",
-          href: "/docs/documentation/style-guide",
+          title: "Email Preferences",
+          href: "/docs/email-preferences",
         },
         {
           title: "Search",

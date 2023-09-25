@@ -67,7 +67,7 @@
     --theme-200: 247 100% 89%;
     --theme-300: 250 83% 81%;
     --theme-400: 257 76% 67%;
-    --theme-500: 280 100% 50%;
+    --theme-500: 272 100% 50%;
     --theme-600: 280 72% 49%;
     --theme-700: 277 70% 40%;
     --theme-800: 282 67% 35%;
@@ -87,7 +87,7 @@
     --scrollbar-thumb-color: white;
     --scrollbar-track-color: hsl(var(--secondary));
 
-    --primary: 263.4 70% 50.4%;    
+    --primary: var(--theme-500);    
     --primary-foreground: 210 20% 98%;   
 
     --secondary: var(--theme-200);

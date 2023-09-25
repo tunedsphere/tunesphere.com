@@ -80,7 +80,7 @@ export async function generateMetadata({
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
   return allPages.map((page) => ({
-    slug: page.slugAsParams.split("/docs/"),
+    slug: page.slugAsParams.split("/docs"),
   }))
 }
 
