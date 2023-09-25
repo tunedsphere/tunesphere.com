@@ -26,12 +26,12 @@ const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? ""
 // In production we need to put images in the root public folder
 const newsletterImages = [
   {
-    src: `${baseUrl}/images/newsletter/the-tuned-sphere.webp`,
+    src: "@/public/images/newsletter/the-tuned-sphere.webp",
     alt: "The TunedSphere",
     credit: "AUMANOID",
     creditUrl:
       "",
-    description: `${`We'll`} keep you tuned on the journey through the enigmatic and ever-evolving TunedSphere Platform with news, events, and more. Stay up to date with the latest trends. Thanks for Tuning In!`
+    description: "We'll keep you tuned on the journey through the enigmatic and ever-evolving TunedSphere Platform with news, events, and more. Stay up to date with the latest trends. Thanks for Tuning In!"
   },
 ]
 
@@ -74,6 +74,7 @@ export default function NewsletterWelcomeEmail({
                     src={item.src}
                     alt={item.alt}
                     height={424}
+                    width={800}
                     className="aspect-video w-full object-cover"
                   />
                   <Text className="mb-0 mt-2 text-center text-zinc-400">
