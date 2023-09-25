@@ -101,22 +101,22 @@ export const siteConfig = {
       items: [
         {
           title: "Legal Information",
-          href: "/legal-information",
+          href: "/docs/legal-information",
           external: false,
         },
         {
           title: "Authors' rights",
-          href: "/authors-rights",
+          href: "/docs/authors-rights",
           external: false,
         },
         {
           title: "Terms & Conditions",
-          href: "/terms-conditions",
+          href: "/docs/terms-conditions",
            external: false,
         },
         {
           title: "Contact Us",
-          href: "/contact-us",
+          href: "/docs/contact-us",
           external: false,
         },
       ],
@@ -126,22 +126,22 @@ export const siteConfig = {
       items: [
         {
           title: "About",
-          href: "/about",
+          href: "/docs/about",
           external: false,
         },
         {
           title: "Contact",
-          href: "/contact",
+          href: "/docs/contact",
           external: false,
         },
         {
           title: "Terms",
-          href: "/terms",
+          href: "/docs/terms",
           external: false,
         },
         {
           title: "Privacy",
-          href: "/privacy",
+          href: "/docs/privacy",
           external: false,
         },
       ],

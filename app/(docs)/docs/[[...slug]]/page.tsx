@@ -80,7 +80,7 @@ export async function generateMetadata({
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
   return allPages.map((page) => ({
-    slug: page.slugAsParams.split("/"),
+    slug: page.slugAsParams.split("/docs/"),
   }))
 }
 
@@ -94,16 +94,17 @@ export default async function PagePage({ params }: PageProps) {
   // Remove the /pages prefix from the slug
   const formattedPage = {
     ...page,
-    slug: page.slug.replace(/^\/pages/, ""),
+    slug: page.slug.replace(/^\/pages/, "/docs"),
   }
 
   const formattedPages = allPages.map((page) => ({
     ...page,
-    slug: page.slug.replace(/^\/pages/, ""),
+    slug: page.slug.replace(/^\/pages/, "/docs"),
   }))
 
   return (
     <Shell as="article" variant="markdown">
+      <div className="mx-auto w-full min-w-0">
       <PageHeader>
         <PageHeaderHeading>{page.title}</PageHeaderHeading>
         <PageHeaderDescription>{page.description}</PageHeaderDescription>
@@ -115,6 +116,7 @@ export default async function PagePage({ params }: PageProps) {
         allItems={formattedPages}
         className="my-4"
       />
+      </div>
     </Shell>
   )
 }

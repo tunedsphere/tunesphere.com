@@ -30,7 +30,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0",
+        "mt-10 scroll-m-20 border-b  border-muted pb-2 text-2xl font-semibold tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -98,7 +98,7 @@ const components = {
   ),
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <blockquote
-      className={cn("mt-6 border-l-2 pl-6 italic", className)}
+      className={cn("mt-6 border-l-2 border-muted pl-6 italic", className)}
       {...props}
     />
   ),
@@ -120,14 +120,14 @@ const components = {
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("m-0 border-t p-0 even:bg-muted", className)}
+      className={cn("m-0 border-t border-muted p-0 even:bg-muted", className)}
       {...props}
     />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
-        "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border border-muted px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}
@@ -136,7 +136,7 @@ const components = {
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border border-muted px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}

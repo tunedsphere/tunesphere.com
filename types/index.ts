@@ -36,15 +36,34 @@ export interface FooterItem {
   }[]
 }
 
+export type SidebarNavItem = {
+  title: string
+  disabled?: boolean
+  external?: boolean
+  icon?: keyof typeof Icons
+} & (
+  | {
+      href: string
+      items?: never
+    }
+  | {
+      href?: string
+      items: NavLink[]
+    }
+)
 export type ShopNavItem = NavItemWithOptionalChildren
 
 export type ShopMainNavItem = NavItemWithOptionalChildren
 
 export type NavbarNavItem = NavItemWithOptionalChildren
 
-export type SidebarNavItem = NavItemWithChildren
 
 export type UserRole = z.infer<typeof userPrivateMetadataSchema.shape.role>
+
+export type DocsConfig = {
+  mainNav: NavItem[]
+  sidebarNav: SidebarNavItem[]
+}
 
 export type Option = {
   label: string
@@ -117,3 +136,4 @@ export interface UserSubscriptionPlan extends SubscriptionPlan {
   isCanceled: boolean
   isActive: boolean
 }
+
