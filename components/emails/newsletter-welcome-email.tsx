@@ -26,7 +26,7 @@ const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? ""
 // In production we need to put images in the root public folder
 const newsletterImages = [
   {
-    src: `${baseUrl}@/public/images/newsletter/the-tuned-sphere.webp`,
+    src: `${baseUrl}/images/newsletter/the-tuned-sphere.webp`,
     alt: "The TunedSphere",
     credit: "AUMANOID",
     creditUrl:
