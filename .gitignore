@@ -9,6 +9,8 @@
 # testing
 /coverage
 
+# database
+
 # next.js
 /.next/
 /.react-email/.next/
