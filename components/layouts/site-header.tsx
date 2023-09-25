@@ -41,9 +41,9 @@ export function SiteHeader() {
           <div className="navbar-container flex h-[--headerHeight] px-4 py-2 md:px-8">
             <div className="relative hidden flex-row items-center justify-start sm:flex sm:w-1/3 sm:gap-2">
               <Icons.logo
-                className="absolute left-0 right-0 -z-10 mx-auto hidden sm:block"
-                width={100}
-                height={100}
+                className="absolute left-0 right-0 z-10 mx-auto hidden sm:block text-primary"
+                width={60}
+                height={60}
               ></Icons.logo>
             </div>
             <div className="left-0 flex w-4/6 items-center sm:justify-center">

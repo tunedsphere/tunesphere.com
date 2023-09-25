@@ -14,7 +14,7 @@
     "migrations:drop": "drizzle-kit drop --config=drizzle.config.ts",
     "db:push": "drizzle-kit push:mysql",
     "db:introspect": "drizzle-kit introspect:mysql",
-    "db:studio": "drizzle-kit studio",
+    "db:studio": "drizzle-kit studio --host 127.0.0.1",
     "stripe:listen": "stripe listen --forward-to localhost:3000/api/webhooks/stripe --latest"
   },
   "dependencies": {
@@ -67,6 +67,7 @@
     "drizzle-orm": "^0.28.6",
     "embla-carousel-react": "^8.0.0-rc11",
     "framer-motion": "^10.16.4",
+    "mysql2": "^3.6.0",
     "next": "^13.4.10",
     "next-axiom": "^0.17.0",
     "next-contentlayer": "^0.3.4",
