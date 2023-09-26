@@ -169,7 +169,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           className="space-y-6 px-0"
         >
       {store && otherProducts.length > 0 ? (
-        <div className="overflow-hidden md:pt-6 ">
+        <div className="overflow-hidden md:pt-6 pb-6">
           <PageHeader>
             <PageHeaderHeading size="xs" className="font-medium text-textdark/80">
             More products from <span className="text-2xl font-semibold text-textdark underline-offset-4 underline decoration-2 hover:decoration-4 cursor-pointer decoration-theme">{store.name}</span>
@@ -181,7 +181,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <ProductCard
                   key={product.id}
                   product={product}
-                  className="min-w-[260px]"
+                  className=""
                 />
               ))}
             </div>

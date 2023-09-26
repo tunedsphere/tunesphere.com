@@ -48,7 +48,7 @@ export function ProductCard({
         {...props}
       >
         <Link className="" href={`/shop/product/${product.id}`}>
-          <div className="absolute -inset-1 group-hover:bg-muted/20 rounded-lg blur-sm -z-10" />
+          <div className="absolute -inset-[2px] group-hover:bg-muted/20 rounded-md blur-sm -z-10" />
           <CardHeader className="p-0 relative">
             <AspectRatio ratio={4 / 3}>
               {product?.images?.length ? (

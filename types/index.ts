@@ -10,6 +10,7 @@ import type {
   checkoutItemSchema } from "@/lib/validations/cart"
 import { type Icons } from "@/components/icons"
 
+
 export interface NavItem {
   title: string
   href?: string
@@ -48,20 +49,34 @@ export type SidebarNavItem = {
     }
   | {
       href?: string
-      items: NavLink[]
+      items?: NavLink[];
     }
 )
+export type NavLink = {
+  title: string;
+  href: string;
+  url?: string;
+  disabled?: boolean
+  external?: boolean
+  // You can add additional properties as needed
+};
 export type ShopNavItem = NavItemWithOptionalChildren
 
 export type ShopMainNavItem = NavItemWithOptionalChildren
 
 export type NavbarNavItem = NavItemWithOptionalChildren
 
+export type DocsItem = {
+  title: string
+  href: string
+  disabled?: boolean
+}
+export type DocsNavItem = DocsItem
 
 export type UserRole = z.infer<typeof userPrivateMetadataSchema.shape.role>
 
 export type DocsConfig = {
-  mainNav: NavItem[]
+  mainNav: DocsItem[]
   sidebarNav: SidebarNavItem[]
 }
 

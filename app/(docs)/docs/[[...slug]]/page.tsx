@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation"
-import { allPages } from "contentlayer/generated"
+import { allDocs } from "contentlayer/generated"
 
 import "@/styles/mdx.css"
 
 import { type Metadata } from "next"
 
+import { env } from "@/env.mjs"
 import { siteConfig } from "@/configs/site"
 import { absoluteUrl } from "@/lib/utils"
 import { Separator } from "@/components/ui/separator"
@@ -17,103 +18,103 @@ import {
 import { MdxPager } from "@/components/pagers/mdx-pager"
 import { Shell } from "@/components/shells/shell"
 
-interface PageProps {
+interface DocPageProps {
   params: {
     slug: string[]
   }
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
-async function getPageFromParams(params: PageProps["params"]) {
+async function getDocFromParams(params: DocPageProps["params"]) {
   const slug = params?.slug?.join("/") ?? ""
-  const page = allPages.find((page) => page.slugAsParams === slug)
+  const doc = allDocs.find((doc) => doc.slugAsParams === slug)
 
-  if (!page) {
+  if (!doc) {
     null
   }
 
-  return page
+  return doc
 }
 
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
-  const page = await getPageFromParams(params)
+}: DocPageProps): Promise<Metadata> {
+  const doc = await getDocFromParams(params)
 
-  if (!page) {
+  if (!doc) {
     return {}
   }
 
-  const url = absoluteUrl("/")
+  const url = env.NEXT_PUBLIC_APP_URL
 
   const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("title", page.title)
+  ogUrl.searchParams.set("title", doc.title)
   ogUrl.searchParams.set("type", siteConfig.name)
   ogUrl.searchParams.set("mode", "light")
 
   return {
-    title: page.title,
-    description: page.description,
+    title: doc.title,
+    description: doc.description,
     openGraph: {
-      title: page.title,
-      description: page.description,
+      title: doc.title,
+      description: doc.description,
       type: "article",
-      url: absoluteUrl(page.slug),
+      url: absoluteUrl(doc.slug),
       images: [
         {
           url: ogUrl.toString(),
           width: 1200,
           height: 630,
-          alt: page.title,
+          alt: doc.title,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: page.title,
-      description: page.description,
+      title: doc.title,
+      description: doc.description,
       images: [ogUrl.toString()],
     },
   }
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
-export async function generateStaticParams(): Promise<PageProps["params"][]> {
-  return allPages.map((page) => ({
-    slug: page.slugAsParams.split("/docs"),
+export async function generateStaticParams(): Promise<DocPageProps["params"][]> {
+  return allDocs.map((doc) => ({
+    slug: doc.slugAsParams.split("/"),
   }))
 }
 
-export default async function PagePage({ params }: PageProps) {
-  const page = await getPageFromParams(params)
+export default async function PagePage({ params }: DocPageProps) {
+  const doc = await getDocFromParams(params)
 
-  if (!page) {
+  if (!doc) {
     notFound()
   }
 
   // Remove the /pages prefix from the slug
-  const formattedPage = {
-    ...page,
-    slug: page.slug.replace(/^\/pages/, "/docs"),
+  const formattedDoc = {
+    ...doc,
+    slug: doc.slug.replace(/^\/docs/, "/docs"),
   }
 
-  const formattedPages = allPages.map((page) => ({
-    ...page,
-    slug: page.slug.replace(/^\/pages/, "/docs"),
+  const formattedDocs = allDocs.map((doc) => ({
+    ...doc,
+    slug: doc.slug.replace(/^\/docs/, "/docs"),
   }))
 
   return (
     <Shell as="article" variant="markdown">
       <div className="mx-auto w-full min-w-0">
       <PageHeader>
-        <PageHeaderHeading>{page.title}</PageHeaderHeading>
-        <PageHeaderDescription>{page.description}</PageHeaderDescription>
+        <PageHeaderHeading>{doc.title}</PageHeaderHeading>
+        <PageHeaderDescription>{doc.description}</PageHeaderDescription>
       </PageHeader>
       <Separator className="my-4" />
-      <Mdx code={page.body.code} />
+      <Mdx code={doc.body.code} />
       <MdxPager
-        currentItem={formattedPage}
-        allItems={formattedPages}
+        currentItem={formattedDoc}
+        allItems={formattedDocs}
         className="my-4"
       />
       </div>

@@ -17,33 +17,53 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "Introduction",
-          href: "/docs",
+          href: "/docs/introduction",
+        },
+        {
+          title: "About TunedSphere",
+          href: "/docs/about",
         },
       ],
     },
+  {
+    title: "Shop",
+    items: [
+      {
+        title: "Selling on TunedSphere",
+        href: "/docs/shop/selling",
+      },
+      {
+        title: "Fees & Pricing ",
+        href: "/docs/shop/fees",
+      },
+      {
+        title: "Tools",
+        href: "/docs/shop/tools",
+      },
+      {
+        title: "FAQ",
+        href: "/docs/shop/faqs",
+      },
+    ],
+  },  
     {
-      title: "Documentation",
+      title: "Legal Documentations",
       items: [
         {
           title: "Terms & Conditions",
-          href: "/docs/terms",    
+          href: "/docs/legal/terms",
         },
         {
           title: "Privacy Policy",
-          href: "/docs/privacy",
+          href: "/docs/legal/privacy",
         },
         {
           title: "Cookies",
-          href: "/docs/cookies",
+          href: "/docs/legal/cookies",
         },
         {
           title: "Email Preferences",
-          href: "/docs/email-preferences",
-        },
-        {
-          title: "Search",
-          href: "/docs/in-progress",
-          disabled: true,
+          href: "/docs/legal/email-preferences",
         },
       ],
     },
@@ -52,18 +72,15 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "Introduction",
-          href: "/docs/in-progress",
-          disabled: true,
+          href: "/blog/introduction",
         },
         {
-          title: "Build your own",
-          href: "/docs/in-progress",
-          disabled: true,
+          title: "Shop Updates",
+          href: "/blog/shop-updates",
         },
         {
-          title: "Writing Posts",
-          href: "/docs/in-progress",
-          disabled: true,
+          title: "Music News",
+          href: "/blog/music-news",
         },
       ],
     },
@@ -97,31 +114,6 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: "API Routes",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-      ],
-    },
-    {
-      title: "Marketing Site",
-      items: [
-        {
-          title: "Introduction",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "File Structure",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Tailwind CSS",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Typography",
           href: "/docs/in-progress",
           disabled: true,
         },

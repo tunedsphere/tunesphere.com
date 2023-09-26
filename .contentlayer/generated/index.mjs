@@ -6,10 +6,10 @@ export { isType } from 'contentlayer/client'
 // During (production) builds Contentlayer it imports from `.json` files to improve build performance.
 import { allPosts } from './Post/_index.mjs'
 import { allAuthors } from './Author/_index.mjs'
-import { allPages } from './Page/_index.mjs'
+import { allDocs } from './Doc/_index.mjs'
 
-export { allPosts, allAuthors, allPages }
+export { allPosts, allAuthors, allDocs }
 
-export const allDocuments = [...allPosts, ...allAuthors, ...allPages]
+export const allDocuments = [...allPosts, ...allAuthors, ...allDocs]
 
 

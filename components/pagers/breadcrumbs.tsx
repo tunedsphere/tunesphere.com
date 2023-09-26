@@ -18,7 +18,7 @@ export function Breadcrumbs({ segments, separator }: BreadcrumbsProps) {
   return (
     <nav
       aria-label="breadcrumbs"
-      className="flex items-center justify-center text-sm font-medium text-muted-foreground"
+      className="flex items-center justify-center text-sm font-medium text-muted-foreground overflow-x-auto overflow-hidden px-2"
     >
       {segments.map((segment, index) => {
         const isLastSegment = index === segments.length - 1

@@ -16,6 +16,11 @@ export const siteConfig = {
   description: "A dedicated Psychedelic Art Platform, focusing on Music",
   url: "http://localhost:3000/",
   ogImage: "",
+  links: {
+    facebook: "https://facebook.com/tunedsphere",
+    instagram: "https://instagram.com/tunedsphere",
+    twitter: "https://twitter.com/tunedsphere",
+  },
   navbarNav: [
     {
       title: "Music",

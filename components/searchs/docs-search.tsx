@@ -8,7 +8,6 @@ import { cn, isMacOs } from "@/lib/utils"
 import { useDebounce } from "@/hooks/use-debounce"
 import { Button } from "@/components/ui/button"
 import {
-  Command,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
@@ -19,14 +18,12 @@ import {
 import { Skeleton } from "@/components/ui/skeleton"
 import { Icons } from "@/components/icons"
 import { filterProductsAction } from "@/app/_actions/product"
-import { DialogContent } from "./ui/dialog"
 
-export function ShopSearchBar() {
+export function DocsSearch() {
   const router = useRouter()
   const [isOpen, setIsOpen] = React.useState(false)
   const [query, setQuery] = React.useState("")
   const debouncedQuery = useDebounce(query, 300)
-
   const [data, setData] = React.useState<
     | {
         category: Product["category"]
@@ -65,57 +62,39 @@ export function ShopSearchBar() {
 
   React.useEffect(() => {
     if (!isOpen) {
-      setQuery(""); // Hide the CommandList when the search bar is closed
+      setQuery("")
     }
-  }, [isOpen]);
-  const handleInputClick = async () => {
-    if (query.length > 0) {
-      startTransition(async () => {
-        const searchData = await filterProductsAction(query);
-        setData(searchData);
-      });
-    }
-  };
-  
-  const handleInputBlur = () => {
-    // Hide the CommandList when the input loses focus
-    setData(null);
-  };
-  
+  }, [isOpen])
+
   return (
     <>
-      {/* <Button
+      <Button
         variant="outline"
-        className="relative h-9 w-9 p-0 xl:h-10 xl:w-full xl:justify-start xl:px-3 xl:py-2 hover:bg-theme-50"
+        className="relative h-9 w-9 p-0 xl:h-10 xl:w-60 xl:justify-start xl:px-3 xl:py-2"
         onClick={() => setIsOpen(true)}
       >
-        <Icons.search className="h-4 w-4 xl:mr-2 text-textdark" aria-hidden="true" />
-        <span className="hidden xl:inline-flex text-textdark">Search products...</span>
-        <span className="sr-only text-textdark">Search products</span>
-       <kbd className="bg-theme-50 text-textdark pointer-events-none absolute right-1.5 top-2 hidden h-6 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex">
+        <Icons.search className="h-4 w-4 xl:mr-2" aria-hidden="true" />
+        <span className="hidden xl:inline-flex">Search docs...</span>
+        <span className="sr-only">Search docs</span>
+        <kbd className="pointer-events-none absolute right-1.5 top-2 hidden h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex">
           <abbr title={isMacOs() ? 'Command' : 'Control'}>{isMacOs() ? '⌘' : 'Ctrl+'}</abbr>K
         </kbd>
-      </Button> */}
-      <div className="relative flex flex-row w-full">
-      <Command className={`text-textdark align-middle ${query ? 'bg-theme-50' : 'bg-theme-50'} w-full hover:bg-theme-50 focus:bg-theme-50`}>
-      <CommandInput
-          className="align-middle bg-transparent text-textdark px-0 py-0"
-          placeholder="Search products..."
+      </Button>
+      <CommandDialog position="top" open={isOpen} onOpenChange={setIsOpen}>
+        <CommandInput
+        className="bg-transparent"
+          placeholder="We Will try our best..."
           value={query}
           onValueChange={setQuery}
-          onClick={handleInputClick} // Show the CommandList when the input is clicked
-          onBlur={handleInputBlur}   // Hide the CommandList when the input loses focus
         />
- {data && (
-        <CommandList 
-        className="text-textdark flex-grow left-0 right-0 py-1 absolute mt-12 bg-theme-50 rounded-sm shadow-lg border-2 border-muted/30">
+        <CommandList>
           <CommandEmpty
-            className={cn(isPending ? "hidden" : "py-6 text-center text-sm text-textdark")}
+            className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
           >
-            No products found.
+            No Documentation found.
           </CommandEmpty>
           {isPending ? (
-            <div className="space-y-1 overflow-hidden px-4 py-2">
+            <div className="space-y-1 overflow-hidden px-1 py-2">
               <Skeleton className="h-4 w-10 rounded" />
               <Skeleton className="h-8 rounded-sm" />
               <Skeleton className="h-8 rounded-sm" />
@@ -124,28 +103,24 @@ export function ShopSearchBar() {
             data?.map((group) => (
               <CommandGroup
                 key={group.category}
-                className="capitalize tracking-tighter bg-transparent [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group-heading]]:text-sm"
+                className="capitalize"
                 heading={group.category}
               >
                 {group.products.map((item) => (
-                <CommandItem
-                className="text-textdark cursor-pointer bg-transparent hover:bg-theme-200"
-                key={item.id}
-                aria-selected={false}
-                onSelect={() =>
-                  handleSelect(() => router.push(`/shop/product/${item.id}`))
-                }
-              >
-                {item.name}
-              </CommandItem>
+                  <CommandItem
+                    key={item.id}
+                    onSelect={() =>
+                      handleSelect(() => router.push(`/product/${item.id}`))
+                    }
+                  >
+                    {item.name}
+                  </CommandItem>
                 ))}
               </CommandGroup>
             ))
           )}
         </CommandList>
-         )}
-        </Command>
-        </div>
+      </CommandDialog>
     </>
   )
 }
