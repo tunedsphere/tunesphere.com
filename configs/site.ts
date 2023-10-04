@@ -102,28 +102,28 @@ export const siteConfig = {
       ],
     },
     {
-      title: "Docs", // Default href for "Docs" title
+      title: "Documentation", // Default href for "Docs" title
       items: [
         {
-          title: "Legal Information",
-          href: "/docs/legal-information",
-          external: false,
-        },
-        {
-          title: "Authors' rights",
-          href: "/docs/authors-rights",
-          external: false,
-        },
-        {
-          title: "Terms & Conditions",
-          href: "/docs/terms-conditions",
+          title: "Shop Docs",
+          href: "/docs/shop/selling",
            external: false,
         },
         {
-          title: "Contact Us",
-          href: "/docs/contact-us",
+          title: "Music Docs",
+          href: "/docs/contact",
           external: false,
         },
+        {
+          title: "Legal Information",
+          href: "/docs/legal/terms",
+          external: false,
+        },
+        {
+          title: "Blog",
+          href: "/docs/blog/introduction",
+          external: false,
+        },      
       ],
     },
     {
@@ -141,7 +141,7 @@ export const siteConfig = {
         },
         {
           title: "Terms",
-          href: "/docs/terms",
+          href: "/docs/legal/terms",
           external: false,
         },
         {

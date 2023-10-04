@@ -82,7 +82,7 @@ export function ProductCard({
         </Link>
         <Link href={`shop/product/${product.id}`} tabIndex={-1}>
           <CardContent className="grid pb-4 bg-background-shop">
-            <CardTitle className="line-clamp-1 text-textdark py-2 text-2xl">
+            <CardTitle className="line-clamp-1 text-textdark py-2 text-base">
               {product.name}
             </CardTitle>
             <CardDescription className="line-clamp-2 text-textdark">

@@ -22,7 +22,7 @@ export interface NavItem {
 }
 
 export interface NavItemWithChildren extends NavItem {
-  items: NavItemWithChildren[]
+  items?: NavItemWithChildren[]
 }
 
 export interface NavItemWithOptionalChildren extends NavItem {
@@ -53,9 +53,9 @@ export type SidebarNavItem = {
     }
 )
 export type NavLink = {
-  title: string;
-  href: string;
-  url?: string;
+  title: string
+  href: string
+  url?: string
   disabled?: boolean
   external?: boolean
   // You can add additional properties as needed

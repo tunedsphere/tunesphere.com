@@ -83,7 +83,7 @@ export function DocsSearch() {
       <CommandDialog position="top" open={isOpen} onOpenChange={setIsOpen}>
         <CommandInput
         className="bg-transparent"
-          placeholder="We Will try our best..."
+          placeholder="We will try our best..."
           value={query}
           onValueChange={setQuery}
         />

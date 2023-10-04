@@ -90,11 +90,14 @@ export default async function StoresPage() {
         </PageHeaderDescription>
       </PageHeader>
       <Alert
+      className="border-muted"
         id="dashboard-stores-page-alert"
         aria-labelledby="dashboard-stores-page-alert-heading"
       >
+        <div className="flex gap-2">
         <RocketIcon className="h-4 w-4" aria-hidden="true" />
         <AlertTitle>Heads up!</AlertTitle>
+        </div>
         <AlertDescription>
           You are currently on the{" "}
           <span className="font-semibold">{subscriptionPlan?.name}</span> plan.

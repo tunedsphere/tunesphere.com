@@ -32,10 +32,11 @@ export const Doc = defineDocumentType(() => ({
   fields: {
     title: {
       type: "string",
-      required: true,
+      required: false,
     },
     description: {
       type: "string",
+      required: false,
     },
     published: {
       type: "boolean",

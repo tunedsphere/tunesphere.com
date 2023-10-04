@@ -22,52 +22,53 @@ import { filterProductsAction } from "@/app/_actions/product"
 import { DialogContent } from "../ui/dialog"
 
 export function ShopSearchBar() {
-  const router = useRouter()
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [query, setQuery] = React.useState("")
-  const debouncedQuery = useDebounce(query, 300)
+  const router = useRouter();
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [query, setQuery] = React.useState("");
+  const debouncedQuery = useDebounce(query, 300);
+  const commandListRef = React.useRef<HTMLDivElement | null>(null);
 
   const [data, setData] = React.useState<
     | {
-        category: Product["category"]
-        products: Pick<Product, "id" | "name" | "category">[]
+        category: Product["category"];
+        products: Pick<Product, "id" | "name" | "category">[];
       }[]
     | null
-  >(null)
-  const [isPending, startTransition] = React.useTransition()
+  >(null);
+  const [isPending, startTransition] = React.useTransition();
 
   React.useEffect(() => {
-    if (debouncedQuery.length === 0) setData(null)
+    if (debouncedQuery.length === 0) setData(null);
 
     if (debouncedQuery.length > 0) {
       startTransition(async () => {
-        const data = await filterProductsAction(debouncedQuery)
-        setData(data)
-      })
+        const data = await filterProductsAction(debouncedQuery);
+        setData(data);
+      });
     }
-  }, [debouncedQuery])
+  }, [debouncedQuery]);
 
   React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setIsOpen((isOpen) => !isOpen)
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        commandListRef.current &&
+        !commandListRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
       }
     }
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [])
 
-  const handleSelect = React.useCallback((callback: () => unknown) => {
-    setIsOpen(false)
-    callback()
-  }, [])
-
-  React.useEffect(() => {
-    if (!isOpen) {
-      setQuery(""); // Hide the CommandList when the search bar is closed
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
     }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [isOpen]);
+
   const handleInputClick = async () => {
     if (query.length > 0) {
       startTransition(async () => {
@@ -76,12 +77,17 @@ export function ShopSearchBar() {
       });
     }
   };
-  
-  const handleInputBlur = () => {
-    // Hide the CommandList when the input loses focus
-    setData(null);
-  };
-  
+
+  const handleSelect = React.useCallback((callback: () => unknown) => {
+    setIsOpen(false);
+    callback();
+  }, []);
+
+  React.useEffect(() => {
+    if (!isOpen) {
+      setQuery("");
+    }
+  }, [isOpen]);
   return (
     <>
       {/* <Button
@@ -96,19 +102,23 @@ export function ShopSearchBar() {
           <abbr title={isMacOs() ? 'Command' : 'Control'}>{isMacOs() ? '⌘' : 'Ctrl+'}</abbr>K
         </kbd>
       </Button> */}
-      <div className="relative flex flex-row w-full">
+      <div id="shop-search-bar" className="relative flex flex-row w-full">
       <Command className={`text-textdark align-middle ${query ? 'bg-theme-50' : 'bg-theme-50'} w-full hover:bg-theme-50 focus:bg-theme-50`}>
       <CommandInput
           className="align-middle bg-transparent text-textdark px-0 py-0"
           placeholder="Search products..."
           value={query}
           onValueChange={setQuery}
-          onClick={handleInputClick} // Show the CommandList when the input is clicked
-          onBlur={handleInputBlur}   // Hide the CommandList when the input loses focus
+          onClick={(e) => {
+            handleInputClick();
+            setIsOpen(true); // Open the CommandList
+            e.stopPropagation(); // Prevent the click event from propagating to the parent Command element
+          }}
         />
- {data && (
+   {data && isOpen && (
         <CommandList 
-        className="text-textdark flex-grow left-0 right-0 py-1 absolute mt-12 bg-theme-50 rounded-sm shadow-lg border-2 border-muted/30">
+        ref={commandListRef}
+         className="text-textdark flex-grow left-0 right-0 py-1 absolute mt-12 bg-theme-50 rounded-sm shadow-lg border border-muted/30" >
           <CommandEmpty
             className={cn(isPending ? "hidden" : "py-6 text-center text-sm text-textdark")}
           >

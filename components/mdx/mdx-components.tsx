@@ -30,7 +30,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-20 border-b  border-muted pb-2 text-2xl font-semibold tracking-tight first:mt-0",
+        "mt-10 scroll-m-20 border-b border-muted pb-2 text-2xl font-semibold tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -74,7 +74,7 @@ const components = {
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium underline underline-offset-4", className)}
+      className={cn("font-medium underline underline-offset-4 hover:text-texthigh/80 hover:decoration-2 text-texthigh decoration-primary", className)}
       {...props}
     />
   ),
@@ -94,7 +94,7 @@ const components = {
     <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <li className={cn("mt-2", className)} {...props} />
+    <li className={cn("mt-2 text-secondary", className)} {...props} />
   ),
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <blockquote

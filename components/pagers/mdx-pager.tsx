@@ -31,23 +31,23 @@ export function MdxPager({
       className={cn("flex items-center justify-between border-t border-muted py-4", className)}
       {...props}
     >
-      {pager?.prev ? (
-        <Link
-          aria-label="Previous post"
-          href={pager.prev.slug}
-          className={`hover:bg-muted ${cn(buttonVariants({ variant: "ghost" }))}`}
-        >
-          <Icons.chevronLeft className="mr-2 h-4 w-4" aria-hidden="true" />
-          {truncate(pager.prev.title, 20)}
-        </Link>
-      ) : null}
       {pager?.next ? (
         <Link
           aria-label="Next post"
           href={pager.next.slug}
+          className={`hover:bg-muted ${cn(buttonVariants({ variant: "ghost" }))}`}
+        >
+          <Icons.chevronLeft className="mr-2 h-4 w-4" aria-hidden="true" />
+          {truncate(pager.next.title, 20)}
+        </Link>
+      ) : null}
+      {pager?.prev ? (
+        <Link
+          aria-label="Previous post"
+          href={pager.prev.slug}
           className={`hover:bg-muted ${cn(buttonVariants({ variant: "ghost" }), "ml-auto")}`}
         >
-          {truncate(pager.next.title, 20)}
+          {truncate(pager.prev.title, 20)}
           <Icons.chevronRight className="ml-2 h-4 w-4" aria-hidden="true" />
         </Link>
       ) : null}

@@ -26,7 +26,7 @@ interface DocPageProps {
 
 // eslint-disable-next-line @typescript-eslint/require-await
 async function getDocFromParams(params: DocPageProps["params"]) {
-  const slug = params?.slug?.join("/") ?? ""
+  const slug = params.slug?.join("/") || ""
   const doc = allDocs.find((doc) => doc.slugAsParams === slug)
 
   if (!doc) {
@@ -69,12 +69,6 @@ export async function generateMetadata({
         },
       ],
     },
-    twitter: {
-      card: "summary_large_image",
-      title: doc.title,
-      description: doc.description,
-      images: [ogUrl.toString()],
-    },
   }
 }
 
@@ -115,7 +109,7 @@ export default async function PagePage({ params }: DocPageProps) {
       <MdxPager
         currentItem={formattedDoc}
         allItems={formattedDocs}
-        className="my-4"
+        className="my-4 md:my-6"
       />
       </div>
     </Shell>
