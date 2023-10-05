@@ -1,12 +1,12 @@
 import "@/styles/globals.css"
 
 import Link from "next/link"
-import type { NavbarNavItem } from "@/types"
+import type { MainNavItem } from "@/types"
 
 import { siteConfig } from "@/configs/site"
 
 interface NavbarNavProps {
-  items?: NavbarNavItem[]
+  items?: MainNavItem[]
 }
 
 export function NavbarBottom({}: NavbarNavProps) {

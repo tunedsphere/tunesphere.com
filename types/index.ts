@@ -38,7 +38,7 @@ export interface FooterItem {
 }
 
 export type SidebarNavItem = {
-  title: string
+  title?: string
   disabled?: boolean
   external?: boolean
   icon?: keyof typeof Icons
@@ -54,7 +54,7 @@ export type SidebarNavItem = {
 )
 export type NavLink = {
   title: string
-  href: string
+  href?: string
   url?: string
   disabled?: boolean
   external?: boolean
@@ -64,7 +64,8 @@ export type ShopNavItem = NavItemWithOptionalChildren
 
 export type ShopMainNavItem = NavItemWithOptionalChildren
 
-export type NavbarNavItem = NavItemWithOptionalChildren
+export type MainNavItem = NavItemWithOptionalChildren
+
 
 export type DocsItem = {
   title: string

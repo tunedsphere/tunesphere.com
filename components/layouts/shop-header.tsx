@@ -13,7 +13,7 @@ export function ShopHeader() {
       <Shell className="flex items-center justify-between py-6">
         <ShopMainNav items={siteConfig.shopNav} />
         <ShopMobileNav
-          shopMainNavItems={siteConfig.shopNav}
+          mainNavItems={siteConfig.shopNav}
           sidebarNavItems={dashboardConfig.sidebarNav}
         />
         <ShopSearchBar />

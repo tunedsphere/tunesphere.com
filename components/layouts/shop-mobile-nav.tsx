@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import type { ShopMainNavItem, SidebarNavItem } from "@/types"
+import type { MainNavItem, SidebarNavItem } from "@/types"
 
 import { siteConfig } from "@/configs/site"
 import { cn } from "@/lib/utils"
@@ -19,12 +19,12 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Icons } from "@/components/icons"
 
 interface ShopMobileNavProps {
-  shopMainNavItems?: ShopMainNavItem[]
+  mainNavItems?: MainNavItem[]
   sidebarNavItems: SidebarNavItem[]
 }
 
 export function ShopMobileNav({
-  shopMainNavItems,
+  mainNavItems,
   sidebarNavItems,
 }: ShopMobileNavProps) {
   const pathname = usePathname()
@@ -56,7 +56,7 @@ export function ShopMobileNav({
         <ScrollArea className="my-4 h-[calc(100dvh-8rem)] pb-10 pl-6">
           <div className="pl-1 pr-7">
             <Accordion type="single" collapsible className="w-full">
-              {shopMainNavItems?.map((item, index) => (
+              {mainNavItems?.map((item, index) => (
                 <AccordionItem value={item.title} key={index}>
                   <AccordionTrigger className="text-sm capitalize text-textdark hover:text-primary decoration-transparent leading-6 font-semibold">
                     {item.title}

@@ -1,4 +1,4 @@
-import type { FooterItem, NavbarNavItem, ShopNavItem } from "@/types"
+import type { FooterItem, MainNavItem, ShopNavItem } from "@/types"
 
 import { productCategories } from "@/configs/products"
 import { slugify } from "@/lib/utils"
@@ -40,7 +40,7 @@ export const siteConfig = {
       items: [],
       href: "/shop",
     },
-  ] satisfies NavbarNavItem[],
+  ] satisfies MainNavItem[],
   shopNav: [
     {
       title: "Lobby",
