@@ -232,6 +232,7 @@ export default async function UpdateStorePage({
           <fieldset className="grid gap-2.5">
             <Label htmlFor="update-store-description">Description</Label>
             <Textarea
+              className="min-h-[120px]"
               id="update-store-description"
               aria-describedby="update-store-description-description"
               name="description"

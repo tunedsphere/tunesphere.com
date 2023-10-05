@@ -18,12 +18,23 @@ export const ourFileRouter = {
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.id }
     })
+    
     // eslint-disable-next-line @typescript-eslint/require-await
     .onUploadComplete(async ({ metadata, file }) => {
       // This code RUNS ON YOUR SERVER after upload
       console.log("Upload complete for userId:", metadata.userId)
 
       console.log("file url", file.url)
+    }),
+    storeBanner: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
+    .middleware(async (req) => {
+      const user = await currentUser();
+      if (!user) throw new Error("Unauthorized");
+      return { userId: user.id };
+    })
+    .onUploadComplete(async ({ metadata, file }) => {
+      console.log("StoreBanner upload complete for userId:", metadata.userId);
+      console.log("storeBanner url", file.url);
     }),
 } satisfies FileRouter
 

@@ -3,6 +3,16 @@ import * as z from "zod"
 export const storeSchema = z.object({
   name: z.string().min(3).max(50),
   description: z.string().optional(),
+  storeBanner: z
+  .unknown()
+  .refine((val) => {
+    if (!Array.isArray(val)) return false
+    if (val.some((file) => !(file instanceof File))) return false
+    return true
+  }, "Must be an array of File")
+  .optional()
+  .nullable()
+  .default(null),
 })
 
 export const getStoreSchema = z.object({

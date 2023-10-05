@@ -142,7 +142,6 @@ export function Stores({ stores, pageCount, ...props }: StoresProps) {
         {stores.map((store) => (
           <StoreCard
             key={store.id}
-            href={`/shop/store/${store.id}`}
             store={store}
           />
         ))}

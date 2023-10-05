@@ -18,6 +18,8 @@ export const stores = mysqlTable("stores", {
   userId: varchar("userId", { length: 191 }).notNull(),
   name: varchar("name", { length: 191 }).notNull(),
   description: text("description"),
+  storeBanner: json("storeBanner").$type<StoredFile[] | null>().default(null),
+  storeIcon: json("storeIcon").$type<StoredFile[] | null>().default(null),
   slug: text("slug"),
   active: boolean("active").notNull().default(false),
   stripeAccountId: varchar("stripeAccountId", { length: 191 }),

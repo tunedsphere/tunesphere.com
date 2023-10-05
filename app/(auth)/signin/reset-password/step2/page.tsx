@@ -19,9 +19,10 @@ export default function ResetPasswordStep2Page() {
     <Shell variant="auth">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Forgot password</CardTitle>
+          <CardTitle className="text-2xl">verification code sent</CardTitle>
           <CardDescription>
-            Enter your email address and we will send you a verification code
+            Enter your new password and paste your a verification code below,
+            Did not receive it yet. Wait a little or check your spams.
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">

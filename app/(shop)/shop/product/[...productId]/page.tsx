@@ -140,7 +140,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </p>
             {store ? (
               <Link
-                href={`/shop/store/${slugify(store.name)}`}
+              href={`/shop/store/${store.id}/${slugify(store.name)}`}
                 className="line-clamp-1 inline-block text-base text-muted-foreground hover:underline"
               >
                 {store.name}

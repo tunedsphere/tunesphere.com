@@ -6,6 +6,7 @@ import { products, stores, type Store } from "@/db/schema"
 import { and, asc, desc, eq, isNull, not, sql } from "drizzle-orm"
 import { type z } from "zod"
 
+import type { StoredFile } from "@/types"
 import { slugify } from "@/lib/utils"
 import type { getStoresSchema, storeSchema } from "@/lib/validations/store"
 
@@ -78,7 +79,9 @@ export async function getStoresAction(input: z.infer<typeof getStoresSchema>) {
 }
 
 export async function addStoreAction(
-  input: z.infer<typeof storeSchema> & { userId: string }
+  input: z.infer<typeof storeSchema> & { 
+    userId: string,
+    storeBanner: StoredFile[] | null}
 ) {
   const storeWithSameName = await db.query.stores.findFirst({
     where: eq(stores.name, input.name),
@@ -91,6 +94,7 @@ export async function addStoreAction(
   await db.insert(stores).values({
     name: input.name,
     description: input.description,
+    storeBanner: input.storeBanner,
     userId: input.userId,
     slug: slugify(input.name),
   })

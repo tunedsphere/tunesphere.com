@@ -7,14 +7,13 @@ import { eq } from "drizzle-orm"
 import Image from "next/image"
 
 import { Separator } from "@/components/ui/separator"
-import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
+
 import { Products } from "@/components/products/products"
 import { Shell } from "@/components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
+import { StoreBanner } from "@/components/store-banner"
 
-import { slugify } from "@/lib/utils"
-import { AspectRatio } from "@radix-ui/react-aspect-ratio"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -25,7 +24,6 @@ export const metadata: Metadata = {
 interface StorePageProps {
   params: {
     storeId: string
-    storeName: string
   }
   searchParams: {
     [key: string]: string | string[] | undefined
@@ -36,7 +34,8 @@ export default async function StorePage({
   params,
   searchParams,
 }: StorePageProps) {
-  const storeId = Number(params.storeId)
+
+  const storeId = Number(params.storeId);
 
   const store = await db.query.stores.findFirst({
     where: eq(stores.id, storeId),
@@ -77,13 +76,8 @@ export default async function StorePage({
 
   return (
     <>
-     <div className="min-h-400px max-w-screen">
-          <Image src="/bggenre/test-banner.jpg"
-          width={800}
-          height={400}           
-          alt=""
-          className="min-w-full"></Image>
-      </div>
+        <StoreBanner 
+          images={store.storeBanner ?? []}/> 
       <div className="space-y-2 bg-muted/10 h-52">
 
   {/* Image on the left */}
