@@ -61,7 +61,7 @@ export default async function ShopPage() {
     alt="planet Home"
     className="absolute object-cover max-w-8xl h-[600px] mx-auto left-0 right-0 -z-10 opacity-50"
   ></Image>
-          <PageHeaderHeading size="lg" className="md:py-24 py-6 text-textdark tracking-tighter">
+          <PageHeaderHeading size="lg" variant="shop" className="md:py-24 py-6 tracking-tighter">
             A Store specially built for You with everything you would expect
           </PageHeaderHeading>
           <div className="relative mx-auto w-full max-w-[400px] py-8">
@@ -115,7 +115,7 @@ export default async function ShopPage() {
               id="shop-categories-header"
               aria-labelledby="shop-categories-header-heading">
               <PageHeaderHeading size="lg" className="py-8 text-textdark">Categories</PageHeaderHeading>
-              <PageHeaderDescription size="lg">
+              <PageHeaderDescription size="lg" className="text-textdark">
                 Explore our categories and find the best products for you
               </PageHeaderDescription>
             </PageHeader>

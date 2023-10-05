@@ -102,18 +102,22 @@ export default async function PostPage({ params }: PostPageProps) {
   )
 
   return (
+    <>
+    <div className="flex max-w-7xl mx-auto">
+    <Link
+      href="/blog"
+      className={cn(
+        buttonVariants({ variant: "ghost" }),
+        "flex justify-start hover:bg-muted/30"
+      )}
+    >
+      <Icons.chevronLeft className="mr-2 h-4 w-4" />
+      See all posts
+    </Link>
+    </div>
     <Shell as="article" variant="markdown">
-      <Link
-        href="/blog"
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute left-[-200px] top-14 hidden xl:inline-flex"
-        )}
-      >
-        <Icons.chevronLeft className="mr-2 h-4 w-4" />
-        See all posts
-      </Link>
-      <div className="space-y-2">
+     
+      <div className="space-y-2 w-5/6">
         <div className="flex items-center space-x-2 text-sm text-muted-foreground">
           {post.date && (
             <time dateTime={post.date} className="block">
@@ -154,30 +158,22 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         ) : null}
       </div>
+     
       {post.image && (
-        <AspectRatio ratio={16 / 9}>
           <Image
             src={post.image}
             alt={post.title}
-            fill
+            width={200}
+            height={200}
             className="rounded-md border bg-muted"
             priority
           />
-        </AspectRatio>
       )}
+     
       <Mdx code={post.body.code} />
       <Separator className="my-4" />
       <MdxPager currentItem={post} allItems={allPosts} />
-      <Link
-        href="/blog"
-        className={cn(
-          buttonVariants({ variant: "ghost", className: "mx-auto mt-4 w-fit" })
-        )}
-      >
-        <Icons.chevronLeft className="mr-2 h-4 w-4" aria-hidden="true" />
-        See all posts
-        <span className="sr-only">See all posts</span>
-      </Link>
     </Shell>
+    </>
   )
 }

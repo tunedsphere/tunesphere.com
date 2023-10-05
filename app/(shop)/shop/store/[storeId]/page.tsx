@@ -4,6 +4,7 @@ import { db } from "@/db"
 import { products, stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { eq } from "drizzle-orm"
+import Image from "next/image"
 
 import { Separator } from "@/components/ui/separator"
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
@@ -13,6 +14,7 @@ import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
 
 import { slugify } from "@/lib/utils"
+import { AspectRatio } from "@radix-ui/react-aspect-ratio"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -23,6 +25,7 @@ export const metadata: Metadata = {
 interface StorePageProps {
   params: {
     storeId: string
+    storeName: string
   }
   searchParams: {
     [key: string]: string | string[] | undefined
@@ -73,27 +76,41 @@ export default async function StorePage({
   const storePageCount = Math.ceil(storesTransaction.count / storesLimit)
 
   return (
-    <Shell>
-      <Breadcrumbs
-        segments={[
-          {
-            title: "Stores",
-            href: "/shop/stores",
-          },
-          {
-            title: store.name,
-            href: `/shop/store/${slugify(store.name)}`,
-          },
-        ]}
-      />
+    <>
+     <div className="min-h-400px max-w-screen">
+          <Image src="/bggenre/test-banner.jpg"
+          width={800}
+          height={400}           
+          alt=""
+          className="min-w-full"></Image>
+      </div>
+      <div className="space-y-2 bg-muted/10 h-52">
+
+  {/* Image on the left */}
+  <div className="max-w-screen-xl mx-auto flex flex-wrap items-center p-4">
+      {/* Image on the left */}
+      <div className="w-120 h-120 rounded-md overflow-hidden mr-4">
+        <Image
+          src="/bggenre/test-banner.jpg" // Replace with the actual image source
+          width={120}
+          height={120}
+          alt=""
+          className="rounded-md"
+        />
+      </div>
+
+  {/* Text content on the right */}
+  <div className="w-1/2 p-4">
+    <h2 className="line-clamp-1 text-2xl font-bold text-textdark">{store.name}</h2>
+    <p className="text-base text-muted-foreground">
+      {store.description}
+    </p>
+  </div>
+</div>
+</div>
+    <Shell variant="storeId">
       <div className="flex flex-col gap-8 md:flex-row md:gap-16">
         <div className="flex w-full flex-col gap-4">
-          <div className="space-y-2">
-            <h2 className="line-clamp-1 text-2xl font-bold text-textdark">{store.name}</h2>
-            <p className="text-base text-muted-foreground">
-              {store.description}
-            </p>
-          </div>
           <Separator className="my-1.5" />
           <Products
             products={productsTransaction.items}
@@ -105,5 +122,6 @@ export default async function StorePage({
         </div>
       </div>
     </Shell>
+    </>
   )
 }

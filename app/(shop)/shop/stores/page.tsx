@@ -39,13 +39,13 @@ export default async function StoresPage({ searchParams }: StoresPageProps) {
   const pageCount = Math.ceil(storesTransaction.count / limit)
 
   return (
-    <Shell>
+    <Shell variant="shop">
       <PageHeader
         id="stores-page-header"
         aria-labelledby="stores-page-header-heading"
       >
-        <PageHeaderHeading size="sm">Stores</PageHeaderHeading>
-        <PageHeaderDescription size="sm">
+        <PageHeaderHeading size="sm" variant="shop">Stores</PageHeaderHeading>
+        <PageHeaderDescription size="sm" variant="shop">
           Buy products from our stores
         </PageHeaderDescription>
       </PageHeader>

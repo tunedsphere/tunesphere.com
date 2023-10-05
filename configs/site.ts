@@ -99,6 +99,11 @@ export const siteConfig = {
           href: "/shop",
           external: false,
         },
+        {
+          title: "Blog",
+          href: "/blog",
+          external: false,
+        },
       ],
     },
     {

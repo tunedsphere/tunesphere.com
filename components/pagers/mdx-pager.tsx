@@ -5,10 +5,9 @@ import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
 interface MdxPagerItem {
-  title: string
-  slug: string
+  title?: string | undefined
+  slug: string;
 }
-
 interface MdxPagerProps extends React.HTMLAttributes<HTMLDivElement> {
   currentItem: MdxPagerItem
   allItems: MdxPagerItem[]
@@ -35,19 +34,19 @@ export function MdxPager({
         <Link
           aria-label="Next post"
           href={pager.next.slug}
-          className={`hover:bg-muted ${cn(buttonVariants({ variant: "ghost" }))}`}
+          className={`hover:bg-muted/30 hover:text-primary ${cn(buttonVariants({ variant: "ghost" }))}`}
         >
           <Icons.chevronLeft className="mr-2 h-4 w-4" aria-hidden="true" />
-          {truncate(pager.next.title, 20)}
+          {pager.next.title ? truncate(pager.next.title, 20) : null}
         </Link>
       ) : null}
       {pager?.prev ? (
         <Link
           aria-label="Previous post"
           href={pager.prev.slug}
-          className={`hover:bg-muted ${cn(buttonVariants({ variant: "ghost" }), "ml-auto")}`}
+          className={`hover:bg-muted/30 hover:text-primary ${cn(buttonVariants({ variant: "ghost" }), "ml-auto")}`}
         >
-          {truncate(pager.prev.title, 20)}
+        {pager.prev.title ? truncate(pager.prev.title, 20) : null}
           <Icons.chevronRight className="ml-2 h-4 w-4" aria-hidden="true" />
         </Link>
       ) : null}

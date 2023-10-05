@@ -87,14 +87,14 @@ export function DocsSearch() {
           value={query}
           onValueChange={setQuery}
         />
-        <CommandList>
+        <CommandList className="bg-muted/30 border-t border-muted">
           <CommandEmpty
             className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
           >
             No Documentation found.
           </CommandEmpty>
           {isPending ? (
-            <div className="space-y-1 overflow-hidden px-1 py-2">
+            <div className="space-y-1 overflow-hidden px-4 py-2">
               <Skeleton className="h-4 w-10 rounded" />
               <Skeleton className="h-8 rounded-sm" />
               <Skeleton className="h-8 rounded-sm" />
@@ -103,7 +103,7 @@ export function DocsSearch() {
             data?.map((group) => (
               <CommandGroup
                 key={group.category}
-                className="capitalize"
+                className="capitalize bg-muted"
                 heading={group.category}
               >
                 {group.products.map((item) => (
