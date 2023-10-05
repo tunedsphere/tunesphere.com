@@ -23,6 +23,10 @@ export const docsConfig: DocsConfig = {
           title: "About TunedSphere",
           href: "/docs/about",
         },
+        {
+          title: "Contact Us",
+          href: "/docs/contact",
+        },
       ],
     },
   {
