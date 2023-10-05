@@ -18,45 +18,48 @@ import {
 import { MdxPager } from "@/components/pagers/mdx-pager"
 import { Shell } from "@/components/shells/shell"
 
-interface DocPageProps {
+interface DocsPageProps {
   params: {
     slug: string[]
   }
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
-async function getDocFromParams(params: DocPageProps["params"]) {
+async function getDocFromParams(params: DocsPageProps["params"]) {
   const slug = params.slug?.join("/") || ""
   const doc = allDocs.find((doc) => doc.slugAsParams === slug)
 
   if (!doc) {
-    null
+    return null; // Return early if doc is not found
   }
 
-  return doc
+  return doc;
 }
 
 export async function generateMetadata({
   params,
-}: DocPageProps): Promise<Metadata> {
+}: DocsPageProps): Promise<Metadata> {
   const doc = await getDocFromParams(params)
 
   if (!doc) {
-    return {}
+    return {};
   }
+
+  // Ensure doc.title is defined before accessing it
+  const title = doc.title ?? "Default Title";
 
   const url = env.NEXT_PUBLIC_APP_URL
 
   const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("title", doc.title)
+  ogUrl.searchParams.set("title", title) // Use the title variable here
   ogUrl.searchParams.set("type", siteConfig.name)
   ogUrl.searchParams.set("mode", "light")
 
   return {
-    title: doc.title,
+    title,
     description: doc.description,
     openGraph: {
-      title: doc.title,
+      title,
       description: doc.description,
       type: "article",
       url: absoluteUrl(doc.slug),
@@ -65,7 +68,7 @@ export async function generateMetadata({
           url: ogUrl.toString(),
           width: 1200,
           height: 630,
-          alt: doc.title,
+          alt: title, // Use the title variable here
         },
       ],
     },
@@ -73,18 +76,22 @@ export async function generateMetadata({
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
-export async function generateStaticParams(): Promise<DocPageProps["params"][]> {
+export async function generateStaticParams(): Promise<DocsPageProps["params"][]> {
   return allDocs.map((doc) => ({
     slug: doc.slugAsParams.split("/"),
   }))
 }
 
-export default async function PagePage({ params }: DocPageProps) {
+export default async function PagePage({ params }: DocsPageProps) {
   const doc = await getDocFromParams(params)
 
   if (!doc) {
     notFound()
+    return null; // Return early if doc is not found
   }
+
+  // Ensure doc.title is defined before accessing it
+  const title = doc.title ?? "Default Title";
 
   // Remove the /pages prefix from the slug
   const formattedDoc = {
@@ -100,17 +107,17 @@ export default async function PagePage({ params }: DocPageProps) {
   return (
     <Shell as="article" variant="markdown">
       <div className="mx-auto w-full min-w-0">
-      <PageHeader>
-        <PageHeaderHeading>{doc.title}</PageHeaderHeading>
-        <PageHeaderDescription>{doc.description}</PageHeaderDescription>
-      </PageHeader>
-      <Separator className="my-4" />
-      <Mdx code={doc.body.code} />
-      <MdxPager
-        currentItem={formattedDoc}
-        allItems={formattedDocs}
-        className="my-4 md:my-6"
-      />
+        <PageHeader>
+          <PageHeaderHeading>{title}</PageHeaderHeading>
+          <PageHeaderDescription>{doc.description}</PageHeaderDescription>
+        </PageHeader>
+        <Separator className="my-4" />
+        <Mdx code={doc.body.code} />
+        <MdxPager
+          currentItem={formattedDoc}
+          allItems={formattedDocs}
+          className="my-4 md:my-6"
+        />
       </div>
     </Shell>
   )

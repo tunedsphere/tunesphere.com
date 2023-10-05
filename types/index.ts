@@ -38,7 +38,7 @@ export interface FooterItem {
 }
 
 export type SidebarNavItem = {
-  title?: string
+  title: string
   disabled?: boolean
   external?: boolean
   icon?: keyof typeof Icons
@@ -62,22 +62,21 @@ export type NavLink = {
 };
 export type ShopNavItem = NavItemWithOptionalChildren
 
-export type ShopMainNavItem = NavItemWithOptionalChildren
-
 export type MainNavItem = NavItemWithOptionalChildren
 
 
 export type DocsItem = {
   title: string
+  description: string
   href: string
-  disabled?: boolean
+  disabled: boolean
 }
 export type DocsNavItem = DocsItem
 
 export type UserRole = z.infer<typeof userPrivateMetadataSchema.shape.role>
 
 export type DocsConfig = {
-  mainNav: DocsItem[]
+  mainNav: DocsItem
   sidebarNav: SidebarNavItem[]
 }
 
