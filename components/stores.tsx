@@ -18,7 +18,7 @@ import {
 import { StoreCard } from "@/components/cards/store-card"
 import { Icons } from "@/components/icons"
 import { PaginationButton } from "@/components/pagers/pagination-button"
-
+import { slugify } from "@/lib/utils"
 // import { FacetedFilter } from "./faceted-filter"
 
 interface StoresProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -143,6 +143,7 @@ export function Stores({ stores, pageCount, ...props }: StoresProps) {
           <StoreCard
             key={store.id}
             store={store}
+            href={`/shop/store/${store.id}/${slugify(store.name)}`}
           />
         ))}
       </div>

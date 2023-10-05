@@ -14,9 +14,10 @@ import {
 import { slugify } from "@/lib/utils"
 interface StoreCardProps {
   store: CuratedStore
+  href: string
 }
 
-export function StoreCard({ store }: StoreCardProps) {
+export function StoreCard({ store, href }: StoreCardProps) {
 
 
   return (
@@ -24,7 +25,7 @@ export function StoreCard({ store }: StoreCardProps) {
     <Link 
     className=""
     aria-label={store.name}
-    href={`/shop/store/${store.id}/${slugify(store.name)}`}>
+    href={href}>
       <Card className="group h-full border-none shadow-xl hover:shadow-2xl bg-muted/70">
         <AspectRatio ratio={21 / 9}>
           <Badge

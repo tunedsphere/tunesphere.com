@@ -79,7 +79,6 @@ export default async function StorePage({
         <StoreBanner 
           images={store.storeBanner ?? []}/> 
       <div className="space-y-2 bg-muted/10 h-52">
-
   {/* Image on the left */}
   <div className="max-w-screen-xl mx-auto flex flex-wrap items-center p-4">
       {/* Image on the left */}
