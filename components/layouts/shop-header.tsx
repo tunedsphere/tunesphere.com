@@ -4,8 +4,7 @@ import { Shell } from "@/components/shells/shell"
 
 import { dashboardConfig } from "@/configs/dashboard"
 import { siteConfig } from "@/configs/site"
-import { ShopCombobox } from "../searchs/shop-combobox"
-import { ShopSearchBar } from "../searchs/shop-search-bar"
+import { ShopSearchBar } from "@/components/searchs/shop-search-bar"
 
 export function ShopHeader() {
   return (
@@ -13,7 +12,7 @@ export function ShopHeader() {
       <Shell className="flex items-center justify-between py-6">
         <ShopMainNav items={siteConfig.shopNav} />
         <ShopMobileNav
-          mainNavItems={siteConfig.shopNav}
+          shopMainNavItems={siteConfig.shopNav}
           sidebarNavItems={dashboardConfig.sidebarNav}
         />
         <ShopSearchBar />

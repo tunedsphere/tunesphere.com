@@ -13,20 +13,26 @@ import { type Icons } from "@/components/icons"
 
 export interface NavItem {
   title: string
-  href?: string
+  href: string
   disabled?: boolean
   external?: boolean
   icon?: keyof typeof Icons
   label?: string
   description?: string
 }
-
-export interface NavItemWithChildren extends NavItem {
-  items?: NavItemWithChildren[]
+export interface ShopNavItem {
+  title: string
+  href?: string
+  disabled?: boolean
+  external?: boolean
+  icon?: keyof typeof Icons
+  description?: string
 }
-
-export interface NavItemWithOptionalChildren extends NavItem {
-  items?: NavItemWithChildren[]
+export interface ShopNavItemWithChildren extends ShopNavItem {
+  items?: ShopNavItemWithChildren[]
+}
+export interface ShopNavItemWithOptionalChildren extends ShopNavItem {
+  items?: ShopNavItemWithChildren[]
 }
 export interface FooterItem {
   title: string
@@ -60,23 +66,14 @@ export type NavLink = {
   external?: boolean
   // You can add additional properties as needed
 };
-export type ShopNavItem = NavItemWithOptionalChildren
+export type ShopMainNavItem = ShopNavItemWithOptionalChildren
 
-export type MainNavItem = NavItemWithOptionalChildren
-
-
-export type DocsItem = {
-  title: string
-  description: string
-  href: string
-  disabled: boolean
-}
-export type DocsNavItem = DocsItem
+export type MainNavItem = NavItem
 
 export type UserRole = z.infer<typeof userPrivateMetadataSchema.shape.role>
 
 export type DocsConfig = {
-  mainNav: DocsItem
+  mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
 }
 

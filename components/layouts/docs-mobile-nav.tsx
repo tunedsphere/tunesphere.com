@@ -2,13 +2,13 @@ import * as React from "react"
 import Link from "next/link"
 
 
-import { DocsNavItem } from "types"
+import { MainNavItem } from "types"
 import { siteConfig } from "@/configs/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 
 interface MobileNavProps {
-  items: DocsNavItem[]
+  items: MainNavItem[]
   children?: React.ReactNode
 }
 

@@ -4,18 +4,18 @@ import * as React from "react"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 
-import { DocsNavItem } from "types"
+import { MainNavItem } from "types"
 import { siteConfig } from "@/configs/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 import { DocsMobileNav } from "@/components/layouts/docs-mobile-nav"
 
-interface MainNavProps {
-  items?: DocsNavItem[]
+interface DocsMainNavProps {
+  items: MainNavItem[]
   children?: React.ReactNode
 }
 
-export function DocsMainNav({ items, children }: MainNavProps) {
+export function DocsMainNav({ items, children }: DocsMainNavProps) {
   const segment = useSelectedLayoutSegment()
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
 

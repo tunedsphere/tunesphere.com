@@ -1,4 +1,4 @@
-import type { FooterItem, MainNavItem, ShopNavItem } from "@/types"
+import type { FooterItem, MainNavItem, ShopMainNavItem } from "@/types"
 
 import { productCategories } from "@/configs/products"
 import { slugify } from "@/lib/utils"
@@ -25,19 +25,16 @@ export const siteConfig = {
     {
       title: "Music",
       label: "Music",
-      items: [],
       href: "/music",
     },
     {
       title: "Festivals",
       label: "Festivals",
-      items: [],
       href: "/festivals",
     },
     {
       title: "Shop",
       label: "Shop",
-      items: [],
       href: "/shop",
     },
   ] satisfies MainNavItem[],
@@ -84,7 +81,7 @@ export const siteConfig = {
         })),
       ],
     })),
-  ] satisfies ShopNavItem[],
+  ] satisfies ShopMainNavItem[],
   footerNav: [
     {
       title: "Products", // Default href for "Products" title

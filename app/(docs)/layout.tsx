@@ -27,11 +27,9 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
         </div>
       </header>
     <main className="mx-auto max-w-7xl pt-8 container flex-1 px-8">
-
       {children}
     </main>
     <div className="fixed-gradient">
-
   <div className="fixed footer-gradient right-0 top-0 h-full w-3/5" />
   </div>
     <SiteFooter />

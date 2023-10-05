@@ -2,7 +2,7 @@ import "@/styles/globals.css"
 
 import * as React from "react"
 import Link from "next/link"
-import type { MainNavItem } from "@/types"
+import type { ShopMainNavItem } from "@/types"
 import { Icons } from "@/components/icons"
 
 import { siteConfig } from "@/configs/site"
@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/navigation-menu"
 
 interface ShopMainNavProps {
-  items?: MainNavItem[]
+  items: ShopMainNavItem[]
 }
 
 export function ShopMainNav({ items }: ShopMainNavProps) {
