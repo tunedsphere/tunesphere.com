@@ -34,7 +34,7 @@ export function SiteHeader() {
   return (
     <nav
       id="globalnav"
-      className="globalnav fixed h-auto border-b-2 border-accent-2 @container"
+      className="globalnav fixed h-auto border-b-2 border-accent-2 @container z-9999"
     >
       <div id="globalnav-content" className="relative">
         <nav className="z-9999 bg-background-navbartop">
@@ -42,8 +42,8 @@ export function SiteHeader() {
             <div className="relative hidden flex-row items-center justify-start sm:flex sm:w-1/3 sm:gap-2">
               <Icons.logo
                 className="absolute left-0 right-0 z-10 hidden sm:block text-primary"
-                width={60}
-                height={60}
+                width={54}
+              height={54}
               ></Icons.logo>
             </div>
             <div className="left-0 flex w-4/6 items-center sm:justify-center">

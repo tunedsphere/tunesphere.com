@@ -4,7 +4,6 @@ import { db } from "@/db"
 import { products, stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { eq } from "drizzle-orm"
-import Image from "next/image"
 
 import { Separator } from "@/components/ui/separator"
 
@@ -13,6 +12,7 @@ import { Shell } from "@/components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
 import { StoreBanner } from "@/components/store-banner"
+import { StoreIcon } from "@/components/store.icon"
 
 
 export const metadata: Metadata = {
@@ -76,32 +76,43 @@ export default async function StorePage({
 
   return (
     <>
-        <StoreBanner 
-          images={store.storeBanner ?? []}/> 
-      <div className="space-y-2 bg-muted/10 h-52">
-  {/* Image on the left */}
-  <div className="max-w-screen-xl mx-auto flex flex-wrap items-center p-4">
-      {/* Image on the left */}
-      <div className="w-120 h-120 rounded-md overflow-hidden mr-4">
-        <Image
-          src="/bggenre/test-banner.jpg" // Replace with the actual image source
-          width={120}
-          height={120}
-          alt=""
-          className="rounded-md"
-        />
-      </div>
 
-  {/* Text content on the right */}
-  <div className="w-1/2 p-4">
-    <h2 className="line-clamp-1 text-2xl font-bold text-textdark">{store.name}</h2>
+    <div id="store-home-header" className="relative">
+      <div className="flex flex-col">
+      <div className="relative min-w-screen h-[500px] min-h-[100px] border-0">
+      <div className="">
+        <StoreBanner
+        key={store.id}
+        className="object-contain " 
+          images={store.storeBanner ?? []}/> 
+          </div>
+          </div>
+          <div className="flex justify-between">
+  <div className="flex max-w-7xl mx-auto p-4 space-y-2 bg-muted/10 h-52">
+    <div className="">
+      <StoreIcon images={store.storeIcon ?? []}/> 
+  </div>
+  <div className=" pt-4 min-h-full">
+    <h2 className="flex flex-start line-clamp-1 text-2xl font-bold">{store.name}</h2>
     <p className="text-base text-muted-foreground">
-      {store.description}
+      {store.headline}
     </p>
+  </div>
+  <div>
+  <div className="">
+      <StoreIcon images={store.storeIcon ?? []}/> 
+  </div>
+  <div className="pt-4 min-h-full">
+    <h2 className="flex flex-start line-clamp-1 text-2xl font-bold">{store.name}</h2>
+    <p className="text-base text-muted-foreground">
+      {store.headline}
+    </p>
+  </div>
   </div>
 </div>
 </div>
-    <Shell variant="storeId">
+
+    <Shell variant="storeId" className="">
       <div className="flex flex-col gap-8 md:flex-row md:gap-16">
         <div className="flex w-full flex-col gap-4">
           <Separator className="my-1.5" />
@@ -115,6 +126,8 @@ export default async function StorePage({
         </div>
       </div>
     </Shell>
+    </div>
+    </div>
     </>
   )
 }

@@ -56,7 +56,7 @@ interface GlobalNavFlyoutProps {
                 size="sm"
                 onClick={handleClose}
                 variant="ghost"
-                className="mx-0 px-0"
+                className="mx-0 px-0 hover:bg-muted/30 hover:text-primary"
               >
                 <span className="flex items-center">
                   <Icons.chevronLeft className="" />
@@ -90,7 +90,7 @@ interface GlobalNavFlyoutProps {
                 <Link
                   onClick={handleClose}
                   href={item.href}
-                  className="text-texthigh hover:text-theme"
+                  className="text-texthigh hover:text-texthigh/70"
                 >
                   {item.label}
                 </Link>

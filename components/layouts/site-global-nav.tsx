@@ -25,11 +25,14 @@ export function SiteGlobalNav() {
           className="relative bg-background-globalnav md:bg-background-globalnav/50">
           <div className="navbar-container flex h-[--headerHeight] px-4 py-2 md:px-8">
             <div className="relative hidden flex-row items-center justify-start gap-1 sm:flex sm:w-1/3 sm:gap-2">
-              <Icons.logo className="z-100 text-primary" width={72} height={72}></Icons.logo>
+              <Icons.logo 
+              className="z-100 text-primary"
+              width={54}
+              height={54}></Icons.logo>
             </div>
             <div className="left-0 z-20 flex w-4/6 shrink items-center sm:w-1/3 sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h2 className="z-10 cursor-pointer text-center text-[24px] font-extrabold leading-[30.24px] text-brand hover:text-primary">
+                <h2 className="z-10 cursor-pointer text-center text-[24px] font-extrabold leading-[30.24px] text-indexhigh hover:text-primary">
                   TUNEDSPHERE
                 </h2>
               </Link>

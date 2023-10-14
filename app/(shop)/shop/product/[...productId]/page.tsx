@@ -130,12 +130,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
           }}
         />
         <Separator className="mt-4 md:hidden" />
-        <div className="flex w-full flex-col gap-4 text-textdark md:w-1/2">
+        <div className="flex w-full flex-col gap-4 md:w-1/2">
           <div className="space-y-2">
-            <h2 className="line-clamp-1 text-2xl font-bold text-textdark">
+            <h2 className="line-clamp-1 text-2xl font-bold">
               {product.name}
             </h2>
-            <p className="text-xl font-semibold text-textdark">
+            <p className="text-xl font-semibold">
               {formatPrice(product.price)}
             </p>
             {store ? (
@@ -150,9 +150,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <Separator className="my-1.5" />
           <AddToCartForm productId={productId} />
           <Separator className="mt-5" />
-          <Accordion type="single" collapsible className="w-full text-textdark">
+          <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="description">
-              <AccordionTrigger className="text-textdark">
+              <AccordionTrigger className="text-base underline-offset-4 decoration-primary">
                 Description
               </AccordionTrigger>
               <AccordionContent>
@@ -171,8 +171,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {store && otherProducts.length > 0 ? (
         <div className="overflow-hidden md:pt-6 pb-6">
           <PageHeader>
-            <PageHeaderHeading size="xs" className="font-medium text-textdark/80">
-            More products from <span className="text-2xl font-semibold text-textdark underline-offset-4 underline decoration-2 hover:decoration-4 cursor-pointer decoration-theme">{store.name}</span>
+            <PageHeaderHeading size="xs" className="font-medium/80">
+            More products from <span className="text-2xl font-semibold underline-offset-4 underline decoration-2 hover:decoration-4 cursor-pointer decoration-theme">{store.name}</span>
             </PageHeaderHeading>
             </PageHeader>
 
@@ -181,7 +181,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <ProductCard
                   key={product.id}
                   product={product}
-                  className=""
                 />
               ))}
             </div>

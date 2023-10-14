@@ -65,16 +65,20 @@ module.exports = {
         },
         background: {
           DEFAULT: "hsl(var(--background))",
+          index: "hsl(var(--background-index))",
           globalnav: "hsl(var(--background-globalnav))",
           navbarbottom: "hsl(var(--background-navbarbottom))",
           navbartop: "hsl(var(--background-navbartop))",
           footer: "hsl(var(--background-footer))",
           shop: "hsl(var(--background-shop))",
+          shopHeader: "hsl(var(--background-shop-header))",
           dashboard: "hsl(var(--background-dashboard))",
         },
         brand: "hsl(var(--brand))",
         texthigh: "hsl(var(--texthigh))",
         textlow: "hsl(var(--textlow))",
+        indexhigh: "hsl(var(--indexhigh))",
+        indexlow: "hsl(var(--indexlow))",
         textdark: "hsl(var(--textdark))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -86,20 +90,24 @@ module.exports = {
 
         primary: {
           DEFAULT: "hsl(var(--primary))",
+          index: "hsl(var(--primary-index))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
+          index: "hsl(var(--secondary-index))",
           hero: "hsl(var(--secondary-hero))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
+          index: "hsl(var(--destructive-index))",
           foreground: "hsl(var(--destructive-foreground))",
           hover: "hsl(var(--destructive-hover))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
+          index: "hsl(var(--muted-index))",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
@@ -117,6 +125,7 @@ module.exports = {
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
+          index: "hsl(var(--popover-index))",
           foreground: "hsl(var(--popover-foreground))",
         },
         card: {

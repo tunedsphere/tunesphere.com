@@ -50,13 +50,13 @@ export default function SiteGlobalNavMenuBurger() {
   }, []);
   return (
     <>
-      <div className="navbar-container invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end bg-white px-2 py-2 md:px-8">
+      <div className="navbar-container invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end px-2 py-2 md:px-8">
         <div className="visible -z-20000">
           <Button
             size="xs"
             variant="nav"
             onClick={handleNavbarClick}
-            className="hidden text-texthigh hover:text-theme md:block"
+            className="hidden text-indexhigh hover:text-theme md:block"
           >
             <Icons.menu
               className={`absolute rotate-${isOpen ? "0" : "90"} scale-${

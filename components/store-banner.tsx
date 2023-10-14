@@ -6,19 +6,18 @@ interface StoreBannerProps extends React.HTMLAttributes<HTMLDivElement> {
   images: StoredFile[];
 }
 
-export function StoreBanner({ images }: StoreBannerProps) {
+export function StoreBanner({ images, className }: StoreBannerProps) {
   return (
     <>
-      {images.map((image, index) => (
-        <div key={index} className="max-w-screen">
+      {images.map((image) => (
+        <div className="overflow-hidden">
           <Image
-            src={image.url} // Use `image.url` to access the URL property
-            alt={image.name} // Use `image.name` to access the name property
-            key={index}
-            width={800}
-            height={400}
-            className="min-w-full object-contain"
-            loading="lazy"
+          width={2400}
+          height={400}
+          src={image.url} // Use `image.url` to access the URL property
+          alt={image.name}
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          priority
           />
         </div>
       ))}

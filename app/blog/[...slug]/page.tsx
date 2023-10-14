@@ -115,9 +115,8 @@ export default async function PostPage({ params }: PostPageProps) {
       See all posts
     </Link>
     </div>
-    <Shell as="article" variant="markdown">
-     
-      <div className="space-y-2 w-5/6">
+    <Shell as="article" variant="markdown" className="">
+      <div className="space-y-2 w-full">
         <div className="flex items-center space-x-2 text-sm text-muted-foreground">
           {post.date && (
             <time dateTime={post.date} className="block">
@@ -125,19 +124,19 @@ export default async function PostPage({ params }: PostPageProps) {
             </time>
           )}
           {post.date ? <div>•</div> : null}
-          <div>{post.readingTime}min</div>
+          <div>{post.readingTime} min Read</div>
         </div>
         <h1 className="inline-block text-4xl font-bold leading-tight lg:text-5xl">
           {post.title}
         </h1>
         {authors?.length ? (
-          <div className="flex items-center space-x-4 pt-4">
+          <div className="space-x-4 pt-4 flex flex-row">
             {authors.map((author) =>
               author ? (
                 <Link
                   key={author._id}
                   href={`https://twitter.com/${author.twitter}`}
-                  className="flex items-center space-x-2 text-sm"
+                  className="space-x-2 text-sm"
                 >
                   <Image
                     src={author.avatar}
@@ -157,19 +156,23 @@ export default async function PostPage({ params }: PostPageProps) {
             )}
           </div>
         ) : null}
-      </div>
-     
+           </div>
+   
+      </Shell>
+      <div className="space-y-2 w-full mx-auto flex justify-center">
       {post.image && (
           <Image
             src={post.image}
             alt={post.title}
-            width={200}
-            height={200}
-            className="rounded-md border bg-muted"
+            width={400}
+            height={400}
+            className="rounded-md border bg-muted object-fit border-muted"
             priority
           />
       )}
-     
+     </div>
+
+     <Shell as="article" variant="markdown">
       <Mdx code={post.body.code} />
       <Separator className="my-4" />
       <MdxPager currentItem={post} allItems={allPosts} />

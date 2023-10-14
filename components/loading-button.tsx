@@ -3,7 +3,9 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-import { experimental_useFormStatus as useFormStatus } from "react-dom"
+ // @ts-ignore
+import { experimental_useFormStatus as useFormStatus } from 'react-dom'
+
 
 import { cn } from "@/lib/utils"
 import { useMounted } from "@/hooks/use-mounted"

@@ -33,8 +33,18 @@ export const ourFileRouter = {
       return { userId: user.id };
     })
     .onUploadComplete(async ({ metadata, file }) => {
-      console.log("StoreBanner upload complete for userId:", metadata.userId);
+      console.log("StoreBanner upload complete for storeId:", metadata.userId);
       console.log("storeBanner url", file.url);
+    }),
+    storeIcon: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
+    .middleware(async (req) => {
+      const user = await currentUser();
+      if (!user) throw new Error("Unauthorized");
+      return { userId: user.id };
+    })
+    .onUploadComplete(async ({ metadata, file }) => {
+      console.log("StoreIcon upload complete for storeId:", metadata.userId);
+      console.log("storeIcon url", file.url);
     }),
 } satisfies FileRouter
 

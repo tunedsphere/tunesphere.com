@@ -143,7 +143,6 @@ export function Stores({ stores, pageCount, ...props }: StoresProps) {
           <StoreCard
             key={store.id}
             store={store}
-            href={`/shop/store/${store.id}/${slugify(store.name)}`}
           />
         ))}
       </div>

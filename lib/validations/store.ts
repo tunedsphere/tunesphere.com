@@ -1,15 +1,21 @@
 import * as z from "zod"
 
 export const storeSchema = z.object({
-  name: z.string().min(3).max(50),
+  name: z.string().min(3).max(50, {
+    message: "Name can not be more than 50 characters long",
+  }),
+  headline: z.string().max(100, {
+    message: "Headline can not be more than 100 characters long",
+  })
+  .optional(),
   description: z.string().optional(),
   storeBanner: z
   .unknown()
-  .refine((val) => {
-    if (!Array.isArray(val)) return false
-    if (val.some((file) => !(file instanceof File))) return false
-    return true
-  }, "Must be an array of File")
+  .optional()
+  .nullable()
+  .default(null),
+  storeIcon: z
+  .unknown()
   .optional()
   .nullable()
   .default(null),

@@ -113,7 +113,7 @@ export const siteConfig = {
         },
         {
           title: "Music Docs",
-          href: "/docs/contact",
+          href: "/docs/music/introduction",
           external: false,
         },
         {

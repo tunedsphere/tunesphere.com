@@ -17,7 +17,7 @@ export function StartYourJourney () {
 </section>
 
 <section id="how-to-get-started" aria-labelledby="how-to-get-started-label" className="text-center my-8 justify-content max-w-7xl mx-auto grid sm:grid-cols-3">
-<div className="p-4 text-textdark">
+<div className="p-4">
       <PageHeaderHeading variant="shop" className="text-lg font-semibold py-2">
         **Step 1: Sign Up for an Account**
       </PageHeaderHeading>
@@ -25,7 +25,7 @@ export function StartYourJourney () {
         Begin your journey by signing up for an account. It's quick, easy, and completely free. Join our community of like-minded individuals who are dedicated to promoting safe and responsible psychedelic use.
       </PageHeaderDescription>
       </div>
-        <div className="p-4 text-textdark">
+        <div className="p-4">
       <PageHeaderHeading variant="shop" className="text-lg font-semibold py-2">
         **Step 2: Set Up Your Store**
       </PageHeaderHeading>
@@ -33,7 +33,7 @@ export function StartYourJourney () {
         Once you're logged in, it's time to customize your store. Choose a unique name, add a captivating logo, and craft a compelling store description. Personalize your storefront to reflect your vision and values, creating an inviting space for customers to explore the world of psychedelics.
       </PageHeaderDescription>
       </div>
-        <div className="p-4 text-textdark">
+        <div className="p-4">
       <PageHeaderHeading variant="shop" className="text-lg font-semibold py-2">
         **Step 3: Start Selling Your Products**
       </PageHeaderHeading>

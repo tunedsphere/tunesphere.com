@@ -190,14 +190,14 @@ export function Products({
               All Filters
             </Button>
           </SheetTrigger>
-          <SheetContent className="flex flex-col bg-background-shop text-textdark" side="left">
+          <SheetContent className="flex flex-col bg-background" side="left">
             <SheetHeader className="px-1">
               <SheetTitle className="text-4xl">Filters</SheetTitle>
             </SheetHeader>
             <Separator />
             <div className="flex flex-1 flex-col gap-5 overflow-hidden px-1">
               <div className="space-y-4">
-                <h3 className="text-sm font-medium tracking-wide text-textdark">
+                <h3 className="text-sm font-medium tracking-wide">
                   Price range (€)
                 </h3>
                 <Slider
@@ -224,7 +224,7 @@ export function Products({
                       setPriceRange([value, priceRange[1]])
                     }}
                   />
-                  <span className="text-textdark">-</span>
+                  <span className="">-</span>
                   <Input
                     type="number"
                     inputMode="numeric"
@@ -241,7 +241,7 @@ export function Products({
               </div>
               {categories?.length ? (
                 <div className="space-y-4">
-                  <h3 className="text-sm font-medium tracking-wide text-textdark">
+                  <h3 className="text-sm font-medium tracking-wide">
                     Categories
                   </h3>
                   <MultiSelect
@@ -257,7 +257,7 @@ export function Products({
               ) : null}
               {category ? (
                 <div className="space-y-4">
-                  <h3 className="text-sm font-medium tracking-wide text-textdark">
+                  <h3 className="text-sm font-medium tracking-wide">
                     Subcategories
                   </h3>
                   <MultiSelect
@@ -271,7 +271,7 @@ export function Products({
               {stores?.length ? (
                 <div className="space-y-3">
                   <div className="flex gap-2">
-                    <h3 className="flex-1 text-sm font-medium tracking-wide text-textdark">
+                    <h3 className="flex-1 text-sm font-medium tracking-wide">
                       Stores
                     </h3>
                     <div className="flex items-center space-x-2">
@@ -393,7 +393,7 @@ export function Products({
       <Icons.pageLayout className="h-4 w-4" aria-hidden="true" />
     </Button>
   </DropdownMenuTrigger>
-  <DropdownMenuContent align="start" className="w-4 bg-background-shop text-textdark">
+  <DropdownMenuContent align="start" className="w-4 bg-background">
   {[8, 16, 32].map((value) => (
     <DropdownMenuItem
       key={value}
@@ -416,14 +416,14 @@ export function Products({
               <Icons.chevronDown className="" aria-hidden="true" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="w-48 bg-background-shop text-textdark">
+          <DropdownMenuContent align="start" className="w-48 bg-background">
             <DropdownMenuLabel>Sort by</DropdownMenuLabel>
             <DropdownMenuSeparator />
             {sortOptions.map((option) => (
               <DropdownMenuItem
                 key={option.label}
                 className={cn(
-                  option.value === sort && "font-bold text-textdark hover:bg-muted"
+                  option.value === sort && "font-bold hover:bg-muted"
                 )}
                 onClick={() => {
                   startTransition(() => {
@@ -446,7 +446,7 @@ export function Products({
 
       {!isPending && !products.length ? (
         <div className="mx-auto flex max-w-xs flex-col space-y-1.5">
-          <h1 className="text-center text-2xl font-bold text-textdark">
+          <h1 className="text-center text-2xl font-bold">
             No products found
           </h1>
           <p className="text-center text-muted-foreground">

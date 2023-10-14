@@ -44,6 +44,7 @@ export default async function StoresPage() {
     .select({
       id: stores.id,
       name: stores.name,
+      storeBanner: stores.storeBanner,
       description: stores.description,
       stripeAccountId: stores.stripeAccountId,
     })
@@ -116,7 +117,6 @@ export default async function StoresPage() {
           <StoreCard
             key={store.id}
             store={store}
-            href={`/dashboard/stores/${store.id}`}
           />
         ))}
       </section>

@@ -8,16 +8,8 @@ import { type Product, type Store } from "@/db/schema"
 import { cn, formatPrice } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import {Card } from "@/components/ui/card"
 import { Icons } from "@/components/icons"
-import { addToCartAction } from "@/app/_actions/cart"
 
 interface FeaturedProductCardProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -40,8 +32,7 @@ export function FeaturedProductCard({
   const [isPending, startTransition] = React.useTransition()
 
   return (
-    <div className="relative">
-      
+    <div className="relative">   
       <Card
         className={cn(
           "group h-full overflow-hidden bg-muted/70 hover:bg-muted shadow-lg border-muted/30 sm:lg:rounded-md  rounded-none border-none",
@@ -51,12 +42,10 @@ export function FeaturedProductCard({
       >
         <div className="absolute -inset-0 transition-color group-hover:bg-zinc-950/50 blur-sm" />
         <Link
-           className=""
           aria-label={`View ${product.name} details`}
           href={`/shop/product/${product.id}`}
         >
           <AspectRatio ratio={4 / 3}>
-          
             {product?.images?.length ? (
               <Image
                 src={
@@ -83,7 +72,7 @@ export function FeaturedProductCard({
             )}
           </AspectRatio>
         </Link>
-        <div className="absolute left-0 top-2 z-20 ml-2 line-clamp-2 rounded-full bg-theme-50 px-4 font-semibold text-textdark align-middle content-center shadow-sm">
+        <div className="absolute left-0 top-2 z-20 ml-2 line-clamp-2 rounded-full bg-theme-50 px-4 font-semibold align-middle content-center shadow-sm">
           {formatPrice(product.price)}
         </div>
       </Card>

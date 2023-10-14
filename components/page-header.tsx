@@ -45,8 +45,8 @@ const headingVariants = cva(
     variants: {
       variant: { 
         default: "",
-        shop: "text-textdark",
-        shopProducts: "text-textdark justify-center",
+        shop: "",
+        shopProducts: "justify-center",
       },
       size: {
         default: "text-3xl md:text-4xl",

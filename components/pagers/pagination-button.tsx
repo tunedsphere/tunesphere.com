@@ -1,5 +1,6 @@
 import * as React from "react"
-import { type AppRouterInstance } from "next/dist/shared/lib/app-router-context"
+
+import { type AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
 import { Icons } from "@/components/icons"
 
 import { cn } from "@/lib/utils"

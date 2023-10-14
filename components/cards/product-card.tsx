@@ -42,7 +42,7 @@ export function ProductCard({
     <>
       <Card
         className={cn(
-          "group rounded-none border-0 bg-background-shop sm:rounded-lg sm:border border-muted/10 relative z-20",
+          "group rounded-noneborder-none border-muted bg-card sm:rounded-lg sm:border relative z-20",
           className
         )}
         {...props}
@@ -81,11 +81,11 @@ export function ProductCard({
           </CardHeader>
         </Link>
         <Link href={`shop/product/${product.id}`} tabIndex={-1}>
-          <CardContent className="grid pb-4 bg-background-shop">
-            <CardTitle className="line-clamp-1 text-textdark py-2 text-base">
+          <CardContent className="grid pb-4">
+            <CardTitle className="line-clamp-1 py-2 text-base">
               {product.name}
             </CardTitle>
-            <CardDescription className="line-clamp-2 text-textdark">
+            <CardDescription className="line-clamp-2">
               {formatPrice(product.price)}
             </CardDescription>
             <CardTitle
@@ -96,7 +96,7 @@ export function ProductCard({
             </CardTitle>
           </CardContent>
         </Link>
-        <CardFooter className="p-4 bg-background-shop">
+        <CardFooter className="p-4">
           <div className="flex w-full flex-col items-center gap-2 sm:flex-row align-middle">
             <Button
               aria-label={isAddedToCart ? "Remove from cart" : "Add to Basket"}

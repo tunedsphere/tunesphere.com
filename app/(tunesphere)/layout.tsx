@@ -1,4 +1,5 @@
-import { SiteFooter } from "@/components/layouts/site-footer"
+import { SiteIndexFooter } from "@/components/layouts/site-index-footer"
+import "@/styles/globals.css"
 
 export const metadata = {
   title: "TunedSphere",
@@ -29,8 +30,11 @@ interface TunedLayoutProps {
 export default function TunedLayout({ children }: TunedLayoutProps) {
   return (
     <>
-      <main className="flex-1">{children}</main>
-      <SiteFooter />
+      <main className="flex-1 bg-background-index">
+        {children}
+        <SiteIndexFooter />
+        </main>
+      
     </>
   )
 }

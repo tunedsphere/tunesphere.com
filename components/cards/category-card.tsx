@@ -28,7 +28,7 @@ export async function CategoryCard({ category }: CategoryCardProps) {
     <div className="flex flex-col">
     <Link
       key={category.title}
-      href={`shop/categories/${category.title}`}
+      href={`shop/c/${category.title}`}
       className="group relative overflow-hidden sm:rounded-md border rounded-full"
     >
       <AspectRatio ratio={16 / 9}>
@@ -71,7 +71,7 @@ export async function CategoryCard({ category }: CategoryCardProps) {
       href={`shop/categories/${category.title}`}
       className="group relative overflow-hidden sm:rounded-md rounded-full"
     >
-    <h3 className="text-base font-medium capitalize text-textdark/80 text-center z-400 sm:hidden block">
+    <h3 className="text-base font-medium capitalize text-center z-400 sm:hidden block">
     {category.title}
   </h3>
   </Link>

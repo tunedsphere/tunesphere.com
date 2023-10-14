@@ -31,7 +31,7 @@ export default function TunedLayout({ children }: TunedLayoutProps) {
   return (
     <>
      <SiteHeader />
-      <main className="flex-1 mt-[var(--headerHeight)] py-14">{children}</main>
+      <main className="flex-1 mt-[var(--headerHeight)] py-14 px-4 md:px-8">{children}</main>
       <SiteFooter />
     </>
   )

@@ -64,6 +64,7 @@ export type NavLink = {
   url?: string
   disabled?: boolean
   external?: boolean
+  items?: NavLink[];
   // You can add additional properties as needed
 };
 export type ShopMainNavItem = ShopNavItemWithOptionalChildren
@@ -118,6 +119,7 @@ export interface Subcategory {
 export interface CuratedStore {
   id: Store["id"]
   name: Store["name"]
+  storeBanner?: Store["storeBanner"]
   description?: Store["description"]
   stripeAccountId?: Store["stripeAccountId"]
   productCount?: number

@@ -81,7 +81,8 @@ export async function getStoresAction(input: z.infer<typeof getStoresSchema>) {
 export async function addStoreAction(
   input: z.infer<typeof storeSchema> & { 
     userId: string,
-    storeBanner: StoredFile[] | null}
+    storeBanner: StoredFile[] | null,
+    storeIcon: StoredFile[] | null}
 ) {
   const storeWithSameName = await db.query.stores.findFirst({
     where: eq(stores.name, input.name),
@@ -93,8 +94,10 @@ export async function addStoreAction(
 
   await db.insert(stores).values({
     name: input.name,
+    headline: input.headline,
     description: input.description,
     storeBanner: input.storeBanner,
+    storeIcon: input.storeIcon,
     userId: input.userId,
     slug: slugify(input.name),
   })

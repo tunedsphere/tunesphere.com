@@ -107,11 +107,11 @@ export default async function PagePage({ params }: DocsPageProps) {
   return (
     <Shell as="article" variant="markdown">
       <div className="mx-auto w-full min-w-0">
-        <PageHeader>
+        <PageHeader className="pb-4">
           <PageHeaderHeading>{title}</PageHeaderHeading>
           <PageHeaderDescription>{doc.description}</PageHeaderDescription>
         </PageHeader>
-        <Separator className="my-4" />
+        <Separator className="my-8" />
         <Mdx code={doc.body.code} />
         <MdxPager
           currentItem={formattedDoc}

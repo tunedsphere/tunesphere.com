@@ -83,15 +83,15 @@ export function ShopCombobox() {
 
   return (
     <>
-<Command className="bg-transparent text-textdark">
+<Command className="bg-transparent ">
   <CommandInput 
-  className="bg-transparent text-textdark" 
+  className="bg-transparent " 
   placeholder="Search products..." />
 
    <CommandList
    className="left-0 top-0 w-full z-50 data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto">
      <CommandEmpty
-       className={cn(isPending ? "hidden" : "py-6 text-center text-sm text-textdark")}
+       className={cn(isPending ? "hidden" : "py-6 text-center text-sm ")}
      >
        No products found.
      </CommandEmpty>
@@ -105,12 +105,12 @@ export function ShopCombobox() {
        data?.map((group) => (
          <CommandGroup
            key={group.category}
-           className="bg-blue-500 z-100 capitalize text-textdark bg-theme-50 border-b border-muted/30 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-dark"
+           className="bg-blue-500 z-100 capitalize bg-theme-50 border-b border-muted/30 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-primary"
            heading={group.category}
          >
            {group.products.map((item) => (
              <CommandItem
-             className="bg-red-500 text-textdark cursor-pointer bg-theme-50 hover:bg-theme-200 focus:bg-theme-200 aria-selected:bg-theme-200 aria-selected:text-textdark"
+             className="bg-red-50  cursor-pointer bg-theme-50 hover:bg-theme-200 focus:bg-theme-200 aria-selected:bg-theme-200"
                key={item.id}
                onSelect={() =>
                  handleSelect(() => router.push(`/shop/product/${item.id}`))

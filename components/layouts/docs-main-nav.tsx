@@ -36,7 +36,7 @@ export function DocsMainNav({ items, children }: DocsMainNavProps) {
               className={cn(
                 "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
                 item.href.startsWith(`/${segment}`)
-                  ? "text-foreground underline underline-offset-4 decoration-primary font-semibold bg-muted/30"
+                  ? "text-foreground underline underline-offset-4 decoration-primary font-semibold"
                   : "text-foreground/60",
                 item.disabled && "cursor-not-allowed opacity-80"
               )}
@@ -50,8 +50,7 @@ export function DocsMainNav({ items, children }: DocsMainNavProps) {
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
-        {showMobileMenu ? <Icons.close /> : <Icons.logo />}
-        <span className="font-bold">Menu</span>
+        {showMobileMenu ? <Icons.close className="hover:text-primary" /> : <span className="font-bold">Menu</span>}
       </button>
       {showMobileMenu && items && (
         <DocsMobileNav items={items}>{children}</DocsMobileNav>

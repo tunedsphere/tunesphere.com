@@ -70,6 +70,7 @@ export function SiteCombobox() {
 
   return (
     <>
+    <div className="hidden sm:block">
       <Button variant="nav" size="xs" onClick={() => setIsOpen(true)}>
         <Icons.search
           className="cursor-pointer object-contain"
@@ -122,6 +123,7 @@ export function SiteCombobox() {
           </CommandList>
         </div>
       </CommandDialog>
+      </div>
     </>
   )
 }

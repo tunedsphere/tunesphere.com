@@ -9,14 +9,14 @@ import { siteConfig } from "@/configs/site"
 import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
 
 import { Shell } from "@/components/shells/shell"
-export function SiteFooter() {
+export function SiteIndexFooter() {
 
   return (
     <footer className="relative bottom-0 mx-auto w-full items-center px-4 py-8">
       <div className="footer-gradient -z-10 w-1/5" />
 
       <div className="gap-5">
-        <h1 className="py-8 text-center font-bold text-texthigh md:text-4xl">
+        <h1 className="py-8 text-center font-bold text-indexhigh md:text-4xl">
           A Psychedelic dedicated Platform
         </h1>
       </div>
@@ -25,8 +25,8 @@ export function SiteFooter() {
             aria-labelledby="newsletter-heading"
             className="space-y-3 max-w-2xl flex flex-col justify-center mx-auto py-4 gap-4"
           >
-            <h4 className="text-base font-medium text-center">
-  Subscribe to our <span className="underline decoration-primary underline-offset-4 font-semibold">Newsletter</span>
+            <h4 className="text-base font-medium text-center text-indexlow">
+  Subscribe to our <span className="underline decoration-primary underline-offset-4 font-semibold text-indexhigh">Newsletter</span>
 </h4>
             <SubscribeToNewsletterForm />
           </section>
@@ -43,7 +43,7 @@ export function SiteFooter() {
   >
     {siteConfig.footerNav.map((item) => (
       <div key={item.title} className="space-y-3">
-        <h4 className="text-base font-medium underline decoration-primary underline-offset-4 md:pl-28">{item.title}</h4>
+        <h4 className="text-base text-indexhigh font-medium underline decoration-primary underline-offset-4 md:pl-28">{item.title}</h4>
         <ul className="space-y-3">
           {item.items.map((link) => (
             <li key={link.title} className="text-left pl-2 md:pl-28"> {/* Adjust padding here */}
@@ -69,10 +69,10 @@ export function SiteFooter() {
           className="flex items-center justify-center align-middle"
         >
 <div className="flex flex-wrap justify-center items-center gap-4 pt-8">
-  <h3 className="text-2xl font-extrabold text-texthigh">
+  <h3 className="text-2xl font-extrabold text-indexhigh">
     TUNEDSPHERE
   </h3>
-  <p className="text-sm font-normal text-textlow opacity-75">
+  <p className="text-sm font-normal text-indexlow opacity-75">
     Copyright © 2023 - 2023 TunedSphere. All rights reserved.
   </p>
   </div>
@@ -81,4 +81,4 @@ export function SiteFooter() {
   )
 }
 
-export default SiteFooter
+export default SiteIndexFooter

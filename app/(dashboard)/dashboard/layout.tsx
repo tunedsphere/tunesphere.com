@@ -34,7 +34,7 @@ export default async function DashboardLayout({
               <SidebarNav items={dashboardConfig.sidebarNav} />
             </ScrollArea>
           </Sidebar>
-          <main className="flex w-full flex-col overflow-hidden bg-background-dashboard">
+          <main className="flex w-full flex-col overflow-hidden bg-background">
             {children}
           </main>
         </section>

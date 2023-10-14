@@ -95,17 +95,17 @@ export function ShopSearchBar() {
         className="relative h-9 w-9 p-0 xl:h-10 xl:w-full xl:justify-start xl:px-3 xl:py-2 hover:bg-theme-50"
         onClick={() => setIsOpen(true)}
       >
-        <Icons.search className="h-4 w-4 xl:mr-2 text-textdark" aria-hidden="true" />
-        <span className="hidden xl:inline-flex text-textdark">Search products...</span>
-        <span className="sr-only text-textdark">Search products</span>
-       <kbd className="bg-theme-50 text-textdark pointer-events-none absolute right-1.5 top-2 hidden h-6 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex">
+        <Icons.search className="h-4 w-4 xl:mr-2 " aria-hidden="true" />
+        <span className="hidden xl:inline-flex ">Search products...</span>
+        <span className="sr-only">Search products</span>
+       <kbd className="bg-theme-50 pointer-events-none absolute right-1.5 top-2 hidden h-6 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex">
           <abbr title={isMacOs() ? 'Command' : 'Control'}>{isMacOs() ? '⌘' : 'Ctrl+'}</abbr>K
         </kbd>
       </Button> */}
-      <div id="shop-search-bar" className="relative flex flex-row w-full">
-      <Command className={`text-textdark align-middle ${query ? 'bg-theme-50' : 'bg-theme-50'} w-full hover:bg-theme-50 focus:bg-theme-50`}>
+      <div id="shop-search-bar" className="relative flex flex-row w-full border border-muted/30 hover:border-muted/50 rounded-lg">
+      <Command className={` align-middle ${query ? 'bg-theme-50' : 'bg-theme-50'} w-full hover:bg-theme-50 focus:bg-theme-50`}>
       <CommandInput
-          className="align-middle bg-transparent text-textdark px-0 py-0"
+          className="align-middle bg-transparent  px-0 py-0"
           placeholder="Search products..."
           value={query}
           onValueChange={setQuery}
@@ -118,9 +118,9 @@ export function ShopSearchBar() {
    {data && isOpen && (
         <CommandList 
         ref={commandListRef}
-         className="text-textdark flex-grow left-0 right-0 py-1 absolute mt-12 bg-theme-50 rounded-sm shadow-lg border border-muted/30" >
+         className=" flex-grow left-0 right-0 py-1 absolute mt-12 bg-theme-50 rounded-sm shadow-lg border border-muted/30" >
           <CommandEmpty
-            className={cn(isPending ? "hidden" : "py-6 text-center text-sm text-textdark")}
+            className={cn(isPending ? "hidden" : "py-6 text-center text-sm ")}
           >
             No products found.
           </CommandEmpty>
@@ -139,7 +139,7 @@ export function ShopSearchBar() {
               >
                 {group.products.map((item) => (
                 <CommandItem
-                className="text-textdark cursor-pointer bg-transparent hover:bg-theme-200"
+                className=" cursor-pointer bg-transparent hover:bg-theme-200"
                 key={item.id}
                 aria-selected={false}
                 onSelect={() =>
