@@ -103,7 +103,7 @@ export function ShopSearchBar() {
         </kbd>
       </Button> */}
       <div id="shop-search-bar" className="relative flex flex-row w-full border border-muted/30 hover:border-muted/50 rounded-lg">
-      <Command className={` align-middle ${query ? 'bg-theme-50' : 'bg-theme-50'} w-full hover:bg-theme-50 focus:bg-theme-50`}>
+      <Command className={` align-middle ${query ? 'bg-muted' : 'bg-muted'} w-full hover:bg-muted focus:bg-muted`}>
       <CommandInput
           className="align-middle bg-transparent  px-0 py-0"
           placeholder="Search products..."

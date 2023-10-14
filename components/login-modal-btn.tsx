@@ -4,7 +4,7 @@ import React, { useState } from "react"
 
 import { Button } from "@/components/ui/button"
 
-import Modal from "./auth/modal"
+import Modal from "@/components/auth/modal"
 
 export default function LoginModalButton() {
   const [isModalOpen, setIsModalOpen] = useState(false)

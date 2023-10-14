@@ -38,7 +38,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
           {items?.[0]?.items ? (
             <NavigationMenuItem>
                <Link href="/shop">
-              <NavigationMenuTrigger className="h-auto focus bg-theme-200">
+              <NavigationMenuTrigger className="h-auto focus bg-muted">
                 {items[0].title}
               </NavigationMenuTrigger>
               </Link>
@@ -89,7 +89,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                 <NavigationMenuItem key={item.title}>
                   
                   <Link href={`/shop/c/${encodeURIComponent(item.title)}`}>
-                  <NavigationMenuTrigger className="h-auto capitalize focus bg-theme-200">
+                  <NavigationMenuTrigger className="h-auto capitalize focus bg-muted">
                     {item.title}
                   </NavigationMenuTrigger>
                   </Link>

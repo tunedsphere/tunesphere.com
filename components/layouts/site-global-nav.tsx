@@ -44,7 +44,7 @@ export function SiteGlobalNav() {
                 <ThemeToggle />
               </div>
               <div className="flex items-center justify-center">
-                <LoginNavbar />
+                <LoginNavbar/>
               </div>
             </div>
           </div>
