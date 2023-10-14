@@ -25,7 +25,7 @@ const buttonVariants = cva(
         logInButton:
           "rounded-full text-texthigh bg-primary hover:bg-primary/70",
         logInModal: 
-          "text-texthigh hover:text-primary border border-theme bg-theme-950/40 hover:bg-theme-950  hidden shrink-0 px-2 font-semibold sm:block leading-6 text_texthigh",
+          "text-texthigh hover:text-primary border-2 border-theme hover:bg-theme-950 hidden shrink-0 px-2 font-semibold sm:block leading-6 text_texthigh",
       },
       size: {
         icon: "h-9 w-9",

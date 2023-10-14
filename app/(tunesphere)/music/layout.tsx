@@ -8,7 +8,7 @@ export default function LabelsLayout({ children }: LabelsLayoutProps) {
   return (
     <>
       <SiteHeader />
-      {children}
+      <main className="flex-1 bg-background">{children}</main>
     </>
   )
 }

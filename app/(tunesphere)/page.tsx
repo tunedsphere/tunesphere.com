@@ -179,20 +179,17 @@ export default function MyApp() {
             <div className="button_bg-gradient-1 absolute inset-x-0 -z-10"></div>
             <div className="button_bg-gradient-2 absolute inset-x-0 -z-10"></div>
             <div className="button_bg-gradient-3 absolute inset-x-0 -z-10"></div>
-            <div className="hero_gradient-button-wrapper flex-1 items-stretch ">
+            <div className="hero_gradient-button-wrapper flex-1 items-stretch">
               <Link
                 href="/shop/products"
                 className={cn(
                   buttonVariants({
                     size: "lg",
                   }),
-                  "hero_gradient-button hover:bg-white/80 bg-white"
+                  "hero_gradient-button hover:bg-white/5 bg-white border-muted shadow-sm"
                 )}
               >
-                <Icons.chevronRight className="absolute text-primary left-1 sm:left-4"></Icons.chevronRight>
-                <span className="absolute flex items-center justify-center font-semibold ">
-                  Buy Now
-                </span>
+                <Icons.chevronRight className="absolute text-foreground left-1 sm:left-4"></Icons.chevronRight>
                 <span className='absolute text-transparent bg-clip-text hero_bg-1 font-bold'>Buy Now</span>
           <span className='absolute text-transparent bg-clip-text hero_bg-2 font-bold'>Buy Now</span>
           <span className='absolute text-transparent bg-clip-text hero_bg-3 font-bold'>Buy Now</span>
@@ -212,7 +209,7 @@ export default function MyApp() {
                   buttonVariants({
                     size: "lg",
                   }),
-                  "hero_gradient-button-outline hover:text-theme-300 hover:bg-transparent"
+                  "hero_gradient-button-outline hover:text-theme-50 hover:bg-transparent"
                 )}
               >
                 <span className="absolute">Sell Now</span>

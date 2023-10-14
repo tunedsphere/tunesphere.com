@@ -1,11 +1,14 @@
+import { SiteHeader } from "@/components/layouts/site-header"
+
 interface FestivalsLayoutProps {
   children: React.ReactNode
 }
 
 export default function FestivalsLayout({ children }: FestivalsLayoutProps) {
   return (
-    <section>
-      <main className="mx-auto mt-28 max-w-[1600px] px-4">{children}</main>
-    </section>
+    <>
+      <SiteHeader />
+      <main className="flex-1 bg-background">{children}</main>
+    </>
   )
 }

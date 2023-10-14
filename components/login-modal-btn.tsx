@@ -20,6 +20,7 @@ export default function LoginModalButton() {
   return (
     <>
       <Button
+        id="login-modal-btn"
         variant="logInModal"
         size="xs"
         onClick={handleClick}

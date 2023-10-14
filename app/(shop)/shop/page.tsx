@@ -108,10 +108,10 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                     buttonVariants({
                       size: "lg",
                     }),
-                    "hero_gradient-button"
+                    "hero_gradient-button hover:bg-background hover:text-sm text-primary"
                   )}
                 >
-                  <span className="animated-gradient-text_background-theme animated-gradient-text_background-theme bg-clip-text font-semibold">
+                  <span className="animated-gradient-text_background-theme bg-clip-text font-semibold">
                     <span className="animated-gradient-text_foreground-theme animated-gradient-text_foreground-theme bg-clip-text font-semibold">
                       Explore Products
                     </span>
@@ -128,7 +128,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                     buttonVariants({
                       size: "lg",
                     }),
-                    "hero_gradient-button-shop z-30"
+                    "hero_gradient-button-shop hover:bg-background z-30"
                   )}
                 >
                   <span className="font-semibold">Sell Now</span>

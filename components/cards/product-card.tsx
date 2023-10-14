@@ -41,6 +41,7 @@ export function ProductCard({
   return (
     <>
       <Card
+      id="product-card"
         className={cn(
           "group rounded-noneborder-none border-muted bg-card sm:rounded-lg sm:border relative z-20",
           className
@@ -58,7 +59,7 @@ export function ProductCard({
                       product.images[0]?.url ?? "/images/product-placeholder.webp"
                     }
                     alt={product.images[0]?.name ?? product.name}
-                    className="object-cover rounded-sm"
+                    className="object-cover rounded-md"
                     sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
                     fill
                     loading="lazy"

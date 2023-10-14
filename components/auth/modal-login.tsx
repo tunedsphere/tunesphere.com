@@ -46,6 +46,7 @@ export function ModalLogIn() {
     <>
       <SignedOut>
         <Button
+          id="login-button"
           variant="logInButton"
           className="hidden sm:block"
           size="xs"

@@ -34,6 +34,7 @@ export function FeaturedProductCard({
   return (
     <div className="relative">   
       <Card
+      id="featured-product-card"
         className={cn(
           "group h-full overflow-hidden bg-muted/70 hover:bg-muted shadow-lg border-muted/30 sm:lg:rounded-md  rounded-none border-none",
           className
@@ -72,7 +73,7 @@ export function FeaturedProductCard({
             )}
           </AspectRatio>
         </Link>
-        <div className="absolute left-0 top-2 z-20 ml-2 line-clamp-2 rounded-full bg-theme-50 px-4 font-semibold align-middle content-center shadow-sm">
+        <div className="absolute left-0 top-2 z-20 ml-2 line-clamp-2 rounded-full bg-white text-black px-4 font-semibold align-middle content-center shadow-sm">
           {formatPrice(product.price)}
         </div>
       </Card>

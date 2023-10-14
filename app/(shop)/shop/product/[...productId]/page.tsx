@@ -150,12 +150,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <Separator className="my-1.5" />
           <AddToCartForm productId={productId} />
           <Separator className="mt-5" />
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="description">
-              <AccordionTrigger className="text-base underline-offset-4 decoration-primary">
+          <Accordion type="single" collapsible className="w-full ">
+            <AccordionItem value="description" className="border-muted pb-5">
+              <AccordionTrigger className="text-base underline underline-offset-4 decoration-primary hover:decoration-2">
                 Description
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="">
                 {product.description ??
                   "No description is available for this product."}
               </AccordionContent>
