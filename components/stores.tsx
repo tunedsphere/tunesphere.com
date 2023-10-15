@@ -141,6 +141,7 @@ export function Stores({ stores, pageCount, ...props }: StoresProps) {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {stores.map((store) => (
           <StoreCard
+            href={`/shop/store/${store.id}/${slugify(store.name)}`}
             key={store.id}
             store={store}
           />

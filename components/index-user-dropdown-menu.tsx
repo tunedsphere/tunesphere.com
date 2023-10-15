@@ -16,14 +16,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Icons } from "@/components/icons"
 
-import LoginModalButton from "./login-modal-btn"
+import IndexLoginModalButton from "@/components/index-login-modal-btn"
 import { Button } from "./ui/button"
 
-interface UserDropdownMenuProps {
+interface IndexUserDropdownMenuProps {
   user: User | null
 }
 
-export function UserDropdownMenu({ user }: UserDropdownMenuProps) {
+export function IndexUserDropdownMenu({ user }: IndexUserDropdownMenuProps) {
   const initials = `${user?.firstName?.charAt(0) ?? ""} ${
     user?.lastName?.charAt(0) ?? ""
   }`
@@ -43,7 +43,7 @@ export function UserDropdownMenu({ user }: UserDropdownMenuProps) {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="z-10000 w-56 border-theme bg-background-index p-2"
+            className="z-10000 w-56 border-theme bg-background p-2"
             align="center"
             forceMount
           >
@@ -89,7 +89,7 @@ export function UserDropdownMenu({ user }: UserDropdownMenuProps) {
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
-        <LoginModalButton />
+        <IndexLoginModalButton />
       )}
     </>
   )

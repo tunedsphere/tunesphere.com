@@ -44,8 +44,7 @@ export default async function NewStorePage() {
           Add a new store to your account
         </PageHeaderDescription>
       </PageHeader>
-        <div className="grid gap-8 sm:px-8 px-2">
-          <Card>
+          <Card className="bg-background-dashboard border-none">
             <CardHeader className="space-y-1">
               <CardTitle className="text-2xl">Add store</CardTitle>
               <CardDescription>Add a new store to your account</CardDescription>
@@ -54,7 +53,7 @@ export default async function NewStorePage() {
               <AddStoreForm userId={user.id} />
             </CardContent>
           </Card>
-        </div>
+
       </Shell>
     </>
   )

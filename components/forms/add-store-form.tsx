@@ -91,7 +91,7 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
   
         form.reset();
         toast.success("Store added successfully.");
-        router.push("/dashboard/stores");
+        router.push("/dashboard/stores/${store.name}/products/new");
         router.refresh(); // Workaround for the inconsistency of cache revalidation
       } catch (err) {
         catchError(err);
@@ -101,10 +101,10 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
   return (
 <Form {...form}>
   <form
-    className="grid w-full max-w-xl gap-5"
+    className="grid w-full max-w-xl gap-5 bg-back"
     onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
   >
-    <div className="flex flex-1 gap-4 border border-muted p-4">
+    <div className="flex flex-1 gap-4 border border-muted rounded-lg p-4">
     <FormItem className="flex flex-col gap-1.5 w-2/6 justify-between">
       <FormLabel className="justify-center mx-auto">Store Icon</FormLabel>
       {!isUploadingIcon && previewsIcon?.length ? (

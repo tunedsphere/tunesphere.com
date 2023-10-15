@@ -7,6 +7,7 @@ import { Shell } from "@/components/shells/shell"
 import { desc, eq, sql } from "drizzle-orm"
  import { Icons } from "@/components/icons"
 import { productCategories } from "@/configs/products"
+import { slugify } from "@/lib/utils"
 
 import heroShop3 from "@/public/bghome/heroShop3.png"
 
@@ -268,6 +269,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {someStores.map((store) => (
               <StoreCard
+                href={`/shop/store/${store.id}/${slugify(store.name)}`}
                 key={store.id}
                 store={store}
               />

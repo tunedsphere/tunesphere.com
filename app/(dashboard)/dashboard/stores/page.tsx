@@ -23,6 +23,7 @@ import {
 } from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
 import { StoreCard } from "@/components/cards/store-card"
+import { CreateStoreCard } from "@/components/cards/create-store-card"
 
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"
@@ -109,17 +110,22 @@ export default async function StoresPage() {
         </AlertDescription>
       </Alert>
       <section
-        id="dashboard-stores-page-stores"
-        aria-labelledby="dashboard-stores-page-stores-heading"
-        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        {allStores.map((store) => (
-          <StoreCard
-            key={store.id}
-            store={store}
-          />
-        ))}
-      </section>
+    id="dashboard-stores-page-stores"
+    aria-labelledby="dashboard-stores-page-stores-heading"
+    className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    {allStores.length > 0 ? (
+      allStores.map((store) => (
+        <StoreCard
+          href={`/dashboard/stores/${store.id}`}
+          key={store.id}
+          store={store}
+        />
+      ))
+    ) : (
+      <CreateStoreCard /> 
+    )}
+  </section>
     </Shell>
   )
 }

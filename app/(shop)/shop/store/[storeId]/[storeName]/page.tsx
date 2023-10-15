@@ -78,8 +78,8 @@ export default async function StorePage({
     <>
 
     <div id="store-home-header" className="relative">
-      <div className="flex flex-col">
-      <div className="relative min-w-screen h-[500px] min-h-[100px] border-0">
+      <div className="flex-1">
+      <div className="relative border-0">
       <div className="">
         <StoreBanner
         key={store.id}

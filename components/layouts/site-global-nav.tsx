@@ -13,6 +13,7 @@ import { Icons } from "@/components/icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 import NavbarVideo from "../navbar-video"
+import IndexLoginNavbar from "../index-login-navbar"
 export function SiteGlobalNav() {
 
   return (
@@ -44,7 +45,7 @@ export function SiteGlobalNav() {
                 <ThemeToggle />
               </div>
               <div className="flex items-center justify-center">
-                <LoginNavbar/>
+                <IndexLoginNavbar/>
               </div>
             </div>
           </div>

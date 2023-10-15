@@ -126,6 +126,7 @@ export default async function ProductsPage({
         data={storeProducts}
         pageCount={pageCount}
         storeId={storeId}
+
       />
     </div>
   )

@@ -10,13 +10,14 @@ export function StoreBanner({ images, className }: StoreBannerProps) {
   return (
     <>
       {images.map((image) => (
-        <div className="overflow-hidden">
+        <div className="overflow-hidden"
+              key={image.id}>
           <Image
           width={2400}
           height={400}
           src={image.url} // Use `image.url` to access the URL property
           alt={image.name}
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="top-0 left-0 w-full h-full object-cover max-h-[400px]"
           priority
           />
         </div>
