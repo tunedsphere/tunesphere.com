@@ -17,7 +17,7 @@ id="shop-page-whatistunedsphere-header"
 aria-labelledby="shop-page-whatistunedsphere-header-heading"
 className="px-4"
 >
-<PageHeaderHeading size="lg" className="py-6 px-4  tracking-tighter text-center">
+<PageHeaderHeading size="lg" className="py-6 px-4 text-black tracking-tighter text-center">
   What is TunedSphere?
 </PageHeaderHeading>
 <PageHeaderDescription size="lg" className="text-center mx-auto ">

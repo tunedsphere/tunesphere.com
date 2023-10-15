@@ -22,16 +22,18 @@ export const siteConfig = {
     twitter: "https://twitter.com/tunedsphere",
   },
   navbarNav: [
-    {
-      title: "Music",
-      label: "Music",
-      href: "/music",
-    },
-    {
-      title: "Festivals",
-      label: "Festivals",
-      href: "/festivals",
-    },
+    // {
+    //   title: "Music",
+    //   label: "Music",
+    //   href: "/music",
+    //   disabled: true,
+    // },
+    // {
+    //   title: "Festivals",
+    //   label: "Festivals",
+    //   href: "/festivals",
+    //   disabled: true,
+    // },
     {
       title: "Shop",
       label: "Shop",

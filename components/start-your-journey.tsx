@@ -16,7 +16,7 @@ export function StartYourJourney () {
   </PageHeader>
 </section>
 
-<section id="how-to-get-started" aria-labelledby="how-to-get-started-label" className="text-center my-8 justify-content max-w-7xl mx-auto grid sm:grid-cols-3">
+<section id="how-to-get-started" aria-labelledby="how-to-get-started-label" className="text-center my-8 justify-content max-w-7xl mx-auto grid sm:grid-cols-3 py-8">
 <div className="p-4">
       <PageHeaderHeading variant="shop" className="text-lg font-semibold py-2">
         **Step 1: Sign Up for an Account**

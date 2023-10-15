@@ -1,10 +1,8 @@
 
 import "@/styles/globals.css"
-
 import React from "react"
 import Link from "next/link"
 
-import LoginNavbar from "@/components/login-navbar"
 import SiteGlobalNavMenuBurger from "@/components/menuburgers/site-global-nav-menu-burger"
 import { SiteCombobox } from "@/components/site-combobox"
 
@@ -14,7 +12,12 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 import NavbarVideo from "../navbar-video"
 import IndexLoginNavbar from "../index-login-navbar"
-export function SiteGlobalNav() {
+import { Button, buttonVariants } from "@/components/ui/button"
+  interface SiteGlobalNavProps {
+ }
+  
+  export function SiteGlobalNav({}: SiteGlobalNavProps) {
+
 
   return (
     <>
