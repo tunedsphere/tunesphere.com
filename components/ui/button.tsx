@@ -15,17 +15,17 @@ const buttonVariants = cva(
         outline:
           "border border-input shadow-sm hover:bg-accent hover:text-accent-foreground",
         outlineTheme:
-          "text-primary border border-theme hover:bg-theme-950 hover:text-texthigh",
+          "text-primary border border-theme hover:bg-primary/30 hover:text-texthigh",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:text-secondary-foreground/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         ghostline:
         "hover:bg-accent outline-theme outline outline-1 hover:outline-offset-1",
-        nav: "text-primary hover:bg-theme-950 hover:text-texthigh",
+        nav: "text-primary hover:bg-primary/30 hover:text-texthigh",
         link: "underline-offset-4 hover:underline text-primary",
         logInButton:
           "rounded-full text-texthigh bg-primary hover:bg-primary/70",
         logInModal: 
-          "text-texthigh hover:text-primary border-2 border-theme hover:bg-theme-950 hidden shrink-0 px-2 font-semibold sm:block leading-6 text_texthigh",
+          "text-texthigh hover:text-primary border-2 border-theme hover:bg-primary/30 hidden shrink-0 px-2 font-semibold sm:block leading-6 text_texthigh",
       },
       size: {
         icon: "h-9 w-9",

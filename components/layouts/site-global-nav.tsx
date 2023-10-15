@@ -73,7 +73,6 @@ export function SiteGlobalNav({ user }: SiteGlobalNavProps) {
                 <ThemeToggle />
               </div>
               <div className="flex items-center justify-center">
-                <IndexLoginNavbar/>
                 {user ? (
                 <DropdownMenu>
                 <DropdownMenuTrigger asChild>
