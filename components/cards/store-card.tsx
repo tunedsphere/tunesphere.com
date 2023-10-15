@@ -31,7 +31,7 @@ export function StoreCard({
     <Link 
     aria-label={store.name}
     href={href}>
-     <Card className="group h-full border-none shadow-xl hover:shadow-2xl bg-muted/70 relative">
+     <Card className="group h-full border-none shadow-xl hover:shadow-2xl relative">
   <AspectRatio ratio={21 / 9}>
     <Badge
       className={cn(
@@ -51,7 +51,7 @@ export function StoreCard({
     />
   )}
   </AspectRatio>
-  <CardHeader className="z-100 bg-gray-500">
+  <CardHeader className="z-100">
     <CardTitle className="line-clamp-1 text-lg font-semibold decoration-2 hover:decoration-4 underline underline-offset-4 decoration-primary">
       {store.name}
     </CardTitle>

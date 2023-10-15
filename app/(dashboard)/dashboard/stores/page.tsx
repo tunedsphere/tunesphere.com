@@ -110,22 +110,25 @@ export default async function StoresPage() {
         </AlertDescription>
       </Alert>
       <section
-    id="dashboard-stores-page-stores"
-    aria-labelledby="dashboard-stores-page-stores-heading"
-    className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-  >
-    {allStores.length > 0 ? (
-      allStores.map((store) => (
+  id="dashboard-stores-page-stores"
+  aria-labelledby="dashboard-stores-page-stores-heading"
+  className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+>
+  {allStores.length > 0 ? (
+    <>
+      {allStores.map((store) => (
         <StoreCard
           href={`/dashboard/stores/${store.id}`}
           key={store.id}
           store={store}
         />
-      ))
-    ) : (
-      <CreateStoreCard /> 
-    )}
-  </section>
+      ))}
+      <CreateStoreCard /> {/* Render CreateStore2 when there are stores */}
+    </>
+  ) : (
+    <CreateStoreCard /> 
+  )}
+</section>
     </Shell>
   )
 }

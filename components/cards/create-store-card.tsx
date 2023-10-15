@@ -11,96 +11,45 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { Icons } from "@/components/icons"
 
-
-import { db } from "@/db"
-import { products, stores } from "@/db/schema"
-
-import { desc, eq, sql } from "drizzle-orm"
-
-import {
-  getDashboardRedirectPath,
-  getPlanFeatures,
-  getUserSubscriptionPlan,
-} from "@/lib/subscription"
-import { currentUser } from "@clerk/nextjs"
-
-import { buttonVariants } from "@/components/ui/button"
-import { redirect } from "next/navigation"
 
 interface StoreCardProps {
 }
 
-export async function CreateStoreCard({ 
+export function CreateStoreCard({ 
  }: StoreCardProps) {
 
-  const user = await currentUser()
 
-  if (!user) {
-    redirect("/signin")
-  }
-
-  const allStores = await db
-    .select({
-      id: stores.id,
-      name: stores.name,
-      storeBanner: stores.storeBanner,
-      description: stores.description,
-      stripeAccountId: stores.stripeAccountId,
-    })
-    .from(stores)
-    .leftJoin(products, eq(products.storeId, stores.id))
-    .groupBy(stores.id)
-    .orderBy(desc(stores.stripeAccountId), desc(sql<number>`count(*)`))
-    .where(eq(stores.userId, user.id))
-
-  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
-
-  const { maxStoreCount, maxProductCount } = getPlanFeatures(
-    subscriptionPlan?.id
-  )
 
   return (
     <>
-    <Link  href={getDashboardRedirectPath({
-      storeCount: allStores.length,
-      subscriptionPlan: subscriptionPlan,
-    })}>
     <Link 
-    aria-label="Create store"
-    href={getDashboardRedirectPath({
-      storeCount: allStores.length,
-      subscriptionPlan: subscriptionPlan,
-    })}
-    className={cn(
-      buttonVariants({
-        size: "sm",
-      })
-    )}
-  >
-    Create store
-  </Link>
-     <Card className="group h-full border-none shadow-xl hover:shadow-2xl bg-muted/70 relative">
+    href="/dashboard/stores/new"
+    >
+     <Card className="group h-full shadow-xl hover:shadow-2xl bg-muted/70 relative">
   <AspectRatio ratio={21 / 9}>
     <Badge
       className={cn(
         "pointer-events-none absolute right-2 top-2 text-white z-200 bg-red-600"
       )}
     >
-Activate now
+Not yet created
     </Badge>
-    <div>
     <div
-      className="h-full rounded-t-md"
-    />
-</div>
+      className="flex h-full flex-col justify-center rounded-t-md items-center bg-card">
+        {/* <h6 className="pt-8 pb-2 items-center decoration-primary underline decoration-2 underline-offset-4">Add a new Store</h6> */}
+            <div className="border-2 border-primary rounded-md flex-justify-content items-center">
+            <Icons.add className="h-20 w-20 p-2 hover:w-24 hover:h-24"></Icons.add>
+            </div>
+        </div>
   </AspectRatio>
-  <CardHeader>
+  <CardHeader className="bg-muted">
     <CardTitle className="line-clamp-1 text-lg font-semibold decoration-2 hover:decoration-4 underline underline-offset-4 decoration-primary">
-      Your Store Name
+      Add Store
     </CardTitle>
       <CardDescription className="line-clamp-2">
-        Store Desicription Example
+        Sell your products using this store
       </CardDescription>
   </CardHeader>
 </Card>

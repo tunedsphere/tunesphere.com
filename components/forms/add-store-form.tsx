@@ -91,7 +91,7 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
   
         form.reset();
         toast.success("Store added successfully.");
-        router.push("/dashboard/stores/${store.name}/products/new");
+        router.push("/dashboard/stores")
         router.refresh(); // Workaround for the inconsistency of cache revalidation
       } catch (err) {
         catchError(err);

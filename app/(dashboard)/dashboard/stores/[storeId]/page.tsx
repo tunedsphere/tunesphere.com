@@ -63,7 +63,7 @@ export default async function UpdateStorePage({
       .set({ name, description })
       .where(eq(stores.id, storeId))
 
-    revalidatePath(`/dashboard/stores/${storeId}`)
+    revalidatePath(`/dashboard/stores`)
   }
 
   async function deleteStore() {

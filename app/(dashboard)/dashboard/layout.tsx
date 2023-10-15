@@ -1,6 +1,6 @@
-
 import { redirect } from "next/navigation"
 import { currentUser } from "@clerk/nextjs"
+
 import { SiteFooter } from "@/components/layouts/site-footer"
 import { SiteHeader } from "@/components/layouts/site-header"
 import { Sidebar } from "@/components/ui/sidebar"
@@ -18,11 +18,6 @@ interface DashboardLayoutProps {
 export default async function DashboardLayout({
   children,
 }: DashboardLayoutProps) {
-  const user = await currentUser()
-
-  if (!user) {
-    redirect("/signin")
-  }
 
   return (
     <>
