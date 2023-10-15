@@ -73,8 +73,7 @@ export default function NewsletterWelcomeEmail({
                   <Img
                     src={item.src}
                     alt={item.alt}
-                    height={424}
-                    width={800}
+                    height={400}
                     className="aspect-video w-full object-cover"
                   />
                   <Text className="mb-0 mt-2 text-center text-zinc-400">

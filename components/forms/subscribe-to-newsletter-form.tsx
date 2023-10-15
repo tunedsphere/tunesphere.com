@@ -74,14 +74,14 @@ export function SubscribeToNewsletterForm() {
   return (
     <Form {...form}>
       <form
-        className="grid w-full"
+        className="grid w-full bg-background/80 rounded-md"
         onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
       >
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem className="relative space-y-0">
+            <FormItem className="relative space-y-0 ">
               <FormLabel className="sr-only">Email</FormLabel>
               <FormControl>
                 <Input
