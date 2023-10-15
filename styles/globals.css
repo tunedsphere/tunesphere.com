@@ -122,8 +122,9 @@
     --background-navbarbottom: 252 40% 6%;
     --background-footer: 280 41% 37%;
 
+    --background-shop-navlink: 272 100% 20%;
 
-    --background: 0 0% 6%;  
+    --background: 0 0% 4%;  
     --background-index: 0 0% 3%;     
   
     --backgroundgradient: linear-gradient(
@@ -214,13 +215,15 @@
     --background-shopHeader: hsl(var(--background-navbartop));
     --background-footer: 221 41% 20%;
 
+    --background-shop-navlink: 195 92% 85%;
+
     --background: 0 0% 100%;
     --background-index: 0 0% 0%;  
 
-    --backgroundgradient: linear-gradient(
+    --background-gradient: linear-gradient(
       120deg,
       var(--colors-indigo4),
-      var(--colors-plum3)
+      var(--background)
     );
 
     --foreground: 240 10% 3.9%;

@@ -186,7 +186,7 @@ export function Products({
       <div className="flex justify-between content-center items-stretch sm:px-12 px-4">
         <Sheet>
           <SheetTrigger asChild>
-            <Button aria-label="Filter products" size="sm" disabled={isPending} className="font-semibold leading-6">
+            <Button aria-label="Filter products" size="sm" disabled={isPending} className="font-semibold leading-6 bg-background-shopNavLink">
               All Filters
             </Button>
           </SheetTrigger>
@@ -388,7 +388,7 @@ export function Products({
         <div className="flex space-x-2">
           <DropdownMenu>
   <DropdownMenuTrigger asChild className="gap-1">
-    <Button aria-label="Items per page" size="sm" disabled={isPending} className="font-semibold leading-6">
+    <Button aria-label="Items per page" size="sm" disabled={isPending} className="font-semibold bg-background-shopNavLink leading-6">
     {per_page}
       <Icons.pageLayout className="h-4 w-4" aria-hidden="true" />
     </Button>
@@ -411,7 +411,7 @@ export function Products({
             <div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button aria-label="Sort products" size="sm" disabled={isPending} className="font-semibold leading-6">
+            <Button aria-label="Sort products" size="sm" disabled={isPending} className="font-semibold leading-6 bg-background-shopNavLink">
               Sort
               <Icons.chevronDown className="" aria-hidden="true" />
             </Button>

@@ -40,7 +40,7 @@ export default function SigninCard({ onClose }:SigninCardProps ) {
   return (
     <div id="signin-card" className="z-20 @container">
       <div className="modal-gradient z-60"></div>
-      <Card className="border-0 border-border/50 bg-card @md:border">
+      <Card className="border-0 border-border/50 bg-background @md:border">
         <div className="signin-card-gradient -z-10"></div>
         <div className="flex justify-end p-2 sm:p-4">
           <Button

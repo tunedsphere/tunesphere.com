@@ -73,6 +73,7 @@ module.exports = {
           shop: "hsl(var(--background-shop))",
           shopHeader: "hsl(var(--background-shop-header))",
           dashboard: "hsl(var(--background-dashboard))",
+          shopNavLink: "hsl(var(--background-shop-navlink))",
         },
         brand: "hsl(var(--brand))",
         texthigh: "hsl(var(--texthigh))",
@@ -86,7 +87,7 @@ module.exports = {
 
         foreground: "hsl(var(--foreground))",
 
-        backgroundgradient: "hsl(var(--backgroundgradient))",
+        backgroundGradient: "hsl(var(--background-gradient))",
 
         primary: {
           DEFAULT: "hsl(var(--primary))",

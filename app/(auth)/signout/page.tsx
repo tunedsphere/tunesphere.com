@@ -20,7 +20,7 @@ export default function SignOutPage() {
   return (
     <Shell
       variant="auth"
-      className="max-w-sm min-w-[250px] gap-2 rounded-md border-border/30 bg-accent-1 sm:p-16 p-10 sm:border"
+      className="max-w-sm min-w-[250px] gap-2 rounded-md border-border/30 bg-background sm:p-16 p-10 sm:border"
     >
    <PageHeader
         id="sign-out-page-header"

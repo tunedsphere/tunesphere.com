@@ -38,17 +38,17 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
           {items?.[0]?.items ? (
             <NavigationMenuItem>
                <Link href="/shop">
-              <NavigationMenuTrigger className="h-auto focus bg-muted">
+              <NavigationMenuTrigger className="h-auto bg-background-shopNavLink">
                 {items[0].title}
               </NavigationMenuTrigger>
               </Link>
-              <NavigationMenuContent className="bg-theme-100 shadow-xl">
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[790px] lg:grid-cols-[.75fr_1fr]">
+              <NavigationMenuContent className="shadow-xl">
+                <ul className="grid gap-3 p-6 border-muted md:w-[400px] lg:w-[790px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
                         aria-label="Home"
-                        className="flex w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-theme-50/50 to-theme-100 p-6 no-underline outline-none"
+                        className="flex w-full select-none flex-col justify-end rounded-md p-6 no-underline outline-none"
                         href="/"
                       >
                         <Icons.logo
@@ -65,10 +65,10 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <div className="bg-theme-50 gap-4 p-6">
+                  <div className="bg-background-shopNavLink/50 gap-4 p-6">
                   {items[0].items.map((item) => (
                     <ListItem
-                      className="flex-col hover:text-theme-500 "
+                      className="flex-col"
                       key={item.title}
                       title={item.title}
                       href={item.href}
@@ -89,15 +89,15 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                 <NavigationMenuItem key={item.title}>
                   
                   <Link href={`/shop/c/${encodeURIComponent(item.title)}`}>
-                  <NavigationMenuTrigger className="h-auto capitalize focus bg-muted">
+                  <NavigationMenuTrigger className="h-auto capitalize focus bg-background-shopNavLink">
                     {item.title}
                   </NavigationMenuTrigger>
                   </Link>
-                  <NavigationMenuContent className="bg-theme-100 shadow-xl">
+                  <NavigationMenuContent className="shadow-xl">
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[790px]">
                       {item.items.map((item) => (
                         <ListItem
-                          className="hover:bg-theme-200 hover:text-theme-900"
+                          className=""
                           key={item.title}
                           title={item.title}
                           href={item.href}
@@ -139,7 +139,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           href={String(href)}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-theme-200 hover:text-accent-foreground focus:bg-theme-200 focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-background-shopNavLink hover:text-accent-foreground focus:text-accent-foreground",
             className
           )}
           {...props}

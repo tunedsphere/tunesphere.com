@@ -43,7 +43,7 @@ export function UserDropdownMenu({ user }: UserDropdownMenuProps) {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="z-10000 w-56 border-theme bg-background-index p-2"
+            className="z-10000 w-56 border-theme p-2 bg-background"
             align="center"
             forceMount
           >
