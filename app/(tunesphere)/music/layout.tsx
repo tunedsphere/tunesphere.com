@@ -1,13 +1,15 @@
+import { currentUser } from "@clerk/nextjs"
 import { SiteHeader } from "@/components/layouts/site-header"
 
 interface LabelsLayoutProps {
   children: React.ReactNode
 }
 
-export default function LabelsLayout({ children }: LabelsLayoutProps) {
+export default async function LabelsLayout({ children }: LabelsLayoutProps) {
+  const user = await currentUser()
   return (
     <>
-      <SiteHeader />
+      <SiteHeader user={user} />
       <main className="flex-1 bg-background">{children}</main>
     </>
   )

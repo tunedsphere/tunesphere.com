@@ -1,13 +1,15 @@
+import { currentUser } from "@clerk/nextjs"
 import { SiteHeader } from "@/components/layouts/site-header"
 
 interface FestivalsLayoutProps {
   children: React.ReactNode
 }
 
-export default function FestivalsLayout({ children }: FestivalsLayoutProps) {
+export default async function FestivalsLayout({ children }: FestivalsLayoutProps) {
+  const user = await currentUser()
   return (
     <>
-      <SiteHeader />
+      <SiteHeader user={user} />
       <main className="flex-1 bg-background">{children}</main>
     </>
   )

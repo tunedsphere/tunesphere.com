@@ -192,7 +192,7 @@
     --primary: var(--theme-500);
     --primary-foreground: var(--theme-950);
 
-    --secondary: var(--theme-200);
+    --secondary: 195 92% 72%;
     --secondary-foreground: var(--theme-600);
 
     --theme-hover: 199 100% 40%;

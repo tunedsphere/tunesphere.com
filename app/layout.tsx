@@ -4,10 +4,7 @@ import { env } from "@/env.mjs"
 import { ClerkProvider } from "@clerk/nextjs"
 
 import { siteConfig } from "@/configs/site"
-
 import { Toaster } from "@/components/ui/toaster"
-
-
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {

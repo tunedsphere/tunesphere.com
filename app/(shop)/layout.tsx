@@ -1,3 +1,5 @@
+import { currentUser } from "@clerk/nextjs"
+
 import { ShopHeader } from "@/components/layouts/shop-header"
 import { SiteFooter } from "@/components/layouts/site-footer"
 import { SiteHeader } from "@/components/layouts/site-header"
@@ -6,10 +8,11 @@ interface ShopLayoutProps {
   children: React.ReactNode
 }
 
-export default function ShopLayout({ children }: ShopLayoutProps) {
+export default async function ShopLayout({ children }: ShopLayoutProps) {
+  const user = await currentUser()
   return (
     <>
-      <SiteHeader />
+      <SiteHeader user={user} />
       <ShopHeader />
       <main className="flex-1 bg-background">{children}</main>
       <SiteFooter />

@@ -1,3 +1,4 @@
+import { currentUser } from "@clerk/nextjs"
 import { SiteFooter } from "@/components/layouts/site-footer"
 import { SiteHeader } from "@/components/layouts/site-header"
 
@@ -23,14 +24,13 @@ export const metadata = {
   },
 }
 
-interface TunedLayoutProps {
-  children: React.ReactNode
-}
 
-export default function TunedLayout({ children }: TunedLayoutProps) {
+
+export default async function TunedLayout({ children }: React.PropsWithChildren) {
+  const user = await currentUser()
   return (
     <>
-     <SiteHeader />
+     <SiteHeader user={user} />
       <main className="flex-1 mt-[var(--headerHeight)] py-14 px-4 md:px-8">{children}</main>
       <SiteFooter />
     </>

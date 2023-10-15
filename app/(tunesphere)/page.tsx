@@ -5,7 +5,6 @@ import Image from "next/image"
 import Link from "next/link"
 import planet2 from "@/public/bghome/planet2.webp"
 import { Icons } from "@/components/icons"
-import { SiteGlobalNav } from "@/components/layouts/site-global-nav"
 import { Shell } from "@/components/shells/shell"
 
 import {
@@ -22,7 +21,6 @@ export const dynamic = "force-dynamic"
 export default function MyApp() {
   return (
     <>
-      <SiteGlobalNav />
       <div className="grid grid-cols-2">
         <div className="w-1/2">
           <Image
