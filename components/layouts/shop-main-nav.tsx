@@ -29,7 +29,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
         href="/shop"
         className="hidden items-center space-x-2 lg:flex"
       >
-        <span className="hidden text-lg lg:inline-block leading-6 font-semibold">
+        <span className="hidden text-lg lg:inline-block leading-6 font-semibold hover:none">
           Explore & Shop
         </span>
       </Link>
