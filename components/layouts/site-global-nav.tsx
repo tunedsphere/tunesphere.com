@@ -61,7 +61,7 @@ export function SiteGlobalNav({ user }: SiteGlobalNavProps) {
             </div>
             <div className="left-0 z-20 flex w-4/6 shrink items-center sm:w-1/3 sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h2 className="z-10 cursor-pointer text-center text-[24px] font-extrabold leading-[30.24px] text-indexhigh hover:text-primary">
+                <h2 className="z-10 cursor-pointer text-center text-[24px] font-extrabold leading-[30.24px] text-indexhigh">
                   TUNEDSPHERE
                 </h2>
               </Link>

@@ -72,7 +72,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
             </div>
             <div className="left-0 flex w-4/6 items-center sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h2 className="cursor-pointer text-center text-[20px] font-extrabold leading-[24px] text-brand hover:text-primary md:text-[24px] md:leading-[30.24px]">
+                <h2 className="cursor-pointer text-center text-[20px] font-extrabold leading-[24px] text-brand md:text-[24px] md:leading-[30.24px]">
                   TUNEDSPHERE
                 </h2>
               </Link>
