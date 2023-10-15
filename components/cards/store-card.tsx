@@ -41,9 +41,8 @@ export function StoreCard({
     >
       {store.stripeAccountId ? "Active" : "Inactive"}
     </Badge>
-    <div>
   {store.storeBanner ? (
-    <StoreBanner 
+    <StoreBanner className="object-fit"
     images={store.storeBanner} />
   ) : (
     <div
@@ -51,9 +50,8 @@ export function StoreCard({
       style={getRandomPatternStyle(String(store.id))}
     />
   )}
-</div>
   </AspectRatio>
-  <CardHeader>
+  <CardHeader className="z-100 bg-gray-500">
     <CardTitle className="line-clamp-1 text-lg font-semibold decoration-2 hover:decoration-4 underline underline-offset-4 decoration-primary">
       {store.name}
     </CardTitle>
