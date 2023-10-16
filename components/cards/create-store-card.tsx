@@ -40,7 +40,7 @@ Not yet created
       className="flex h-full flex-col justify-center rounded-t-md items-center bg-card">
         {/* <h6 className="pt-8 pb-2 items-center decoration-primary underline decoration-2 underline-offset-4">Add a new Store</h6> */}
             <div className="border-2 border-primary rounded-md flex-justify-content items-center">
-            <Icons.add className="h-20 w-20 p-2 hover:w-24 hover:h-24"></Icons.add>
+            <Icons.add className="h-20 w-20 p-2 hover:w-[84px] hover:h-[84px]"></Icons.add>
             </div>
         </div>
   </AspectRatio>

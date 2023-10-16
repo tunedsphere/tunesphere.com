@@ -141,7 +141,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             {store ? (
               <Link
               href={`/shop/store/${store.id}/${slugify(store.name)}`}
-                className="line-clamp-1 inline-block text-base text-muted-foreground hover:underline"
+                className="line-clamp-1 inline-block text-base text-muted-foreground hover:underline decoration-2 underline-offset-4"
               >
                 {store.name}
               </Link>

@@ -87,22 +87,14 @@ export default async function StorePage({
           images={store.storeBanner ?? []}/> 
           </div>
           </div>
-          <div className="flex justify-between">
-  <div className="flex max-w-7xl mx-auto p-4 space-y-2 bg-muted/10 h-52">
-    <div className="">
-      <StoreIcon images={store.storeIcon ?? []}/> 
+          <div className="flex w-full h-52">
+  <div className="flex max-w-7xl mx-auto w-full p-4 space-y-2 bg-muted/30">
+    <div className="flex w-1/2">
+    <div className="items-center justify-center p-2">
+      <StoreIcon className="min-w-full"
+      images={store.storeIcon ?? []}/> 
   </div>
-  <div className=" pt-4 min-h-full">
-    <h2 className="flex flex-start line-clamp-1 text-2xl font-bold">{store.name}</h2>
-    <p className="text-base text-muted-foreground">
-      {store.headline}
-    </p>
-  </div>
-  <div>
-  <div className="">
-      <StoreIcon images={store.storeIcon ?? []}/> 
-  </div>
-  <div className="pt-4 min-h-full">
+  <div className="pt-4 flex flex-col">
     <h2 className="flex flex-start line-clamp-1 text-2xl font-bold">{store.name}</h2>
     <p className="text-base text-muted-foreground">
       {store.headline}

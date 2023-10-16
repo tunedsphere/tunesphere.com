@@ -208,7 +208,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
               )}
             </div>
             <Link
-              href="/stores"
+               href={`/shop/c/${category}`}
               className={cn(
                 buttonVariants({
                   className: "mx-auto",
@@ -216,7 +216,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
               )}
             >
               View all {category}
-              <span className="sr-only">View all stores</span>
+              <span className="sr-only">View all Category</span>
             </Link>
           </div>
         </Tabs>

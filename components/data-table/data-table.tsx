@@ -268,11 +268,11 @@ export function DataTable<TData, TValue>({
         newRowLink={newRowLink}
         deleteRowsAction={deleteRowsAction}
       />
-      <div className="rounded-md border border-muted bg-background">
+      <div className="rounded-md border border-muted">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow className="bg-muted/50 hover:bg-muted/50"
+              <TableRow className=""
               key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
