@@ -5,14 +5,10 @@ import { dark } from "@clerk/themes"
 import { type Theme } from "@clerk/types"
 import { useTheme } from "next-themes"
 
-
-export function UserProfile() {
-
-  const appearance = {
+    const appearance: Theme = {
     variables: {
       colorBackground: "transparent",
-      colorText: "hsl(199 80% 97%)",
-      colorInputBackground: "hsl(240 4% 16%)",
+      colorInputBackground: "",
       borderRadius: "",
       fontSize: "text-2xl",
     },
@@ -29,20 +25,31 @@ export function UserProfile() {
       profileSectionTitle:
         "font-semibold text-2xl",
       profileSectionContent: "border rounded-md border-muted bg-card py-2",
-      profileSectionPrimaryButton: "text-base text-primary py-3",
+      profileSectionPrimaryButton: "text-base py-3",
       profileSection: "py-4",
       pageScrollBox: "p-0",
-      formFieldInput: "w-11/12 p-2 text-texthigh rounded-md outline-primary accent-transparent ring-1 ring-primay focus:ring-primary outline-offset-0 ring-offset-primary",
+      formFieldInput: "w-11/12 p-2 bg-input text-texthigh rounded-md outline-primary accent-transparent ring-1 ring-primay focus:ring-primary outline-offset-0 ring-offset-primary",
       formFieldLabel: "py-2 font-semibold",
-      formButtonPrimary: "text-texthigh bg-primary hover:bg-primary/70 rounded-sm",
-      formButtonReset: "text-primary rounded-sm",
+      formButtonPrimary: "bg-primary hover:bg-primary/70 rounded-sm",
+      formButtonReset: "rounded-sm",
     },
   }
 
 
-  return (
-    <ClerkUserProfile
-    appearance={appearance}
-    />
-  )
-}
+  export function UserProfile() {
+    const { theme } = useTheme()
+  
+    return (
+      <ClerkUserProfile
+        appearance={{
+          ...appearance,
+          baseTheme: theme === "dark" ? dark : appearance.baseTheme,
+          variables: {
+            ...appearance.variables,
+            colorBackground: theme === "light" ? "transparent" : "transparent",
+            colorText: theme === "light" ? "#fafafa" : "#000000",
+          },
+        }}
+      />
+    )
+  }
