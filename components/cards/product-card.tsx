@@ -48,7 +48,7 @@ export function ProductCard({
         )}
         {...props}
       >
-        <Link className="" href={`/shop/product/${product.id}`}>
+        <Link aria-label={product.name} href={`/shop/product/${product.id}`}>
           <div className="absolute -inset-[2px] group-hover:bg-muted/20 rounded-md blur-sm -z-10" />
           <CardHeader className="p-0 relative">
             <AspectRatio ratio={4 / 3}>
@@ -80,8 +80,6 @@ export function ProductCard({
               )}
             </AspectRatio>
           </CardHeader>
-        </Link>
-        <Link href={`shop/product/${product.id}`} tabIndex={-1}>
           <CardContent className="grid pb-4">
             <CardTitle className="line-clamp-1 py-2 text-base">
               {product.name}
