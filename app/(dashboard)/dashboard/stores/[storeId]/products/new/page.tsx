@@ -34,7 +34,7 @@ export default async function NewProductPage({ params }: NewProductPageProps) {
   }
 
   return (
-    <Card>
+    <Card variant="dashboard">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl">Add product</CardTitle>
         <CardDescription>Add a new product to your store</CardDescription>

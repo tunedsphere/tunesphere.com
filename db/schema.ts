@@ -16,7 +16,7 @@ import {
 
 export const stores = mysqlTable("stores", {
   id: serial("id").primaryKey(),
-  userId: varchar("userId", { length: 191 }).notNull(),
+  userId: varchar("userId", { length: 34 }).notNull(),
   name: varchar("name", { length: 110 }).notNull(),
   headline: varchar("headline", { length: 100 }),
   description: mediumtext("description"),
@@ -54,7 +54,7 @@ export const products = mysqlTable("products", {
   ])
     .notNull()
     .default("art"),
-  subcategory: varchar("subcategory", { length: 191 }),
+  subcategory: varchar("subcategory", { length: 24 }),
   price: decimal("price", { precision: 10, scale: 2 }).notNull().default("0"),
   inventory: int("inventory").notNull().default(0),
   rating: int("rating").notNull().default(0),

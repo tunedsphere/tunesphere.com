@@ -42,9 +42,9 @@ export default async function EmailPreferencesPage({
   }
 
   return (
-    <Shell variant="centered">
+    <Shell  variant="centered">
       <PageHeader title="Email Preferences" className="text-center" />
-      <Card className="w-full">
+      <Card className="w-full bg-background">
         <CardHeader>
           <CardTitle>Email Preferences</CardTitle>
           <CardDescription>Manage your email preferences</CardDescription>

@@ -30,7 +30,7 @@ const newsletterImages = [
     alt: "The TunedSphere",
     credit: "AUMANOID",
     creditUrl:
-      "",
+    "https://www.pexels.com/photo/time-lapse-photography-of-man-doing-skateboard-trick-3133685/",
     description: "We'll keep you tuned on the journey through the enigmatic and ever-evolving TunedSphere Platform with news, events, and more. Stay up to date with the latest trends. Thanks for Tuning In!"
   },
 ]

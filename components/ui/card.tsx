@@ -8,7 +8,7 @@ const cardVariants = cva("text-card-foreground shadow-sm", {
     variant: {
       default: "rounded-lg border border-muted bg-card",
       signup: "sm:rounded-lg sm:border border-muted bg-accent-1 ",
-      dashboard:"rounded-lg border border-muted bg-card",
+      dashboard:"rounded-lg border border-muted bg-background-dashboard",
     },
   },
   defaultVariants: {

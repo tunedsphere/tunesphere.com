@@ -7,6 +7,8 @@ import { products, stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { and, eq, not } from "drizzle-orm"
 
+import { getStripeAccountAction } from "@/app/_actions/stripe"
+
 import { cn, formatDate } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import {
@@ -22,7 +24,9 @@ import { Label } from "@/components/ui/label"
 import { LoadingButton } from "@/components/loading-button"
 import { Textarea } from "@/components/ui/textarea"
 import { ConnectStoreToStripeButton } from "@/components/connect-store-to-stripe-button"
-import { getStripeAccountAction } from "@/app/_actions/stripe"
+import { UpdateStoreForm } from "@/components/forms/update-store-form"
+
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -33,6 +37,7 @@ export const metadata: Metadata = {
 interface UpdateStorePageProps {
   params: {
     storeId: string
+
   }
 }
 
@@ -41,62 +46,8 @@ export default async function UpdateStorePage({
 }: UpdateStorePageProps) {
   const storeId = Number(params.storeId)
 
-  async function updateStore(fd: FormData) {
-    "use server"
-
-    const name = fd.get("name") as string
-    const description = fd.get("description") as string
-
-    const storeWithSameName = await db.query.stores.findFirst({
-      where: and(eq(stores.name, name), not(eq(stores.id, storeId))),
-      columns: {
-        id: true,
-      },
-    })
-
-    if (storeWithSameName) {
-      throw new Error("Store name already taken")
-    }
-
-    await db
-      .update(stores)
-      .set({ name, description })
-      .where(eq(stores.id, storeId))
-
-    revalidatePath(`/dashboard/stores`)
-  }
-
-  async function deleteStore() {
-    "use server"
-
-    const store = await db.query.stores.findFirst({
-      where: eq(stores.id, storeId),
-      columns: {
-        id: true,
-      },
-    })
-
-    if (!store) {
-      throw new Error("Store not found")
-    }
-
-    await db.delete(stores).where(eq(stores.id, storeId))
-
-    // Delete all products of this store
-    await db.delete(products).where(eq(products.storeId, storeId))
-
-    const path = "/dashboard/stores"
-    revalidatePath(path)
-    redirect(path)
-  }
-
   const store = await db.query.stores.findFirst({
     where: eq(stores.id, storeId),
-    columns: {
-      id: true,
-      name: true,
-      description: true,
-    },
   })
 
   if (!store) {
@@ -109,6 +60,7 @@ export default async function UpdateStorePage({
     <div className="space-y-6">
     {stripeAccount ? (
       <Card
+      variant="dashboard"
         as="section"
         id="manage-stripe-account"
         aria-labelledby="manage-stripe-account-heading"
@@ -182,6 +134,7 @@ export default async function UpdateStorePage({
       </Card>
     ) : (
       <Card
+       variant="dashboard"
         as="section"
         id="connect-to-stripe"
         aria-labelledby="connect-to-stripe-heading"
@@ -199,7 +152,8 @@ export default async function UpdateStorePage({
         </CardContent>
       </Card>
     )}
-    <Card
+    {/* <Card
+     variant="dashboard"
       as="section"
       id="update-store"
       aria-labelledby="update-store-heading"
@@ -255,10 +209,12 @@ export default async function UpdateStorePage({
               Delete store
               <span className="sr-only">Delete store</span>
             </LoadingButton>
+           
           </div>
         </form>
       </CardContent>
-    </Card>
+    </Card> */}
+    <UpdateStoreForm params={params}/>
   </div>
   )
 }

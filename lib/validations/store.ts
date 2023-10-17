@@ -1,8 +1,8 @@
 import * as z from "zod"
 
 export const storeSchema = z.object({
-  name: z.string().min(3).max(50, {
-    message: "Name can not be more than 50 characters long",
+  name: z.string().min(3).max(110, {
+    message: "Name can not be more than 110 characters long",
   }),
   headline: z.string().max(100, {
     message: "Headline can not be more than 100 characters long",
