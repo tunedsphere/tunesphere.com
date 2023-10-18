@@ -278,7 +278,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
             ))}
           </div>
           <Link
-            href="/stores"
+            href="/shop/stores"
             className={cn(
               buttonVariants({
                 size: "sm",
