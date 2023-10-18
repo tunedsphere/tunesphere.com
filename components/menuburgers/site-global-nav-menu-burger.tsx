@@ -50,7 +50,7 @@ export default function SiteGlobalNavMenuBurger() {
   }, []);
   return (
     <>
-      <div className="mx invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end px-2 py-2 md:px-8">
+      <div className="navbar-container invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end px-2 py-2 md:px-8">
         <div className="visible -z-20000">
           <Button
             size="xs"
