@@ -31,22 +31,21 @@ import {
 import { StartYourJourney } from "@/components/start-your-journey"
 
 interface ShopPageProps {
-  searchCategories: {
+  searchParams: {
     [key: string]: string | string[] | undefined;
-  }
-  searchCreatedAt: string | undefined; // Correct data type definition
+  }// Correct data type definition
 }
 
-export default async function ShopPage({ searchCategories, searchCreatedAt }: ShopPageProps) {
-  const category = searchCategories?.category ?? "art";
-  const createdAt = searchCreatedAt ? new Date(searchCreatedAt) : undefined;
+export default async function ShopPage({ searchParams }: ShopPageProps) {
+  const category = searchParams?.category ?? "art";
 
-    const allProducts = await db
+
+  const allProducts = await db
     .select()
-      .from(products)
-      .limit(10)
-      .where(createdAt ? eq(products.createdAt, createdAt) : undefined)
-      .orderBy(desc(products.createdAt))
+    .from(products)
+    .limit(8)
+    .groupBy(products.id)
+    .orderBy(desc(products.createdAt))
 
     const someStores = await db
       .select({
