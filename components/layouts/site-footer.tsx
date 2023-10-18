@@ -4,7 +4,7 @@ import "@/styles/globals.css"
 
 import * as React from "react"
 import Link from "next/link"
-
+import { cn } from "@/lib/utils"
 import { siteConfig } from "@/configs/site"
 import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
 
@@ -52,6 +52,7 @@ export function SiteFooter() {
                 target={link?.external ? "_blank" : undefined}
                 rel={link?.external ? "noreferrer" : undefined}
                 className="text-sm text-muted-foreground transition-colors"
+                
               >
                 {link.title}
                 <span className="sr-only">{link.title}</span>

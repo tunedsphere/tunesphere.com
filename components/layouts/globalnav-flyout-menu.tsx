@@ -1,7 +1,7 @@
 "use client"
 
 import "@/styles/globals.css"
-
+import { cn } from "@/lib/utils"
 import * as React from "react"
 import { useState } from "react"
 import Link from "next/link"
@@ -82,20 +82,23 @@ interface GlobalNavFlyoutProps {
           </div>
 
           <div className="justify-between divide-y divide-theme px-2 pb-8">
-            {siteConfig.navbarNav.map((item) => (
-              <li
-                key={item.title}
-                className="flex w-full justify-between py-4 text-2xl leading-7 text-texthigh"
-              >
-                <Link
-                  onClick={handleClose}
-                  href={item.href}
-                  className="text-texthigh hover:text-texthigh/70"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+          {siteConfig.navbarNav.map((item) => (
+  <li
+    key={item.title}
+    className="flex w-full justify-between py-4 text-2xl leading-7 text-texthigh"
+  >
+    <Link
+      onClick={handleClose}
+      href={item.href}
+      className={cn(
+        "text-texthigh hover:text-texthigh/70",
+        item.disabled && "cursor-not-allowed opacity-80"
+      )}
+    >
+      {item.label}
+    </Link>
+  </li>
+))}
           </div>
         </div>
       )}

@@ -8,10 +8,7 @@
   font-size: 17px;
   user-select: none;
 }
-.navbar-container {
-  max-width: 1360px;
-  margin: 0 auto;
-}
+
 
 .navbar-list {
   display: flex;
@@ -21,3 +18,7 @@
 }
 
 
+.navbar-container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
