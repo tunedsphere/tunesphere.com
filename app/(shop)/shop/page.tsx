@@ -30,55 +30,58 @@ import {
 } from "@/components/page-header"
 import { StartYourJourney } from "@/components/start-your-journey"
 
-
 interface ShopPageProps {
-  searchParams: {
-    [key: string]: string | string[] | undefined
+  searchCategories: {
+    [key: string]: string | string[] | undefined;
   }
+  searchCreatedAt: string | undefined; // Correct data type definition
 }
-export default async function ShopPage({ searchParams }: ShopPageProps) {
-  const category = searchParams?.category ?? "art"
 
-  const allProducts = await db
+export default async function ShopPage({ searchCategories, searchCreatedAt }: ShopPageProps) {
+  const category = searchCategories?.category ?? "art";
+  const createdAt = searchCreatedAt ? new Date(searchCreatedAt) : undefined;
+
+    const allProducts = await db
     .select()
-    .from(products)
-    .limit(10)
-    .orderBy(desc(products.createdAt))
+      .from(products)
+      .limit(10)
+      .where(createdAt ? eq(products.createdAt, createdAt) : undefined)
+      .orderBy(desc(products.createdAt))
 
-  const someStores = await db
-    .select({
-      id: stores.id,
-      name: stores.name,
-      storeBanner: stores.storeBanner,
-      description: stores.description,
-      stripeAccountId: stores.stripeAccountId,
-    })
-    .from(stores)
-    .limit(4)
-    .leftJoin(products, eq(products.storeId, stores.id))
-    .groupBy(stores.id)
-    .orderBy(desc(stores.stripeAccountId), desc(sql<number>`count(*)`))
+    const someStores = await db
+      .select({
+        id: stores.id,
+        name: stores.name,
+        storeBanner: stores.storeBanner,
+        description: stores.description,
+        stripeAccountId: stores.stripeAccountId,
+      })
+      .from(stores)
+      .limit(4)
+      .leftJoin(products, eq(products.storeId, stores.id))
+      .groupBy(stores.id)
+      .orderBy(desc(stores.stripeAccountId), desc(sql<number>`count(*)`))
 
-    const someProducts = await db
-    .select({
-      id: products.id,
-      name: products.name,
-      images: products.images,
-      category: products.category,
-      price: products.price,
-      inventory: products.inventory,
-      stripeAccountId: stores.stripeAccountId,
-    })
-    .from(products)
-    .limit(4)
-    .leftJoin(stores, eq(products.storeId, stores.id))
-    .where(
-      typeof category === "string"
-        ? eq(products.category, category as Product["category"])
-        : undefined
-    )
-    .groupBy(products.id)
-    .orderBy(desc(stores.stripeAccountId), desc(products.createdAt))
+      const someProducts = await db
+      .select({
+        id: products.id,
+        name: products.name,
+        images: products.images,
+        category: products.category,
+        price: products.price,
+        inventory: products.inventory,
+        stripeAccountId: stores.stripeAccountId,
+      })
+      .from(products)
+      .limit(4)
+      .leftJoin(stores, eq(products.storeId, stores.id))
+      .where(
+        typeof category === "string"
+          ? eq(products.category, category as Product["category"])
+          : undefined
+      )
+      .groupBy(products.id)
+      .orderBy(desc(stores.stripeAccountId), desc(products.createdAt))
 
   return (
     <>
@@ -175,7 +178,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           Featured products
           </h2>
         </div>
-        <Tabs defaultValue="Art" className="space-y-6 overflow-visible">
+        <Tabs defaultValue="art" className="space-y-6 overflow-visible">
           <ScrollArea
             orientation="horizontal"
             className="pb-2"
@@ -249,7 +252,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           <div className="grid w-full grid-cols-2 gap-1.5 px-0 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {allProducts.map((product) => (
               <FeaturedProductCard 
-              key={product.name}
+              key={product.id}
               product={product} />
             ))}
           </div>

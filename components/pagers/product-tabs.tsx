@@ -13,7 +13,7 @@ export function ProudctTabs() {
   const [isPending, startTransition] = React.useTransition()
 
   // Search params
-  const tab = searchParams?.get("category") ?? "skateboards"
+  const tab = searchParams?.get("category") ?? "art"
 
   // Create query string
   const createQueryString = React.useCallback(
