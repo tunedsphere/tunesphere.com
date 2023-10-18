@@ -73,7 +73,7 @@ export default function MyApp() {
           <div className="hero_gradient-link-wrapper flex-1 items-stretch">
             <span className="hero_link-bg hero_bg-1 -inset-1"></span>
 
-            <Link href="/music" passHref>
+            <Link href="/music">
               <div
                 className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700"
                 rel="noopener noreferrer"
@@ -95,7 +95,7 @@ export default function MyApp() {
           <div className="hero_gradient-link-wrapper flex-1 items-stretch">
             <span className="hero_link-bg hero_bg-2 inset-1"></span>
 
-            <Link href="/music" passHref>
+            <Link href="/music">
               <div
                 className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700"
                 rel="noopener noreferrer"
@@ -118,7 +118,7 @@ export default function MyApp() {
 
           <div className="hero_gradient-link-wrapper flex-1 items-stretch">
             <span className="hero_link-bg hero_bg-2 -inset-1"></span>
-            <Link href="/music" passHref>
+            <Link href="/music">
               <div
                 className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700"
                 rel="noopener noreferrer"
@@ -139,7 +139,7 @@ export default function MyApp() {
           </div>
           <div className="hero_gradient-link-wrapper flex-1 items-stretch">
             <span className="hero_link-bg hero_bg-3 inset-1"></span>
-            <Link href="/music" passHref>
+            <Link href="/music">
               <div
                 className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700 group-hover:translate-x-1 motion-reduce:transform-none"
                 rel="noopener noreferrer"
