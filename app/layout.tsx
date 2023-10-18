@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "TunedShpere",
-      url: "https://TuneSphere.com",
+      url: "https://tunesphere.com",
     },
   ],
   themeColor: [
