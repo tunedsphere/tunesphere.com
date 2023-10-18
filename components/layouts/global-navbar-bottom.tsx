@@ -20,7 +20,7 @@ export function GlobalNavbarBottom({ items }: NavbarNavProps) {
     <Link
       href={item.disabled ? "#" : item.href}
       className={cn(
-        "text-texthigh hover:text-theme-500",
+        "text-white hover:text-theme-500",
         item.disabled && "cursor-not-allowed opacity-80",
         item.href  // Add a comma here
       )}
