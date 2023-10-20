@@ -4,8 +4,8 @@ import * as React from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import type { CuratedStore } from "@/types"
 
-import { storeSortOptions, storeStatusOptions } from "@/configs/stores"
-import { cn } from "@/lib/utils"
+import { storeSortOptions } from "@/configs/stores"
+import { cn, slugify } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -18,7 +18,6 @@ import {
 import { StoreCard } from "@/components/cards/store-card"
 import { Icons } from "@/components/icons"
 import { PaginationButton } from "@/components/pagers/pagination-button"
-import { slugify } from "@/lib/utils"
 // import { FacetedFilter } from "./faceted-filter"
 
 interface StoresProps extends React.HTMLAttributes<HTMLDivElement> {

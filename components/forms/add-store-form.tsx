@@ -23,14 +23,11 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Icons } from "@/components/icons"
 import { addStoreAction } from "@/app/_actions/store"
-import type { OurFileRouter } from "@/app/api/uploadthing/core"
-import { generateReactHelpers } from "@uploadthing/react/hooks"
 import type { FileWithPreview } from "@/types"
 import Image from "next/image"
 import { FileDialog } from "@/components/file-dialog"
-
 import { Zoom } from "@/components/zoom-image"
-
+import { useUploadThing } from "@/lib/uploadthing"
 
 interface AddStoreFormProps {
   userId: string
@@ -38,7 +35,6 @@ interface AddStoreFormProps {
 
 type Inputs = z.infer<typeof storeSchema>
 
-const { useUploadThing } = generateReactHelpers<OurFileRouter>()
 export function AddStoreForm({ userId }: AddStoreFormProps) {
   const router = useRouter()
   const [isPending, startTransition] = React.useTransition()
@@ -101,7 +97,7 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
   return (
 <Form {...form}>
   <form
-    className="grid w-full max-w-xl gap-5 bg-back"
+    className="grid w-full max-w-xl gap-5"
     onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
   >
     <div className="flex flex-1 gap-4 border border-muted rounded-lg p-4">

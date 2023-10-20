@@ -302,7 +302,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           ]?.subcategories.map((subcategory) => (
             <Link
               key={subcategory.slug}
-              href={`/shop/c/${String(productCategories[0]?.title)}/${subcategory.slug}`}
+              href={`/shop/c/${String(subcategory.title)}/${subcategory.slug}`}
             >
               <Badge variant="secondary" className="rounded px-3 py-1">
                 {subcategory.title}

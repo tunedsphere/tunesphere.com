@@ -65,7 +65,7 @@ interface GlobalNavFlyoutProps {
               </Button>
             </div>
             <div className="flex w-1/2 justify-end py-3 @sm:hidden">
-              <ThemeToggle />
+              <ThemeToggle className=""/>
             </div>
           </div>
           <div className="flex justify-center">

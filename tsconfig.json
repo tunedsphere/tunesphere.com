@@ -21,11 +21,7 @@
       "@/*": ["./*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{ "name": "next" }]
   },
   "include": [
     "next-env.d.ts",

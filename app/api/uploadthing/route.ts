@@ -1,8 +1,10 @@
 import { createNextRouteHandler } from "uploadthing/next"
 
-import { ourFileRouter } from "./core"
+import { uploadRouter } from "@/app/api/uploadthing/core";
 
-// Export routes for Next App Router
+// Edge works in prod, but our webhook doesn't due to request-loop-protection
+// export const runtime = "edge";
+
 export const { GET, POST } = createNextRouteHandler({
-  router: ourFileRouter,
-})
+  router: uploadRouter,
+});

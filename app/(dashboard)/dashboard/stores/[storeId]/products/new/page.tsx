@@ -30,7 +30,7 @@ export default async function NewProductPage({ params }: NewProductPageProps) {
   const user = await currentUser()
 
   if (!user) {
-    redirect("/sigin")
+    redirect("/signin")
   }
 
   return (

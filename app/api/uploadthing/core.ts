@@ -1,15 +1,17 @@
 import { currentUser } from "@clerk/nextjs"
-import { createUploadthing, type FileRouter } from "uploadthing/next"
+import { createUploadthing } from "uploadthing/next";
+import type { FileRouter } from "uploadthing/next";
 
 const f = createUploadthing()
 
 // FileRouter for your app, can contain multiple FileRoutes
-export const ourFileRouter = {
+export const uploadRouter = {
   // Define as many FileRoutes as you like, each with a unique routeSlug
   productImage: f({ image: { maxFileSize: "4MB", maxFileCount: 3 } })
     // Set permissions and file types for this FileRoute
-    .middleware(async (req) => {
+    .middleware(async({ req }) => {
       // This code runs on your server before upload
+      req;
       const user = await currentUser()
 
       // If you throw, the user will not be able to upload
@@ -26,8 +28,12 @@ export const ourFileRouter = {
 
       console.log("file url", file.url)
     }),
-    storeBanner: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
-    .middleware(async (req) => {
+
+
+  storeBanner: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
+    .middleware(async({ req }) => {
+      // This code runs on your server before upload
+      req;
       const user = await currentUser();
       if (!user) throw new Error("Unauthorized");
       return { userId: user.id };
@@ -36,8 +42,11 @@ export const ourFileRouter = {
       console.log("StoreBanner upload complete for storeId:", metadata.userId);
       console.log("storeBanner url", file.url);
     }),
-    storeIcon: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
-    .middleware(async (req) => {
+
+  storeIcon: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
+    .middleware(async({ req }) => {
+      // This code runs on your server before upload
+      req;
       const user = await currentUser();
       if (!user) throw new Error("Unauthorized");
       return { userId: user.id };
@@ -48,4 +57,4 @@ export const ourFileRouter = {
     }),
 } satisfies FileRouter
 
-export type OurFileRouter = typeof ourFileRouter
+export type OurFileRouter = typeof uploadRouter

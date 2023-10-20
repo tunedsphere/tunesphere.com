@@ -4,12 +4,10 @@ import * as React from "react"
 import { useRouter } from "next/navigation"
 import { type Product } from "@/db/schema"
 
-import { cn, isMacOs } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import { useDebounce } from "@/hooks/use-debounce"
-import { Button } from "@/components/ui/button"
 import {
   Command,
-  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
@@ -17,9 +15,8 @@ import {
   CommandList,
 } from "@/components/ui/command"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Icons } from "@/components/icons"
 import { filterProductsAction } from "@/app/_actions/product"
-import { DialogContent } from "../ui/dialog"
+
 
 export function ShopSearchBar() {
   const router = useRouter();

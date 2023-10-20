@@ -5,7 +5,6 @@ import Image from "next/image"
 import { products } from "@/db/schema"
 import type { FileWithPreview } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { generateReactHelpers } from "@uploadthing/react/hooks"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { type z } from "zod"
@@ -37,27 +36,33 @@ import { FileDialog } from "@/components/file-dialog"
 import { Icons } from "@/components/icons"
 import { Zoom } from "@/components/zoom-image"
 import { addProductAction, checkProductAction } from "@/app/_actions/product"
-import type { OurFileRouter } from "@/app/api/uploadthing/core"
-
+import { useUploadThing } from "@/lib/uploadthing"
 interface AddProductFormProps {
   storeId: number
 }
 
 type Inputs = z.infer<typeof productSchema>
 
-const { useUploadThing } = generateReactHelpers<OurFileRouter>()
 
 export function AddProductForm({ storeId }: AddProductFormProps) {
   const [files, setFiles] = React.useState<FileWithPreview[] | null>(null)
 
   const [isPending, startTransition] = React.useTransition()
 
-  const { isUploading, startUpload } = useUploadThing("productImage")
+  const { isUploading, startUpload } = useUploadThing("productImage", {
+    /**
+  
+     */
+    onClientUploadComplete: () => {
+      alert("Upload Completed");
+    },
+  });
+
 
   const form = useForm<Inputs>({
     resolver: zodResolver(productSchema),
     defaultValues: {
-      category: "clothing",
+      category: "art",
     },
   })
 

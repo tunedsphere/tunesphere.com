@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache"
 import Link from "next/link"
 import { notFound, redirect } from "next/navigation"
 import { db } from "@/db"
-import { products, stores } from "@/db/schema"
+import { stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { and, eq, not } from "drizzle-orm"
 
@@ -37,7 +37,6 @@ export const metadata: Metadata = {
 interface UpdateStorePageProps {
   params: {
     storeId: string
-
   }
 }
 
@@ -45,14 +44,13 @@ export default async function UpdateStorePage({
   params,
 }: UpdateStorePageProps) {
   const storeId = Number(params.storeId)
-
   const store = await db.query.stores.findFirst({
     where: eq(stores.id, storeId),
   })
-
   if (!store) {
     notFound()
   }
+
 
   const { account: stripeAccount } = await getStripeAccountAction({ storeId })
 
@@ -214,7 +212,7 @@ export default async function UpdateStorePage({
         </form>
       </CardContent>
     </Card> */}
-    <UpdateStoreForm params={params}/>
+    <UpdateStoreForm store={store}/>
   </div>
   )
 }

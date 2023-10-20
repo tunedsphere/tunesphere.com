@@ -10,19 +10,19 @@ export function StoreIcon({ images }: StoreIconProps) {
     <>
       {images?.length ? (
         images.map((image, index) => (
-          <div 
+          <span
           id="store-icon"
-          key={index} className="overflow-hidden rounded-md mr-4">
+          key={index} className="relative shrink-0 flex justify-center w-20 h-20 overflow-hidden rounded-full border-border/30 border">
             <Image
               id="store-icon-image"
-              width={120}
-              height={120}
+              width={80}
+              height={80}
               src={image.url} // Use `image.url` to access the URL property
               alt={image.name}
-              className="top-0 left-0 w-full h-full object-cover"
+              className="aspect-square h-full w-full"
               priority
             />
-          </div>
+          </span>
         ))
       ) : (
         <div

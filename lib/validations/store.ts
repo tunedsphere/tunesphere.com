@@ -8,7 +8,10 @@ export const storeSchema = z.object({
     message: "Headline can not be more than 100 characters long",
   })
   .optional(),
-  description: z.string().optional(),
+  description: z.string().max(300, {
+    message: "Description can not be more than 300 characters long",
+  })
+  .optional(),
   storeBanner: z
   .unknown()
   .optional()

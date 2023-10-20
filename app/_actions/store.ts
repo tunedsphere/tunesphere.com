@@ -127,17 +127,13 @@ export async function checkStoreAction(input: { name: string; id?: number }) {
 
 export async function updateStoreAction(
   input: z.infer<typeof storeSchema> & {
-    userId: string;
     id: number;
-    storeBanner: StoredFile[] | null;
-    storeIcon: StoredFile[] | null;
-    name?: string; // Add properties to update
-    description?: string; // Add properties to update
-    headline?: string; // Add properties to update
+    storeBanner?: StoredFile[] | null;
+    storeIcon?: StoredFile[] | null;
   }
 ) {
   const store = await db.query.stores.findFirst({
-    where: and(eq(stores.id, input.id), eq(stores.userId, input.userId)),
+    where: eq(stores.id, input.id),
   });
 
   if (!store) {

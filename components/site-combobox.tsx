@@ -20,8 +20,11 @@ import {
 import { Skeleton } from "@/components/ui/skeleton"
 import { Icons } from "@/components/icons"
 import { filterProductsAction } from "@/app/_actions/product"
+interface SiteComboboxProps {
+  className: string;
+}
 
-export function SiteCombobox() {
+export function SiteCombobox({ className}: SiteComboboxProps) {
   const router = useRouter()
   const [isOpen, setIsOpen] = React.useState(false)
   const [query, setQuery] = React.useState("")
@@ -71,7 +74,7 @@ export function SiteCombobox() {
   return (
     <>
     <div className="hidden sm:block">
-      <Button variant="nav" size="xs" onClick={() => setIsOpen(true)}>
+      <Button variant="nav" size="xs" className={`px-2 ${className}`} onClick={() => setIsOpen(true)}>
         <Icons.search
           className="cursor-pointer object-contain"
           aria-hidden="true"

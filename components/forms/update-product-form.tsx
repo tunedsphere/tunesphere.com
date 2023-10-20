@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation"
 import { products, type Product } from "@/db/schema"
 import type { FileWithPreview } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { generateReactHelpers } from "@uploadthing/react/hooks"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { type z } from "zod"
@@ -42,15 +41,13 @@ import {
   deleteProductAction,
   updateProductAction,
 } from "@/app/_actions/product"
-import type { OurFileRouter } from "@/app/api/uploadthing/core"
-
+import { useUploadThing } from "@/lib/uploadthing"
 interface UpdateProductFormProps {
   product: Product
 }
 
 type Inputs = z.infer<typeof productSchema>
 
-const { useUploadThing } = generateReactHelpers<OurFileRouter>()
 
 export function UpdateProductForm({ product }: UpdateProductFormProps) {
   const router = useRouter()
@@ -192,69 +189,7 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="subcategory"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel>Subcategory</FormLabel>
-                <FormControl>
-                  <Select
-                    value={field.value?.toString()}
-                    onValueChange={field.onChange}
-                  >
-                    <SelectTrigger className="capitalize">
-                      <SelectValue placeholder={field.value} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        {subcategories.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-        <div className="flex flex-col items-start gap-6 sm:flex-row">
-          <FormItem className="w-full">
-            <FormLabel>Price</FormLabel>
-            <FormControl>
-              <Input
-                type="number"
-                inputMode="numeric"
-                placeholder="Type product price here."
-                {...form.register("price")}
-                defaultValue={product.price}
-              />
-            </FormControl>
-            <UncontrolledFormMessage
-              message={form.formState.errors.price?.message}
-            />
-          </FormItem>
-          <FormItem className="w-full">
-            <FormLabel>Inventory</FormLabel>
-            <FormControl>
-              <Input
-                type="number"
-                inputMode="numeric"
-                placeholder="Type product inventory here."
-                {...form.register("inventory", {
-                  valueAsNumber: true,
-                })}
-                defaultValue={product.inventory}
-              />
-            </FormControl>
-            <UncontrolledFormMessage
-              message={form.formState.errors.inventory?.message}
-            />
-          </FormItem>
+          
         </div>
         <FormItem className="flex w-full flex-col gap-1.5">
           <FormLabel>Images</FormLabel>

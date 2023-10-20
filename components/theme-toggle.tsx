@@ -5,14 +5,18 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
-export function ThemeToggle() {
+interface ThemeToggleProps {
+  className: string
+}
+
+export function ThemeToggle({ className}: ThemeToggleProps) {
   const { setTheme, theme } = useTheme()
 
   return (
     <Button
       size="xs"
       variant="nav"
-      className="px-2"
+      className={`px-2 ${className}`}
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       <Icons.sun

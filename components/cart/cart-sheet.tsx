@@ -17,7 +17,12 @@ import { UpdateCart } from "@/components/cart/update-cart"
 import { Icons } from "@/components/icons"
 import { getCartAction } from "@/app/_actions/cart"
 
-export async function CartSheet() {
+interface CartSheetProps {
+  className: string
+}
+
+
+export async function CartSheet({ className}: CartSheetProps) {
   const cartLineItems = await getCartAction()
 
   const itemCount = cartLineItems.reduce(
@@ -33,7 +38,7 @@ export async function CartSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button aria-label="Open cart" variant="nav" size="xs" className="px-2">
+        <Button aria-label="Open cart" variant="nav" size="xs"  className={`px-2 ${className}`}>
           {itemCount > 0 && (
             <Badge
               variant="destructive"

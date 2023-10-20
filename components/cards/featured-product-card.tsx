@@ -36,12 +36,11 @@ export function FeaturedProductCard({
       <Card
       id="featured-product-card"
         className={cn(
-          "group h-full overflow-hidden bg-muted/70 hover:bg-muted shadow-lg border-muted/30 sm:lg:rounded-md  rounded-none border-none",
+          "group h-full overflow-hidden",
           className
         )}
         {...props}
       >
-        <div className="absolute -inset-0 transition-color group-hover:bg-zinc-950/50 blur-sm" />
         <Link
           aria-label={`View ${product.name} details`}
           href={`/shop/product/${product.id}`}
@@ -55,7 +54,7 @@ export function FeaturedProductCard({
                 alt={product.images[0]?.name ?? product.name}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 fill
-                className="object-cover group-hover:scale-105 transition-colors"
+                className="object-cover group-hover:scale-105"
                 loading="lazy"
               />
             ) : (

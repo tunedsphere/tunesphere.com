@@ -1,12 +1,13 @@
 "use client"
-import * as React from "react";
-import Image from "next/image";
-import Link from "next/link";
+
+import * as React from "react"
+import Image from "next/image"
+import Link from "next/link"
 import { type Product } from "@/db/schema";
-import { toast } from "sonner";
-import { catchError, cn, formatPrice } from "@/lib/utils";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Button } from "@/components/ui/button";
+import { toast } from "sonner"
+import { catchError, cn, formatPrice } from "@/lib/utils"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -14,9 +15,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Icons } from "@/components/icons";
-import { addToCartAction } from "@/app/_actions/cart";
+} from "@/components/ui/card"
+import { Icons } from "@/components/icons"
+import { addToCartAction } from "@/app/_actions/cart"
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
   product: Pick<

@@ -30,8 +30,8 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
           </DocsMainNav>
           </div>
           <div className="flex items-center justify-between text-center space-x-4">
-              <DocsSearch/>
-              <ThemeToggle/>
+              <DocsSearch />
+              <ThemeToggle className=""/>
           </div>
         </div>
       </header>

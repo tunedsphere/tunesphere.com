@@ -66,8 +66,7 @@ export async function POST(req: Request) {
       break
     case "invoice.payment_succeeded":
       const invoicePaymentSucceeded = event.data
-        .object as Stripe.Checkout.Session
-
+      .object as Stripe.Invoice
       // If there is a user id, and no cart id in the metadata, then this is a new subscription
       if (
         invoicePaymentSucceeded?.metadata?.userId &&

@@ -78,9 +78,9 @@ export function SiteHeader({ user }: SiteHeaderProps) {
               </Link>
             </div>
             <div className="relative flex w-2/6 flex-row items-center justify-end sm:pr-11 pr-8 sm:w-1/3 sm:gap-2">
-              <CartSheet />
+              <CartSheet className=""/>
               <div className="hidden sm:block">
-                <ThemeToggle />
+                <ThemeToggle className=""/>
               </div>
               <div className="flex items-center justify-center">
               {user ? (
