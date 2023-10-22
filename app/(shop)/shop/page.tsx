@@ -99,7 +99,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     width={4000}
     height={600}
     alt="planet Home"
-    className="absolute object-cover w-full h-full aspect-video -z-10 opacity-50"
+    className="absolute object-cover w-full h-full aspect-video max-h-[500px] -z-10 opacity-50"
   ></Image>
   </div>
           <PageHeaderHeading size="lg" variant="shop" className="md:py-24 py-6 tracking-tighter">
