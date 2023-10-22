@@ -3,13 +3,13 @@
 import "@/styles/globals.css"
 
 import { Toaster as RadToaster } from "sonner"
+import { toast } from "sonner"
 
 export function Toaster() {
   return (
     <RadToaster
       className="z-10000"
       position="bottom-right"
-      richColors={true}
       toastOptions={{
         style: {
           background: "hsl(var(--background))",

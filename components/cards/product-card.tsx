@@ -55,10 +55,9 @@ export function ProductCard({
         aria-label={product.name} 
         href={`/shop/product/${product.id}`}>
           <div className="absolute -inset-[2px] group-hover:bg-muted/20 rounded-md blur-sm -z-20" />
-          <CardHeader className="p-0">
+          <CardHeader className="p-0 relative">
             <AspectRatio ratio={4 / 3}>
               {product?.images?.length ? (
-                <div className="">
                   <Image
                     key={`${product.id}_image`}
                     src={
@@ -70,7 +69,6 @@ export function ProductCard({
                     fill
                     loading="lazy"
                   />
-                </div>
               ) : (
                 <div
                   aria-label="Placeholder"
