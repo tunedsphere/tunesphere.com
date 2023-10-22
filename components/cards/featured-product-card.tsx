@@ -42,12 +42,14 @@ export function FeaturedProductCard({
         {...props}
       >
         <Link
+          key={`${product.id}_link`}
           aria-label={`View ${product.name} details`}
           href={`/shop/product/${product.id}`}
         >
           <AspectRatio ratio={4 / 3}>
             {product?.images?.length ? (
               <Image
+                key={`${product.id}_image`}
                 src={
                   product.images[0]?.url ?? "/images/product-placeholder.webp"
                 }

@@ -41,26 +41,31 @@ export function ProductCard({
 
   return (
     <>
+      <div className="relative">   
       <Card
       id="product-card"
         className={cn(
-          "group rounded-noneborder-none border-muted bg-card sm:rounded-lg sm:border relative z-20",
+          "group rounded-noneborder-none border-muted bg-card sm:rounded-lg sm:border",
           className
         )}
         {...props}
       >
-        <Link aria-label={product.name} href={`/shop/product/${product.id}`}>
-          <div className="absolute -inset-[2px] group-hover:bg-muted/20 rounded-md blur-sm -z-10" />
-          <CardHeader className="p-0 relative">
+        <Link 
+        key={`${product.id}_link`}  
+        aria-label={product.name} 
+        href={`/shop/product/${product.id}`}>
+          <div className="absolute -inset-[2px] group-hover:bg-muted/20 rounded-md blur-sm -z-20" />
+          <CardHeader className="p-0">
             <AspectRatio ratio={4 / 3}>
               {product?.images?.length ? (
-                <div>
+                <div className="">
                   <Image
+                    key={`${product.id}_image`}
                     src={
                       product.images[0]?.url ?? "/images/product-placeholder.webp"
                     }
                     alt={product.images[0]?.name ?? product.name}
-                    className="object-cover rounded-md"
+                    className="absolute h-full w-full object-cover rounded-md"
                     sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
                     fill
                     loading="lazy"
@@ -154,6 +159,7 @@ export function ProductCard({
           </div>
         </CardFooter>
       </Card>
+      </div>
     </>
   );
 }

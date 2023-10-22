@@ -9,11 +9,12 @@ export function Toaster() {
     <RadToaster
       className="z-10000"
       position="bottom-right"
+      richColors={true}
       toastOptions={{
         style: {
-          background: "var(--background)",
-          color: "var(--texthigh)",
-          border: "1px solid var(--border)",
+          background: "hsl(var(--background))",
+          color: "hsl(var(--texthigh))",
+          border: "1px solid hsl(var(--muted))",
         },
       }}
     />

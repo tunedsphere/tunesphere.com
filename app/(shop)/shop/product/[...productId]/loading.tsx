@@ -20,7 +20,7 @@ export default function ProductLoading() {
               aria-label="Placeholder"
               role="img"
               aria-roledescription="placeholder"
-              className="flex aspect-square h-full flex-1 items-center justify-center bg-secondary"
+              className="flex aspect-square h-full flex-1 items-center justify-center"
             >
               <Icons.placeholder
                 className="h-9 w-9 text-muted-foreground"
@@ -70,7 +70,7 @@ export default function ProductLoading() {
               <Card key={i} className="min-w-[260px] rounded-sm">
                 <CardHeader className="border-b p-0">
                   <AspectRatio ratio={4 / 3}>
-                    <div className="flex h-full items-center justify-center bg-secondary">
+                    <div className="flex h-full items-center justify-center">
                       <Icons.placeholder
                         className="h-9 w-9 text-muted-foreground"
                         aria-hidden="true"

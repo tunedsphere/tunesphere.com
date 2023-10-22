@@ -91,13 +91,17 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           aria-labelledby="shop-heading"
           className="px-2 pt-8 text-center z-10"
         >
+          <div
+        id="shop-header-image"
+         className="mx-auto shrink-0 flex justify-center min-w-full"> 
            <Image
     src={heroShop3}
     width={4000}
     height={600}
     alt="planet Home"
-    className="absolute object-cover max-w-8xl h-[600px] mx-auto left-0 right-0 -z-10 opacity-50"
+    className="absolute object-cover w-full h-full aspect-video -z-10 opacity-50"
   ></Image>
+  </div>
           <PageHeaderHeading size="lg" variant="shop" className="md:py-24 py-6 tracking-tighter">
             A Store specially built for You with everything you would expect
           </PageHeaderHeading>

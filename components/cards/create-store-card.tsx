@@ -20,11 +20,9 @@ interface StoreCardProps {
 export function CreateStoreCard({ 
  }: StoreCardProps) {
 
-
-
   return (
     <>
-    <Link 
+    <Link
     href="/dashboard/stores/new"
     >
      <Card className="group h-full shadow-xl hover:shadow-2xl bg-muted/70 relative">

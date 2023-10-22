@@ -4,21 +4,27 @@ import * as React from "react"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 
-import { MainNavItem } from "types"
+import { MainNavItem, SidebarNavItem } from "types"
 import { siteConfig } from "@/configs/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 import { DocsMobileNav } from "@/components/layouts/docs-mobile-nav"
-
+import { docsConfig } from "@/configs/docs"
 interface DocsMainNavProps {
   items: MainNavItem[]
-  children?: React.ReactNode
+  sideItems: SidebarNavItem[]
 }
 
-export function DocsMainNav({ items, children }: DocsMainNavProps) {
+export function DocsMainNav({ items, sideItems }: DocsMainNavProps) {
   const segment = useSelectedLayoutSegment()
-  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
-
+  const [showMobileMenu, setShowMobileMenu] = React.useState(false)
+  const openMobileMenu = () => {
+    setShowMobileMenu(true);
+  };
+  const closeMobileMenu = () => {
+    setShowMobileMenu(false);
+  };
+  
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
@@ -48,12 +54,15 @@ export function DocsMainNav({ items, children }: DocsMainNavProps) {
       ) : null}
       <button
         className="flex items-center space-x-2 md:hidden"
-        onClick={() => setShowMobileMenu(!showMobileMenu)}
+        
       >
-        {showMobileMenu ? <Icons.close className="hover:text-primary" /> : <span className="font-bold">Menu</span>}
+        {showMobileMenu ? <Icons.close 
+        onClick={closeMobileMenu} className="hover:text-primary"/> : <span onClick={openMobileMenu} className="font-bold">Menu</span>}
       </button>
-      {showMobileMenu && items && (
-        <DocsMobileNav items={items}>{children}</DocsMobileNav>
+      {showMobileMenu && items && sideItems && (
+        <DocsMobileNav closeMobileMenu={closeMobileMenu} sideItems={docsConfig.sidebarNav} 
+        items={items} >
+          </DocsMobileNav>
       )}
     </div>
   )

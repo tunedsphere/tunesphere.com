@@ -10,14 +10,9 @@ import { dashboardConfig } from "@/configs/dashboard"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { SidebarNav } from "@/components/layouts/sidebar-nav"
 
-// import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
-// import { extractRouterConfig } from "uploadthing/server";
-// import { uploadRouter } from "@/app/api/uploadthing/core"
 export default async function DashboardLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: React.PropsWithChildren) {
   const user = await currentUser()
 
   if (!user) {

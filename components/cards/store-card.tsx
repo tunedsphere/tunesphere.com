@@ -29,6 +29,7 @@ export function StoreCard({
   return (
     <>
     <Link 
+    key={store.id}
     aria-label={store.name}
     href={href}>
      <Card className="group h-full border-none shadow-xl hover:shadow-2xl relative">

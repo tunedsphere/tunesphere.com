@@ -19,8 +19,9 @@ export function StoreIcon({ images }: StoreIconProps) {
               height={80}
               src={image.url} // Use `image.url` to access the URL property
               alt={image.name}
-              className="aspect-square h-full w-full"
+              className="aspect-square h-full w-full object-cover"
               priority
+              quality={100}
             />
           </span>
         ))

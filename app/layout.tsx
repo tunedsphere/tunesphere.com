@@ -4,7 +4,7 @@ import { env } from "@/env.mjs"
 import { ClerkProvider } from "@clerk/nextjs"
 
 import { siteConfig } from "@/configs/site"
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster, toast } from 'sonner'
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
           </ThemeProvider>
-          <Toaster />
+          <Toaster richColors/>
         </body>
       </html>
     </ClerkProvider>

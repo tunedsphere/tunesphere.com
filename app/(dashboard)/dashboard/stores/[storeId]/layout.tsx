@@ -14,10 +14,10 @@ import { StoreTabs } from "@/components/pagers/store-tabs"
 import { Shell } from "@/components/shells/shell"
 
 interface StoreLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
   params: {
-    storeId: string
-  }
+    storeId: string;
+  };
 }
 
 export default async function StoreLayout({

@@ -13,7 +13,7 @@ import { getProductsAction } from "@/app/_actions/product"
 import { getStoresAction } from "@/app/_actions/store"
 import { StoreBanner } from "@/components/store-banner"
 import { StoreIcon } from "@/components/store.icon"
-
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -77,18 +77,15 @@ export default async function StorePage({
   return (
     <>
 
-    <div id="store-home-header" className="relative">
-      <div className="flex-1">
-      <div className="relative border-0">
-      <div className="">
+    <section id="store-home-header" className="relative flex-1">
+      <div className="border-0">
         <StoreBanner
         key={store.id}
         className="object-contain " 
           images={store.storeBanner ?? []}/> 
           </div>
-          </div>
-          <div className="flex w-full h-52">
-  <div className="flex max-w-7xl mx-auto w-full p-4 space-y-2 bg-muted/30">
+          <div className="flex w-full bg-muted/30">
+  <div className="flex max-w-7xl mx-auto w-full p-4 space-y-2">
     <div className="flex w-1/2">
     <div className="items-center justify-center p-2">
       <StoreIcon className="min-w-full"
@@ -100,10 +97,10 @@ export default async function StorePage({
       {store.headline}
     </p>
   </div>
-  </div>
 </div>
 </div>
-
+</div>
+    </section>
     <Shell variant="storeId" className="">
       <div className="flex flex-col gap-8 md:flex-row md:gap-16">
         <div className="flex w-full flex-col gap-4">
@@ -118,8 +115,7 @@ export default async function StorePage({
         </div>
       </div>
     </Shell>
-    </div>
-    </div>
+
     </>
   )
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Icons } from "./icons";
 import { type StoredFile } from "@/types";
-
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 interface StoreBannerProps extends React.HTMLAttributes<HTMLDivElement> {
   images: StoredFile[];
 }
@@ -9,19 +9,39 @@ interface StoreBannerProps extends React.HTMLAttributes<HTMLDivElement> {
 export function StoreBanner({ images, className }: StoreBannerProps) {
   return (
     <>
-      {images.map((image) => (
-        <div className="overflow-hidden"
-              key={image.id}>
+    {images.length > 0 ? (
+      images.map((image) => (
+        <div key={`storeBanner-${image.id}`} className="max-h-[500px]">
+          <AspectRatio ratio={21/ 9} asChild className="max-h-[500px] relative">
+          <span
+          id="store-banner"
+         className="overflow-hidden relative shrink-0 flex justify-center" >
           <Image
-          width={2400}
-          height={400}
-          src={image.url} // Use `image.url` to access the URL property
-          alt={image.name}
-          className="top-0 left-0 w-full h-full object-cover max-h-[400px]"
-          priority
+            width={2400}
+            height={400}
+            src={image.url}
+            alt={image.name}
+            className="h-full w-full object-cover"
+            priority
           />
+            </span>
+          </AspectRatio>
+      
         </div>
-      ))}
-    </>
-  );
+      ))
+    ) : (
+      <div
+        aria-label="Placeholder"
+        role="img"
+        aria-roledescription="placeholder"
+        className="flex h-full w-full items-center justify-center bg-secondary"
+      >
+        <Icons.placeholder
+          className="h-9 w-9 text-muted-foreground"
+          aria-hidden="true"
+        />
+      </div>
+    )}
+  </>
+ )
 }

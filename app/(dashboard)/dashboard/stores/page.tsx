@@ -123,7 +123,7 @@ export default async function StoresPage() {
           store={store}
         />
       ))}
-      <CreateStoreCard /> {/* Render CreateStore2 when there are stores */}
+       <CreateStoreCard /> 
     </>
   ) : (
     <CreateStoreCard /> 

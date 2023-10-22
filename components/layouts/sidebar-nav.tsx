@@ -23,7 +23,7 @@ export function SidebarNav({ items }: SidebarNavProps) {
 
         return item.href ? (
           <Link
-            key={index}
+            key={`${index}-${item.title}`}
             href={item.href}
             target={item.external ? "_blank" : ""}
             rel={item.external ? "noreferrer" : ""}
@@ -43,7 +43,7 @@ export function SidebarNav({ items }: SidebarNavProps) {
           </Link>
         ) : (
           <span
-            key={index}
+            key={`${index}-${item.title}`}
             className="flex w-full cursor-not-allowed items-center rounded-md p-2 text-muted-foreground hover:underline"
           >
             {item.title}

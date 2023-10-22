@@ -27,13 +27,14 @@ export async function CategoryCard({ category }: CategoryCardProps) {
     <>
     <div className="flex flex-col">
     <Link
-      key={category.title}
+      key={`${category.title}_link`}
       href={`shop/c/${category.title}`}
       className="group relative overflow-hidden sm:rounded-md border rounded-full"
     >
       <AspectRatio ratio={16 / 9}>
         <div className="absolute inset-0 z-10 bg-muted/20 transition-color group-hover:bg-zinc-950/75" />
         <Image
+          key={`${category.title}_key`}
           src={category.image}
           alt={`${category.title} category`}
           className="object-cover transition-transform group-hover:scale-105"

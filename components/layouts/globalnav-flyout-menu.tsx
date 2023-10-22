@@ -31,9 +31,9 @@ interface GlobalNavFlyoutProps {
     return (
       <div className="flex items-center justify-center ">
         <img
-          onClick={handleClose}
-         width={60}
-         height={60}
+         onClick={handleClose}
+          width={60}
+          height={60}
           src={user.imageUrl}
           className="h-32 w-32 flex-none rounded-full border border-muted/30 shadow-sm"
           alt="Profile image"

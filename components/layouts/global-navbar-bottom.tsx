@@ -6,10 +6,10 @@ import type { MainNavItem } from "@/types"
 import { siteConfig } from "@/configs/site"
 import { cn } from "@/lib/utils"
 interface NavbarNavProps {
-  items?: MainNavItem[]
+
 }
 
-export function GlobalNavbarBottom({ items }: NavbarNavProps) {
+export function GlobalNavbarBottom({}: NavbarNavProps) {
   return (
     <>
       <nav className="relative hidden sm:block z-9999">

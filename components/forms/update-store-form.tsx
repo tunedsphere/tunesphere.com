@@ -58,15 +58,14 @@ export function UpdateStoreForm({
   store,
 }: UpdateStoreFormProps) {
   const router = useRouter()
-  const [files, setFiles] = React.useState<FileWithPreview[] | null>(null)
+  const [StoreBanners, setStoreBanners] = React.useState<FileWithPreview[] | null>(null)
+  const [StoreIcons, setStoreIcons] = React.useState<FileWithPreview[] | null>(null)
   const [isPending, startTransition] = React.useTransition()
   const form = useForm<Inputs>({
     resolver: zodResolver(storeSchema)
   })
   const { isUploading: isUploadingBanner, startUpload: startUploadBanner } = useUploadThing("storeBanner");
   const { isUploading: isUploadingIcon, startUpload: startUploadIcon } = useUploadThing("storeIcon");
-  const previewsBanner = form.watch("storeBanner") as FileWithPreview[] | null;
-  const previewsIcon = form.watch("storeIcon") as FileWithPreview[] | null;
   function onSubmit(data: Inputs) {
     startTransition(async () => {
       try {
@@ -104,7 +103,8 @@ export function UpdateStoreForm({
           })
 
         toast.success("Store updated successfully.")
-        setFiles(null)
+        setStoreBanners(null); // Set your new value for StoreBanners here
+        setStoreIcons(null); 
       } catch (err) {
         catchError(err)
       }
@@ -184,6 +184,19 @@ export function UpdateStoreForm({
         </CardContent>
         
       </Card> */}
+      <Card
+        variant="dashboard"
+        as="section"
+        id="update-store"
+        aria-labelledby="update-store-heading"
+      >
+         <CardHeader className="space-y-1">
+          <CardTitle className="text-2xl">Update your store</CardTitle>
+          <CardDescription>
+            Update your store name and description, or delete it
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
        <Form {...form}>
        <form
          className="grid w-full max-w-2xl gap-5"
@@ -193,6 +206,11 @@ export function UpdateStoreForm({
            <FormLabel>Name</FormLabel>
            <FormControl>
              <Input
+                id="update-store-name"
+                aria-describedby="update-store-name-description"
+                required
+                minLength={3}
+                maxLength={50}
                aria-invalid={!!form.formState.errors.name}
                placeholder="Type store name here."
                {...form.register("name")}
@@ -205,9 +223,9 @@ export function UpdateStoreForm({
          </FormItem>
          <FormItem className="flex-col inline-flex px-2 items-center justify-center gap-1.5 w-1/2">
            <FormLabel>storeIcon</FormLabel>
-           {!previewsIcon && files?.length ? (
+           {StoreIcons?.length ? (
   <div className="flex items-center justify-center">
-    {files.map((file, i) => (
+    {StoreIcons.map((file, i) => (
       <span className="relative shrink-0 flex justify-center w-20 h-20 overflow-hidden rounde-full">
       <Image
         key={`storeIcon-${i}`}
@@ -245,8 +263,8 @@ export function UpdateStoreForm({
                name="storeIcon"
                maxFiles={1}
                maxSize={1024 * 1024 * 4}
-               files={files}
-               setFiles={setFiles}
+               files={StoreIcons}
+               setFiles={setStoreIcons}
                isUploading={isUploadingIcon}
                disabled={isPending}
              />
@@ -260,6 +278,10 @@ export function UpdateStoreForm({
            <FormLabel>Description</FormLabel>
            <FormControl>
              <Textarea
+                   id="update-store-description"
+                   aria-describedby="update-store-description"
+                   minLength={3}
+                   maxLength={255}
                placeholder="Type store description here."
                {...form.register("description")}
                defaultValue={store.description ?? ""}
@@ -273,7 +295,10 @@ export function UpdateStoreForm({
            <FormLabel>Headline</FormLabel>
            <FormControl>
              <Textarea
-               placeholder="Type store headline here."
+               id="update-store-headline"
+               aria-describedby="update-store-headline-description"
+               maxLength={100} // Maximum of 100 characters
+               placeholder="Short description. Maximum of 100 characters."
                {...form.register("headline")}
                defaultValue={store.headline ?? ""}
              />
@@ -285,11 +310,11 @@ export function UpdateStoreForm({
 
          <FormItem className="flex w-full flex-col gap-1.5">
            <FormLabel>storeBanner</FormLabel>
-           {!previewsBanner && files?.length ? (
+           {StoreBanners?.length ? (
              <div className="flex items-center gap-2">
-               {files.map((file, i) => (
+               {StoreBanners.map((file, i) => (
                    <Image
-                    key={`storeBanner-${i}`}
+                      key={`storeBanner-${i}`}
                      src={file.preview}
                      alt={file.name}
                      className="h-20 w-20 shrink-0 rounded-md object-cover object-center"
@@ -322,8 +347,8 @@ export function UpdateStoreForm({
                name="storeBanner"
                maxFiles={3}
                maxSize={1024 * 1024 * 4}
-               files={files}
-               setFiles={setFiles}
+               files={StoreBanners}
+               setFiles={setStoreBanners}
                isUploading={isUploadingBanner}
                disabled={isPending}
              />
@@ -371,6 +396,8 @@ export function UpdateStoreForm({
          </div>
        </form>
      </Form>
+     </CardContent>
+     </Card>
      </>
   )
 }

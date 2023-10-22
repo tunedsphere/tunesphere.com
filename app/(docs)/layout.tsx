@@ -1,12 +1,10 @@
 import { docsConfig } from "@/configs/docs"
 
 import Link from "next/link"
-import { siteConfig } from "@/configs/site"
 
 import { Icons } from "@/components/icons"
 import { DocsMainNav } from "@/components/layouts/docs-main-nav"
 import { DocsSearch } from "@/components/searchs/docs-search"
-import { DocsSidebarNav } from "@/components/sidebar-nav"
 import { SiteFooter } from "@/components/layouts/site-footer"
 import { ThemeToggle } from "@/components/theme-toggle"
 import "@/styles/globals.css"
@@ -17,6 +15,7 @@ interface DocsLayoutProps {
 }
 
 export default function DocsLayout({ children }: DocsLayoutProps) {
+
   return (
     <>
      <header className="sticky top-0 z-40 w-full border-b border-muted bg-background">
@@ -25,9 +24,7 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
         <Link href="/" className="flex items-center space-x-2 md:hidden">
           <Icons.logo />
         </Link>
-          <DocsMainNav items={docsConfig.mainNav}>
-          <DocsSidebarNav items={docsConfig.sidebarNav} />
-          </DocsMainNav>
+          <DocsMainNav sideItems={docsConfig.sidebarNav} items={docsConfig.mainNav}/>
           </div>
           <div className="flex items-center justify-between text-center space-x-4">
               <DocsSearch />

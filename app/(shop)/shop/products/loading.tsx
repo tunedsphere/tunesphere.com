@@ -22,10 +22,10 @@ export default function ProductsLoading() {
         <div className="flex flex-col space-y-6">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 8 }).map((_, i) => (
-            <Card key={i} className="rounded-sm border border-accent-7">
+            <Card key={i} className="rounded-sm border border-muted/70">
               <CardHeader className="border-b p-0">
                 <AspectRatio ratio={4 / 3}>
-                  <div className="flex h-full items-center justify-center bg-gray-300">
+                  <div className="flex h-full items-center justify-center bg-secondary">
                     <Icons.placeholder
                       className="h-9 w-9 text-muted-foreground"
                       aria-hidden="true"
@@ -33,11 +33,11 @@ export default function ProductsLoading() {
                   </div>
                 </AspectRatio>
               </CardHeader>
-              <CardContent className="grid gap-2.5 p-4 bg-theme-50">
+              <CardContent className="grid gap-2.5 p-4">
                 <Skeleton className="h-4 w-1/2" />
                 <Skeleton className="h-4 w-1/4" />
               </CardContent>
-              <CardFooter className="p-4 bg-theme-50">
+              <CardFooter className="p-4">
                 <Skeleton className="h-8 w-full rounded-sm" />
               </CardFooter>
             </Card>

@@ -38,8 +38,8 @@ type Inputs = z.infer<typeof storeSchema>
 export function AddStoreForm({ userId }: AddStoreFormProps) {
   const router = useRouter()
   const [isPending, startTransition] = React.useTransition()
-  const [files, setFiles] = React.useState<FileWithPreview[] | null>(null)
-
+  const [StoreBanners, setStoreBanners] = React.useState<FileWithPreview[] | null>(null)
+  const [StoreIcons, setStoreIcons] = React.useState<FileWithPreview[] | null>(null)
   // react-hook-form
   const form = useForm<Inputs>({
     resolver: zodResolver(storeSchema),
@@ -53,8 +53,6 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
   const { isUploading: isUploadingBanner, startUpload: startUploadBanner } = useUploadThing("storeBanner");
   const { isUploading: isUploadingIcon, startUpload: startUploadIcon } = useUploadThing("storeIcon");
 
-  const previewsBanner = form.watch("storeBanner") as FileWithPreview[] | null;
-  const previewsIcon = form.watch("storeIcon") as FileWithPreview[] | null;
   function onSubmit(data: Inputs) {
     startTransition(async () => {
       try {
@@ -97,15 +95,15 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
   return (
 <Form {...form}>
   <form
-    className="grid w-full max-w-xl gap-5"
+    className="grid w-full max-w-2xl gap-5"
     onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
   >
     <div className="flex flex-1 gap-4 border border-muted rounded-lg p-4">
     <FormItem className="flex flex-col gap-1.5 w-2/6 justify-between">
       <FormLabel className="justify-center mx-auto">Store Icon</FormLabel>
-      {!isUploadingIcon && previewsIcon?.length ? (
+      {StoreIcons?.length ? (
         <div className="flex justify-center gap-2">
-          {previewsIcon.map((file) => (
+          {StoreIcons.map((file) => (
             <Zoom key={file.name}>
               <Image
                 src={file.preview}
@@ -134,8 +132,8 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
           name="storeIcon"
           maxFiles={1}
           maxSize={1024 * 1024 * 4}
-          files={files}
-          setFiles={setFiles}
+          files={StoreIcons}
+          setFiles={setStoreIcons}
           isUploading={isUploadingIcon}
           disabled={isPending}
         />
@@ -197,9 +195,9 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
     {/* StoreBanner input */}
     <FormItem className="flex w-full flex-col gap-1.5">
       <FormLabel>Store Banner</FormLabel>
-      {!isUploadingBanner && previewsBanner?.length ? (
+      {StoreBanners?.length ? (
         <div className="flex items-center justify-center mx-auto  gap-2">
-          {previewsBanner.map((file) => (
+          {StoreBanners.map((file) => (
             <Zoom key={file.name}>
               <Image
                 src={file.preview}
@@ -228,8 +226,8 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
           name="storeBanner"
           maxFiles={1}
           maxSize={1024 * 1024 * 4}
-          files={files}
-          setFiles={setFiles}
+          files={StoreBanners}
+          setFiles={setStoreBanners}
           isUploading={isUploadingBanner}
           disabled={isPending}
         />
