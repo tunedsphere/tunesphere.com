@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap"); */
 
 @layer base {
   html {

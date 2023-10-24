@@ -81,7 +81,10 @@ export function SignInForm({ handleLinkClick }: SignInFormProps){
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input className="bg-background" placeholder="Email" {...field} />
+                <Input 
+                autoComplete="email"
+                className="bg-background" 
+                placeholder="Email" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

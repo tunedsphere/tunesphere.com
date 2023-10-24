@@ -1,10 +1,9 @@
-
-
+import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { db } from "@/db"
 import { products, stores } from "@/db/schema"
-import { getSubcategories } from "@/configs/products"
+import { env } from "@/env.mjs"
 import { and, desc, eq, not } from "drizzle-orm"
 
 import { formatPrice, toTitleCase, slugify } from "@/lib/utils"
@@ -28,9 +27,11 @@ interface ProductPageProps {
   }
 }
 
-export async function generateMetadata({ params }: ProductPageProps) {
-  const productId = Number(params.productId)
+export async function generateMetadata({
+  params,
+}: ProductPageProps): Promise<Metadata> {
 
+  const productId = Number(params.productId)
 
   const product = await db.query.products.findFirst({
     columns: {
@@ -45,8 +46,9 @@ export async function generateMetadata({ params }: ProductPageProps) {
   }
 
   return {
+    metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
     title: toTitleCase(product.name),
-    description: product.description ?? undefined,
+    description: product.description
   }
 }
 
@@ -141,7 +143,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             {store ? (
               <Link
               href={`/shop/store/${store.id}/${slugify(store.name)}`}
-                className="line-clamp-1 inline-block text-base text-muted-foreground hover:underline decoration-2 underline-offset-4"
+                className="line-clamp-1 inline-block text-base text-muted-foreground underline decoration-primary hover:underline hover:decoration-2 underline-offset-4"
               >
                 {store.name}
               </Link>

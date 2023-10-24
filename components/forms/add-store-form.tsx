@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import type { z } from "zod"
 
-import { catchError, isArrayOfFile } from "@/lib/utils"
+import { catchError, isArrayOfFile, isFile } from "@/lib/utils"
 import { storeSchema } from "@/lib/validations/store"
 import { Button } from "@/components/ui/button"
 import {
@@ -23,7 +23,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Icons } from "@/components/icons"
 import { addStoreAction } from "@/app/_actions/store"
-import type { FileWithPreview } from "@/types"
+import type { FileWithPreview, StoredFile } from "@/types"
 import Image from "next/image"
 import { FileDialog } from "@/components/file-dialog"
 import { Zoom } from "@/components/zoom-image"
@@ -39,8 +39,7 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
   const router = useRouter()
   const [isPending, startTransition] = React.useTransition()
   const [StoreBanners, setStoreBanners] = React.useState<FileWithPreview[] | null>(null)
-  const [StoreIcons, setStoreIcons] = React.useState<FileWithPreview[] | null>(null)
-  // react-hook-form
+  const [StoreIcons, setStoreIcons] = React.useState<FileWithPreview[] | null>(null)  // react-hook-form
   const form = useForm<Inputs>({
     resolver: zodResolver(storeSchema),
     defaultValues: {
@@ -58,24 +57,34 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
       try {
 
 
-        const storeBanner = isArrayOfFile(data.storeBanner)
-          ? await startUploadBanner(data.storeBanner).then((res) => {
-              const formattedStoreBanner = res?.map((storeBanner) => ({
-                id: storeBanner.key,
-                name: storeBanner.key.split("_")[1] ?? storeBanner.key,
-                url: storeBanner.url,
-              }))
-              return formattedStoreBanner ?? null
-            })
-          : null
+        // const storeBanner = isArrayOfFile(data.storeBanner)
+        //   ? await startUploadBanner(data.storeBanner).then((res) => {
+        //       const formattedStoreBanner = res?.map((storeBanner) => ({
+        //         id: storeBanner.key,
+        //         name: storeBanner.key,
+        //         url: storeBanner.url,
+        //       }))
+        //       return formattedStoreBanner ?? null
+        //     })
+        //   : null
+          const storeBanner = isFile(data.storeBanner)
+  ? await startUploadBanner([data.storeBanner]).then((res) => {
+    const formattedStoreBanner = res?.map((storeBanner) => ({
+      id: storeBanner.key,
+      name: storeBanner.key,
+      url: storeBanner.url,
+    })) // Since it's a single file
+      return formattedStoreBanner ?? null;
+    })
+  : null;
 
-          const storeIcon = isArrayOfFile(data.storeIcon) // Assuming you have a function like isArrayOfFile to check if it's an array of files
-  ? await startUploadIcon(data.storeIcon).then((res) => {
-      const formattedStoreIcon = res?.map((storeIcon) => ({
-        id: storeIcon.key,
-        name: storeIcon.key.split("_")[1] ?? storeIcon.key,
-        url: storeIcon.url,
-      }));
+  const storeIcon = isFile(data.storeIcon)
+  ? await startUploadIcon([data.storeIcon]).then((res) => {
+    const formattedStoreIcon = res?.map((storeIcon) => ({
+      id: storeIcon.key,
+      name: storeIcon.key,
+      url: storeIcon.url,
+    })) // Since it's a single file
       return formattedStoreIcon ?? null;
     })
   : null;

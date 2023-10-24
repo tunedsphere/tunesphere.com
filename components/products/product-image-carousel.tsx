@@ -100,7 +100,7 @@ export function ProductImageCarousel({
           }}
         >
           {images.map((image, index) => (
-            <div className="flex-full relative min-w-0 pl-4 rounded-lg" key={index}>
+            <div className="flex-full justify-center relative max-h-[400px] min-w-0 pl-4 rounded-lg" key={index}>
               <AspectRatio ratio={1}>
                 <Image
                   aria-label={`Slide ${index + 1} of ${images.length}`}
@@ -109,10 +109,11 @@ export function ProductImageCarousel({
                   aria-roledescription="slide"
                   src={image.url}
                   alt={image.name}
-                  fill
+                  width={400}
+                  height={400}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover"
-                  priority={index === 0}
+                  className="object-cover mx-auto"
+                  priority
                 />
               </AspectRatio>
             </div>

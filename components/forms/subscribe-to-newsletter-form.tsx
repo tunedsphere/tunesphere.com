@@ -85,6 +85,7 @@ export function SubscribeToNewsletterForm() {
               <FormLabel className="sr-only">Email</FormLabel>
               <FormControl>
                 <Input
+                  autoComplete="email"
                   placeholder="galactic@example.com"
                   className="pr-12"
                   {...field}

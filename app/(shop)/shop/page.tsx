@@ -38,7 +38,8 @@ interface ShopPageProps {
 
 export default async function ShopPage({ searchParams }: ShopPageProps) {
   const category = searchParams?.category ?? "art";
-
+  const randomProductCategory =
+    productCategories[Math.floor(Math.random() * productCategories.length)]
 
   const allProducts = await db
     .select()
@@ -301,12 +302,12 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           aria-labelledby="random-subcategories-heading"
           className="flex w-full flex-wrap items-center justify-center gap-4 pb-4"
         >
-          {productCategories[
-            Math.floor(Math.random() * productCategories.length)
-          ]?.subcategories.map((subcategory) => (
+          {randomProductCategory?.subcategories.map((subcategory) => (
             <Link
               key={subcategory.slug}
-              href={`/shop/c/${String(subcategory.title)}/${subcategory.slug}`}
+              href={`/shop/c/${randomProductCategory?.title}/${String(
+                subcategory.slug
+                )}`}
             >
               <Badge variant="secondary" className="rounded px-3 py-1">
                 {subcategory.title}

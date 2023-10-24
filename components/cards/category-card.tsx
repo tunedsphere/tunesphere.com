@@ -16,7 +16,7 @@ interface CategoryCardProps {
 export async function CategoryCard({ category }: CategoryCardProps) {
   const productCount = await db
     .select({
-      count: sql<number>`count(*)`,
+      count: sql<number>`count(*)`.mapWith(Number),
     })
     .from(products)
     .where(eq(products.category, category.title))
@@ -38,9 +38,9 @@ export async function CategoryCard({ category }: CategoryCardProps) {
           src={category.image}
           alt={`${category.title} category`}
           className="object-cover transition-transform group-hover:scale-105"
-          sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
-          priority={true}
+          priority
         />
       </AspectRatio>
       <div className="absolute inset-2 sm:inset-4 z-20 flex flex-col">

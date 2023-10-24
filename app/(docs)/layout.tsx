@@ -1,3 +1,4 @@
+import "@/styles/globals.css"
 import { docsConfig } from "@/configs/docs"
 
 import Link from "next/link"
@@ -7,7 +8,7 @@ import { DocsMainNav } from "@/components/layouts/docs-main-nav"
 import { DocsSearch } from "@/components/searchs/docs-search"
 import { SiteFooter } from "@/components/layouts/site-footer"
 import { ThemeToggle } from "@/components/theme-toggle"
-import "@/styles/globals.css"
+
 
 
 interface DocsLayoutProps {

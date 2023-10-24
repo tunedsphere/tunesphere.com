@@ -128,6 +128,10 @@ export function catchError(err: unknown) {
     }
   }
 
+  export function isFile(file: unknown): file is File {
+    return file instanceof File;
+  }
+
   export function isArrayOfFile(files: unknown): files is File[] {
     const isArray = Array.isArray(files)
     if (!isArray) return false
