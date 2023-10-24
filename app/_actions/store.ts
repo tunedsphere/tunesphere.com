@@ -129,8 +129,6 @@ export async function checkStoreAction(input: { name: string; id?: number }) {
 export async function updateStoreAction(
   input: z.infer<typeof storeSchema> & {
     id: number;
-    headline: string;
-    description: string;
     storeBanner?: StoredFile[] | null;
     storeIcon?: StoredFile[] | null;
   }
