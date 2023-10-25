@@ -58,7 +58,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
   return (
     <nav
       id="globalnav"
-      className="globalnav fixed h-auto border-b-2 border-accent-2 @container z-9999"
+      className="globalnav fixed h-auto border-b-2 border-muted/70 @container z-9999"
     >
       <div id="globalnav-content" className="relative">
         <nav className="z-9999 bg-background-navbartop">
