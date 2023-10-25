@@ -25,9 +25,9 @@ export function SiteFooter() {
             aria-labelledby="newsletter-heading"
             className="space-y-3 max-w-2xl flex flex-col justify-center mx-auto py-4 gap-4"
           >
-            <h4 className="text-base font-medium text-center">
+            <p className="text-base font-medium text-center">
   Subscribe to our <span className="underline decoration-primary underline-offset-4 font-semibold">Newsletter</span>
-</h4>
+</p>
             <SubscribeToNewsletterForm />
           </section>
 
@@ -70,9 +70,9 @@ export function SiteFooter() {
           className="flex items-center justify-center align-middle"
         >
 <div className="flex flex-wrap justify-center items-center gap-4 pt-8">
-  <h3 className="text-2xl font-extrabold text-texthigh">
+  <h5 className="text-2xl font-extrabold text-texthigh">
     TUNEDSPHERE
-  </h3>
+  </h5>
   <p className="text-sm font-normal text-textlow opacity-75">
     Copyright © 2023 - 2023 TunedSphere. All rights reserved.
   </p>

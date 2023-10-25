@@ -67,7 +67,7 @@ export const Sidebar = React.forwardRef<SidebarElement, Readonly<SidebarProps>>(
                 >
                   All emails
                 </Heading>
-                {navItems && navItems.length > 0 && (
+                {navItems && navItems.length ? (
                   <svg
                     width="24"
                     height="24"
@@ -80,7 +80,7 @@ export const Sidebar = React.forwardRef<SidebarElement, Readonly<SidebarProps>>(
                       fill="currentColor"
                     />
                   </svg>
-                )}
+                ) : null }
               </div>
             </Collapsible.Trigger>
 

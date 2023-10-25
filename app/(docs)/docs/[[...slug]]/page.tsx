@@ -15,7 +15,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { MdxPager } from "@/components/pagers/mdx-pager"
+import { DocsPager } from "@/components/pagers/docs-pager"
 import { Shell } from "@/components/shells/shell"
 
 interface DocsPageProps {
@@ -27,8 +27,8 @@ interface DocsPageProps {
 // eslint-disable-next-line @typescript-eslint/require-await
 async function getDocFromParams(params: DocsPageProps["params"]) {
   const slug = params.slug?.join("/") || ""
+  console.log("Current Slug:", slug);
   const doc = allDocs.find((doc) => doc.slugAsParams === slug)
-
   if (!doc) {
     return null; // Return early if doc is not found
   }
@@ -113,7 +113,7 @@ export default async function PagePage({ params }: DocsPageProps) {
         </PageHeader>
         <Separator className="my-8" />
         <Mdx code={doc.body.code} />
-        <MdxPager
+        <DocsPager
           currentItem={formattedDoc}
           allItems={formattedDocs}
           className="my-4 md:my-6"

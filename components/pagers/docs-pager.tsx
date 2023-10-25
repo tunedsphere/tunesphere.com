@@ -4,21 +4,21 @@ import { cn, truncate } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
-interface MdxPagerItem {
+interface DocsPagerItem {
   title?: string | undefined
   slug: string;
 }
-interface MdxPagerProps extends React.HTMLAttributes<HTMLDivElement> {
-  currentItem: MdxPagerItem
-  allItems: MdxPagerItem[]
+interface DocsPagerProps extends React.HTMLAttributes<HTMLDivElement> {
+  currentItem: DocsPagerItem
+  allItems: DocsPagerItem[]
 }
 
-export function MdxPager({
+export function DocsPager({
   currentItem,
   allItems,
   className,
   ...props
-}: MdxPagerProps) {
+}: DocsPagerProps) {
   const pager = getPager(currentItem, allItems)
 
   if (!pager) {
@@ -32,7 +32,7 @@ export function MdxPager({
     >
       {pager?.next ? (
         <Link
-          aria-label="Next post"
+          aria-label={pager.next.slug}
           href={pager.next.slug}
           className={`hover:bg-muted/30 hover:text-primary ${cn(buttonVariants({ variant: "ghost" }))}`}
         >
@@ -42,7 +42,7 @@ export function MdxPager({
       ) : null}
       {pager?.prev ? (
         <Link
-          aria-label="Previous post"
+          aria-label={pager.prev.slug}
           href={pager.prev.slug}
           className={`hover:bg-muted/30 hover:text-primary ${cn(buttonVariants({ variant: "ghost" }), "")}`}
         >
@@ -54,7 +54,7 @@ export function MdxPager({
   )
 }
 
-export function getPager(currentItem: MdxPagerItem, allItems: MdxPagerItem[]) {
+export function getPager(currentItem: DocsPagerItem, allItems: DocsPagerItem[]) {
   const flattenedLinks = allItems.flat()
   const activeIndex = flattenedLinks.findIndex(
     (link) => currentItem.slug === link?.slug
