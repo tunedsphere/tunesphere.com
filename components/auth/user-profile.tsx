@@ -1,5 +1,5 @@
 "use client"
-import "@/styles/globals.css"
+
 import { UserProfile as ClerkUserProfile } from "@clerk/nextjs"
 import { dark } from "@clerk/themes"
 import { type Theme } from "@clerk/types"

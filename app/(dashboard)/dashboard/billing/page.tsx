@@ -5,7 +5,7 @@ import { env } from "@/env.mjs"
 import { currentUser } from "@clerk/nextjs"
 
 import { storeSubscriptionPlans } from "@/configs/subscriptions"
-import { getUserSubscriptionPlan } from "@/lib/subscription"
+import { getSubscriptionPlanAction } from "@/app/_actions/stripe"
 import { cn, formatDate, formatPrice } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import {
@@ -38,7 +38,7 @@ export default async function BillingPage() {
     redirect("/signin")
   }
 
-  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
+  const subscriptionPlan = await getSubscriptionPlanAction(user.id)
 
   return (
     <>
@@ -60,7 +60,7 @@ export default async function BillingPage() {
                 <span>Current Plan :</span>
                 <span className="font-normal text-primary">
                   {" "}
-                  <strong>{subscriptionPlan?.name ?? "Ollie"}</strong>
+                  <strong>{subscriptionPlan?.name ?? "Basic"}</strong>
                 </span>
               </h3>
               <p className="text-sm text-muted-foreground">

@@ -5,9 +5,9 @@ import { currentUser } from "@clerk/nextjs"
 import { eq } from "drizzle-orm"
 
 import {
-  getDashboardRedirectPath,
-  getUserSubscriptionPlan,
+  getDashboardRedirectPath
 } from "@/lib/subscription"
+import { getSubscriptionPlanAction } from "@/app/_actions/stripe"
 import { PageHeader, PageHeaderHeading } from "@/components/page-header"
 import { StoreSwitcher } from "@/components/pagers/store-switcher"
 import { StoreTabs } from "@/components/pagers/store-tabs"
@@ -45,8 +45,7 @@ export default async function StoreLayout({
   if (!store) {
     notFound()
   }
-
-  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
+  const subscriptionPlan = await getSubscriptionPlanAction(user.id)
 
   return (
     <Shell variant="dashboard" className="gap-4">

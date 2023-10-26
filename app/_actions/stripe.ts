@@ -3,13 +3,18 @@
 import { cookies } from "next/headers"
 import { db } from "@/db"
 import { carts, payments, stores } from "@/db/schema"
-import { currentUser } from "@clerk/nextjs"
+import type { CheckoutItem, UserSubscriptionPlan } from "@/types"
+import { clerkClient, currentUser } from "@clerk/nextjs"
+import dayjs from "dayjs"
 import { eq } from "drizzle-orm"
 import { type z } from "zod"
 
+import { storeSubscriptionPlans } from "@/configs/subscriptions"
+import { calculateOrderAmount } from "@/lib/checkout"
 import { stripe } from "@/lib/stripe"
-import { absoluteUrl } from "@/lib/utils"
-import type {
+import { absoluteUrl, getUserEmail } from "@/lib/utils"
+import { userPrivateMetadataSchema } from "@/lib/validations/auth"
+import {
   createPaymentIntentSchema,
   getPaymentIntentSchema,
   getPaymentIntentsSchema,
@@ -17,10 +22,68 @@ import type {
   manageSubscriptionSchema,
 } from "@/lib/validations/stripe"
 
+
+// Getting the subscription plan for a user
+export async function getSubscriptionPlanAction(
+  userId: string
+): Promise<UserSubscriptionPlan | null> {
+  try {
+    const user = await clerkClient.users.getUser(userId)
+
+    if (!user) {
+      throw new Error("User not found.")
+    }
+
+    const userPrivateMetadata = userPrivateMetadataSchema.parse(
+      user.privateMetadata
+    )
+
+    // Check if user is subscribed
+    const isSubscribed =
+      !!userPrivateMetadata.stripePriceId &&
+      dayjs(userPrivateMetadata.stripeCurrentPeriodEnd).valueOf() + 86_400_000 >
+        Date.now()
+
+    const plan = isSubscribed
+      ? storeSubscriptionPlans.find(
+          (plan) => plan.stripePriceId === userPrivateMetadata.stripePriceId
+        )
+      : storeSubscriptionPlans[0]
+
+    if (!plan) {
+      throw new Error("Plan not found.")
+    }
+
+    // Check if user has canceled subscription
+    let isCanceled = false
+    if (isSubscribed && !!userPrivateMetadata.stripeSubscriptionId) {
+      const stripePlan = await stripe.subscriptions.retrieve(
+        userPrivateMetadata.stripeSubscriptionId
+      )
+      isCanceled = stripePlan.cancel_at_period_end
+    }
+
+    return {
+      ...plan,
+      stripeSubscriptionId: userPrivateMetadata.stripeSubscriptionId,
+      stripeCurrentPeriodEnd: userPrivateMetadata.stripeCurrentPeriodEnd,
+      stripeCustomerId: userPrivateMetadata.stripeCustomerId,
+      isSubscribed,
+      isCanceled,
+      isActive: isSubscribed && !isCanceled,
+    }
+  } catch (err) {
+    console.error(err)
+    return null
+  }
+}
+
 // Managing stripe subscriptions for a user
 export async function manageSubscriptionAction(
-  input: z.infer<typeof manageSubscriptionSchema>
+  rawInput: z.infer<typeof manageSubscriptionSchema>
 ) {
+  const input = manageSubscriptionSchema.parse(rawInput)
+
   const billingUrl = absoluteUrl("/dashboard/billing")
 
   const user = await currentUser()
@@ -29,9 +92,7 @@ export async function manageSubscriptionAction(
     throw new Error("User not found.")
   }
 
-  const email =
-    user.emailAddresses?.find((e) => e.id === user.primaryEmailAddressId)
-      ?.emailAddress ?? ""
+  const email = getUserEmail(user)
 
   // If the user is already subscribed to a plan, we redirect them to the Stripe billing portal
   if (input.isSubscribed && input.stripeCustomerId && input.isCurrentPlan) {
@@ -71,8 +132,10 @@ export async function manageSubscriptionAction(
 
 // Getting the Stripe account for a store
 export async function getStripeAccountAction(
-  input: z.infer<typeof getStripeAccountSchema>
+  rawInput: z.infer<typeof getStripeAccountSchema>
 ) {
+  const input = getStripeAccountSchema.parse(rawInput)
+
   const retrieveAccount = input.retrieveAccount ?? true
 
   const falsyReturn = {
@@ -83,20 +146,20 @@ export async function getStripeAccountAction(
 
   try {
     const store = await db.query.stores.findFirst({
-      where: eq(stores.id, input.storeId),
       columns: {
         stripeAccountId: true,
       },
+      where: eq(stores.id, input.storeId),
     })
 
     if (!store) return falsyReturn
 
     const payment = await db.query.payments.findFirst({
-      where: eq(payments.storeId, input.storeId),
       columns: {
         stripeAccountId: true,
         detailsSubmitted: true,
       },
+      where: eq(payments.storeId, input.storeId),
     })
 
     if (!payment || !payment.stripeAccountId) return falsyReturn
@@ -134,25 +197,31 @@ export async function getStripeAccountAction(
     }
 
     return {
-      isConnected:
-        account.details_submitted && payment.detailsSubmitted ? true : false,
-      account,
+      isConnected: payment.detailsSubmitted,
+      account: account.details_submitted ? account : null,
       payment,
     }
   } catch (err) {
-    console.log(err)
+    err instanceof Error && console.error(err.message)
     return falsyReturn
   }
 }
 
 // Connecting a Stripe account to a store
 export async function createAccountLinkAction(
-  input: z.infer<typeof getStripeAccountSchema>
+  rawInput: z.infer<typeof getStripeAccountSchema>
 ) {
-  const { isConnected, payment } = await getStripeAccountAction(input)
+  const input = getStripeAccountSchema.parse(rawInput)
+
+  const { isConnected, payment, account } = await getStripeAccountAction(input)
 
   if (isConnected) {
     throw new Error("Store already connected to Stripe.")
+  }
+
+  // Delete the existing account if details have not been submitted
+  if (account && !account.details_submitted) {
+    await stripe.accounts.del(account.id)
   }
 
   const stripeAccountId =
@@ -178,10 +247,17 @@ export async function createAccountLinkAction(
       throw new Error("Error creating Stripe account.")
     }
 
-    await db.insert(payments).values({
-      storeId: input.storeId,
-      stripeAccountId: account.id,
-    })
+    // If payment record exists, we update it with the new account id
+    if (payment) {
+      await db.update(payments).set({
+        stripeAccountId: account.id,
+      })
+    } else {
+      await db.insert(payments).values({
+        storeId: input.storeId,
+        stripeAccountId: account.id,
+      })
+    }
 
     return account.id
   }
@@ -190,72 +266,70 @@ export async function createAccountLinkAction(
 // Modified from: https://github.com/jackblatch/OneStopShop/blob/main/server-actions/stripe/payment.ts
 // Creating a payment intent for a store
 export async function createPaymentIntentAction(
-  input: z.infer<typeof createPaymentIntentSchema>
-) {
-  const { isConnected, payment } = await getStripeAccountAction(input)
+  rawInput: z.infer<typeof createPaymentIntentSchema>
+): Promise<{ clientSecret: string | null }> {
+  try {
+    const input = createPaymentIntentSchema.parse(rawInput)
 
-  if (!isConnected || !payment) {
-    throw new Error("Store not connected to Stripe.")
-  }
+    const { isConnected, payment } = await getStripeAccountAction(input)
 
-  if (!payment.stripeAccountId) {
-    throw new Error("Stripe account not found.")
-  }
-
-  const cartId = Number(cookies().get("cartId")?.value)
-
-  if (isNaN(cartId)) {
-    throw new Error("Invalid cartId, please try again.")
-  }
-
-  const metadata = {
-    cartId: isNaN(cartId) ? "" : cartId,
-    items: JSON.stringify(input.items),
-  }
-
-  const total = input.items.reduce((acc, item) => {
-    return acc + Number(item.price) * item.quantity
-  }, 0)
-  const fee = Math.round(total * 0.1)
-
-  if (cartId) {
-    const cart = await db.query.carts.findFirst({
-      columns: {
-        paymentIntentId: true,
-        clientSecret: true,
-      },
-      where: eq(carts.id, cartId),
-    })
-
-    if (!cart) {
-      throw new Error("Cart not found.")
+    if (!isConnected || !payment) {
+      throw new Error("Store not connected to Stripe.")
     }
 
-    if (cart.paymentIntentId && cart.clientSecret) {
-      const paymentIntent = await stripe.paymentIntents.update(
-        cart.paymentIntentId,
-        {
-          amount: total,
-          application_fee_amount: fee,
-          metadata,
-        },
-        {
-          stripeAccount: payment.stripeAccountId,
-        }
-      )
-
-      return {
-        paymentIntentId: paymentIntent.id,
-        clientSecret: paymentIntent.client_secret,
-      }
+    if (!payment.stripeAccountId) {
+      throw new Error("Stripe account not found.")
     }
 
+    const cartId = Number(cookies().get("cartId")?.value)
+
+    const checkoutItems: CheckoutItem[] = input.items.map((item) => ({
+      productId: item.id,
+      price: Number(item.price),
+      quantity: item.quantity,
+    }))
+
+    const metadata = {
+      cartId: isNaN(cartId) ? "" : cartId,
+      // Stripe metadata values must be within 500 characters string
+      items: JSON.stringify(checkoutItems),
+    }
+
+    const { total, fee } = calculateOrderAmount(input.items)
+
+    // Update the cart with the payment intent id and client secret if it exists
+    // if (!isNaN(cartId)) {
+    //   const cart = await db.query.carts.findFirst({
+    //     columns: {
+    //       paymentIntentId: true,
+    //       clientSecret: true,
+    //     },
+    //     where: eq(carts.id, cartId),
+    //   })
+
+    //   if (cart?.clientSecret && cart.paymentIntentId) {
+    //     await stripe.paymentIntents.update(
+    //       cart.paymentIntentId,
+    //       {
+    //         amount: total,
+    //         application_fee_amount: fee,
+    //         metadata,
+    //       },
+    //       {
+    //         stripeAccount: payment.stripeAccountId,
+    //       }
+    //     )
+    //     return { clientSecret: cart.clientSecret }
+    //   }
+    // }
+
+    // Create a payment intent if it doesn't exist
     const paymentIntent = await stripe.paymentIntents.create(
       {
         amount: total,
         application_fee_amount: fee,
-        metadata,
         currency: "usd",
+        metadata,
         automatic_payment_methods: {
           enabled: true,
         },
@@ -265,14 +339,24 @@ export async function createPaymentIntentAction(
       }
     )
 
-    await db.update(carts).set({
-      paymentIntentId: paymentIntent.id,
-      clientSecret: paymentIntent.client_secret,
-    })
+    // Update the cart with the payment intent id and client secret
+    if (paymentIntent.status === "requires_payment_method") {
+      await db
+        .update(carts)
+        .set({
+          paymentIntentId: paymentIntent.id,
+          clientSecret: paymentIntent.client_secret,
+        })
+        .where(eq(carts.id, cartId))
+    }
 
     return {
-      paymentIntentId: paymentIntent.id,
       clientSecret: paymentIntent.client_secret,
+    }
+  } catch (err) {
+    console.error(err)
+    return {
+      clientSecret: null,
     }
   }
 }
@@ -280,9 +364,11 @@ export async function createPaymentIntentAction(
 // Modified from: https://github.com/jackblatch/OneStopShop/blob/main/server-actions/stripe/payment.ts
 // Getting payment intents for a store
 export async function getPaymentIntentsAction(
-  input: z.infer<typeof getPaymentIntentsSchema>
+  rawInput: z.infer<typeof getPaymentIntentsSchema>
 ) {
   try {
+    const input = getPaymentIntentsSchema.parse(rawInput)
+
     const { isConnected, payment } = await getStripeAccountAction({
       storeId: input.storeId,
       retrieveAccount: false,
@@ -296,10 +382,14 @@ export async function getPaymentIntentsAction(
       throw new Error("Stripe account not found.")
     }
 
-    const paymentIntents = await stripe.paymentIntents.list({
-      limit: input.limit ?? 10,
-      ...input,
-    })
+    const paymentIntents = await stripe.paymentIntents.list(
+      {
+        limit: input.limit ?? 10,
+      },
+      {
+        stripeAccount: payment.stripeAccountId,
+      }
+    )
 
     return {
       paymentIntents: paymentIntents.data.map((item) => ({
@@ -322,9 +412,11 @@ export async function getPaymentIntentsAction(
 // Modified from: https://github.com/jackblatch/OneStopShop/blob/main/server-actions/stripe/payment.ts
 // Getting a payment intent for a store
 export async function getPaymentIntentAction(
-  input: z.infer<typeof getPaymentIntentSchema>
+  rawInput: z.infer<typeof getPaymentIntentSchema>
 ) {
   try {
+    const input = getPaymentIntentSchema.parse(rawInput)
+
     const cartId = cookies().get("cartId")?.value
 
     const { isConnected, payment } = await getStripeAccountAction({

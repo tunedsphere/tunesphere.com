@@ -11,7 +11,6 @@ import { desc, eq, sql } from "drizzle-orm"
 import {
   getDashboardRedirectPath,
   getPlanFeatures,
-  getUserSubscriptionPlan,
 } from "@/lib/subscription"
 import { cn } from "@/lib/utils"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -24,7 +23,7 @@ import {
 import { Shell } from "@/components/shells/shell"
 import { StoreCard } from "@/components/cards/store-card"
 import { CreateStoreCard } from "@/components/cards/create-store-card"
-
+import { getSubscriptionPlanAction } from "@/app/_actions/stripe"
 // Running out of edge function execution units on vercel free plan
 // export const runtime = "edge"
 
@@ -55,7 +54,7 @@ export default async function StoresPage() {
     .orderBy(desc(stores.stripeAccountId), desc(sql<number>`count(*)`))
     .where(eq(stores.userId, user.id))
 
-  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
+  const subscriptionPlan = await getSubscriptionPlanAction(user.id)
 
   const { maxStoreCount, maxProductCount } = getPlanFeatures(
     subscriptionPlan?.id
