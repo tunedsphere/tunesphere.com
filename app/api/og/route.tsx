@@ -1,9 +1,9 @@
-import type { ServerRuntime } from "next"
-import { ImageResponse } from "@vercel/og"
+
+import { ImageResponse } from "next/og"
 
 import { ogImageSchema } from "@/lib/validations/og"
 
-export const runtime: ServerRuntime = "edge"
+export const runtime = 'edge'
 
 export function GET(req: Request) {
   try {

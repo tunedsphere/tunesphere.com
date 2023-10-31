@@ -41,8 +41,8 @@ export function ShopMobileNav({
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="pl-1 pr-0 bg-background">
-        <div className="px-7 pt-7">
+      <SheetContent side="left" className="pl-1 pr-0">
+        <div className="px-7 pt-16">
           <Link
             aria-label="Home"
             href="/"
@@ -50,7 +50,7 @@ export function ShopMobileNav({
             onClick={() => setIsOpen(false)}
           >
             <Icons.logo className="mr-2 h-12 w-12" aria-hidden="true" />
-            <span className="text-xl font-bold">{siteConfig.name}</span>
+            <span className="text-xl font-bold"> Back</span>
           </Link>
         </div>
         <ScrollArea className="my-4 h-[calc(100dvh-8rem)] pb-10 pl-6">
@@ -61,7 +61,7 @@ export function ShopMobileNav({
                   <AccordionTrigger className="text-sm capitalize hover:text-primary decoration-transparent leading-6 font-semibold">
                     {item.title}
                   </AccordionTrigger>
-                  <AccordionContent className="">
+                  <AccordionContent className="border-muted">
                     <div className="flex flex-col space-y-2">
                       {item.items?.map((subItem, index) =>
                         subItem.href ? (

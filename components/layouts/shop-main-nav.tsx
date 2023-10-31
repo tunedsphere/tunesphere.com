@@ -23,7 +23,7 @@ interface ShopMainNavProps {
 
 export function ShopMainNav({ items }: ShopMainNavProps) {
   return (
-    <div className="hidden gap-6 lg:flex">
+    <div className="hidden gap-6 lg:flex z-1000 ">
       <Link
         aria-label="Explore & Shop"
         href="/shop"
@@ -38,7 +38,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
           {items?.[0]?.items ? (
             <NavigationMenuItem>
                <Link href="/shop">
-              <NavigationMenuTrigger className="h-auto bg-background-shopNavLink">
+              <NavigationMenuTrigger className="h-auto bg-background-shopNavLink z-1000 ">
                 {items[0].title}
               </NavigationMenuTrigger>
               </Link>

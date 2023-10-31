@@ -6,7 +6,7 @@ export function StartYourJourney () {
 
     return (
         <>
-<section id="ready-to-start" aria-labelledby="ready-to-start-label" className="text-center mt-8 py-8">
+<section id="ready-to-start" aria-labelledby="ready-to-start-label" className="text-center mt-8 py-8 px-2">
   <PageHeader variant="shop">
   <PageHeaderHeading variant="shop" className="">Ready to Start Your Journey?</PageHeaderHeading>
   <PageHeaderDescription className="text-xl">

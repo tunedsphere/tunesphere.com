@@ -134,16 +134,16 @@ export type CartLineItem = z.infer<typeof cartLineItemSchema>
 
 export type StripePaymentStatus = Stripe.PaymentIntent.Status
 
-export interface SubscriptionPlan {
-  id: "basic" | "standard" | "pro"
-  name: string
-  description: string
-  features: string[]
-  stripePriceId: string
-  price: number
+export interface StoreSubscriptionPlan {
+  id: "store_plan_basic" | "store_plan_standard" | "store_plan_pro"
+  name: string;
+  description: string;
+  features: string[];
+  stripePriceId: string;
+  price: number;
 }
 
-export interface UserSubscriptionPlan extends SubscriptionPlan {
+export interface UserStoreSubscriptionPlan extends StoreSubscriptionPlan {
   stripeSubscriptionId?: string | null
   stripeCurrentPeriodEnd?: string | null
   stripeCustomerId?: string | null
@@ -151,4 +151,19 @@ export interface UserSubscriptionPlan extends SubscriptionPlan {
   isCanceled: boolean
   isActive: boolean
 }
-
+export interface MusicAppSubscriptionPlan {
+  id: "music_app_basic" | "music_app_standard" | "music_app_pro";
+  name: string;
+  description: string;
+  features: string[];
+  stripePriceId: string;
+  price: number;
+}
+export interface UserMusicSubscriptionPlan extends MusicAppSubscriptionPlan {
+  stripeSubscriptionId?: string | null
+  stripeCurrentPeriodEnd?: string | null
+  stripeCustomerId?: string | null
+  isSubscribed: boolean
+  isCanceled: boolean
+  isActive: boolean
+}

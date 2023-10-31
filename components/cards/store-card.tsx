@@ -36,7 +36,7 @@ export function StoreCard({
   <AspectRatio ratio={21 / 9}>
     <Badge
       className={cn(
-        "pointer-events-none absolute right-2 top-2 text-white z-200",
+        "pointer-events-none absolute right-2 top-2 text-white z-50",
         store.stripeAccountId ? "bg-green-600" : "bg-red-600"
       )}
     >

@@ -58,10 +58,10 @@ export function SiteHeader({ user }: SiteHeaderProps) {
   return (
     <nav
       id="globalnav"
-      className="globalnav fixed h-auto border-b-2 border-muted/70 @container z-9999"
+      className="globalnav fixed h-auto border-b-2 border-muted/70 @container"
     >
       <div id="globalnav-content" className="relative">
-        <nav className="z-9999 bg-background-navbartop">
+        <nav className="bg-background-navbartop">
           <div className="navbar-container flex h-[--headerHeight] px-4 py-2 md:px-8">
             <div className="relative hidden flex-row items-center justify-start sm:flex sm:w-1/3 sm:gap-2">
               <Icons.logo

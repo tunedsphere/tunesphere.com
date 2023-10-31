@@ -26,7 +26,7 @@ interface DocsPageProps {
 
 // eslint-disable-next-line @typescript-eslint/require-await
 async function getDocFromParams(params: DocsPageProps["params"]) {
-  const slug = params.slug?.join("/") || ""
+  const slug = params.slug?.join("/")
   console.log("Current Slug:", slug);
   const doc = allDocs.find((doc) => doc.slugAsParams === slug)
   if (!doc) {
@@ -87,7 +87,7 @@ export default async function PagePage({ params }: DocsPageProps) {
 
   if (!doc) {
     notFound()
-    return null; // Return early if doc is not found
+    return null // Return early if doc is not found
   }
 
   // Ensure doc.title is defined before accessing it

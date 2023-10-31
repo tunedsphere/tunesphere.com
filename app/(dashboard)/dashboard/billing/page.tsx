@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 import { env } from "@/env.mjs"
 import { currentUser } from "@clerk/nextjs"
 
-import { storeSubscriptionPlans } from "@/configs/subscriptions"
+import { storeSubscriptionPlans } from "@/configs/subscriptions";
 import { getSubscriptionPlanAction } from "@/app/_actions/stripe"
 import { cn, formatDate, formatPrice } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
@@ -38,7 +38,7 @@ export default async function BillingPage() {
     redirect("/signin")
   }
 
-  const subscriptionPlan = await getSubscriptionPlanAction(user.id)
+  const storeSubscriptionPlan = await getSubscriptionPlanAction(user.id)
 
   return (
     <>
@@ -60,17 +60,17 @@ export default async function BillingPage() {
                 <span>Current Plan :</span>
                 <span className="font-normal text-primary">
                   {" "}
-                  <strong>{subscriptionPlan?.name ?? "Basic"}</strong>
+                  <strong> {storeSubscriptionPlan?.name}</strong>
                 </span>
               </h3>
               <p className="text-sm text-muted-foreground">
-            {!subscriptionPlan?.isSubscribed
+            {!storeSubscriptionPlan?.isSubscribed
               ? "Upgrade to create more stores and products."
-              : subscriptionPlan.isCanceled
+              : storeSubscriptionPlan.isCanceled
               ? "Your plan will be canceled on "
               : "Your plan renews on "}
-            {subscriptionPlan?.stripeCurrentPeriodEnd
-              ? `${formatDate(subscriptionPlan.stripeCurrentPeriodEnd)}.`
+            {storeSubscriptionPlan?.stripeCurrentPeriodEnd
+              ? `${formatDate(storeSubscriptionPlan.stripeCurrentPeriodEnd)}.`
               : null}
           </p>
             </Card>
@@ -119,7 +119,7 @@ export default async function BillingPage() {
                     </div>
                   </CardContent>
                   <CardFooter className="pt-4">
-                    {plan.id === "basic" ? (
+                    {storeSubscriptionPlan?.name === plan.name ? (
                       <Link href="/dashboard/stores" className="w-full">
                         <div
                           className={cn(
@@ -135,12 +135,11 @@ export default async function BillingPage() {
                     ) : (
                       <ManageSubscriptionForm
                     stripePriceId={plan.stripePriceId}
-                    stripeCustomerId={subscriptionPlan?.stripeCustomerId}
-                    stripeSubscriptionId={
-                      subscriptionPlan?.stripeSubscriptionId
+                    stripeCustomerId={storeSubscriptionPlan?.stripeCustomerId}
+                    stripeSubscriptionId={storeSubscriptionPlan?.stripeSubscriptionId
                     }
-                    isSubscribed={subscriptionPlan?.isSubscribed ?? false}
-                    isCurrentPlan={subscriptionPlan?.name === plan.name}
+                    isSubscribed={storeSubscriptionPlan?.isSubscribed ?? false}
+                    isCurrentPlan={storeSubscriptionPlan?.name === plan.name}
                   />
                     )}
                   </CardFooter>

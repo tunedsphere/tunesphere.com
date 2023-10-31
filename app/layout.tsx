@@ -22,10 +22,6 @@ export const metadata: Metadata = {
       url: "https://tunesphere.com",
     },
   ],
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "light" },
-    { media: "(prefers-color-scheme: dark)", color: "dark" }
-  ],
   creator: "TunedSphere",
   openGraph: {
     type: "website",

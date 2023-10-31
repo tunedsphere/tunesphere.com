@@ -45,6 +45,7 @@ export default async function StoreLayout({
   if (!store) {
     notFound()
   }
+  
   const subscriptionPlan = await getSubscriptionPlanAction(user.id)
 
   return (

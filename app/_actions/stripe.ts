@@ -3,7 +3,7 @@
 import { cookies } from "next/headers"
 import { db } from "@/db"
 import { carts, payments, stores } from "@/db/schema"
-import type { CheckoutItem, UserSubscriptionPlan } from "@/types"
+import type { CheckoutItem, UserStoreSubscriptionPlan } from "@/types"
 import { clerkClient, currentUser } from "@clerk/nextjs"
 import dayjs from "dayjs"
 import { eq } from "drizzle-orm"
@@ -22,11 +22,10 @@ import {
   manageSubscriptionSchema,
 } from "@/lib/validations/stripe"
 
-
 // Getting the subscription plan for a user
 export async function getSubscriptionPlanAction(
   userId: string
-): Promise<UserSubscriptionPlan | null> {
+): Promise<UserStoreSubscriptionPlan | null> {
   try {
     const user = await clerkClient.users.getUser(userId)
 

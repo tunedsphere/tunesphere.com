@@ -57,7 +57,7 @@ export default authMiddleware({
     if (!user.privateMetadata.role) {
       await clerkClient.users.updateUserMetadata(auth.userId, {
         privateMetadata: {
-          role: "user" satisfies UserRole,
+          role: ["user", "store_plan_basic", "music_app_basic"],
         },
       })
     }

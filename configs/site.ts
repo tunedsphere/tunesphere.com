@@ -51,7 +51,7 @@ export const siteConfig = {
           items: [],
         },
         {
-          title: "TunedSPhere Products",
+          title: "TunedSphere Products",
           href: "/shop/tunedsphere-products",
           description: "Create custom products.",
           items: [],

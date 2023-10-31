@@ -13,8 +13,5 @@ const nextConfig = {
     domains: ["uploadthing.com", "utfs.io"],
   },
 
-  experimental: {
-    serverActions: true,
-  },
 }
 module.exports = withContentlayer(nextConfig);

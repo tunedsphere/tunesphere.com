@@ -29,7 +29,7 @@ export function CreateStoreCard({
   <AspectRatio ratio={21 / 9}>
     <Badge
       className={cn(
-        "pointer-events-none absolute right-2 top-2 text-white z-200 bg-red-600"
+        "pointer-events-none absolute right-2 top-2 text-white z-50 bg-red-600"
       )}
     >
 Not yet created
