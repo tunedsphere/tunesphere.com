@@ -61,7 +61,7 @@ export function ShopMobileNav({
                   <AccordionTrigger className="text-sm capitalize hover:text-primary decoration-transparent leading-6 font-semibold">
                     {item.title}
                   </AccordionTrigger>
-                  <AccordionContent className="border-muted">
+                  <AccordionContent className="">
                     <div className="flex flex-col space-y-2">
                       {item.items?.map((subItem, index) =>
                         subItem.href ? (
