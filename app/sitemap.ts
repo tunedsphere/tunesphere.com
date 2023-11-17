@@ -59,6 +59,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/dashboard/billing",
     "/dashboard/purchases",
     "/dashboard/stores",
+    "/dashboard/settings",
+    "/music",
   ].map((route) => ({
     url: absoluteUrl(route),
     lastModified: new Date().toISOString(),

@@ -1,12 +1,11 @@
 
-import "@/styles/globals.css"
-
+import "./layouts.css"
 import React from "react"
 import Link from "next/link"
 import type { User } from "@clerk/nextjs/server"
 import { Icons } from "@/components/icons"
 
-
+import { Suspense } from "react"
 import { Button, buttonVariants } from "@/components/ui/button"
 import LoginModalButton from "../login-modal-btn"
 import { CartSheet } from "@/components/cart/cart-sheet"
@@ -26,34 +25,15 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { UserDropDownMenu } from "../user-dropdown-menu"
 
 
 interface SiteHeaderProps {
-  user: User | null
+
 }
 
-export function SiteHeader({ user }: SiteHeaderProps) {
-  const initials = `${user?.firstName?.charAt(0) ?? ""} ${
-    user?.lastName?.charAt(0) ?? ""
-  }`
-  const email = getUserEmail(user)
-  // // Rest of the code...
-  // const [isMenuOpen, setMenuOpen] = useState(false);
-  // const [isModalOpen, setModalOpen] = useState(false);
-  // const [isGlobalNavFlyoutOpen, setGloisGlobalNavFlyoutOpen] = useState(false);
-  // const [isOpen, setIsOpen] = useState(true);
-  // const [isCartSheetOpen, setCartSheetOpen] = useState(false);
+export function SiteHeader({ }: SiteHeaderProps) {
 
-  // const handleNavbarOpen = () => {
-  //   setGloisGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
-  //   setMenuOpen(!isMenuOpen);
-  // };
-  // const handleModalOpen = () => {
-  //   setModalOpen(!isModalOpen);
-  // };
-  // const handleToggleCartSheet = () => {
-  //   setCartSheetOpen(!isCartSheetOpen);
-  // };
 
   return (
     <nav
@@ -83,7 +63,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
                 <ThemeToggle className=""/>
               </div>
               <div className="flex items-center justify-center">
-              {user ? (
+              {/* {user ? (
                 <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button size="xs" variant="nav" className="hover:bg-transparent">
@@ -141,7 +121,10 @@ export function SiteHeader({ user }: SiteHeaderProps) {
               </DropdownMenu>
             ) : (
               <LoginModalButton />
-            )}
+            )} */}
+
+            <UserDropDownMenu/>
+ 
               </div>
             </div>
           </div>

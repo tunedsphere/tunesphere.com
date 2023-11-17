@@ -29,6 +29,11 @@ import {
   PageHeaderDescription
 } from "@/components/page-header"
 import { StartYourJourney } from "@/components/start-your-journey"
+import { RecentlyAddedProducts, RecentlyAddedProductsSkeleton } from "@/components/recently-added-products"
+import { FeaturedProducts, FeaturedProductsSkeleton } from "@/components/featured-products"
+import { FeaturedStores, FeaturedStoresSkeleton } from "@/components/featured-stores"
+import { FeaturedCategories, FeaturedCategoriesSkeleton } from "@/components/featured-categories"
+import { Suspense } from "react"
 
 interface ShopPageProps {
   searchParams: {
@@ -148,154 +153,21 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           </div>
         </section>
 
-        <section
-          id="categories"
-          aria-labelledby="categories-heading"
-          className="w-full space-y-6 py-6 @container md:pt-10 z-10"
-        >
-          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <PageHeader
-              id="shop-categories-header"
-              aria-labelledby="shop-categories-header-heading">
-              <PageHeaderHeading size="lg" className="py-8 ">Categories</PageHeaderHeading>
-              <PageHeaderDescription size="lg" className="">
-                Explore our categories and find the best products for you
-              </PageHeaderDescription>
-            </PageHeader>
-          </div>
-          <div className="grid grid-cols-3 sm:gap-8 gap-1.5 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {productCategories.map((category) => (
-              <CategoryCard 
-              key={category.title} 
-              category={category} />
-            ))}
-          </div>
-        </section>
+        <Suspense fallback={<FeaturedCategoriesSkeleton />}>
+              <FeaturedCategories/>
+        </Suspense>
 
-        <section
-        id="featured-products"
-        aria-labelledby="featured-products-heading"
-        className="space-y-6 overflow-hidden py-8 md:pt-12 lg:pt-24"
-      >
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible text-center">
-          <h2 className="  font-heading text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl underline-offset-4 underline decoration-primary">
-          Featured products
-          </h2>
-        </div>
-        <Tabs defaultValue="art" className="space-y-6 overflow-visible">
-          <ScrollArea
-            orientation="horizontal"
-            className="pb-2"
-            scrollBarClassName="h-1.5"
-          >
-            <ProudctTabs />
-          </ScrollArea>
+        <Suspense fallback={<FeaturedProductsSkeleton />}>
+              <FeaturedProducts searchParams={searchParams}/>
+        </Suspense>
 
-          <div className="flex flex-col space-y-10">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {someProducts.length > 0 ? (
-                someProducts.map((product) => (
-                  <ProductCard 
-                  key={product.id} 
-                  product={product} />
-                ))
-              ) : (
-                <div className="flex h-full flex-col items-center justify-center space-y-1 pt-10">
-                  <Icons.product
-                    className="mb-4 h-16 w-16 text-muted-foreground"
-                    aria-hidden="true"
-                  />
-                  <div className="text-xl font-medium text-muted-foreground">
-                    No products found
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Please try again later
-                  </div>
-                </div>
-              )}
-            </div>
-            <Link
-               href={`/shop/c/${category}`}
-              className={cn(
-                buttonVariants({
-                  className: "mx-auto",
-                })
-              )}
-            >
-              View all {category}
-              <span className="sr-only">View all Category</span>
-            </Link>
-          </div>
-        </Tabs>
-      </section>
+        <Suspense fallback={<RecentlyAddedProductsSkeleton />}>
+            <RecentlyAddedProducts/>         
+        </Suspense>
 
-        <section
-          id="featured-products"
-          aria-labelledby="featured-products-heading"
-          className="space-y-6 px-0 overflow-hidden py-8 md:pt-12 lg:pt-24"
-        >
-          <div className="flex w-full items-center px-2">
-            <PageHeaderHeading size="xs" className="flex-1 /90 underline-offset-4 underline decoration-primary font-semibold">
-              Recently Added
-            </PageHeaderHeading>
-            <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible text-center">
-          <h2 className="font-heading text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl"></h2></div>
-            <Link href="/shop/products">
-              <div
-                className={cn(
-                  buttonVariants({
-                    size: "sm",
-                  })
-                )}
-              >
-                View all
-                <span className="sr-only">View all products</span>
-              </div>
-            </Link>
-          </div>
-          <div className="grid w-full grid-cols-2 gap-1.5 px-0 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {allProducts.map((product) => (
-              <FeaturedProductCard 
-              key={product.id}
-              product={product} />
-            ))}
-          </div>
-        </section>
-
-        <section
-          id="featured-stores"
-          aria-labelledby="featured-stores-heading"
-          className="flex flex-col space-y-6 py-8 md:pt-12 lg:pt-24"
-          >
-           <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <PageHeaderHeading size="lg" className="flex-1 /90 underline-offset-4 underline decoration-primary font-semibold">
-              Featured Stores
-            </PageHeaderHeading> 
-          </div>
-          <div className="flex flex-col space-y-10">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {someStores.map((store) => (
-              <StoreCard
-                href={`/shop/store/${store.id}/${slugify(store.name)}`}
-                key={store.id}
-                store={store}
-              />
-            ))}
-          </div>
-          <Link
-            href="/shop/stores"
-            className={cn(
-              buttonVariants({
-                size: "sm",
-                className: "mx-auto",
-              })
-            )}
-          >
-                View all Stores           
-                 <span className="sr-only">View all stores</span>
-            </Link>
-            </div>
-        </section>
+         <Suspense fallback={<FeaturedStoresSkeleton />}>
+          <FeaturedStores/>
+        </Suspense>
 
         <section
           id="random-subcategories"
@@ -322,3 +194,4 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     </>
   )
 }
+

@@ -1,5 +1,5 @@
 
-import "@/styles/globals.css"
+import "./layouts.css"
 
 import Link from "next/link"
 

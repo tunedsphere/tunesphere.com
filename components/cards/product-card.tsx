@@ -53,10 +53,12 @@ export function ProductCard({
         <Link 
         key={`${product.id}_link`}  
         aria-label={product.name} 
-        href={`/shop/product/${product.id}`}>
-          <div className="absolute -inset-[2px] group-hover:bg-muted/20 rounded-md blur-sm -z-20" />
+        href={`/shop/product/${product.id}`}
+        className="group cursor-default">
+
           <CardHeader className="p-0 relative">
             <AspectRatio ratio={4 / 3}>
+            <div className="absolute inset-0 z-10 bg-muted/20 transition-color group-hover:bg-zinc-950/30" />
               {product?.images?.length ? (
                   <Image
                     key={`${product.id}_image`}
@@ -64,11 +66,12 @@ export function ProductCard({
                       product.images[0]?.url ?? "/images/product-placeholder.webp"
                     }
                     alt={product.images[0]?.name ?? product.name}
-                    className="absolute h-full w-full object-cover rounded-md"
+                    className="absolute h-full w-full object-cover rounded-md cursor-default group-hover:bg-zinc-950/50"
                     sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
                     fill
                     loading="lazy"
                   />
+                  
               ) : (
                 <div
                   aria-label="Placeholder"
@@ -84,21 +87,33 @@ export function ProductCard({
               )}
             </AspectRatio>
           </CardHeader>
+          </Link>
           <CardContent className="grid pb-4">
-            <CardTitle className="line-clamp-1 py-2 text-base">
+            <CardTitle className="truncate py-2 text-base cursor-pointer group-hover:font-semibold group-hover:underline underline-offset-2 decoration-2 decoration-primary">
               {product.name}
             </CardTitle>
-            <CardDescription className="line-clamp-2">
+            <div className="text-lg font-bold leading-snug">
               {formatPrice(product.price)}
-            </CardDescription>
+            </div>
+            <div className="flex gap-x-1.5">
+  <div className="text-lg font-bold leading-snug text-secondary">
+    -{/* */}30{/* */}%
+  </div>
+  <div className="flex">
+    <div className="text-sm leading-snug">$</div>
+    <div className="text-lg font-bold leading-snug">204.4</div>
+  </div>
+  <div className="text-sm leading-snug text-muted-foreground line-through">
+   {formatPrice(product.price)}
+  </div>
+</div>
             <CardTitle
               as="h6"
-              className="line-clamp-1 text-muted-foreground pt-2 cursor-pointer"
+              className="line-clamp-1 text-muted-foreground pt-2"
             >
               Store:
             </CardTitle>
           </CardContent>
-        </Link>
         <CardFooter className="p-4">
           <div className="flex w-full flex-col items-center gap-2 sm:flex-row align-middle">
             <Button
@@ -161,3 +176,4 @@ export function ProductCard({
     </>
   );
 }
+

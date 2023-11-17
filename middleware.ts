@@ -23,13 +23,6 @@ export default authMiddleware({
     "/docs(.*)",
     "/email-preferences(.*)",
     "/blog(.*)",
-    "/about(.*)",
-    "/contact(.*)",
-    "/terms(.*)",
-    "/privacy(.*)",
-    "/legal-information(.*)",
-    "/authors-rights(.*)",
-    "/terms-conditions(.*)",
   ],
   async afterAuth(auth, req) {
     if (auth.isPublicRoute) {

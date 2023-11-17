@@ -10,6 +10,7 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    formats: ['image/avif', 'image/webp'],
     domains: ["uploadthing.com", "utfs.io"],
   },
 

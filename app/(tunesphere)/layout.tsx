@@ -12,11 +12,11 @@ export default async function TunedLayout({ children }: TunedLayoutProps) {
   return (
     <>
       <SiteGlobalNav user={user} />
-      <main className="flex-1 bg-background-index">
+      <main className="flex-1 bg-background-index min-h-screen">
         {children}
-        <SiteIndexFooter />
+        <SiteIndexFooter />    
         </main>
-      
+        
     </>
   )
 }

@@ -26,7 +26,7 @@ export const siteConfig = {
       title: "Music",
       label: "Music",
       href: "/music",
-      disabled: true,
+      disabled: false,
     },
     {
       title: "Festivals",
@@ -38,6 +38,7 @@ export const siteConfig = {
       title: "Shop",
       label: "Shop",
       href: "/shop",
+      disabled: false,
     },
   ] satisfies MainNavItem[],
   shopNav: [

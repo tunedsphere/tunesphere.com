@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         shopPagination: "border border-muted/30 shadow-sm hover:bg-theme-100",
-        default: "bg-primary text-texthigh hover:bg-primary/80",
+        default: "bg-primary text-texthigh hover:text-texthigh/80",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline:

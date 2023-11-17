@@ -70,15 +70,17 @@ export function formatId(id: number) {
   return `#${id.toString().padStart(4, "0")}`
 }
 
-  
-  export function slugify(str: string) {
-    return str
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "")
-      .replace(/--+/g, "-");
+export function slugify(str: string | undefined | null) {
+  if (typeof str !== 'string' || !str) {
+    return ''; // Return an empty string or a default slug if necessary.
   }
-  
+
+  return str
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-');
+}
   export function unslugify(str: string) {
     return str.replace(/-/g, " ");
   }

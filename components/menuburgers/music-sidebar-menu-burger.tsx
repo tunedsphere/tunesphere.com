@@ -31,7 +31,7 @@ const MusicSidebarMenuBurger: React.FC<MusicSidebarMenuBurgerProps> = ({
         size="sm"
         variant="nav"
         onClick={handleSidebarClick}
-        className="text-texthigh hover:text-theme-900"
+        className="text-texthigh hover:text-texthigh/80"
       >
         <Icons.close
           className={`absolute scale-${isOpen ? "100" : "0"}`}

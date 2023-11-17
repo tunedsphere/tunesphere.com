@@ -1,4 +1,4 @@
-import type { Product, Store } from "@/db/schema"
+import type { Product, Store , RecordLabel, Artist, Dj, Album } from "@/db/schema"
 import { type FileWithPath } from "react-dropzone"
 import { type z } from "zod"
 import { type userPrivateMetadataSchema } from "@/lib/validations/auth"
@@ -48,6 +48,7 @@ export type SidebarNavItem = {
   title: string
   disabled?: boolean
   external?: boolean
+  className?: string
   icon?: keyof typeof Icons
 } & (
   | {
@@ -109,6 +110,14 @@ export interface Category {
   icon: React.ComponentType<{ className?: string }>
   subcategories: Subcategory[]
 }
+export interface MusicGenre {
+  title: string;
+}
+
+export interface ArtistGenre extends MusicGenre {}
+export interface AlbumGenre extends MusicGenre {}
+export interface DjsGenre extends MusicGenre {}
+export interface RecordLabelGenre extends MusicGenre {};
 
 export interface Subcategory {
   title: string

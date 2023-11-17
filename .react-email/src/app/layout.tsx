@@ -1,11 +1,6 @@
 import '../styles/globals.css';
 import classnames from 'classnames';
-import { Inter } from 'next/font/google';
-
-export const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-});
+import { GeistSans } from "geist/font";
 
 export default function RootLayout({
   children,
@@ -15,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black text-slate-12 font-sans">
-        <div className={classnames(inter.variable, 'font-sans')}>
+        <div className={classnames(GeistSans.variable, 'font-sans')}>
           {children}
         </div>
       </body>

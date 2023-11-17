@@ -1,4 +1,4 @@
-import "@/styles/globals.css"
+import "./layouts.css"
 
 import * as React from "react"
 import Link from "next/link"

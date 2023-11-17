@@ -29,6 +29,10 @@ module.exports = {
       }
     },
     extend: {
+      fontFamily: {
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
+      },
       spacing: {
         sidebar: '240px',
         headerHeight: '380px',
@@ -84,11 +88,8 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-
         foreground: "hsl(var(--foreground))",
-
         backgroundGradient: "hsl(var(--background-gradient))",
-
         primary: {
           DEFAULT: "hsl(var(--primary))",
           index: "hsl(var(--primary-index))",
@@ -146,10 +147,31 @@ module.exports = {
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
-        },
+        },       
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
+        },
+        shimmer: {
+          '100%': {
+            transform: 'translateX(100%)',
+          },
+        },
+        translateXReset: {
+          '100%': {
+            transform: 'translateX(0)',
+          },
+        },
+        fadeToTransparent: {
+          '0%': {
+            opacity: '1',
+          },
+          '40%': {
+            opacity: '1',
+          },
+          '100%': {
+            opacity: '0',
+          },
         },
       },
       animation: {

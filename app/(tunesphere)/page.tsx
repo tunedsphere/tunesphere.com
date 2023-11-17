@@ -1,5 +1,6 @@
+"use client"
 import "@/styles/globals.css"
-
+import { useEffect, useRef } from "react";
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
@@ -19,10 +20,11 @@ import { buttonVariants } from "@/components/ui/button"
 export const dynamic = "force-dynamic"
 
 export default function MyApp() {
+
   return (
-    <>
+    <> 
       <div className="grid grid-cols-2">
-        <div className="w-1/2">
+        <div className="w-1/2 h-1/3">
           <Image
             src={planet2}
             placeholder="blur"
@@ -33,8 +35,10 @@ export default function MyApp() {
           ></Image>
         </div>
       </div>
+      
 
-      <Shell className="mx-auto mt-[var(--headerHeight)] flex flex-col items-center justify-between sm:mt-[var(--globalNavHeight)] md:px-8 bg-transparent">
+      <Shell 
+      className="mx-auto mt-[var(--headerHeight)] flex flex-col items-center justify-between sm:mt-[var(--globalNavHeight)] md:px-8 bg-transparent">
         <div className="mt-12 py-12 md:mt-12 z-200">
           <div>
             <h1
@@ -68,12 +72,9 @@ export default function MyApp() {
 
         {/* <div className='left-gradient -z-10'> </div> */}
         <div className="right-gradient z-10"> </div>
-
-        <div className="grid py-16 text-center text-indexlow lg:grid-cols-4 2xl:text-left z-200">
-          <div className="hero_gradient-link-wrapper flex-1 items-stretch">
-            <span className="hero_link-bg hero_bg-1 -inset-1"></span>
-
-            <Link href="/music">
+        <div className="grid py-16 text-center text-indexlow lg:grid-cols-4 2xl:text-left z-200 gap-2">
+          <div className="flex-1 items-stretch">
+            <Link href="/music/labels">
               <div
                 className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700"
                 rel="noopener noreferrer"
@@ -92,10 +93,8 @@ export default function MyApp() {
               </div>
             </Link>
           </div>
-          <div className="hero_gradient-link-wrapper flex-1 items-stretch">
-            <span className="hero_link-bg hero_bg-2 inset-1"></span>
-
-            <Link href="/music">
+          <div className="flex-1 items-stretch">
+               <Link href="/music/artists">
               <div
                 className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700"
                 rel="noopener noreferrer"
@@ -116,9 +115,8 @@ export default function MyApp() {
             </Link>
           </div>
 
-          <div className="hero_gradient-link-wrapper flex-1 items-stretch">
-            <span className="hero_link-bg hero_bg-2 -inset-1"></span>
-            <Link href="/music">
+          <div className="flex-1 items-stretch">
+            <Link href="/fesitvals">
               <div
                 className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700"
                 rel="noopener noreferrer"
@@ -137,9 +135,8 @@ export default function MyApp() {
               </div>
             </Link>
           </div>
-          <div className="hero_gradient-link-wrapper flex-1 items-stretch">
-            <span className="hero_link-bg hero_bg-3 inset-1"></span>
-            <Link href="/music">
+          <div className="flex-1 items-stretch">
+            <Link href="/music/albums">
               <div
                 className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700 group-hover:translate-x-1 motion-reduce:transform-none"
                 rel="noopener noreferrer"
@@ -163,28 +160,27 @@ export default function MyApp() {
         <div className="flex justify-center">
           {/* <NewReleasesSection/>  */}
         </div>
-      </Shell>
-      <Shell
+        <section
         id="hero"
         aria-labelledby="hero-heading"
-        className="pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28 z-200"
+        className="pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28 z-200 gap-8"
       >
           <PageHeader id="home-shop" aria-labelledby="home-shop-header-heading">
         <PageHeaderHeading size="xl" className="text-indexhigh">A Store built for You with everything you would expect.</PageHeaderHeading>
       </PageHeader>
-        <div className="relative mx-auto w-full max-w-[400px] py-8 z-200">
+        <div className="relative mx-auto w-full max-w-[400px] z-200 py-8">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <div className="button_bg-gradient-1 absolute inset-x-0 -z-10"></div>
             <div className="button_bg-gradient-2 absolute inset-x-0 -z-10"></div>
             <div className="button_bg-gradient-3 absolute inset-x-0 -z-10"></div>
-            <div className="hero_gradient-button-wrapper flex-1 items-stretch">
+            <div className="hero_gradient-button-wrapper flex-1 items-stretch ">
               <Link
                 href="/shop/products"
                 className={cn(
                   buttonVariants({
                     size: "lg",
                   }),
-                  "hero_gradient-button hover:bg-white/5 bg-white border-muted shadow-sm"
+                  "hero_gradient-button hover:bg-white/5 bg-white border-muted "
                 )}
               >
                 <Icons.chevronRight className="absolute text-foreground left-1 sm:left-4"></Icons.chevronRight>
@@ -215,7 +211,9 @@ export default function MyApp() {
             </div>
           </div>
         </div>
+      </section>
       </Shell>
+
     </>
   )
 }

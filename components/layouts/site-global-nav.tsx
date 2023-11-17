@@ -1,5 +1,4 @@
-
-import "@/styles/globals.css"
+import "./layouts.css"
 import React from "react"
 import Link from "next/link"
 import type { User } from "@clerk/nextjs/server"

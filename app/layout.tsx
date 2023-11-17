@@ -1,7 +1,12 @@
 import "@/styles/globals.css"
+import clsx from 'clsx';
 import type { Metadata } from "next"
+
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import { env } from "@/env.mjs"
 import { ClerkProvider } from "@clerk/nextjs"
+
 
 import { siteConfig } from "@/configs/site"
 import { Toaster, toast } from 'sonner'
@@ -34,20 +39,28 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-}
+};
 
-interface RootLayoutProps {
-  children: React.ReactNode
-}
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+   children,
+}: {
+children: React.ReactNode
+}) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body className="min-h-screen font-sans antialiased">
+          <html
+      lang="en"
+      className={clsx(
+        'bg-background',
+        GeistSans.variable,
+        GeistMono.variable
+      )}
+    >
+        <body className="antialiased">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
           </ThemeProvider>
-          <Toaster richColors/>
+          <Toaster richColors />
         </body>
       </html>
     </ClerkProvider>

@@ -1,0 +1,12 @@
+/* Add a class to target the separator item */
+.sidebar-separator {
+    border-top: 1px solid #ccc; /* Add a horizontal line */
+    margin: 10px 0; /* Adjust the spacing as needed */
+    padding: 0; /* Remove any padding */
+    list-style: none; /* Remove bullet points, if any */
+  }
+  
+  /* Style the separator item text (optional) */
+  .sidebar-separator span {
+    display: none; /* Hide the separator text */
+  }

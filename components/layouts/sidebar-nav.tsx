@@ -20,7 +20,12 @@ export function SidebarNav({ items }: SidebarNavProps) {
     <div className="flex w-full flex-col gap-2">
       {items.map((item, index) => {
         const Icon = Icons[item.icon ?? "chevronLeft"]
-
+        if (item.title === "Separator") {
+          // Add a separator element between "Settings" and "Purchases"
+          return (
+            <div key={`${index}-separator`} className="border-t border-muted" />
+          );
+        }
         return item.href ? (
           <Link
             key={`${index}-${item.title}`}

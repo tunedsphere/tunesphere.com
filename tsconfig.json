@@ -32,6 +32,6 @@
     ".next/types/**/*.ts",
     "./contentlayer.config.js",
     ".contentlayer/generated"
-  ],
+, "components/grid/home-gridtsx"  ],
   "exclude": ["node_modules"]
 }

@@ -1,18 +1,14 @@
 "use client"
-
-import "@/styles/globals.css"
-
 import * as React from "react"
 import Link from "next/link"
 
 import { siteConfig } from "@/configs/site"
 import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
 
-import { Shell } from "@/components/shells/shell"
 export function SiteIndexFooter() {
 
   return (
-    <footer className="relative bottom-0 mx-auto w-full items-center px-4 py-8">
+    <footer className="relative bg-background-index bottom-0 mx-auto w-full items-center px-4 py-8">
       <div className="footer-gradient -z-10 w-1/5" />
 
       <div className="gap-5">

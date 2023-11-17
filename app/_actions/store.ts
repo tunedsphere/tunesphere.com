@@ -27,12 +27,12 @@ export async function getStoresAction(input: z.infer<typeof getStoresSchema>) {
         name: stores.name,
         description: stores.description,
         stripeAccountId: stores.stripeAccountId,
-        userId: stores.userId, // Add missing properties
-        headline: stores.headline, // Add missing properties
-        storeBanner: stores.storeBanner, // Add missing properties
-        storeIcon: stores.storeIcon, // Add missing properties
-        slug: stores.slug, // Add missing properties
-        active: stores.active, // Add missing properties
+        userId: stores.userId,
+        headline: stores.headline,
+        storeBanner: stores.storeBanner,
+        storeIcon: stores.storeIcon,
+        slug: stores.slug,
+        active: stores.active,
         createdAt: stores.createdAt,
       })
       .from(stores)

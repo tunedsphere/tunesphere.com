@@ -29,7 +29,7 @@ export async function CategoryCard({ category }: CategoryCardProps) {
     <Link
       key={`${category.title}_link`}
       href={`shop/c/${category.title}`}
-      className="group relative overflow-hidden sm:rounded-md border rounded-full"
+      className="group relative overflow-hidden sm:rounded-md border border-muted rounded-full cursor-default"
     >
       <AspectRatio ratio={16 / 9}>
         <div className="absolute inset-0 z-10 bg-muted/20 transition-color group-hover:bg-zinc-950/50" />

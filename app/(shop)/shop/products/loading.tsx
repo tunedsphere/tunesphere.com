@@ -23,13 +23,10 @@ export default function ProductsLoading() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 8 }).map((_, i) => (
             <Card key={i} className="rounded-sm border border-muted/70">
-              <CardHeader className="border-b p-0">
+              <CardHeader className="border-b p-0 bg-muted border-muted">
                 <AspectRatio ratio={4 / 3}>
-                  <div className="flex h-full items-center justify-center bg-secondary">
-                    <Icons.placeholder
-                      className="h-9 w-9 text-muted-foreground"
-                      aria-hidden="true"
-                    />
+                  <div className="flex h-full items-center justify-center">
+                  <Skeleton className="h-full w-full mx-auto" />
                   </div>
                 </AspectRatio>
               </CardHeader>

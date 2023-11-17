@@ -2,8 +2,11 @@
 
 import { db } from "@/db"
 import { products, type Product } from "@/db/schema"
+import { artists, type Artist} from "@/db/schema"
 import { faker } from "@faker-js/faker"
-
+import {
+  artistGenres,
+} from "@/configs/music"
 import {
   getSubcategories,
   productCategories,
@@ -24,7 +27,7 @@ export async function generateProducts({
   const category = faker.helpers.shuffle(categories)[0] ?? "art"
 
   const subcategories = getSubcategories(category).map((s) => s.value)
-  const subcategory = faker.helpers.shuffle(subcategories)[0] ?? "decks"
+  const subcategory = faker.helpers.shuffle(subcategories)[0] ?? "art"
 
   for (let i = 0; i < count; i++) {
     allProducts.push({
@@ -44,4 +47,28 @@ export async function generateProducts({
     })
   }
   await db.insert(products).values(allProducts)
+}
+
+
+export async function generateArtists({
+  artistId,
+  count = 10,
+}: {
+  artistId: number
+  count?: number
+}) {
+  const allArtists: Artist[] = []
+
+  const genres = artistGenres.map((genre) => genre.title)
+
+  const category = faker.helpers.shuffle(genres)[0] ?? "psytrance"
+
+  for (let i = 0; i < count; i++) {
+    allArtists.push({
+      id: faker.number.int({ min: 100000, max: 999999 }),
+      name: faker.commerce.department(),
+      genre,
+    })
+  }
+  await db.insert(artists).values(allArtists)
 }

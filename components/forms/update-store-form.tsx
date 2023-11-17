@@ -1,17 +1,14 @@
 "use client"
+import * as React from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
-import * as React from "react"
-import { revalidatePath } from "next/cache"
-import { notFound, redirect } from "next/navigation"
+
 import { type z } from "zod"
-import { stores, type Store } from "@/db/schema"
-import { db } from "@/db"
-import { and, eq, not } from "drizzle-orm"
-import { getStripeAccountAction } from "@/app/_actions/stripe"
+import { type Store } from "@/db/schema"
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import { storeSchema } from "@/lib/validations/store"
-import { StoredFile } from "@/types"
+
 import { useForm } from "react-hook-form"
 import { Icons } from "@/components/icons"
 import {
@@ -23,8 +20,6 @@ import {
   CardFooter,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { LoadingButton } from "@/components/loading-button"
 import { catchError, isArrayOfFile } from "@/lib/utils"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
@@ -112,78 +107,6 @@ export function UpdateStoreForm({
   }
   return (
     <>
-    {/* <Card
-        variant="dashboard"
-        as="section"
-        id="update-store"
-        aria-labelledby="update-store-heading"
-      >
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Update your store</CardTitle>
-          <CardDescription>
-            Update your store name and description, or delete it
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form
-            // eslint-disable-next-line @typescript-eslint/no-misused-promises
-            action={updateStore}
-            className="grid w-full max-w-xl gap-5"
-          >
-            <div className="grid gap-2.5">
-              <Label htmlFor="update-store-name">Name</Label>
-              <Input
-                id="update-store-name"
-                aria-describedby="update-store-name-description"
-                name="name"
-                required
-                minLength={3}
-                maxLength={50}
-                placeholder="Type store name here."
-                defaultValue={store.name}
-              />
-            </div>
-            <div className="grid gap-2.5">
-              <Label htmlFor="update-store-description">Description</Label>
-              <Textarea
-                id="update-store-description"
-                aria-describedby="update-store-description-description"
-                name="description"
-                minLength={3}
-                maxLength={255}
-                placeholder="Type store description here."
-                defaultValue={store.description ?? ""}
-              />
-            </div>
-            <div className="grid gap-2.5">
-  <Label htmlFor="update-store-headline">Headline</Label>
-  <Textarea
-    id="update-store-headline"
-    aria-describedby="update-store-headline-description"
-    name="headline"
-    maxLength={100} // Maximum of 100 characters
-    placeholder="Short description. Maximum of 100 characters."
-    defaultValue={store.headline ?? ""} // Set the initial value from the database
-  />
-</div>
-            <div className="flex flex-col gap-2 xs:flex-row">
-              <LoadingButton>
-                Update store
-                <span className="sr-only">Update store</span>
-              </LoadingButton>
-              <LoadingButton
-                // eslint-disable-next-line @typescript-eslint/no-misused-promises
-                formAction={deleteStore}
-                variant="destructive"
-              >
-                Delete store
-                <span className="sr-only">Delete store</span>
-              </LoadingButton>
-            </div>
-          </form>
-        </CardContent>
-        
-      </Card> */}
       <Card
         variant="dashboard"
         as="section"
@@ -222,7 +145,7 @@ export function UpdateStoreForm({
            />
          </FormItem>
          <FormItem className="flex-col inline-flex px-2 items-center justify-center gap-1.5 w-1/2">
-           <FormLabel>storeIcon</FormLabel>
+           <FormLabel>Store Icon</FormLabel>
            {StoreIcons?.length ? (
   <div className="flex items-center justify-center">
     {StoreIcons.map((file, i) => (

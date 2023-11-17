@@ -1,6 +1,6 @@
 "use client"
 
-import "@/styles/globals.css"
+import "./layouts.css"
 import { cn } from "@/lib/utils"
 import * as React from "react"
 import { useState } from "react"

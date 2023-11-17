@@ -12,6 +12,7 @@ import {
   text,
   timestamp,
   varchar,
+  primaryKey,
 } from "drizzle-orm/mysql-core"
 
 export const stores = mysqlTable("stores", {
@@ -60,6 +61,7 @@ export const products = mysqlTable("products", {
   rating: int("rating").notNull().default(0),
   tags: json("tags").$type<string[] | null>().default(null),
   storeId: int("storeId").notNull(),
+  storeName: varchar("name", { length: 191 }).notNull(),
   createdAt: timestamp("createdAt").defaultNow(),
 })
 
@@ -67,11 +69,15 @@ export type Product = typeof products.$inferSelect
 export type NewProduct = typeof products.$inferInsert
 
 export const productsRelations = relations(products, ({ one }) => ({
-  store: one(stores, { 
+  storeId: one(stores, {
     fields: [products.storeId],
     references: [stores.id],
   }),
-}))
+  storeName: one(stores, {
+    fields: [products.storeName],
+    references: [stores.name],
+  }),
+}));
 
 // Original source: https://github.com/jackblatch/OneStopShop/blob/main/db/schema.ts
 export const carts = mysqlTable("carts", {
@@ -154,3 +160,127 @@ export const addresses = mysqlTable("addresses", {
 
 export type Address = typeof addresses.$inferSelect
 export type NewAddress = typeof addresses.$inferInsert
+
+
+// Define the 'artist' table
+export const artists = mysqlTable("artists", {
+  id: serial("id").autoincrement().primaryKey(),
+  name: text("name"),
+  genre: mysqlEnum("genre", [
+    "ambient",
+    "Downtempo",
+    "Psybreaks",
+    "Zenon",
+    "Natural Trance",
+    "Progressive",
+    "Goa",
+    "Full-On Morning",
+    "Full-On Twilight",
+    "Forest",
+    "Dark",
+    "Hi-Tech",
+  ])
+  .notNull()
+  .default("ambient"),
+});
+export type Artist = typeof artists.$inferSelect
+
+export const djs = mysqlTable("djs", {
+  id: serial("id").autoincrement().primaryKey(),
+  name: text("name"),
+  genre: mysqlEnum("genre", [
+    "ambient",
+    "Downtempo",
+    "Psybreaks",
+    "Zenon",
+    "Natural Trance",
+    "Progressive",
+    "Goa",
+    "Full-On Morning",
+    "Full-On Twilight",
+    "Forest",
+    "Dark",
+    "Hi-Tech",
+  ])
+  .notNull()
+  .default("ambient"),
+});
+export type Dj = typeof djs.$inferSelect
+// Define the 'album' table
+export const albums = mysqlTable("albums", {
+  id: serial("id").autoincrement().primaryKey(),
+  title: text("title"),
+  genre: mysqlEnum("genre", [
+    "ambient",
+    "Downtempo",
+    "Psybreaks",
+    "Zenon",
+    "Natural Trance",
+    "Progressive",
+    "Goa",
+    "Full-On Morning",
+    "Full-On Twilight",
+    "Forest",
+    "Dark",
+    "Hi-Tech",
+  ])
+  .notNull()
+  .default("ambient"),
+  style: text("style"),
+  release_date: text("release_date"),
+  record_label: text("record_label"),
+  format: text("format"),
+  country: text("country"),
+  distributor: text("distributor"),
+  artwork: text("artwork"),
+  mastered_by: text("mastered_by"),
+  written_by: text("written_by"),
+  producer: text("producer"),
+  // Add other album attributes as needed
+});
+export type Album = typeof albums.$inferSelect
+
+// Define the 'albums_to_artists' table for the many-to-many relationship
+export const albumsToArtists = mysqlTable("albums_to_artists", {
+  artistId: int("artist_id"),
+  albumId: text("album_id"),
+}, (table) => {
+  return {
+    pk: primaryKey(table.albumId, table.artistId),
+  };
+});
+
+// Define the 'tracklist' table for album track details
+export const tracklist = mysqlTable("tracklist", {
+  id: serial("id").autoincrement().primaryKey(),
+  albumId: text("album_id"),
+  title: text("title"),
+  duration: text("duration"),
+  remixers: text("remixers"), // Store remixers as a comma-separated string
+});
+
+export const recordLabels = mysqlTable("recordLabels", {
+  id: serial("id").autoincrement().primaryKey(),
+  name: text("name"),
+  country: text("country"),
+  images: json("images").$type<StoredFile[] | null>().default(null),
+  founding_year: text("founding_year"), 
+  genre: mysqlEnum("genre", [
+      "ambient",
+      "Downtempo",
+      "Psybreaks",
+      "Zenon",
+      "Natural Trance",
+      "Progressive",
+      "Goa",
+      "Full-On Morning",
+      "Full-On Twilight",
+      "Forest",
+      "Dark",
+      "Hi-Tech",
+    ])
+    .notNull()
+    .default("ambient"),
+  description: text("description"), 
+});
+export type RecordLabel = typeof recordLabels.$inferSelect

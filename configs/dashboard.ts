@@ -13,6 +13,11 @@ export const dashboardConfig: DashboardConfig = {
       items: [],
     },
     {
+      title: "Separator",
+      href: "#",
+      items: [],
+    },
+    {
       title: "Stores",
       href: "/dashboard/stores",
       icon: "store",
@@ -28,6 +33,17 @@ export const dashboardConfig: DashboardConfig = {
       title: "Purchases",
       href: "/dashboard/purchases",
       icon: "dollarSign",
+      items: [],
+    },
+    {
+      title: "Separator",
+      href: "#",
+      items: [],
+    },
+    {
+      title: "Settings",
+      href: "/dashboard/settings",
+      icon: "settings",
       items: [],
     },
   ],
