@@ -159,7 +159,6 @@ export async function addProductAction(
   //   ...input,
   //   storeId: input.storeId,
   //   images: input.images,
-  //   name: input.name,
   // })
 
   revalidatePath(`/dashboard/stores/${input.storeId}/products.`)
