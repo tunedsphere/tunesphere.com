@@ -155,12 +155,12 @@ export async function addProductAction(
     throw new Error("Product name already taken.")
   }
 
-  await db.insert(products).values({
-    ...input,
-    storeId: input.storeId,
-    images: input.images,
-    name: input.name,
-  })
+  // await db.insert(products).values({
+  //   ...input,
+  //   storeId: input.storeId,
+  //   images: input.images,
+  //   name: input.name,
+  // })
 
   revalidatePath(`/dashboard/stores/${input.storeId}/products.`)
 }
