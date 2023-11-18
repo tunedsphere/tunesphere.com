@@ -39,16 +39,16 @@ export function DocsSidebarNavItems({
   pathname,
 }: DocsSidebarNavItemsProps) {
   return items?.length ? (
-    <div className="grid grid-flow-row auto-rows-max text-sm mr-4">
+    <div className="rid grid-flow-row auto-rows-max text-sm mr-4">
       {items.map((item, index) =>
         !item.disabled && item.href ? (
           <Link
             key={index}
             href={item.href}
             className={cn(
-              "flex w-full items-center rounded-md p-2 text-textlow hover:text-texthigh",
+              "flex w-full items-center rounded-md p-2 text-textlow opacity-75 hover:text-texthigh",
               {
-                "text-primary bg-muted/70 underlline underline-offset-4 font-semibold ": pathname === item.href,
+                "text-texthigh bg-primary/50 underlline opacity-100 underline-offset-4 font-semibold": pathname === item.href,
               }
             )}
             target={item.external ? "_blank" : ""}

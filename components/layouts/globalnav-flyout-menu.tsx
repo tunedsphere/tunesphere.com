@@ -49,7 +49,8 @@ interface GlobalNavFlyoutProps {
   return (
     <>
       {isFlyoutOpen && (
-        <div className="no-scrollbar absolute top-0 z-9999 block h-screen w-screen overflow-y-auto bg-background px-2 @container sm:hidden space-y-4">
+        <div className="@container fixed sm:hidden no-scrollbar top-0 left-0 z-9999 block overflow-hidden h-screen w-screen bg-background px-2
+        data-[state=open]:block  data-[state=open]:h-screendata-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top">
           <div className="flex w-full flex-1 flex-row justify-between">
             <div className="flex w-1/4 py-3">
               <Button

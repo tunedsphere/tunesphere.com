@@ -4,7 +4,6 @@
 
 @layer base {
   body {
-    background: hsl(var(--background));
     position: relative;
     font-size: 100%;
     min-height: 100%;
@@ -885,12 +884,11 @@
   background: white;
 }
 .right-gradient {
-  position: absolute;
   width: 33.333333%;
   height: 100px;
   right: 0;
   top: 80px;
-  background: hsl(var(--background-footer));
+  background: hsl(var(--primary));
   filter: blur(130px);
 }
 .left-gradient {

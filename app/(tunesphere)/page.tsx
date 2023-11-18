@@ -70,8 +70,8 @@ export default function MyApp() {
           </p>
         </div>
 
-        {/* <div className='left-gradient -z-10'> </div> */}
-        <div className="right-gradient z-10"> </div>
+        <div className='left-gradient -z-10'> </div>
+        <div className="absolute right-gradient z-10"> </div>
         <div className="grid py-16 text-center text-indexlow lg:grid-cols-4 2xl:text-left z-200 gap-2">
           <div className="flex-1 items-stretch">
             <Link href="/music/labels">

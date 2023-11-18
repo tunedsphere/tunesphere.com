@@ -50,7 +50,7 @@ export default function SiteGlobalNavMenuBurger() {
   }, []);
   return (
     <>
-      <div className="navbar-container invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end px-2 py-2 md:px-8">
+      <div id="site-global-nav-menu-burger" className="navbar-container invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end px-2 py-2 md:px-8">
         <div className="visible -z-20000">
           <Button
             size="xs"
@@ -75,7 +75,7 @@ export default function SiteGlobalNavMenuBurger() {
             size="xs"
             variant="nav"
             onClick={handleFlyoutOpen}
-            className="block object-contain px-2 text-texthigh hover:text-theme md:hidden"
+            className="block object-contain px-2 text-indexhigh hover:text-theme md:hidden"
           >
             <Icons.menu
               aria-hidden="true"

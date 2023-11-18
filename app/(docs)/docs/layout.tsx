@@ -12,6 +12,8 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
       <aside id="docs-sidebar" className="fixed top-[106px] z-30 hidden w-full shrink-0 overflow-y-auto border-r border-muted pr-2 md:sticky md:block">
         <DocsSidebarNav items={docsConfig.sidebarNav} />
       </aside>
+
+        <div className="right-gradient fixed z-10"> </div>
       {children}
     </div>
   )

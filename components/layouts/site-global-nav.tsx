@@ -1,7 +1,7 @@
 import "./layouts.css"
+import "@/styles/globals.css";
 import React from "react"
 import Link from "next/link"
-import type { User } from "@clerk/nextjs/server"
 
 import SiteGlobalNavMenuBurger from "@/components/menuburgers/site-global-nav-menu-burger"
 import { SiteCombobox } from "@/components/site-combobox"
@@ -11,37 +11,10 @@ import { Icons } from "@/components/icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 import NavbarVideo from "../navbar-video"
-import IndexLoginNavbar from "../index-login-navbar"
-import { Button, buttonVariants } from "@/components/ui/button"
-import IndexLoginModalButton from "../index-login-modal-btn"
+import { IndexUserDropdownMenu } from "@/components/index-user-dropdown-menu"
 
 
-
-import { getUserEmail } from "@/lib/utils"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
-
- interface SiteGlobalNavProps {
-  user: User | null
-}
-
-export function SiteGlobalNav({ user }: SiteGlobalNavProps) {
-    const initials = `${user?.firstName?.charAt(0) ?? ""} ${
-      user?.lastName?.charAt(0) ?? ""
-    }`
-    const email = getUserEmail(user)
-
+export function SiteGlobalNav() {
 
   return (
     <>
@@ -72,65 +45,7 @@ export function SiteGlobalNav({ user }: SiteGlobalNavProps) {
                 <ThemeToggle className="hover:text-white"/>
               </div>
               <div className="flex items-center justify-center">
-                {user ? (
-                <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button size="xs" variant="nav" className="hover:bg-transparent">
-                    <Avatar className="flex h-7 w-7 items-center justify-center shadow-sm shadow-slate-900/50">
-                      <AvatarImage src={user.imageUrl} alt={user.username ?? ""} />
-                      <AvatarFallback>{initials}</AvatarFallback>
-                    </Avatar>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  className="z-10000 w-56 border-theme p-2 bg-background"
-                  align="center"
-                  forceMount
-                >
-                  <DropdownMenuLabel className="font-normal">
-                    <div className="flex flex-col space-y-1">
-                      <p className="py-1 text-base font-medium leading-none">
-                        {user.firstName} {user.lastName}
-                      </p>
-                      <p className="text-xs leading-none text-textlow">{email}</p>
-                    </div>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
-                    <DropdownMenuItem asChild>
-                      <Link href="/dashboard/account">
-                        <Icons.user className="mr-2 h-4 w-4" aria-hidden="true" />
-                        Account
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/dashboard/stores">
-                        <Icons.dashboard
-                          className="mr-2 h-4 w-4"
-                          aria-hidden="true"
-                        />
-                        Dashboard
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild disabled>
-                      <Link href="/dashboard/settings">
-                        <Icons.settings className="mr-2 h-4 w-4" aria-hidden="true" />
-                        Settings
-                      </Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuGroup>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link href="/signout">
-                      <Icons.logout className="mr-2 h-4 w-4" aria-hidden="true" />
-                      Log out
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <IndexLoginModalButton />
-            )}
+              <IndexUserDropdownMenu />
               </div>
             </div>
           </div>

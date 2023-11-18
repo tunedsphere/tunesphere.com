@@ -70,7 +70,7 @@ export function DocsSearch() {
     <>
       <Button
         variant="outline"
-        className="relative h-9 w-9 p-0 xl:h-10 xl:w-60 xl:justify-start xl:px-3 xl:py-2"
+        className="relative h-9 w-9 p-0 xl:h-10 xl:w-96 xl:justify-start xl:px-3 xl:py-2"
         onClick={() => setIsOpen(true)}
       >
         <Icons.search className="h-4 w-4 xl:mr-2" aria-hidden="true" />
@@ -87,7 +87,7 @@ export function DocsSearch() {
           value={query}
           onValueChange={setQuery}
         />
-        <CommandList className="bg-muted/30 border-t border-muted">
+        <CommandList className="bg-muted/20 border-t border-muted">
           <CommandEmpty
             className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
           >
@@ -103,7 +103,7 @@ export function DocsSearch() {
             data?.map((group) => (
               <CommandGroup
                 key={group.category}
-                className="capitalize bg-muted"
+                className="capitalize"
                 heading={group.category}
               >
                 {group.products.map((item) => (

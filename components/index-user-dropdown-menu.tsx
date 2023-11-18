@@ -1,8 +1,8 @@
-import "@/styles/globals.css"
+
+import { currentUser } from "@clerk/nextjs"
 
 import React from "react"
 import Link from "next/link"
-import type { User } from "@clerk/nextjs/dist/types/server"
 import { getUserEmail } from "@/lib/utils"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -20,11 +20,8 @@ import { Icons } from "@/components/icons"
 import IndexLoginModalButton from "@/components/index-login-modal-btn"
 import { Button } from "./ui/button"
 
-interface IndexUserDropdownMenuProps {
-  user: User | null
-}
-
-export function IndexUserDropdownMenu({ user }: IndexUserDropdownMenuProps) {
+export async function IndexUserDropdownMenu() {
+  const user = await currentUser()
   const initials = `${user?.firstName?.charAt(0) ?? ""} ${
     user?.lastName?.charAt(0) ?? ""
   }`
