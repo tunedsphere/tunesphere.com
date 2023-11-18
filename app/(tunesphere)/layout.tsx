@@ -1,4 +1,4 @@
-import { currentUser } from "@clerk/nextjs"
+
 import { SiteGlobalNav } from "@/components/layouts/site-global-nav"
 import { SiteIndexFooter } from "@/components/layouts/site-index-footer"
 
@@ -6,12 +6,11 @@ interface TunedLayoutProps {
   children: React.ReactNode
 }
 
-export default async function TunedLayout({ children }: TunedLayoutProps) {
-  const user = await currentUser()
+export default function TunedLayout({ children }: TunedLayoutProps) {
 
   return (
     <>
-      <SiteGlobalNav user={user} />
+      <SiteGlobalNav />
       <main className="flex-1 bg-background-index min-h-screen">
         {children}
         <SiteIndexFooter />    
