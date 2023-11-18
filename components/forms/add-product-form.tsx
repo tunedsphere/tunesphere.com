@@ -58,17 +58,20 @@ export function AddProductForm({ storeId }: AddProductFormProps) {
     },
   });
 
-
   const form = useForm<Inputs>({
     resolver: zodResolver(productSchema),
     defaultValues: {
+      name: "",
+      description: "",
+      price: "",
+      inventory: NaN,
       category: "art",
+      subcategory: "",
+      images: [],
     },
   })
-
   const previews = form.watch("images") as FileWithPreview[] | null
   const subcategories = getSubcategories(form.watch("category"))
-
   function onSubmit(data: Inputs) {
     startTransition(async () => {
       try {
@@ -76,24 +79,39 @@ export function AddProductForm({ storeId }: AddProductFormProps) {
           name: data.name,
         })
 
-        const images = isArrayOfFile(data.images)
-          ? await startUpload(data.images).then((res) => {
-              const formattedImages = res?.map((image) => ({
-                id: image.key,
-                name: image.key.split("_")[1] ?? image.key,
-                url: image.url,
-              }))
-              return formattedImages ?? null
-            })
-          : null
+        if (isArrayOfFile(data.images)) {
+          toast.promise(
+            startUpload(data.images)
+              .then((res) => {
+                const formattedImages = res?.map((image) => ({
+                  id: image.key,
+                  name: image.key.split("_")[1] ?? image.key,
+                  url: image.url,
+                }))
+                return formattedImages ?? null
+              })
+              .then((images) => {
+                return addProductAction({
+                  ...data,
+                  storeId,
+                  images,
+                })
+              }),
+            {
+              loading: "Uploading images...",
+              success: "Product added successfully.",
+              error: "Error uploading images.",
+            }
+          )
+        } else {
+          await addProductAction({
+            ...data,
+            storeId,
+            images: null,
+          })
 
-        await addProductAction({
-          ...data,
-          storeId,
-          images,
-        })
-
-        toast.success("Product added successfully.")
+          toast.success("Product added successfully.")
+        }
 
         form.reset()
         setFiles(null)

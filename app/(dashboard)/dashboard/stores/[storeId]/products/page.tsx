@@ -5,7 +5,6 @@ import { products, stores, type Product } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { and, asc, desc, eq, inArray, like, sql } from "drizzle-orm"
 
-import { GenerateButton } from "@/components/generate-button"
 import { ProductsTableShell } from "@/components/shells/products-table-shell"
 
 export const metadata: Metadata = {
@@ -121,7 +120,7 @@ export default async function ProductsPage({
 
   return (
     <div className="space-y-2.5 overflow-x-auto">
-      {env.NODE_ENV !== "production" && <GenerateButton storeId={storeId} />}
+
       <ProductsTableShell
         data={storeProducts}
         pageCount={pageCount}

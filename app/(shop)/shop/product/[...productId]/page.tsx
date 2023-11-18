@@ -21,6 +21,7 @@ import { ProductCard } from "@/components/cards/product-card"
 import { ProductImageCarousel } from "@/components/products/product-image-carousel"
 import { Shell } from "@/components/shells/shell"
 import { PageHeader, PageHeaderHeading } from "@/components/page-header"
+import { ProductsFromStore, ProductsFromStoreSkeleton } from "@/components/products-from-store"
 
 interface ProductPageProps {
   params: {
@@ -166,63 +167,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </Accordion>
         </div>
       </div>
-      <section
-          id="products-from-store"
-          aria-labelledby="products-from-store-heading"
-          className="space-y-6 px-0"
-        >
-      {store && moreProducts.length > 0 ? (
-        <div className="overflow-hidden md:pt-6 pb-6">
-          <PageHeader>
-            <PageHeaderHeading size="xs" className="font-medium/80">
-            More products from <span className="text-2xl font-semibold underline-offset-4 underline decoration-2 hover:decoration-4 cursor-pointer decoration-theme">{store.name}</span>
-            </PageHeaderHeading>
-            </PageHeader>
-            <Suspense fallback={<MoreProductsSkeleton />}>
-          <div className="pt-6 px-2 grid w-full grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
-             {moreProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                />
-              ))}
-            </div>
-            </Suspense>
-        </div>
-      ) : null}
-      </section>
+      <Suspense fallback={<ProductsFromStoreSkeleton />}>
+
+      <ProductsFromStore params={params}/>
+
+      </Suspense>
     </Shell>
   )
-}
-const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent`;
-
-function ProductSkeleton() {
-  return (
-    <div className="col-span-4 space-y-4 lg:col-span-1">
-      <div className={`relative h-[167px] rounded-xl bg-gray-900 ${shimmer}`} />
-
-      <div className="h-4 w-full rounded-lg bg-gray-900" />
-      <div className="h-6 w-1/3 rounded-lg bg-gray-900" />
-      <div className="h-4 w-full rounded-lg bg-gray-900" />
-      <div className="h-4 w-4/6 rounded-lg bg-gray-900" />
-    </div>
-  );
-}
-
-export function MoreProductsSkeleton() {
-  return (
-    <div className="space-y-6 pb-[5px]">
-      <div className="space-y-2">
-        <div className={`h-6 w-1/3 rounded-lg bg-gray-900 ${shimmer}`} />
-        <div className={`h-4 w-1/2 rounded-lg bg-gray-900 ${shimmer}`} />
-      </div>
-
-      <div className="grid grid-cols-4 gap-6">
-        <ProductSkeleton />
-        <ProductSkeleton />
-        <ProductSkeleton />
-        <ProductSkeleton />
-      </div>
-    </div>
-  );
 }

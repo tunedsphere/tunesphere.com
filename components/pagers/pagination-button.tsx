@@ -47,19 +47,19 @@ export function PaginationButton({
       i <= Math.min(pageCount - 1, Number(page) + delta);
       i++
     ) {
-      range.push(i)
+      range.push(i as never)
     }
 
     if (Number(page) - delta > 2) {
-      range.unshift("...")
+      range.unshift("..." as never)
     }
     if (Number(page) + delta < pageCount - 1) {
-      range.push("...")
+      range.push("..." as never)
     }
 
-    range.unshift(1)
+    range.unshift(1 as never);
     if (pageCount !== 1) {
-      range.push(pageCount)
+      range.push(pageCount as never);
     }
 
     return range

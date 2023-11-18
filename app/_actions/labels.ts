@@ -1,8 +1,8 @@
 "use server"
 
-import { revalidatePath } from "next/cache"
 import { recordLabelsData } from "@/public/recordLabelsData"
 import { recordLabels, type RecordLabel } from "@/db/schema"
+import { db } from "@/db"
 import type { StoredFile } from "@/types"
 import {
   and,
@@ -28,18 +28,20 @@ import type {
 export async function filterRecordLabelsAction(query: string) {
   if (query.length === 0) return null
 
-  const filteredRecordLabels = await recordLabelsData
+  const filteredRecordLabels = await db
     .select({
       id: recordLabels.id,
       name: recordLabels.name,
-      genre: recordLabels.genres,
+      founding_year: recordLabels.founding_year,
+      description: recordLabels.description,
+      genre: recordLabels.genre,
     })
     .from(recordLabels)
     .where(like(recordLabels.name, `%${query}%`))
     .orderBy(desc(recordLabels.founding_year))
     .limit(10)
 
-  const recordLabelsByGenre = Object.values(recordLabels.genres.enumValues).map(
+  const recordLabelsByGenre = Object.values(recordLabels.genre.enumValues).map(
     (genre) => ({
       genre,
       recordLabels: filteredRecordLabels.filter(
@@ -59,11 +61,9 @@ export async function getRecordLabelsAction(
       keyof RecordLabel | undefined,
       "asc" | "desc" | undefined,
     ]) ?? []
-  const [minPrice, maxPrice] = input.price_range?.split("-") ?? []
   const genres =
     (input.genres?.split(".") as RecordLabel["genre"][]) ?? []
-  const subcategories = input.subcategories?.split(".") ?? []
-  const storeIds = input.store_ids?.split(".").map(Number) ?? []
+
 
   const { items, count } = await db.transaction(async (tx) => {
     const items = await tx

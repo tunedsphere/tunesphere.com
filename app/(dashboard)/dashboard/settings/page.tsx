@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { env } from "@/env.mjs"
@@ -14,13 +13,11 @@ import { notFound } from "next/navigation"
 import { db } from "@/db"
 import { emailPreferences } from "@/db/schema"
 import { eq } from "drizzle-orm"
-
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
     title: "Settings",
     description: "Manage your Settings",
   }
-
 interface SettingsPageProps {
     searchParams: {
         [key: string]: string | string[] | undefined
@@ -38,7 +35,6 @@ interface SettingsPageProps {
       redirect("/signin")
     }
     const token = typeof searchParams.token === "string" ? searchParams.token : ""
-
     const emailPreference = await db.query.emailPreferences.findFirst({
       where: eq(emailPreferences.token, token),
     })

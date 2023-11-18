@@ -1,20 +1,9 @@
 "use client"
 import "@/styles/globals.css";
 import * as React from "react";
-import { useEffect, useRef, useState } from "react";
-import { recordLabelsData } from "@/public/recordLabelsData.js";
+import { useState } from "react";
 
-import { Sidebar } from "@/components/ui/sidebar";
-import { Icons } from "@/components/icons";
-import MusicSidebarMenuBurger from "@/components/menuburgers/music-sidebar-menu-burger";
-import { MusicTabs } from "@/components/pagers/music-tabs";
-import { LabelsGrid } from "@/components/grid/labels-grid";
-import { AlbumsGrid } from "@/components/grid/albums-grid";
-import { DjsGrid } from "@/components/grid/djs-grid";
 import { ArtistsGrid } from "@/components/grid/artists-grid";
-import { MusicSearchBar } from "@/components/searchs/music-search-bar";
-import { Separator } from "@/components/ui/separator";
-import { HomeGrid } from "@/components/grid/home-grid";
 import { useMusicContext } from "@/components/grid/music-context"
 
 interface ArtistsPageProps {

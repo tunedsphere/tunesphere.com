@@ -4,6 +4,7 @@
 
 @layer base {
   body {
+    background: hsl(var(--background));
     position: relative;
     font-size: 100%;
     min-height: 100%;
@@ -288,14 +289,9 @@
   }
 }
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground;
-
   }
-
   @media (max-width: 767px) {
     body {
       scrollbar-width: none;

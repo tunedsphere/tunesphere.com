@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { recordLabels } from "@/public/data"
+import { recordLabelsData } from "@/public/recordLabelsData"
 
 import {
   Collapsible,
@@ -23,7 +23,7 @@ export const YearsFilter: React.FC<YearsFilterProps> = ({
   }
 
   const yearOptions = Array.from(
-    new Set(recordLabels.map((label) => label.founding_year))
+    new Set(recordLabelsData.map((label) => label.founding_year))
   )
 
   return (

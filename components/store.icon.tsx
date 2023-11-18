@@ -12,7 +12,7 @@ export function StoreIcon({ images }: StoreIconProps) {
         images.map((image, index) => (
           <span
           id="store-icon"
-          key={index} className="relative shrink-0 flex justify-center w-20 h-20 overflow-hidden rounded-full border-border/30 border">
+          key={index} className="relative shrink-0 flex justify-center w-20 h-20 overflow-hidden rounded-full border-muted/30 border">
             <Image
               id="store-icon-image"
               width={80}

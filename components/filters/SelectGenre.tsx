@@ -1,7 +1,7 @@
 "use client";
 import '@styles/globals.css';
 import React from 'react';
-import { recordLabels } from '@/public/data.js';
+import { recordLabelsData } from '@/public/recordLabelsData';
 
 
 interface SelectGenreProps {
@@ -24,7 +24,7 @@ export default function SelectGenre ({ selectedGenre, onGenreChange }: SelectGen
     >
       <option className='bg-accent1 text-colortheme font-normal' value="">Genre</option>
       
-      {Array.from(new Set(recordLabels.flatMap((recordLabel) => recordLabel.genres))).map((genre) => (
+      {Array.from(new Set(recordLabelsData.flatMap((recordLabel) => recordLabel.genres))).map((genre) => (
         <option className="bg-accent1 font-normal divide-y divide-y-reverse" key={genre} value={genre}>
           {genre}
         </option>

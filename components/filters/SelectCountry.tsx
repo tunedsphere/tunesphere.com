@@ -1,7 +1,7 @@
 "use client";
 import '@styles/globals.css';
 import React from 'react';
-import { recordLabels } from '@/public/data.js';
+import { recordLabelsData } from '@/public/recordLabelsData';
 
 
 interface SelectCountryProps {
@@ -22,7 +22,7 @@ export default function SelectCountry({ selectedCountry, onCountryChange }: Sele
       onChange={handleCountryChange}
     >
       <option className='bg-accent1' value="">Country</option>
-      {Array.from(new Set(recordLabels.flatMap((recordLabel) => recordLabel.country))).map((country) => (
+      {Array.from(new Set(recordLabelsData.flatMap((recordLabel) => recordLabel.country))).map((country) => (
         <option className='bg-accent1 font-normal' key={country} value={country}>
           {country}
         </option>

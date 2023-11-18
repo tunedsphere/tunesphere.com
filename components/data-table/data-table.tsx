@@ -177,8 +177,8 @@ export function DataTable<TData, TValue>({
         )
       }
     }
-
-    for (const key of searchParams.keys()) {
+    const keysArray: string[] = Array.from(searchParams.keys());
+    for (const key of keysArray) {
       if (
         searchableColumns.find((column) => column.id === key) &&
         !debouncedSearchableColumnFilters.find((column) => column.id === key)
@@ -212,7 +212,8 @@ export function DataTable<TData, TValue>({
       }
     }
 
-    for (const key of searchParams.keys()) {
+    const keysArray: string[] = Array.from(searchParams.keys());
+    for (const key of keysArray) {
       if (
         filterableColumns.find((column) => column.id === key) &&
         !filterableColumnFilters.find((column) => column.id === key)

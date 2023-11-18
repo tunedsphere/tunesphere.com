@@ -21,6 +21,7 @@ import { Shell } from "@/components/shells/shell"
 interface DocsPageProps {
   params: {
     slug: string[]
+    
   }
 }
 

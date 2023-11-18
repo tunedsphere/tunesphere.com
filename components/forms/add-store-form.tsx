@@ -117,7 +117,7 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
               <Image
                 src={file.preview}
                 alt={file.name}
-                className="h-20 w-20 shrink-0 rounded-full object-cover object-center border border-border"
+                className="h-20 w-20 shrink-0 rounded-full object-cover object-center border border-muted"
                 width={80}
                 height={80}
               />

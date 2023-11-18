@@ -30,7 +30,7 @@ export async function getCartAction(storeId?: number): Promise<CartLineItem[]> {
 
   if (productIds.length === 0) return []
 
-  const uniqueProductIds = [...new Set(productIds)]
+  const uniqueProductIds: number[] = Array.from(new Set(productIds));
 
   const cartLineItems = await db
     .select({
@@ -89,7 +89,7 @@ export async function getUniqueStoreIds() {
 
   const storeIds = cart.map((item) => Number(item.storeId)).filter((id) => id)
 
-  const uniqueStoreIds = [...new Set(storeIds)]
+const uniqueStoreIds: number[] = Array.from(new Set(storeIds));
 
   return uniqueStoreIds
 }

@@ -1,7 +1,7 @@
 "use client";
 import '@styles/globals.css';
 import React from 'react';
-import { recordLabels } from '@/public/data.js';
+import { recordLabelsData } from '@/public/recordLabelsData';
 
 interface SelectYearProps {
   selectedYear: number;
@@ -23,7 +23,7 @@ export default function SelectYear({ selectedYear, onYearChange }: SelectYearPro
       onChange={handleYearChange}
     >
       <option className='bg-accent1' value="">Year</option>
-      {Array.from(new Set(recordLabels.flatMap((recordLabel) => recordLabel.founding_year))).map((year) => (
+      {Array.from(new Set(recordLabelsData.flatMap((recordLabel) => recordLabel.founding_year))).map((year) => (
         <option className='bg-accent1' key={year} value={year}>
           {year}
         </option>

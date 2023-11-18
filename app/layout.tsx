@@ -56,7 +56,7 @@ children: React.ReactNode
         GeistMono.variable
       )}
     >
-        <body className="antialiased">
+        <body className="antialiased font-sans">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
           </ThemeProvider>

@@ -31,12 +31,7 @@ export const getRecordLabelInventorySchema = z.object({
 export const getRecordLabelsSchema = z.object({
   limit: z.number().default(10),
   offset: z.number().default(0),
-  categories: z
-    .string()
-    .regex(/^\d+.\d+$/)
-    .optional()
-    .nullable(),
-  subcategories: z
+  genres: z
     .string()
     .regex(/^\d+.\d+$/)
     .optional()
@@ -44,16 +39,6 @@ export const getRecordLabelsSchema = z.object({
   sort: z
     .string()
     .regex(/^\w+.(asc|desc)$/)
-    .optional()
-    .nullable(),
-  price_range: z
-    .string()
-    .regex(/^\d+-\d+$/)
-    .optional()
-    .nullable(),
-  store_ids: z
-    .string()
-    .regex(/^\d+.\d+$/)
     .optional()
     .nullable(),
 })

@@ -3,7 +3,7 @@
 import "@/styles/globals.css"
 
 import * as React from "react"
-import { recordLabels } from "@/public/data.js"
+import { recordLabelsData } from "@/public/recordLabelsData"
 
 interface SelectCountryProps {
   selectedCountry: string
@@ -30,7 +30,7 @@ const SelectCountry: React.FC<SelectCountryProps> = ({
           Country
         </option>
         {Array.from(
-          new Set(recordLabels.flatMap((recordLabel) => recordLabel.country))
+          new Set(recordLabelsData.flatMap((recordLabel) => recordLabel.country))
         ).map((country) => (
           <option
             className="bg-accent-1 font-normal"
