@@ -67,7 +67,7 @@ export function Products({
   const sort = searchParams?.get("sort") ?? "createdAt.desc"
   const store_ids = searchParams?.get("store_ids")
   const store_page = searchParams?.get("store_page") ?? "1"
-
+ const storeNames = null
   // Create query string
   const createQueryString = React.useCallback(
     (params: Record<string, string | number | null>) => {
@@ -458,7 +458,9 @@ export function Products({
       <div className="grid w-full grid-cols-2 px-0 sm:grid-cols-4 gap-2 lg:grid-cols-4">
         {products.map((product) => (
           <div key={product.id}>
-          <ProductCard product={product}/>
+          <ProductCard 
+          product={product}
+            storeName={product.name}/>
           </div>
         ))}
       </div>
