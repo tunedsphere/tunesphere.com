@@ -24,7 +24,9 @@ export const env = createEnv({
     STRIPE_WEBHOOK_SECRET: z.string(),
     STRIPE_STD_MONTHLY_PRICE_ID: z.string(),
     STRIPE_PRO_MONTHLY_PRICE_ID: z.string(),
-    NODE_ENV: z.enum(["development", "test", "production"]),
+    NODE_ENV: z
+    .enum(["development", "test", "production"])
+    .default("development"),
   },
 
 

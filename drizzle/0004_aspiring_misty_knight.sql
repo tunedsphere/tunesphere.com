@@ -1,0 +1,2 @@
+ALTER TABLE `products` MODIFY COLUMN `category` enum('art','clothing','decorations','plants','literature','music','tools','education') NOT NULL DEFAULT 'art';--> statement-breakpoint
+ALTER TABLE `products` MODIFY COLUMN `subcategory` varchar(24);

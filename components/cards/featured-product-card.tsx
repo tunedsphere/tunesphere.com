@@ -13,7 +13,10 @@ import { Icons } from "@/components/icons"
 
 interface FeaturedProductCardProps
   extends React.HTMLAttributes<HTMLDivElement> {
-  product: Product
+    product: Pick<
+    Product,
+    "id" | "name" | "price" | "images" | "category" | "inventory" | "storeId"
+  >;
   stores?: Pick<Store, "id" | "name">[]
   variant?: "default" | "switchable"
   isAddedToCart?: boolean

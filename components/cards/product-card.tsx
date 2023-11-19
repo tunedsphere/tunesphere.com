@@ -3,11 +3,13 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { productsRelations } from "@/db/schema";
 import { type Product } from "@/db/schema";
 import { toast } from "sonner"
 import { catchError, cn, formatPrice } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Button } from "@/components/ui/button"
+import { slugify } from "@/lib/utils";
 import {
   Card,
   CardContent,
@@ -20,9 +22,10 @@ import { Icons } from "@/components/icons"
 import { addToCartAction } from "@/app/_actions/cart"
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  storeName: string | string[] | undefined;
   product: Pick<
     Product,
-    "id" | "name" | "price" | "images" | "category" | "inventory"
+    "id" | "name" | "price" | "images" | "category" | "inventory" | "storeId"
   >;
   variant?: "default" | "switchable";
   isAddedToCart?: boolean;
@@ -31,6 +34,7 @@ interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function ProductCard({
   product,
+  storeName,
   variant = "default",
   onSwitch,
   className,
@@ -38,10 +42,10 @@ export function ProductCard({
 }: ProductCardProps) {
   const [isPending, startTransition] = React.useTransition();
   const [isAddedToCart, setIsAddedToCart] = React.useState(false);
-
+  console.log(storeName);
   return (
-    <>
       <div className="relative">   
+       
       <Card
       id="product-card"
         className={cn(
@@ -53,7 +57,8 @@ export function ProductCard({
         <Link 
         key={`${product.id}_link`}  
         aria-label={product.name} 
-        href={`/shop/product/${product.id}`}
+        href="/shop/product/[...productId]/page"
+        as={`/shop/product/${product.id}/${slugify(product.name)}`}
         className="group cursor-default">
 
           <CardHeader className="p-0 relative">
@@ -107,12 +112,20 @@ export function ProductCard({
    {formatPrice(product.price)}
   </div>
 </div>
+         
             <CardTitle
               as="h6"
-              className="line-clamp-1 text-muted-foreground pt-2"
+              className="line-clamp-1 text-muted-foreground"
             >
-              Store:
+         <Link            
+            key={product.storeId}
+            aria-label={Array.isArray(storeName) ? storeName.join(', ') : storeName}
+            href={`/shop/store/${product.storeId}/${slugify(storeName)}`}>
+
+                 {storeName}
+                 </Link>
             </CardTitle>
+          
           </CardContent>
         <CardFooter className="p-4">
           <div className="flex w-full flex-col items-center gap-2 sm:flex-row align-middle">
@@ -173,7 +186,6 @@ export function ProductCard({
         </CardFooter>
       </Card>
       </div>
-    </>
   );
 }
 

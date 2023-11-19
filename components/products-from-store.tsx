@@ -21,7 +21,9 @@ import { ProductCard } from "@/components/cards/product-card"
 import { ProductImageCarousel } from "@/components/products/product-image-carousel"
 import { Shell } from "@/components/shells/shell"
 import { PageHeader, PageHeaderHeading } from "@/components/page-header"
-
+import {  type Product } from "@/db/schema"
+import { FeaturedProductCard } from "@/components/cards/featured-product-card"
+import { delayFeaturedProducts } from "@/lib/delays"
 interface ProductsFromStoreProps {
   params: {
     productId: string
@@ -29,6 +31,7 @@ interface ProductsFromStoreProps {
   }
   
 export async function ProductsFromStore({ params }:ProductsFromStoreProps) {
+  await new Promise((resolve) => setTimeout(resolve, delayFeaturedProducts));
   const productId = Number(params.productId)
 
   const product = await db.query.products.findFirst({
@@ -66,17 +69,19 @@ export async function ProductsFromStore({ params }:ProductsFromStoreProps) {
           images: products.images,
           category: products.category,
           inventory: products.inventory,
+          storeId: products.storeId,
         })
         .from(products)
         .limit(4)
         .where(
           and(
             eq(products.storeId, product.storeId),
-            not(eq(products.id, productId))
+            not(eq(products.id, productId)),
           )
         )
         .orderBy(desc(products.inventory))
     : []
+
     return (
       <section
       id="products-from-store"
@@ -93,7 +98,7 @@ export async function ProductsFromStore({ params }:ProductsFromStoreProps) {
 
       <div className="pt-6 px-2 grid w-full grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
          {moreProducts.map((product) => (
-            <ProductCard
+            <FeaturedProductCard
               key={product.id}
               product={product}
             />
@@ -106,27 +111,26 @@ export async function ProductsFromStore({ params }:ProductsFromStoreProps) {
     )
 }
 
-const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent`;
+const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-theme/10 before:to-transparent`;
 
 function ProductSkeleton() {
   return (
     <div className="col-span-4 space-y-4 lg:col-span-1">
-      <div className={`relative h-[167px] rounded-xl bg-gray-900 ${shimmer}`} />
+      <div className={`relative h-[167px] rounded-xl bg-card ${shimmer}`} />
 
-      <div className="h-4 w-full rounded-lg bg-gray-900" />
-      <div className="h-6 w-1/3 rounded-lg bg-gray-900" />
-      <div className="h-4 w-full rounded-lg bg-gray-900" />
-      <div className="h-4 w-4/6 rounded-lg bg-gray-900" />
+      <div className="h-4 w-full rounded-lg bg-card" />
+      <div className="h-6 w-1/3 rounded-lg bg-card" />
+      <div className="h-4 w-full rounded-lg bg-card" />
+      <div className="h-4 w-4/6 rounded-lg bg-card" />
     </div>
   );
 }
 
 export function ProductsFromStoreSkeleton() {
   return (
-    <div className="space-y-6 pb-[5px]">
-      <div className="space-y-2">
-        <div className={`h-6 w-1/3 rounded-lg bg-gray-900 ${shimmer}`} />
-        <div className={`h-4 w-1/2 rounded-lg bg-gray-900 ${shimmer}`} />
+    <div   className="space-y-6 px-0">
+      <div className="space-y-2  md:pt-6">
+        <div className={`h-6 w-1/3 rounded-lg bg-card ${shimmer}`} />
       </div>
 
       <div className="grid grid-cols-4 gap-6">

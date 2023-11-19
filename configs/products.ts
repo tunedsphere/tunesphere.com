@@ -145,7 +145,6 @@ export const productTags = [
   "limited",
   "exclusive",
 ]
-
 export function getSubcategories(category?: string): Option[] {
   if (!category) return []
 

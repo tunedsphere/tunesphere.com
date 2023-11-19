@@ -4,11 +4,11 @@ import { db } from "@/db"
 import { products, stores, type Product } from "@/db/schema"
 import { FeaturedProductCard } from "@/components/cards/featured-product-card"
 import { Shell } from "@/components/shells/shell"
-import { desc, eq, sql } from "drizzle-orm"
+import { desc, eq,  } from "drizzle-orm"
  import { Icons } from "@/components/icons"
 import { productCategories } from "@/configs/products"
 import { slugify } from "@/lib/utils"
-
+import { productsRelations } from "@/db/schema"
 import heroShop3 from "@/public/bghome/heroShop3.png"
 
 import { cn } from "@/lib/utils"
@@ -47,27 +47,19 @@ export async function FeaturedProducts({ searchParams }:FeaturedProductsProps) {
       productCategories[Math.floor(Math.random() * productCategories.length)]
   
   
-        const someProducts = await db
-        .select({
-          id: products.id,
-          name: products.name,
-          images: products.images,
-          category: products.category,
-          price: products.price,
-          inventory: products.inventory,
-          stripeAccountId: stores.stripeAccountId,
+        const someProducts = await db.query.products.findMany({
+      
+            with: {
+              store: true,
+              },
+              where:
+              typeof category === "string"
+                ? eq(products.category, category as Product["category"])
+                : undefined,
         })
-        .from(products)
-        .limit(4)
-        .leftJoin(stores, eq(products.storeId, stores.id))
-        .where(
-          typeof category === "string"
-            ? eq(products.category, category as Product["category"])
-            : undefined
-        )
-        .groupBy(products.id)
-        .orderBy(desc(stores.stripeAccountId), desc(products.createdAt))
-        
+       
+      const storeNames = someProducts.map(product => product.store.name);
+        console.log(storeNames);
     return (
         <section
         id="featured-products"
@@ -93,6 +85,7 @@ export async function FeaturedProducts({ searchParams }:FeaturedProductsProps) {
               {someProducts.length > 0 ? (
                 someProducts.map((product) => (
                   <ProductCard 
+                  storeName={product.store.name}
                   key={product.id} 
                   product={product}
                    />

@@ -42,7 +42,6 @@ export async function getCartAction(storeId?: number): Promise<CartLineItem[]> {
       price: products.price,
       inventory: products.inventory,
       storeId: products.storeId,
-      storeName: stores.name,
       storeStripeAccountId: stores.stripeAccountId,
     })
     .from(products)
@@ -64,6 +63,7 @@ export async function getCartAction(storeId?: number): Promise<CartLineItem[]> {
 
         return {
           ...item,
+          storeId: item.storeId || 0,
           quantity: quantity ?? 0,
         }
       })

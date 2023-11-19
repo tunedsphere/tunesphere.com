@@ -70,7 +70,7 @@ export function formatId(id: number) {
   return `#${id.toString().padStart(4, "0")}`
 }
 
-export function slugify(str: string | undefined | null) {
+export function slugify(str: string | string[] | undefined | null) {
   if (typeof str !== 'string' || !str) {
     return ''; // Return an empty string or a default slug if necessary.
   }

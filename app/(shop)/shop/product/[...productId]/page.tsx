@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+
 import { Suspense } from "react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -80,29 +81,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
       id: true,
       name: true,
     },
-    where: eq(stores.id, product.storeId),
+    where: product.storeId ? eq(stores.id, product.storeId) : undefined,
   })
 
-  const moreProducts = store
-    ? await db
-        .select({
-          id: products.id,
-          name: products.name,
-          price: products.price,
-          images: products.images,
-          category: products.category,
-          inventory: products.inventory,
-        })
-        .from(products)
-        .limit(4)
-        .where(
-          and(
-            eq(products.storeId, product.storeId),
-            not(eq(products.id, productId))
-          )
-        )
-        .orderBy(desc(products.inventory))
-    : []
+
+ 
+ 
   return (
     <Shell variant="shop">
     <Breadcrumbs

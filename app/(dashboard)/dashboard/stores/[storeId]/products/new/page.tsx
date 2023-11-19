@@ -27,6 +27,7 @@ interface NewProductPageProps {
 export default async function NewProductPage({ params }: NewProductPageProps) {
   const storeId = Number(params.storeId)
 
+
   const user = await currentUser()
 
   if (!user) {
@@ -40,7 +41,8 @@ export default async function NewProductPage({ params }: NewProductPageProps) {
         <CardDescription>Add a new product to your store</CardDescription>
       </CardHeader>
       <CardContent>
-        <AddProductForm storeId={storeId} />
+        <AddProductForm 
+        storeId={storeId} />
       </CardContent>
     </Card>
   )

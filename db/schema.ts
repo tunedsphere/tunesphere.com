@@ -5,14 +5,13 @@ import {
   decimal,
   int,
   json,
-  mediumtext,
   mysqlEnum,
   mysqlTable,
   serial,
   text,
+  mediumtext,
   timestamp,
   varchar,
-  primaryKey,
 } from "drizzle-orm/mysql-core"
 
 export const stores = mysqlTable("stores", {
@@ -21,12 +20,13 @@ export const stores = mysqlTable("stores", {
   name: varchar("name", { length: 110 }).notNull(),
   headline: varchar("headline", { length: 100 }),
   description: mediumtext("description"),
-  storeBanner: json("storeBanner").$type<StoredFile[] | null>().default(null),
-  storeIcon: json("storeIcon").$type<StoredFile[] | null>().default(null),
   slug: text("slug"),
   active: boolean("active").notNull().default(false),
+  storeBanner: json("storeBanner").$type<StoredFile[] | null>().default(null),
+  storeIcon: json("storeIcon").$type<StoredFile[] | null>().default(null),
   stripeAccountId: varchar("stripeAccountId", { length: 191 }),
   createdAt: timestamp("createdAt").defaultNow(),
+  updatedAt: timestamp("updatedAt").onUpdateNow(),
 })
 
 export type Store = typeof stores.$inferSelect
@@ -61,23 +61,17 @@ export const products = mysqlTable("products", {
   rating: int("rating").notNull().default(0),
   tags: json("tags").$type<string[] | null>().default(null),
   storeId: int("storeId").notNull(),
-  storeName: varchar("name", { length: 191 }).notNull(),
   createdAt: timestamp("createdAt").defaultNow(),
+  updatedAt: timestamp("updatedAt").onUpdateNow(),
 })
 
 export type Product = typeof products.$inferSelect
 export type NewProduct = typeof products.$inferInsert
 
 export const productsRelations = relations(products, ({ one }) => ({
-  storeId: one(stores, {
-    fields: [products.storeId],
-    references: [stores.id],
-  }),
-  storeName: one(stores, {
-    fields: [products.storeName],
-    references: [stores.name],
-  }),
-}));
+  store: one(stores, { fields: [products.storeId], references: [stores.id] }),
+}))
+
 
 // Original source: https://github.com/jackblatch/OneStopShop/blob/main/db/schema.ts
 export const carts = mysqlTable("carts", {
@@ -87,6 +81,7 @@ export const carts = mysqlTable("carts", {
   items: json("items").$type<CartItem[] | null>().default(null),
   closed: boolean("closed").notNull().default(false),
   createdAt: timestamp("createdAt").defaultNow(),
+  updatedAt: timestamp("updatedAt").onUpdateNow(),
 })
 
 export type Cart = typeof carts.$inferSelect
@@ -101,6 +96,7 @@ export const emailPreferences = mysqlTable("email_preferences", {
   marketing: boolean("marketing").notNull().default(false),
   transactional: boolean("transactional").notNull().default(false),
   createdAt: timestamp("createdAt").defaultNow(),
+  updatedAt: timestamp("updatedAt").onUpdateNow(),
 })
 
 export type EmailPreference = typeof emailPreferences.$inferSelect
@@ -115,6 +111,7 @@ export const payments = mysqlTable("payments", {
   stripeAccountExpiresAt: int("stripeAccountExpiresAt"),
   detailsSubmitted: boolean("detailsSubmitted").notNull().default(false),
   createdAt: timestamp("createdAt").defaultNow(),
+  updatedAt: timestamp("updatedAt").onUpdateNow(),
 })
 
 export type Payment = typeof payments.$inferSelect
@@ -141,6 +138,7 @@ export const orders = mysqlTable("orders", {
   email: varchar("email", { length: 191 }),
   addressId: int("addressId"),
   createdAt: timestamp("createdAt").defaultNow(),
+  updatedAt: timestamp("updatedAt").onUpdateNow(),
 })
 
 export type Order = typeof orders.$inferSelect
@@ -156,12 +154,11 @@ export const addresses = mysqlTable("addresses", {
   postalCode: varchar("postalCode", { length: 191 }),
   country: varchar("country", { length: 191 }),
   createdAt: timestamp("createdAt").defaultNow(),
+  updatedAt: timestamp("updatedAt").onUpdateNow(),
 })
 
 export type Address = typeof addresses.$inferSelect
 export type NewAddress = typeof addresses.$inferInsert
-
-
 // Define the 'artist' table
 export const artists = mysqlTable("artists", {
   id: serial("id").autoincrement().primaryKey(),
@@ -209,6 +206,7 @@ export type Dj = typeof djs.$inferSelect
 // Define the 'album' table
 export const albums = mysqlTable("albums", {
   id: serial("id").autoincrement().primaryKey(),
+  artistId: int("artist_id").notNull(),
   title: text("title"),
   genre: mysqlEnum("genre", [
     "ambient",
@@ -238,18 +236,12 @@ export const albums = mysqlTable("albums", {
   producer: text("producer"),
   // Add other album attributes as needed
 });
+
 export type Album = typeof albums.$inferSelect
-
 // Define the 'albums_to_artists' table for the many-to-many relationship
-export const albumsToArtists = mysqlTable("albums_to_artists", {
-  artistId: int("artist_id"),
-  albumId: text("album_id"),
-}, (table) => {
-  return {
-    pk: primaryKey(table.albumId, table.artistId),
-  };
-});
-
+export const albumsRelations = relations(albums, ({ one }) => ({
+  artist: one(artists, { fields: [albums.artistId], references: [artists.id] }),
+}))
 // Define the 'tracklist' table for album track details
 export const tracklist = mysqlTable("tracklist", {
   id: serial("id").autoincrement().primaryKey(),
@@ -258,7 +250,6 @@ export const tracklist = mysqlTable("tracklist", {
   duration: text("duration"),
   remixers: text("remixers"), // Store remixers as a comma-separated string
 });
-
 export const recordLabels = mysqlTable("recordLabels", {
   id: serial("id").autoincrement().primaryKey(),
   name: text("name"),

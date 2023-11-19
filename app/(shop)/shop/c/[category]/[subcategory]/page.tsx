@@ -31,7 +31,7 @@ export function generateMetadata({ params }: SubcategoryPageProps): Metadata {
   return {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
     title: toTitleCase(subcategory),
-    description: `Buy the best ${subcategory}`,
+    description: `Search ${subcategory}`,
   }
 }
 
