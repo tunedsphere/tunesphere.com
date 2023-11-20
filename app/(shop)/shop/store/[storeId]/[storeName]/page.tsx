@@ -108,7 +108,7 @@ export default async function StorePage({
           </div>
         </div>
       </section>
-      <Shell variant="storeId" className="py-8">
+      <Shell className="py-8">
         <div className="flex flex-col gap-8 md:flex-row md:gap-16">
           <div className="flex w-full flex-col gap-4">
             <Products
