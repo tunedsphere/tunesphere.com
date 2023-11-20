@@ -133,6 +133,24 @@ export const productCategories = [
       },
     ],
   },
+  {
+    title: "cds_and_vinyls",
+    image: "/images/physical_musical_format.jpg",
+    icon: StoreIcons.Cigarette,
+    subcategories: [
+      {
+        title: "Vinyl Records",
+        description: "Vinyl Records",
+        slug: "vinyl-records",
+      },
+      {
+        title: "Compact Discs",
+        description: "Compact Discs",
+        slug: "compact-discs",
+      },
+
+    ],
+  },
 ] satisfies Category[]
 
 export const productTags = [

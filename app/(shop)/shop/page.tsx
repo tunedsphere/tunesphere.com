@@ -98,9 +98,11 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     className="absolute object-cover w-full h-full aspect-video max-h-[500px] -z-10 opacity-50"
   ></Image>
   </div>
+  <PageHeader>
           <PageHeaderHeading size="lg" variant="shop" className="md:py-24 py-6 tracking-tighter">
             A Store specially built for You with everything you would expect
           </PageHeaderHeading>
+          </PageHeader>
           <div className="relative mx-auto w-full max-w-[400px] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className="button_bg-gradient-theme absolute inset-x-0"></div>

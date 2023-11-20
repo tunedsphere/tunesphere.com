@@ -52,6 +52,7 @@ export const products = mysqlTable("products", {
     "music",
     "tools",
     "education",
+    "cds_and_vinyls"
   ])
     .notNull()
     .default("art"),

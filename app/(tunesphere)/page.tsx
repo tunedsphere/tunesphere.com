@@ -165,7 +165,8 @@ export default function MyApp() {
         className="pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28 z-200 gap-8"
       >
           <PageHeader id="home-shop" aria-labelledby="home-shop-header-heading">
-        <PageHeaderHeading size="xl" className="text-indexhigh">A Store built for You with everything you would expect.</PageHeaderHeading>
+        <PageHeaderHeading size="xl" className="text-indexhigh md:py-24 py-6 tracking-tighter">
+          A Store built for You with everything you would expect.</PageHeaderHeading>
       </PageHeader>
         <div className="relative mx-auto w-full max-w-[400px] z-200 py-8">
           <div className="flex flex-wrap items-center justify-center gap-4">

@@ -16,7 +16,7 @@ export default async function DashboardLayout({
 
   return (
     <>
-      <div className="mx-auto flex min-h-screen max-w-screen-2xl flex-col sm:px-6 md:px-8">
+      <div className="mx-auto flex min-h-screen max-w-8xl flex-col sm:px-6 md:px-8">
       <SiteHeader />
         <section className="mt-[var(--headerHeight)] grid flex-1 items-start md:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[var(--sidebar-dashboard-width)_minmax(0,1fr)]">
           <Sidebar variant="dashboard">

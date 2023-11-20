@@ -4,7 +4,7 @@ import { db } from "@/db"
 import { products } from "@/db/schema"
 import type { Category } from "@/types"
 import { eq, sql } from "drizzle-orm"
-
+import { formatTitleWithUnderscores } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { buttonVariants } from "@/components/ui/button"
@@ -58,9 +58,10 @@ export async function CategoryCard({ category }: CategoryCardProps) {
           </div>
           <p className="hidden sm:block text-sm text-zinc-200">{productCount} items</p>
         </div>
+
         <h3 className="mt-auto text-xl font-medium capitalize text-zinc-200 text-center sm:text-left hidden sm:block">
-          {category.title}
-        </h3>
+        {formatTitleWithUnderscores(category.title)}
+</h3>
       </div>
       <span className="sr-only">{category.title}</span>
     

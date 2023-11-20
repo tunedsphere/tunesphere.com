@@ -107,7 +107,7 @@ export default async function PagePage({ params }: DocsPageProps) {
 
   return (
     <Shell as="article" variant="markdown">
-        <div className="right-gradient fixed z-10"> </div>
+    <div className="right-gradient fixed z-10"> </div>
       <div className="mx-auto w-full min-w-0">
         <PageHeader className="pb-4">
           <PageHeaderHeading>{title}</PageHeaderHeading>

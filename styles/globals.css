@@ -92,6 +92,105 @@
     --destructive-800: 0 65% 34.5%;
     --destructive-900: 0 62% 29.5%;
     --destructive-950: 0 76% 18%;
+    --theme-hue: 199; /* Adjust the hue value */
+    --theme-lightness: 60%; /* Adjust the lightness value */
+    --theme-saturation: 100%; /* Initial saturation value */
+    --theme: hsl(
+      var(--theme-hue) var(--theme-saturation) var(--theme-lightness)
+    );
+
+    --theme-50: 185 100% 97%;
+    --theme-100: 200 91% 94%;
+    --theme-200: 195 92% 85%;
+    --theme-300: 193 82% 70%;
+    --theme-400: 190 85% 55%;
+    --theme-500: 191 94% 42%;
+    --theme-600: 193 87% 36%;
+    --theme-700: 196 82% 31%;
+    --theme-800: 199 67% 28%;
+    --theme-900: 199 61% 25%;
+    --theme-950: 201 60% 19%;
+
+    --primary: var(--theme-500);
+    --primary-foreground: var(--theme-950);
+
+    --secondary: 195 92% 72%;
+    --secondary-foreground: var(--theme-600);
+
+    --theme-hover: 199 100% 40%;
+    --secondary-hero-2: 212 100% 51%;
+    /* --theme3: 49 100% 60%;
+    --theme4: 358 99% 60%;
+    --theme5: 272 52% 60%;
+    --theme6: 24 100% 60%; */
+
+    --brand: 240 5.9% 10%;
+    --texthigh: 240 5.9% 10%;
+    --textlow: 240 10% 3.9%;
+    --indexhigh: 210 6% 93%;
+    --indexlow: 290 5% 60%;
+
+    --background-navbartop: hsla(0, 0%, 2%, 0.5);
+    --background-navbarbottom: hsla(0, 0%, 2%, 0.5);
+
+    --sidebar-dashboard-width: 220px;
+    --headerHeight: 72px;
+    --globalNavHeight: 128px;
+    --music-grid-banner-height: 88px;
+    --music-grid-banner-height-mobile: 48px;
+
+    --scrollbar-thumb-color: hsl(var(--primary));
+    --scrollbar-track-color: hsl(var(--secondary));
+
+    --background-globalnav: 221 41% 8%;
+    --background-navbartop: 221 50% 98%;
+    --background-navbarbottom: 221 50% 98%;
+    --background-footer: 221 41% 20%;
+    --background-shopHeader: hsl(var(--background-navbartop));
+    --background-footer: 221 41% 20%;
+
+    --background-shop-navlink: 195 92% 85%;
+
+    --background: 0 0% 100%;
+    --background-index: 0 0% 0%;  
+
+    --background-gradient: linear-gradient(
+      120deg,
+      var(--colors-indigo4),
+      var(--background)
+    );
+
+    --foreground: 240 10% 3.9%;
+
+    --muted: 240 4.8% 85%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --popover: 195 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --card:240 4.8% 97%;
+    --card-foreground: 240 10% 3.9%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+
+    --accent-theme: 252 40.1% 22.5%;
+    --accent: 240 6% 82%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 62.8% 30.6%;    
+    --destructive-foreground: 210 20% 98%;   
+
+    --ring: 191 94% 42%;
+
+    --radius: 0.5rem;
+    --sidebar-width: 208px;
+
+
+   
+  }
+
+  .dark {
 
     --theme: 280 71% 60%;
     --theme-50: 282 100% 97.8%;
@@ -181,92 +280,7 @@
     --ring: 263.4 70% 50.4%;
 
     --radius: 0.5rem;
-  }
-
-  .dark {
-
-
-    --theme-hue: 199; /* Adjust the hue value */
-    --theme-lightness: 60%; /* Adjust the lightness value */
-    --theme-saturation: 100%; /* Initial saturation value */
-    --theme: hsl(
-      var(--theme-hue) var(--theme-saturation) var(--theme-lightness)
-    );
-
-    --theme-50: 185 100% 97%;
-    --theme-100: 200 91% 94%;
-    --theme-200: 195 92% 85%;
-    --theme-300: 193 82% 70%;
-    --theme-400: 190 85% 55%;
-    --theme-500: 191 94% 42%;
-    --theme-600: 193 87% 36%;
-    --theme-700: 196 82% 31%;
-    --theme-800: 199 67% 28%;
-    --theme-900: 199 61% 25%;
-    --theme-950: 201 60% 19%;
-
-    --primary: var(--theme-500);
-    --primary-foreground: var(--theme-950);
-
-    --secondary: 195 92% 72%;
-    --secondary-foreground: var(--theme-600);
-
-    --theme-hover: 199 100% 40%;
-    --secondary-hero-2: 212 100% 51%;
-    /* --theme3: 49 100% 60%;
-    --theme4: 358 99% 60%;
-    --theme5: 272 52% 60%;
-    --theme6: 24 100% 60%; */
-
-    --brand: 240 5.9% 10%;
-    --texthigh: 240 5.9% 10%;
-    --textlow: 240 10% 3.9%;
-    --indexhigh: 210 6% 93%;
-    --indexlow: 290 5% 60%;
-
-    --background-globalnav: 221 41% 8%;
-    --background-navbartop: 221 50% 98%;
-    --background-navbarbottom: 221 50% 98%;
-    --background-footer: 221 41% 20%;
-    --background-shopHeader: hsl(var(--background-navbartop));
-    --background-footer: 221 41% 20%;
-
-    --background-shop-navlink: 195 92% 85%;
-
-    --background: 0 0% 100%;
-    --background-index: 0 0% 0%;  
-
-    --background-gradient: linear-gradient(
-      120deg,
-      var(--colors-indigo4),
-      var(--background)
-    );
-
-    --foreground: 240 10% 3.9%;
-
-    --muted: 240 4.8% 85%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --popover: 195 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    --card:240 4.8% 97%;
-    --card-foreground: 240 10% 3.9%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-
-    --accent-theme: 252 40.1% 22.5%;
-    --accent: 240 6% 82%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 62.8% 30.6%;    
-    --destructive-foreground: 210 20% 98%;   
-
-    --ring: 191 94% 42%;
-
-    --radius: 0.5rem;
-    --sidebar-width: 208px;
+   
   }
 }
 
@@ -295,7 +309,7 @@
 }
 
 .navbar-container {
-  max-width: 1360px;
+  max-width: 90rem;
   margin: 0 auto;
 }
 

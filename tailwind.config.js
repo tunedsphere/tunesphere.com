@@ -8,11 +8,28 @@ module.exports = {
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
 	],
   theme: {   
+    maxWidth: {
+      xxs: '13rem',
+      xs: '20rem',
+      sm: '24rem',
+      md: '28rem',
+      lg: '32rem',
+      xl: '36rem',
+      '2xl': '42rem',
+      '3xl': '48rem',
+      '4xl': '56rem',
+      '5xl': '64rem',
+      '6xl': '72rem',
+      '7xl': '80rem',
+      '8xl': '90rem',
+      '9xl': '100rem',
+      full: '100%'
+    },
     container: {
       center: true,
       padding: "1rem",
       screens: {
-        's': {'max': '375px'},
+        'xs': {'max': '375px'},
         'sm': {'min': '640px', 'max': '767px'},
         'md': {'min': '768px', 'max': '1023px'},
         'lg': {'min': '1024px', 'max': '1279px'},
@@ -29,6 +46,10 @@ module.exports = {
       }
     },
     extend: {
+      maxWidth: {
+        '2xs': '16rem',
+        '8xl': '90rem',
+    },
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
         mono: ['var(--font-geist-mono)'],

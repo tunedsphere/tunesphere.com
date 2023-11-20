@@ -72,13 +72,20 @@ const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:
 
 function CategorySkeleton() {
   return (
-    <div className="flex flex-col col-span-4 lg:col-span-1">
-      <div className={`bg-card rounded-t-lg ${shimmer}`}>
-      <AspectRatio ratio={16 / 9}>
-      <div className={`bg-card ${shimmer}`} />
-      </AspectRatio>
-      </div>
+
+  <div className={`relative bg-card rounded-t-lg ${shimmer}`}>
+    <AspectRatio ratio={16 / 9}>
+      <div className="flex flex-col justify-around">
+      <div className="flex justify-between p-4">
+    <div className={`h-7 w-7 bg-muted rounded-md ${shimmer}`}/>
+    <div className={`h-6 w-1/6 bg-muted rounded-md ${shimmer}`}/>
     </div>
+    <div className="flex mt-auto p-4 items-end self-end">
+    <div className={`h-8 w-1/6 bg-muted rounded-md self-end ${shimmer}`}/>
+    </div>
+    </div>
+    </AspectRatio>
+  </div>
   );
 }
 
@@ -101,6 +108,7 @@ export function FeaturedCategoriesSkeleton() {
     </div>
     <div className="space-y-6 pb-[5px]">
       <div className="grid grid-cols-3 sm:gap-8 gap-1.5 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <CategorySkeleton />
         <CategorySkeleton />
         <CategorySkeleton />
         <CategorySkeleton />

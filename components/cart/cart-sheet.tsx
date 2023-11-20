@@ -41,7 +41,7 @@ export async function CartSheet({ className}: CartSheetProps) {
         <Button aria-label="Open cart" variant="nav" size="xs"  className={`px-2 ${className}`}>
           {itemCount > 0 && (
             <Badge
-              variant="destructive"
+              variant="success"
               className="absolute -translate-y-1/2 translate-x-1/2 transform"
             >
               {itemCount}
@@ -115,7 +115,7 @@ export async function CartSheet({ className}: CartSheetProps) {
               <Separator className="mb-2" />
               <div className="flex">
                 <span className="flex-1">Subtotal</span>
-                <span>{formatPrice(cartTotal.toFixed(2))}</span>
+                <span>{formatPrice(cartTotal)}</span>
               </div>
               <div className="flex">
                 <span className="flex-1">Shipping</span>
@@ -128,7 +128,7 @@ export async function CartSheet({ className}: CartSheetProps) {
               <Separator className="mt-2" />
               <div className="flex">
                 <span className="flex-1">Total</span>
-                <span>{formatPrice(cartTotal.toFixed(2))}</span>
+                <span>{formatPrice(cartTotal)}</span>
               </div>
               <SheetFooter className="mt-1.5">
                 <Button

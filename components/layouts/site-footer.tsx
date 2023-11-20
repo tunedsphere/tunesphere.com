@@ -9,7 +9,7 @@ import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsl
 export function SiteFooter() {
 
   return (
-    <footer className="relative mx-auto w-full items-center px-4 py-8">
+    <footer className="relative mx-auto max-w-8xl items-center px-4 py-8">
       <div className="footer-gradient -z-10 w-1/5" />
 
       <div className="gap-5">

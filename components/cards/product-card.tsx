@@ -101,7 +101,7 @@ export function ProductCard({
               {formatPrice(product.price)}
             </div>
             <div className="flex gap-x-1.5">
-  <div className="text-lg font-bold leading-snug text-secondary">
+  <div className="text-lg font-bold leading-snug text-emerald-400">
     -{/* */}30{/* */}%
   </div>
   <div className="flex">

@@ -6,15 +6,14 @@ import { cn } from "@/lib/utils"
 const shellVariants = cva("grid gap-8 pb-8", {
   variants: {
     variant: {
-      default: "container max-w-screen-2xl mx-auto justify-center",
+      default: "container max-w-8xl mx-auto justify-center",
       full: "mx-auto gap-12",
       auth: "max-w-lg mx-auto sm:py-8 pb-0",
-      shop: "py-8 px-2 mx-auto max-w-screen-2xl",
-      storeId: "pb-8 px-2 mx-auto max-w-screen-xl",
-      dashboard: "py-8 gap-8 md:px-8 xl:px-10 px-4",
+      shop: "py-8 px-0 xs:px-4 sm:px-6 md:px-8 mx-auto max-w-8xl",
+      dashboard: "py-8 gap-8 px-4 sm:px-6 md:px-8",
       sidebar: "pt-0 md:py-0",
       centered: "mx-auto mb-16 mt-20 max-w-md justify-center",
-      markdown: "relative grow py-6 lg:gap-10 xl:grid xl:grid-cols-[1fr_100px] max-w-7xl mx-auto",
+      markdown: "relative z-20 py-6",
     },
   },
   defaultVariants: {

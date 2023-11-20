@@ -13,16 +13,15 @@ export function cn(...inputs: ClassValue[]) {
 export function formatPrice(
   price: number | string,
   options: {
-    currency?: "USD" | "EUR" | "GBP" | "BDT"
+    currency?: "EUR" | "USD" | "GBP" | "BDT"
     notation?: Intl.NumberFormatOptions["notation"]
   } = {}
 ) {
-  const { currency = "EUR", notation = "compact" } = options
+  const { currency = "EUR" } = options
 
   return new Intl.NumberFormat("en-EU", {
     style: "currency",
     currency,
-    notation,
   }).format(Number(price))
 }
 
@@ -91,7 +90,9 @@ export function slugify(str: string | string[] | undefined | null) {
       (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()
     );
   }
-  
+  export function formatTitleWithUnderscores(title: string) {
+    return toTitleCase(title.replace(/_/g, ' '));
+  }
   export function truncate(str: string, length: number) {
     return str.length > length ? `${str.substring(0, length)}...` : str;
   }
