@@ -74,18 +74,20 @@ export default async function ProductsPage({
 
   return (
     <>
-      <Shell variant="shop">
-              <PageHeader
+    <div className="grid gap-4 pb-8 py-8 px-2 mx-auto bg-primary/10">
+    <PageHeader
               className=""
         variant="shopProducts"
         id="products-page-header"
         aria-labelledby="products-page-header-heading"
       >
-        <PageHeaderHeading variant="shopProducts" size="sm">Products</PageHeaderHeading>
-        <PageHeaderDescription size="sm">
+        <PageHeaderHeading variant="shopProducts" size="xl" className="font-mono">Products</PageHeaderHeading>
+        <PageHeaderDescription size="sm" className="font-mono">
           Explore, discover, buy, and elevate your psychedelic creativity
         </PageHeaderDescription>
       </PageHeader>
+    </div>
+      <Shell variant="shop">
         <Products
           products={productsTransaction.items}
           pageCount={pageCount}

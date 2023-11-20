@@ -50,7 +50,8 @@ interface GlobalNavFlyoutProps {
     <>
       {isFlyoutOpen && (
         <div className="@container fixed sm:hidden no-scrollbar top-0 left-0 z-9999 block overflow-hidden h-screen w-screen bg-background px-2
-        data-[state=open]:block  data-[state=open]:h-screendata-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top">
+        data-[state=open]:block data-[state=open]:h-screendata-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top">
+          <div className="flex flex-col gap-8">
           <div className="flex w-full flex-1 flex-row justify-between">
             <div className="flex w-1/4 py-3">
               <Button
@@ -65,7 +66,7 @@ interface GlobalNavFlyoutProps {
                 </span>
               </Button>
             </div>
-            <div className="flex w-1/2 justify-end py-3 @sm:hidden">
+            <div className="flex w-1/2 justify-end py-3">
               <ThemeToggle className=""/>
             </div>
           </div>
@@ -101,6 +102,7 @@ interface GlobalNavFlyoutProps {
   </li>
 ))}
           </div>
+        </div>
         </div>
       )}
       {isModalOpen && <Modal handleModalClose={handleModalOpen} />}

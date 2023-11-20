@@ -76,8 +76,9 @@ export default async function SubcategoryPage({
   const storePageCount = Math.ceil(storesTransaction.count / storesLimit)
 
   return (
-    <Shell variant="shop">
-      <Breadcrumbs
+    <>
+    <div className="grid gap-4 pb-8 py-8 px-2 mx-auto bg-primary/10">
+    <Breadcrumbs
         segments={[
           {
             title: "Products",
@@ -93,18 +94,19 @@ export default async function SubcategoryPage({
           },
         ]}
       />
-        <PageHeader
+
+<PageHeader
         variant="shopProducts"
         id="subcategory-page-header"
         aria-labelledby="subcategory-page-header-heading"
       >
-        <PageHeaderHeading size="sm" variant="shopProducts">
+        <PageHeaderHeading size="xl" variant="shopProducts" className="font-mono">
           {toTitleCase(unslugify(subcategory))}
         </PageHeaderHeading>
-        <PageHeaderDescription size="sm">
-          {`Buy the best ${unslugify(subcategory)}`}
-        </PageHeaderDescription>
       </PageHeader>
+  </div>
+    <Shell variant="shop">
+
       <Products
         id="subcategory-page-products"
         aria-labelledby="subcategory-page-products-heading"
@@ -114,5 +116,6 @@ export default async function SubcategoryPage({
         storePageCount={storePageCount}
       />
     </Shell>
+    </>
   )
 }

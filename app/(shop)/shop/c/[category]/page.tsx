@@ -82,29 +82,35 @@ export default async function CategoryPage({
   const storePageCount = Math.ceil(storesTransaction.count / storesLimit)
 
   return (
+    <>
+    <div className="grid gap-4 pb-8 py-8 px-2 mx-auto bg-primary/10">
+    <Breadcrumbs
+    segments={[
+      {
+        title: "Products",
+        href: "/shop/products",
+      },
+      {
+        title: toTitleCase(category),
+        href: `/shop/${category}`,
+      },
+    ]}
+  />
+   <PageHeader
+    variant="shopProducts"
+    id="category-page-header"
+    aria-labelledby="category-page-header-heading"
+  >
+    <PageHeaderHeading variant="shop" size="xl" className="font-mono">
+      {toTitleCase(category)}
+      </PageHeaderHeading>
+    <PageHeaderDescription size="sm" className="font-mono">
+      {`Choose ${category} that is the best for you`}
+    </PageHeaderDescription>
+  </PageHeader>
+  </div>
     <Shell variant="shop">
-      <Breadcrumbs
-        segments={[
-          {
-            title: "Products",
-            href: "/shop/products",
-          },
-          {
-            title: toTitleCase(category),
-            href: `/shop/${category}`,
-          },
-        ]}
-      />
-       <PageHeader
-        variant="shopProducts"
-        id="category-page-header"
-        aria-labelledby="category-page-header-heading"
-      >
-        <PageHeaderHeading variant="shop" size="sm">{toTitleCase(category)}</PageHeaderHeading>
-        <PageHeaderDescription size="sm">
-          {`Buy ${category} from the best stores`}
-        </PageHeaderDescription>
-      </PageHeader>
+     
       <Products
         id="category-page-products"
         aria-labelledby="category-page-products-heading"
@@ -115,5 +121,6 @@ export default async function CategoryPage({
         storePageCount={storePageCount}
       />
     </Shell>
+    </>
   )
 }

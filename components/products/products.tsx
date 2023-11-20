@@ -56,6 +56,7 @@ export function Products({
   storePageCount,
   ...props
 }: ProductsProps) {
+  const id = React.useId()
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -270,15 +271,16 @@ export function Products({
                 </div>
               ) : null}
               {stores?.length ? (
-                <div className="space-y-3">
+                <div className="space-y-4 overflow-hidden rounded-lg py-3 pl-3">
                   <div className="flex gap-2">
-                    <h3 className="flex-1 text-sm font-medium tracking-wide">
+                    <h3 className="flex-1 text-sm font-medium tracking-wide text-foreground">
                       Stores
                     </h3>
                     <div className="flex items-center space-x-2">
                       <Button
                         variant="ghost"
                         size="icon"
+                        className="h-8 w-8"
                         onClick={() => {
                           startTransition(() => {
                             router.push(
@@ -299,6 +301,7 @@ export function Products({
                       <Button
                         variant="ghost"
                         size="icon"
+                        className="h-8 w-8"
                         onClick={() => {
                           startTransition(() => {
                             router.push(
@@ -320,7 +323,7 @@ export function Products({
                       </Button>
                     </div>
                   </div>
-                  <ScrollArea className="h-96">
+                  <ScrollArea className="h-full">
                     <div className="space-y-4">
                       {stores.map((store) => (
                         <div
@@ -328,7 +331,8 @@ export function Products({
                           className="flex items-center space-x-2"
                         >
                           <Checkbox
-                            id={`store-${store.id}`}
+                          className="h-4 w-4"
+                             id={`store-${store.id}`}
                             checked={storeIds?.includes(store.id) ?? false}
                             onCheckedChange={(value) => {
                               if (value) {
@@ -342,10 +346,10 @@ export function Products({
                             }}
                           />
                           <Label
-                            htmlFor={`store-${store.id}`}
-                            className="line-clamp-1 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                           htmlFor={`store-${store.id}`}
+                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                           >
-                             {truncate(store.name, 20)}
+                              {truncate(store.name, 20)}
                           </Label>
                         </div>
                       ))}
@@ -459,7 +463,7 @@ export function Products({
         {products.map((product) => (
           <div key={product.id}>
           <ProductCard 
-          product={product}
+            product={product}
             storeName={product.name}/>
           </div>
         ))}

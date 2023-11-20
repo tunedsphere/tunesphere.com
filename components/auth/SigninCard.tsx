@@ -54,8 +54,8 @@ export default function SigninCard({ onClose }:SigninCardProps ) {
           </Button>
         </div>
         <CardHeader className="items-center space-y-1">
-          <CardTitle as="h1" className="text-card-foreground">Log in</CardTitle>
-          <CardDescription className="p-2 text-center text-primary">
+          <CardTitle as="h1" className="text-card-foreground text-5xl">Log in</CardTitle>
+          <CardDescription className="p-2 text-center text-secondary">
             Choose your preferred log in method
           </CardDescription>
         </CardHeader>
@@ -82,7 +82,7 @@ export default function SigninCard({ onClose }:SigninCardProps ) {
   href={siteConfig.footerNav[2]?.items[2]?.href as string} // "Terms" href
   target="_blank"
   rel="noreferrer"
-  className="text-primary transition-colors hover:text-foreground"
+  className="text-secondary transition-colors hover:text-foreground"
 >
   Terms
 </Link>{" "}
@@ -91,7 +91,7 @@ and{" "}
   href={siteConfig.footerNav[2]?.items[3]?.href as string} // "Privacy" href
   target="_blank"
   rel="noreferrer"
-  className="text-primary transition-colors hover:text-foreground"
+  className="text-secondary transition-colors hover:text-foreground"
 >
   Privacy
 </Link>

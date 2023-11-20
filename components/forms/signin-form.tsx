@@ -95,18 +95,17 @@ export function SignInForm({ handleLinkClick }: SignInFormProps){
           name="password"
           render={({ field }) => (
             <FormItem>
-              <span className="flex justify-between text-center align-bottom">
+              <div className="flex justify-between text-center items-center">
               <FormLabel>Password</FormLabel>
               <Link
             aria-label="Reset password"
             href="/signin/reset-password"
-            className="flex text-xs text-primary underline-offset-4 transition-colors hover:underline"
+            className="text-xs text-secondary underline-offset-4 transition-colors hover:underline"
             onClick={handleLinkClick}
           >
             Forgot password?
-            
           </Link>
-          </span>
+          </div>
               <FormControl>
                 <PasswordInput className="bg-background" placeholder="**********" {...field} />
               </FormControl>

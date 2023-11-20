@@ -4,32 +4,22 @@ import * as React from "react"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 
-import { MainNavItem, SidebarNavItem } from "types"
+import { MainNavItem} from "types"
 import { siteConfig } from "@/configs/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
-import { DocsMobileNav } from "@/components/layouts/docs-mobile-nav"
-import { docsConfig } from "@/configs/docs"
+
 interface DocsMainNavProps {
   items: MainNavItem[]
-  sideItems: SidebarNavItem[]
 }
 
-export function DocsMainNav({ items, sideItems }: DocsMainNavProps) {
+export function DocsMainNav({ items }: DocsMainNavProps) {
   const segment = useSelectedLayoutSegment()
-  const [showMobileMenu, setShowMobileMenu] = React.useState(false)
-  const openMobileMenu = () => {
-    setShowMobileMenu(true);
-  };
-  const closeMobileMenu = () => {
-    setShowMobileMenu(false);
-  };
-  
   return (
     <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="hidden items-center space-x-2 md:flex">
-        <Icons.logo className="h-8 w-8 text-primary"/>
-        <span className="hidden font-bold sm:inline-block text-lg">
+      <Link href="/" className="flex items-center space-x-2">
+        <Icons.logo className="h-8 w-8"/>
+        <span className="font-bold inline-block text-lg">
           {siteConfig.name}
         </span>
       </Link>
@@ -52,18 +42,6 @@ export function DocsMainNav({ items, sideItems }: DocsMainNavProps) {
           ))}
         </nav>
       ) : null}
-      <button
-        className="flex items-center space-x-2 md:hidden"
-        
-      >
-        {showMobileMenu ? <Icons.close 
-        onClick={closeMobileMenu} className="hover:text-primary"/> : <span onClick={openMobileMenu} className="font-bold">Menu</span>}
-      </button>
-      {showMobileMenu && items && sideItems && (
-        <DocsMobileNav closeMobileMenu={closeMobileMenu} sideItems={docsConfig.sidebarNav} 
-        items={items} >
-          </DocsMobileNav>
-      )}
     </div>
   )
 }

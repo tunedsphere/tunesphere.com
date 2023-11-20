@@ -40,11 +40,9 @@ export default function MyApp() {
       <Shell 
       className="mx-auto mt-[var(--headerHeight)] flex flex-col items-center justify-between sm:mt-[var(--globalNavHeight)] md:px-8 bg-transparent">
         <div className="mt-12 py-12 md:mt-12 z-200">
-          <div>
-            <h1
-              className="hero_title justify-center gap-2 text-center leading-tight tracking-tighter md:text-5xl md:leading-[1.4] lg:text-7xl lg:leading-[1.4]"
-              aria-label="A Psychedelic Dedicated Platform"
-            >
+          <PageHeader id="home-shop"
+              aria-label="A Psychedelic Dedicated Platform">
+                 <PageHeaderHeading size="xxl"  className="hero_title justify-center gap-2 text-center leading-tight tracking-tighter md:text-5xl md:leading-[1.4] lg:text-7xl lg:leading-[1.4]">
               <span className="text-indexhigh">A </span>
               <span className="animated-gradient-text_background animated-gradient-text_background-1 bg-clip-text">
                 <span className="animated-gradient-text_foreground animated-gradient-text_foreground-1 bg-clip-text">
@@ -61,8 +59,9 @@ export default function MyApp() {
                   Platform
                 </span>
               </span>
-            </h1>
-          </div>
+              </PageHeaderHeading>
+              </PageHeader>
+
 
           <p className="hero_description py-4 text-center text-lg font-normal text-indexlow lg:text-xl">
             Explore the musical realm of Psychedelic Art, with Music, Art,

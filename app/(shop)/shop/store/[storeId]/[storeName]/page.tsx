@@ -5,8 +5,6 @@ import { products, stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { eq } from "drizzle-orm"
 
-import { Separator } from "@/components/ui/separator"
-
 import { Products } from "@/components/products/products"
 import { Shell } from "@/components/shells/shell"
 import { getProductsAction } from "@/app/_actions/product"
@@ -87,44 +85,42 @@ export default async function StorePage({
   return (
     <>
 
-    <section id="store-home-header" className="relative flex-1">
-      <div className="border-0">
-        <StoreBanner
+      <section id="store-home-header" className="relative flex-1">
+        <div className="flex w-full h-[3.5rem] bg-primary/20"></div>
+        {/* <StoreBanner
         key={store.id}
         className="object-contain " 
-          images={store.storeBanner ?? []}/> 
+          images={store.storeBanner ?? []}/>  */}
+        <div className="flex w-full bg-muted/10">
+          <div className="flex max-w-7xl mx-auto w-full p-4 space-y-2">
+            <div className="flex w-1/2">
+              <div className="items-center justify-center p-2">
+                <StoreIcon className="w-[120px] h-[120px]"
+                  images={store.storeIcon ?? []} />
+              </div>
+              <div className="pt-4 flex flex-col">
+                <h2 className="flex flex-start line-clamp-1 text-2xl font-bold">{store.name}</h2>
+                <p className="text-base text-muted-foreground">
+                  {store.headline}
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="flex w-full bg-muted/30">
-  <div className="flex max-w-7xl mx-auto w-full p-4 space-y-2">
-    <div className="flex w-1/2">
-    <div className="items-center justify-center p-2">
-      <StoreIcon className="min-w-full"
-      images={store.storeIcon ?? []}/> 
-  </div>
-  <div className="pt-4 flex flex-col">
-    <h2 className="flex flex-start line-clamp-1 text-2xl font-bold">{store.name}</h2>
-    <p className="text-base text-muted-foreground">
-      {store.headline}
-    </p>
-  </div>
-</div>
-</div>
-</div>
-    </section>
-    <Shell variant="storeId" className="">
-      <div className="flex flex-col gap-8 md:flex-row md:gap-16">
-        <div className="flex w-full flex-col gap-4">
-          <Separator className="my-1.5" />
-          <Products
-            products={productsTransaction.items}
-            pageCount={pageCount}
-            categories={Object.values(products.category.enumValues)}
-            stores={storesTransaction.items}
-            storePageCount={storePageCount}
-          />
         </div>
-      </div>
-    </Shell>
+      </section>
+      <Shell variant="storeId" className="py-8">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-16">
+          <div className="flex w-full flex-col gap-4">
+            <Products
+              products={productsTransaction.items}
+              pageCount={pageCount}
+              categories={Object.values(products.category.enumValues)}
+              stores={storesTransaction.items}
+              storePageCount={storePageCount}
+            />
+          </div>
+        </div>
+      </Shell>
 
     </>
   )

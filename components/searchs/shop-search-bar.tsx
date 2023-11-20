@@ -87,10 +87,10 @@ export function ShopSearchBar() {
   }, [isOpen]);
   return (
     <>
-      <div id="shop-search-bar" className="relative flex flex-row w-full border border-muted/30 hover:border-muted/50 rounded-lg">
-      <Command className={` align-middle ${query ? 'bg-muted' : 'bg-muted'} w-full hover:bg-muted focus:bg-muted`}>
+      <div id="shop-search-bar" className="relative flex flex-row w-full border border-muted hover:border-primary/50 rounded-lg">
+      <Command className={`align-middle ${query ? 'bg-popover' : 'bg-popover'} w-full `}>
       <CommandInput
-          className="align-middle bg-transparent  px-0 py-0"
+          className="align-middle bg-transparent px-0 py-0"
           placeholder="Search products..."
           value={query}
           onValueChange={setQuery}
@@ -103,7 +103,7 @@ export function ShopSearchBar() {
    {data && isOpen && (
         <CommandList 
         ref={commandListRef}
-         className=" flex-grow left-0 right-0 py-1 absolute mt-12 rounded-sm shadow-lg border border-muted/30" >
+         className="bg-popover flex-grow left-0 right-0 py-1 absolute mt-12 rounded-sm shadow-lg border border-muted" >
           <CommandEmpty
             className={cn(isPending ? "hidden" : "py-6 text-center text-sm ")}
           >
@@ -124,7 +124,7 @@ export function ShopSearchBar() {
               >
                 {group.products.map((item) => (
                 <CommandItem
-                className=" cursor-pointer bg-transparent hover:bg-theme-200"
+                className=" cursor-pointer bg-transparent hover:bg-muted/30"
                 key={item.id}
                 aria-selected={false}
                 onSelect={() =>
