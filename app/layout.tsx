@@ -56,7 +56,7 @@ children: React.ReactNode
       )}
     >
         <body className="antialiased font-sans">
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="dark">
             {children}
           </ThemeProvider>
           <Toaster richColors />

@@ -56,6 +56,7 @@ export default function SiteGlobalNavMenuBurger() {
             size="xs"
             variant="nav"
             onClick={handleNavbarClick}
+            aria-label="Toggle menu"
             className="hidden text-indexhigh hover:text-theme md:block"
           >
             <Icons.menu

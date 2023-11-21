@@ -23,18 +23,17 @@ export default function MyApp() {
 
   return (
     <> 
-      <div className="grid grid-cols-2">
-        <div className="w-1/2 h-1/3">
-          <Image
-            src={planet2}
-            placeholder="blur"
-            width={500}
-            height={500}
-            alt="planet Home"
-            className="absolute left-0 top-0 z-10 md:w-2/5"
-          ></Image>
-        </div>
-      </div>
+      <div className="absolute h-0 pb-[100%] w-2/5">
+    <Image
+      src={planet2}
+      placeholder="blur"
+      width={500}
+      height={500}
+      alt="planet Home"
+      layout="responsive"
+      className="absolute left-0 top-0 z-10"
+    />
+  </div>
       
 
       <Shell 

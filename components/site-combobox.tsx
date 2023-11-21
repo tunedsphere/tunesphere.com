@@ -74,7 +74,11 @@ export function SiteCombobox({ className}: SiteComboboxProps) {
   return (
     <>
     <div className="hidden sm:block">
-      <Button variant="nav" size="xs" className={`px-2 ${className}`} onClick={() => setIsOpen(true)}>
+      <Button 
+      variant="nav" 
+      size="xs"
+      aria-label="Open search" 
+      className={`px-2 ${className}`} onClick={() => setIsOpen(true)}>
         <Icons.search
           className="cursor-pointer object-contain"
           aria-hidden="true"

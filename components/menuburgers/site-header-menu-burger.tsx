@@ -54,6 +54,7 @@ export default function SiteHeaderMenuBurger() {
           <Button
             size="xs"
             onClick={handleNavbarClick}
+            aria-label="Toggle menu"
             className="z-20 hidden text-texthigh hover:text-primary md:block  hover:bg-theme-950 bg-transparent"
           >
             <Icons.menu

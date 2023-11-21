@@ -8,11 +8,11 @@ import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsl
 export function SiteIndexFooter() {
 
   return (
-    <footer className="relative bg-background-index bottom-0 mx-auto w-full items-center px-4 py-8">
+    <footer className="relative bg-background-index max-w-8xl bottom-0 mx-auto w-full items-center px-4 py-8">
       <div className="footer-gradient -z-10 w-1/5" />
 
       <div className="gap-5">
-        <h1 className="py-8 text-center font-bold text-indexhigh md:text-4xl">
+        <h1 className="py-8 text-center font-bold text-indexhigh text-4xl">
           A Psychedelic dedicated Platform
         </h1>
       </div>
@@ -21,9 +21,9 @@ export function SiteIndexFooter() {
             aria-labelledby="newsletter-heading"
             className="space-y-3 max-w-2xl flex flex-col justify-center mx-auto py-4 gap-4"
           >
-            <h4 className="text-base font-medium text-center text-indexlow">
+            <p className="text-base font-medium text-center text-indexlow">
   Subscribe to our <span className="underline decoration-primary underline-offset-4 font-semibold text-indexhigh">Newsletter</span>
-</h4>
+</p>
             <SubscribeToNewsletterForm />
           </section>
 
@@ -39,7 +39,7 @@ export function SiteIndexFooter() {
   >
     {siteConfig.footerNav.map((item) => (
       <div key={item.title} className="space-y-3">
-        <h4 className="text-base text-indexhigh font-medium underline decoration-primary underline-offset-4 md:pl-28">{item.title}</h4>
+        <h1 className="text-base text-indexhigh font-medium underline decoration-primary underline-offset-4 md:pl-28">{item.title}</h1>
         <ul className="space-y-3">
           {item.items.map((link) => (
             <li key={link.title} className="text-left pl-2 md:pl-28"> {/* Adjust padding here */}

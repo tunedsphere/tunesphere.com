@@ -13,7 +13,7 @@ export function SiteFooter() {
       <div className="footer-gradient -z-10 w-1/5" />
 
       <div className="gap-5">
-        <h1 className="py-8 text-center font-bold text-texthigh md:text-4xl">
+        <h1 className="py-8 text-center font-bold text-texthigh text-4xl">
           A Psychedelic dedicated Platform
         </h1>
       </div>
@@ -40,7 +40,7 @@ export function SiteFooter() {
   >
     {siteConfig.footerNav.map((item) => (
       <div key={item.title} className="space-y-3">
-        <h4 className="text-base font-medium underline decoration-primary underline-offset-4 md:pl-28">{item.title}</h4>
+        <h1 className="text-base font-medium underline decoration-primary underline-offset-4 md:pl-28">{item.title}</h1>
         <ul className="space-y-3">
           {item.items.map((link) => (
             <li key={link.title} className="text-left pl-2 md:pl-28"> {/* Adjust padding here */}
