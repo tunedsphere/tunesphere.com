@@ -54,11 +54,17 @@
   #docs-sidebar::-webkit-scrollbar-track {
     background-color: #555;
   }
+
   :root {
 
     --animation-duration: 200ms;
     --animation-timing-curve: ease-in-out;
 
+    --sidebar-dashboard-width: 220px;
+    --headerHeight: 72px;
+    --globalNavHeight: 128px;
+    --music-grid-banner-height: 88px;
+    --music-grid-banner-height-mobile: 48px;
 
     --gray-100-value: 0 0% 10%;
     --gray-200-value: 0 0% 12%;
@@ -208,12 +214,6 @@
     --background-navbartop: hsla(0, 0%, 2%, 0.5);
     --background-navbarbottom: hsla(0, 0%, 2%, 0.5);
 
-    --sidebar-dashboard-width: 220px;
-    --headerHeight: 72px;
-    --globalNavHeight: 128px;
-    --music-grid-banner-height: 88px;
-    --music-grid-banner-height-mobile: 48px;
-
     --scrollbar-thumb-color: hsl(var(--primary));
     --scrollbar-track-color: hsl(var(--secondary));
 
@@ -300,7 +300,10 @@
   body {
     @apply bg-background text-foreground;
   }
-
+  :global(body.custom-body-class) {
+    background-color: black;
+    /* Add any other styles you want for the body */
+  }
   @media (max-width: 767px) {
     body {
       scrollbar-width: none;

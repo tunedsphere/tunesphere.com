@@ -51,8 +51,10 @@ children: React.ReactNode
           <html
       lang="en"
       className={clsx(
+        'bg-background-index',
         GeistSans.variable,
-        GeistMono.variable
+        GeistMono.variable,
+        
       )}
     >
         <body className="antialiased font-sans">

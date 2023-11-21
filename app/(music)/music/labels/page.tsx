@@ -1,7 +1,7 @@
 "use client"
 import { RecordLabelsGrid, RecordLabelsGridSkeleton } from "@/components/grid/labels-grid";
 import { useMusicContext } from "@/components/grid/music-context"
-import { Suspense } from "react";
+
 
 export default function LabelsPage() {
 

@@ -23,7 +23,7 @@ export default function MyApp() {
 
   return (
     <> 
-      <div className="absolute h-0 pb-[100%] w-2/5">
+      <div className="absolute w-2/5">
     <Image
       src={planet2}
       placeholder="blur"
@@ -31,13 +31,13 @@ export default function MyApp() {
       height={500}
       alt="planet Home"
       layout="responsive"
-      className="absolute left-0 top-0 z-10"
+      className="left-0 top-0 z-10"
     />
   </div>
       
 
       <Shell 
-      className="mx-auto mt-[var(--headerHeight)] flex flex-col items-center justify-between sm:mt-[var(--globalNavHeight)] md:px-8 bg-transparent">
+      className="mx-auto pt-[var(--headerHeight)] flex flex-col items-center justify-between sm:pt-[var(--globalNavHeight)] md:px-8 bg-transparent">
         <div className="mt-12 py-12 md:mt-12 z-200">
           <PageHeader id="home-shop"
               aria-label="A Psychedelic Dedicated Platform">
