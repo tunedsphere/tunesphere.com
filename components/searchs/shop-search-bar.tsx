@@ -90,6 +90,8 @@ export function ShopSearchBar() {
       <div id="shop-search-bar" className="relative flex flex-row w-full border border-muted hover:border-primary/50 rounded-lg">
       <Command className={`align-middle ${query ? 'bg-popover' : 'bg-popover'} w-full `}>
       <CommandInput
+          aria-label="Search products"
+          aria-autocomplete="list"
           className="align-middle bg-transparent px-0 py-0"
           placeholder="Search products..."
           value={query}
@@ -124,6 +126,7 @@ export function ShopSearchBar() {
               >
                 {group.products.map((item) => (
                 <CommandItem
+                role="option"
                 className=" cursor-pointer bg-transparent hover:bg-muted/30"
                 key={item.id}
                 aria-selected={false}

@@ -30,8 +30,8 @@ export async function RecentlyAddedProducts() {
         return (
 
 <section
-id="Recently-Added-products"
-aria-labelledby="Recently-Added-products-heading"
+id="recently-Added-products"
+aria-label="Recently Added Products"
 className="space-y-6 px-0 overflow-hidden py-8 md:pt-12 lg:pt-24"
 >
 <div className="flex w-full items-center px-2">
@@ -42,6 +42,7 @@ className="space-y-6 px-0 overflow-hidden py-8 md:pt-12 lg:pt-24"
 <h2 className="font-heading text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl"></h2></div>
   <Link href="/shop/products">
     <div
+    role="button"
       className={cn(
         buttonVariants({
           size: "sm",

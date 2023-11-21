@@ -173,7 +173,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                 subcategory.slug
                 )}`}
             >
-              <Badge variant="secondary" className="rounded px-3 py-1">
+              <Badge className="rounded px-3 py-1">
                 {subcategory.title}
               </Badge>
               <span className="sr-only">{subcategory.title}</span>
