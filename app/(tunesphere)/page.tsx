@@ -84,7 +84,7 @@ export default function MyApp() {
                   </span>
                 </h2>
                 <p
-                  className={`m-0 max-w-[30ch] text-sm text-indexlow opacity-50`}
+                  className={`m-0 max-w-[30ch] text-sm text-indexlow opacity-80`}
                 >
                   Search & Find the label that suits your ears the most.
                 </p>
@@ -104,7 +104,7 @@ export default function MyApp() {
                   </span>
                 </h2>
                 <p
-                  className={`m-0 max-w-[30ch] text-sm text-indexlow opacity-50`}
+                  className={`m-0 max-w-[30ch] text-sm text-indexlow opacity-80`}
                 >
                   Explore in depth of your favorite genre and find inspiring
                   Artists
@@ -126,7 +126,7 @@ export default function MyApp() {
                   </span>
                 </h2>
                 <p
-                  className={`m-0 max-w-[30ch] text-sm text-indexlow opacity-50`}
+                  className={`m-0 max-w-[30ch] text-sm text-indexlow opacity-80`}
                 >
                   Instantly check where your favorite Artist will play.
                 </p>
@@ -146,7 +146,7 @@ export default function MyApp() {
                   </span>
                 </h2>
                 <p
-                  className={`m-0 max-w-[30ch] text-sm text-indexlow opacity-50`}
+                  className={`m-0 max-w-[30ch] text-sm text-indexlow opacity-80`}
                 >
                   Check some latest releases, prepare your caffé longo.
                 </p>
