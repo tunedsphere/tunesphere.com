@@ -147,13 +147,13 @@ const MusicGrid: React.FC = () => {
               className="relative z-10 ml-4 flex min-h-[--music-grid-banner-height-mobile] w-full justify-center border-b-2 border-muted bg-transparent sm:ml-12 sm:min-h-[--music-grid-banner-height]"
             >
               <div className="absolute inset-x-0 bottom-2 w-full items-center ">
-                <h3 className="text-2xl font-semibold text-texthigh sm:text-3xl md:text-4xl">
+                <h1 className="text-2xl font-semibold text-texthigh sm:text-3xl md:text-4xl">
                   {selectedGenre ? `${selectedGenre} ` : "ALL Genres"}
-                </h3>
+                </h1>
                 <div className="flex gap-1">
-                  <h5 className="text-base text-textlow sm:text-xl md:text-3xl">
+                  <h2 className="text-base text-textlow sm:text-xl md:text-3xl">
                     {selectedCountry ? `${selectedCountry}, ` : ""}
-                  </h5>
+                  </h2>
                   <h5 className="text-textlow ">{selectedYear}</h5>
                 </div>
               </div>
@@ -179,9 +179,9 @@ const MusicGrid: React.FC = () => {
                         alt={label.name}
                         className="my-4 cursor-pointer rounded-full border-4">
                         </Image>
-                      <h3 className="mb-2 cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-xl">
+                      <h1 className="mb-2 cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-xl">
                         {label.name}
-                      </h3>
+                      </h1>
                       <p className="cursor-pointer text-xs text-textlow hover:text-theme">
                         {label.genres.join(", ")}
                       </p>
@@ -206,9 +206,9 @@ const MusicGrid: React.FC = () => {
                           </div>
                           <div className="col-span-2 items-center">
                             <Link href={`label/${label.id}`}>
-                              <h3 className="cursor-pointer text-lg font-bold text-texthigh underline hover:text-theme">
+                              <h1 className="cursor-pointer text-lg font-bold text-texthigh underline hover:text-theme">
                                 {label.name}
-                              </h3>
+                              </h1>
                             </Link>
                             <p className="text-textlow">
                               Location: {label.country}

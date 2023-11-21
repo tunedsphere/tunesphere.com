@@ -108,9 +108,9 @@ selectedGenre, }: AlbumsGridProps) {
                         alt={album.title}
                         className="my-4 cursor-pointer border border-muted aspect-square">
                         </Image>
-                      <h3 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-base">
+                      <h1 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-base">
                         {album.title}
-                      </h3>
+                      </h1>
                       <p className="cursor-pointer text-xs text-textlow hover:text-theme">
                         {album.genre}
                       </p>

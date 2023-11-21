@@ -67,9 +67,9 @@ export function SiteFooter() {
           className="flex items-center justify-center align-middle"
         >
 <div className="flex flex-wrap justify-center items-center gap-4 pt-8">
-  <h5 className="text-2xl font-extrabold text-texthigh">
+  <h1 className="text-2xl font-extrabold text-texthigh">
     TUNEDSPHERE
-  </h5>
+  </h1>
   <p className="text-sm font-normal text-textlow opacity-75">
     Copyright © 2023 - 2023 TunedSphere. All rights reserved.
   </p>

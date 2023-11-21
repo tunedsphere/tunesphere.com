@@ -102,9 +102,9 @@ selectedGenre, }: DjsGridProps) {
                         alt={label.name}
                         className="my-4 cursor-pointer rounded-full border-4">
                         </Image>
-                      <h3 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-xl">
+                      <h1 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-xl">
                         {label.name}
-                      </h3>
+                      </h1>
                       <p className="cursor-pointer text-xs text-textlow hover:text-theme">
                         {label.genres.join(", ")}
                       </p>

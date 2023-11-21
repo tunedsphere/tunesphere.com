@@ -73,9 +73,9 @@ export async function CategoryCard({ category }: CategoryCardProps) {
       href={`shop/c/${category.title}`}
       className="group relative overflow-hidden sm:rounded-md rounded-full"
     >
-    <h3 className="text-base font-medium capitalize text-center z-400 sm:hidden block">
+    <h4 className="text-base font-medium capitalize text-center z-400 sm:hidden block">
     {category.title}
-  </h3>
+  </h4>
   </Link>
   </div>
  

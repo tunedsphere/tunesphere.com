@@ -114,7 +114,7 @@ export function ProductCard({
 </div>
          
             <CardTitle
-              as="h6"
+              as="h1"
               className="line-clamp-1 text-muted-foreground"
             >
          <Link            

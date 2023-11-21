@@ -128,7 +128,7 @@
     --texthigh: 240 5.9% 10%;
     --textlow: 240 10% 3.9%;
     --indexhigh: 210 6% 93%;
-    --indexlow: 290 5% 60%;
+    --indexlow: 290 5% 80%;
 
     --background-navbartop: hsla(0, 0%, 2%, 0.5);
     --background-navbarbottom: hsla(0, 0%, 2%, 0.5);
@@ -229,7 +229,7 @@
     --texthigh: 210 6% 93%;
     --textlow: 290 5% 60%;
     --indexhigh: 210 6% 93%;
-    --indexlow: 290 5% 60%;
+    --indexlow: 290 5% 80%;
 
 
     --background-globalnav: 252 40% 6%;

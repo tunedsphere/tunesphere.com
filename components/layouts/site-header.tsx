@@ -52,9 +52,9 @@ export function SiteHeader({ }: SiteHeaderProps) {
             </div>
             <div className="left-0 flex w-4/6 items-center sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h2 className="cursor-pointer text-center text-[20px] font-extrabold leading-[24px] text-brand md:text-[24px] md:leading-[30.24px]">
+                <h1 className="cursor-pointer text-center text-[20px] font-extrabold leading-[24px] text-brand md:text-[24px] md:leading-[30.24px]">
                   TUNEDSPHERE
-                </h2>
+                </h1>
               </Link>
             </div>
             <div className="relative flex w-2/6 flex-row items-center justify-end sm:pr-11 pr-8 sm:w-1/3 sm:gap-2">

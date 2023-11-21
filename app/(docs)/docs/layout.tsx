@@ -22,7 +22,7 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
       <footer className="text-sm leading-6 mt-12"></footer>
       <div className="fixed z-20 top-[106px] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
         <div className="px-8">
-          <h5 className="font-semibold mb-4 text-sm leading-6">On this Page</h5>
+          <h1 className="font-semibold mb-4 text-sm leading-6">On this Page</h1>
 
     
 <ul className="text-sm leading-6">
