@@ -41,7 +41,7 @@ export default function MyApp() {
         <div className="mt-12 py-12 md:mt-12 z-200">
           <PageHeader id="home-shop"
               aria-label="A Psychedelic Dedicated Platform">
-                 <PageHeaderHeading size="xxl"  className="hero_title justify-center gap-2 text-center leading-tight tracking-tighter md:text-5xl md:leading-[1.4] lg:text-7xl lg:leading-[1.4]">
+                 <PageHeaderHeading size="xxl"  className="hero_title justify-center gap-2 text-center leading-tight tracking-tighter md:leading-[1.4]">
               <span className="text-indexhigh">A </span>
               <span className="animated-gradient-text_background animated-gradient-text_background-1 bg-clip-text">
                 <span className="animated-gradient-text_foreground animated-gradient-text_foreground-1 bg-clip-text">
