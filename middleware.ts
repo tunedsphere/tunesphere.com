@@ -16,7 +16,7 @@ export default authMiddleware({
     "/shop/tunedsphere-products(.*)",
     "/shop/c(.*)",
     "/shop/products(.*)",
-    "/shop/product(.*)",
+    "/shop/product/[...slug](.*)",
     "/shop/stores(.*)",
     "/festivals(.*)", 
     "/music(.*)",

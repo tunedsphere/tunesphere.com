@@ -36,48 +36,6 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   const randomProductCategory =
     productCategories[Math.floor(Math.random() * productCategories.length)]
 
-  const allProducts = await db
-    .select()
-    .from(products)
-    .limit(8)
-    .groupBy(products.id)
-    .orderBy(desc(products.createdAt))
-
-    const someStores = await db
-      .select({
-        id: stores.id,
-        name: stores.name,
-        storeBanner: stores.storeBanner,
-        description: stores.description,
-        stripeAccountId: stores.stripeAccountId,
-      })
-      .from(stores)
-      .limit(4)
-      .leftJoin(products, eq(products.storeId, stores.id))
-      .groupBy(stores.id)
-      .orderBy(desc(stores.stripeAccountId), desc(sql<number>`count(*)`))
-
-      const someProducts = await db
-      .select({
-        id: products.id,
-        name: products.name,
-        images: products.images,
-        category: products.category,
-        price: products.price,
-        inventory: products.inventory,
-        stripeAccountId: stores.stripeAccountId,
-      })
-      .from(products)
-      .limit(4)
-      .leftJoin(stores, eq(products.storeId, stores.id))
-      .where(
-        typeof category === "string"
-          ? eq(products.category, category as Product["category"])
-          : undefined
-      )
-      .groupBy(products.id)
-      .orderBy(desc(stores.stripeAccountId), desc(products.createdAt))
-
   return (
     <>
       <Shell variant="shop"

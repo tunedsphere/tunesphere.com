@@ -1,5 +1,5 @@
 import { type MetadataRoute } from "next"
-import { allPosts } from "contentlayer/generated"
+import { allPosts, allDocs } from "contentlayer/generated"
 
 import { productCategories } from "@/configs/products"
 import { absoluteUrl } from "@/lib/utils"
@@ -25,7 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   })
 
   const products = productsTransaction.items.map((product) => ({
-    url: absoluteUrl(`/shop/product/${product.id}`),
+    url: absoluteUrl(`/shop/product/${product.id}/${product.name}`),
     lastModified: new Date().toISOString(),
   }))
 
@@ -48,6 +48,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString(),
   }))
 
+  const docs = allDocs.map((doc) => ({
+    url: absoluteUrl(`${doc.slug}`),
+    lastModified: new Date().toISOString(),
+  }));
+
   const routes = [
     "",
     "/shop/products",
@@ -60,7 +65,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/dashboard/purchases",
     "/dashboard/stores",
     "/dashboard/settings",
-    "/music",
+    "/music/artists",
+    "/music/albums",
+    "/music/djs",
+    "/music/labels",
   ].map((route) => ({
     url: absoluteUrl(route),
     lastModified: new Date().toISOString(),
@@ -73,5 +81,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...categories,
     ...subcategories,
     ...posts,
+    ...docs,
   ]
 }

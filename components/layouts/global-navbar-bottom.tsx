@@ -13,7 +13,7 @@ export function GlobalNavbarBottom({}: NavbarNavProps) {
     <>
       <nav className="relative hidden sm:block z-9999">
         <div className="navbar-container flex items-center justify-center py-4">
-          <ul className="navbar-list items-center divide-y sm:divide-none leading-6 font-semibold">
+          <ul className="flex text-base items-center divide-y sm:divide-none leading-6 font-semibold">
           {siteConfig.navbarNav.map((item) => (
   <li key={item.title} className="px-3">
     <Link

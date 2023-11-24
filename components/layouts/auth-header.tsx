@@ -11,7 +11,7 @@ export default function Authheader() {
           <div className="navbar-container py-5">
             <div className="flex justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h1 className="cursor-pointer text-center text-[24px] font-extrabold leading-[30.24px] text-brand hover:text-primary">
+                <h1 className="cursor-pointer text-center text-lg font-extrabold leading-[30.24px] text-brand">
                   TUNEDSPHERE
                 </h1>
               </Link>

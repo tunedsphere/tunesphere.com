@@ -23,7 +23,7 @@ export default function MyApp() {
 
   return (
     <> 
-      <div className="absolute w-2/5">
+      {/* <div className="absolute w-2/5">
     <Image
       src={planet2}
       placeholder="blur"
@@ -33,11 +33,36 @@ export default function MyApp() {
       layout="responsive"
       className="left-0 top-0 z-10"
     />
-  </div>
-      
+  </div> */}
+  {/* <div className="absolute w-full z-100 items-center top-[0%]">
+<div className="home-circle">
+    <div className="center">
+        <div className="aisa1"></div>
+        <div className="aisa2"></div>
+        <div className="aisa3"></div>
+        <div className="aisa4"></div>
+      </div>
+    </div>
+    </div> */}
+  <div className="fixed  z-100 items-center top-[0%]  max-w-full">
+<div className="home-circle2 ">
 
-      <Shell 
+    </div>
+    </div>
+    <div className="fixed z-200 max-w-full ">
+<div className="home-circle3 overflow-hidden">
+
+    </div>
+    </div>
+
+<div className="fixed bottom-0 h-32 w-full">
+  <div className="home-bar-bottom-left"></div>
+  <div className="home-bar-bottom-right"></div>
+
+</div>
+          <Shell 
       className="mx-auto pt-[var(--headerHeight)] flex flex-col items-center justify-between sm:pt-[var(--globalNavHeight)] md:px-8 bg-transparent">
+
         <div className="mt-12 py-12 md:mt-12 z-200">
           <PageHeader id="home-shop"
               aria-label="A Psychedelic Dedicated Platform">
@@ -74,7 +99,7 @@ export default function MyApp() {
           <div className="flex-1 items-stretch">
             <Link href="/music/labels">
               <div
-                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700"
+                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-primary"
                 rel="noopener noreferrer"
               >
                 <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
@@ -94,7 +119,7 @@ export default function MyApp() {
           <div className="flex-1 items-stretch">
                <Link href="/music/artists">
               <div
-                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700"
+                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-primary"
                 rel="noopener noreferrer"
               >
                 <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
@@ -116,7 +141,7 @@ export default function MyApp() {
           <div className="flex-1 items-stretch">
             <Link href="/fesitvals">
               <div
-                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700"
+                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-primary"
                 rel="noopener noreferrer"
               >
                 <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
@@ -136,7 +161,7 @@ export default function MyApp() {
           <div className="flex-1 items-stretch">
             <Link href="/music/albums">
               <div
-                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-neutral-700 group-hover:translate-x-1 motion-reduce:transform-none"
+                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-primary group-hover:translate-x-1 motion-reduce:transform-none"
                 rel="noopener noreferrer"
               >
                 <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>

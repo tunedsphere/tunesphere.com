@@ -111,21 +111,15 @@ export function ProductCard({
   <div className="text-sm leading-snug text-muted-foreground line-through">
    {formatPrice(product.price)}
   </div>
-</div>
-         
-            <CardTitle
-              as="h1"
-              className="line-clamp-1 text-muted-foreground"
-            >
-         <Link            
+</div>   
+         <Link    
+            className="line-clamp-1 text-muted-foreground"        
             key={product.storeId}
             aria-label={Array.isArray(storeName) ? storeName.join(', ') : storeName}
             href={`/shop/store/${product.storeId}/${slugify(storeName)}`}>
 
                  {storeName}
-                 </Link>
-            </CardTitle>
-          
+                 </Link>  
           </CardContent>
         <CardFooter className="p-4">
           <div className="flex w-full flex-col items-center gap-2 sm:flex-row align-middle">

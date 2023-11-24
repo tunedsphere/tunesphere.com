@@ -32,7 +32,7 @@ export function ErrorCard({
 }: ErrorCardProps) {
 
   return (
-    <Card className={cn("grid place-items-center", className)} {...props}>
+    <Card className={cn("grid place-items-center mt-10", className)} {...props}>
       <CardHeader>
         <div className="grid h-20 w-20 place-items-center rounded-full bg-muted">
           <Icons.warning className="h-10 w-10" aria-hidden="true" />

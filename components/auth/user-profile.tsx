@@ -23,11 +23,11 @@ import { useTheme } from "next-themes"
       profilePage: "gap-0",
       profileSectionTitle:
         "font-semibold text-2xl",
-      profileSectionContent: "border rounded-md border-muted bg-card py-2",
+      profileSectionContent: "border rounded-md border-muted bg-card",
       profileSectionPrimaryButton: "text-sm text-foreground text-semibold py-3",
       profileSection: "py-4",
       pageScrollBox: "p-0",
-      formFieldInput: "w-11/12 p-2 bg-input text-texthigh rounded-md outline-primary accent-transparent ring-1 ring-primay focus:ring-primary outline-offset-0 ring-offset-primary",
+      formFieldInput: "w-11/12 p-2 bg-input text-texthigh rounded-md outline-primary accent-transparent ring-1 ring-primary focus:ring-primary outline-offset-0 ring-offset-primary",
       formFieldLabel: "py-2 font-semibold",
       formButtonPrimary: "bg-primary hover:bg-primary/70 rounded-sm",
       formButtonReset: "rounded-sm",
@@ -47,7 +47,7 @@ import { useTheme } from "next-themes"
           variables: {
             ...appearance.variables,
             colorBackground: theme === "light" ? "transparent" : "transparent",
-            colorText: theme === "light" ? "#fafafa" : "#000000",
+            colorText: theme === "light" ? "#000000" : "#fafafa",
 
           },
         }}

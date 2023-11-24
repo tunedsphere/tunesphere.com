@@ -85,50 +85,45 @@ export function SiteCombobox({ className}: SiteComboboxProps) {
         />
       </Button>
       <CommandDialog position="top" open={isOpen} onOpenChange={setIsOpen}>
-        <div className="rounded-lg border border-theme bg-accent-1">
-          <CommandInput
-            placeholder="Search artists, labels, products..."
-            value={query}
-            onValueChange={setQuery}
-          />
-          <CommandList>
-            <CommandEmpty
-              className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
-            >
-              {query
-                ? `No products found for "${query}"`
-                : "Hoping to find what you need."}
-            </CommandEmpty>
-            {isPending ? (
-              <div className="space-y-1 overflow-hidden px-1 py-2">
-                <Skeleton className="h-4 w-10 rounded" />
-                <Skeleton className="h-8 rounded-sm" />
-                <Skeleton className="h-8 rounded-sm" />
-              </div>
-            ) : (
-              data?.map((group) => (
-                <CommandGroup
-                  key={group.category}
-                  className="capitalize"
-                  heading={group.category}
-                >
-                  {group.products.map((item) => (
-                    <CommandItem
-                      key={item.id}
-                      onSelect={() =>
-                        handleSelect(() =>
-                          router.push(`/shop/product/${item.id}`)
-                        )
-                      }
-                    >
-                      {item.name}
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              ))
-            )}
-          </CommandList>
-        </div>
+        <CommandInput
+        className="bg-transparent"
+        placeholder="Search artists, labels, products..."
+          value={query}
+          onValueChange={setQuery}
+        />
+        <CommandList className="bg-muted/20 border-t border-muted">
+          <CommandEmpty
+            className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
+          >
+            Search is currently in work progress
+          </CommandEmpty>
+          {isPending ? (
+            <div className="space-y-1 overflow-hidden px-4 py-2">
+              <Skeleton className="h-4 w-10 rounded" />
+              <Skeleton className="h-8 rounded-sm" />
+              <Skeleton className="h-8 rounded-sm" />
+            </div>
+          ) : (
+            data?.map((group) => (
+              <CommandGroup
+                key={group.category}
+                className="capitalize"
+                heading={group.category}
+              >
+                {group.products.map((item) => (
+                  <CommandItem
+                    key={item.id}
+                    onSelect={() =>
+                      handleSelect(() => router.push(`/product/${item.id}`))
+                    }
+                  >
+                    {item.name}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            ))
+          )}
+        </CommandList>
       </CommandDialog>
       </div>
     </>

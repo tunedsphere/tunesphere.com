@@ -30,7 +30,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-20 border-b border-muted pb-2 text-2xl font-semibold tracking-tight first:mt-0 underline underline-offset-4 decoration-primary",
+        "mt-10 scroll-m-20 pb-2 text-2xl font-bold tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -39,7 +39,7 @@ const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "mt-8 scroll-m-20 text-xl font-semibold tracking-tight underline underline-offset-4",
+        "mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -81,7 +81,7 @@ const components = {
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
-        "text-base leading-7 [&:not(:first-child)]:mt-5",
+        "text-base text-textlow leading-7 [&:not(:first-child)]:mt-5",
         className
       )}
       {...props}

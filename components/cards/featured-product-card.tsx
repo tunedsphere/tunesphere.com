@@ -37,7 +37,7 @@ export function FeaturedProductCard({
   return (
     <div className="relative">   
       <Card
-      id="featured-product-card"
+        id="featured-product-card"
         className={cn(
           "group h-full overflow-hidden",
           className
@@ -47,7 +47,7 @@ export function FeaturedProductCard({
         <Link
           key={`${product.id}_link`}
           aria-label={`View ${product.name} details`}
-          href={`/shop/product/${product.id}`}
+          href={`/shop/product/${product.id}/${product.name}`}
         >
           <AspectRatio ratio={4 / 3}>
             {product?.images?.length ? (

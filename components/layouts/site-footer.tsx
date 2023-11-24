@@ -48,7 +48,7 @@ export function SiteFooter() {
                 href={link.href}
                 target={link?.external ? "_blank" : undefined}
                 rel={link?.external ? "noreferrer" : undefined}
-                className="text-sm text-muted-foreground transition-colors"
+                className="text-sm text-textlow hover:text-texthigh transition-colors"
                 
               >
                 {link.title}
@@ -67,10 +67,10 @@ export function SiteFooter() {
           className="flex items-center justify-center align-middle"
         >
 <div className="flex flex-wrap justify-center items-center gap-4 pt-8">
-  <h1 className="text-2xl font-extrabold text-texthigh">
+  <h1 className="text-base font-extrabold text-texthigh">
     TUNEDSPHERE
   </h1>
-  <p className="text-sm font-normal text-textlow opacity-75">
+  <p className="text-sm font-normal text-textlow">
     Copyright © 2023 - 2023 TunedSphere. All rights reserved.
   </p>
   </div>

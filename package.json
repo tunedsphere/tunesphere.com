@@ -19,7 +19,7 @@
     "stripe:listen": "stripe listen --forward-to localhost:3000/api/webhooks/stripe --latest"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.27.1",
+    "@clerk/nextjs": "^4.27.2",
     "@clerk/themes": "^1.7.9",
     "@hookform/resolvers": "^3.3.2",
     "@planetscale/database": "^1.11.0",
@@ -52,7 +52,7 @@
     "@t3-oss/env-nextjs": "^0.7.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tanstack/react-table": "^8.10.7",
-    "@uploadthing/react": "^6.0.0",
+    "@uploadthing/react": "^6.0.2",
     "@vercel/analytics": "^1.1.1",
     "@vercel/edge-config": "^0.4.1",
     "@vercel/speed-insights": "^0.0.4",
@@ -87,12 +87,12 @@
     "resend": "1.0.0",
     "server-only": "^0.0.1",
     "shiki": "^0.14.5",
-    "sonner": "^1.2.0",
+    "sonner": "^1.2.3",
     "stripe": "^14.5.0",
     "swr": "^2.2.4",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
-    "uploadthing": "^6.0.1",
+    "uploadthing": "^6.0.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {

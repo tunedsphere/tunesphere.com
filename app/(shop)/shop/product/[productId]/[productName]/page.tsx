@@ -18,15 +18,13 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { AddToCartForm } from "@/components/forms/add-to-cart-form"
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
-import { ProductCard } from "@/components/cards/product-card"
 import { ProductImageCarousel } from "@/components/products/product-image-carousel"
 import { Shell } from "@/components/shells/shell"
-import { PageHeader, PageHeaderHeading } from "@/components/page-header"
 import { ProductsFromStore, ProductsFromStoreSkeleton } from "@/components/products-from-store"
 
 interface ProductPageProps {
   params: {
-    productId: string
+    productId: String
   }
 }
 
@@ -48,6 +46,7 @@ export async function generateMetadata({
     return {}
   }
 
+
   return {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
     title: toTitleCase(product.name),
@@ -56,8 +55,15 @@ export async function generateMetadata({
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const productId = Number(params.productId)
-
+  console.log('params.productId:', params.productId);
+  const productId = Number(params.productId);
+  console.log('ProductId (After Conversion):', productId);
+  console.log('ProductId (Before Query):', productId);
+  if (isNaN(productId)) {
+    console.error('Invalid productId:', params.productId);
+    notFound();
+    return;
+  }
   const product = await db.query.products.findFirst({
     columns: {
       id: true,
@@ -70,11 +76,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
       storeId: true,
     },
     where: eq(products.id, productId),
-  })
+  });
+
+  console.log('Product:', product);
 
   if (!product) {
-    notFound()
+    console.error('Product not found for productId:', productId);
+    notFound();
+    return;
   }
+
+  console.log('Product ID:', product.id);
+  console.log('Product Name:', product.name);
+  console.log('Product Description:', product.description);
+  console.log('Product Price:', product.price);
+  console.log('Product Images:', product.images);
+  console.log('Product Category:', product.category);
+  console.log('Product Subcategory:', product.subcategory);
+  console.log('Product StoreId:', product.storeId);
+
 
   const store = await db.query.stores.findFirst({
     columns: {
@@ -152,8 +172,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </div>
       <Suspense fallback={<ProductsFromStoreSkeleton />}>
-
-      <ProductsFromStore params={params}/>
+{/* 
+      <ProductsFromStore params={params}/> */}
 
       </Suspense>
     </Shell>

@@ -51,7 +51,7 @@ children: React.ReactNode
           <html
       lang="en"
       className={clsx(
-        'bg-background-index',
+        'bg-background',
         GeistSans.variable,
         GeistMono.variable,
         

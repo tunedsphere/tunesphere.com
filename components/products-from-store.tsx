@@ -26,7 +26,7 @@ import { FeaturedProductCard } from "@/components/cards/featured-product-card"
 import { delayFeaturedProducts } from "@/lib/delays"
 interface ProductsFromStoreProps {
   params: {
-    productId: string
+    productId: String
   }
   }
   

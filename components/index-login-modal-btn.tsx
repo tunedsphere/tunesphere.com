@@ -1,9 +1,7 @@
 "use client"
-
 import React, { useState } from "react"
 
 import { Button } from "@/components/ui/button"
-
 import Modal from "@/components/auth/modal"
 
 export default function IndexLoginModalButton() {

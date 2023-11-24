@@ -51,6 +51,9 @@ export async function CartSheet({ className}: CartSheetProps) {
         </Button>
       </SheetTrigger>
       <SheetContent className="z-10000 flex w-full flex-col pr-0 sm:max-w-lg bg-background">
+    <div className="absolute w-full flex h-full items-center justify-center">
+      <Icons.logo className="absolute h-80 w-80 -z-10 text-primary opacity-30"></Icons.logo>
+  </div>
         <SheetHeader className="px-1">
           <SheetTitle className="">
             Your Basket {itemCount > 0 && `(${itemCount})`}
@@ -60,7 +63,9 @@ export async function CartSheet({ className}: CartSheetProps) {
         {itemCount > 0 ? (
           <>
             <div className="flex flex-1 flex-col gap-5 overflow-hidden">
+
               <ScrollArea className="h-full">
+                
                 <div className="flex flex-col gap-5 pr-6">
                   {cartLineItems.map((item) => (
                     <div key={item.id} className="space-y-3">

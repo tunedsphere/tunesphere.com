@@ -38,7 +38,7 @@ const CommandDialog = ({
     <Dialog {...props}>
       <DialogContent
         position={position}
-        className="overflow-hidden p-0 shadow-2xl"
+        className="overflow-hidden p-0 shadow-2xl z-10000"
       >
         <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-textlow [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-4 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:p-2 [&_[cmdk-item]_svg]:h-6 [&_[cmdk-item]_svg]:w-6">
           {children}

@@ -47,7 +47,7 @@ export function SiteIndexFooter() {
                 href={link.href}
                 target={link?.external ? "_blank" : undefined}
                 rel={link?.external ? "noreferrer" : undefined}
-                className="text-sm text-muted-foreground transition-colors"
+                className="text-sm text-indexlow hover:text-indexhigh transition-colors"
               >
                 {link.title}
                 <span className="sr-only">{link.title}</span>
@@ -65,10 +65,10 @@ export function SiteIndexFooter() {
           className="flex items-center justify-center align-middle"
         >
 <div className="flex flex-wrap justify-center items-center gap-4 pt-8">
-  <h1 className="text-2xl font-extrabold text-indexhigh">
+  <h1 className="text-base font-extrabold text-indexhigh">
     TUNEDSPHERE
   </h1>
-  <p className="text-sm font-normal text-indexlow opacity-75">
+  <p className="text-sm font-normal text-indexlow">
     Copyright © 2023 - 2023 TunedSphere. All rights reserved.
   </p>
   </div>
