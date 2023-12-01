@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/sheet"
 import { Slider } from "@/components/ui/slider"
 import { ProductCard } from "@/components/cards/product-card"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { MultiSelect } from "@/components/multi-select"
 import { PaginationButton } from "@/components/pagers/pagination-button"
 import { delayProducts } from "@/lib/delays"

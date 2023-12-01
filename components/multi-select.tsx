@@ -3,7 +3,7 @@
 import * as React from "react"
 import type { Option } from "@/types"
 import { Command as CommandPrimitive } from "cmdk"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"

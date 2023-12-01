@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Icons } from "./icons";
+import { Icons } from "./icons/icons";
 import { type StoredFile } from "@/types";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 interface StoreBannerProps extends React.HTMLAttributes<HTMLDivElement> {

@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { addStoreAction } from "@/app/_actions/store"
 import type { FileWithPreview, StoredFile } from "@/types"
 import Image from "next/image"

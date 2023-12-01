@@ -26,7 +26,7 @@ export default async function SignInPage() {
 
   return (
     <Shell variant="auth">
-      <Card>
+      <Card className="bg-background">
         <CardHeader className="items-center gap-1 space-y-1 p-12">
           <CardTitle className="text-3xl">Log In to TunedSphere</CardTitle>
           <CardDescription>Choose your preferred Log In method</CardDescription>

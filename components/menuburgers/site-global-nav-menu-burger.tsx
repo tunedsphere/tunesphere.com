@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { Button } from "@/components/ui/button"
 import GlobalNavFlyout from "@/components/layouts/globalnav-flyout-menu"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { GlobalNavbarBottom } from "@/components/layouts/global-navbar-bottom"
 
 export default function SiteGlobalNavMenuBurger() {

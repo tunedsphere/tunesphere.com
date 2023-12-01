@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { FileDialog } from "@/components/file-dialog"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { Zoom } from "@/components/zoom-image"
 import {
   checkProductAction,

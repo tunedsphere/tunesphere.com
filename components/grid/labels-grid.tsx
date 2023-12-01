@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { recordLabelsData } from "@/public/recordLabelsData";
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/icons/icons";
 import { delayRecordLabelsGrid } from "@/lib/delays";
 import { Suspense } from "react";
 

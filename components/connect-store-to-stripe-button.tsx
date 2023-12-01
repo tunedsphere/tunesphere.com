@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { catchError } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { createAccountLinkAction } from "@/app/_actions/stripe"
 
 interface ConnectToStripeButtonProps {

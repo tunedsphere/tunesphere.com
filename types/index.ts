@@ -8,7 +8,7 @@ import type {
   cartItemSchema,
   cartLineItemSchema, 
   checkoutItemSchema } from "@/lib/validations/cart"
-import { type Icons } from "@/components/icons"
+import { type Icons } from "@/components/icons/icons"
 
 
 export interface NavItem {

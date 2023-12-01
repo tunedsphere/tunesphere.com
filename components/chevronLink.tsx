@@ -1,0 +1,34 @@
+import { FC } from 'react'
+import Link from 'next/link'
+import { Icons } from './icons/icons';
+
+const isExternalUrl = (link: string): boolean => !link.startsWith('/')
+
+export const ChevronLink: FC<{ label: string; url: string }> = ({ label, url }) => {
+  if (isExternalUrl(url)) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex items-center space-x-1.5 text-cyan-600 no-underline hover:text-cyan-700 dark:text-violet-400 dark:hover:text-violet-300"
+      >
+        <span className="font-semibold">{label}</span>
+        <span className="block w-2">
+          <Icons.chevronRight />
+        </span>
+      </a>
+    )
+  } else {
+    return (
+      <Link href={url}
+ className="inline-flex items-center space-x-1.5 text-cyan-600 no-underline hover:text-cyan-700 dark:text-violet-400 dark:hover:text-violet-300">
+          <span className="font-semibold">{label}</span>
+          <span className="block w-2">
+            <Icons.chevronRight />
+          </span>
+
+      </Link>
+    )
+  }
+}

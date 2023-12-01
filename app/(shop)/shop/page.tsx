@@ -53,7 +53,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     width={4000}
     height={600}
     alt="planet Home"
-    className="absolute object-cover w-full h-full aspect-video max-h-[500px] -z-10 opacity-50"
+    className="absolute object-cover w-full h-full aspect-video max-h-[600px] -z-10 opacity-50"
   ></Image>
   </div>
   <PageHeader>

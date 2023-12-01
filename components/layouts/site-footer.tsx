@@ -6,10 +6,14 @@ import Link from "next/link"
 import { siteConfig } from "@/configs/site"
 import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
 
-export function SiteFooter() {
+
+interface SiteFooterProps {
+  className?: string; // Allow className to be optional
+}
+export function SiteFooter ({ className}: SiteFooterProps) {
 
   return (
-    <footer className="relative mx-auto max-w-8xl items-center px-4 py-8">
+    <footer className={`relative mx-auto max-w-8xl items-center px-4 py-8 ${className || ''}`}>
       <div className="footer-gradient -z-10 w-1/5" />
 
       <div className="gap-5">

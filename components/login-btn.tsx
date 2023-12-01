@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 
 import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 interface LogInButtonProps {
   handleModalOpen: () => void

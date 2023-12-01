@@ -5,7 +5,7 @@ import { useState } from "react";
 import { recordLabelsData } from "@/public/recordLabelsData.js";
 import Link from "next/link";
 import { Sidebar } from "@/components/ui/sidebar";
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/icons/icons";
 import MusicSidebarMenuBurger from "@/components/menuburgers/music-sidebar-menu-burger";
 import { MusicTabs } from "@/components/pagers/music-tabs";
 import { MusicSearchBar } from "@/components/searchs/music-search-bar";
@@ -337,12 +337,12 @@ const handleYearSelection = (year: string) => {
 
             <div
               id="music-sidebar-menu-content"
-              className={`middle-sidebar grow ${
+              className={`middle-sidebar scrollable-container  border-l border-muted ${
                 isSidebarOpen ? "" : "hidden"
               }`}
             >
               {activeContent === "genre" && (
-                <div className="scrollable-container h-[68vh] min-w-[200px] border-l border-muted grow">
+                <div className=" min-w-[200px] ">
                   {genreOptions
                     .sort((a, b) => a.localeCompare(b))
                     .map((genre) => (
@@ -363,7 +363,7 @@ const handleYearSelection = (year: string) => {
               <div>
                     
                     {activeContent === 'country' && (
-                      <div className="scrollable-container h-[68vh] min-w-[200px] border-l border-muted">
+                      <div className="min-w-[200px] ">
                         {countryOptions
                           .sort((a, b) => a.localeCompare(b))
                           .map((country) => (
@@ -375,7 +375,7 @@ const handleYearSelection = (year: string) => {
                     )}
 
                     {activeContent === 'year' && (
-                      <div className="scrollable-container h-[68vh] min-w-[200px] border-l border-muted">
+                      <div className="scrollable-container min-w-[200px] ">
                         {yearOptions
                           .sort((a, b) => b.localeCompare(a))
                           .map((year) => (

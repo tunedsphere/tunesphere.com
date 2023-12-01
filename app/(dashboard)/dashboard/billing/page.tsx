@@ -22,7 +22,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { Shell } from "@/components/shells/shell"
 
 export const metadata: Metadata = {

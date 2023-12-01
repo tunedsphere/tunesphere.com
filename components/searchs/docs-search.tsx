@@ -16,7 +16,7 @@ import {
   CommandList,
 } from "@/components/ui/command"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { filterProductsAction } from "@/app/_actions/product"
 
 export function DocsSearch() {

@@ -3,17 +3,38 @@ import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 import { visit } from "unist-util-visit"
-
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
   slug: {
     type: "string",
-    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    resolve: (doc) => {
+      if (doc._id.startsWith('docs/index.mdx')) {
+        console.log("Generated Slug for index.mdx:", '/docs');
+        return '/docs';
+      }
+      const slug = `/${doc._raw.flattenedPath}`;
+      console.log("Generated Slug:", slug);
+      return slug;
+    },
   },
+
   slugAsParams: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+    resolve: (doc) => {
+      const flattenedPath = doc._raw.flattenedPath;
+      
+      // Add a condition for the index.mdx file
+      if (flattenedPath.startsWith("docs/index.mdx")) {
+        return "/docs";
+      }
+
+      // For other files, extract the slug as usual
+      const slugAsParams = flattenedPath.split("/").slice(1).join("/");
+      console.log("Generated SlugAsParams:", slugAsParams);
+      return slugAsParams;
+    },
   },
+
   readingTime: {
     type: "number",
     resolve: (doc) => {
@@ -30,6 +51,11 @@ export const Doc = defineDocumentType(() => ({
   filePathPattern: `docs/**/*.mdx`,
   contentType: "mdx",
   fields: {
+    global_id: {
+      type: 'string',
+      description: 'Random ID to uniquely identify this doc, even after it moves',
+      required: true,
+    },
     title: {
       type: "string",
       required: false,
@@ -42,8 +68,20 @@ export const Doc = defineDocumentType(() => ({
       type: "boolean",
       default: true,
     },
+    url_path: {
+      type: 'string',
+      description:
+        'The URL path of this page relative to site root. For example, the site root page would be "/", and doc page would be "docs/getting-started/"',
+      resolve: (doc) => {
+        if (doc._startsWith('docs/index.mdx')) return '/docs'
+        return urlFromFilePath(doc)
+      },
+    },
+    
   },
+  
   computedFields,
+  
 }))
 
 export const Post = defineDocumentType(() => ({
@@ -171,3 +209,5 @@ export default makeSource({
     ],
   },
 })
+
+

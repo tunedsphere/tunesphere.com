@@ -11,7 +11,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { siteConfig } from "@/configs/site"
 
 import Modal from "@/components/auth/modal"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import LogInButton from "@/components/login-btn"
 
 import { Button } from "../ui/button"

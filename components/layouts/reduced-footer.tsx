@@ -3,7 +3,7 @@
 import "./layouts.css"
 import Link from "next/link"
 import * as React from "react"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 
 

@@ -1,7 +1,7 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import {
   PageHeader,
   PageHeaderDescription,

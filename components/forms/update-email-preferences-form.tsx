@@ -20,7 +20,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Switch } from "@/components/ui/switch"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { updateEmailPreferencesAction } from "@/app/_actions/email"
 
 interface UpdateEmailPreferencesFormProps {
@@ -133,7 +133,10 @@ export function UpdateEmailPreferencesForm({
             </FormItem>
           )}
         />
-        <Button className="w-full" disabled={isPending}>
+        <Button 
+        type="submit"
+        className="w-full" 
+        disabled={isPending}>
           {isPending && (
             <Icons.spinner
               className="mr-2 h-4 w-4 animate-spin"

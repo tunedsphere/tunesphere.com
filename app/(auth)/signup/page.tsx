@@ -20,7 +20,7 @@ export const metadata = {
 export default function SignUpPage() {
   return (
     <Shell variant="auth">
-      <Card variant="signup">
+      <Card className="bg-background">
         <CardHeader className="items-center gap-1 space-y-1 sm:p-12">
           <CardTitle className="text-3xl">Sign up</CardTitle>
           <CardDescription>

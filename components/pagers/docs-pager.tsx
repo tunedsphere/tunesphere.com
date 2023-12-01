@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { cn, truncate } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 interface DocsPagerItem {
   title?: string | undefined

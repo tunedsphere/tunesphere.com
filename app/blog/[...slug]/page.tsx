@@ -14,7 +14,7 @@ import { absoluteUrl, cn, formatDate } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { buttonVariants } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { MdxPager } from "@/components/pagers/mdx-pager"
 import { Shell } from "@/components/shells/shell"
 

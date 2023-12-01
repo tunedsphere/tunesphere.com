@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import type { z } from "zod"
 
-import { authSchema } from "@/lib/validations/auth"
+import { authSignUpSchema } from "@/lib/validations/auth"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -19,23 +19,20 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { PasswordInput } from "@/components/password-input"
 
-type Inputs = z.infer<typeof authSchema>
+type Inputs = z.infer<typeof authSignUpSchema>
 export function SignUpForm() {
   const router = useRouter()
   const { isLoaded, signUp } = useSignUp()
   const [isPending, startTransition] = React.useTransition()
 
   const form = useForm<Inputs>({
-    resolver: zodResolver(authSchema),
+    resolver: zodResolver(authSignUpSchema),
     defaultValues: {
       email: "",
       password: "",
-      username: "",
-      first_name: "",
-      last_name: "",
     },
   })
   function onSubmit(data: Inputs) {
@@ -45,9 +42,7 @@ export function SignUpForm() {
         await signUp.create({
           emailAddress: data.email,
           password: data.password,
-          username: data.username,
-          firstName: data.first_name,
-          lastName: data.last_name,
+
         })
 
         // Send email verification code
@@ -82,7 +77,9 @@ export function SignUpForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="youremail@example.com" {...field} />
+                <Input 
+                autoComplete="email"
+                placeholder="youremail@example.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -101,51 +98,6 @@ export function SignUpForm() {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="Enter your username" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <div className="flex flex-row">
-          <div className="mr-2 flex flex-col">
-            <FormField
-              control={form.control}
-              name="first_name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>First Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter your name" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className="flex flex-col">
-            <FormField
-              control={form.control}
-              name="last_name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Last Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter your last name" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-          </div>
-        </div>
-
         <Button
           className="my-2 py-3 text-lg"
           variant="logInButton"

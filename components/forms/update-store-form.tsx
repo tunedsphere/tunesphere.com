@@ -10,7 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { storeSchema } from "@/lib/validations/store"
 
 import { useForm } from "react-hook-form"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import {
   Card,
   CardContent,

@@ -6,7 +6,7 @@ import type { OAuthStrategy } from "@clerk/types"
 import { toast } from "sonner"
 
 import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 const oauthProviders = [
   { name: "Google", strategy: "oauth_google", icon: "google" },

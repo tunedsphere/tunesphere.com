@@ -8,7 +8,7 @@ import { compareDesc } from "date-fns"
 import { formatDate } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Separator } from "@/components/ui/separator"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import {
   PageHeader,
   PageHeaderDescription,

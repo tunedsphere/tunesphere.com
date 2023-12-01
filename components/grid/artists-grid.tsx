@@ -8,7 +8,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { recordLabelsData } from '@/public/recordLabelsData';
 
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 interface ArtistsGridProps {
   selectedGenre: string | null; // Define the type of selectedGenre

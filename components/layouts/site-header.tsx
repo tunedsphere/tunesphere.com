@@ -3,7 +3,7 @@ import "./layouts.css"
 import React from "react"
 import Link from "next/link"
 import type { User } from "@clerk/nextjs/server"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 import { Suspense } from "react"
 import { Button, buttonVariants } from "@/components/ui/button"

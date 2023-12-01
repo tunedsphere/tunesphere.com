@@ -9,7 +9,7 @@ import { cn, formatPrice } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 import {Card } from "@/components/ui/card"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 interface FeaturedProductCardProps
   extends React.HTMLAttributes<HTMLDivElement> {

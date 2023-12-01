@@ -3,7 +3,7 @@ import "./layouts.css"
 import * as React from "react"
 import Link from "next/link"
 import type { ShopMainNavItem } from "@/types"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 import { siteConfig } from "@/configs/site"
 import { cn } from "@/lib/utils"
@@ -16,7 +16,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-
+import { formatTitleWithUnderscores } from "@/lib/utils"
 interface ShopMainNavProps {
   items: ShopMainNavItem[]
 }
@@ -90,7 +90,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                   
                   <Link href={`/shop/c/${encodeURIComponent(item.title)}`}>
                   <NavigationMenuTrigger className="h-auto capitalize focus bg-background-shopNavLink">
-                    {item.title}
+                  {formatTitleWithUnderscores(item.title)}
                   </NavigationMenuTrigger>
                   </Link>
                   <NavigationMenuContent className="shadow-xl">

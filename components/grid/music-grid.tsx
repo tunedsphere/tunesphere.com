@@ -14,7 +14,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { Sidebar } from "@/components/ui/sidebar"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import MusicSidebarMenuBurger from "@/components/menuburgers/music-sidebar-menu-burger"
 
 const MusicGrid: React.FC = () => {

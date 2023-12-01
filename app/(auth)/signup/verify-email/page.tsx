@@ -17,7 +17,7 @@ export const metadata = {
 export default function VerifyEmailPage() {
   return (
     <Shell variant="auth">
-      <Card>
+      <Card className="bg-background">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">Verify email</CardTitle>
           <CardDescription>

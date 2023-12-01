@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 interface ErrorCardProps extends React.ComponentPropsWithoutRef<typeof Card> {
   icon?: keyof typeof Icons

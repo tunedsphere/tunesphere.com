@@ -4,7 +4,7 @@ import { db } from "@/db"
 import { products, stores, type Product } from "@/db/schema"
 import { Shell } from "@/components/shells/shell"
 import { desc, eq, sql } from "drizzle-orm"
- import { Icons } from "@/components/icons"
+ import { Icons } from "@/components/icons/icons"
 import { productCategories } from "@/configs/products"
 import { slugify } from "@/lib/utils"
 

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import { useMounted } from "@/hooks/use-mounted"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 export function LogOutButtons() {
   const router = useRouter()

@@ -5,7 +5,7 @@ import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import planet2 from "@/public/bghome/planet2.webp"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { Shell } from "@/components/shells/shell"
 
 import {
@@ -23,7 +23,7 @@ export default function MyApp() {
 
   return (
     <> 
-      {/* <div className="absolute w-2/5">
+      <div className="md:block hidden absolute w-2/5">
     <Image
       src={planet2}
       placeholder="blur"
@@ -33,9 +33,9 @@ export default function MyApp() {
       layout="responsive"
       className="left-0 top-0 z-10"
     />
-  </div> */}
-  {/* <div className="absolute w-full z-100 items-center top-[0%]">
-<div className="home-circle">
+  </div>
+  {/* <div className="absolute w-full z-100 items-center top-[0%] mx-auto overflow-hidden">
+<div className="home-circle lg:h-[1400px] h-[1800px]">
     <div className="center">
         <div className="aisa1"></div>
         <div className="aisa2"></div>
@@ -43,9 +43,9 @@ export default function MyApp() {
         <div className="aisa4"></div>
       </div>
     </div>
-    </div> */}
-  <div className="fixed  z-100 items-center top-[0%]  max-w-full">
-<div className="home-circle2 ">
+    </div>
+  <div className="md:hidden block absolute z-10 items-center top-[0%] max-w-full">
+<div className="home-circle2">
 
     </div>
     </div>
@@ -53,7 +53,7 @@ export default function MyApp() {
 <div className="home-circle3 overflow-hidden">
 
     </div>
-    </div>
+    </div> */}
 
 <div className="fixed bottom-0 h-32 w-full">
   <div className="home-bar-bottom-left"></div>
@@ -63,10 +63,11 @@ export default function MyApp() {
           <Shell 
       className="mx-auto pt-[var(--headerHeight)] flex flex-col items-center justify-between sm:pt-[var(--globalNavHeight)] md:px-8 bg-transparent">
 
-        <div className="mt-12 py-12 md:mt-12 z-200">
-          <PageHeader id="home-shop"
-              aria-label="A Psychedelic Dedicated Platform">
-                 <PageHeaderHeading size="xxl"  className="hero_title justify-center gap-2 text-center leading-tight tracking-tighter md:leading-[1.4]">
+        <div className="mt-12 md:mt-20 py-12 lg:mt-32 z-200">
+          <PageHeader 
+          id="home-shop"
+          aria-label="A Psychedelic Dedicated Platform">
+                 <PageHeaderHeading size="xxl" className="hero_title justify-center gap-2 text-center">
               <span className="text-indexhigh">A </span>
               <span className="animated-gradient-text_background animated-gradient-text_background-1 bg-clip-text">
                 <span className="animated-gradient-text_foreground animated-gradient-text_foreground-1 bg-clip-text">
@@ -95,11 +96,11 @@ export default function MyApp() {
 
         <div className='left-gradient -z-10'> </div>
         <div className="absolute right-gradient z-10"> </div>
-        <div className="grid py-16 text-center text-indexlow lg:grid-cols-4 2xl:text-left z-200 gap-2">
+        <div className="grid py-16 text-center text-indexlow lg:grid-cols-4 2xl:text-left z-200 sm:gap-2 gap-4">
           <div className="flex-1 items-stretch">
             <Link href="/music/labels">
               <div
-                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-primary"
+                className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 transition-colors hover:border-primary"
                 rel="noopener noreferrer"
               >
                 <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
@@ -119,7 +120,7 @@ export default function MyApp() {
           <div className="flex-1 items-stretch">
                <Link href="/music/artists">
               <div
-                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-primary"
+                className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 transition-colors hover:border-primary"
                 rel="noopener noreferrer"
               >
                 <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
@@ -141,7 +142,7 @@ export default function MyApp() {
           <div className="flex-1 items-stretch">
             <Link href="/fesitvals">
               <div
-                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-primary"
+                className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 transition-colors hover:border-primary"
                 rel="noopener noreferrer"
               >
                 <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
@@ -161,7 +162,7 @@ export default function MyApp() {
           <div className="flex-1 items-stretch">
             <Link href="/music/albums">
               <div
-                className="group rounded-lg border border-transparent bg-background-index px-5 py-4 transition-colors hover:border-primary group-hover:translate-x-1 motion-reduce:transform-none"
+                className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 transition-colors hover:border-primary group-hover:translate-x-1 motion-reduce:transform-none"
                 rel="noopener noreferrer"
               >
                 <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
@@ -204,10 +205,10 @@ export default function MyApp() {
                   buttonVariants({
                     size: "lg",
                   }),
-                  "hero_gradient-button hover:bg-white/5 bg-white border-muted "
+                  "hero_gradient-button hover:bg-background-index/30 border-muted hover:text-white"
                 )}
               >
-                <Icons.chevronRight className="absolute text-foreground left-1 sm:left-4"></Icons.chevronRight>
+                <Icons.chevronRight className="absolute left-1 sm:left-4"></Icons.chevronRight>
                 <span className='absolute text-transparent bg-clip-text hero_bg-1 font-bold'>Buy Now</span>
           <span className='absolute text-transparent bg-clip-text hero_bg-2 font-bold'>Buy Now</span>
           <span className='absolute text-transparent bg-clip-text hero_bg-3 font-bold'>Buy Now</span>

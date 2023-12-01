@@ -28,9 +28,9 @@ export const authSignInSchema = z.object({
     }),
 })
 
-export const authSchema = z.object({
+export const authSignUpSchema = z.object({
   email: z.string().email({
-    message: "Please enter a valid email address",
+    message: "Please enter a valid email address or email already taken",
   }),
   password: z
     .string()
@@ -54,33 +54,6 @@ export const authSchema = z.object({
     .refine((value) => /^\S*$/.test(value), {
       message: "Spaces are not allowed",
     }),
-  username: z
-    .string()
-    .min(2, {
-      message: "Username must be at least 2 characters long",
-    })
-    .max(42)
-    .regex(/^[a-zA-Z0-9]+$/, {
-      message: "Username must contain only letters and numbers",
-    }),
-  first_name: z
-    .string()
-    .min(2, {
-      message: "At least 1 character",
-    })
-    .max(24)
-    .refine((value) => /^[A-Za-z]+$/.test(value), {
-      message: "Name can only contain letters",
-    }),
-  last_name: z
-    .string()
-    .min(2, {
-      message: "At least 1 character",
-    })
-    .max(30)
-    .refine((value) => /^[A-Za-z]+$/.test(value), {
-      message: "Last Name can only contain letters",
-    }),
 })
 
 export const verifyEmailSchema = z.object({
@@ -93,13 +66,13 @@ export const verifyEmailSchema = z.object({
 })
 
 export const checkEmailSchema = z.object({
-  email: authSchema.shape.email,
+  email: authSignUpSchema.shape.email,
 })
 
 export const resetPasswordSchema = z
   .object({
-    password: authSchema.shape.password,
-    confirmPassword: authSchema.shape.password,
+    password: authSignUpSchema.shape.password,
+    confirmPassword: authSignUpSchema.shape.password,
     code: verifyEmailSchema.shape.code,
   })
   .refine((data) => data.password === data.confirmPassword, {

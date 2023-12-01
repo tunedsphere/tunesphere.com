@@ -8,7 +8,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { albums } from '@/public/albumsData';
 import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { Separator } from "../ui/separator"
 import { slugify } from "@/lib/utils"
 

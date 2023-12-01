@@ -2,30 +2,27 @@
 import "@/styles/globals.css"
 import { docsConfig } from "@/configs/docs"
 import * as React from "react"
-import Link from "next/link"
 
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { DocsMainNav } from "@/components/layouts/docs-main-nav"
 import { DocsSearch } from "@/components/searchs/docs-search"
-import { SiteFooter } from "@/components/layouts/site-footer"
 import { ThemeToggle } from "@/components/theme-toggle"
 
-
-
-import { useSelectedLayoutSegment } from "next/navigation"
-
 import { DocsMobileNav } from "@/components/layouts/docs-mobile-nav"
-import { useRouter } from 'next/router';
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
 import { toTitleCase } from "@/lib/utils"
+import SiteFooter from "@/components/layouts/site-footer"
+import Link from "next/link"
+import { siteConfig } from "@/configs/site"
+import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
+
+
 interface DocsLayoutProps {
   children: React.ReactNode
 
 }
 
 export default function DocsLayout({ children }: DocsLayoutProps) {
-
-  const segment = useSelectedLayoutSegment()
   const [showMobileMenu, setShowMobileMenu] = React.useState(false)
   const openMobileMenu = () => {
     setShowMobileMenu(true);
@@ -92,9 +89,31 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
   </div>
 
 
-  <main className="mx-auto max-w-8xl px-4 sm:px-6 md:px-8">
+  <main className="relative mx-auto max-w-8xl px-4 sm:px-6 md:px-8">
     {children}
   </main>
+  <div className="mx-auto w-full max-w-screen-2xl space-y-8 px-4 py-8 md:p-8 md:pb-12 lg:flex lg:justify-between lg:space-y-0 lg:p-16 lg:pb-20">
+  <footer className="relative mx-auto max-w-8xl items-center px-4 py-8">
+      <div className="footer-gradient -z-10 w-1/5" />
+
+     
+     
+        <section
+          id="footer-bottom"
+          aria-labelledby="footer-bottom-heading"
+          className="flex items-center justify-center align-middle"
+        >
+<div className="flex flex-wrap justify-center items-center gap-4 pt-8">
+  <h1 className="text-base font-extrabold text-texthigh">
+    TUNEDSPHERE
+  </h1>
+  <p className="text-sm font-normal text-textlow">
+    Copyright © 2023 - 2023 TunedSphere. All rights reserved.
+  </p>
+  </div>
+        </section>
+    </footer>
+  </div>
   {/* 
   <div className="fixed-gradient">
     <div className="fixed footer-gradient right-0 top-0 h-full w-3/5" />

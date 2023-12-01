@@ -7,7 +7,7 @@ import SiteGlobalNavMenuBurger from "@/components/menuburgers/site-global-nav-me
 import { SiteCombobox } from "@/components/searchs/site-combobox"
 
 import { CartSheet } from "@/components/cart/cart-sheet"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 import NavbarVideo from "../navbar-video"

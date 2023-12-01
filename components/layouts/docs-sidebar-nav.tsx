@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-
+import { slugify } from "@/lib/utils"
 import { SidebarNavItem } from "types"
 import { cn } from "@/lib/utils"
 
@@ -17,9 +17,22 @@ export function DocsSidebarNav({ items }: DocsSidebarNavProps) {
     <div className="w-full">
       {items.map((item, index) => (
         <div key={index} className={cn("pb-8")}>
-          <h4 className="mb-1 rounded-md px-2 py-1 text-base font-semibold ">
+         <Link href={`/docs/${slugify(item.title)}`}
+            key={index}
+            className={cn(
+              "flex w-full items-center rounded-md p-1 space-x-2 px-3 whitespace-nowrap  mb-2 text-base font-semibold ",
+              {
+                "hover:bg-muted/50": pathname !== item.href,
+                "opacity-100 font-semibold bg-cyan-100 text-cyan-600 dark:text-texthigh dark:bg-violet-900/70": pathname === item.href,
+              }
+            )}
+            target={item.external ? "_blank" : ""}
+            rel={item.external ? "noreferrer" : ""}
+          >
+
             {item.title}
-          </h4>
+  
+          </Link>
           {item.items ? (
             <DocsSidebarNavItems items={item.items} pathname={pathname} />
           ) : null}
@@ -39,16 +52,17 @@ export function DocsSidebarNavItems({
   pathname,
 }: DocsSidebarNavItemsProps) {
   return items?.length ? (
-    <div className="rid grid-flow-row auto-rows-max text-sm mr-4">
+    <div className="grid grid-flow-row auto-rows-max text-sm mr-4 space-y-2">
       {items.map((item, index) =>
         !item.disabled && item.href ? (
           <Link
             key={index}
             href={item.href}
             className={cn(
-              "flex w-full items-center rounded-md p-2 text-textlow hover:text-texthigh",
+              "flex w-full items-center rounded-md p-1 text-textlow space-x-2 px-3 whitespace-nowrap",
               {
-                "text-texthigh bg-primary/50 underlline opacity-100 underline-offset-4 font-semibold": pathname === item.href,
+                "hover:text-texthigh hover:bg-muted/50": pathname !== item.href,
+                "bg-cyan-200/20 text-cyan-400 dark:text-texthigh dark:bg-violet-900/70 opacity-100 font-semibold hover:none": pathname === item.href,
               }
             )}
             target={item.external ? "_blank" : ""}
@@ -57,7 +71,7 @@ export function DocsSidebarNavItems({
             {item.title}
           </Link>
         ) : (
-          <span key={index} className="flex w-full cursor-not-allowed items-center rounded-md p-2 opacity-60">
+          <span key={index} className="flex w-full cursor-not-allowed items-center rounded-md p-1 text-textlow hover:text-texthigh hover:bg-muted/50 space-x-2 px-3 whitespace-nowrap">
             {item.title}
           </span>
         )

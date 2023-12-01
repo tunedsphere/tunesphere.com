@@ -14,7 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { UpdateCart } from "@/components/cart/update-cart"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { getCartAction } from "@/app/_actions/cart"
 
 interface CartSheetProps {

@@ -1,4 +1,4 @@
-import { StoreIcons } from "@/components/icons"
+import { StoreIcons } from "@/components/icons/icons"
 import type { Category, Option } from "@/types"
 
 

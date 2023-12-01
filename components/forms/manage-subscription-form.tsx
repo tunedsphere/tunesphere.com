@@ -6,7 +6,7 @@ import { type z } from "zod"
 import { catchError } from "@/lib/utils"
 import { type manageSubscriptionSchema } from "@/lib/validations/stripe"
 import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { manageSubscriptionAction } from "@/app/_actions/stripe"
 
 type ManageSubscriptionFormProps = z.infer<typeof manageSubscriptionSchema>

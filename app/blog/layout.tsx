@@ -6,7 +6,7 @@ export default function TunedLayout({ children }: React.PropsWithChildren) {
   return (
     <>
      <SiteHeader />
-      <main className="flex-1 mt-[var(--headerHeight)] py-14 px-4 md:px-8">{children}</main>
+      <main className="flex-1 mt-[var(--headerHeight)] py-14 px-4 md:px-8 max-w-8xl mx-auto">{children}</main>
       <SiteFooter />
     </>
   )

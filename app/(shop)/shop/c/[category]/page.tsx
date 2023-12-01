@@ -3,7 +3,7 @@ import { type Product } from "@/db/schema"
 import { env } from "@/env.mjs"
 
 import { toTitleCase } from "@/lib/utils"
-
+import { formatTitleWithUnderscores } from "@/lib/utils"
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
 import { 
   PageHeader,
@@ -91,8 +91,8 @@ export default async function CategoryPage({
         href: "/shop/products",
       },
       {
-        title: toTitleCase(category),
-        href: `/shop/${category}`,
+        title: formatTitleWithUnderscores(toTitleCase(category)),
+        href: `/shop/${formatTitleWithUnderscores(toTitleCase(category))}`,
       },
     ]}
   />
@@ -102,10 +102,10 @@ export default async function CategoryPage({
     aria-labelledby="category-page-header-heading"
   >
     <PageHeaderHeading variant="shop" size="xl" className="font-mono">
-      {toTitleCase(category)}
+    {formatTitleWithUnderscores(toTitleCase(category))}
       </PageHeaderHeading>
     <PageHeaderDescription size="sm" className="font-mono">
-      {`Choose ${category} that is the best for you`}
+      {`Choose ${formatTitleWithUnderscores(toTitleCase(category))} that is the best for you`}
     </PageHeaderDescription>
   </PageHeader>
   </div>

@@ -5,7 +5,7 @@ import { stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { eq } from "drizzle-orm"
 
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 

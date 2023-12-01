@@ -1,4 +1,4 @@
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 export default function RecordLabelsLoading() {
   return (
     <div

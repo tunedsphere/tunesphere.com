@@ -11,7 +11,7 @@ import useEmblaCarousel, {
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 interface ProductImageCarouselProps
   extends React.HTMLAttributes<HTMLDivElement> {

@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 import IndexLoginModalButton from "@/components/index-login-modal-btn"
 import { Button } from "./ui/button"

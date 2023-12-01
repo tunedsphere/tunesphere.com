@@ -1,41 +1,42 @@
-/** Originally from `shadcn/taxonomy`
- * @link https://github.com/shadcn/taxonomy/blob/main/components/mdx-card.tsx
- */
+import { Icon, IconName } from './Icon'
+import { Label } from './mdx-label'
+import { ChevronLink } from '../chevronLink'
 
-import Link from "next/link"
-
-import { cn } from "@/lib/utils"
-
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  href?: string
-  disabled?: boolean
-}
-
-export function MdxCard({
-  href,
-  className,
-  children,
-  disabled,
-  ...props
-}: CardProps) {
+export const DocsCard: React.FC<
+  React.PropsWithChildren<{
+    title: string
+    icon?: IconName | null
+    label?: string | null
+    subtitle?: string | null
+    link?: { url: string; label: string }
+  }>
+> = ({ title, icon, label, subtitle, children, link }) => {
   return (
-    <div
-      className={cn(
-        "group relative rounded-lg border border-muted p-6 shadow-md transition-shadow hover:shadow-lg",
-        disabled && "cursor-not-allowed opacity-60",
-        className
-      )}
-      {...props}
-    >
-      <div className="flex flex-col justify-between space-y-4">
-        <div className="space-y-2 [&>h3]:!mt-0 [&>h4]:!mt-0 [&>p]:text-muted-foreground">
-          {children}
-        </div>
+    <div className="flex flex-col">
+      <div
+        className={`grow border border-gray-100 bg-gray-50 p-6 py-4 dark:border-gray-800 dark:bg-gray-900 
+        ${link ? 'rounded-t-2xl border-b-0' : 'rounded-2xl'} ${icon ? 'mt-6' : 'mt-0'}`}
+      >
+        {icon && (
+          <div className="-mt-10 mb-4 block w-12 rounded-full bg-white dark:bg-gray-950">
+            <div className="h-12 w-12 rounded-full border border-cyan-200 bg-cyan-100 p-2.5 text-cyan-600 dark:border-violet-900 dark:bg-violet-900/50 dark:text-violet-500">
+              <Icon name={icon} />
+            </div>
+          </div>
+        )}
+        <h3 className="mt-0 mb-4 text-xl font-semibold tracking-tight">{title}</h3>
+        {label && <Label text={label} />}
+        {subtitle && (
+          <div className="text-sm text-slate-500 dark:text-slate-400">
+            <p>{subtitle}</p>
+          </div>
+        )}
+        {children && <div className="text-sm">{children}</div>}
       </div>
-      {href && (
-        <Link href={disabled ? "#" : href} className="absolute inset-0">
-          <span className="sr-only">View</span>
-        </Link>
+      {link && (
+        <div className="rounded-b-2xl border border-cyan-100 bg-cyan-50 p-6 py-4 dark:border-violet-900/50 dark:bg-violet-900/20">
+          <ChevronLink {...link} />
+        </div>
       )}
     </div>
   )

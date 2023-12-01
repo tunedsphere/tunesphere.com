@@ -7,7 +7,7 @@ import { type Metadata } from "next"
 import { notFound } from 'next/navigation';
 import { env } from "@/env.mjs"
 import Image from 'next/image';
-import { Icons } from '@/components/icons';
+import { Icons } from '@/components/icons/icons';
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -34,7 +34,7 @@ export default async function ArtistPage({
         backgroundImage: "/images/product-placeholder.webp",
       }}
     >
-      <div className="absolute bottom-0 left-0 px-4 md:px-6 w-full h-full flex ">
+      <div className="flex px-4 md:px-6 h-full max-w-8xl mx-auto">
         <div className="flex space-y-2 py-4 text-left items-end">
           <Image
             alt="Artist Profile Picture"

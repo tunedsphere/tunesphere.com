@@ -22,7 +22,7 @@ import Image from "next/image"
 import { cn, formatBytes } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 // FIXME Your proposed upload exceeds the maximum allowed size, this should trigger toast.error too
 

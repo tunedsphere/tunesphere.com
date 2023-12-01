@@ -5,7 +5,7 @@ import Link from "next/link"
 import { MainNavItem } from "types"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
-import { Icons } from "../icons"
+import { Icons } from "../icons/icons"
 import { SidebarNavItem } from "types"
 
 interface MobileNavProps {
@@ -48,7 +48,8 @@ export function DocsMobileNav({ items, sideItems, closeMobileMenu }: MobileNavPr
                 href={item.disabled ? "#" : item.href}
                 className={cn(
                   "flex w-full items-center rounded-md p-2 text-xl font-semibold hover:underline",
-                  item.disabled && "cursor-not-allowed opacity-60"
+                  item.disabled && "cursor-not-allowed opacity-60",
+                  pathname === item.href && "text-cyan-600  dark:text-violet-500"
                 )}
               >
                 {item.title}
@@ -58,6 +59,7 @@ export function DocsMobileNav({ items, sideItems, closeMobileMenu }: MobileNavPr
           {sideItems.length ? (
             <div className="w-full">
               {sideItems.map((item, index) => (
+                
                 <div key={index} className={cn("pb-8")}>
                   <h4 className="mb-1 rounded-md px-2 py-1 text-base font-semibold">
                     {item.title}
@@ -73,7 +75,7 @@ export function DocsMobileNav({ items, sideItems, closeMobileMenu }: MobileNavPr
                             className={cn(
                               "flex w-full items-center rounded-md p-2 text-textlow hover:text-texthigh",
                               {
-                                "text-primary bg-muted/50 underlline underline-offset-4":
+                                "bg-cyan-100 p-2.5 text-cyan-600 dark:border-violet-900 dark:bg-violet-900 dark:text-texthigh":
                                   pathname === subItem.href,
                               }
                             )}

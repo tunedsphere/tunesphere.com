@@ -5,7 +5,7 @@ import { currentUser } from "@clerk/nextjs"
 import React from "react"
 import Link from "next/link"
 import type { User } from "@clerk/nextjs/server"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 
 import { Button, buttonVariants } from "@/components/ui/button"

@@ -13,19 +13,16 @@ export const docsConfig: DocsConfig = {
   ],
   sidebarNav: [
     {
-      title: "Getting Started",
+      title: "What is TunedSphere?",
+      href: "/docs/what-is-tunedsphere",
       items: [
         {
-          title: "Introduction",
-          href: "/docs/introduction",
+          title: "About Us",
+          href: "/docs/what-is-tunedsphere/about-us",
         },
         {
-          title: "About TunedSphere",
-          href: "/docs/about",
-        },
-        {
-          title: "Contact Us",
-          href: "/docs/contact",
+          title: "Contact",
+          href: "/docs/what-is-tunedsphere/contact",
         },
       ],
     },

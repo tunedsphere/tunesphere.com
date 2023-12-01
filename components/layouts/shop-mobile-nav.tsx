@@ -16,7 +16,8 @@ import {
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
+import { formatTitleWithUnderscores } from "@/lib/utils"
 
 interface ShopMobileNavProps {
   shopMainNavItems: ShopMainNavItem[]
@@ -59,7 +60,7 @@ export function ShopMobileNav({
               {shopMainNavItems?.map((item, index) => (
                 <AccordionItem value={item.title} key={index}>
                   <AccordionTrigger className="text-sm capitalize hover:text-primary decoration-transparent leading-6 font-semibold">
-                    {item.title}
+                  {formatTitleWithUnderscores(item.title)}
                   </AccordionTrigger>
                   <AccordionContent className="">
                     <div className="flex flex-col space-y-2">
@@ -79,7 +80,7 @@ export function ShopMobileNav({
                             key={index}
                             className=" transition-colors"
                           >
-                            {item.title}
+                             {formatTitleWithUnderscores(item.title)}
                           </div>
                         )
                       )}

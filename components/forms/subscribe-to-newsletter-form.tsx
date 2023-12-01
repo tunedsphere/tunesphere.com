@@ -17,7 +17,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 
 type Inputs = z.infer<typeof emailSchema>
 
@@ -33,7 +33,7 @@ export function SubscribeToNewsletterForm() {
   })
 
   function onSubmit(data: Inputs) {
-    console.log(data)
+    console.log("Form Data:", data);
 
     startTransition(async () => {
       const response = await fetch("/api/email/newsletter", {
@@ -47,6 +47,7 @@ export function SubscribeToNewsletterForm() {
       })
 
       if (!response.ok) {
+        console.log("API Error Response:", response.status);  
         switch (response.status) {
           case 409:
             toast.error("You are already subscribed to our newsletter.")
@@ -91,8 +92,9 @@ export function SubscribeToNewsletterForm() {
                   {...field}
                 />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="absolute pt-2 pl-2" />
               <Button
+                type="submit"
                 className="absolute right-2 top-[4px] z-20 h-8 w-8 align-middle object-contain"
                 size="icon"
                 disabled={isPending}

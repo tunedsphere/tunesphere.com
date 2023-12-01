@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { type StoredFile } from "@/types"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 interface StoreIconProps extends React.HTMLAttributes<HTMLDivElement> {
   images: StoredFile[];
 }

@@ -2,7 +2,7 @@ import { Shell } from "@/components/shells/shell"
 
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons/icons"
 import { PageHeader } from "@/components/page-header"
 
 import { AspectRatio } from "@/components/ui/aspect-ratio"

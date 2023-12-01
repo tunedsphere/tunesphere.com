@@ -4,7 +4,7 @@ import { db } from "@/db"
 import { products, stores, type Product } from "@/db/schema"
 import { Shell } from "@/components/shells/shell"
 import { desc, eq, sql } from "drizzle-orm"
- import { Icons } from "@/components/icons"
+ import { Icons } from "@/components/icons/icons"
 import { productCategories } from "@/configs/products"
 import { slugify } from "@/lib/utils"
 
@@ -44,7 +44,7 @@ export async function FeaturedCategories({ }:FeaturedCategoriesProps) {
       <section
       id="featured-categories"
       aria-labelledby="featured-categories"
-      className="w-full space-y-6 py-6 @container md:pt-10 z-10"
+      className="w-full space-y-6 py-6 @container md:pt-40 z-10"
     >
       <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
         <PageHeader
