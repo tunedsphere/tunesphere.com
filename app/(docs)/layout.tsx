@@ -88,12 +88,12 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
   </div>
   </div>
 
-
-  <main className="relative mx-auto max-w-8xl px-4 sm:px-6 md:px-8">
+<div className="flex min-h-screen flex-col justify-between">
+  <main className="relative w-full mx-auto max-w-8xl lg:flex lg:items-start ">
     {children}
   </main>
-  <div className="mx-auto w-full max-w-screen-2xl space-y-8 px-4 py-8 md:p-8 md:pb-12 lg:flex lg:justify-between lg:space-y-0 lg:p-16 lg:pb-20">
-  <footer className="relative mx-auto max-w-8xl items-center px-4 py-8">
+  <div className="border-t border-muted">
+  <div className="mx-auto w-full max-w-8xl space-y-8 px-4 py-8 md:p-8 md:pb-12 lg:flex lg:justify-between lg:space-y-0 lg:p-16 lg:pb-20">  <footer className="relative mx-auto max-w-8xl items-center px-4 py-8">
       <div className="footer-gradient -z-10 w-1/5" />
 
      
@@ -113,6 +113,8 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
   </div>
         </section>
     </footer>
+  </div>
+  </div>
   </div>
   {/* 
   <div className="fixed-gradient">
