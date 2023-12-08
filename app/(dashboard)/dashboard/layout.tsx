@@ -17,10 +17,7 @@ export default async function DashboardLayout({
         <section className="mt-[var(--headerHeight)] grid flex-1 items-start md:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[var(--sidebar-dashboard-width)_minmax(0,1fr)]">
           <Sidebar variant="dashboard">
             <ScrollArea className="py-6 pr-6">
-              <SidebarNav
-                items={dashboardConfig.sidebarNav}
-                icon={dashboardConfig.sidebarNav}
-              />
+              <SidebarNav items={dashboardConfig.sidebarNav} />
             </ScrollArea>
           </Sidebar>
           <main className="flex w-full flex-col overflow-hidden bg-background">
