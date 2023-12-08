@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import "@/styles/globals.css"
+import "@/styles/globals.css";
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { recordLabelsData } from "@/public/recordLabelsData";
-import { Icons } from "@/components/icons/icons";
-import { delayRecordLabelsGrid } from "@/lib/delays";
+import { Icon } from "@/components/icon";
+
 import { Suspense } from "react";
 
 interface RecordLabelsGridProps {
@@ -17,12 +17,10 @@ interface RecordLabelsGridProps {
 }
 
 export function RecordLabelsGrid({
-selectedYear, 
-selectedCountry,
-selectedGenre, }: RecordLabelsGridProps) {
-
-
-
+  selectedYear,
+  selectedCountry,
+  selectedGenre,
+}: RecordLabelsGridProps) {
   const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
   const expandedLabelRef = useRef(null);
 
@@ -32,15 +30,14 @@ selectedGenre, }: RecordLabelsGridProps) {
     );
   };
 
-
-
   // Filter and sort logic
   const sortedAndFilteredLabels = recordLabelsData
-    .filter((label) => (
-      (selectedGenre === null || label.genres.includes(selectedGenre)) &&
-      (selectedYear === null || label.founding_year.includes(selectedYear)) &&
-      (selectedCountry === null || label.country.includes(selectedCountry))
-    ))
+    .filter(
+      (label) =>
+        (selectedGenre === null || label.genres.includes(selectedGenre)) &&
+        (selectedYear === null || label.founding_year.includes(selectedYear)) &&
+        (selectedCountry === null || label.country.includes(selectedCountry))
+    )
     .sort((a, b) => a.name.localeCompare(b.name));
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -84,101 +81,87 @@ selectedGenre, }: RecordLabelsGridProps) {
         className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted pl-4 pt-2 pb-12 pr-8 @container sm:pl-12"
       >
         <div className="grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9">
-        <Suspense fallback={<RecordLabelsGridSkeleton />}>
-        
-          {sortedAndFilteredLabels.map((label, index) => (
-            <React.Fragment key={index}>
-              <div
-                key={label.id}
-                className={`relative cursor-pointer items-center justify-center text-center ${
-                  selectedLabel === index.toString() ? "" : ""
-                }`}
-                onClick={() => handleLabelClick(index)}
-              >
-                <Image
-                  width={400}
-                  height={400}
-                  src={label.image}
-                  alt={label.name}
-                  className="my-4 cursor-pointer rounded-full border-4 border-muted"
-                />
-                <h3 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-xl">
-                  {label.name}
-                </h3>
-                <p className="cursor-pointer text-xs text-textlow hover:text-theme">
-                  {label.genres.join(", ")}
-                </p>
-                {String(selectedLabel) === String(index) && (
-                  <div
-                    className="arrow-up absolute top-[96%] left-0 right-0 flex justify-center z-100 text-muted"
-                  >
-                    <Icons.chevronUp className="h-10 w-10"></Icons.chevronUp>
-                  </div>
-                )}
-                {String(selectedLabel) === String(index) && (
-                  <div
-                    className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-accent"
-                  >
-                    <Icons.chevronUp className="h-10 w-10"></Icons.chevronUp>
-                  </div>
-                )}
-              </div>
-              {String(selectedLabel) === String(index) && (
+          <Suspense fallback={<RecordLabelsGridSkeleton />}>
+            {sortedAndFilteredLabels.map((label, index) => (
+              <React.Fragment key={index}>
                 <div
-                ref={expandedLabelRef}
-                className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-accent py-8 @container @xs:block"
-              >
-
-              <div className="flex gap-4 px-12">
-                    <div className="flex justify-center border-r-2 border-muted">
-                      <Link href={`labels/${label.id}`} className="">
-                        <Image
-                          src={label.image}
-                          width={380}
-                          height={380}
-                          alt={label.id}
-                          className="cursor-pointer object-contain"
-                        />
-                      </Link>
+                  key={label.id}
+                  className={`relative cursor-pointer items-center justify-center text-center ${
+                    selectedLabel === index.toString() ? "" : ""
+                  }`}
+                  onClick={() => handleLabelClick(index)}
+                >
+                  <Image
+                    width={400}
+                    height={400}
+                    src={label.image}
+                    alt={label.name}
+                    className="my-4 cursor-pointer rounded-full border-4 border-muted"
+                  />
+                  <h3 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-xl">
+                    {label.name}
+                  </h3>
+                  <p className="cursor-pointer text-xs text-textlow hover:text-theme">
+                    {label.genres.join(", ")}
+                  </p>
+                  {String(selectedLabel) === String(index) && (
+                    <div className="arrow-up absolute top-[96%] left-0 right-0 flex justify-center z-100 text-muted">
+                      <Icon name="chevron-up" className="h-10 w-10" />
                     </div>
-                    <section className="flex flex-col w-full pl-8 gap-8">
-                    <div className="">
-                      <Link href={`labels/${label.id}`}>
-                        <h3 className="cursor-pointer text-lg font-bold text-texthigh">
-                          {label.name}
-                        </h3>
-                      </Link>
-                      <div className="flex text-sm text-textlow gap-1.5">
-                      <span>
-    {label.founding_year}
-  </span>
-  <span> - </span>
-  <span >
-    {label.country}
-  </span>
-  <span> - </span>
-
-  <span>
-    {label.genres}
-  </span>
-</div>
+                  )}
+                  {String(selectedLabel) === String(index) && (
+                    <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-accent">
+                      <Icon name="chevron-up" className="h-10 w-10" />
                     </div>
-                    <div className="">
-                      <p>
-                        <strong className="text-lg text-texthigh">
-                          Description:
-                        </strong>
-                      </p>
-                      <p className="text-textlow">{label.description}</p>
-                    </div>
-                    </section>
-                  
+                  )}
                 </div>
-                
-                </div>
-              )}
-            </React.Fragment>
-          ))}
+                {String(selectedLabel) === String(index) && (
+                  <div
+                    ref={expandedLabelRef}
+                    className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-accent py-8 @container @xs:block"
+                  >
+                    <div className="flex gap-4 px-12">
+                      <div className="flex justify-center border-r-2 border-muted">
+                        <Link href={`labels/${label.id}`} className="">
+                          <Image
+                            src={label.image}
+                            width={380}
+                            height={380}
+                            alt={label.id}
+                            className="cursor-pointer object-contain"
+                          />
+                        </Link>
+                      </div>
+                      <section className="flex flex-col w-full pl-8 gap-8">
+                        <div className="">
+                          <Link href={`labels/${label.id}`}>
+                            <h3 className="cursor-pointer text-lg font-bold text-texthigh">
+                              {label.name}
+                            </h3>
+                          </Link>
+                          <div className="flex text-sm text-textlow gap-1.5">
+                            <span>{label.founding_year}</span>
+                            <span> - </span>
+                            <span>{label.country}</span>
+                            <span> - </span>
+
+                            <span>{label.genres}</span>
+                          </div>
+                        </div>
+                        <div className="">
+                          <p>
+                            <strong className="text-lg text-texthigh">
+                              Description:
+                            </strong>
+                          </p>
+                          <p className="text-textlow">{label.description}</p>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
           </Suspense>
         </div>
       </div>

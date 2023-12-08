@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { cn } from '@/lib/utils'
 import { TreeNode } from 'types/TreeNode'
 import { Label } from './mdx-label'
-import { Icon } from './Icon'
+import { Icon } from '@/components/icon'
 
 const NavLink: FC<{
   title: string
@@ -40,7 +40,7 @@ const NavLink: FC<{
       {collapsible && (
         <button aria-label="Toggle children" onClick={toggleCollapsed} className="px-2 py-1 mr-2 shrink-0">
           <span className={`block w-2.5 ${collapsed ? '-rotate-90 transform' : ''}`}>
-            <Icon name="chevron-down" />
+            <Icon name="chevron-down"/>
           </span>
         </button>
       )}

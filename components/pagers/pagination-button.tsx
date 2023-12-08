@@ -1,26 +1,26 @@
-import * as React from "react"
+import * as React from "react";
 
-import { type AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
-import { Icons } from "@/components/icons/icons"
+import { type AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { Icon } from "@/components/icon";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface PaginationButtonProps
   extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  pageCount: number
-  page: string
-  per_page?: string
-  sort: string
-  createQueryString: (params: Record<string, string | number | null>) => string
-  router: AppRouterInstance
-  pathname: string
-  isPending: boolean
-  startTransition: React.TransitionStartFunction
-  siblingCount?: number
+  pageCount: number;
+  page: string;
+  per_page?: string;
+  sort: string;
+  createQueryString: (params: Record<string, string | number | null>) => string;
+  router: AppRouterInstance;
+  pathname: string;
+  isPending: boolean;
+  startTransition: React.TransitionStartFunction;
+  siblingCount?: number;
 }
 
 export function PaginationButton({
@@ -39,22 +39,22 @@ export function PaginationButton({
 }: PaginationButtonProps) {
   // Memoize pagination range to avoid unnecessary re-renders
   const paginationRange = React.useMemo(() => {
-    const delta = siblingCount + 2
+    const delta = siblingCount + 2;
 
-    const range = []
+    const range = [];
     for (
       let i = Math.max(2, Number(page) - delta);
       i <= Math.min(pageCount - 1, Number(page) + delta);
       i++
     ) {
-      range.push(i as never)
+      range.push(i as never);
     }
 
     if (Number(page) - delta > 2) {
-      range.unshift("..." as never)
+      range.unshift("..." as never);
     }
     if (Number(page) + delta < pageCount - 1) {
-      range.push("..." as never)
+      range.push("..." as never);
     }
 
     range.unshift(1 as never);
@@ -62,8 +62,8 @@ export function PaginationButton({
       range.push(pageCount as never);
     }
 
-    return range
-  }, [pageCount, page, siblingCount])
+    return range;
+  }, [pageCount, page, siblingCount]);
 
   return (
     <div
@@ -86,12 +86,12 @@ export function PaginationButton({
                 per_page: per_page ?? null,
                 sort,
               })}`
-            )
-          })
+            );
+          });
         }}
         disabled={Number(page) === 1 || isPending}
       >
-        <Icons.chevronsLeft className="h-4 w-4" aria-hidden="true" />
+        <Icon name="chevron-left" className="h-4 w-4" aria-hidden="true" />
       </Button>
       <Button
         aria-label="Go to previous page"
@@ -106,12 +106,12 @@ export function PaginationButton({
                 per_page: per_page ?? null,
                 sort,
               })}`
-            )
-          })
+            );
+          });
         }}
         disabled={Number(page) === 1 || isPending}
       >
-        <Icons.chevronLeft className="h-4 w-4" aria-hidden="true" />
+        <Icon name="chevron-left" className="h-4 w-4" aria-hidden="true" />
       </Button>
       {paginationRange.map((pageNumber, i) =>
         pageNumber === "..." ? (
@@ -140,8 +140,8 @@ export function PaginationButton({
                     per_page: per_page ?? null,
                     sort,
                   })}`
-                )
-              })
+                );
+              });
             }}
             disabled={isPending}
           >
@@ -162,12 +162,12 @@ export function PaginationButton({
                 per_page: per_page ?? null,
                 sort,
               })}`
-            )
-          })
+            );
+          });
         }}
         disabled={Number(page) === (pageCount ?? 10) || isPending}
       >
-        <Icons.chevronRight className="h-4 w-4" aria-hidden="true" />
+        <Icon name="chevron-right" className="h-4 w-4" aria-hidden="true" />
       </Button>
       <Button
         aria-label="Go to last page"
@@ -181,12 +181,12 @@ export function PaginationButton({
               per_page: per_page ?? null,
               sort,
             })}`
-          )
+          );
         }}
         disabled={Number(page) === (pageCount ?? 10) || isPending}
       >
-        <Icons.chevronsRight className="h-4 w-4" aria-hidden="true" />
+        <Icon name="chevron-right" className="h-4 w-4" aria-hidden="true" />
       </Button>
     </div>
-  )
+  );
 }

@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
-import { number, type z } from "zod"
+import * as React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { number, type z } from "zod";
 
-import { catchError } from "@/lib/utils"
-import { updateCartItemSchema } from "@/lib/validations/cart"
-import { Button } from "@/components/ui/button"
+import { catchError } from "@/lib/utils";
+import { updateCartItemSchema } from "@/lib/validations/cart";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -16,19 +16,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Icons } from "@/components/icons/icons"
-import { addToCartAction } from "@/app/_actions/cart"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Icon } from "@/components/icon";
+import { addToCartAction } from "@/app/_actions/cart";
 
 interface AddToCartFromProps {
-  productId: number
+  productId: number;
 }
 
-type Inputs = z.infer<typeof updateCartItemSchema>
+type Inputs = z.infer<typeof updateCartItemSchema>;
 
 export function AddToCartForm({ productId }: AddToCartFromProps) {
-  const [isPending, startTransition] = React.useTransition()
+  const [isPending, startTransition] = React.useTransition();
 
   // react-hook-form
   const form = useForm<Inputs>({
@@ -36,7 +36,7 @@ export function AddToCartForm({ productId }: AddToCartFromProps) {
     defaultValues: {
       quantity: 1,
     },
-  })
+  });
 
   function onSubmit(data: Inputs) {
     startTransition(async () => {
@@ -44,12 +44,12 @@ export function AddToCartForm({ productId }: AddToCartFromProps) {
         await addToCartAction({
           productId,
           quantity: data.quantity,
-        })
-        toast.success("Added to cart.")
+        });
+        toast.success("Added to cart.");
       } catch (err) {
-        catchError(err)
+        catchError(err);
       }
-    })
+    });
   }
 
   return (
@@ -71,10 +71,10 @@ export function AddToCartForm({ productId }: AddToCartFromProps) {
                   min={0}
                   {...field}
                   onChange={(e) => {
-                    const value = e.target.value
-                    const parsedValue = parseInt(value, 10)
-                    if (isNaN(parsedValue)) return
-                    field.onChange(parsedValue)
+                    const value = e.target.value;
+                    const parsedValue = parseInt(value, 10);
+                    if (isNaN(parsedValue)) return;
+                    field.onChange(parsedValue);
                   }}
                 />
               </FormControl>
@@ -84,7 +84,8 @@ export function AddToCartForm({ productId }: AddToCartFromProps) {
         />
         <Button disabled={isPending}>
           {isPending && (
-            <Icons.spinner
+            <Icon
+              name="spinner"
               className="mr-2 h-4 w-4 animate-spin"
               aria-hidden="true"
             />
@@ -94,5 +95,5 @@ export function AddToCartForm({ productId }: AddToCartFromProps) {
         </Button>
       </form>
     </Form>
-  )
+  );
 }

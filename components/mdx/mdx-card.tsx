@@ -1,21 +1,23 @@
-import { Icon, IconName } from './Icon'
-import { Label } from './mdx-label'
-import { ChevronLink } from '../chevronLink'
+import { Icon, IconName } from "../icon";
+import { Label } from "./mdx-label";
+import { ChevronLink } from "../chevronLink";
 
 export const DocsCard: React.FC<
   React.PropsWithChildren<{
-    title: string
-    icon?: IconName | null
-    label?: string | null
-    subtitle?: string | null
-    link?: { url: string; label: string }
+    title: string;
+    icon?: IconName | null;
+    label?: string | null;
+    subtitle?: string | null;
+    link?: { url: string; label: string };
   }>
 > = ({ title, icon, label, subtitle, children, link }) => {
   return (
     <div className="flex flex-col">
       <div
         className={`grow border border-gray-100 bg-gray-50 p-6 py-4 dark:border-gray-800 dark:bg-gray-900 
-        ${link ? 'rounded-t-2xl border-b-0' : 'rounded-2xl'} ${icon ? 'mt-6' : 'mt-0'}`}
+        ${link ? "rounded-t-2xl border-b-0" : "rounded-2xl"} ${
+          icon ? "mt-6" : "mt-0"
+        }`}
       >
         {icon && (
           <div className="-mt-10 mb-4 block w-12 rounded-full bg-white dark:bg-gray-950">
@@ -24,7 +26,9 @@ export const DocsCard: React.FC<
             </div>
           </div>
         )}
-        <h3 className="mt-0 mb-4 text-xl font-semibold tracking-tight">{title}</h3>
+        <h3 className="mt-0 mb-4 text-xl font-semibold tracking-tight">
+          {title}
+        </h3>
         {label && <Label text={label} />}
         {subtitle && (
           <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -39,5 +43,5 @@ export const DocsCard: React.FC<
         </div>
       )}
     </div>
-  )
-}
+  );
+};

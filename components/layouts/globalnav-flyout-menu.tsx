@@ -1,37 +1,36 @@
-"use client"
+"use client";
 
-import "./layouts.css"
-import { cn } from "@/lib/utils"
-import * as React from "react"
-import { useState } from "react"
-import Link from "next/link"
-import { SignedIn, SignedOut, useUser } from "@clerk/nextjs"
-import { ThemeToggle } from "@/components/theme-toggle"
+import "./layouts.css";
+import { cn } from "@/lib/utils";
+import * as React from "react";
+import { useState } from "react";
+import Link from "next/link";
+import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
+import { ThemeToggle } from "@/components/theme-toggle";
 
-import { siteConfig } from "@/configs/site"
+import { siteConfig } from "@/configs/site";
 
-import Modal from "@/components/auth/modal"
-import { Icons } from "@/components/icons/icons"
-import LogInButton from "@/components/login-btn"
+import Modal from "@/components/auth/modal";
+import { Icon } from "@/components/icon";
+import LogInButton from "@/components/login-btn";
 
-import { Button } from "../ui/button"
-
+import { Button } from "../ui/button";
 
 interface GlobalNavFlyoutProps {
-  handleClose: () => void
+  handleClose: () => void;
 }
-  export default function GlobalNavFlyout({ handleClose }: GlobalNavFlyoutProps) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const [isModalOpen, setModalOpen] = useState(false)
-  const [isFlyoutOpen, setFlyoutOpen] = useState(true)
-  const { user, isSignedIn } = useUser()
+export default function GlobalNavFlyout({ handleClose }: GlobalNavFlyoutProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isFlyoutOpen, setFlyoutOpen] = useState(true);
+  const { user, isSignedIn } = useUser();
 
   const UserProfileImage = () => {
-    if (!user) return null
+    if (!user) return null;
     return (
       <div className="flex items-center justify-center ">
         <img
-         onClick={handleClose}
+          onClick={handleClose}
           width={60}
           height={60}
           src={user.imageUrl}
@@ -39,73 +38,75 @@ interface GlobalNavFlyoutProps {
           alt="Profile image"
         />
       </div>
-    )
-  }
+    );
+  };
 
   const handleModalOpen = () => {
-    setModalOpen(!isModalOpen)
-  }
+    setModalOpen(!isModalOpen);
+  };
 
   return (
     <>
       {isFlyoutOpen && (
-        <div className="@container fixed sm:hidden no-scrollbar top-0 left-0 z-9999 block overflow-hidden h-screen w-screen bg-background px-2
-        data-[state=open]:block data-[state=open]:h-screendata-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top">
-          <div className="flex flex-col gap-8">
-          <div className="flex w-full flex-1 flex-row justify-between">
-            <div className="flex w-1/4 py-3">
-              <Button
-                size="sm"
-                onClick={handleClose}
-                variant="ghost"
-                className="mx-0 px-0 hover:bg-muted/30 hover:text-primary"
-              >
-                <span className="flex items-center">
-                  <Icons.chevronLeft className="" />
-                  <span className="pr-2 text-lg font-semibold">Back</span>
-                </span>
-              </Button>
-            </div>
-            <div className="flex w-1/2 justify-end py-3">
-              <ThemeToggle className=""/>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <SignedOut>
-              <LogInButton handleModalOpen={handleModalOpen} />
-            </SignedOut>
-            <SignedIn>
-              <div className="flex flex-col items-center p-2">
-                <Link href="/dashboard/account" className="cursor-pointer">
-                <UserProfileImage ></UserProfileImage>
-              </Link>
+        <div
+          className="@container fixed sm:hidden no-scrollbar top-0 left-0 z-9999 block overflow-hidden h-screen w-screen bg-background px-2
+        data-[state=open]:block data-[state=open]:h-screendata-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top"
+        >
+          <div className="flex flex-col gap-8 py-2">
+            <div className="flex w-full flex-1 flex-row justify-between">
+              <div className="flex w-1/4 py-3">
+                <Button
+                  size="sm"
+                  onClick={handleClose}
+                  variant="ghost"
+                  className="mx-0 px-0 hover:bg-muted/30 hover:text-primary"
+                >
+                  <span className="flex items-center">
+                    <Icon name="chevron-left" className="w-6 h-6" />
+                    <span className="pr-2 text-lg font-semibold">Back</span>
+                  </span>
+                </Button>
               </div>
-            </SignedIn>
-          </div>
+              <div className="flex w-1/2 justify-end py-3">
+                <ThemeToggle />
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <SignedOut>
+                <LogInButton handleModalOpen={handleModalOpen} />
+              </SignedOut>
+              <SignedIn>
+                <div className="flex flex-col items-center p-2">
+                  <Link href="/dashboard/account" className="cursor-pointer">
+                    <UserProfileImage></UserProfileImage>
+                  </Link>
+                </div>
+              </SignedIn>
+            </div>
 
-          <div className="justify-between divide-y divide-theme px-2 pb-8">
-          {siteConfig.navbarNav.map((item) => (
-  <li
-    key={item.title}
-    className="flex w-full justify-between py-4 text-2xl leading-7 text-texthigh"
-  >
-    <Link
-      onClick={handleClose}
-      href={item.href}
-      className={cn(
-        "text-texthigh hover:text-texthigh/70",
-        item.disabled && "cursor-not-allowed opacity-80"
-      )}
-    >
-      {item.label}
-    </Link>
-  </li>
-))}
+            <div className="justify-between divide-y divide-theme px-2 pb-8">
+              {siteConfig.navbarNav.map((item) => (
+                <li
+                  key={item.title}
+                  className="flex w-full justify-between py-4 text-2xl leading-7 text-texthigh"
+                >
+                  <Link
+                    onClick={handleClose}
+                    href={item.href}
+                    className={cn(
+                      "text-texthigh hover:text-texthigh/70",
+                      item.disabled && "cursor-not-allowed opacity-80"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </div>
           </div>
-        </div>
         </div>
       )}
       {isModalOpen && <Modal handleModalClose={handleModalOpen} />}
     </>
-  )
+  );
 }

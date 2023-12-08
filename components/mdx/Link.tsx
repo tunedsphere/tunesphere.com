@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 import NextLink from 'next/link'
-import { Icon } from './Icon'
+import { Icon } from '../icon'
 
 export const Link: FC<{ href: string; children: ReactNode }> = ({ href, children }) => {
   const isExternalUrl = !(href.startsWith('/') || href.startsWith('#'))

@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import type { SidebarNavItem } from "@/types"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { SidebarNavItem } from "@/types";
 
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons/icons"
+import { cn } from "@/lib/utils";
+import { Icon } from "@/components/icon";
 
 export interface SidebarNavProps {
-  items: SidebarNavItem[]
+  items: SidebarNavItem[];
 }
 
 export function SidebarNav({ items }: SidebarNavProps) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
-  if (!items?.length) return null
+  if (!items?.length) return null;
 
   return (
     <div className="flex w-full flex-col gap-2">
       {items.map((item, index) => {
-        const Icon = Icons[item.icon ?? "chevronLeft"]
+        const NavIcon = Icon[item.icon ?? "chevron-left"];
         if (item.title === "Separator") {
           // Add a separator element between "Settings" and "Purchases"
           return (
@@ -42,7 +42,7 @@ export function SidebarNav({ items }: SidebarNavProps) {
                 item.disabled && "pointer-events-none opacity-60"
               )}
             >
-              <Icon className="mr-2 h-4 w-4" aria-hidden="true" />
+              <NavIcon className="mr-2 h-4 w-4" aria-hidden="true" />
               <span>{item.title}</span>
             </span>
           </Link>
@@ -53,8 +53,8 @@ export function SidebarNav({ items }: SidebarNavProps) {
           >
             {item.title}
           </span>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

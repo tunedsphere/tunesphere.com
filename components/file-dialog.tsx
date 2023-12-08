@@ -1,42 +1,42 @@
-import * as React from "react"
-import type { FileWithPreview } from "@/types"
-import Cropper, { type ReactCropperElement } from "react-cropper"
+import * as React from "react";
+import type { FileWithPreview } from "@/types";
+import Cropper, { type ReactCropperElement } from "react-cropper";
 import {
   useDropzone,
   type Accept,
   type FileRejection,
   type FileWithPath,
-} from "react-dropzone"
+} from "react-dropzone";
 import type {
   FieldValues,
   Path,
   PathValue,
   UseFormSetValue,
-} from "react-hook-form"
-import { toast } from "sonner"
+} from "react-hook-form";
+import { toast } from "sonner";
 
-import "cropperjs/dist/cropper.css"
+import "cropperjs/dist/cropper.css";
 
-import Image from "next/image"
+import Image from "next/image";
 
-import { cn, formatBytes } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { Icons } from "@/components/icons/icons"
+import { cn, formatBytes } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Icon } from "@/components/icon";
 
 // FIXME Your proposed upload exceeds the maximum allowed size, this should trigger toast.error too
 
 interface FileDialogProps<TFieldValues extends FieldValues>
   extends React.HTMLAttributes<HTMLDivElement> {
-  name: Path<TFieldValues>
-  setValue: UseFormSetValue<TFieldValues>
-  accept?: Accept
-  maxSize?: number
-  maxFiles?: number
-  files: FileWithPreview[] | null
-  setFiles: React.Dispatch<React.SetStateAction<FileWithPreview[] | null>>
-  isUploading?: boolean
-  disabled?: boolean
+  name: Path<TFieldValues>;
+  setValue: UseFormSetValue<TFieldValues>;
+  accept?: Accept;
+  maxSize?: number;
+  maxFiles?: number;
+  files: FileWithPreview[] | null;
+  setFiles: React.Dispatch<React.SetStateAction<FileWithPreview[] | null>>;
+  isUploading?: boolean;
+  disabled?: boolean;
 }
 
 export function FileDialog<TFieldValues extends FieldValues>({
@@ -59,9 +59,9 @@ export function FileDialog<TFieldValues extends FieldValues>({
       acceptedFiles.forEach((file) => {
         const fileWithPreview = Object.assign(file, {
           preview: URL.createObjectURL(file),
-        })
-        setFiles((prev) => [...(prev ?? []), fileWithPreview])
-      })
+        });
+        setFiles((prev) => [...(prev ?? []), fileWithPreview]);
+      });
 
       setFiles(
         acceptedFiles.map((file) =>
@@ -69,34 +69,33 @@ export function FileDialog<TFieldValues extends FieldValues>({
             preview: URL.createObjectURL(file),
           })
         )
-      )
+      );
 
       if (rejectedFiles.length > 0) {
         rejectedFiles.forEach(({ errors }) => {
           if (errors[0]?.code === "file-invalid-type") {
-            toast.error(`Invalid file type. Allowed types: ${accept}`)
+            toast.error(`Invalid file type. Allowed types: ${accept}`);
           } else if (errors[1]?.code === "file-too-large") {
             toast.error(
               `File is too large. Max size is ${formatBytes(maxSize)}`
-            )
+            );
           } else if (errors[2]?.code === "file-too-small") {
-            toast.error(`File is too small.`)
+            toast.error(`File is too small.`);
           } else if (errors[3]?.code === "too-many-files") {
-            toast.error(`You can upload up to ${maxFiles} files.`)
+            toast.error(`You can upload up to ${maxFiles} files.`);
           }
-        })
+        });
       }
     },
 
     [maxSize, name, setFiles, setValue]
-  )
-
+  );
 
   // Register files to react-hook-form
   React.useEffect(() => {
-    setValue(name, files as PathValue<TFieldValues, Path<TFieldValues>>)
+    setValue(name, files as PathValue<TFieldValues, Path<TFieldValues>>);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [files])
+  }, [files]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -105,17 +104,16 @@ export function FileDialog<TFieldValues extends FieldValues>({
     maxFiles,
     multiple: maxFiles > 1,
     disabled,
-  })
+  });
 
-
- // Revoke preview url when component unmounts
- React.useEffect(() => {
-  return () => {
-    if (!files) return
-    files.forEach((file) => URL.revokeObjectURL(file.preview))
-  }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [])
+  // Revoke preview url when component unmounts
+  React.useEffect(() => {
+    return () => {
+      if (!files) return;
+      files.forEach((file) => URL.revokeObjectURL(file.preview));
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Dialog>
@@ -143,14 +141,16 @@ export function FileDialog<TFieldValues extends FieldValues>({
           <input {...getInputProps()} />
           {isUploading ? (
             <div className="group grid w-full place-items-center gap-1 sm:px-10">
-              <Icons.upload
+              <Icon
+                name="upload"
                 className="h-9 w-9 animate-pulse text-muted-foreground"
                 aria-hidden="true"
               />
             </div>
           ) : isDragActive ? (
             <div className="grid place-items-center gap-2 text-muted-foreground sm:px-5">
-              <Icons.upload
+              <Icon
+                name="upload"
                 className={cn("h-8 w-8", isDragActive && "animate-bounce")}
                 aria-hidden="true"
               />
@@ -158,7 +158,8 @@ export function FileDialog<TFieldValues extends FieldValues>({
             </div>
           ) : (
             <div className="grid place-items-center gap-1 sm:px-5">
-              <Icons.upload
+              <Icon
+                name="upload"
                 className="h-8 w-8 text-muted-foreground"
                 aria-hidden="true"
               />
@@ -194,66 +195,66 @@ export function FileDialog<TFieldValues extends FieldValues>({
             size="sm"
             className="mt-2.5 w-full"
             onClick={() => setFiles(null)}
-            >
-            <Icons.trash className="mr-2 h-4 w-4" aria-hidden="true" />
+          >
+            <Icon name="trash" className="mr-2 h-4 w-4" aria-hidden="true" />
             Remove All
             <span className="sr-only">Remove All</span>
           </Button>
         ) : null}
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 interface FileCardProps {
-  i: number
-  file: FileWithPreview
-  files: FileWithPreview[] | null
-  setFiles: React.Dispatch<React.SetStateAction<FileWithPreview[] | null>>
+  i: number;
+  file: FileWithPreview;
+  files: FileWithPreview[] | null;
+  setFiles: React.Dispatch<React.SetStateAction<FileWithPreview[] | null>>;
 }
 
 function FileCard({ i, file, files, setFiles }: FileCardProps) {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [cropData, setCropData] = React.useState<string | null>(null)
-  const cropperRef = React.useRef<ReactCropperElement>(null)
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [cropData, setCropData] = React.useState<string | null>(null);
+  const cropperRef = React.useRef<ReactCropperElement>(null);
 
   const onCrop = React.useCallback(() => {
-    if (!files || !cropperRef.current) return
+    if (!files || !cropperRef.current) return;
 
-    const croppedCanvas = cropperRef.current?.cropper.getCroppedCanvas()
-    setCropData(croppedCanvas.toDataURL())
+    const croppedCanvas = cropperRef.current?.cropper.getCroppedCanvas();
+    setCropData(croppedCanvas.toDataURL());
 
     croppedCanvas.toBlob((blob) => {
       if (!blob) {
-        console.error("Blob creation failed")
-        return
+        console.error("Blob creation failed");
+        return;
       }
       const croppedImage = new File([blob], file.name, {
         type: file.type,
         lastModified: Date.now(),
-      })
+      });
 
       const croppedFileWithPathAndPreview = Object.assign(croppedImage, {
         preview: URL.createObjectURL(croppedImage),
         path: file.name,
-      }) satisfies FileWithPreview
+      }) satisfies FileWithPreview;
 
       const newFiles = files.map((file, j) =>
         j === i ? croppedFileWithPathAndPreview : file
-      )
-      setFiles(newFiles)
-    })
-  }, [file.name, file.type, files, i, setFiles])
+      );
+      setFiles(newFiles);
+    });
+  }, [file.name, file.type, files, i, setFiles]);
 
   React.useEffect(() => {
     function handleKeydown(e: KeyboardEvent) {
       if (e.key === "Enter") {
-        onCrop()
-        setIsOpen(false)
+        onCrop();
+        setIsOpen(false);
       }
     }
-    document.addEventListener("keydown", handleKeydown)
-    return () => document.removeEventListener("keydown", handleKeydown)
-  }, [onCrop])
+    document.addEventListener("keydown", handleKeydown);
+    return () => document.removeEventListener("keydown", handleKeydown);
+  }, [onCrop]);
 
   return (
     <div className="relative flex items-center justify-between gap-2.5">
@@ -285,7 +286,11 @@ function FileCard({ i, file, files, setFiles }: FileCardProps) {
                 size="sm"
                 className="h-7 w-7 p-0"
               >
-                <Icons.crop className="h-4 w-4 text-white" aria-hidden="true" />
+                <Icon
+                  name="crop"
+                  className="h-4 w-4 text-white"
+                  aria-hidden="true"
+                />
                 <span className="sr-only">Crop image</span>
               </Button>
             </DialogTrigger>
@@ -317,11 +322,12 @@ function FileCard({ i, file, files, setFiles }: FileCardProps) {
                     size="sm"
                     className="h-8"
                     onClick={() => {
-                      onCrop()
-                      setIsOpen(false)
+                      onCrop();
+                      setIsOpen(false);
                     }}
                   >
-                    <Icons.crop
+                    <Icon
+                      name="crop"
                       className="mr-2 h-3.5 w-3.5"
                       aria-hidden="true"
                     />
@@ -334,11 +340,12 @@ function FileCard({ i, file, files, setFiles }: FileCardProps) {
                     size="sm"
                     className="h-8"
                     onClick={() => {
-                      cropperRef.current?.cropper.reset()
-                      setCropData(null)
+                      cropperRef.current?.cropper.reset();
+                      setCropData(null);
                     }}
                   >
-                    <Icons.reset
+                    <Icon
+                      name="reset"
                       className="mr-2 h-3.5 w-3.5"
                       aria-hidden="true"
                     />
@@ -355,14 +362,18 @@ function FileCard({ i, file, files, setFiles }: FileCardProps) {
           size="sm"
           className="h-7 w-7 p-0"
           onClick={() => {
-            if (!files) return
-            setFiles(files.filter((_, j) => j !== i))
+            if (!files) return;
+            setFiles(files.filter((_, j) => j !== i));
           }}
         >
-          <Icons.close className="h-4 w-4 text-white" aria-hidden="true" />
+          <Icon
+            name="close"
+            className="h-4 w-4 text-white"
+            aria-hidden="true"
+          />
           <span className="sr-only">Remove file</span>
         </Button>
       </div>
     </div>
-  )
+  );
 }

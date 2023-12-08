@@ -1,12 +1,12 @@
-import "./layouts.css"
+import "./layouts.css";
 
-import * as React from "react"
-import Link from "next/link"
-import type { ShopMainNavItem } from "@/types"
-import { Icons } from "@/components/icons/icons"
+import * as React from "react";
+import Link from "next/link";
+import type { ShopMainNavItem } from "@/types";
+import { Icon } from "@/components/icon";
 
-import { siteConfig } from "@/configs/site"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/configs/site";
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,10 +15,10 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import { formatTitleWithUnderscores } from "@/lib/utils"
+} from "@/components/ui/navigation-menu";
+import { formatTitleWithUnderscores } from "@/lib/utils";
 interface ShopMainNavProps {
-  items: ShopMainNavItem[]
+  items: ShopMainNavItem[];
 }
 
 export function ShopMainNav({ items }: ShopMainNavProps) {
@@ -37,10 +37,10 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
         <NavigationMenuList>
           {items?.[0]?.items ? (
             <NavigationMenuItem>
-               <Link href="/shop">
-              <NavigationMenuTrigger className="h-auto bg-background-shopNavLink z-1000 ">
-                {items[0].title}
-              </NavigationMenuTrigger>
+              <Link href="/shop">
+                <NavigationMenuTrigger className="h-auto bg-background-shopNavLink z-1000 ">
+                  {items[0].title}
+                </NavigationMenuTrigger>
               </Link>
               <NavigationMenuContent className="shadow-xl">
                 <ul className="grid gap-3 p-6 border-muted md:w-[400px] lg:w-[790px] lg:grid-cols-[.75fr_1fr]">
@@ -51,11 +51,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                         className="flex w-full select-none flex-col justify-end rounded-md p-6 no-underline outline-none"
                         href="/"
                       >
-                        <Icons.logo
-                          className="left-0 z-100"
-                          width={54}
-                          height={54}
-                        ></Icons.logo>
+                        <Icon name="logo" className="left-0 z-100 w-14 h-14" />
                         <div className="mb-2 mt-4 text-lg leading-6 tracking-tighter font-semibold">
                           {siteConfig.name}
                         </div>
@@ -66,16 +62,16 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                     </NavigationMenuLink>
                   </li>
                   <div className="bg-background-shopNavLink/50 gap-4 p-6">
-                  {items[0].items.map((item) => (
-                    <ListItem
-                      className="flex-col"
-                      key={item.title}
-                      title={item.title}
-                      href={item.href}
-                    >
-                      {item.description}
-                    </ListItem>
-                  ))}
+                    {items[0].items.map((item) => (
+                      <ListItem
+                        className="flex-col"
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                      >
+                        {item.description}
+                      </ListItem>
+                    ))}
                   </div>
                 </ul>
               </NavigationMenuContent>
@@ -85,13 +81,11 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
             ?.filter((item) => item.title !== items[0]?.title)
             .map((item) =>
               item?.items ? (
-                
                 <NavigationMenuItem key={item.title}>
-                  
                   <Link href={`/shop/c/${encodeURIComponent(item.title)}`}>
-                  <NavigationMenuTrigger className="h-auto capitalize focus bg-background-shopNavLink">
-                  {formatTitleWithUnderscores(item.title)}
-                  </NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="h-auto capitalize focus bg-background-shopNavLink">
+                      {formatTitleWithUnderscores(item.title)}
+                    </NavigationMenuTrigger>
                   </Link>
                   <NavigationMenuContent className="shadow-xl">
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[790px]">
@@ -125,7 +119,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
         </NavigationMenuList>
       </NavigationMenu>
     </div>
-  )
+  );
 }
 
 const ListItem = React.forwardRef<
@@ -144,15 +138,13 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">
-            {title}
-          </div>
+          <div className="text-sm font-medium leading-none">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </Link>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";

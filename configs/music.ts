@@ -1,4 +1,4 @@
-import { StoreIcons } from "@/components/icons/icons"
+
 import type { MusicGenre, Option } from "@/types"
 
 

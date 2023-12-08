@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useRouter } from "next/navigation"
-import { isClerkAPIResponseError, useSignIn } from "@clerk/nextjs"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
-import type { z } from "zod"
+import * as React from "react";
+import { useRouter } from "next/navigation";
+import { isClerkAPIResponseError, useSignIn } from "@clerk/nextjs";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import type { z } from "zod";
 
-import { resetPasswordSchema } from "@/lib/validations/auth"
-import { Button } from "@/components/ui/button"
+import { resetPasswordSchema } from "@/lib/validations/auth";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -17,17 +17,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Icons } from "@/components/icons/icons"
-import { PasswordInput } from "@/components/password-input"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Icon } from "@/components/icon";
+import { PasswordInput } from "@/components/password-input";
 
-type Inputs = z.infer<typeof resetPasswordSchema>
+type Inputs = z.infer<typeof resetPasswordSchema>;
 
 export function ResetPasswordStep2Form() {
-  const router = useRouter()
-  const { isLoaded, signIn, setActive } = useSignIn()
-  const [isPending, startTransition] = React.useTransition()
+  const router = useRouter();
+  const { isLoaded, signIn, setActive } = useSignIn();
+  const [isPending, startTransition] = React.useTransition();
 
   // react-hook-form
   const form = useForm<Inputs>({
@@ -37,10 +37,10 @@ export function ResetPasswordStep2Form() {
       confirmPassword: "",
       code: "",
     },
-  })
+  });
 
   function onSubmit(data: Inputs) {
-    if (!isLoaded) return
+    if (!isLoaded) return;
 
     startTransition(async () => {
       try {
@@ -48,27 +48,27 @@ export function ResetPasswordStep2Form() {
           strategy: "reset_password_email_code",
           code: data.code,
           password: data.password,
-        })
+        });
 
         if (attemptFirstFactor.status === "needs_second_factor") {
           // TODO: implement 2FA (requires clerk pro plan)
         } else if (attemptFirstFactor.status === "complete") {
           await setActive({
             session: attemptFirstFactor.createdSessionId,
-          })
-          router.push(`${window.location.origin}/`)
-          toast.success("Password reset successfully.")
+          });
+          router.push(`${window.location.origin}/`);
+          toast.success("Password reset successfully.");
         } else {
-          console.error(attemptFirstFactor)
+          console.error(attemptFirstFactor);
         }
       } catch (error) {
-        const unknownError = "Something went wrong, please try again."
+        const unknownError = "Something went wrong, please try again.";
 
         isClerkAPIResponseError(error)
           ? toast.error(error.errors[0]?.longMessage ?? unknownError)
-          : toast.error(unknownError)
+          : toast.error(unknownError);
       }
-    })
+    });
   }
 
   return (
@@ -114,8 +114,8 @@ export function ResetPasswordStep2Form() {
                   placeholder="169420"
                   {...field}
                   onChange={(e) => {
-                    e.target.value = e.target.value.trim()
-                    field.onChange(e)
+                    e.target.value = e.target.value.trim();
+                    field.onChange(e);
                   }}
                 />
               </FormControl>
@@ -125,7 +125,8 @@ export function ResetPasswordStep2Form() {
         />
         <Button disabled={isPending}>
           {isPending && (
-            <Icons.spinner
+            <Icon
+              name="spinner"
               className="mr-2 h-4 w-4 animate-spin"
               aria-hidden="true"
             />
@@ -135,5 +136,5 @@ export function ResetPasswordStep2Form() {
         </Button>
       </form>
     </Form>
-  )
+  );
 }

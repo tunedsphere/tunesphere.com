@@ -8,7 +8,10 @@ import type {
   cartItemSchema,
   cartLineItemSchema, 
   checkoutItemSchema } from "@/lib/validations/cart"
-import { type Icons } from "@/components/icons/icons"
+import { IconName } from "@/components/icon"
+import { IconName as ShopIconName } from "@/components/icon/shop"
+import { Icon } from "@/components/icon"
+import { ShopIcon } from "@/components/icon/shop"
 
 
 export interface NavItem {
@@ -16,7 +19,7 @@ export interface NavItem {
   href: string
   disabled?: boolean
   external?: boolean
-  icon?: keyof typeof Icons
+  icon?: keyof typeof Icon
   label?: string
   description?: string
 }
@@ -25,7 +28,7 @@ export interface ShopNavItem {
   href?: string
   disabled?: boolean
   external?: boolean
-  icon?: keyof typeof Icons
+  icon?: keyof typeof Icon
   description?: string
 }
 export interface ShopNavItemWithChildren extends ShopNavItem {
@@ -49,7 +52,7 @@ export type SidebarNavItem = {
   disabled?: boolean
   external?: boolean
   className?: string
-  icon?: keyof typeof Icons
+  icon?: keyof typeof Icon
 } & (
   | {
       href: string
@@ -107,7 +110,7 @@ export interface DataTableFilterableColumn<TData>
 export interface Category {
   title: Product["category"]
   image: string
-  icon: React.ComponentType<{ className?: string }>
+  icon?: keyof typeof ShopIcon
   subcategories: Subcategory[]
 }
 export interface MusicGenre {

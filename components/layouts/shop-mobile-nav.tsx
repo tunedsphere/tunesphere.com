@@ -1,35 +1,35 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import type { ShopMainNavItem, SidebarNavItem } from "@/types"
+import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { ShopMainNavItem, SidebarNavItem } from "@/types";
 
-import { siteConfig } from "@/configs/site"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/configs/site";
+import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Icons } from "@/components/icons/icons"
-import { formatTitleWithUnderscores } from "@/lib/utils"
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Icon } from "@/components/icon";
+import { formatTitleWithUnderscores } from "@/lib/utils";
 
 interface ShopMobileNavProps {
-  shopMainNavItems: ShopMainNavItem[]
-  sidebarNavItems: SidebarNavItem[]
+  shopMainNavItems: ShopMainNavItem[];
+  sidebarNavItems: SidebarNavItem[];
 }
 
 export function ShopMobileNav({
   shopMainNavItems,
   sidebarNavItems,
 }: ShopMobileNavProps) {
-  const pathname = usePathname()
-  const [isOpen, setIsOpen] = React.useState(false)
+  const pathname = usePathname();
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -38,7 +38,7 @@ export function ShopMobileNav({
           variant="nav"
           className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
         >
-          <Icons.menu className="h-6 w-6" />
+          <Icon name="menu" className="h-6 w-6" />
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
@@ -50,7 +50,7 @@ export function ShopMobileNav({
             className="flex items-center"
             onClick={() => setIsOpen(false)}
           >
-            <Icons.logo className="mr-2 h-12 w-12" aria-hidden="true" />
+            <Icon name="logo" className="mr-2 h-12 w-12" aria-hidden="true" />
             <span className="text-xl font-bold"> Back</span>
           </Link>
         </div>
@@ -60,7 +60,7 @@ export function ShopMobileNav({
               {shopMainNavItems?.map((item, index) => (
                 <AccordionItem value={item.title} key={index}>
                   <AccordionTrigger className="text-sm capitalize hover:text-primary decoration-transparent leading-6 font-semibold">
-                  {formatTitleWithUnderscores(item.title)}
+                    {formatTitleWithUnderscores(item.title)}
                   </AccordionTrigger>
                   <AccordionContent className="">
                     <div className="flex flex-col space-y-2">
@@ -76,11 +76,8 @@ export function ShopMobileNav({
                             {subItem.title}
                           </MobileLink>
                         ) : (
-                          <div
-                            key={index}
-                            className=" transition-colors"
-                          >
-                             {formatTitleWithUnderscores(item.title)}
+                          <div key={index} className=" transition-colors">
+                            {formatTitleWithUnderscores(item.title)}
                           </div>
                         )
                       )}
@@ -93,15 +90,15 @@ export function ShopMobileNav({
         </ScrollArea>
       </SheetContent>
     </Sheet>
-  )
+  );
 }
 
 interface MobileLinkProps {
-  children?: React.ReactNode
-  href: string
-  disabled?: boolean
-  pathname: string
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+  children?: React.ReactNode;
+  href: string;
+  disabled?: boolean;
+  pathname: string;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function MobileLink({
@@ -123,5 +120,5 @@ function MobileLink({
     >
       {children}
     </Link>
-  )
+  );
 }

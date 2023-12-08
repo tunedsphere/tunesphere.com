@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import "@/styles/globals.css"
+import "@/styles/globals.css";
 
-import * as React from "react"
-import { useRouter } from "next/navigation"
-import { type Product } from "@/db/schema"
+import * as React from "react";
+import { useRouter } from "next/navigation";
+import { type Product } from "@/db/schema";
 
-import { cn } from "@/lib/utils"
-import { useDebounce } from "@/hooks/use-debounce"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { useDebounce } from "@/hooks/use-debounce";
+import { Button } from "@/components/ui/button";
 import {
   CommandDialog,
   CommandEmpty,
@@ -16,57 +16,57 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/components/ui/command"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Icons } from "@/components/icons/icons"
-import { filterProductsAction } from "@/app/_actions/product"
+} from "@/components/ui/command";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Icon } from "@/components/icon";
+import { filterProductsAction } from "@/app/_actions/product";
 
 export function Combobox() {
-  const router = useRouter()
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [query, setQuery] = React.useState("")
-  const debouncedQuery = useDebounce(query, 300)
+  const router = useRouter();
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [query, setQuery] = React.useState("");
+  const debouncedQuery = useDebounce(query, 300);
   const [data, setData] = React.useState<
     | {
-        category: Product["category"]
-        products: Pick<Product, "id" | "name" | "category">[]
+        category: Product["category"];
+        products: Pick<Product, "id" | "name" | "category">[];
       }[]
     | null
-  >(null)
-  const [isPending, startTransition] = React.useTransition()
+  >(null);
+  const [isPending, startTransition] = React.useTransition();
 
   React.useEffect(() => {
-    if (debouncedQuery.length === 0) setData(null)
+    if (debouncedQuery.length === 0) setData(null);
 
     if (debouncedQuery.length > 0) {
       startTransition(async () => {
-        const data = await filterProductsAction(debouncedQuery)
-        setData(data)
-      })
+        const data = await filterProductsAction(debouncedQuery);
+        setData(data);
+      });
     }
-  }, [debouncedQuery])
+  }, [debouncedQuery]);
 
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setIsOpen((isOpen) => !isOpen)
+        e.preventDefault();
+        setIsOpen((isOpen) => !isOpen);
       }
-    }
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [])
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const handleSelect = React.useCallback((callback: () => unknown) => {
-    setIsOpen(false)
-    callback()
-  }, [])
+    setIsOpen(false);
+    callback();
+  }, []);
 
   React.useEffect(() => {
     if (!isOpen) {
-      setQuery("")
+      setQuery("");
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   return (
     <>
@@ -75,7 +75,8 @@ export function Combobox() {
         className="relative h-9 w-9 p-0 xl:h-10 xl:w-60 xl:justify-start xl:px-3 xl:py-2"
         onClick={() => setIsOpen(true)}
       >
-        <Icons.search
+        <Icon
+          name="search"
           className="search-trigger cursor-pointer object-contain"
           aria-hidden="true"
         />
@@ -125,5 +126,5 @@ export function Combobox() {
         </CommandList>
       </CommandDialog>
     </>
-  )
+  );
 }

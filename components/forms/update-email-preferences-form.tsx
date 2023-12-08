@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { type EmailPreference } from "@/db/schema"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
-import { type z } from "zod"
+import * as React from "react";
+import { type EmailPreference } from "@/db/schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { type z } from "zod";
 
-import { catchClerkError } from "@/lib/utils"
-import { updateEmailPreferencesSchema } from "@/lib/validations/email"
-import { Button } from "@/components/ui/button"
+import { catchClerkError } from "@/lib/utils";
+import { updateEmailPreferencesSchema } from "@/lib/validations/email";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -18,21 +18,21 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Switch } from "@/components/ui/switch"
-import { Icons } from "@/components/icons/icons"
-import { updateEmailPreferencesAction } from "@/app/_actions/email"
+} from "@/components/ui/form";
+import { Switch } from "@/components/ui/switch";
+import { Icon } from "@/components/icon";
+import { updateEmailPreferencesAction } from "@/app/_actions/email";
 
 interface UpdateEmailPreferencesFormProps {
-  emailPreference: EmailPreference
+  emailPreference: EmailPreference;
 }
 
-type Inputs = z.infer<typeof updateEmailPreferencesSchema>
+type Inputs = z.infer<typeof updateEmailPreferencesSchema>;
 
 export function UpdateEmailPreferencesForm({
   emailPreference,
 }: UpdateEmailPreferencesFormProps) {
-  const [isPending, startTransition] = React.useTransition()
+  const [isPending, startTransition] = React.useTransition();
 
   // react-hook-form
   const form = useForm<Inputs>({
@@ -43,10 +43,10 @@ export function UpdateEmailPreferencesForm({
       transactional: emailPreference.transactional,
       marketing: emailPreference.marketing,
     },
-  })
+  });
 
   function onSubmit(data: Inputs) {
-    console.log(data)
+    console.log(data);
     startTransition(async () => {
       try {
         await updateEmailPreferencesAction({
@@ -54,12 +54,12 @@ export function UpdateEmailPreferencesForm({
           newsletter: data.newsletter,
           transactional: data.transactional,
           marketing: data.marketing,
-        })
-        toast.success("Email preferences updated.")
+        });
+        toast.success("Email preferences updated.");
       } catch (err) {
-        catchClerkError(err)
+        catchClerkError(err);
       }
-    })
+    });
   }
 
   return (
@@ -133,12 +133,10 @@ export function UpdateEmailPreferencesForm({
             </FormItem>
           )}
         />
-        <Button 
-        type="submit"
-        className="w-full" 
-        disabled={isPending}>
+        <Button type="submit" className="w-full" disabled={isPending}>
           {isPending && (
-            <Icons.spinner
+            <Icon
+              name="spinner"
               className="mr-2 h-4 w-4 animate-spin"
               aria-hidden="true"
             />
@@ -148,5 +146,5 @@ export function UpdateEmailPreferencesForm({
         </Button>
       </form>
     </Form>
-  )
+  );
 }

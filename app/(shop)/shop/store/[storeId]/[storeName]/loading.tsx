@@ -1,9 +1,14 @@
-import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Icons } from "@/components/icons/icons"
-import { Shell } from "@/components/shells/shell"
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Icon } from "@/components/icon";
+import { Shell } from "@/components/shells/shell";
 
 export default function ProductLoading() {
   return (
@@ -22,7 +27,8 @@ export default function ProductLoading() {
               aria-roledescription="placeholder"
               className="flex aspect-square h-full flex-1 items-center justify-center bg-secondary"
             >
-              <Icons.placeholder
+              <Icon
+                name="placeholder"
                 className="h-9 w-9 text-muted-foreground"
                 aria-hidden="true"
               />
@@ -71,7 +77,8 @@ export default function ProductLoading() {
                 <CardHeader className="border-b p-0">
                   <AspectRatio ratio={4 / 3}>
                     <div className="flex h-full items-center justify-center bg-secondary">
-                      <Icons.placeholder
+                      <Icon
+                        name="placeholder"
                         className="h-9 w-9 text-muted-foreground"
                         aria-hidden="true"
                       />
@@ -94,5 +101,5 @@ export default function ProductLoading() {
         </div>
       </div>
     </Shell>
-  )
+  );
 }

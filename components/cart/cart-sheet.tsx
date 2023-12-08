@@ -1,10 +1,10 @@
-import Image from "next/image"
+import Image from "next/image";
 
-import { formatPrice } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
+import { formatPrice } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -12,33 +12,38 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { UpdateCart } from "@/components/cart/update-cart"
-import { Icons } from "@/components/icons/icons"
-import { getCartAction } from "@/app/_actions/cart"
+} from "@/components/ui/sheet";
+import { UpdateCart } from "@/components/cart/update-cart";
+import { Icon } from "@/components/icon";
+import { ShopIcon } from "@/components/icon/shop";
+import { getCartAction } from "@/app/_actions/cart";
 
 interface CartSheetProps {
-  className: string
+  className?: string;
 }
 
-
-export async function CartSheet({ className}: CartSheetProps) {
-  const cartLineItems = await getCartAction()
+export async function CartSheet({ className }: CartSheetProps) {
+  const cartLineItems = await getCartAction();
 
   const itemCount = cartLineItems.reduce(
     (total, item) => total + Number(item.quantity),
     0
-  )
+  );
 
   const cartTotal = cartLineItems.reduce(
     (total, item) => total + Number(item.quantity) * Number(item.price),
     0
-  )
+  );
 
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button aria-label="Open cart" variant="nav" size="xs"  className={`px-2 ${className}`}>
+        <Button
+          aria-label="Open cart"
+          variant="nav"
+          size="xs"
+          className={`px-2 ${className}`}
+        >
           {itemCount > 0 && (
             <Badge
               variant="success"
@@ -47,13 +52,20 @@ export async function CartSheet({ className}: CartSheetProps) {
               {itemCount}
             </Badge>
           )}
-          <Icons.basket className="transition-all" aria-hidden="true" />
+          <ShopIcon
+            name="basket"
+            className="transition-all"
+            aria-hidden="true"
+          />
         </Button>
       </SheetTrigger>
       <SheetContent className="z-10000 flex w-full flex-col pr-0 sm:max-w-lg bg-background">
-    <div className="absolute w-full flex h-full items-center justify-center">
-      <Icons.logo className="absolute h-80 w-80 -z-10 text-primary opacity-30"></Icons.logo>
-  </div>
+        <div className="absolute w-full flex h-full items-center justify-center">
+          <Icon
+            name="logo"
+            className="absolute h-80 w-80 -z-10 text-primary opacity-30"
+          />
+        </div>
         <SheetHeader className="px-1">
           <SheetTitle className="">
             Your Basket {itemCount > 0 && `(${itemCount})`}
@@ -63,9 +75,7 @@ export async function CartSheet({ className}: CartSheetProps) {
         {itemCount > 0 ? (
           <>
             <div className="flex flex-1 flex-col gap-5 overflow-hidden">
-
               <ScrollArea className="h-full">
-                
                 <div className="flex flex-col gap-5 pr-6">
                   {cartLineItems.map((item) => (
                     <div key={item.id} className="space-y-3">
@@ -85,8 +95,9 @@ export async function CartSheet({ className}: CartSheetProps) {
                             />
                           ) : (
                             <div className="bg-destructive-500 flex h-full items-center justify-center">
-                              <Icons.placeholder
-                                className="h-4 w-4 text-muted-foreground"
+                              <Icon
+                                name="placeholder"
+                                className="h-6 w-6 text-muted-foreground"
                                 aria-hidden="true"
                               />
                             </div>
@@ -148,7 +159,8 @@ export async function CartSheet({ className}: CartSheetProps) {
           </>
         ) : (
           <div className="flex h-full flex-col items-center justify-center space-y-2">
-            <Icons.cart
+            <ShopIcon
+              name="cart"
               className="h-12 w-12 text-muted-foreground"
               aria-hidden="true"
             />
@@ -159,5 +171,5 @@ export async function CartSheet({ className}: CartSheetProps) {
         )}
       </SheetContent>
     </Sheet>
-  )
+  );
 }

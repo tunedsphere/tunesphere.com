@@ -2,9 +2,9 @@ import { FC, Fragment, useState, useEffect } from 'react'
 import { TreeNode } from 'types/TreeNode'
 import Link from 'next/link'
 import { DocsNavigation } from './DocsNavigation'
-import { Icon } from './Icon'
+import { Icon } from '@/components/icon'
 import { useRouter } from 'next/router'
-import { Icons } from '../icons/icons'
+
 
 export const DocsHeader: FC<{ tree: TreeNode[]; breadcrumbs: any[]; title: string[] }> = ({
   tree,
@@ -77,7 +77,7 @@ export const DocsHeader: FC<{ tree: TreeNode[]; breadcrumbs: any[]; title: strin
                 className="flex h-8 w-8 items-center justify-end text-slate-600 dark:text-slate-300"
               >
                 <span className="inline-block w-4">
-                 <Icons.close/>
+                 <Icon name="close" />
                 </span>
               </button>
             </div>
@@ -101,7 +101,7 @@ export const DocsHeader: FC<{ tree: TreeNode[]; breadcrumbs: any[]; title: strin
                     <a className="inline whitespace-nowrap hover:text-slate-600 dark:hover:text-slate-300">{title}</a>
                   </Link>
                   <span className="inline-block w-1.5 text-slate-400 dark:text-slate-500">
-                    <Icon name="chevron-right" />
+                    <Icon name="chevron-right"/>
                   </span>
                 </li>
               )}

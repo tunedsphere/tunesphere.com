@@ -1,24 +1,24 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { useSelectedLayoutSegment } from "next/navigation"
+import * as React from "react";
+import Link from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
 
-import { MainNavItem} from "types"
-import { siteConfig } from "@/configs/site"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons/icons"
+import { MainNavItem } from "types";
+import { siteConfig } from "@/configs/site";
+import { cn } from "@/lib/utils";
+import { Icon } from "@/components/icon";
 
 interface DocsMainNavProps {
-  items: MainNavItem[]
+  items: MainNavItem[];
 }
 
 export function DocsMainNav({ items }: DocsMainNavProps) {
-  const segment = useSelectedLayoutSegment()
+  const segment = useSelectedLayoutSegment();
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo className="h-8 w-8"/>
+        <Icon name="logo" className="h-8 w-8" />
         <span className="font-bold inline-block text-base">
           {siteConfig.name}
         </span>
@@ -43,5 +43,5 @@ export function DocsMainNav({ items }: DocsMainNavProps) {
         </nav>
       ) : null}
     </div>
-  )
+  );
 }

@@ -145,12 +145,12 @@ export const siteConfig = {
       items: [
         {
           title: "About",
-          href: "/docs/about",
+          href: "/docs//what-is-tunedsphere/about-us",
           external: false,
         },
         {
           title: "Contact",
-          href: "/docs/contact",
+          href: "/docs//what-is-tunedsphere/contact",
           external: false,
         },
         {

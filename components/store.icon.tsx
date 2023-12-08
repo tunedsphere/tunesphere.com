@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { type StoredFile } from "@/types"
-import { Icons } from "@/components/icons/icons"
+import { type StoredFile } from "@/types";
+import { Icon } from "@/components/icon";
 interface StoreIconProps extends React.HTMLAttributes<HTMLDivElement> {
   images: StoredFile[];
 }
@@ -11,8 +11,10 @@ export function StoreIcon({ images }: StoreIconProps) {
       {images?.length ? (
         images.map((image, index) => (
           <span
-          id="store-icon"
-          key={index} className="relative shrink-0 flex justify-center overflow-hidden border-muted/30 border">
+            id="store-icon"
+            key={index}
+            className="relative shrink-0 flex justify-center overflow-hidden border-muted/30 border"
+          >
             <Image
               id="store-icon-image"
               width={120}
@@ -32,7 +34,8 @@ export function StoreIcon({ images }: StoreIconProps) {
           aria-roledescription="placeholder"
           className="flex h-full w-full items-center justify-center bg-secondary"
         >
-          <Icons.placeholder
+          <Icon
+            name="placeholder"
             className="h-9 w-9 text-muted-foreground"
             aria-hidden="true"
           />

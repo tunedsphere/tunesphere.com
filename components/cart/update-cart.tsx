@@ -1,20 +1,23 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import type { CartLineItem } from "@/types"
-import { toast } from "sonner"
+import * as React from "react";
+import type { CartLineItem } from "@/types";
+import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Icons } from "@/components/icons/icons"
-import { deleteCartItemAction, updateCartItemAction } from "@/app/_actions/cart"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Icon } from "@/components/icon";
+import {
+  deleteCartItemAction,
+  updateCartItemAction,
+} from "@/app/_actions/cart";
 
 interface UpdateCartProps {
-  cartLineItem: CartLineItem
+  cartLineItem: CartLineItem;
 }
 
 export function UpdateCart({ cartLineItem }: UpdateCartProps) {
-  const [isPending, startTransition] = React.useTransition()
+  const [isPending, startTransition] = React.useTransition();
 
   return (
     <div className="flex items-center space-x-1">
@@ -29,17 +32,17 @@ export function UpdateCart({ cartLineItem }: UpdateCartProps) {
                 await updateCartItemAction({
                   productId: cartLineItem.id,
                   quantity: Number(cartLineItem.quantity) - 1,
-                })
+                });
               } catch (error) {
                 error instanceof Error
                   ? toast.error(error.message)
-                  : toast.error("Something went wrong, please try again.")
+                  : toast.error("Something went wrong, please try again.");
               }
-            })
+            });
           }}
           disabled={isPending}
         >
-          <Icons.remove className="h-3 w-3" aria-hidden="true" />
+          <Icon name="remove" className="h-3 w-3" aria-hidden="true" />
           <span className="sr-only">Remove one item</span>
         </Button>
         <Input
@@ -53,13 +56,13 @@ export function UpdateCart({ cartLineItem }: UpdateCartProps) {
                 await updateCartItemAction({
                   productId: cartLineItem.id,
                   quantity: Number(e.target.value),
-                })
+                });
               } catch (error) {
                 error instanceof Error
                   ? toast.error(error.message)
-                  : toast.error("Something went wrong.")
+                  : toast.error("Something went wrong.");
               }
-            })
+            });
           }}
           disabled={isPending}
         />
@@ -73,17 +76,17 @@ export function UpdateCart({ cartLineItem }: UpdateCartProps) {
                 await updateCartItemAction({
                   productId: cartLineItem.id,
                   quantity: Number(cartLineItem.quantity) + 1,
-                })
+                });
               } catch (error) {
                 error instanceof Error
                   ? toast.error(error.message)
-                  : toast.error("Something went wrong.")
+                  : toast.error("Something went wrong.");
               }
-            })
+            });
           }}
           disabled={isPending}
         >
-          <Icons.add className="h-3 w-3" aria-hidden="true" />
+          <Icon name="add" className="h-3 w-3" aria-hidden="true" />
           <span className="sr-only">Add one item</span>
         </Button>
       </div>
@@ -96,19 +99,19 @@ export function UpdateCart({ cartLineItem }: UpdateCartProps) {
             try {
               await deleteCartItemAction({
                 productId: cartLineItem.id,
-              })
+              });
             } catch (error) {
               error instanceof Error
                 ? toast.error(error.message)
-                : toast.error("Something went wrong.")
+                : toast.error("Something went wrong.");
             }
-          })
+          });
         }}
         disabled={isPending}
       >
-        <Icons.trash className="h-3 w-3" aria-hidden="true" />
+        <Icon name="trash" className="h-3 w-3" aria-hidden="true" />
         <span className="sr-only">Delete item</span>
       </Button>
     </div>
-  )
+  );
 }

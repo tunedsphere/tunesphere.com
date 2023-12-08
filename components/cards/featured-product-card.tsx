@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { type Product, type Store } from "@/db/schema"
+import * as React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { type Product, type Store } from "@/db/schema";
 
-import { cn, formatPrice } from "@/lib/utils"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { cn, formatPrice } from "@/lib/utils";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
-import {Card } from "@/components/ui/card"
-import { Icons } from "@/components/icons/icons"
+import { Card } from "@/components/ui/card";
+import { Icon } from "@/components/icon";
 
 interface FeaturedProductCardProps
   extends React.HTMLAttributes<HTMLDivElement> {
-    product: Pick<
+  product: Pick<
     Product,
     "id" | "name" | "price" | "images" | "category" | "inventory" | "storeId"
   >;
-  stores?: Pick<Store, "id" | "name">[]
-  variant?: "default" | "switchable"
-  isAddedToCart?: boolean
-  onSwitch?: () => Promise<void>
+  stores?: Pick<Store, "id" | "name">[];
+  variant?: "default" | "switchable";
+  isAddedToCart?: boolean;
+  onSwitch?: () => Promise<void>;
 }
 
 export function FeaturedProductCard({
@@ -32,16 +32,13 @@ export function FeaturedProductCard({
   className,
   ...props
 }: FeaturedProductCardProps) {
-  const [isPending, startTransition] = React.useTransition()
+  const [isPending, startTransition] = React.useTransition();
 
   return (
-    <div className="relative">   
+    <div className="relative">
       <Card
         id="featured-product-card"
-        className={cn(
-          "group h-full overflow-hidden",
-          className
-        )}
+        className={cn("group h-full overflow-hidden", className)}
         {...props}
       >
         <Link
@@ -69,7 +66,8 @@ export function FeaturedProductCard({
                 aria-roledescription="placeholder"
                 className="flex h-full w-full items-center justify-center bg-transparent"
               >
-                <Icons.placeholder
+                <Icon
+                  name="placeholder"
                   className="h-9 w-9 text-muted-foreground"
                   aria-hidden="true"
                 />
@@ -82,5 +80,5 @@ export function FeaturedProductCard({
         </div>
       </Card>
     </div>
-  )
+  );
 }

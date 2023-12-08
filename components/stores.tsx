@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import type { CuratedStore } from "@/types"
+import * as React from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import type { CuratedStore } from "@/types";
 
-import { storeSortOptions } from "@/configs/stores"
-import { cn, slugify } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { storeSortOptions } from "@/configs/stores";
+import { cn, slugify } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,51 +14,51 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { StoreCard } from "@/components/cards/store-card"
-import { Icons } from "@/components/icons/icons"
-import { PaginationButton } from "@/components/pagers/pagination-button"
+} from "@/components/ui/dropdown-menu";
+import { StoreCard } from "@/components/cards/store-card";
+import { Icon } from "@/components/icon";
+import { PaginationButton } from "@/components/pagers/pagination-button";
 // import { FacetedFilter } from "./faceted-filter"
 
 interface StoresProps extends React.HTMLAttributes<HTMLDivElement> {
-  stores: CuratedStore[]
-  pageCount: number
+  stores: CuratedStore[];
+  pageCount: number;
 }
 
 export function Stores({ stores, pageCount, ...props }: StoresProps) {
-  const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const [isPending, startTransition] = React.useTransition()
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [isPending, startTransition] = React.useTransition();
 
   // Search params
-  const page = searchParams?.get("page") ?? "1"
-  const per_page = searchParams?.get("per_page") ?? "8"
-  const sort = searchParams?.get("sort") ?? "productCount.desc"
-  const statuses = searchParams?.get("statuses")
+  const page = searchParams?.get("page") ?? "1";
+  const per_page = searchParams?.get("per_page") ?? "8";
+  const sort = searchParams?.get("sort") ?? "productCount.desc";
+  const statuses = searchParams?.get("statuses");
 
   // Create query string
   const createQueryString = React.useCallback(
     (params: Record<string, string | number | null>) => {
-      const newSearchParams = new URLSearchParams(searchParams?.toString())
+      const newSearchParams = new URLSearchParams(searchParams?.toString());
 
       for (const [key, value] of Object.entries(params)) {
         if (value === null) {
-          newSearchParams.delete(key)
+          newSearchParams.delete(key);
         } else {
-          newSearchParams.set(key, String(value))
+          newSearchParams.set(key, String(value));
         }
       }
 
-      return newSearchParams.toString()
+      return newSearchParams.toString();
     },
     [searchParams]
-  )
+  );
 
   // Store status filter
   const [filterValues, setFilterValues] = React.useState<string[]>(
     statuses?.split(".") ?? []
-  )
+  );
 
   React.useEffect(() => {
     startTransition(() => {
@@ -69,10 +69,10 @@ export function Stores({ stores, pageCount, ...props }: StoresProps) {
         {
           scroll: false,
         }
-      )
-    })
+      );
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterValues])
+  }, [filterValues]);
 
   return (
     <section className="flex flex-col space-y-6" {...props}>
@@ -81,7 +81,11 @@ export function Stores({ stores, pageCount, ...props }: StoresProps) {
           <DropdownMenuTrigger asChild>
             <Button aria-label="Sort stores" size="sm" disabled={isPending}>
               Sort
-              <Icons.chevronDown className="ml-2 h-4 w-4" aria-hidden="true" />
+              <Icon
+                name="chevron-down"
+                className="ml-2 h-4 w-4"
+                aria-hidden="true"
+              />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-48">
@@ -100,8 +104,8 @@ export function Stores({ stores, pageCount, ...props }: StoresProps) {
                       {
                         scroll: false,
                       }
-                    )
-                  })
+                    );
+                  });
                 }}
               >
                 {option.label}
@@ -160,5 +164,5 @@ export function Stores({ stores, pageCount, ...props }: StoresProps) {
         />
       ) : null}
     </section>
-  )
+  );
 }

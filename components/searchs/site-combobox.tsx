@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import "@/styles/globals.css"
+import "@/styles/globals.css";
 
-import * as React from "react"
-import { useRouter } from "next/navigation"
-import { type Product } from "@/db/schema"
+import * as React from "react";
+import { useRouter } from "next/navigation";
+import { type Product } from "@/db/schema";
 
-import { cn } from "@/lib/utils"
-import { useDebounce } from "@/hooks/use-debounce"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { useDebounce } from "@/hooks/use-debounce";
+import { Button } from "@/components/ui/button";
 import {
   CommandDialog,
   CommandEmpty,
@@ -16,116 +16,119 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/components/ui/command"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Icons } from "@/components/icons/icons"
-import { filterProductsAction } from "@/app/_actions/product"
+} from "@/components/ui/command";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Icon } from "@/components/icon";
+import { filterProductsAction } from "@/app/_actions/product";
 interface SiteComboboxProps {
   className: string;
 }
 
-export function SiteCombobox({ className}: SiteComboboxProps) {
-  const router = useRouter()
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [query, setQuery] = React.useState("")
-  const debouncedQuery = useDebounce(query, 300)
+export function SiteCombobox({ className }: SiteComboboxProps) {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [query, setQuery] = React.useState("");
+  const debouncedQuery = useDebounce(query, 300);
   const [data, setData] = React.useState<
     | {
-        category: Product["category"]
-        products: Pick<Product, "id" | "name" | "category">[]
+        category: Product["category"];
+        products: Pick<Product, "id" | "name" | "category">[];
       }[]
     | null
-  >(null)
-  const [isPending, startTransition] = React.useTransition()
+  >(null);
+  const [isPending, startTransition] = React.useTransition();
 
   React.useEffect(() => {
-    if (debouncedQuery.length === 0) setData(null)
+    if (debouncedQuery.length === 0) setData(null);
 
     if (debouncedQuery.length > 0) {
       startTransition(async () => {
-        const data = await filterProductsAction(debouncedQuery)
-        setData(data)
-      })
+        const data = await filterProductsAction(debouncedQuery);
+        setData(data);
+      });
     }
-  }, [debouncedQuery])
+  }, [debouncedQuery]);
 
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setIsOpen((isOpen) => !isOpen)
+        e.preventDefault();
+        setIsOpen((isOpen) => !isOpen);
       }
-    }
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [])
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const handleSelect = React.useCallback((callback: () => unknown) => {
-    setIsOpen(false)
-    callback()
-  }, [])
+    setIsOpen(false);
+    callback();
+  }, []);
 
   React.useEffect(() => {
     if (!isOpen) {
-      setQuery("")
+      setQuery("");
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   return (
     <>
-    <div className="hidden sm:block">
-      <Button 
-      variant="nav" 
-      size="xs"
-      aria-label="Open search" 
-      className={`px-2 ${className}`} onClick={() => setIsOpen(true)}>
-        <Icons.search
-          className="cursor-pointer object-contain"
-          aria-hidden="true"
-        />
-      </Button>
-      <CommandDialog position="top" open={isOpen} onOpenChange={setIsOpen}>
-        <CommandInput
-        className="bg-transparent"
-        placeholder="Search artists, labels, products..."
-          value={query}
-          onValueChange={setQuery}
-        />
-        <CommandList className="bg-muted/20 border-t border-muted">
-          <CommandEmpty
-            className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
-          >
-            Search is currently in work progress
-          </CommandEmpty>
-          {isPending ? (
-            <div className="space-y-1 overflow-hidden px-4 py-2">
-              <Skeleton className="h-4 w-10 rounded" />
-              <Skeleton className="h-8 rounded-sm" />
-              <Skeleton className="h-8 rounded-sm" />
-            </div>
-          ) : (
-            data?.map((group) => (
-              <CommandGroup
-                key={group.category}
-                className="capitalize"
-                heading={group.category}
-              >
-                {group.products.map((item) => (
-                  <CommandItem
-                    key={item.id}
-                    onSelect={() =>
-                      handleSelect(() => router.push(`/product/${item.id}`))
-                    }
-                  >
-                    {item.name}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            ))
-          )}
-        </CommandList>
-      </CommandDialog>
+      <div className="hidden sm:block">
+        <Button
+          variant="nav"
+          size="xs"
+          aria-label="Open search"
+          className={`px-2 ${className}`}
+          onClick={() => setIsOpen(true)}
+        >
+          <Icon
+            name="search"
+            className="cursor-pointer object-contain"
+            aria-hidden="true"
+          />
+        </Button>
+        <CommandDialog position="top" open={isOpen} onOpenChange={setIsOpen}>
+          <CommandInput
+            className="bg-transparent"
+            placeholder="Search artists, labels, products..."
+            value={query}
+            onValueChange={setQuery}
+          />
+          <CommandList className="bg-muted/20 border-t border-muted">
+            <CommandEmpty
+              className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
+            >
+              Search is currently in work progress
+            </CommandEmpty>
+            {isPending ? (
+              <div className="space-y-1 overflow-hidden px-4 py-2">
+                <Skeleton className="h-4 w-10 rounded" />
+                <Skeleton className="h-8 rounded-sm" />
+                <Skeleton className="h-8 rounded-sm" />
+              </div>
+            ) : (
+              data?.map((group) => (
+                <CommandGroup
+                  key={group.category}
+                  className="capitalize"
+                  heading={group.category}
+                >
+                  {group.products.map((item) => (
+                    <CommandItem
+                      key={item.id}
+                      onSelect={() =>
+                        handleSelect(() => router.push(`/product/${item.id}`))
+                      }
+                    >
+                      {item.name}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              ))
+            )}
+          </CommandList>
+        </CommandDialog>
       </div>
     </>
-  )
+  );
 }

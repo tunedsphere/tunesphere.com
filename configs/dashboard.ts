@@ -4,12 +4,14 @@ export type DashboardConfig = {
   sidebarNav: SidebarNavItem[]
 }
 
+
 export const dashboardConfig: DashboardConfig = {
+
   sidebarNav: [
     {
       title: "Account",
       href: "/dashboard/account",
-      icon: "user",
+      icon: "user", 
       items: [],
     },
     {
@@ -32,7 +34,7 @@ export const dashboardConfig: DashboardConfig = {
     {
       title: "Purchases",
       href: "/dashboard/purchases",
-      icon: "dollarSign",
+      icon: "dollar-sign",
       items: [],
     },
     {
@@ -43,7 +45,7 @@ export const dashboardConfig: DashboardConfig = {
     {
       title: "Settings",
       href: "/dashboard/settings",
-      icon: "settings",
+      icon: "gear",
       items: [],
     },
   ],

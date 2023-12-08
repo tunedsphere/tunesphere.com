@@ -1,13 +1,13 @@
-import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Separator } from "@/components/ui/separator"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Icons } from "@/components/icons/icons"
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Icon } from "@/components/icon";
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from "@/components/page-header"
-import { Shell } from "@/components/shells/shell"
+} from "@/components/page-header";
+import { Shell } from "@/components/shells/shell";
 
 export default function BlogLoading() {
   return (
@@ -30,7 +30,8 @@ export default function BlogLoading() {
                   aria-roledescription="placeholder"
                   className="flex h-full w-full items-center justify-center rounded-lg bg-secondary"
                 >
-                  <Icons.placeholder
+                  <Icon
+                    name="placeholder"
                     className="h-9 w-9 text-muted-foreground"
                     aria-hidden="true"
                   />
@@ -47,5 +48,5 @@ export default function BlogLoading() {
         ))}
       </section>
     </Shell>
-  )
+  );
 }

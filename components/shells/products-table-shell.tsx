@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { products, type Product } from "@/db/schema"
-import { Icons } from "@/components/icons/icons"
-import { type ColumnDef } from "@tanstack/react-table"
-import { toast } from "sonner"
+import * as React from "react";
+import Link from "next/link";
+import { products, type Product } from "@/db/schema";
+import { Icon } from "@/components/icon";
+import { type ColumnDef } from "@tanstack/react-table";
+import { toast } from "sonner";
 
-import { catchError, formatDate, formatPrice } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
+import { catchError, formatDate, formatPrice } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,15 +18,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { DataTable } from "@/components/data-table/data-table"
-import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header"
-import { deleteProductAction } from "@/app/_actions/product"
+} from "@/components/ui/dropdown-menu";
+import { DataTable } from "@/components/data-table/data-table";
+import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header";
+import { deleteProductAction } from "@/app/_actions/product";
 
 interface ProductsTableShellProps {
-  data: Product[]
-  pageCount: number
-  storeId: number
+  data: Product[];
+  pageCount: number;
+  storeId: number;
 }
 
 export function ProductsTableShell({
@@ -34,8 +34,8 @@ export function ProductsTableShell({
   pageCount,
   storeId,
 }: ProductsTableShellProps) {
-  const [isPending, startTransition] = React.useTransition()
-  const [selectedRowIds, setSelectedRowIds] = React.useState<number[]>([])
+  const [isPending, startTransition] = React.useTransition();
+  const [selectedRowIds, setSelectedRowIds] = React.useState<number[]>([]);
 
   // Memoize the columns so they don't re-render on every render
   const columns = React.useMemo<ColumnDef<Product, unknown>[]>(
@@ -46,10 +46,10 @@ export function ProductsTableShell({
           <Checkbox
             checked={table.getIsAllPageRowsSelected()}
             onCheckedChange={(value) => {
-              table.toggleAllPageRowsSelected(!!value)
+              table.toggleAllPageRowsSelected(!!value);
               setSelectedRowIds((prev) =>
                 prev.length === data.length ? [] : data.map((row) => row.id)
-              )
+              );
             }}
             aria-label="Select all"
             className="translate-y-[2px]"
@@ -59,12 +59,12 @@ export function ProductsTableShell({
           <Checkbox
             checked={row.getIsSelected()}
             onCheckedChange={(value) => {
-              row.toggleSelected(!!value)
+              row.toggleSelected(!!value);
               setSelectedRowIds((prev) =>
                 value
                   ? [...prev, row.original.id]
                   : prev.filter((id) => id !== row.original.id)
-              )
+              );
             }}
             aria-label="Select row"
             className="translate-y-[2px]"
@@ -85,16 +85,16 @@ export function ProductsTableShell({
           <DataTableColumnHeader column={column} title="Category" />
         ),
         cell: ({ cell }) => {
-          const categories = Object.values(products.category.enumValues)
-          const category = cell.getValue() as Product["category"]
+          const categories = Object.values(products.category.enumValues);
+          const category = cell.getValue() as Product["category"];
 
-          if (!categories.includes(category)) return null
+          if (!categories.includes(category)) return null;
 
           return (
             <Badge variant="outline" className="capitalize">
               {category}
             </Badge>
-          )
+          );
         },
       },
       {
@@ -134,7 +134,7 @@ export function ProductsTableShell({
                 variant="ghost"
                 className="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
               >
-                <Icons.grip className="h-4 w-4" aria-hidden="true" />
+                <Icon name="grip" className="h-4 w-4" aria-hidden="true" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[160px]">
@@ -152,7 +152,7 @@ export function ProductsTableShell({
               <DropdownMenuItem
                 onClick={() => {
                   startTransition(() => {
-                    row.toggleSelected(false)
+                    row.toggleSelected(false);
 
                     toast.promise(
                       deleteProductAction({
@@ -164,8 +164,8 @@ export function ProductsTableShell({
                         success: () => "Product deleted successfully.",
                         error: (err: unknown) => catchError(err),
                       }
-                    )
-                  })
+                    );
+                  });
                 }}
                 disabled={isPending}
               >
@@ -178,7 +178,7 @@ export function ProductsTableShell({
       },
     ],
     [data, isPending, storeId]
-  )
+  );
 
   function deleteSelectedRows() {
     toast.promise(
@@ -193,15 +193,15 @@ export function ProductsTableShell({
       {
         loading: "Deleting...",
         success: () => {
-          setSelectedRowIds([])
-          return "Products deleted successfully."
+          setSelectedRowIds([]);
+          return "Products deleted successfully.";
         },
         error: (err: unknown) => {
-          setSelectedRowIds([])
-          return catchError(err)
+          setSelectedRowIds([]);
+          return catchError(err);
         },
       }
-    )
+    );
   }
 
   return (
@@ -228,5 +228,5 @@ export function ProductsTableShell({
       newRowLink={`/dashboard/stores/${storeId}/products/new`}
       deleteRowsAction={() => void deleteSelectedRows()}
     />
-  )
+  );
 }

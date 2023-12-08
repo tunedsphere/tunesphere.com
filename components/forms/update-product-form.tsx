@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import { products, type Product } from "@/db/schema"
-import type { FileWithPreview } from "@/types"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
-import { type z } from "zod"
+import * as React from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { products, type Product } from "@/db/schema";
+import type { FileWithPreview } from "@/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { type z } from "zod";
 
-import { getSubcategories } from "@/configs/products"
-import { catchError, isArrayOfFile } from "@/lib/utils"
-import { productSchema } from "@/lib/validations/product"
-import { Button } from "@/components/ui/button"
+import { getSubcategories } from "@/configs/products";
+import { catchError, isArrayOfFile } from "@/lib/utils";
+import { productSchema } from "@/lib/validations/product";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -22,8 +22,8 @@ import {
   FormLabel,
   FormMessage,
   UncontrolledFormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -31,28 +31,27 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
-import { FileDialog } from "@/components/file-dialog"
-import { Icons } from "@/components/icons/icons"
-import { Zoom } from "@/components/zoom-image"
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { FileDialog } from "@/components/file-dialog";
+import { Icon } from "@/components/icon";
+import { Zoom } from "@/components/zoom-image";
 import {
   checkProductAction,
   deleteProductAction,
   updateProductAction,
-} from "@/app/_actions/product"
-import { useUploadThing } from "@/lib/uploadthing"
+} from "@/app/_actions/product";
+import { useUploadThing } from "@/lib/uploadthing";
 interface UpdateProductFormProps {
-  product: Product
+  product: Product;
 }
 
-type Inputs = z.infer<typeof productSchema>
-
+type Inputs = z.infer<typeof productSchema>;
 
 export function UpdateProductForm({ product }: UpdateProductFormProps) {
-  const router = useRouter()
-  const [files, setFiles] = React.useState<FileWithPreview[] | null>(null)
-  const [isPending, startTransition] = React.useTransition()
+  const router = useRouter();
+  const [files, setFiles] = React.useState<FileWithPreview[] | null>(null);
+  const [isPending, startTransition] = React.useTransition();
 
   React.useEffect(() => {
     if (product.images && product.images.length > 0) {
@@ -60,18 +59,18 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
         product.images.map((image) => {
           const file = new File([], image.name, {
             type: "image",
-          })
+          });
           const fileWithPreview = Object.assign(file, {
             preview: image.url,
-          })
+          });
 
-          return fileWithPreview
+          return fileWithPreview;
         })
-      )
+      );
     }
-  }, [product])
+  }, [product]);
 
-  const { isUploading, startUpload } = useUploadThing("productImage")
+  const { isUploading, startUpload } = useUploadThing("productImage");
 
   const form = useForm<Inputs>({
     resolver: zodResolver(productSchema),
@@ -79,9 +78,9 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
       category: product.category,
       subcategory: product.subcategory,
     },
-  })
+  });
 
-  const subcategories = getSubcategories(form.watch("category"))
+  const subcategories = getSubcategories(form.watch("category"));
 
   function onSubmit(data: Inputs) {
     startTransition(async () => {
@@ -89,7 +88,7 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
         await checkProductAction({
           name: data.name,
           id: product.id,
-        })
+        });
 
         const images = isArrayOfFile(data.images)
           ? await startUpload(data.images).then((res) => {
@@ -97,24 +96,24 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
                 id: image.key,
                 name: image.key.split("_")[1] ?? image.key,
                 url: image.url,
-              }))
-              return formattedImages ?? null
+              }));
+              return formattedImages ?? null;
             })
-          : null
+          : null;
 
         await updateProductAction({
           ...data,
           storeId: product.storeId,
           id: product.id,
           images: images ?? product.images,
-        })
+        });
 
-        toast.success("Product updated successfully.")
-        setFiles(null)
+        toast.success("Product updated successfully.");
+        setFiles(null);
       } catch (err) {
-        catchError(err)
+        catchError(err);
       }
-    })
+    });
   }
 
   return (
@@ -189,7 +188,6 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
               </FormItem>
             )}
           />
-          
         </div>
         <FormItem className="flex w-full flex-col gap-1.5">
           <FormLabel>Images</FormLabel>
@@ -227,7 +225,8 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
         <div className="flex space-x-2">
           <Button disabled={isPending}>
             {isPending && (
-              <Icons.spinner
+              <Icon
+                name="spinner"
                 className="mr-2 h-4 w-4 animate-spin"
                 aria-hidden="true"
               />
@@ -239,18 +238,19 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
             variant="destructive"
             onClick={() => {
               startTransition(async () => {
-                void form.trigger(["name", "price", "inventory"])
+                void form.trigger(["name", "price", "inventory"]);
                 await deleteProductAction({
                   storeId: product.storeId,
                   id: product.id,
-                })
-                router.push(`/dashboard/stores/${product.storeId}/products`)
-              })
+                });
+                router.push(`/dashboard/stores/${product.storeId}/products`);
+              });
             }}
             disabled={isPending}
           >
             {isPending && (
-              <Icons.spinner
+              <Icon
+                name="spinner"
                 className="mr-2 h-4 w-4 animate-spin"
                 aria-hidden="true"
               />
@@ -261,5 +261,5 @@ export function UpdateProductForm({ product }: UpdateProductFormProps) {
         </div>
       </form>
     </Form>
-  )
+  );
 }

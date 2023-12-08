@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import { products } from "@/db/schema"
-import type { FileWithPreview } from "@/types"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
-import { type z } from "zod"
+import * as React from "react";
+import Image from "next/image";
+import { products } from "@/db/schema";
+import type { FileWithPreview } from "@/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { type z } from "zod";
 
-import { getSubcategories } from "@/configs/products"
-import { catchError, isArrayOfFile } from "@/lib/utils"
-import { productSchema } from "@/lib/validations/product"
-import { Button } from "@/components/ui/button"
+import { getSubcategories } from "@/configs/products";
+import { catchError, isArrayOfFile } from "@/lib/utils";
+import { productSchema } from "@/lib/validations/product";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -21,8 +21,8 @@ import {
   FormLabel,
   FormMessage,
   UncontrolledFormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -30,24 +30,23 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
-import { FileDialog } from "@/components/file-dialog"
-import { Icons } from "@/components/icons/icons"
-import { Zoom } from "@/components/zoom-image"
-import { addProductAction, checkProductAction } from "@/app/_actions/product"
-import { useUploadThing } from "@/lib/uploadthing"
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { FileDialog } from "@/components/file-dialog";
+import { Icon } from "@/components/icon";
+import { Zoom } from "@/components/zoom-image";
+import { addProductAction, checkProductAction } from "@/app/_actions/product";
+import { useUploadThing } from "@/lib/uploadthing";
 interface AddProductFormProps {
-  storeId: number
+  storeId: number;
 }
 
-type Inputs = z.infer<typeof productSchema>
-
+type Inputs = z.infer<typeof productSchema>;
 
 export function AddProductForm({ storeId }: AddProductFormProps) {
-  const [files, setFiles] = React.useState<FileWithPreview[] | null>(null)
+  const [files, setFiles] = React.useState<FileWithPreview[] | null>(null);
 
-  const [isPending, startTransition] = React.useTransition()
+  const [isPending, startTransition] = React.useTransition();
 
   const { isUploading, startUpload } = useUploadThing("productImage", {
     /**
@@ -69,15 +68,15 @@ export function AddProductForm({ storeId }: AddProductFormProps) {
       subcategory: "",
       images: [],
     },
-  })
-  const previews = form.watch("images") as FileWithPreview[] | null
-  const subcategories = getSubcategories(form.watch("category"))
+  });
+  const previews = form.watch("images") as FileWithPreview[] | null;
+  const subcategories = getSubcategories(form.watch("category"));
   function onSubmit(data: Inputs) {
     startTransition(async () => {
       try {
         await checkProductAction({
           name: data.name,
-        })
+        });
 
         if (isArrayOfFile(data.images)) {
           toast.promise(
@@ -87,38 +86,38 @@ export function AddProductForm({ storeId }: AddProductFormProps) {
                   id: image.key,
                   name: image.key.split("_")[1] ?? image.key,
                   url: image.url,
-                }))
-                return formattedImages ?? null
+                }));
+                return formattedImages ?? null;
               })
               .then((images) => {
                 return addProductAction({
                   ...data,
                   storeId,
                   images,
-                })
+                });
               }),
             {
               loading: "Uploading images...",
               success: "Product added successfully.",
               error: "Error uploading images.",
             }
-          )
+          );
         } else {
           await addProductAction({
             ...data,
             storeId,
             images: null,
-          })
+          });
 
-          toast.success("Product added successfully.")
+          toast.success("Product added successfully.");
         }
 
-        form.reset()
-        setFiles(null)
+        form.reset();
+        setFiles(null);
       } catch (err) {
-        catchError(err)
+        catchError(err);
       }
-    })
+    });
   }
 
   return (
@@ -285,7 +284,8 @@ export function AddProductForm({ storeId }: AddProductFormProps) {
         </FormItem>
         <Button className="w-fit" disabled={isPending}>
           {isPending && (
-            <Icons.spinner
+            <Icon
+              name="spinner"
               className="mr-2 h-4 w-4 animate-spin"
               aria-hidden="true"
             />
@@ -295,5 +295,5 @@ export function AddProductForm({ storeId }: AddProductFormProps) {
         </Button>
       </form>
     </Form>
-  )
+  );
 }

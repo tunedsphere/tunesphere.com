@@ -1,11 +1,10 @@
+import { currentUser } from "@clerk/nextjs";
 
-import { currentUser } from "@clerk/nextjs"
+import React from "react";
+import Link from "next/link";
+import { getUserEmail } from "@/lib/utils";
 
-import React from "react"
-import Link from "next/link"
-import { getUserEmail } from "@/lib/utils"
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,18 +13,18 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Icons } from "@/components/icons/icons"
+} from "@/components/ui/dropdown-menu";
+import { Icon } from "@/components/icon";
 
-import IndexLoginModalButton from "@/components/index-login-modal-btn"
-import { Button } from "./ui/button"
+import IndexLoginModalButton from "@/components/index-login-modal-btn";
+import { Button } from "./ui/button";
 
 export async function IndexUserDropdownMenu() {
-  const user = await currentUser()
+  const user = await currentUser();
   const initials = `${user?.firstName?.charAt(0) ?? ""} ${
     user?.lastName?.charAt(0) ?? ""
-  }`
-  const email = getUserEmail(user)
+  }`;
+  const email = getUserEmail(user);
   return (
     <>
       {user ? (
@@ -55,13 +54,18 @@ export async function IndexUserDropdownMenu() {
             <DropdownMenuGroup>
               <DropdownMenuItem asChild>
                 <Link href="/dashboard/account">
-                  <Icons.user className="mr-2 h-4 w-4" aria-hidden="true" />
+                  <Icon
+                    name="user"
+                    className="mr-2 h-4 w-4"
+                    aria-hidden="true"
+                  />
                   Account
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/dashboard/stores">
-                  <Icons.dashboard
+                  <Icon
+                    name="dashboard"
                     className="mr-2 h-4 w-4"
                     aria-hidden="true"
                   />
@@ -70,7 +74,11 @@ export async function IndexUserDropdownMenu() {
               </DropdownMenuItem>
               <DropdownMenuItem asChild disabled>
                 <Link href="/dashboard/settings">
-                  <Icons.settings className="mr-2 h-4 w-4" aria-hidden="true" />
+                  <Icon
+                    name="gear"
+                    className="mr-2 h-4 w-4"
+                    aria-hidden="true"
+                  />
                   Settings
                 </Link>
               </DropdownMenuItem>
@@ -78,7 +86,11 @@ export async function IndexUserDropdownMenu() {
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
               <Link href="/signout">
-                <Icons.logout className="mr-2 h-4 w-4" aria-hidden="true" />
+                <Icon
+                  name="logout"
+                  className="mr-2 h-4 w-4"
+                  aria-hidden="true"
+                />
                 Log out
               </Link>
             </DropdownMenuItem>
@@ -88,5 +100,5 @@ export async function IndexUserDropdownMenu() {
         <IndexLoginModalButton />
       )}
     </>
-  )
+  );
 }

@@ -1,28 +1,29 @@
-import type { Metadata } from "next"
-import { notFound } from "next/navigation"
-import { db } from "@/db"
-import { stores } from "@/db/schema"
-import { env } from "@/env.mjs"
-import { eq } from "drizzle-orm"
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { db } from "@/db";
+import { stores } from "@/db/schema";
+import { env } from "@/env.mjs";
+import { eq } from "drizzle-orm";
 
-import { Icons } from "@/components/icons/icons"
+import { Icon } from "@/components/icon";
+import { ShopIcon } from "@/components/icon/shop";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: "Payments",
   description: "Manage your payments",
-}
+};
 
 interface PaymentsPageProps {
   params: {
-    storeId: string
-  }
+    storeId: string;
+  };
 }
 
 export default async function PaymentsPage({ params }: PaymentsPageProps) {
-  const storeId = Number(params.storeId)
+  const storeId = Number(params.storeId);
 
   const store = await db.query.stores.findFirst({
     where: eq(stores.id, storeId),
@@ -31,10 +32,10 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
       name: true,
       description: true,
     },
-  })
+  });
 
   if (!store) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -42,7 +43,7 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
       <Card variant="dashboard">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-          <Icons.dollarSign className="h-4 w-4 text-muted-foreground" />
+          <Icon name="dollar-sign" className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">$45,231.89</div>
@@ -54,7 +55,7 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Subscriptions</CardTitle>
-          <Icons.user className="h-4 w-4 text-muted-foreground" />
+          <Icon name="user" className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">+2350</div>
@@ -66,7 +67,10 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Sales</CardTitle>
-          <Icons.creditCard className="h-4 w-4 text-muted-foreground" />
+          <ShopIcon
+            name="credit-card"
+            className="h-4 w-4 text-muted-foreground"
+          />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">+12,234</div>
@@ -76,7 +80,7 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Active Now</CardTitle>
-          <Icons.activity className="h-4 w-4 text-muted-foreground" />
+          <Icon name="activity" className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">+573</div>
@@ -84,5 +88,5 @@ export default async function PaymentsPage({ params }: PaymentsPageProps) {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

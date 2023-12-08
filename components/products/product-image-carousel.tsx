@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import { type StoredFile } from "@/types"
-import { AspectRatio } from "@radix-ui/react-aspect-ratio"
+import * as React from "react";
+import Image from "next/image";
+import { type StoredFile } from "@/types";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import useEmblaCarousel, {
   type EmblaCarouselType,
   type EmblaOptionsType,
-} from "embla-carousel-react"
+} from "embla-carousel-react";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons/icons"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/icon";
 
 interface ProductImageCarouselProps
   extends React.HTMLAttributes<HTMLDivElement> {
-  images: StoredFile[]
-  options?: EmblaOptionsType
+  images: StoredFile[];
+  options?: EmblaOptionsType;
 }
 
 export function ProductImageCarousel({
@@ -25,50 +25,50 @@ export function ProductImageCarousel({
   options,
   ...props
 }: ProductImageCarouselProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options)
+  const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
-  const [prevBtnDisabled, setPrevBtnDisabled] = React.useState(true)
-  const [nextBtnDisabled, setNextBtnDisabled] = React.useState(true)
-  const [selectedIndex, setSelectedIndex] = React.useState(0)
+  const [prevBtnDisabled, setPrevBtnDisabled] = React.useState(true);
+  const [nextBtnDisabled, setNextBtnDisabled] = React.useState(true);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const scrollPrev = React.useCallback(
     () => emblaApi && emblaApi.scrollPrev(),
     [emblaApi]
-  )
+  );
   const scrollNext = React.useCallback(
     () => emblaApi && emblaApi.scrollNext(),
     [emblaApi]
-  )
+  );
 
   const scrollTo = React.useCallback(
     (index: number) => emblaApi && emblaApi.scrollTo(index),
     [emblaApi]
-  )
+  );
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLButtonElement>) => {
       if (event.key === "ArrowLeft") {
-        scrollPrev()
+        scrollPrev();
       } else if (event.key === "ArrowRight") {
-        scrollNext()
+        scrollNext();
       }
     },
     [scrollNext, scrollPrev]
-  )
+  );
 
   const onSelect = React.useCallback((emblaApi: EmblaCarouselType) => {
-    setSelectedIndex(emblaApi.selectedScrollSnap())
-    setPrevBtnDisabled(!emblaApi.canScrollPrev())
-    setNextBtnDisabled(!emblaApi.canScrollNext())
-  }, [])
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+    setPrevBtnDisabled(!emblaApi.canScrollPrev());
+    setNextBtnDisabled(!emblaApi.canScrollNext());
+  }, []);
 
   React.useEffect(() => {
-    if (!emblaApi) return
+    if (!emblaApi) return;
 
-    onSelect(emblaApi)
-    emblaApi.on("reInit", onSelect)
-    emblaApi.on("select", onSelect)
-  }, [emblaApi, onSelect])
+    onSelect(emblaApi);
+    emblaApi.on("reInit", onSelect);
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onSelect]);
 
   if (images.length === 0) {
     return (
@@ -78,12 +78,13 @@ export function ProductImageCarousel({
         aria-roledescription="placeholder"
         className="flex aspect-square h-full w-full flex-1 items-center justify-center bg-secondary"
       >
-        <Icons.placeholder
+        <Icon
+          name="placeholder"
           className="h-9 w-9 text-muted-foreground"
           aria-hidden="true"
         />
       </div>
-    )
+    );
   }
 
   return (
@@ -100,7 +101,10 @@ export function ProductImageCarousel({
           }}
         >
           {images.map((image, index) => (
-            <div className="flex-full justify-center relative max-h-[400px] min-w-0 pl-4 rounded-lg" key={index}>
+            <div
+              className="flex-full justify-center relative max-h-[400px] min-w-0 pl-4 rounded-lg"
+              key={index}
+            >
               <AspectRatio ratio={1}>
                 <Image
                   aria-label={`Slide ${index + 1} of ${images.length}`}
@@ -129,7 +133,8 @@ export function ProductImageCarousel({
             disabled={prevBtnDisabled}
             onClick={scrollPrev}
           >
-            <Icons.chevronLeft
+            <Icon
+              name="chevron-left"
               className="h-3 w-3 sm:h-4 sm:w-4"
               aria-hidden="true"
             />
@@ -166,7 +171,8 @@ export function ProductImageCarousel({
             disabled={nextBtnDisabled}
             onClick={scrollNext}
           >
-            <Icons.chevronRight
+            <Icon
+              name="chevron-right"
               className="h-3 w-3 sm:h-4 sm:w-4"
               aria-hidden="true"
             />
@@ -175,5 +181,5 @@ export function ProductImageCarousel({
         </div>
       ) : null}
     </div>
-  )
+  );
 }

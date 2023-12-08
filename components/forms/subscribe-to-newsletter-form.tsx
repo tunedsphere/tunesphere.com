@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
-import type { z } from "zod"
+import * as React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import type { z } from "zod";
 
-import { emailSchema } from "@/lib/validations/email"
-import { Button } from "@/components/ui/button"
+import { emailSchema } from "@/lib/validations/email";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -15,14 +15,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Icons } from "@/components/icons/icons"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Icon } from "@/components/icon";
 
-type Inputs = z.infer<typeof emailSchema>
+type Inputs = z.infer<typeof emailSchema>;
 
 export function SubscribeToNewsletterForm() {
-  const [isPending, startTransition] = React.useTransition()
+  const [isPending, startTransition] = React.useTransition();
 
   // react-hook-form
   const form = useForm<Inputs>({
@@ -30,7 +30,7 @@ export function SubscribeToNewsletterForm() {
     defaultValues: {
       email: "",
     },
-  })
+  });
 
   function onSubmit(data: Inputs) {
     console.log("Form Data:", data);
@@ -44,32 +44,32 @@ export function SubscribeToNewsletterForm() {
           token: crypto.randomUUID(),
           subject: "Welcome to TunedSphere",
         }),
-      })
+      });
 
       if (!response.ok) {
-        console.log("API Error Response:", response.status);  
+        console.log("API Error Response:", response.status);
         switch (response.status) {
           case 409:
-            toast.error("You are already subscribed to our newsletter.")
-            break
+            toast.error("You are already subscribed to our newsletter.");
+            break;
           case 422:
-            toast.error("Invalid input.")
-            break
+            toast.error("Invalid input.");
+            break;
           case 429:
-            toast.error("The daily email limit has been reached.")
-            break
+            toast.error("The daily email limit has been reached.");
+            break;
           case 500:
-            toast.error("Something went wrong. Please try again later.")
-            break
+            toast.error("Something went wrong. Please try again later.");
+            break;
           default:
-            toast.error("Something went wrong. Please try again later.")
+            toast.error("Something went wrong. Please try again later.");
         }
-        return
+        return;
       }
 
-      toast.success("You have been subscribed to our newsletter.")
-      form.reset()
-    })
+      toast.success("You have been subscribed to our newsletter.");
+      form.reset();
+    });
   }
 
   return (
@@ -100,12 +100,13 @@ export function SubscribeToNewsletterForm() {
                 disabled={isPending}
               >
                 {isPending ? (
-                  <Icons.spinner
+                  <Icon
+                    name="spinner"
                     className="h-3 w-3 animate-spin"
                     aria-hidden="true"
                   />
                 ) : (
-                  <Icons.flame className="h-3 w-3" aria-hidden="true" />
+                  <Icon name="flame" className="h-3 w-3" aria-hidden="true" />
                 )}
                 <span className="sr-only">Join newsletter</span>
               </Button>
@@ -114,5 +115,5 @@ export function SubscribeToNewsletterForm() {
         />
       </form>
     </Form>
-  )
+  );
 }

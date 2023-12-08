@@ -1,10 +1,14 @@
-import { FC } from 'react'
-import Link from 'next/link'
-import { Icons } from './icons/icons';
+import { FC } from "react";
+import { IconProps } from "./index";
+import Link from "next/link";
+import { Icon } from "@/components/icon";
 
-const isExternalUrl = (link: string): boolean => !link.startsWith('/')
+const isExternalUrl = (link: string): boolean => !link.startsWith("/");
 
-export const ChevronLink: FC<{ label: string; url: string }> = ({ label, url }) => {
+export const ChevronLink: FC<{ label: string; url: string }> = ({
+  label,
+  url,
+}) => {
   if (isExternalUrl(url)) {
     return (
       <a
@@ -15,20 +19,21 @@ export const ChevronLink: FC<{ label: string; url: string }> = ({ label, url }) 
       >
         <span className="font-semibold">{label}</span>
         <span className="block w-2">
-          <Icons.chevronRight />
+          <Icon name="chevron-right" />
         </span>
       </a>
-    )
+    );
   } else {
     return (
-      <Link href={url}
- className="inline-flex items-center space-x-1.5 text-cyan-600 no-underline hover:text-cyan-700 dark:text-violet-400 dark:hover:text-violet-300">
-          <span className="font-semibold">{label}</span>
-          <span className="block w-2">
-            <Icons.chevronRight />
-          </span>
-
+      <Link
+        href={url}
+        className="inline-flex items-center space-x-1.5 text-cyan-600 no-underline hover:text-cyan-700 dark:text-violet-400 dark:hover:text-violet-300"
+      >
+        <span className="font-semibold">{label}</span>
+        <span className="block w-2">
+          <Icon name="chevron-right" />
+        </span>
       </Link>
-    )
+    );
   }
-}
+};

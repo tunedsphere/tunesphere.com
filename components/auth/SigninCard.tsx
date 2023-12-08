@@ -1,10 +1,7 @@
-import * as React from "react"
-import Link from "next/link"
-import { redirect } from "next/navigation"
-import { useRouter } from "next/router"
-import { currentUser, SignedOut } from "@clerk/nextjs"
-import { Icons } from "@/components/icons/icons"
-import { Button } from "@/components/ui/button"
+import * as React from "react";
+import Link from "next/link";
+import { Icon } from "@/components/icon";
+import { Button } from "@/components/ui/button";
 
 import {
   Card,
@@ -13,29 +10,28 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { OAuthSignIn } from "@/components/auth/oauth-signin"
-import { SignInForm } from "@/components/forms/signin-form"
-import { siteConfig } from "@/configs/site"
-import { FooterItem } from "@/types"
+} from "@/components/ui/card";
+import { OAuthSignIn } from "@/components/auth/oauth-signin";
+import { SignInForm } from "@/components/forms/signin-form";
+import { siteConfig } from "@/configs/site";
 
 export const metadata = {
   title: "Sign In",
   description: "Sign in to your account",
-}
+};
 
 interface SigninCardProps {
-  onClose?: () => void
+  onClose?: () => void;
 }
-export default function SigninCard({ onClose }:SigninCardProps ) {
+export default function SigninCard({ onClose }: SigninCardProps) {
   const handleClose = () => {
     if (onClose) {
-      onClose()
+      onClose();
     }
-  }
+  };
   const handleLinkClick = () => {
-    handleClose()
-  }
+    handleClose();
+  };
 
   return (
     <div id="signin-card" className="z-20 @container">
@@ -50,11 +46,13 @@ export default function SigninCard({ onClose }:SigninCardProps ) {
             title="close"
             className="text-texthigh "
           >
-            <Icons.close className="text-texthigh" />
+            <Icon name="close" className="w-6 h-6 text-texthigh" />
           </Button>
         </div>
         <CardHeader className="items-center space-y-1">
-          <CardTitle as="h1" className="text-card-foreground text-5xl">Log in</CardTitle>
+          <CardTitle as="h1" className="text-card-foreground text-5xl">
+            Log in
+          </CardTitle>
           <CardDescription className="p-2 text-center text-secondary">
             Choose your preferred log in method
           </CardDescription>
@@ -72,36 +70,34 @@ export default function SigninCard({ onClose }:SigninCardProps ) {
             </div>
           </div>
           <section className="">
-          <SignInForm handleLinkClick={handleClose}/>
-          <div className="flex justify-center">
-          <span className="text-sm text-muted-foreground">
-  By signing in you accept our{" "}
-  {siteConfig.footerNav && (
-    <>
-   <Link
-  href={siteConfig.footerNav[2]?.items[2]?.href as string} // "Terms" href
-  target="_blank"
-  rel="noreferrer"
-  className="text-secondary transition-colors hover:text-foreground"
->
-  Terms
-</Link>{" "}
-and{" "}
-<Link
-  href={siteConfig.footerNav[2]?.items[3]?.href as string} // "Privacy" href
-  target="_blank"
-  rel="noreferrer"
-  className="text-secondary transition-colors hover:text-foreground"
->
-  Privacy
-</Link>
-    </>
-  )}
-</span>
-
-</div>
-</section>
-
+            <SignInForm handleLinkClick={handleClose} />
+            <div className="flex justify-center">
+              <span className="text-sm text-muted-foreground">
+                By signing in you accept our{" "}
+                {siteConfig.footerNav && (
+                  <>
+                    <Link
+                      href={siteConfig.footerNav[2]?.items[2]?.href as string} // "Terms" href
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-secondary transition-colors hover:text-foreground"
+                    >
+                      Terms
+                    </Link>{" "}
+                    and{" "}
+                    <Link
+                      href={siteConfig.footerNav[2]?.items[3]?.href as string} // "Privacy" href
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-secondary transition-colors hover:text-foreground"
+                    >
+                      Privacy
+                    </Link>
+                  </>
+                )}
+              </span>
+            </div>
+          </section>
         </CardContent>
         <CardFooter className="flex flex-wrap items-center space-x-2 pt-4">
           <div className="flex-1 text-sm text-muted-foreground">
@@ -118,5 +114,5 @@ and{" "}
         </CardFooter>
       </Card>
     </div>
-  )
+  );
 }

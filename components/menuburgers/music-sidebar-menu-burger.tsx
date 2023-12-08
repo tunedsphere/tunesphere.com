@@ -1,29 +1,29 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons/icons"
+import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/icon";
 
 interface MusicSidebarMenuBurgerProps {
-  isOpen: boolean
-  handleSidebarToggle: () => void
-  setIsOpen(isOpen: boolean): void
+  isOpen: boolean;
+  handleSidebarToggle: () => void;
+  setIsOpen(isOpen: boolean): void;
 }
 const MusicSidebarMenuBurger: React.FC<MusicSidebarMenuBurgerProps> = ({
   handleSidebarToggle,
   setIsOpen,
   isOpen,
 }) => {
-  const [rotation, setRotation] = React.useState(0)
-  const [scale, setScale] = React.useState(100)
+  const [rotation, setRotation] = React.useState(0);
+  const [scale, setScale] = React.useState(100);
 
   const handleSidebarClick = () => {
-    setIsOpen(!isOpen)
-    handleSidebarToggle()
-    setRotation(rotation === 0 ? 90 : 0)
-    setScale(scale === 100 ? 0 : 100) // Call the handleToggle prop to toggle SidebarBottom
-  }
+    setIsOpen(!isOpen);
+    handleSidebarToggle();
+    setRotation(rotation === 0 ? 90 : 0);
+    setScale(scale === 100 ? 0 : 100); // Call the handleToggle prop to toggle SidebarBottom
+  };
 
   return (
     <>
@@ -34,17 +34,19 @@ const MusicSidebarMenuBurger: React.FC<MusicSidebarMenuBurgerProps> = ({
         aria-label="Toggle menu"
         className="text-texthigh hover:text-texthigh/80"
       >
-        <Icons.close
-          className={`absolute scale-${isOpen ? "100" : "0"}`}
+        <Icon
+          name="close"
+          className={`h-6 w-6 absolute scale-${isOpen ? "100" : "0"}`}
           aria-hidden="true"
         />
-        <Icons.menu
-          className={`scale-${isOpen ? "0" : "100"}`}
+        <Icon
+          name="menu"
+          className={`h-6 w-6 scale-${isOpen ? "0" : "100"}`}
           aria-hidden="true"
         />
       </Button>
     </>
-  )
-}
+  );
+};
 
-export default MusicSidebarMenuBurger
+export default MusicSidebarMenuBurger;

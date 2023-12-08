@@ -1,26 +1,29 @@
-"use client"
-import * as React from "react"
-import Link from "next/link"
+"use client";
+import * as React from "react";
+import Link from "next/link";
 
-import { MainNavItem } from "types"
-import { cn } from "@/lib/utils"
-import { usePathname } from "next/navigation"
-import { Icons } from "../icons/icons"
-import { SidebarNavItem } from "types"
+import { MainNavItem } from "types";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { Icon } from "@/components/icon";
+import { SidebarNavItem } from "types";
 
 interface MobileNavProps {
-  items: MainNavItem[]
-  children?: React.ReactNode
-  sideItems: SidebarNavItem[]
-  closeMobileMenu: () => void
-  
+  items: MainNavItem[];
+  children?: React.ReactNode;
+  sideItems: SidebarNavItem[];
+  closeMobileMenu: () => void;
 }
 
-export function DocsMobileNav({ items, sideItems, closeMobileMenu }: MobileNavProps) {
-  const pathname = usePathname()
+export function DocsMobileNav({
+  items,
+  sideItems,
+  closeMobileMenu,
+}: MobileNavProps) {
+  const pathname = usePathname();
 
   return (
-<div
+    <div
       className={cn(
         "fixed inset-0 top-0 z-50 grid grid-flow-row auto-rows-max overflow-auto shadow-md animate-in slide-in-from-bottom-80 backdrop-blur-sm"
       )}
@@ -33,10 +36,11 @@ export function DocsMobileNav({ items, sideItems, closeMobileMenu }: MobileNavPr
         <div className="relative z-20 grid gap-6 bg-background p-4 shadow-md">
           <button
             type="button"
+            onClick={closeMobileMenu}
             className="z-10 absolute top-5 right-5 w-8 h-8 flex items-center justify-center"
           >
-            <Icons.close
-              onClick={closeMobileMenu}
+            <Icon
+              name="close"
               className="text-muted-foreground hover:text-primary z-10 w-4 h-4"
             />
           </button>
@@ -49,7 +53,8 @@ export function DocsMobileNav({ items, sideItems, closeMobileMenu }: MobileNavPr
                 className={cn(
                   "flex w-full items-center rounded-md p-2 text-xl font-semibold hover:underline",
                   item.disabled && "cursor-not-allowed opacity-60",
-                  pathname === item.href && "text-cyan-600  dark:text-violet-500"
+                  pathname === item.href &&
+                    "text-cyan-600  dark:text-violet-500"
                 )}
               >
                 {item.title}
@@ -59,7 +64,6 @@ export function DocsMobileNav({ items, sideItems, closeMobileMenu }: MobileNavPr
           {sideItems.length ? (
             <div className="w-full">
               {sideItems.map((item, index) => (
-                
                 <div key={index} className={cn("pb-8")}>
                   <h4 className="mb-1 rounded-md px-2 py-1 text-base font-semibold">
                     {item.title}

@@ -1,17 +1,16 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useSignIn } from "@clerk/nextjs"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import type { z } from "zod"
+import * as React from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useSignIn } from "@clerk/nextjs";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import type { z } from "zod";
 
-
-import { catchClerkError } from "@/lib/utils"
-import { authSignInSchema } from "@/lib/validations/auth"
-import { Button } from "@/components/ui/button"
+import { catchClerkError } from "@/lib/utils";
+import { authSignInSchema } from "@/lib/validations/auth";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -19,21 +18,20 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Icons } from "@/components/icons/icons"
-import { PasswordInput } from "@/components/password-input"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Icon } from "@/components/icon";
+import { PasswordInput } from "@/components/password-input";
 
-type Inputs = z.infer<typeof authSignInSchema>
+type Inputs = z.infer<typeof authSignInSchema>;
 
 interface SignInFormProps {
-  handleLinkClick?: () => void
+  handleLinkClick?: () => void;
 }
-export function SignInForm({ handleLinkClick }: SignInFormProps){
-  const router = useRouter() 
-  const { isLoaded, signIn, setActive } = useSignIn()
-  const [isPending, startTransition] = React.useTransition()
-
+export function SignInForm({ handleLinkClick }: SignInFormProps) {
+  const router = useRouter();
+  const { isLoaded, signIn, setActive } = useSignIn();
+  const [isPending, startTransition] = React.useTransition();
 
   // react-hook-form
   const form = useForm<Inputs>({
@@ -42,30 +40,30 @@ export function SignInForm({ handleLinkClick }: SignInFormProps){
       email: "",
       password: "",
     },
-  })
+  });
 
   function onSubmit(data: Inputs) {
-    if (!isLoaded) return
+    if (!isLoaded) return;
 
     startTransition(async () => {
       try {
         const result = await signIn.create({
           identifier: data.email,
           password: data.password,
-        })
+        });
 
         if (result.status === "complete") {
-          await setActive({ session: result.createdSessionId })
+          await setActive({ session: result.createdSessionId });
 
-          router.push(`${window.location.origin}/`)
+          router.push(`${window.location.origin}/`);
         } else {
           /*Investigate why the login hasn't completed */
-          console.log(result)
+          console.log(result);
         }
       } catch (err) {
-        catchClerkError(err)
+        catchClerkError(err);
       }
-    })
+    });
   }
 
   return (
@@ -81,10 +79,12 @@ export function SignInForm({ handleLinkClick }: SignInFormProps){
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input 
-                autoComplete="email"
-                className="bg-background" 
-                placeholder="Email" {...field} />
+                <Input
+                  autoComplete="email"
+                  className="bg-background"
+                  placeholder="Email"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -96,24 +96,28 @@ export function SignInForm({ handleLinkClick }: SignInFormProps){
           render={({ field }) => (
             <FormItem>
               <div className="flex justify-between text-center items-center">
-              <FormLabel>Password</FormLabel>
-              <Link
-            aria-label="Reset password"
-            href="/signin/reset-password"
-            className="text-xs text-secondary underline-offset-4 transition-colors hover:underline"
-            onClick={handleLinkClick}
-          >
-            Forgot password?
-          </Link>
-          </div>
+                <FormLabel>Password</FormLabel>
+                <Link
+                  aria-label="Reset password"
+                  href="/signin/reset-password"
+                  className="text-xs text-secondary underline-offset-4 transition-colors hover:underline"
+                  onClick={handleLinkClick}
+                >
+                  Forgot password?
+                </Link>
+              </div>
               <FormControl>
-                <PasswordInput className="bg-background" placeholder="**********" {...field} />
+                <PasswordInput
+                  className="bg-background"
+                  placeholder="**********"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-          
+
         <Button
           type="submit"
           variant="logInButton"
@@ -121,7 +125,8 @@ export function SignInForm({ handleLinkClick }: SignInFormProps){
           disabled={isPending}
         >
           {isPending && (
-            <Icons.spinner
+            <Icon
+              name="spinner"
               className="mr-2 h-4 w-4 animate-spin"
               aria-hidden="true"
             />
@@ -131,5 +136,5 @@ export function SignInForm({ handleLinkClick }: SignInFormProps){
         </Button>
       </form>
     </Form>
-  )
+  );
 }
