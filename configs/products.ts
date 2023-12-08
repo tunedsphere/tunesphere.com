@@ -1,4 +1,4 @@
-import { IconName as icon } from "@/components/icon/shop"
+import type { IconName } from "@/components/icon/shop";
 import type { Category, Option } from "@/types"
 
 
@@ -24,7 +24,7 @@ export const productCategories = [
   {
     title: "clothing",
     image: "/images/skateboard-one.webp",
-    icon: "shirt",
+    icon: "shirt" as IconName,
     subcategories: [
       {
         title: "pants",

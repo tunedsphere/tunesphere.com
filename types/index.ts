@@ -52,7 +52,7 @@ export type SidebarNavItem = {
   disabled?: boolean
   external?: boolean
   className?: string
-  icon?: keyof typeof Icon
+  icon?: string | undefined;
 } & (
   | {
       href: string
@@ -110,7 +110,7 @@ export interface DataTableFilterableColumn<TData>
 export interface Category {
   title: Product["category"]
   image: string
-  icon?: keyof typeof ShopIcon
+  icon?: string | undefined;
   subcategories: Subcategory[]
 }
 export interface MusicGenre {

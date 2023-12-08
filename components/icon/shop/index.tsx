@@ -52,8 +52,8 @@ const iconMap = {
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;
 type ComponentAttributes = RefAttributes<SVGSVGElement> & SVGAttributes;
 
-export interface IconProps extends ComponentAttributes {}
-export const ShopIcon: FC<{ name: IconName } & IconProps> = ({
+export interface ShopIconProps extends ComponentAttributes {}
+export const ShopIcon: FC<{ name: IconName } & ShopIconProps> = ({
   name,
   ...props
 }) => {

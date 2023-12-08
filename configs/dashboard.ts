@@ -1,4 +1,5 @@
 import type { SidebarNavItem } from "@/types"
+import type { IconName } from "@/components/icon";
 
 export type DashboardConfig = {
   sidebarNav: SidebarNavItem[]
@@ -11,7 +12,7 @@ export const dashboardConfig: DashboardConfig = {
     {
       title: "Account",
       href: "/dashboard/account",
-      icon: "user", 
+      icon: "user" as IconName, 
       items: [],
     },
     {
@@ -22,19 +23,19 @@ export const dashboardConfig: DashboardConfig = {
     {
       title: "Stores",
       href: "/dashboard/stores",
-      icon: "store",
+      icon: "store" as IconName,
       items: [],
     },
     {
       title: "Billing",
       href: "/dashboard/billing",
-      icon: "billing",
+      icon: "billing" as IconName,
       items: [],
     },
     {
       title: "Purchases",
       href: "/dashboard/purchases",
-      icon: "dollar-sign",
+      icon: "dollar-sign" as IconName,
       items: [],
     },
     {
@@ -45,7 +46,7 @@ export const dashboardConfig: DashboardConfig = {
     {
       title: "Settings",
       href: "/dashboard/settings",
-      icon: "gear",
+      icon: "gear" as IconName,
       items: [],
     },
   ],

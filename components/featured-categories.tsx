@@ -1,36 +1,14 @@
-import Image from "next/image";
-import Link from "next/link";
-import { db } from "@/db";
-import { products, stores, type Product } from "@/db/schema";
-import { Shell } from "@/components/shells/shell";
-import { desc, eq, sql } from "drizzle-orm";
-import { Icon } from "@/components/icon";
 import { productCategories } from "@/configs/products";
-import { slugify } from "@/lib/utils";
-
-import heroShop3 from "@/public/bghome/heroShop3.png";
-
-import { cn } from "@/lib/utils";
-
-import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Tabs } from "@/components/ui/tabs";
-
-import { ProductCard } from "@/components/cards/product-card";
 import { CategoryCard } from "@/components/cards/category-card";
-import { ProudctTabs } from "@/components/pagers/product-tabs";
-import { StoreCard } from "@/components/cards/store-card";
-import { WhatIsTunedSphere } from "@/components/whatistunedsphere-card";
+
 import {
   PageHeader,
   PageHeaderHeading,
   PageHeaderDescription,
 } from "@/components/page-header";
-import { StartYourJourney } from "@/components/start-your-journey";
+
 import { delayFeaturedCategories } from "@/lib/delays";
 import { AspectRatio } from "./ui/aspect-ratio";
-import { Suspense } from "react";
 
 interface FeaturedCategoriesProps {}
 
@@ -58,7 +36,11 @@ export async function FeaturedCategories({}: FeaturedCategoriesProps) {
       </div>
       <div className="grid grid-cols-3 sm:gap-8 gap-1.5 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {productCategories.map((category) => (
-          <CategoryCard key={category.title} category={category} />
+          <CategoryCard
+            key={category.title}
+            icon={category.icon}
+            category={category}
+          />
         ))}
       </div>
     </section>

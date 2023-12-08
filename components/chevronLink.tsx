@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { IconProps } from "./index";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 

@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { ShopIconsProps } from "./index";
+import { ShopIconProps } from "./index";
 
-export const BasketIcon: FC<ShopIconsProps> = ({ ...props }) => {
+export const BasketIcon: FC<ShopIconProps> = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -60,7 +60,7 @@ export default function SiteHeaderMenuBurger() {
           >
             <Icon
               name="menu"
-              className={`hidden w-6 h-6 absolute rotate-${
+              className={`w-6 h-6 absolute rotate-${
                 isOpen ? "0" : "90"
               } scale-${isOpen ? "100" : "0"} transition-all`}
               aria-hidden="true"

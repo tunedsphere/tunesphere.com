@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { ShopIconsProps } from "./index";
-export const StoreIcon: FC<ShopIconsProps> = ({ ...props }) => {
+import { ShopIconProps } from "./index";
+export const StoreIcon: FC<ShopIconProps> = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
