@@ -1,5 +1,4 @@
 import { type Metadata } from "next"
-import { revalidatePath } from "next/cache"
 import Link from "next/link"
 import { notFound, redirect } from "next/navigation"
 import { db } from "@/db"
@@ -21,8 +20,6 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { LoadingButton } from "@/components/loading-button"
-import { Textarea } from "@/components/ui/textarea"
 import { ConnectStoreToStripeButton } from "@/components/connect-store-to-stripe-button"
 import { UpdateStoreForm } from "@/components/forms/update-store-form"
 
@@ -150,68 +147,6 @@ export default async function UpdateStorePage({
         </CardContent>
       </Card>
     )}
-    {/* <Card
-     variant="dashboard"
-      as="section"
-      id="update-store"
-      aria-labelledby="update-store-heading"
-    >
-      <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl">Update your store</CardTitle>
-        <CardDescription>
-          Update your store name and description, or delete it
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          action={updateStore}
-          className="grid w-full max-w-xl gap-5"
-        >
-          <fieldset className="grid gap-2.5">
-            <Label htmlFor="update-store-name">Name</Label>
-            <Input
-              id="update-store-name"
-              aria-describedby="update-store-name-description"
-              name="name"
-              required
-              minLength={3}
-              maxLength={50}
-              placeholder="Type store name here."
-              defaultValue={store.name}
-            />
-          </fieldset>
-          <fieldset className="grid gap-2.5">
-            <Label htmlFor="update-store-description">Description</Label>
-            <Textarea
-              className="min-h-[120px]"
-              id="update-store-description"
-              aria-describedby="update-store-description-description"
-              name="description"
-              minLength={3}
-              maxLength={255}
-              placeholder="Type store description here."
-              defaultValue={store.description ?? ""}
-            />
-          </fieldset>
-          <div className="flex flex-col gap-2 xs:flex-row">
-            <LoadingButton>
-              Update store
-              <span className="sr-only">Update store</span>
-            </LoadingButton>
-            <LoadingButton
-              // eslint-disable-next-line @typescript-eslint/no-misused-promises
-              formAction={deleteStore}
-              variant="destructive"
-            >
-              Delete store
-              <span className="sr-only">Delete store</span>
-            </LoadingButton>
-           
-          </div>
-        </form>
-      </CardContent>
-    </Card> */}
     <UpdateStoreForm store={store}/>
   </div>
   )

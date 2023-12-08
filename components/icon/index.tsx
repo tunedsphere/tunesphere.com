@@ -33,7 +33,6 @@ import { NotionIcon } from "./Notion";
 import { PlayButtonIcon } from "./PlayButton";
 import { PlusIcon } from "./Plus";
 import { QuestionIcon } from "./Question";
-import { ReactIcon } from "./social/React";
 import { RocketIcon } from "./Rocket";
 import { SearchIcon } from "./Search";
 import { SunIcon } from "./Sun";
@@ -47,7 +46,6 @@ import { AddIcon } from "./Add";
 import { TrashIcon } from "./Trash";
 import { RemoveIcon } from "./Remove";
 import { CopyIcon } from "./Copy";
-import { DollarSignIcon } from "./DollarSign";
 import { MenuIcon } from "./Menu";
 import { SpinnerIcon } from "./Spinner";
 import { SignIcon } from "./Sign";
@@ -96,7 +94,6 @@ export type IconName =
   | "cross-circle-outline"
   | "dashboard"
   | "database"
-  | "dollar-sign"
   | "edit"
   | "exclamation"
   | "expand"
@@ -148,7 +145,6 @@ const iconMap = {
   "chevron-right": ChevronRightIcon,
   "code-light": CodeLightIcon,
   "cross-circle-outline": CrossCircleOutlineIcon,
-  "dollar-sign": DollarSignIcon,
   "external-link": ExternalLinkIcon,
   "play-button": PlayButtonIcon,
   "vertical-three-dots": VerticalThreeDotsIcon,
@@ -213,7 +209,6 @@ export const Icon: FC<{ name: IconName } & IconProps> = ({
   name,
   ...props
 }) => {
-  console.log("Props passed to Icon:", props);
   const IconComponent = iconMap[name];
   if (!IconComponent) {
     console.error(`Icon "${name}" not found`);

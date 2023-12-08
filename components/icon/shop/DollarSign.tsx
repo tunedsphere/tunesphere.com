@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IconProps } from "./index";
+import { IconProps } from "../index";
 export const DollarSignIcon: FC<IconProps> = ({ ...props }) => {
   return (
     <svg

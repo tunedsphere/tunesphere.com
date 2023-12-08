@@ -8,10 +8,9 @@ import type {
   cartItemSchema,
   cartLineItemSchema, 
   checkoutItemSchema } from "@/lib/validations/cart"
-import { IconName } from "@/components/icon"
-import { IconName as ShopIconName } from "@/components/icon/shop"
-import { Icon } from "@/components/icon"
-import { ShopIcon } from "@/components/icon/shop"
+import { Icon, IconName } from "@/components/icon"
+import { ShopIconName } from "@/components/icon/shop"
+
 
 
 export interface NavItem {
@@ -52,7 +51,7 @@ export type SidebarNavItem = {
   disabled?: boolean
   external?: boolean
   className?: string
-  icon?: string | undefined;
+  icon?: IconName | ShopIconName | null;
 } & (
   | {
       href: string

@@ -30,7 +30,7 @@ export function SiteGlobalNav() {
             </div>
             <div className="left-0 z-20 flex w-4/6 shrink items-center sm:w-1/3 sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h1 className="z-10 cursor-pointer text-center text-lg font-extrabold leading-[30.24px] text-indexhigh">
+                <h1 className="z-10 cursor-pointer text-center text-lg font-extrabold md:text-[24px] leading-[30.24px] text-indexhigh">
                   TUNEDSPHERE
                 </h1>
               </Link>

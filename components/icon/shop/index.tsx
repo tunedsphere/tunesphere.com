@@ -15,14 +15,16 @@ import { SprayIcon } from "./Spray";
 import { LeafIcon } from "./Leaf";
 import { CigaretteIcon } from "./Cigarette";
 import { CdIcon } from "./Cd";
+import { DollarSignIcon } from "./DollarSign";
 
-export type IconName =
+export type ShopIconName =
   | "store"
   | "shirt"
   | "backpack"
   | "basket"
   | "credit-card"
   | "cart"
+  | "dollar-sign"
   | "product"
   | "billing"
   | "book"
@@ -33,6 +35,7 @@ export type IconName =
   | "cd";
 
 const iconMap = {
+  "dollar-sign": DollarSignIcon,
   product: ProductIcon,
   store: StoreIcon,
   cart: CartIcon,
@@ -48,16 +51,15 @@ const iconMap = {
   cigarette: CigaretteIcon,
   cd: CdIcon,
 };
-
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;
 type ComponentAttributes = RefAttributes<SVGSVGElement> & SVGAttributes;
 
 export interface ShopIconProps extends ComponentAttributes {}
-export const ShopIcon: FC<{ name: IconName } & ShopIconProps> = ({
+export const ShopIcon: FC<{ name: ShopIconName } & ShopIconProps> = ({
   name,
   ...props
 }) => {
-  console.log("Props passed to ShopIcon:", props);
+  // console.log("Props passed to ShopIcon:", props); // Remove this line
   const IconComponent = iconMap[name];
   if (!IconComponent) {
     console.error(`Icon "${name}" not found`);

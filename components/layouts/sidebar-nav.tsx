@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import type { SidebarNavItem } from "@/types";
 
 import { cn } from "@/lib/utils";
-import { Icon } from "@/components/icon";
+import { Icon } from "../icon";
 
 export interface SidebarNavProps {
   items: SidebarNavItem[];
@@ -19,7 +19,6 @@ export function SidebarNav({ items }: SidebarNavProps) {
   return (
     <div className="flex w-full flex-col gap-2">
       {items.map((item, index) => {
-        const NavIcon = Icon[item.icon ?? "chevron-left"];
         if (item.title === "Separator") {
           // Add a separator element between "Settings" and "Purchases"
           return (
@@ -42,7 +41,19 @@ export function SidebarNav({ items }: SidebarNavProps) {
                 item.disabled && "pointer-events-none opacity-60"
               )}
             >
-              <NavIcon className="mr-2 h-4 w-4" aria-hidden="true" />
+              {item.icon ? (
+                <div className="mr-2 h-4 w-4">
+                  {(() => {
+                    return (
+                      <Icon
+                        name={item.icon}
+                        className="mr-2 h-4 w-4"
+                        aria-hidden="true"
+                      />
+                    );
+                  })()}
+                </div>
+              ) : null}
               <span>{item.title}</span>
             </span>
           </Link>

@@ -1,4 +1,4 @@
-import type { IconName } from "@/components/icon/shop";
+import type { ShopIconName } from "@/components/icon/shop";
 import type { Category, Option } from "@/types"
 
 
@@ -24,7 +24,7 @@ export const productCategories = [
   {
     title: "clothing",
     image: "/images/skateboard-one.webp",
-    icon: "shirt" as IconName,
+    icon: "shirt" as ShopIconName,
     subcategories: [
       {
         title: "pants",
@@ -49,7 +49,7 @@ export const productCategories = [
   {
     title: "accessories",
     image: "/images/clothing-one.webp",
-    icon: "backpack",
+    icon: "backpack" as ShopIconName,
     subcategories: [
       {
         title: "pipe",
@@ -61,7 +61,7 @@ export const productCategories = [
   {
     title: "art",
     image: "/images/shoe-one.webp",
-    icon: "art",
+    icon: "art"  as ShopIconName,
     subcategories: [
       {
         title: "Painting",
@@ -73,7 +73,7 @@ export const productCategories = [
   {
     title: "decorations",
     image: "/images/backpack-one.webp",
-    icon: "spray",
+    icon: "spray"  as ShopIconName,
     subcategories: [
       {
         title: "tapistery",
@@ -85,7 +85,7 @@ export const productCategories = [
   {
     title: "plants",
     image: "/images/plant-one.webp",
-    icon: "leaf",
+    icon: "leaf"  as ShopIconName,
     subcategories: [
       {
         title: "cacti",
@@ -102,7 +102,7 @@ export const productCategories = [
   {
     title: "literature",
     image: "/images/book-one.webp",
-    icon: "book",
+    icon: "book"  as ShopIconName,
     subcategories: [
       {
         title: "books",
@@ -119,7 +119,7 @@ export const productCategories = [
   {
     title: "tools",
     image: "/images/tools.webp",
-    icon: "cigarette",
+    icon: "cigarette"  as ShopIconName,
     subcategories: [
       {
         title: "vaporizers",
@@ -136,7 +136,7 @@ export const productCategories = [
   {
     title: "cds_and_vinyls",
     image: "/images/physical_musical_format.jpg",
-    icon: "cd",
+    icon: "cd"  as ShopIconName,
     subcategories: [
       {
         title: "Vinyl Records",

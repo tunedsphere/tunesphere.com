@@ -8,7 +8,7 @@ import { formatTitleWithUnderscores } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { buttonVariants } from "@/components/ui/button";
-import { ShopIcon, IconName } from "../icon/shop";
+import { ShopIcon, ShopIconName } from "../icon/shop";
 
 interface CategoryCardProps {
   category: Category;
@@ -58,7 +58,7 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
                 aria-hidden="true"
               >
                 {icon && (
-                  <ShopIcon name={icon as IconName} className="h-4 w-4" />
+                  <ShopIcon name={icon as ShopIconName} className="h-4 w-4" />
                 )}
               </div>
               <p className="hidden sm:block text-sm text-zinc-200">
