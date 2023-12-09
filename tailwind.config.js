@@ -100,7 +100,6 @@ module.exports = {
           dashboard: "hsl(var(--background-dashboard))",
           shopNavLink: "hsl(var(--background-shop-navlink))",
         },
-        brand: "hsl(var(--brand))",
         texthigh: "hsl(var(--texthigh))",
         textlow: "hsl(var(--textlow))",
         indexhigh: "hsl(var(--indexhigh))",

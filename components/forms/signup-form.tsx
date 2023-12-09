@@ -100,6 +100,7 @@ export function SignUpForm() {
           )}
         />
         <Button
+          type="submit"
           className="my-2 py-3 text-lg"
           variant="logInButton"
           disabled={isPending}

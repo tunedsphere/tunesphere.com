@@ -36,7 +36,6 @@ export function SiteGlobalNav() {
               </Link>
             </div>
             <div className="relative flex w-2/6 shrink-0 flex-row items-center justify-end gap-1 sm:pr-11 pr-8 sm:w-1/3 sm:gap-2">
-              <SiteCombobox className="hover:text-white" />
               <CartSheet className="hover:text-white" />
               <div className="hidden @sm:block">
                 <ThemeToggle className="hover:text-white" />

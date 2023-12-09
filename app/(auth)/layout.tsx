@@ -1,10 +1,10 @@
-import Image from "next/image"
-import { siteConfig } from "@/configs/site"
+import Image from "next/image";
+import { siteConfig } from "@/configs/site";
 
-import AuthHeader from "@/components/layouts/auth-header"
+import AuthHeader from "@/components/layouts/auth-header";
 
 interface AuthLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
@@ -41,5 +41,5 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
         </div>
       </div>
     </>
-  )
+  );
 }
