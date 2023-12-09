@@ -2,7 +2,11 @@ import { FC } from "react";
 import { IconProps } from "./index";
 export const CheckCircleIcon: FC<IconProps> = ({ ...props }) => {
   return (
-    <svg viewBox="0 0 24 24" fill="current" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"

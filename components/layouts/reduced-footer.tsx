@@ -21,14 +21,14 @@ export function ReducedFooter() {
       <div>
         <ul className="flex space-x-4">
           <li>
-            <Link href="/docs/about">
+            <Link href="/docs/what-is-tunedsphere/about-us">
               <span className="text-sm font-normal text-textlow opacity-75 hover:text-texthigh">
                 About
               </span>
             </Link>
           </li>
           <li>
-            <Link href="/docs/contact">
+            <Link href="/docs/what-is-tunedsphere/contact">
               <span className="text-sm font-normal text-textlow opacity-75 hover:text-texthigh">
                 Contact
               </span>

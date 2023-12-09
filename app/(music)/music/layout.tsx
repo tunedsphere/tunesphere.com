@@ -118,7 +118,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
               <Link
                 href="/music"
                 onClick={() => handleToggleContent("home")}
-                className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground hover:bg-primary/20 cursor-pointer ${
+                className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 cursor-pointer ${
                   activeContent === "home" ? "" : ""
                 }`}
               >
@@ -127,7 +127,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   className={` ${
                     isSidebarOpen
                       ? "hidden"
-                      : "py-2.5 flex justify-center hover:bg-primary/20"
+                      : "py-2.5 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
                   }`}
                 >
                   <Icon name="home" className="h-5 w-5" />
@@ -135,7 +135,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 <div
                   className={` ${
                     isSidebarOpen
-                      ? "py-2 pl-4 hover:bg-primary/20 flex items-center gap-2"
+                      ? "py-2 pl-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
                       : "hidden "
                   }`}
                 >
@@ -146,13 +146,16 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 </div>
               </Link>
 
-              <div className="items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer">
+              <div
+                onClick={toggleSearchBar}
+                className="items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer"
+              >
                 <div
                   onClick={handleSidebarClick}
                   className={` ${
                     isSidebarOpen
                       ? "hidden"
-                      : "py-2.5 flex justify-center hover:bg-primary/20"
+                      : "py-2.5 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
                   }`}
                 >
                   <Icon name="search" className="h-5 w-5" />
@@ -164,10 +167,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                       isSidebarOpen ? "px-4" : "hidden"
                     }`}
                   >
-                    <div
-                      onClick={toggleSearchBar}
-                      className="flex items-center"
-                    >
+                    <div className="flex items-center">
                       <MusicSearchBar isSearchBarVisible={isSearchBarVisible} />
                     </div>
                   </div>
@@ -175,7 +175,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 pl-4 flex items-center gap-2 hover:bg-primary/20 "
+                        ? "py-2 pl-4 flex items-center gap-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 "
                         : "hidden"
                     }`}
                   >
@@ -209,7 +209,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   onClick={() => handleToggleContent("fresh-frequencies")}
                   className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer ${
                     activeContent === "fresh-frenquencies"
-                      ? "bg-primary/50"
+                      ? "bg-cyan-300 dark:bg-purple-800/50 "
                       : ""
                   }`}
                 >
@@ -218,7 +218,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                     className={` ${
                       isSidebarOpen
                         ? "hidden"
-                        : "p-2 flex justify-center hover:bg-primary/20"
+                        : "p-2 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
                     }`}
                   >
                     <Icon name="rocket" className="h-5 w-5" />
@@ -226,7 +226,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 px-4 hover:bg-primary/20 flex items-center gap-2"
+                        ? "py-2 px-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
                         : "hidden "
                     }`}
                   >
@@ -241,7 +241,9 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 <div
                   onClick={() => handleToggleContent("genre")}
                   className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer ${
-                    activeContent === "genre" ? "bg-primary/50" : ""
+                    activeContent === "genre"
+                      ? "bg-cyan-300 dark:bg-purple-800/50 "
+                      : ""
                   }`}
                 >
                   <div
@@ -249,7 +251,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                     className={` ${
                       isSidebarOpen
                         ? "hidden"
-                        : "p-2 flex justify-center hover:bg-primary/20"
+                        : "p-2 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
                     }`}
                   >
                     <Icon name="flower" className="h-5 w-5" />
@@ -257,7 +259,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 px-4 hover:bg-primary/20 flex items-center gap-2"
+                        ? "py-2 px-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
                         : "hidden "
                     }`}
                   >
@@ -273,7 +275,9 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 <div
                   onClick={() => handleToggleContent("country")}
                   className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer ${
-                    activeContent === "country" ? "bg-primary/50" : ""
+                    activeContent === "country"
+                      ? "bg-cyan-300 dark:bg-purple-800/50 "
+                      : ""
                   }`}
                 >
                   <div
@@ -281,7 +285,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                     className={`${
                       isSidebarOpen
                         ? "hidden"
-                        : "p-2 flex justify-center hover:bg-primary/20"
+                        : "p-2 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
                     }`}
                   >
                     <Icon name="globe" className="h-5 w-5" />
@@ -289,7 +293,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 px-4 hover:bg-primary/20 flex items-center gap-2"
+                        ? "py-2 px-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
                         : "hidden "
                     }`}
                   >
@@ -305,7 +309,9 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 <div
                   onClick={() => handleToggleContent("year")}
                   className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer ${
-                    activeContent === "year" ? "bg-primary/50" : ""
+                    activeContent === "year"
+                      ? "bg-cyan-300 dark:bg-purple-800/50 "
+                      : ""
                   }`}
                 >
                   <div
@@ -313,7 +319,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                     className={`${
                       isSidebarOpen
                         ? "hidden"
-                        : "p-2 flex justify-center hover:bg-primary/20"
+                        : "p-2 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
                     }`}
                   >
                     <Icon name="list" className="h-5 w-5" />
@@ -321,7 +327,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 px-4 hover:bg-primary/20 flex items-center gap-2"
+                        ? "py-2 px-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
                         : "hidden "
                     }`}
                   >

@@ -4,7 +4,7 @@ export const ExpandIcon: FC<IconProps> = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="current"
+      fill="currentColor"
       viewBox="0 0 512 512"
       {...props}
     >

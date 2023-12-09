@@ -29,10 +29,10 @@ const MusicSidebarMenuBurger: React.FC<MusicSidebarMenuBurgerProps> = ({
     <>
       <Button
         size="sm"
-        variant="nav"
+        variant="ghost"
         onClick={handleSidebarClick}
         aria-label="Toggle menu"
-        className="text-texthigh hover:text-texthigh/80"
+        className="text-texthigh hover:text-cyan-500 dark:hover:text-purple-600"
       >
         <Icon
           name="close"
