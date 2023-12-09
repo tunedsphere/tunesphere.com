@@ -4,7 +4,7 @@ import { db } from "@/db";
 import { products, stores, type Product } from "@/db/schema";
 
 import { desc, eq } from "drizzle-orm";
-import { ShopIcon } from "@/components/icon/shop";
+import { Icon } from "@/components/icon";
 import { productCategories } from "@/configs/products";
 
 import { cn } from "@/lib/utils";
@@ -78,7 +78,7 @@ export async function FeaturedProducts({
               ))
             ) : (
               <div className="flex h-full flex-col items-center justify-center space-y-1 pt-10">
-                <ShopIcon
+                <Icon
                   name="product"
                   className="mb-4 h-16 w-16 text-muted-foreground"
                   aria-hidden="true"

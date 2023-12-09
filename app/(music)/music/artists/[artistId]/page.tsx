@@ -1,13 +1,9 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { recordLabelsData } from "@/public/recordLabelsData";
 import { type Metadata } from "next";
-import { notFound } from "next/navigation";
 import { env } from "@/env.mjs";
 import Image from "next/image";
 import { Icon } from "@/components/icon";
-import { SocialIcon } from "@/components/icon/social";
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -66,7 +62,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
         </div>
         <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center py-12">
           <Link className="" href="#">
-            <SocialIcon
+            <Icon
               name="facebook"
               className="inline-flex h-4 w-4 items-center justify-center rounded-md text-blue-500"
             />

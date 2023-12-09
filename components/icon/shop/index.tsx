@@ -34,7 +34,7 @@ export type ShopIconName =
   | "cigarette"
   | "cd";
 
-const iconMap = {
+export const shopIconMap = {
   "dollar-sign": DollarSignIcon,
   product: ProductIcon,
   store: StoreIcon,
@@ -50,20 +50,4 @@ const iconMap = {
   leaf: LeafIcon,
   cigarette: CigaretteIcon,
   cd: CdIcon,
-};
-type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;
-type ComponentAttributes = RefAttributes<SVGSVGElement> & SVGAttributes;
-
-export interface ShopIconProps extends ComponentAttributes {}
-export const ShopIcon: FC<{ name: ShopIconName } & ShopIconProps> = ({
-  name,
-  ...props
-}) => {
-  // console.log("Props passed to ShopIcon:", props); // Remove this line
-  const IconComponent = iconMap[name];
-  if (!IconComponent) {
-    console.error(`Icon "${name}" not found`);
-    return null;
-  }
-  return <IconComponent {...props} />;
 };

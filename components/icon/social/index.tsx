@@ -8,7 +8,7 @@ import { GitHubIcon } from "./GitHub";
 import { ReactIcon } from "./React";
 import { GoogleIcon } from "./Google";
 
-export type IconName =
+export type SocialIconName =
   | "discord"
   | "facebook"
   | "github"
@@ -16,29 +16,11 @@ export type IconName =
   | "google"
   | "apple";
 
-const iconMap = {
+export const socialIconMap = {
   apple: AppleIcon,
   discord: DiscordIcon,
   facebook: FacebookIcon,
   github: GitHubIcon,
   google: GoogleIcon,
   react: ReactIcon,
-};
-type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;
-type ComponentAttributes = RefAttributes<SVGSVGElement> & SVGAttributes;
-
-export interface IconProps extends ComponentAttributes {
-  size?: number;
-}
-export const SocialIcon: FC<{ name: IconName } & IconProps> = ({
-  name,
-  ...props
-}) => {
-  console.log("Props passed to SocialIcon:", props);
-  const IconComponent = iconMap[name];
-  if (!IconComponent) {
-    console.error(`Icon "${name}" not found`);
-    return null;
-  }
-  return <IconComponent {...props} />;
 };

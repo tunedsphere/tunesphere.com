@@ -67,7 +67,12 @@ import { HideIcon } from "./Hide";
 import { EditIcon } from "./Edit";
 import { GripIcon } from "./Grip";
 
+import { ShopIconName, shopIconMap } from "./shop";
+import { SocialIconName, socialIconMap } from "./social";
+
 export type IconName =
+  | ShopIconName
+  | SocialIconName
   | "api"
   | "add"
   | "activity"
@@ -135,6 +140,8 @@ export type IconName =
   | "warning";
 
 const iconMap = {
+  ...shopIconMap,
+  ...socialIconMap,
   "alert-triangle": AlertTriangleIcon,
   "broken-link": BrokenLinkIcon,
   "check-circle-outline": CheckCircleOutlineIcon,

@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/sheet";
 import { UpdateCart } from "@/components/cart/update-cart";
 import { Icon } from "@/components/icon";
-import { ShopIcon } from "@/components/icon/shop";
 import { getCartAction } from "@/app/_actions/cart";
 
 interface CartSheetProps {
@@ -52,11 +51,7 @@ export async function CartSheet({ className }: CartSheetProps) {
               {itemCount}
             </Badge>
           )}
-          <ShopIcon
-            name="basket"
-            className="transition-all"
-            aria-hidden="true"
-          />
+          <Icon name="basket" className="transition-all" aria-hidden="true" />
         </Button>
       </SheetTrigger>
       <SheetContent className="z-10000 flex w-full flex-col pr-0 sm:max-w-lg bg-background">
@@ -159,7 +154,7 @@ export async function CartSheet({ className }: CartSheetProps) {
           </>
         ) : (
           <div className="flex h-full flex-col items-center justify-center space-y-2">
-            <ShopIcon
+            <Icon
               name="cart"
               className="h-12 w-12 text-muted-foreground"
               aria-hidden="true"

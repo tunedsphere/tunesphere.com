@@ -6,7 +6,6 @@ import { env } from "@/env.mjs";
 import { eq } from "drizzle-orm";
 
 import { Icon } from "@/components/icon";
-import { ShopIcon } from "@/components/icon/shop";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -43,10 +42,7 @@ export default async function AnalyticsPage({ params }: AnalyticsPageProps) {
       <Card variant="dashboard">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-          <ShopIcon
-            name="dollar-sign"
-            className="h-4 w-4 text-muted-foreground"
-          />
+          <Icon name="dollar-sign" className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">$45,231.89</div>
@@ -70,10 +66,7 @@ export default async function AnalyticsPage({ params }: AnalyticsPageProps) {
       <Card variant="dashboard">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Sales</CardTitle>
-          <ShopIcon
-            name="credit-card"
-            className="h-4 w-4 text-muted-foreground"
-          />
+          <Icon name="credit-card" className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">+12,234</div>

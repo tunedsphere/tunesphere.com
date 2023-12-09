@@ -9,9 +9,6 @@ import type {
   cartLineItemSchema, 
   checkoutItemSchema } from "@/lib/validations/cart"
 import { Icon, IconName } from "@/components/icon"
-import { ShopIconName } from "@/components/icon/shop"
-
-
 
 export interface NavItem {
   title: string
@@ -51,7 +48,7 @@ export type SidebarNavItem = {
   disabled?: boolean
   external?: boolean
   className?: string
-  icon?: IconName | ShopIconName | null;
+  icon?: IconName | null;
 } & (
   | {
       href: string
@@ -109,7 +106,7 @@ export interface DataTableFilterableColumn<TData>
 export interface Category {
   title: Product["category"]
   image: string
-  icon?: string | undefined;
+  icon?: IconName | null;
   subcategories: Subcategory[]
 }
 export interface MusicGenre {

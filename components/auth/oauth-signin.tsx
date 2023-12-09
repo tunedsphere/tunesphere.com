@@ -4,9 +4,8 @@ import * as React from "react";
 import { isClerkAPIResponseError, useSignIn } from "@clerk/nextjs";
 import type { OAuthStrategy } from "@clerk/types";
 import { toast } from "sonner";
-import { IconName, SocialIcon } from "@/components/icon/social";
 import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/icon";
+import { Icon, IconName } from "@/components/icon";
 
 const oauthProviders = [
   { name: "Google", strategy: "oauth_google", icon: "google" },
@@ -45,7 +44,7 @@ export function OAuthSignIn() {
   return (
     <div className="grid grid-cols-1 gap-2 py-4 sm:grid-cols-3 sm:gap-4">
       {oauthProviders.map((provider) => {
-        const ProviderIcon = <SocialIcon name={provider.icon} />;
+        const ProviderIcon = <Icon name={provider.icon} />;
         return (
           <Button
             aria-label={`Sign in with ${provider.name}`}
@@ -57,7 +56,7 @@ export function OAuthSignIn() {
             {isLoading === provider.strategy ? (
               <Icon name="spinner" className="mr-2 h-4 w-4 animate-spin" />
             ) : (
-              <SocialIcon
+              <Icon
                 name={provider.icon}
                 className="mr-2 h-4 w-4"
                 aria-hidden="true"

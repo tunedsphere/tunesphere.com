@@ -1,4 +1,3 @@
-import type { ShopIconName } from "@/components/icon/shop";
 import type { Category, Option } from "@/types"
 
 
@@ -24,7 +23,7 @@ export const productCategories = [
   {
     title: "clothing",
     image: "/images/skateboard-one.webp",
-    icon: "shirt" as ShopIconName,
+    icon: "shirt",
     subcategories: [
       {
         title: "pants",
@@ -49,7 +48,7 @@ export const productCategories = [
   {
     title: "accessories",
     image: "/images/clothing-one.webp",
-    icon: "backpack" as ShopIconName,
+    icon: "backpack",
     subcategories: [
       {
         title: "pipe",
@@ -61,7 +60,7 @@ export const productCategories = [
   {
     title: "art",
     image: "/images/shoe-one.webp",
-    icon: "art"  as ShopIconName,
+    icon: "art",
     subcategories: [
       {
         title: "Painting",
@@ -73,7 +72,7 @@ export const productCategories = [
   {
     title: "decorations",
     image: "/images/backpack-one.webp",
-    icon: "spray"  as ShopIconName,
+    icon: "spray",
     subcategories: [
       {
         title: "tapistery",
@@ -85,7 +84,7 @@ export const productCategories = [
   {
     title: "plants",
     image: "/images/plant-one.webp",
-    icon: "leaf"  as ShopIconName,
+    icon: "leaf",
     subcategories: [
       {
         title: "cacti",
@@ -102,7 +101,7 @@ export const productCategories = [
   {
     title: "literature",
     image: "/images/book-one.webp",
-    icon: "book"  as ShopIconName,
+    icon: "book",
     subcategories: [
       {
         title: "books",
@@ -119,7 +118,7 @@ export const productCategories = [
   {
     title: "tools",
     image: "/images/tools.webp",
-    icon: "cigarette"  as ShopIconName,
+    icon: "cigarette",
     subcategories: [
       {
         title: "vaporizers",
@@ -136,7 +135,7 @@ export const productCategories = [
   {
     title: "cds_and_vinyls",
     image: "/images/physical_musical_format.jpg",
-    icon: "cd"  as ShopIconName,
+    icon: "cd",
     subcategories: [
       {
         title: "Vinyl Records",
