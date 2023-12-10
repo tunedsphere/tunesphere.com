@@ -120,8 +120,7 @@ export function SignInForm({ handleLinkClick }: SignInFormProps) {
 
         <Button
           type="submit"
-          variant="logInButton"
-          className="my-8 w-full items-center p-2 text-xl"
+          className="my-8 w-full items-center p-2 text-xl rounded-full text-texthigh bg-cyan-300 dark:bg-violet-800 hover:bg-cyan-300 dark:hover:bg-violet-800/50"
           disabled={isPending}
         >
           {isPending && (
