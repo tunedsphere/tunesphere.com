@@ -23,6 +23,8 @@ const buttonVariants = cva(
           "hover:bg-accent outline-theme outline outline-1 hover:outline-offset-1",
         nav: "text-primary hover:bg-primary/30 hover:text-texthigh",
         link: "underline-offset-4 hover:underline text-primary",
+        logInButton:
+          "rounded-full text-texthigh bg-primary/70 hover:bg-primary/50",
         logInModal:
           "text-texthigh hover:text-primary border-2 border-theme hover:bg-primary/30 hidden shrink-0 px-2 font-semibold sm:block leading-6 text_texthigh",
       },
