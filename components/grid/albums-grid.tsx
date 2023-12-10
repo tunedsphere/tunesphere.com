@@ -9,7 +9,6 @@ import Link from "next/link";
 import { albums } from "@/public/albumsData";
 import { cn } from "@/lib/utils";
 import { Icon } from "@/components/icon";
-import { Separator } from "../ui/separator";
 import { slugify } from "@/lib/utils";
 
 interface AlbumsGridProps {
@@ -119,7 +118,7 @@ export function AlbumsGrid({
                   </div>
                 )}
                 {String(selectedAlbum) === String(index) && (
-                  <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-accent">
+                  <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-gray-100 dark:text-gray-900/50">
                     <Icon name="chevron-up" className="h-10 w-10" />
                   </div>
                 )}
@@ -127,11 +126,11 @@ export function AlbumsGrid({
               {String(selectedAlbum) === String(index) && (
                 <div
                   ref={expandedLabelRef}
-                  className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-accent py-8 @container @xs:block"
+                  className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-gray-100 dark:bg-gray-900/50 py-8 @container @xs:block"
                 >
                   <div className="flex-1 gap-4 px-12">
                     <div className="flex items-center">
-                      <div className="flex justify-center border-r-2 border-muted">
+                      <div className="flex justify-center border-muted">
                         <Link href={`album/${album.id}`} className="">
                           <Image
                             src={album.image}
@@ -169,7 +168,7 @@ export function AlbumsGrid({
                         </Link>
 
                         <Link href={`label/${album.id}`}>
-                          <h3 className="cursor-pointer text-2xl font-semibold text-primary">
+                          <h3 className="cursor-pointer text-2xl font-semibold text-cyan-400 dark:text-violet-500">
                             {album.title}
                           </h3>
                         </Link>
@@ -184,7 +183,7 @@ export function AlbumsGrid({
                           {album.tracklist.map((track, index) => (
                             <div
                               key={index}
-                              className="flex justify-between text-sm text-textlow border-b py-2 border-muted mr-8"
+                              className="flex justify-between text-sm text-texthigh border-b py-2 border-muted mr-8"
                             >
                               <span>
                                 {track.track}{" "}

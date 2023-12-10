@@ -53,7 +53,8 @@ export const authSignUpSchema = z.object({
     )
     .refine((value) => /^\S*$/.test(value), {
       message: "Spaces are not allowed",
-    }),
+    }),    
+      
 })
 
 export const verifyEmailSchema = z.object({

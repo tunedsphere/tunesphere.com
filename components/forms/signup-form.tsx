@@ -37,6 +37,7 @@ export function SignUpForm() {
   });
   function onSubmit(data: Inputs) {
     if (!isLoaded) return;
+
     startTransition(async () => {
       try {
         await signUp.create({
@@ -93,7 +94,7 @@ export function SignUpForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <PasswordInput placeholder="**********" {...field} />
+                <PasswordInput placeholder="" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

@@ -9,6 +9,7 @@ export const docsConfig: DocsConfig = {
     {
       title: "Guides",
       href: "/guides",
+      disabled: true,
     },
   ],
   sidebarNav: [
