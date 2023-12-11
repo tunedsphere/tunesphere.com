@@ -87,9 +87,9 @@ export function AlbumsGrid({
     <>
       <div
         id="albums-grid"
-        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted pl-4 pt-2 pb-12 pr-8 sm:pl-12 @container"
+        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted pl-4 pt-2 pb-12 pr-4 @container"
       >
-        <div className="grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9">
+        <div className="grid grid-flow-row-dense gap-4 grid-cols-2 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9">
           {sortedAndFilteredAlbums.map((album, index) => (
             <React.Fragment key={index}>
               <div
@@ -104,13 +104,13 @@ export function AlbumsGrid({
                   height={400}
                   src={album.image}
                   alt={album.title}
-                  className="my-4 cursor-pointer border border-muted aspect-square"
+                  className="my-4 cursor-pointer border border-muted aspect-square rounded-md"
                 ></Image>
                 <h1 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-base">
                   {album.title}
                 </h1>
-                <p className="cursor-pointer text-xs text-textlow hover:text-theme">
-                  {album.genre}
+                <p className="cursor-pointer text-sm text-textlow hover:text-theme">
+                  {album.artist}
                 </p>
                 {String(selectedAlbum) === String(index) && (
                   <div className="arrow-up absolute top-[96%] left-0 right-0 flex justify-center z-100 text-muted">
@@ -126,75 +126,74 @@ export function AlbumsGrid({
               {String(selectedAlbum) === String(index) && (
                 <div
                   ref={expandedLabelRef}
-                  className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-gray-100 dark:bg-gray-900/50 py-8 @container @xs:block"
+                  className="-mx-4 px-4 col-span-full border-spacing-2 border-y-2 border-muted bg-gray-100 dark:bg-gray-900/50 py-8 @container @xs:block"
                 >
-                  <div className="flex-1 gap-4 px-12">
-                    <div className="flex items-center">
-                      <div className="flex justify-center border-muted">
-                        <Link href={`album/${album.id}`} className="">
-                          <Image
-                            src={album.image}
-                            width={380}
-                            height={380}
-                            alt={album.id}
-                            className="cursor-pointer object-contain"
-                          />
-                        </Link>
-                      </div>
-                      <section className="flex flex-col w-full pl-8">
-                        <Link href={`artists/${slugify(album.artist)}`}>
-                          <div
-                            className={cn(
-                              "group transition-colors flex cursor-pointer relative",
-                              { hovered: isHovered }
-                            )}
+                  <div className="@container grid grid-rows-[min-content_1fr] gap-4 grid-cols-2 @xs:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-8 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9">
+                    <div className="@md:col-span-1 @xl:row-span-2 @lg:row-span-2 @lg:col-span-2 @6xl:col-span-2">
+                      <Image
+                        width={500}
+                        height={500}
+                        src={album.image}
+                        alt={album.title}
+                        className="cursor-pointer border border-muted aspect-square rounded-md"
+                      ></Image>
+                    </div>
+                    <div className="col-start-2 @lg:col-start-3 col-span-3 @6xl:pl-4 @6xl:col-span-4 @7xl:col-span-5 @8xl:col-span-6 @9xl:col-span-7">
+                      <Link href={`label/${album.id}`}>
+                        <h3 className="cursor-pointer text-3xl font-semibold ">
+                          {album.title}
+                        </h3>
+                      </Link>
+                      <Link href={`artists/${slugify(album.artist)}`}>
+                        <div
+                          className={cn(
+                            "group transition-colors flex cursor-pointer relative",
+                            { hovered: isHovered }
+                          )}
+                        >
+                          <h2
+                            className="text-3xl hover:text-foreground/80 text-cyan-400 dark:text-violet-500"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
                           >
-                            <h2
-                              className="text-2xl hover:text-foreground/80"
-                              onMouseEnter={() => setIsHovered(true)}
-                              onMouseLeave={() => setIsHovered(false)}
+                            {album.artist}{" "}
+                            <span
+                              className={cn(
+                                "pl-4 arrow inline-block opacity-10 transition-opacity duration-300 ease-in-out",
+                                { " opacity-100": isHovered }
+                              )}
                             >
-                              {album.artist}{" "}
-                              <span
-                                className={cn(
-                                  "pl-4 arrow inline-block opacity-10 transition-opacity duration-300 ease-in-out",
-                                  { " opacity-100": isHovered }
-                                )}
-                              >
-                                &gt;
-                              </span>
-                            </h2>
+                              &gt;
+                            </span>
+                          </h2>
+                        </div>
+                      </Link>
+                      <div className="flex text-sm">
+                        <p className="text-textlow">{album.release_date}</p>
+                        <span className="mx-2"> - </span>
+                        <p className="text-textlow">{album.genre}</p>
+                      </div>
+                    </div>
+                    <div className="@lg:col-start-3 col-span-full">
+                      <div className="@6xl:grid @6xl:grid-cols-2 px-2 @6xl:px-6 @6xl:mr-4 grid-flow-col">
+                        {album.tracklist.map((track, index) => (
+                          <div
+                            key={index}
+                            className={`flex justify-between text-base text-texthigh border-b py-2 border-muted ${
+                              index < Math.ceil(album.tracklist.length / 2)
+                                ? "@6xl:col-span-1 @6xl:col-start-1 @6xl:mr-4"
+                                : "@6xl:col-span-1 @6xl:col-start-2 @6xl:ml-4"
+                            }`}
+                          >
+                            <span>
+                              {track.track}{" "}
+                              <span className="text-sm mx-1"> - </span>{" "}
+                              {track.title}
+                            </span>
+                            <span>{track.length}</span>
                           </div>
-                        </Link>
-
-                        <Link href={`label/${album.id}`}>
-                          <h3 className="cursor-pointer text-2xl font-semibold text-cyan-400 dark:text-violet-500">
-                            {album.title}
-                          </h3>
-                        </Link>
-
-                        <div className="flex text-sm">
-                          <p className="text-textlow">{album.release_date}</p>
-                          <span className="mx-2"> - </span>
-                          <p className="text-textlow">{album.genre}</p>
-                        </div>
-
-                        <div className="grid grid-cols-2 mt-4">
-                          {album.tracklist.map((track, index) => (
-                            <div
-                              key={index}
-                              className="flex justify-between text-sm text-texthigh border-b py-2 border-muted mr-8"
-                            >
-                              <span>
-                                {track.track}{" "}
-                                <span className="text-xs px-1"> - </span>{" "}
-                                {track.title}
-                              </span>
-                              <span>{track.length}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </section>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

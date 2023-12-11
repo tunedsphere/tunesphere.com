@@ -100,7 +100,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
             className={`sidebar ${
               isSidebarOpen
                 ? "sidebar-open overflow-y-auto"
-                : "hidden-sidebar w-[68px] xl:w-24"
+                : "hidden-sidebar w-[68px]"
             }`}
           >
             <div

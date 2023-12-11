@@ -113,7 +113,7 @@ export function DjsGrid({
                   </div>
                 )}
                 {String(selectedLabel) === String(index) && (
-                  <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-accent">
+                  <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-gray-100 dark:text-gray-900/50">
                     <Icon name="chevron-up" className="h-10 w-10" />
                   </div>
                 )}
@@ -121,7 +121,7 @@ export function DjsGrid({
               {String(selectedLabel) === String(index) && (
                 <div
                   ref={expandedLabelRef}
-                  className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-accent py-8 @container  @xs:block"
+                  className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-gray-100 dark:bg-gray-900/50 py-8 @container @xs:block"
                 >
                   <div className="grid gap-4 @xs:grid-cols-2 @xs:grid-rows-1 @md:grid-cols-3 @md:grid-rows-1 @2xl:grid-flow-col @2xl:grid-rows-2 @3xl:grid-rows-2">
                     <div className=" flex justify-center border-r-2 border-muted @xs:row-start-1 @xs:row-end-1 @2xl:row-span-3 @3xl:row-span-2">

@@ -110,7 +110,7 @@ export function RecordLabelsGrid({
                     </div>
                   )}
                   {String(selectedLabel) === String(index) && (
-                    <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-accent">
+                    <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-gray-100 dark:text-gray-900/50">
                       <Icon name="chevron-up" className="h-10 w-10" />
                     </div>
                   )}
@@ -118,7 +118,7 @@ export function RecordLabelsGrid({
                 {String(selectedLabel) === String(index) && (
                   <div
                     ref={expandedLabelRef}
-                    className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-accent py-8 @container @xs:block"
+                    className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-gray-100 dark:bg-gray-900/50 py-8 @container @xs:block"
                   >
                     <div className="flex gap-4 px-12">
                       <div className="flex justify-center border-r-2 border-muted">
@@ -135,7 +135,7 @@ export function RecordLabelsGrid({
                       <section className="flex flex-col w-full pl-8 gap-8">
                         <div className="">
                           <Link href={`labels/${label.id}`}>
-                            <h3 className="cursor-pointer text-lg font-bold text-texthigh">
+                            <h3 className="cursor-pointer text-4xl font-bold text-texthigh">
                               {label.name}
                             </h3>
                           </Link>

@@ -46,8 +46,11 @@ module.exports = {
       }
     },
     extend: {
+      containers: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+      },
       maxWidth: {
-        '2xs': '16rem',
         '8xl': '90rem',
     },
       fontFamily: {
