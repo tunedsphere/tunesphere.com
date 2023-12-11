@@ -74,27 +74,25 @@ export default function SigninCard({ onClose }: SigninCardProps) {
             <div className="flex justify-center">
               <span className="text-sm text-muted-foreground">
                 By signing in you accept our{" "}
-                {siteConfig.footerNav && (
-                  <>
-                    <Link
-                      href={siteConfig.footerNav[2]?.items[2]?.href as string} // "Terms" href
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-secondary transition-colors hover:text-foreground"
-                    >
-                      Terms
-                    </Link>{" "}
-                    and{" "}
-                    <Link
-                      href={siteConfig.footerNav[2]?.items[3]?.href as string} // "Privacy" href
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-secondary transition-colors hover:text-foreground"
-                    >
-                      Privacy
-                    </Link>
-                  </>
-                )}
+                <>
+                  <Link
+                    href="/docs/legal/terms"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-secondary transition-colors hover:text-foreground"
+                  >
+                    Terms
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/docs/legal/privacy" // "Privacy" href
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-secondary transition-colors hover:text-foreground"
+                  >
+                    Privacy
+                  </Link>
+                </>
               </span>
             </div>
           </section>

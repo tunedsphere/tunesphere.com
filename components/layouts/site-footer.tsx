@@ -6,7 +6,6 @@ import Link from "next/link";
 import { siteConfig } from "@/configs/site";
 import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form";
 import { cn } from "@/lib/utils";
-
 interface SiteFooterProps {
   className?: string; // Allow className to be optional
 }
