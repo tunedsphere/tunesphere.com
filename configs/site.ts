@@ -93,7 +93,7 @@ export const siteConfig = {
           title: "Music",
           href: "/music",
           external: false,
-          disabled: true,
+          disabled: false,
         },
         {
           title: "Shop",
@@ -134,10 +134,10 @@ export const siteConfig = {
           external: false,
         },
         {
-          title: "Blog",
-          href: "/docs/blog/introduction",
+          title: "Privacy",
+          href: "/docs/legal/privacy",
           external: false,
-        },      
+        },
       ],
     },
     {
@@ -151,16 +151,6 @@ export const siteConfig = {
         {
           title: "Contact",
           href: "/docs//what-is-tunedsphere/contact",
-          external: false,
-        },
-        {
-          title: "Terms",
-          href: "/docs/legal/terms",
-          external: false,
-        },
-        {
-          title: "Privacy",
-          href: "/docs/privacy",
           external: false,
         },
       ],

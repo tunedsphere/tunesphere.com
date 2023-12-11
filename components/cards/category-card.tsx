@@ -59,14 +59,17 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
               >
                 {icon && <Icon name={icon} className="h-4 w-4" />}
               </div>
-              <p className="hidden sm:block text-sm text-zinc-200">
-                {productCount} items
-              </p>
+              <div>
+                <p className="hidden sm:block text-sm text-zinc-200  bg-black/10 backdrop-blur-sm rounded-md px-2 ml-2">
+                  {productCount} items
+                </p>
+              </div>
             </div>
-
-            <h3 className="mt-auto w-auto text-xl font-medium capitalize text-zinc-200 bg-black/10 backdrop-blur-sm text-center sm:text-left hidden sm:block">
-              {formatTitleWithUnderscores(category.title)}
-            </h3>
+            <div className="mt-auto hidden sm:flex ">
+              <h3 className="text-xl font-medium capitalize grow-0 text-zinc-200 bg-black/10 backdrop-blur-sm rounded-md text-center sm:text-left px-2 mr-2">
+                {formatTitleWithUnderscores(category.title)}
+              </h3>
+            </div>
           </div>
           <span className="sr-only">{category.title}</span>
         </Link>

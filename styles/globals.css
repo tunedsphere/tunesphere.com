@@ -19,7 +19,6 @@
     text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* ... additional styles ... */
   }
   html {
     scrollbar-width: thin;
@@ -67,27 +66,6 @@
     --music-grid-banner-height: 88px;
     --music-grid-banner-height-mobile: 48px;
 
-    --gray-100-value: 0 0% 10%;
-    --gray-200-value: 0 0% 12%;
-    --gray-300-value: 0 0% 16%;
-    --gray-400-value: 0 0% 18%;
-    --gray-500-value: 0 0% 27%;
-    --gray-600-value: 0 0% 53%;
-    --gray-700-value: 0 0% 56%;
-    --gray-800-value: 0 0% 49%;
-    --gray-900-value: 0 0% 63%;
-    --gray-1000-value: 0 0% 93%;
-    --gray-alpha-100: hsla(0, 0%, 100%, 0.06);
-    --gray-alpha-200: hsla(0, 0%, 100%, 0.09);
-    --gray-alpha-300: hsla(0, 0%, 100%, 0.13);
-    --gray-alpha-400: hsla(0, 0%, 100%, 0.14);
-    --gray-alpha-500: hsla(0, 0%, 100%, 0.24);
-    --gray-alpha-600: hsla(0, 0%, 100%, 0.51);
-    --gray-alpha-700: hsla(0, 0%, 100%, 0.54);
-    --gray-alpha-800: hsla(0, 0%, 100%, 0.47);
-    --gray-alpha-900: hsla(0, 0%, 100%, 0.61);
-    --gray-alpha-1000: hsla(0, 0%, 100%, 0.92);
-
     --destructive-50: 0 100% 95.5%;
     --destructive-100: 0 100% 91.5%;
     --destructive-200: 0 92% 85.5%;
@@ -99,9 +77,9 @@
     --destructive-800: 0 65% 34.5%;
     --destructive-900: 0 62% 29.5%;
     --destructive-950: 0 76% 18%;
-    --theme-hue: 199; /* Adjust the hue value */
-    --theme-lightness: 60%; /* Adjust the lightness value */
-    --theme-saturation: 100%; /* Initial saturation value */
+    --theme-hue: 199;
+    --theme-lightness: 60%;
+    --theme-saturation: 100%;
     --theme: hsl(
       var(--theme-hue) var(--theme-saturation) var(--theme-lightness)
     );
@@ -297,7 +275,6 @@
   }
   :global(body.custom-body-class) {
     background-color: black;
-    /* Add any other styles you want for the body */
   }
   @media (max-width: 767px) {
     body {
