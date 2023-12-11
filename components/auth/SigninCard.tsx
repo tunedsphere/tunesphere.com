@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/card";
 import { OAuthSignIn } from "@/components/auth/oauth-signin";
 import { SignInForm } from "@/components/forms/signin-form";
-import { siteConfig } from "@/configs/site";
 
 export const metadata = {
   title: "Sign In",

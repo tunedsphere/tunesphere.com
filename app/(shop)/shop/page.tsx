@@ -1,65 +1,79 @@
-import Image from "next/image"
-import Link from "next/link"
-import { db } from "@/db"
-import { products, stores, type Product } from "@/db/schema"
-import { Shell } from "@/components/shells/shell"
-import { desc, eq, sql } from "drizzle-orm"
-import { productCategories } from "@/configs/products"
+import Image from "next/image";
+import Link from "next/link";
 
-import heroShop3 from "@/public/bghome/heroShop3.png"
+import { Shell } from "@/components/shells/shell";
+import { productCategories } from "@/configs/products";
 
-import { cn } from "@/lib/utils"
+import heroShop3 from "@/public/bghome/heroShop3.png";
 
-import { Badge } from "@/components/ui/badge"
-import { buttonVariants } from "@/components/ui/button"
-import { WhatIsTunedSphere } from "@/components/whatistunedsphere-card"
+import { cn } from "@/lib/utils";
+
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { WhatIsTunedSphere } from "@/components/whatistunedsphere-card";
 import {
   PageHeader,
   PageHeaderHeading,
-  PageHeaderDescription
-} from "@/components/page-header"
-import { StartYourJourney } from "@/components/start-your-journey"
-import { RecentlyAddedProducts, RecentlyAddedProductsSkeleton } from "@/components/recently-added-products"
-import { FeaturedProducts, FeaturedProductsSkeleton } from "@/components/featured-products"
-import { FeaturedStores, FeaturedStoresSkeleton } from "@/components/featured-stores"
-import { FeaturedCategories, FeaturedCategoriesSkeleton } from "@/components/featured-categories"
-import { Suspense } from "react"
+  PageHeaderDescription,
+} from "@/components/page-header";
+import { StartYourJourney } from "@/components/start-your-journey";
+import {
+  RecentlyAddedProducts,
+  RecentlyAddedProductsSkeleton,
+} from "@/components/recently-added-products";
+import {
+  FeaturedProducts,
+  FeaturedProductsSkeleton,
+} from "@/components/featured-products";
+import {
+  FeaturedStores,
+  FeaturedStoresSkeleton,
+} from "@/components/featured-stores";
+import {
+  FeaturedCategories,
+  FeaturedCategoriesSkeleton,
+} from "@/components/featured-categories";
+import { Suspense } from "react";
 
 interface ShopPageProps {
   searchParams: {
     [key: string]: string | string[] | undefined;
-  }// Correct data type definition
+  }; // Correct data type definition
 }
 
 export default async function ShopPage({ searchParams }: ShopPageProps) {
   const category = searchParams?.category ?? "art";
   const randomProductCategory =
-    productCategories[Math.floor(Math.random() * productCategories.length)]
+    productCategories[Math.floor(Math.random() * productCategories.length)];
 
   return (
     <>
-      <Shell variant="shop"
-        className="bg-transparent">
+      <Shell variant="shop" className="bg-transparent">
         <section
           id="shop-heading"
           aria-labelledby="shop-heading"
           className="px-2 pt-8 text-center z-10"
         >
           <div
-        id="shop-header-image"
-         className="mx-auto shrink-0 flex justify-center min-w-full"> 
-           <Image
-    src={heroShop3}
-    width={4000}
-    height={600}
-    alt="planet Home"
-    className="absolute object-cover w-full h-full aspect-video max-h-[600px] -z-10 opacity-50"
-  ></Image>
-  </div>
-  <PageHeader>
-          <PageHeaderHeading size="lg" variant="shop" className="md:py-24 py-6 tracking-tighter">
-            A Store specially built for You with everything you would expect
-          </PageHeaderHeading>
+            id="shop-header-image"
+            className="mx-auto shrink-0 flex justify-center min-w-full"
+          >
+            <Image
+              src={heroShop3}
+              width={4000}
+              height={600}
+              alt="planet Home"
+              className="absolute object-cover w-full h-full aspect-video max-h-[600px] -z-10 opacity-50"
+            ></Image>
+          </div>
+          <PageHeader>
+            <PageHeaderHeading
+              size="lg"
+              variant="shop"
+              className="md:py-24 py-6 tracking-tighter"
+            >
+              A Store specially built for You with everything you would expect
+            </PageHeaderHeading>
           </PageHeader>
           <div className="relative mx-auto w-full max-w-[400px] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -104,19 +118,19 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
         </section>
 
         <Suspense fallback={<FeaturedCategoriesSkeleton />}>
-              <FeaturedCategories/>
+          <FeaturedCategories />
         </Suspense>
 
         <Suspense fallback={<FeaturedProductsSkeleton />}>
-              <FeaturedProducts searchParams={searchParams}/>
+          <FeaturedProducts searchParams={searchParams} />
         </Suspense>
 
         <Suspense fallback={<RecentlyAddedProductsSkeleton />}>
-            <RecentlyAddedProducts/>         
+          <RecentlyAddedProducts />
         </Suspense>
 
-         <Suspense fallback={<FeaturedStoresSkeleton />}>
-          <FeaturedStores/>
+        <Suspense fallback={<FeaturedStoresSkeleton />}>
+          <FeaturedStores />
         </Suspense>
 
         <section
@@ -129,19 +143,16 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
               key={subcategory.slug}
               href={`/shop/c/${randomProductCategory?.title}/${String(
                 subcategory.slug
-                )}`}
+              )}`}
             >
-              <Badge className="rounded px-3 py-1">
-                {subcategory.title}
-              </Badge>
+              <Badge className="rounded px-3 py-1">{subcategory.title}</Badge>
               <span className="sr-only">{subcategory.title}</span>
             </Link>
           ))}
         </section>
       </Shell>
-       <StartYourJourney/>
-       <WhatIsTunedSphere />
+      <StartYourJourney />
+      <WhatIsTunedSphere />
     </>
-  )
+  );
 }
-

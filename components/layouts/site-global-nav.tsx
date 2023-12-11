@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 
 import SiteGlobalNavMenuBurger from "@/components/menuburgers/site-global-nav-menu-burger";
-import { SiteCombobox } from "@/components/searchs/site-combobox";
 
 import { CartSheet } from "@/components/cart/cart-sheet";
 import { Icon } from "@/components/icon";

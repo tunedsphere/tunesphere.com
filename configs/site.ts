@@ -121,7 +121,7 @@ export const siteConfig = {
         {
           title: "Shop Docs",
           href: "/docs/shop/selling",
-           external: false,
+          external: false,
         },
         {
           title: "Music Docs",
