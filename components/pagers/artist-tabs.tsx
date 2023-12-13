@@ -30,7 +30,7 @@ export function ArtistTabs({}: ArtistTabsProps) {
   ];
 
   return (
-    <div className="flex justify-between items-center max-w-6xl mx-auto px-8 font-bold">
+    <div className="flex justify-between items-center mx-8 font-bold border-b border-muted">
       <Tabs
         id="artist-tabs"
         defaultValue={tabs.find((tab) => tab.isActive)?.href ?? tabs[0]?.href}
@@ -46,7 +46,7 @@ export function ArtistTabs({}: ArtistTabsProps) {
               <TabsTrigger
                 value={tab.href}
                 className={cn(
-                  "data-[state=active]:underline-offset-[10px] data-[state=active]:decoration-2 hover:underline underline-offset-[14px] hover:text-foreground/80 decoration-2 inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background  data-[state=active]:underline data-[state=active]:decoration-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
+                  "p-0 data-[state=active]:underline-offset-[10px] data-[state=active]:decoration-2 hover:underline underline-offset-[10px] hover:text-foreground/80 decoration-2 inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background  data-[state=active]:underline data-[state=active]:decoration-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
                   tab.isActive && "text-foreground "
                 )}
               >

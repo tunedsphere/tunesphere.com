@@ -23,6 +23,7 @@ module.exports = {
       '7xl': '80rem',
       '8xl': '90rem',
       '9xl': '100rem',
+      '12xl': '135rem',
       full: '100%'
     },
     container: {

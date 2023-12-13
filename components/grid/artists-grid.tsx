@@ -103,9 +103,9 @@ export function ArtistsGrid({
     <>
       <div
         id="artists-grid"
-        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted pl-4 pt-2 pb-12 pr-8 sm:pl-8 @container"
+        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted @container max-w-12xl"
       >
-        <div className="grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9">
+        <div className="px-4 md:px-12 pb-12 grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9">
           {sortedAndFilteredLabels.map((label, index) => (
             <React.Fragment key={index}>
               <div

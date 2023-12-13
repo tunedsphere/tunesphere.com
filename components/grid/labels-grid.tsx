@@ -9,7 +9,7 @@ import { recordLabelsData } from "@/public/recordLabelsData";
 import { Icon } from "@/components/icon";
 
 import { Suspense } from "react";
-
+import { MusicOptionsBanner } from "../music-options-banner";
 interface RecordLabelsGridProps {
   selectedGenre: string | null; // Define the type of selectedGenre
   selectedYear: string | null; // Define the type of selectedYear
@@ -78,9 +78,14 @@ export function RecordLabelsGrid({
     <>
       <div
         id="djs-grid"
-        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted pl-4 pt-2 pb-12 pr-8 @container sm:pl-12"
+        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted @container"
       >
-        <div className="grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9">
+        <MusicOptionsBanner
+          selectedGenre={selectedGenre}
+          selectedYear={selectedYear}
+          selectedCountry={selectedCountry}
+        />
+        <div className="px-4 md:px-12 pb-12 grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9">
           <Suspense fallback={<RecordLabelsGridSkeleton />}>
             {sortedAndFilteredLabels.map((label, index) => (
               <React.Fragment key={index}>

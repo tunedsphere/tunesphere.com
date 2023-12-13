@@ -10,7 +10,7 @@ import { albums } from "@/public/albumsData";
 import { cn } from "@/lib/utils";
 import { Icon } from "@/components/icon";
 import { slugify } from "@/lib/utils";
-
+import { MusicOptionsBanner } from "../music-options-banner";
 interface AlbumsGridProps {
   selectedGenre: string | null; // Define the type of selectedGenre
   selectedYear: string | null; // Define the type of selectedYear
@@ -87,9 +87,14 @@ export function AlbumsGrid({
     <>
       <div
         id="albums-grid"
-        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted px-4 md:px-12 pb-12 @container"
+        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted  @container max-w-12xl"
       >
-        <div className="grid grid-flow-row-dense gap-4 grid-cols-2 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9">
+        <MusicOptionsBanner
+          selectedGenre={selectedGenre}
+          selectedYear={selectedYear}
+          selectedCountry={selectedCountry}
+        />
+        <div className="px-4 md:px-12 pb-12 grid grid-flow-row-dense gap-4 grid-cols-2 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9">
           {sortedAndFilteredAlbums.map((album, index) => (
             <React.Fragment key={index}>
               <div

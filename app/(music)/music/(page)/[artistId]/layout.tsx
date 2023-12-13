@@ -20,16 +20,15 @@ export default function ArtistLayoutPage({ children }: ArtistLayoutPageProps) {
           backgroundRepeat: "repeat",
         }}
       >
-        <section className="relative max-w-6xl mx-auto h-[260px]">
-          {/* Background Image */}
+        {/* <section className="relative max-w-6xl mx-auto h-[260px]">
           <Image
             src={"/bggenre/test-banner.jpg"}
             layout="fill"
             objectFit="cover"
             alt="Beautiful Forest"
           />
-        </section>
-        <section className="relative max-w-6xl mx-auto bg-background items-center align-middle border-b border-muted">
+        </section> */}
+        <section className="relative max-w-6xl mx-auto bg-background items-center align-middle">
           <ArtistTabs />
         </section>
         {children}
