@@ -2,18 +2,14 @@
 import "@/styles/globals.css";
 
 import Link from "next/link";
-import { type Metadata } from "next";
-import { env } from "@/env.mjs";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import * as React from "react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import { albums } from "@/public/albumsData";
-import { cn } from "@/lib/utils";
+
 import { Icon } from "@/components/icon";
-import { slugify } from "@/lib/utils";
-import { ArtistTabs } from "@/components/pagers/artist-tabs";
 
 // export const metadata: Metadata = {
 //   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
