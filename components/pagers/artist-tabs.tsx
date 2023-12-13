@@ -4,12 +4,8 @@ import { useRouter, useSelectedLayoutSegment } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
-import { Icon } from "../icon";
 
-interface ArtistTabsProps extends React.ComponentPropsWithoutRef<typeof Tabs> {
-  ArtistId: string;
-}
+interface ArtistTabsProps extends React.ComponentPropsWithoutRef<typeof Tabs> {}
 
 export function ArtistTabs({}: ArtistTabsProps) {
   const router = useRouter();
