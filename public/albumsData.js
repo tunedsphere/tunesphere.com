@@ -1,8 +1,8 @@
 export const albums = [
   {
     id: "the-4th-sun",
-    title: "The 4th Sun",
-    artist: "Lunarave",
+    title: "The 4th SunThe 4th SunThe 4th SunThe 4th Sun",
+    artist: "LunaraveLunaraveLunaraveLunarave",
     genre: "Electronic",
     style: "Psy-Trance",
     release_date: "2010-10-26",

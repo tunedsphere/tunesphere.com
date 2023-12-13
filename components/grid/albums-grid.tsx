@@ -87,7 +87,7 @@ export function AlbumsGrid({
     <>
       <div
         id="albums-grid"
-        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted pl-4 pt-2 pb-12 pr-4 @container"
+        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted px-4 md:px-12 pb-12 @container"
       >
         <div className="grid grid-flow-row-dense gap-4 grid-cols-2 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9">
           {sortedAndFilteredAlbums.map((album, index) => (
@@ -95,7 +95,7 @@ export function AlbumsGrid({
               <div
                 key={album.id}
                 className={`relative cursor-pointer items-center ${
-                  selectedAlbum === index.toString() ? "" : ""
+                  selectedAlbum === index.toString() ? "inset-y-2" : ""
                 }`}
                 onClick={() => handleLabelClick(index)}
               >
@@ -106,33 +106,33 @@ export function AlbumsGrid({
                   alt={album.title}
                   className="my-4 cursor-pointer border border-muted aspect-square rounded-md"
                 ></Image>
-                <h1 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-base">
+                <h1 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-base break-words">
                   {album.title}
                 </h1>
-                <p className="cursor-pointer text-sm text-textlow hover:text-theme">
+                <p className="cursor-pointer text-sm text-textlow hover:text-theme break-words">
                   {album.artist}
                 </p>
                 {String(selectedAlbum) === String(index) && (
-                  <div className="arrow-up absolute top-[96%] left-0 right-0 flex justify-center z-100 text-muted">
-                    <Icon name="chevron-up" className="h-10 w-10" />
+                  <div className="arrow-up absolute top-[97%] left-0 right-0 flex justify-center z-100 text-muted">
+                    <Icon name="chevron-up" className="h-8 w-8" />
                   </div>
                 )}
                 {String(selectedAlbum) === String(index) && (
-                  <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-gray-100 dark:text-gray-900/50">
-                    <Icon name="chevron-up" className="h-10 w-10" />
+                  <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-gray-100 dark:text-background">
+                    <Icon name="chevron-up" className="h-8 w-8" />
                   </div>
                 )}
               </div>
               {String(selectedAlbum) === String(index) && (
                 <div
                   ref={expandedLabelRef}
-                  className="-mx-4 px-4 col-span-full border-spacing-2 border-y-2 border-muted bg-gray-100 dark:bg-gray-900/50 py-8 @container @xs:block"
+                  className="-mx-8 px-8 md:-mx-12 md:px-12 col-span-full border-spacing-2 border-y-2 border-muted bg-gray-100 dark:bg-gray-900/50 py-12 @container @xs:block"
                 >
                   <div className="@container grid grid-rows-[min-content_1fr] gap-4 grid-cols-2 @xs:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-8 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9">
                     <div className="@md:col-span-1 @xl:row-span-2 @lg:row-span-2 @lg:col-span-2 @6xl:col-span-2">
                       <Image
-                        width={500}
-                        height={500}
+                        width={600}
+                        height={600}
                         src={album.image}
                         alt={album.title}
                         className="cursor-pointer border border-muted aspect-square rounded-md"
@@ -144,15 +144,15 @@ export function AlbumsGrid({
                           {album.title}
                         </h3>
                       </Link>
-                      <Link href={`artists/${slugify(album.artist)}`}>
+                      <Link href={`${slugify(album.artist)}`}>
                         <div
                           className={cn(
-                            "group transition-colors flex cursor-pointer relative",
+                            "group transition-colors flex flex-wrap cursor-pointer relative",
                             { hovered: isHovered }
                           )}
                         >
                           <h2
-                            className="text-3xl hover:text-foreground/80 text-cyan-400 dark:text-violet-500"
+                            className="text-3xl hover:text-foreground/80 text-cyan-400 dark:text-violet-500 break-words"
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
                           >

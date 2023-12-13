@@ -416,7 +416,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
             selectedYear={selectedYear}
             selectedCountry={selectedCountry}
           >
-            <main className="flex-1 grow border-t border-b border-muted @container">
+            <main className="flex-1 grow border-t border-b border-muted @container mx-auto">
               {children}
             </main>
           </MusicProvider>

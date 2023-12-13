@@ -1,17 +1,15 @@
-import { notFound, redirect } from "next/navigation"
-import { db } from "@/db"
-import { stores } from "@/db/schema"
-import { currentUser } from "@clerk/nextjs"
-import { eq } from "drizzle-orm"
+import { notFound, redirect } from "next/navigation";
+import { db } from "@/db";
+import { stores } from "@/db/schema";
+import { currentUser } from "@clerk/nextjs";
+import { eq } from "drizzle-orm";
 
-import {
-  getDashboardRedirectPath
-} from "@/lib/subscription"
-import { getSubscriptionPlanAction } from "@/app/_actions/stripe"
-import { PageHeader, PageHeaderHeading } from "@/components/page-header"
-import { StoreSwitcher } from "@/components/pagers/store-switcher"
-import { StoreTabs } from "@/components/pagers/store-tabs"
-import { Shell } from "@/components/shells/shell"
+import { getDashboardRedirectPath } from "@/lib/subscription";
+import { getSubscriptionPlanAction } from "@/app/_actions/stripe";
+import { PageHeader, PageHeaderHeading } from "@/components/page-header";
+import { StoreSwitcher } from "@/components/pagers/store-switcher";
+import { StoreTabs } from "@/components/pagers/store-tabs";
+import { Shell } from "@/components/shells/shell";
 
 interface StoreLayoutProps {
   children: React.ReactNode;
@@ -24,12 +22,12 @@ export default async function StoreLayout({
   children,
   params,
 }: StoreLayoutProps) {
-  const storeId = Number(params.storeId)
+  const storeId = Number(params.storeId);
 
-  const user = await currentUser()
+  const user = await currentUser();
 
   if (!user) {
-    redirect("/signin")
+    redirect("/signin");
   }
 
   const allStores = await db
@@ -38,26 +36,26 @@ export default async function StoreLayout({
       name: stores.name,
     })
     .from(stores)
-    .where(eq(stores.userId, user.id))
+    .where(eq(stores.userId, user.id));
 
-  const store = allStores.find((store) => store.id === storeId)
+  const store = allStores.find((store) => store.id === storeId);
 
   if (!store) {
-    notFound()
+    notFound();
   }
-  
-  const subscriptionPlan = await getSubscriptionPlanAction(user.id)
+
+  const subscriptionPlan = await getSubscriptionPlanAction(user.id);
 
   return (
     <Shell variant="dashboard" className="gap-4">
-           <PageHeader variant="dashboard" >
-         <div className="flex space-x-4">
+      <PageHeader variant="dashboard">
+        <div className="flex space-x-4">
           <PageHeaderHeading size="sm" className="flex-1">
-          {store.name}
-        </PageHeaderHeading>
+            {store.name}
+          </PageHeaderHeading>
         </div>
-        </PageHeader>
-        <div className="flex items-center space-x-4 pr-1">
+      </PageHeader>
+      <div className="flex items-center space-x-4 pr-1">
         {allStores.length > 1 ? (
           <StoreSwitcher
             currentStore={store}
@@ -74,5 +72,5 @@ export default async function StoreLayout({
         {children}
       </div>
     </Shell>
-  )
+  );
 }

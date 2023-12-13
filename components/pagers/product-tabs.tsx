@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { products } from "@/db/schema"
+import * as React from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { products } from "@/db/schema";
 
-import { TabsList, TabsTrigger } from "@/components/ui/tabs"
-
+import { TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { formatTitleWithUnderscores } from "@/lib/utils";
 export function ProudctTabs() {
-  const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const [isPending, startTransition] = React.useTransition()
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [isPending, startTransition] = React.useTransition();
 
   // Search params
-  const tab = searchParams?.get("category") ?? "art"
+  const tab = searchParams?.get("category") ?? "art";
 
   // Create query string
   const createQueryString = React.useCallback(
     (params: Record<string, string | number | null>) => {
-      const newSearchParams = new URLSearchParams(searchParams?.toString())
+      const newSearchParams = new URLSearchParams(searchParams?.toString());
 
       for (const [key, value] of Object.entries(params)) {
         if (value === null) {
-          newSearchParams.delete(key)
+          newSearchParams.delete(key);
         } else {
-          newSearchParams.set(key, String(value))
+          newSearchParams.set(key, String(value));
         }
       }
 
-      return newSearchParams.toString()
+      return newSearchParams.toString();
     },
     [searchParams]
-  )
+  );
 
   return (
     <TabsList className="mx-auto flex w-fit">
@@ -49,14 +49,14 @@ export function ProudctTabs() {
                 {
                   scroll: false,
                 }
-              )
-            })
+              );
+            });
           }}
           disabled={isPending}
         >
-          {category}
+          {formatTitleWithUnderscores(category)}
         </TabsTrigger>
       ))}
     </TabsList>
-  )
+  );
 }

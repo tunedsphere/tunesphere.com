@@ -402,7 +402,7 @@ export function Products({
           <DropdownMenu>
             <DropdownMenuTrigger asChild className="gap-1">
               <Button
-                aria-label="Items per page"
+                aria-label="Items-per-page"
                 size="sm"
                 disabled={isPending}
                 className="font-semibold bg-background-shopNavLink leading-6"
