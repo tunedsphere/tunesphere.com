@@ -89,11 +89,6 @@ export function AlbumsGrid({
         id="albums-grid"
         className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted  @container max-w-12xl"
       >
-        <MusicOptionsBanner
-          selectedGenre={selectedGenre}
-          selectedYear={selectedYear}
-          selectedCountry={selectedCountry}
-        />
         <div className="px-4 md:px-12 pb-12 grid grid-flow-row-dense gap-4 grid-cols-2 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9">
           {sortedAndFilteredAlbums.map((album, index) => (
             <React.Fragment key={index}>

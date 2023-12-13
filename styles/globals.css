@@ -1243,12 +1243,11 @@
   height: calc(100dvh - var(--headerHeight));
 }
 .music-grid {
-  height: calc(100dvh - var(--headerHeight) - var(--music-grid-banner-height));
+  height: calc(100vh - var(--headerHeight) - var(--music-grid-banner-height) - 96px) ;
 }
 .music-grid-mobile {
   height: calc(
-    100dvh - var(--headerHeight) - var(--music-grid-banner-height-mobile)
-  );
+    100vh - var(--headerHeight) - var(--music-grid-banner-height-mobile) - 96px);
 }
 .sidebar {
   flex-shrink: 0;

@@ -12,6 +12,7 @@ import { MusicSearchBar } from "@/components/searchs/music-search-bar";
 import { Separator } from "@/components/ui/separator";
 
 import { MusicProvider } from "@/components/grid/music-context";
+import { MusicOptionsBanner } from "@/components/music-options-banner";
 
 interface MusicLayoutPageProps {
   children: React.ReactNode;
@@ -22,7 +23,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
 
-  const [selectedTab, setSelectedTab] = useState("Home");
+  const [currentTab, setSelectedTab] = useState("Home");
 
   const handleTabChange = (tab: string) => {
     setSelectedTab(tab);
@@ -417,6 +418,12 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
             selectedCountry={selectedCountry}
           >
             <main className="flex-1 grow border-t border-b border-muted @container mx-auto">
+              <MusicOptionsBanner
+                currentTab={currentTab}
+                selectedGenre={selectedGenre}
+                selectedYear={selectedYear}
+                selectedCountry={selectedCountry}
+              />
               {children}
             </main>
           </MusicProvider>

@@ -76,16 +76,8 @@ export function RecordLabelsGrid({
 
   return (
     <>
-      <div
-        id="djs-grid"
-        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted @container"
-      >
-        <MusicOptionsBanner
-          selectedGenre={selectedGenre}
-          selectedYear={selectedYear}
-          selectedCountry={selectedCountry}
-        />
-        <div className="px-4 md:px-12 pb-12 grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9">
+      <div id="djs-grid" className=" -z-10 grow border-muted @container">
+        <div className="sm:music-grid music-grid-mobile scrollable-container px-4 md:px-12 pb-12 grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9">
           <Suspense fallback={<RecordLabelsGridSkeleton />}>
             {sortedAndFilteredLabels.map((label, index) => (
               <React.Fragment key={index}>
