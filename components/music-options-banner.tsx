@@ -24,7 +24,7 @@ export function MusicOptionsBanner({
 
           {isOptionsSelected ? (
             <div className="flex items-center w-full border-b border-muted px-4 md:px-12">
-              <div className="py-2 text-foreground text-4xl">
+              <div className="py-2 text-foreground text-4xl font-mono">
                 {(
                   [selectedGenre, selectedYear, selectedCountry].filter(
                     Boolean
@@ -33,7 +33,7 @@ export function MusicOptionsBanner({
               </div>
             </div>
           ) : (
-            <div className="flex align-middle items-center w-full border-b border-muted px-4 md:px-12">
+            <div className="flex align-middle items-center w-full border-b border-muted px-4 md:px-12 font-mono">
               <div className="py-2 text-foreground text-4xl">
                 Explore all : {currentTab}
               </div>
