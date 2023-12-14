@@ -1,10 +1,10 @@
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from '@clerk/nextjs'
 
-import React from "react";
-import Link from "next/link";
-import { getUserEmail } from "@/lib/utils";
+import React from 'react'
+import Link from 'next/link'
+import { getUserEmail } from '@/lib/utils'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,18 +13,18 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Icon } from "@/components/icon";
+} from '@/components/ui/dropdown-menu'
+import { Icon } from '@/components/icon'
 
-import IndexLoginModalButton from "@/components/index-login-modal-btn";
-import { Button } from "./ui/button";
+import IndexLoginModalButton from '@/components/index-login-modal-btn'
+import { Button } from './ui/button'
 
 export async function IndexUserDropdownMenu() {
-  const user = await currentUser();
-  const initials = `${user?.firstName?.charAt(0) ?? ""} ${
-    user?.lastName?.charAt(0) ?? ""
-  }`;
-  const email = getUserEmail(user);
+  const user = await currentUser()
+  const initials = `${user?.firstName?.charAt(0) ?? ''} ${
+    user?.lastName?.charAt(0) ?? ''
+  }`
+  const email = getUserEmail(user)
   return (
     <>
       {user ? (
@@ -32,7 +32,7 @@ export async function IndexUserDropdownMenu() {
           <DropdownMenuTrigger asChild>
             <Button size="xs" variant="nav" className="hover:bg-transparent">
               <Avatar className="flex h-7 w-7 items-center justify-center shadow-sm shadow-slate-900/50">
-                <AvatarImage src={user.imageUrl} alt={user.username ?? ""} />
+                <AvatarImage src={user.imageUrl} alt={user.username ?? ''} />
                 <AvatarFallback>{initials}</AvatarFallback>
               </Avatar>
             </Button>
@@ -100,5 +100,5 @@ export async function IndexUserDropdownMenu() {
         <IndexLoginModalButton />
       )}
     </>
-  );
+  )
 }

@@ -1,50 +1,50 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
+import '@/styles/animation.css'
+import { Shell } from '@/components/shells/shell'
+import { productCategories } from '@/configs/products'
 
-import { Shell } from "@/components/shells/shell";
-import { productCategories } from "@/configs/products";
+import heroShop3 from '@/public/bghome/heroShop3.png'
 
-import heroShop3 from "@/public/bghome/heroShop3.png";
+import { cn } from '@/lib/utils'
 
-import { cn } from "@/lib/utils";
-
-import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
-import { WhatIsTunedSphere } from "@/components/whatistunedsphere-card";
+import { Badge } from '@/components/ui/badge'
+import { buttonVariants } from '@/components/ui/button'
+import { WhatIsTunedSphere } from '@/components/whatistunedsphere-card'
 import {
   PageHeader,
   PageHeaderHeading,
   PageHeaderDescription,
-} from "@/components/page-header";
-import { StartYourJourney } from "@/components/start-your-journey";
+} from '@/components/page-header'
+import { StartYourJourney } from '@/components/start-your-journey'
 import {
   RecentlyAddedProducts,
   RecentlyAddedProductsSkeleton,
-} from "@/components/recently-added-products";
+} from '@/components/recently-added-products'
 import {
   FeaturedProducts,
   FeaturedProductsSkeleton,
-} from "@/components/featured-products";
+} from '@/components/featured-products'
 import {
   FeaturedStores,
   FeaturedStoresSkeleton,
-} from "@/components/featured-stores";
+} from '@/components/featured-stores'
 import {
   FeaturedCategories,
   FeaturedCategoriesSkeleton,
-} from "@/components/featured-categories";
-import { Suspense } from "react";
+} from '@/components/featured-categories'
+import { Suspense } from 'react'
 
 interface ShopPageProps {
   searchParams: {
-    [key: string]: string | string[] | undefined;
-  }; // Correct data type definition
+    [key: string]: string | string[] | undefined
+  } // Correct data type definition
 }
 
 export default async function ShopPage({ searchParams }: ShopPageProps) {
-  const category = searchParams?.category ?? "art";
+  const category = searchParams?.category ?? 'art'
   const randomProductCategory =
-    productCategories[Math.floor(Math.random() * productCategories.length)];
+    productCategories[Math.floor(Math.random() * productCategories.length)]
 
   return (
     <>
@@ -52,67 +52,68 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
         <section
           id="shop-heading"
           aria-labelledby="shop-heading"
-          className="px-2 pt-8 text-center z-10"
+          className="z-10 px-2 pt-8 text-center"
         >
           <div
             id="shop-header-image"
-            className="mx-auto shrink-0 flex justify-center min-w-full"
+            className="mx-auto flex min-w-full shrink-0 justify-center"
           >
             <Image
               src={heroShop3}
               width={4000}
               height={600}
               alt="planet Home"
-              className="absolute object-cover w-full h-full aspect-video max-h-[600px] -z-10 opacity-50"
+              className="absolute -z-10 aspect-video h-full max-h-[600px] w-full object-cover opacity-50"
             ></Image>
           </div>
           <PageHeader>
             <PageHeaderHeading
               size="lg"
               variant="shop"
-              className="md:py-24 py-6 tracking-tighter"
+              className="py-6 tracking-tighter md:py-24"
             >
               A Store specially built for You with everything you would expect
             </PageHeaderHeading>
           </PageHeader>
           <div className="relative mx-auto w-full max-w-[400px] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="button_bg-gradient-theme absolute inset-x-0"></div>
-              <div className="hero_gradient-button-wrapper z-20 flex-1 items-stretch">
+              <div className="animated-bg-gradient-theme absolute inset-x-0"></div>
+              <div className="grt-button-wrapper z-20 flex-1">
                 <Link
                   href="/shop/products"
                   className={cn(
                     buttonVariants({
-                      size: "lg",
+                      size: 'lg',
                     }),
-                    "hero_gradient-button hover:bg-background hover:text-sm text-primary"
+                    'grt-button text-primary hover:bg-background hover:text-sm',
                   )}
                 >
-                  <span className="animated-gradient-text_background-theme bg-clip-text font-semibold">
-                    <span className="animated-gradient-text_foreground-theme animated-gradient-text_foreground-theme bg-clip-text font-semibold">
+                  <span className="animated-grt-text_background-theme font-semibold before:bg-foreground">
+                    <span className="animated-grt-text_foreground-theme font-semibold">
                       Explore Products
                     </span>
                   </span>
                 </Link>
               </div>
 
-              <div className="hero_gradient-button-wrapper z-20 flex-1 items-stretch">
-                <div className="hero_gradient-button-bg hero_bg-theme blur"></div>
+              <div className="grt-button-wrapper z-20 flex-1">
+                <div className="grt-btn-bg animated-grt-theme blur"></div>
+                <span className="grt-btn-bg grt-theme"></span>
 
                 <Link
                   href="/dashboard/stores"
                   className={cn(
                     buttonVariants({
-                      size: "lg",
+                      size: 'lg',
                     }),
-                    "hero_gradient-button-shop hover:bg-background z-30"
+                    'grt-button z-30 hover:bg-transparent hover:text-theme-50',
                   )}
                 >
                   <span className="font-semibold">Sell Now</span>
                 </Link>
               </div>
 
-              <div className="button_bg-gradient-theme absolute inset-x-0 -z-10"></div>
+              <div className="animated-bg-gradient-theme absolute inset-x-0 -z-10"></div>
             </div>
           </div>
         </section>
@@ -142,7 +143,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
             <Link
               key={subcategory.slug}
               href={`/shop/c/${randomProductCategory?.title}/${String(
-                subcategory.slug
+                subcategory.slug,
               )}`}
             >
               <Badge className="rounded px-3 py-1">{subcategory.title}</Badge>
@@ -154,5 +155,5 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
       <StartYourJourney />
       <WhatIsTunedSphere />
     </>
-  );
+  )
 }

@@ -1,96 +1,94 @@
-"use client";
-import "@/styles/globals.css";
-import * as React from "react";
-import { useState } from "react";
-import { recordLabelsData } from "@/public/recordLabelsData.js";
-import Link from "next/link";
-import { Sidebar } from "@/components/ui/sidebar";
-import { Icon } from "@/components/icon";
-import MusicSidebarMenuBurger from "@/components/menuburgers/music-sidebar-menu-burger";
-import { MusicTabs } from "@/components/pagers/music-tabs";
-import { MusicSearchBar } from "@/components/searchs/music-search-bar";
-import { Separator } from "@/components/ui/separator";
+'use client'
+import '@/styles/globals.css'
+import * as React from 'react'
+import { useState } from 'react'
+import { recordLabelsData } from '@/public/recordLabelsData.js'
+import Link from 'next/link'
+import { Sidebar } from '@/components/ui/sidebar'
+import { Icon } from '@/components/icon'
+import MusicSidebarMenuBurger from '@/components/menuburgers/music-sidebar-menu-burger'
+import { MusicTabs } from '@/components/pagers/music-tabs'
+import { MusicSearchBar } from '@/components/searchs/music-search-bar'
+import { Separator } from '@/components/ui/separator'
 
-import { MusicProvider } from "@/components/grid/music-context";
-import { MusicOptionsBanner } from "@/components/music-options-banner";
+import { MusicProvider } from '@/components/grid/music-context'
+import { MusicOptionsBanner } from '@/components/music-options-banner'
 
 interface MusicLayoutPageProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
-  const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
-  const [selectedYear, setSelectedYear] = useState<string | null>(null);
-  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
+  const [selectedYear, setSelectedYear] = useState<string | null>(null)
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null)
 
-  const [currentTab, setSelectedTab] = useState("Home");
+  const [currentTab, setSelectedTab] = useState('Home')
 
   const handleTabChange = (tab: string) => {
-    setSelectedTab(tab);
-    setSelectedGenre(null); // Reset the Genre selection
-    setSelectedYear(null); // Reset the Year selection
-    setSelectedCountry(null); // Reset the Country selection
-  };
-  const [isSearchBarVisible, setIsSearchBarVisible] = useState(false); // New state for search bar visibility
+    setSelectedTab(tab)
+    setSelectedGenre(null) // Reset the Genre selection
+    setSelectedYear(null) // Reset the Year selection
+    setSelectedCountry(null) // Reset the Country selection
+  }
+  const [isSearchBarVisible, setIsSearchBarVisible] = useState(false) // New state for search bar visibility
 
   const toggleSearchBar = () => {
-    setIsSearchBarVisible(!isSearchBarVisible);
-  };
+    setIsSearchBarVisible(!isSearchBarVisible)
+  }
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [activeContent, setActiveContent] = useState<string | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const [activeContent, setActiveContent] = useState<string | null>(null)
 
   const handleToggleContent = (content: string) => {
-    setActiveContent(activeContent === content ? null : content);
-  };
+    setActiveContent(activeContent === content ? null : content)
+  }
 
   const handleSidebarClick = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-    setIsSearchBarVisible(false);
-  };
+    setIsSidebarOpen(!isSidebarOpen)
+    setIsSearchBarVisible(false)
+  }
 
   const yearOptions = Array.from(
-    new Set(recordLabelsData.flatMap((label) => label.founding_year))
-  );
+    new Set(recordLabelsData.flatMap((label) => label.founding_year)),
+  )
   const handleYearSelection = (year: string) => {
     if (year === selectedYear) {
       // If the same year is selected, reset the filter
-      setSelectedYear(null);
+      setSelectedYear(null)
     } else {
-      setSelectedYear(year);
+      setSelectedYear(year)
     }
-  };
+  }
 
   const genreOptions = Array.from(
-    new Set(recordLabelsData.flatMap((label) => label.genres))
-  );
+    new Set(recordLabelsData.flatMap((label) => label.genres)),
+  )
   const handleGenreSelection = (genre: string) => {
     if (genre === selectedGenre) {
       // If the same genre is selected, reset the filter
-      setSelectedGenre(null);
+      setSelectedGenre(null)
     } else {
-      setSelectedGenre(genre);
+      setSelectedGenre(genre)
     }
-  };
+  }
   const countryOptions = Array.from(
-    new Set(recordLabelsData.flatMap((label) => label.country))
-  );
+    new Set(recordLabelsData.flatMap((label) => label.country)),
+  )
   const handleCountrySelection = (country: string) => {
     if (country === selectedCountry) {
       // If the same country is selected, reset the filter
-      setSelectedCountry(null);
+      setSelectedCountry(null)
     } else {
-      setSelectedCountry(country);
+      setSelectedCountry(country)
     }
-  };
+  }
 
   return (
     <section className="mt-[var(--headerHeight)]">
       <div className="">
-        <div className="relative mx-auto flex items-center justify-center">
-          <div className="inset-x-0 mx-auto flex justify-center gap-2 overflow-x-hidden">
-            <MusicTabs onTabChange={handleTabChange} />
-          </div>
+        <div className="flex h-[--musicTabsHeight] w-full items-center justify-center align-middle">
+          <MusicTabs onTabChange={handleTabChange} />
         </div>
         <div className="flex">
           <Sidebar
@@ -98,13 +96,13 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
             variant="musicgrid"
             className={`sidebar ${
               isSidebarOpen
-                ? "sidebar-open overflow-y-auto"
-                : "hidden-sidebar w-[68px]"
+                ? 'sidebar-open overflow-y-auto'
+                : 'hidden-sidebar w-[68px]'
             }`}
           >
             <div
               className={`flex border-b border-muted py-2 ${
-                isSidebarOpen ? "flex-row-reverse" : "justify-center"
+                isSidebarOpen ? 'flex-row-reverse' : 'justify-center'
               }`}
             >
               <MusicSidebarMenuBurger
@@ -113,20 +111,20 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 setIsOpen={setIsSidebarOpen}
               />
             </div>
-            <div className="pt-2 shrink-0">
+            <div className="shrink-0 pt-2">
               <Link
                 href="/music"
-                onClick={() => handleToggleContent("home")}
-                className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 cursor-pointer ${
-                  activeContent === "home" ? "" : ""
+                onClick={() => handleToggleContent('home')}
+                className={`cursor-pointer items-center text-xs text-texthigh hover:bg-cyan-500/20 hover:text-foreground dark:hover:bg-purple-500/20 md:text-sm ${
+                  activeContent === 'home' ? '' : ''
                 }`}
               >
                 <div
                   onClick={handleSidebarClick}
                   className={` ${
                     isSidebarOpen
-                      ? "hidden"
-                      : "py-2.5 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
+                      ? 'hidden'
+                      : 'flex justify-center py-2.5 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
                   }`}
                 >
                   <Icon name="home" className="h-5 w-5" />
@@ -134,8 +132,8 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 <div
                   className={` ${
                     isSidebarOpen
-                      ? "py-2 pl-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
-                      : "hidden "
+                      ? 'flex items-center gap-2 py-2 pl-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
+                      : 'hidden '
                   }`}
                 >
                   <span className="">
@@ -147,14 +145,14 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
 
               <div
                 onClick={toggleSearchBar}
-                className="items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer"
+                className="cursor-pointer items-center text-xs text-texthigh hover:text-foreground md:text-sm"
               >
                 <div
                   onClick={handleSidebarClick}
                   className={` ${
                     isSidebarOpen
-                      ? "hidden"
-                      : "py-2.5 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
+                      ? 'hidden'
+                      : 'flex justify-center py-2.5 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
                   }`}
                 >
                   <Icon name="search" className="h-5 w-5" />
@@ -163,7 +161,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 {isSearchBarVisible ? (
                   <div
                     className={`items-center ${
-                      isSidebarOpen ? "px-4" : "hidden"
+                      isSidebarOpen ? 'px-4' : 'hidden'
                     }`}
                   >
                     <div className="flex items-center">
@@ -174,8 +172,8 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 pl-4 flex items-center gap-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 "
-                        : "hidden"
+                        ? 'flex items-center gap-2 py-2 pl-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 '
+                        : 'hidden'
                     }`}
                   >
                     <div
@@ -192,32 +190,32 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
               </div>
             </div>
             <Separator className="my-2" />
-            <div className="flex min-h-full h-full grow">
+            <div className="flex h-full min-h-full grow">
               <div
                 id="music-sidebar-menu-triggers"
                 className="middle-sidebar overflow-y-auto border-muted"
               >
                 {isSidebarOpen ? (
-                  <div className="pb-1 px-4 h-[24px] ml-1 items-center text-xs font-medium">
+                  <div className="ml-1 h-[24px] items-center px-4 pb-1 text-xs font-medium">
                     Melody Nexus
                   </div>
                 ) : (
-                  <div className="pb-1 px-4 h-[24px] ml-1"></div>
+                  <div className="ml-1 h-[24px] px-4 pb-1"></div>
                 )}
                 <div
-                  onClick={() => handleToggleContent("fresh-frequencies")}
-                  className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer ${
-                    activeContent === "fresh-frenquencies"
-                      ? "bg-cyan-300 dark:bg-purple-800/50 "
-                      : ""
+                  onClick={() => handleToggleContent('fresh-frequencies')}
+                  className={`cursor-pointer items-center text-xs text-texthigh hover:text-foreground md:text-sm ${
+                    activeContent === 'fresh-frenquencies'
+                      ? 'bg-cyan-300 dark:bg-purple-800/50 '
+                      : ''
                   }`}
                 >
                   <div
                     onClick={handleSidebarClick}
                     className={` ${
                       isSidebarOpen
-                        ? "hidden"
-                        : "p-2 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
+                        ? 'hidden'
+                        : 'flex justify-center p-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
                     }`}
                   >
                     <Icon name="rocket" className="h-5 w-5" />
@@ -225,8 +223,8 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 px-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
-                        : "hidden "
+                        ? 'flex items-center gap-2 px-4 py-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
+                        : 'hidden '
                     }`}
                   >
                     <div className="flex items-center">
@@ -238,19 +236,19 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   </div>
                 </div>
                 <div
-                  onClick={() => handleToggleContent("genre")}
-                  className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer ${
-                    activeContent === "genre"
-                      ? "bg-cyan-300 dark:bg-purple-800/50 "
-                      : ""
+                  onClick={() => handleToggleContent('genre')}
+                  className={`cursor-pointer items-center text-xs text-texthigh hover:text-foreground md:text-sm ${
+                    activeContent === 'genre'
+                      ? 'bg-cyan-300 dark:bg-purple-800/50 '
+                      : ''
                   }`}
                 >
                   <div
                     onClick={handleSidebarClick}
                     className={` ${
                       isSidebarOpen
-                        ? "hidden"
-                        : "p-2 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
+                        ? 'hidden'
+                        : 'flex justify-center p-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
                     }`}
                   >
                     <Icon name="flower" className="h-5 w-5" />
@@ -258,8 +256,8 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 px-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
-                        : "hidden "
+                        ? 'flex items-center gap-2 px-4 py-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
+                        : 'hidden '
                     }`}
                   >
                     <div className="flex items-center">
@@ -272,19 +270,19 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 </div>
 
                 <div
-                  onClick={() => handleToggleContent("country")}
-                  className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer ${
-                    activeContent === "country"
-                      ? "bg-cyan-300 dark:bg-purple-800/50 "
-                      : ""
+                  onClick={() => handleToggleContent('country')}
+                  className={`cursor-pointer items-center text-xs text-texthigh hover:text-foreground md:text-sm ${
+                    activeContent === 'country'
+                      ? 'bg-cyan-300 dark:bg-purple-800/50 '
+                      : ''
                   }`}
                 >
                   <div
                     onClick={handleSidebarClick}
                     className={`${
                       isSidebarOpen
-                        ? "hidden"
-                        : "p-2 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
+                        ? 'hidden'
+                        : 'flex justify-center p-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
                     }`}
                   >
                     <Icon name="globe" className="h-5 w-5" />
@@ -292,8 +290,8 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 px-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
-                        : "hidden "
+                        ? 'flex items-center gap-2 px-4 py-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
+                        : 'hidden '
                     }`}
                   >
                     <div className="flex items-center">
@@ -306,19 +304,19 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 </div>
 
                 <div
-                  onClick={() => handleToggleContent("year")}
-                  className={`items-center text-xs md:text-sm text-texthigh hover:text-foreground cursor-pointer ${
-                    activeContent === "year"
-                      ? "bg-cyan-300 dark:bg-purple-800/50 "
-                      : ""
+                  onClick={() => handleToggleContent('year')}
+                  className={`cursor-pointer items-center text-xs text-texthigh hover:text-foreground md:text-sm ${
+                    activeContent === 'year'
+                      ? 'bg-cyan-300 dark:bg-purple-800/50 '
+                      : ''
                   }`}
                 >
                   <div
                     onClick={handleSidebarClick}
                     className={`${
                       isSidebarOpen
-                        ? "hidden"
-                        : "p-2 flex justify-center hover:bg-cyan-500/20 dark:hover:bg-purple-500/20"
+                        ? 'hidden'
+                        : 'flex justify-center p-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
                     }`}
                   >
                     <Icon name="list" className="h-5 w-5" />
@@ -326,8 +324,8 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   <div
                     className={` ${
                       isSidebarOpen
-                        ? "py-2 px-4 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20 flex items-center gap-2"
-                        : "hidden "
+                        ? 'flex items-center gap-2 px-4 py-2 hover:bg-cyan-500/20 dark:hover:bg-purple-500/20'
+                        : 'hidden '
                     }`}
                   >
                     <div className="flex items-center">
@@ -343,20 +341,20 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
               <div
                 id="music-sidebar-menu-content"
                 className={`middle-sidebar scrollable-container  border-l border-muted ${
-                  isSidebarOpen ? "" : "hidden"
+                  isSidebarOpen ? '' : 'hidden'
                 }`}
               >
-                {activeContent === "genre" && (
+                {activeContent === 'genre' && (
                   <div className=" min-w-[200px] ">
                     {genreOptions
                       .sort((a, b) => a.localeCompare(b))
                       .map((genre) => (
                         <div
                           key={genre}
-                          className={`cursor-pointer py-2 pl-1.5 text-xs md:text-sm font-normal border-b border-muted hover:bg-muted/20 ${
+                          className={`cursor-pointer border-b border-muted py-2 pl-1.5 text-xs font-normal hover:bg-muted/20 md:text-sm ${
                             genre === selectedGenre
-                              ? "text-texthigh bg-muted"
-                              : "text-textlow"
+                              ? 'bg-muted text-texthigh'
+                              : 'text-textlow'
                           }`}
                           onClick={() => handleGenreSelection(genre)}
                         >
@@ -366,17 +364,17 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                   </div>
                 )}
                 <div>
-                  {activeContent === "country" && (
+                  {activeContent === 'country' && (
                     <div className="min-w-[200px] ">
                       {countryOptions
                         .sort((a, b) => a.localeCompare(b))
                         .map((country) => (
                           <div
                             key={country}
-                            className={`cursor-pointer py-2 pl-1.5 text-xs md:text-sm font-normal border-b border-muted hover:bg-muted/20 ${
+                            className={`cursor-pointer border-b border-muted py-2 pl-1.5 text-xs font-normal hover:bg-muted/20 md:text-sm ${
                               country === selectedCountry
-                                ? "text-texthigh bg-muted"
-                                : "text-textlow"
+                                ? 'bg-muted text-texthigh'
+                                : 'text-textlow'
                             }`}
                             onClick={() => handleCountrySelection(country)}
                           >
@@ -386,17 +384,17 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                     </div>
                   )}
 
-                  {activeContent === "year" && (
+                  {activeContent === 'year' && (
                     <div className="scrollable-container min-w-[200px] ">
                       {yearOptions
                         .sort((a, b) => b.localeCompare(a))
                         .map((year) => (
                           <div
                             key={year}
-                            className={`cursor-pointer py-2 pl-1.5 text-xs md:text-sm font-normal border-b border-muted hover:bg-muted/20 ${
+                            className={`cursor-pointer border-b border-muted py-2 pl-1.5 text-xs font-normal hover:bg-muted/20 md:text-sm ${
                               year === selectedYear
-                                ? "text-texthigh bg-muted"
-                                : "text-textlow"
+                                ? 'bg-muted text-texthigh'
+                                : 'text-textlow'
                             }`}
                             onClick={() => handleYearSelection(year)}
                           >
@@ -415,7 +413,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
             selectedYear={selectedYear}
             selectedCountry={selectedCountry}
           >
-            <main className="flex-1 grow border-t border-b border-muted @container mx-auto">
+            <main className="mx-auto flex-1 grow border-b border-t border-muted @container">
               <MusicOptionsBanner
                 currentTab={currentTab}
                 selectedGenre={selectedGenre}
@@ -428,5 +426,5 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
         </div>
       </div>
     </section>
-  );
+  )
 }

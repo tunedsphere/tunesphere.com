@@ -1,0 +1,366 @@
+
+  .animated-grt-text_background-violet,
+  .animated-grt-text_background-red,
+  .animated-grt-text_background-cyan {
+    display: block;
+    position: relative;
+  }
+
+  .animated-grt-text_background-violet::before,
+  .animated-grt-text_background-red::before,
+  .animated-grt-text_background-cyan::before,
+  .animated-grt-text_background-theme::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-bottom: -10px;
+      background-clip: text;
+      color: transparent;
+      z-index: 0;
+  }
+  
+.animated-grt-text_background-theme::before {
+    content: "Explore Products";
+}   
+.animated-grt-text_background-violet::before {
+    content: "Psychedelic";
+}
+.animated-grt-text_background-red::before {
+    content: "Dedicated";
+}
+.animated-grt-text_background-cyan::before {
+    content: "Platform";
+}
+
+
+.animated-grt-text_background-theme {
+    --start-color: hsl(var(--theme-secondary));
+    --end-color: hsl(var(--primary));
+    font-weight: 600;
+    display: block;
+    position: relative;
+  }
+
+
+  .animated-grt-text_foreground-theme {
+    content: "Psychedelic";
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(
+      90deg,
+      var(--start-color),
+      var(--end-color)
+    );
+    position: relative;
+    top: 0;
+    z-index: 1;
+  }
+
+  
+  .animated-grt-text_foreground-violet { 
+    content: "Psychedelic";
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, #6d02d1, #d731f8);
+    position: relative;
+    top: 0;
+    z-index: 1;
+  }
+
+  
+  .animated-grt-text_foreground-red {
+    content: "Dedicated";
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, #dc2626, #fcd34d);
+    position: relative;
+    top: 0;
+    z-index: 1;
+  }
+
+  .animated-grt-text_foreground-cyan {
+    content: "Platform";
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, #232bc4, #3bd4fa);
+    position: relative;
+    top: 0;
+    z-index: 1;
+  }
+  .animated-grt-text_foreground-theme {
+    animation: animated-gradient-text_fade-foreground-theme 8s infinite;
+  }
+  .animated-grt-text_background-theme::before {
+    animation: animated-gradient-text_fade-background-theme 8s infinite;
+  }
+  .animated-grt-text_foreground-violet {
+    animation: animated-gradient-text_fade-foreground-1 8s infinite;
+  }
+  .animated-grt-text_background-violet::before {
+    animation: animated-gradient-text_fade-background-1 8s infinite;
+  }
+  .animated-grt-text_foreground-red {
+    animation: animated-gradient-text_fade-foreground-2 8s infinite;
+  }
+  .animated-grt-text_background-red::before {
+    animation: animated-gradient-text_fade-background-2 8s infinite;
+  }
+  .animated-grt-text_foreground-cyan {
+    animation: animated-gradient-text_fade-foreground-3 8s infinite;
+  }
+  .animated-grt-text_background-cyan::before {
+    animation: animated-gradient-text_fade-background-3 8s infinite;
+  }
+  @keyframes animated-gradient-text_fade-background-theme {
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+    66.667%,
+    83.333% {
+      opacity: 0;
+    }
+  }
+  @keyframes animated-gradient-text_fade-foreground-theme {
+    0%,
+    50%,
+    100% {
+      opacity: 0;
+    }
+    66.667%,
+    83.333% {
+      opacity: 1;
+    }
+  }
+  @keyframes animated-gradient-text_fade-background-1 {
+    0%,
+    16.667%,
+    100% {
+      opacity: 0;
+    }
+    25%,
+    91.667% {
+      opacity: 1;
+    }
+  }
+  @keyframes animated-gradient-text_fade-background-2 {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    33.333%,
+    50% {
+      opacity: 0;
+    }
+    25%,
+    58.333% {
+      opacity: 1;
+    }
+  }
+  @keyframes animated-gradient-text_fade-background-3 {
+    0%,
+    58.333%,
+    91.667%,
+    100% {
+      opacity: 1;
+    }
+    66.667%,
+    83.333% {
+      opacity: 0;
+    }
+  }
+  @keyframes animated-gradient-text_fade-foreground-1 {
+    0%,
+    16.667%,
+    100% {
+      opacity: 1;
+    }
+    33.333%,
+    83.333% {
+      opacity: 0;
+    }
+  }
+  @keyframes animated-gradient-text_fade-foreground-2 {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    33.333%,
+    50% {
+      opacity: 1;
+    }
+    16.667%,
+    66.667% {
+      opacity: 0;
+    }
+  }
+  @keyframes animated-gradient-text_fade-foreground-3 {
+    0%,
+    50%,
+    100% {
+      opacity: 0;
+    }
+    66.667%,
+    83.333% {
+      opacity: 1;
+    }
+  }
+  
+  .grt-theme {
+    --start-color: hsl(var(--theme-secondary));
+    --end-color: hsl(var(--primary));
+    background-image: linear-gradient(
+      to right,
+      var(--start-color),
+      var(--end-color)
+    );
+  }
+  .animated-grt-theme {
+    --start-color: hsl(var(--theme-secondary));
+    --end-color: hsl(var(--primary));
+    animation: animated-grt-theme 8s infinite;
+    background-image: linear-gradient(
+      to right,
+      var(--start-color),
+      var(--end-color)
+    );
+  }
+  
+  @keyframes animated-grt-theme {
+    0%,
+    33.337%,
+    100% {
+      opacity: 1;
+    }
+    83.333%,
+    90% {
+      opacity: 0;
+    }
+  }
+
+.animated-grt-text {
+    position: absolute;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .animated-grt-violet {
+    animation: animated-grt-violet 8s infinite;
+    background-image: linear-gradient(to right, #6d02d1, #d731f8);
+  }
+
+  .animated-grt-yellow {
+    animation: animated-grt-yellow 8s infinite;
+    background-image: linear-gradient(to right, #dc2626, #fcd34d);
+  }
+  .animated-grt-cyan  {
+    animation: animated-grt-cyan 8s infinite;
+    background-image: linear-gradient(to right, #4c51bf, #60d6fa);
+  }
+  
+  @keyframes animated-grt-yellow {
+    0%,
+    16.667%,
+    66.667%,
+    100% {
+      opacity: 0;
+    }
+    33.333%,
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes animated-grt-violet {
+    0%,
+    16.667%,
+    100% {
+      opacity: 1;
+    }
+    33%,
+    83.333% {
+      opacity: 0;
+    }
+  }
+  @keyframes animated-grt-cyan {
+    0%,
+    50%,
+    100% {
+      opacity: 0;
+    }
+    66.667%,
+    83.333% {
+      opacity: 1;
+    }
+  }
+
+  
+  .grt-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 1px;
+    max-width: 100%;
+  }
+
+  .grt-button  {
+    background-color: hsl(var(--background));
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 4px 0 #00000010;
+    color: var(--foreground);
+    transition-property: color, background-color, box-shadow;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+
+  .grt-btn-bg{
+    border-radius: 6px;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+  }
+
+.animated-bg-gradient-theme {
+    height: 100px;
+    width: 100%;
+    background: hsl(var(--primary));
+    filter: blur(100px);
+    animation: animated-bg-gradient-theme 8s infinite;
+  }
+  @keyframes animated-bg-gradient-theme {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    16.667%,
+    83.333% {
+      opacity: 1;
+    }
+  }
+  
+  .animated-bg-grt-violet {
+    height: 120px;
+    width: 100%;
+    background: #6d02d1;
+    filter: blur(100px);
+    animation: animated-grt-violet 8s infinite;
+  }
+  
+  .animated-bg-grt-yellow {
+    height: 60px;
+    width: 100%;
+    background: #fcd34d;
+    filter: blur(100px);
+    animation: animated-grt-yellow8s infinite;
+  }
+  .animated-bg-grt-cyan {
+    height: 60px;
+    width: 100%;
+    background: #60d6fa;
+    filter: blur(100px);
+    animation: animated-grt-cyan 8s infinite;
+  }

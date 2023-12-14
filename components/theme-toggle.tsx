@@ -1,24 +1,23 @@
-"use client";
+'use client'
 
-import { useTheme } from "next-themes";
+import { useTheme } from 'next-themes'
 
-import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/icon";
+import { Button } from '@/components/ui/button'
+import { Icon } from '@/components/icon'
 
 interface ThemeToggleProps {
-  className?: string;
+  className?: string
 }
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme } = useTheme()
 
   return (
     <Button
-      size="xs"
       variant="nav"
       className={`px-2 ${className}`}
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       <Icon
         name="sun"
@@ -32,5 +31,5 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       />
       <span className="sr-only">Toggle theme</span>
     </Button>
-  );
+  )
 }

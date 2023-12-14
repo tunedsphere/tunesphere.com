@@ -7,7 +7,7 @@ module.exports = {
     "./content/**/*.{md,mdx}",
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
 	],
-  theme: {   
+  theme: {  
     maxWidth: {
       xxs: '13rem',
       xs: '20rem',
@@ -31,22 +31,32 @@ module.exports = {
       padding: "1rem",
       screens: {
         'xs': {'max': '375px'},
-        'sm': {'min': '640px', 'max': '767px'},
-        'md': {'min': '768px', 'max': '1023px'},
-        'lg': {'min': '1024px', 'max': '1279px'},
-        'xl': {'min': '1280px', 'max': '1535px'},
+        'sm': {'min': '640px'},
+        'md': {'min': '768px'},
+        'lg': {'min': '1024px'},
+        'xl': {'min': '1280px'},
         '2xl': {'min': '1536px'},
         '7xl': { 'min': '2880px' },
         '8xl': { 'min': '3456px' },
-        '&xs': {'raw': '(min-width: 320px)'},
-        '&sm': {'raw': '(min-width: 384px)'},
-        '&md': {'raw': '(min-width: 448px)'},
-        '&lg': {'raw': '(min-width: 512px)'},
-        '&xl': {'raw': '(min-width: 576px)'},
-        '&2xl': {'raw': '(min-width: 672px)'},
       }
     },
     extend: {
+      screens: {
+        '3xl': {'min': '1600px'},
+        // => @media (min-width: 1600px) { ... }
+        '4xl': {'min': '1920px'},
+        // => @media (min-width: 1920px) { ... }
+        '5xl': {'min': '2560px'},
+           // => @media (min-width: 2560px) { ... }
+        '6xl': {'min': '2880px'},
+         // => @media (min-width: 2880px) { ... }
+        '7xl': {'min': '3200px'},
+        // => @media (min-width: 3200px) { ... }
+        '8xl': {'min': '3840px'},
+        // => @media (min-width: 3840px) { ... }
+        '9xl': {'min': '4096px'},
+        // => @media (min-width: 4096px) { ... }
+    },
       containers: {
         '8xl': '88rem',
         '9xl': '96rem',
@@ -80,6 +90,7 @@ module.exports = {
       colors: {
         theme: {
           DEFAULT: "hsl(var(--primary))",
+          secondary: "hsl(var(--theme-secondary))",
           50: "hsl(var(--theme-50))",
           100: "hsl(var(--theme-100))",
           200: "hsl(var(--theme-200))",
@@ -113,7 +124,6 @@ module.exports = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         foreground: "hsl(var(--foreground))",
-        backgroundGradient: "hsl(var(--background-gradient))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           index: "hsl(var(--primary-index))",
@@ -122,18 +132,14 @@ module.exports = {
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           index: "hsl(var(--secondary-index))",
-          hero: "hsl(var(--secondary-hero))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
-          index: "hsl(var(--destructive-index))",
           foreground: "hsl(var(--destructive-foreground))",
-          hover: "hsl(var(--destructive-hover))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
-          index: "hsl(var(--muted-index))",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {

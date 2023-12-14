@@ -1,32 +1,31 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React, { useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import Modal from "@/components/auth/modal";
+import { Button } from '@/components/ui/button'
+import Modal from '@/components/auth/modal'
 
 export default function IndexLoginModalButton() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleClick = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+    setIsModalOpen(!isModalOpen)
+  }
 
   const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
+    setIsModalOpen(false)
+  }
 
   return (
     <>
       <Button
         id="index-login-modal-btn"
-        className="text-white"
-        variant="logInModal"
-        size="xs"
+        className="border-themefont-semibold hidden rounded-md border-2 border-primary p-0 px-2 text-texthigh hover:bg-primary/30 hover:text-primary sm:block"
+        variant="nav"
         onClick={handleClick}
       >
-        Log In
+        <span className="h-6 w-6 items-center">Log In</span>
       </Button>
       {isModalOpen && <Modal handleModalClose={handleModalClose} />}
     </>
-  );
+  )
 }

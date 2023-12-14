@@ -1,56 +1,56 @@
-"use client";
+'use client'
 
-import * as React from "react";
+import * as React from 'react'
 
-import { Button } from "@/components/ui/button";
-import GlobalNavFlyout from "@/components/layouts/globalnav-flyout-menu";
-import { Icon } from "@/components/icon";
-import { GlobalNavbarBottom } from "@/components/layouts/global-navbar-bottom";
+import { Button } from '@/components/ui/button'
+import GlobalNavFlyout from '@/components/layouts/globalnav-flyout-menu'
+import { Icon } from '@/components/icon'
+import { GlobalNavbarBottom } from '@/components/layouts/global-navbar-bottom'
 
 export default function SiteGlobalNavMenuBurger() {
-  const [isMenuOpen, setMenuOpen] = React.useState(true);
+  const [isMenuOpen, setMenuOpen] = React.useState(true)
 
-  const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = React.useState(false);
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isGlobalNavFlyoutOpen, setGlobalNavFlyoutOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
 
-  const [rotation, setRotation] = React.useState(0);
-  const [scale, setScale] = React.useState(100);
+  const [rotation, setRotation] = React.useState(0)
+  const [scale, setScale] = React.useState(100)
 
   const handleNavbarClick = () => {
-    setGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen);
-    setMenuOpen(!isMenuOpen);
-    setIsOpen(!isOpen);
-    setRotation(rotation === 0 ? 90 : 0);
-    setScale(scale === 100 ? 0 : 100); // Call the handleToggle prop to toggle NavbarBottom
-  };
+    setGlobalNavFlyoutOpen(!isGlobalNavFlyoutOpen)
+    setMenuOpen(!isMenuOpen)
+    setIsOpen(!isOpen)
+    setRotation(rotation === 0 ? 90 : 0)
+    setScale(scale === 100 ? 0 : 100) // Call the handleToggle prop to toggle NavbarBottom
+  }
   const handleFlyoutClose = () => {
-    setGlobalNavFlyoutOpen(false);
-  };
+    setGlobalNavFlyoutOpen(false)
+  }
   const handleFlyoutOpen = () => {
-    setGlobalNavFlyoutOpen(true);
-  };
+    setGlobalNavFlyoutOpen(true)
+  }
 
   React.useEffect(() => {
     const handleScroll = () => {
       // Check if the user is scrolling down (you can adjust the threshold as needed)
       if (window.scrollY > 50) {
         // Close the GlobalNavbarBottom when scrolling down
-        setMenuOpen(false);
-        setIsOpen(true);
+        setMenuOpen(false)
+        setIsOpen(true)
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   return (
     <>
       <div
         id="site-global-nav-menu-burger"
-        className="navbar-container invisible fixed left-0 right-0 top-0 z-20 flex h-[--headerHeight] items-center justify-end px-2 py-2 md:px-8"
+        className="invisible fixed left-0 right-0 top-0 z-20 mx-auto flex h-[--headerHeight] max-w-9xl items-center justify-end px-2 py-2 md:px-8"
       >
         <div className="visible -z-20000">
           <Button
@@ -62,22 +62,22 @@ export default function SiteGlobalNavMenuBurger() {
           >
             <Icon
               name="menu"
-              className={`hidden md:block w-6 h-6 absolute rotate-${
-                isOpen ? "0" : "90"
-              } scale-${isOpen ? "100" : "0"} transition-all`}
+              className={`absolute hidden h-6 w-6 md:block rotate-${
+                isOpen ? '0' : '90'
+              } scale-${isOpen ? '100' : '0'} transition-all`}
               aria-hidden="true"
             />
             <Icon
               name="vertical-three-dots"
-              className={`w-6 h-6 block md:hidden absolute rotate-${
-                isOpen ? "0" : "90"
-              } scale-${isOpen ? "100" : "0"} transition-all`}
+              className={`absolute block h-6 w-6 md:hidden rotate-${
+                isOpen ? '0' : '90'
+              } scale-${isOpen ? '100' : '0'} transition-all`}
               aria-hidden="true"
             />
             <Icon
               name="close"
-              className={`w-6 h-6 rotate-${isOpen ? "90" : "0"} scale-${
-                isOpen ? "0" : "100"
+              className={`h-6 w-6 rotate-${isOpen ? '90' : '0'} scale-${
+                isOpen ? '0' : '100'
               } transition-all`}
               aria-hidden="true"
             />
@@ -88,7 +88,7 @@ export default function SiteGlobalNavMenuBurger() {
             onClick={handleFlyoutOpen}
             className="block object-contain px-2 text-indexhigh hover:text-theme md:hidden"
           >
-            <Icon name="menu" aria-hidden="true" className="w-6 h-6" />
+            <Icon name="menu" aria-hidden="true" className="h-6 w-6" />
           </Button>
           {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
         </div>
@@ -98,5 +98,5 @@ export default function SiteGlobalNavMenuBurger() {
         <GlobalNavFlyout handleClose={handleFlyoutClose} />
       )}
     </>
-  );
+  )
 }

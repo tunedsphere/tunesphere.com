@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image from 'next/image'
 
-import { formatPrice } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
+import { formatPrice } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Separator } from '@/components/ui/separator'
 import {
   Sheet,
   SheetContent,
@@ -12,27 +12,27 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { UpdateCart } from "@/components/cart/update-cart";
-import { Icon } from "@/components/icon";
-import { getCartAction } from "@/app/_actions/cart";
+} from '@/components/ui/sheet'
+import { UpdateCart } from '@/components/cart/update-cart'
+import { Icon } from '@/components/icon'
+import { getCartAction } from '@/app/_actions/cart'
 
 interface CartSheetProps {
-  className?: string;
+  className?: string
 }
 
 export async function CartSheet({ className }: CartSheetProps) {
-  const cartLineItems = await getCartAction();
+  const cartLineItems = await getCartAction()
 
   const itemCount = cartLineItems.reduce(
     (total, item) => total + Number(item.quantity),
-    0
-  );
+    0,
+  )
 
   const cartTotal = cartLineItems.reduce(
     (total, item) => total + Number(item.quantity) * Number(item.price),
-    0
-  );
+    0,
+  )
 
   return (
     <Sheet>
@@ -54,11 +54,11 @@ export async function CartSheet({ className }: CartSheetProps) {
           <Icon name="basket" className="transition-all" aria-hidden="true" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="z-10000 flex w-full flex-col pr-0 sm:max-w-lg bg-background">
-        <div className="absolute w-full flex h-full items-center justify-center">
+      <SheetContent className="z-10000 flex w-full flex-col bg-background pr-0 sm:max-w-lg">
+        <div className="absolute flex h-full w-full items-center justify-center">
           <Icon
             name="logo"
-            className="absolute h-80 w-80 -z-10 text-primary opacity-30"
+            className="absolute -z-10 h-80 w-80 text-primary opacity-30"
           />
         </div>
         <SheetHeader className="px-1">
@@ -80,7 +80,7 @@ export async function CartSheet({ className }: CartSheetProps) {
                             <Image
                               src={
                                 item.images[0]?.url ??
-                                "/images/product-placeholder.webp"
+                                '/images/product-placeholder.webp'
                               }
                               alt={item.images[0]?.name ?? item.name}
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -89,7 +89,7 @@ export async function CartSheet({ className }: CartSheetProps) {
                               loading="lazy"
                             />
                           ) : (
-                            <div className="bg-destructive-500 flex h-full items-center justify-center">
+                            <div className="flex h-full items-center justify-center bg-red-500">
                               <Icon
                                 name="placeholder"
                                 className="h-6 w-6 text-muted-foreground"
@@ -101,16 +101,16 @@ export async function CartSheet({ className }: CartSheetProps) {
                         <div className="flex flex-1 flex-col gap-1 self-start text-sm">
                           <span className="line-clamp-1">{item.name}</span>
                           <span className="line-clamp-1 text-muted-foreground">
-                            {formatPrice(item.price)} x {item.quantity} ={" "}
+                            {formatPrice(item.price)} x {item.quantity} ={' '}
                             {formatPrice(
                               (
                                 Number(item.price) * Number(item.quantity)
-                              ).toFixed(2)
+                              ).toFixed(2),
                             )}
                           </span>
                           <span className="line-clamp-1 text-xs capitalize text-muted-foreground">
                             {`${item.category} ${
-                              item.subcategory ? `/ ${item.subcategory}` : ""
+                              item.subcategory ? `/ ${item.subcategory}` : ''
                             }`}
                           </span>
                         </div>
@@ -166,5 +166,5 @@ export async function CartSheet({ className }: CartSheetProps) {
         )}
       </SheetContent>
     </Sheet>
-  );
+  )
 }
