@@ -27,7 +27,7 @@ export default function MyApp() {
           className="left-0 top-0 z-10"
         />
       </div>
-      <Shell className="mx-auto bg-transparent pt-[var(--headerHeight)] sm:pt-[var(--globalNavHeight)] md:px-3">
+      <Shell className="mx-auto bg-transparent pt-[var(--headerHeight)] sm:pt-[14cqh] md:px-3">
         <div className="z-200 mt-12 py-12 md:mt-20 lg:mt-32">
           <PageHeader
             id="home-shop"

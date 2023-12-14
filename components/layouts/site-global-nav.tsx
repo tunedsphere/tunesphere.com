@@ -21,9 +21,9 @@ export function SiteGlobalNav() {
       >
         <div
           id="globalnav-content"
-          className="relative bg-background-globalnav md:bg-background-globalnav/50"
+          className="relative bg-background-globalnav @container md:bg-background-globalnav/50"
         >
-          <div className="mx-auto flex h-[--headerHeight] max-w-9xl px-4 py-2 md:px-8 ">
+          <div className="mx-auto flex h-[--globalNavHeight] max-w-9xl px-4 py-2">
             <div className="relative hidden flex-row items-center justify-start gap-1 sm:flex sm:w-1/3 sm:gap-2">
               <Icon name="logo" className="z-100 h-14 w-14 text-primary" />
             </div>

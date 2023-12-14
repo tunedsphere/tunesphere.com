@@ -61,8 +61,8 @@
     --animation-timing-curve: ease-in-out;
 
     --sidebar-dashboard-width: 13rem;
-    --headerHeight: 12cqh;
-    --globalNavHeight: 8cqh;
+    --headerHeight: 14cqh;
+    --globalNavHeight: 12cqh;
     --music-grid-banner-height: 4cqh;
     --musicTabsHeight: 6cqh;
     --music-grid-banner-height-mobile: 3rem;
