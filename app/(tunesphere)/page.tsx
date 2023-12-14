@@ -1,24 +1,23 @@
-"use client";
-import "@/styles/globals.css";
-import { useEffect, useRef } from "react";
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import planet2 from "@/public/bghome/planet2.webp";
-import { Icon } from "@/components/icon";
-import { Shell } from "@/components/shells/shell";
+'use client'
+import '@/styles/gradient-hero-text.css'
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import planet2 from '@/public/bghome/planet2.webp'
+import { Icon } from '@/components/icon'
+import { Shell } from '@/components/shells/shell'
 
-import { PageHeader, PageHeaderHeading } from "@/components/page-header";
+import { PageHeader, PageHeaderHeading } from '@/components/page-header'
 
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic'
 
 export default function MyApp() {
   return (
     <>
-      <div className="md:block hidden absolute w-2/5">
+      <div className="absolute hidden w-2/5 md:block">
         <Image
           src={planet2}
           placeholder="blur"
@@ -29,8 +28,8 @@ export default function MyApp() {
           className="left-0 top-0 z-10"
         />
       </div>
-      <Shell className="mx-auto pt-[var(--headerHeight)] flex flex-col items-center justify-between sm:pt-[var(--globalNavHeight)] md:px-8 bg-transparent">
-        <div className="mt-12 md:mt-20 py-12 lg:mt-32 z-200">
+      <Shell className="mx-auto bg-transparent pt-[var(--headerHeight)] sm:pt-[var(--globalNavHeight)] md:px-3">
+        <div className="z-200 mt-12 py-12 md:mt-20 lg:mt-32">
           <PageHeader
             id="home-shop"
             aria-label="A Psychedelic Dedicated Platform"
@@ -65,16 +64,16 @@ export default function MyApp() {
         </div>
 
         <div className="left-gradient -z-10"> </div>
-        <div className="absolute right-gradient z-10"> </div>
-        <div className="grid py-16 text-center text-indexlow lg:grid-cols-4 2xl:text-left z-200 sm:gap-2 gap-4">
+        <div className="right-gradient absolute z-10"> </div>
+        <div className="z-200 grid gap-4 py-16 text-center text-indexlow sm:gap-2 lg:grid-cols-4 2xl:text-left">
           <div className="flex-1 items-stretch">
             <Link href="/music/labels">
               <div
                 className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 transition-colors hover:border-primary"
                 rel="noopener noreferrer"
               >
-                <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
-                  Labels{" "}
+                <h2 className={`mb-3 text-2xl font-semibold text-indexhigh`}>
+                  Labels{' '}
                   <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
                   </span>
@@ -93,8 +92,8 @@ export default function MyApp() {
                 className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 transition-colors hover:border-primary"
                 rel="noopener noreferrer"
               >
-                <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
-                  Artists & DJ{" "}
+                <h2 className={`mb-3 text-2xl font-semibold text-indexhigh`}>
+                  Artists & DJ{' '}
                   <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
                   </span>
@@ -115,8 +114,10 @@ export default function MyApp() {
                 className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 transition-colors hover:border-primary"
                 rel="noopener noreferrer"
               >
-                <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
-                  Festivals{" "}
+                <h2
+                  className={`mb-3 px-1 text-2xl font-semibold text-indexhigh`}
+                >
+                  Festivals{' '}
                   <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
                   </span>
@@ -135,7 +136,7 @@ export default function MyApp() {
                 className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 transition-colors hover:border-primary group-hover:translate-x-1 motion-reduce:transform-none"
                 rel="noopener noreferrer"
               >
-                <h2 className={`mb-3 text-indexhigh text-2xl font-semibold`}>
+                <h2 className={`mb-3 text-2xl font-semibold text-indexhigh`}>
                   Fresh Frequencies
                   <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
@@ -157,17 +158,17 @@ export default function MyApp() {
         <section
           id="hero"
           aria-labelledby="hero-heading"
-          className="pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28 z-200 gap-8"
+          className="z-200 gap-8 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
         >
           <PageHeader id="home-shop" aria-labelledby="home-shop-header-heading">
             <PageHeaderHeading
               size="xl"
-              className="text-indexhigh md:py-24 py-6 tracking-tighter"
+              className="py-6 tracking-tighter text-indexhigh md:py-24"
             >
               A Store built for You with everything you would expect.
             </PageHeaderHeading>
           </PageHeader>
-          <div className="relative mx-auto w-full max-w-[400px] z-200 py-8">
+          <div className="relative z-200 mx-auto w-full max-w-[400px] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className="button_bg-gradient-1 absolute inset-x-0 -z-10"></div>
               <div className="button_bg-gradient-2 absolute inset-x-0 -z-10"></div>
@@ -177,28 +178,28 @@ export default function MyApp() {
                   href="/shop/products"
                   className={cn(
                     buttonVariants({
-                      size: "lg",
+                      size: 'lg',
                     }),
-                    "hero_gradient-button hover:bg-background-index/30 border-muted hover:text-white"
+                    'hero_gradient-button border-muted hover:bg-background-index/30 hover:text-white',
                   )}
                 >
                   <Icon
                     name="chevron-right"
                     className="absolute left-1 sm:left-4"
                   />
-                  <span className="absolute text-transparent bg-clip-text hero_bg-1 font-bold">
+                  <span className="hero_bg-1 absolute bg-clip-text font-bold text-transparent">
                     Buy Now
                   </span>
-                  <span className="absolute text-transparent bg-clip-text hero_bg-2 font-bold">
+                  <span className="hero_bg-2 absolute bg-clip-text font-bold text-transparent">
                     Buy Now
                   </span>
-                  <span className="absolute text-transparent bg-clip-text hero_bg-3 font-bold">
+                  <span className="hero_bg-3 absolute bg-clip-text font-bold text-transparent">
                     Buy Now
                   </span>
                 </Link>
               </div>
 
-              <div className="hero_gradient-button-wrapper flex-1 items-stretch z-200">
+              <div className="hero_gradient-button-wrapper z-200 flex-1 items-stretch">
                 <div className="hero_gradient-button-bg hero_bg-1 blur"></div>
                 <div className="hero_gradient-button-bg hero_bg-2 blur"></div>
                 <div className="hero_gradient-button-bg hero_bg-3 blur "></div>
@@ -209,9 +210,9 @@ export default function MyApp() {
                   href="/dashboard/stores"
                   className={cn(
                     buttonVariants({
-                      size: "lg",
+                      size: 'lg',
                     }),
-                    "hero_gradient-button-outline hover:text-theme-50 hover:bg-transparent"
+                    'hero_gradient-button-outline hover:bg-transparent hover:text-theme-50',
                   )}
                 >
                   <span className="absolute">Sell Now</span>
@@ -222,5 +223,5 @@ export default function MyApp() {
         </section>
       </Shell>
     </>
-  );
+  )
 }

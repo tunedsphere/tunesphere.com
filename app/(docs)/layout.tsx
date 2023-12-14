@@ -11,11 +11,6 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { DocsMobileNav } from "@/components/layouts/docs-mobile-nav";
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs";
 import { toTitleCase } from "@/lib/utils";
-import SiteFooter from "@/components/layouts/site-footer";
-import Link from "next/link";
-import { siteConfig } from "@/configs/site";
-import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form";
-
 interface DocsLayoutProps {
   children: React.ReactNode;
 }

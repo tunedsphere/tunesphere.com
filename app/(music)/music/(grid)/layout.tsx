@@ -33,8 +33,6 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
   };
   const [isSearchBarVisible, setIsSearchBarVisible] = useState(false); // New state for search bar visibility
 
-  // Other code...
-
   const toggleSearchBar = () => {
     setIsSearchBarVisible(!isSearchBarVisible);
   };
