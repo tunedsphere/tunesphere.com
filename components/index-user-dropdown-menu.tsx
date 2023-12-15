@@ -30,8 +30,8 @@ export async function IndexUserDropdownMenu() {
       {user ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button size="xs" variant="nav" className="hover:bg-transparent">
-              <Avatar className="flex h-7 w-7 items-center justify-center shadow-sm shadow-slate-900/50">
+            <Button variant="nav" className="hover:bg-transparent">
+              <Avatar className="flex h-6 w-6 items-center justify-center shadow-sm shadow-slate-900/50">
                 <AvatarImage src={user.imageUrl} alt={user.username ?? ''} />
                 <AvatarFallback>{initials}</AvatarFallback>
               </Avatar>

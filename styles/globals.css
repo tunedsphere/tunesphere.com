@@ -57,12 +57,19 @@
 
   :root {
 
+    --padding-inline: 1rem;
+    --breakout-size: 70ch;
+    --breakout-max-width: 85ch;
+    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2 );
+    --flow-spacing: 2rem;
+
+
     --animation-duration: 200ms;
     --animation-timing-curve: ease-in-out;
 
     --sidebar-dashboard-width: 13rem;
-    --headerHeight: 14cqh;
-    --globalNavHeight: 12cqh;
+    --headerHeight: 4.5rem;
+    --globalNavHeight: 4.5rem;
     --music-grid-banner-height: 4cqh;
     --musicTabsHeight: 6cqh;
     --music-grid-banner-height-mobile: 3rem;
@@ -255,6 +262,13 @@
     }
   }
 }
+
+
+
+
+
+
+
 
 .navbar-container {
   max-width: 90rem;

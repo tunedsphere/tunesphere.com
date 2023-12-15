@@ -15,7 +15,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   return (
     <Button
       variant="nav"
-      className={`px-2 ${className}`}
+      className={`align-middle ${className}`}
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >

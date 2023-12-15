@@ -50,11 +50,10 @@ export default function SiteGlobalNavMenuBurger() {
     <>
       <div
         id="site-global-nav-menu-burger"
-        className="invisible fixed left-0 right-0 top-0 z-20 mx-auto flex h-[--headerHeight] max-w-9xl items-center justify-end px-2 py-2 md:px-8"
+        className="invisible fixed left-0 right-0 top-0 z-20 mx-auto flex h-[--globalNavHeight] w-full max-w-9xl items-center justify-end px-4 lg:px-8 3xl:max-w-[66.66666666666666%]"
       >
         <div className="visible -z-20000">
           <Button
-            size="xs"
             variant="nav"
             onClick={handleNavbarClick}
             aria-label="Toggle menu"
@@ -83,7 +82,6 @@ export default function SiteGlobalNavMenuBurger() {
             />
           </Button>
           <Button
-            size="xs"
             variant="nav"
             onClick={handleFlyoutOpen}
             className="block object-contain px-2 text-indexhigh hover:text-theme md:hidden"

@@ -1,12 +1,12 @@
-import "./layouts.css";
+import './layouts.css'
 
-import * as React from "react";
-import Link from "next/link";
-import type { ShopMainNavItem } from "@/types";
-import { Icon } from "@/components/icon";
+import * as React from 'react'
+import Link from 'next/link'
+import type { ShopMainNavItem } from '@/types'
+import { Icon } from '@/components/icon'
 
-import { siteConfig } from "@/configs/site";
-import { cn } from "@/lib/utils";
+import { siteConfig } from '@/configs/site'
+import { cn } from '@/lib/utils'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,21 +15,21 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { formatTitleWithUnderscores } from "@/lib/utils";
+} from '@/components/ui/navigation-menu'
+import { formatTitleWithUnderscores } from '@/lib/utils'
 interface ShopMainNavProps {
-  items: ShopMainNavItem[];
+  items: ShopMainNavItem[]
 }
 
 export function ShopMainNav({ items }: ShopMainNavProps) {
   return (
-    <div className="hidden gap-6 lg:flex z-1000 ">
+    <div className="z-1000 hidden gap-6 lg:flex">
       <Link
         aria-label="Explore & Shop"
         href="/shop"
         className="hidden items-center space-x-2 lg:flex"
       >
-        <span className="hidden text-lg lg:inline-block leading-6 font-semibold hover:none">
+        <span className="hover:none hidden text-lg font-semibold leading-6 lg:inline-block">
           Explore & Shop
         </span>
       </Link>
@@ -38,12 +38,12 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
           {items?.[0]?.items ? (
             <NavigationMenuItem>
               <Link href="/shop">
-                <NavigationMenuTrigger className="h-auto bg-background-shopNavLink z-1000 ">
+                <NavigationMenuTrigger className="z-1000 h-auto bg-background-shopNavLink ">
                   {items[0].title}
                 </NavigationMenuTrigger>
               </Link>
               <NavigationMenuContent className="shadow-xl">
-                <ul className="grid gap-3 p-6 border-muted md:w-[400px] lg:w-[790px] lg:grid-cols-[.75fr_1fr]">
+                <ul className="grid gap-3 border-muted p-6 md:w-[400px] lg:w-[790px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
@@ -51,8 +51,8 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                         className="flex w-full select-none flex-col justify-end rounded-md p-6 no-underline outline-none"
                         href="/"
                       >
-                        <Icon name="logo" className="left-0 z-100 w-14 h-14" />
-                        <div className="mb-2 mt-4 text-lg leading-6 tracking-tighter font-semibold">
+                        <Icon name="logo" className="left-0 z-100 h-14 w-14" />
+                        <div className="mb-2 mt-4 text-lg font-semibold leading-6 tracking-tighter">
                           {siteConfig.name}
                         </div>
                         <p className="text-sm leading-tight text-muted-foreground">
@@ -61,7 +61,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <div className="bg-background-shopNavLink/50 gap-4 p-6">
+                  <div className="gap-4 bg-background-shopNavLink/50 p-6">
                     {items[0].items.map((item) => (
                       <ListItem
                         className="flex-col"
@@ -83,7 +83,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
               item?.items ? (
                 <NavigationMenuItem key={item.title}>
                   <Link href={`/shop/c/${encodeURIComponent(item.title)}`}>
-                    <NavigationMenuTrigger className="h-auto capitalize focus bg-background-shopNavLink">
+                    <NavigationMenuTrigger className="focus h-auto bg-background-shopNavLink capitalize">
                       {formatTitleWithUnderscores(item.title)}
                     </NavigationMenuTrigger>
                   </Link>
@@ -107,24 +107,24 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                   <NavigationMenuItem key={item.title}>
                     <Link href={item.href} legacyBehavior passHref>
                       <NavigationMenuLink
-                        className={cn(navigationMenuTriggerStyle(), "h-auto")}
+                        className={cn(navigationMenuTriggerStyle(), 'h-auto')}
                       >
                         {item.title}
                       </NavigationMenuLink>
                     </Link>
                   </NavigationMenuItem>
                 )
-              )
+              ),
             )}
         </NavigationMenuList>
       </NavigationMenu>
     </div>
-  );
+  )
 }
 
 const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
+  React.ElementRef<'a'>,
+  React.ComponentPropsWithoutRef<'a'>
 >(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
@@ -133,8 +133,8 @@ const ListItem = React.forwardRef<
           ref={ref}
           href={String(href)}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-background-shopNavLink hover:text-accent-foreground focus:text-accent-foreground",
-            className
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-background-shopNavLink hover:text-accent-foreground focus:text-accent-foreground',
+            className,
           )}
           {...props}
         >
@@ -145,6 +145,6 @@ const ListItem = React.forwardRef<
         </Link>
       </NavigationMenuLink>
     </li>
-  );
-});
-ListItem.displayName = "ListItem";
+  )
+})
+ListItem.displayName = 'ListItem'

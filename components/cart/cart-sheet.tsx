@@ -37,12 +37,7 @@ export async function CartSheet({ className }: CartSheetProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button
-          aria-label="Open cart"
-          variant="nav"
-          size="xs"
-          className={`px-2 ${className}`}
-        >
+        <Button aria-label="Open cart" variant="nav" className={`${className}`}>
           {itemCount > 0 && (
             <Badge
               variant="success"
@@ -51,7 +46,11 @@ export async function CartSheet({ className }: CartSheetProps) {
               {itemCount}
             </Badge>
           )}
-          <Icon name="basket" className="transition-all" aria-hidden="true" />
+          <Icon
+            name="basket"
+            className="h-5 w-5 transition-all"
+            aria-hidden="true"
+          />
         </Button>
       </SheetTrigger>
       <SheetContent className="z-10000 flex w-full flex-col bg-background pr-0 sm:max-w-lg">

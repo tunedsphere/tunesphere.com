@@ -1,42 +1,42 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import type { ShopMainNavItem, SidebarNavItem } from "@/types";
+import * as React from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import type { ShopMainNavItem, SidebarNavItem } from '@/types'
 
-import { siteConfig } from "@/configs/site";
-import { cn } from "@/lib/utils";
+import { siteConfig } from '@/configs/site'
+import { cn } from '@/lib/utils'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Icon } from "@/components/icon";
-import { formatTitleWithUnderscores } from "@/lib/utils";
+} from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { Icon } from '@/components/icon'
+import { formatTitleWithUnderscores } from '@/lib/utils'
 
 interface ShopMobileNavProps {
-  shopMainNavItems: ShopMainNavItem[];
-  sidebarNavItems: SidebarNavItem[];
+  shopMainNavItems: ShopMainNavItem[]
+  sidebarNavItems: SidebarNavItem[]
 }
 
 export function ShopMobileNav({
   shopMainNavItems,
   sidebarNavItems,
 }: ShopMobileNavProps) {
-  const pathname = usePathname();
-  const [isOpen, setIsOpen] = React.useState(false);
+  const pathname = usePathname()
+  const [isOpen, setIsOpen] = React.useState(false)
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button
           variant="nav"
-          className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
+          className="px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
         >
           <Icon name="menu" className="h-6 w-6" />
           <span className="sr-only">Toggle Menu</span>
@@ -59,7 +59,7 @@ export function ShopMobileNav({
             <Accordion type="single" collapsible className="w-full">
               {shopMainNavItems?.map((item, index) => (
                 <AccordionItem value={item.title} key={index}>
-                  <AccordionTrigger className="text-sm capitalize hover:text-primary decoration-transparent leading-6 font-semibold">
+                  <AccordionTrigger className="text-sm font-semibold capitalize leading-6 decoration-transparent hover:text-primary">
                     {formatTitleWithUnderscores(item.title)}
                   </AccordionTrigger>
                   <AccordionContent className="">
@@ -79,7 +79,7 @@ export function ShopMobileNav({
                           <div key={index} className=" transition-colors">
                             {formatTitleWithUnderscores(item.title)}
                           </div>
-                        )
+                        ),
                       )}
                     </div>
                   </AccordionContent>
@@ -90,15 +90,15 @@ export function ShopMobileNav({
         </ScrollArea>
       </SheetContent>
     </Sheet>
-  );
+  )
 }
 
 interface MobileLinkProps {
-  children?: React.ReactNode;
-  href: string;
-  disabled?: boolean;
-  pathname: string;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  children?: React.ReactNode
+  href: string
+  disabled?: boolean
+  pathname: string
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 function MobileLink({
@@ -112,13 +112,13 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        "transition-colors hover:secondary-foreground/80 hover:bg-secondary/80 focus:secondary-foreground/80 focus:bg-secondary/80 rounded-md pl-4 py-1",
-        pathname === href && "",
-        disabled && "pointer-events-none opacity-60"
+        'hover:secondary-foreground/80 focus:secondary-foreground/80 rounded-md py-1 pl-4 transition-colors hover:bg-secondary/80 focus:bg-secondary/80',
+        pathname === href && '',
+        disabled && 'pointer-events-none opacity-60',
       )}
       onClick={() => setIsOpen(false)}
     >
       {children}
     </Link>
-  );
+  )
 }

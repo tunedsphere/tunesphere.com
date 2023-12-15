@@ -167,7 +167,7 @@ export default function MyApp() {
               A Store built for You with everything you would expect.
             </PageHeaderHeading>
           </PageHeader>
-          <div className="relative z-200 mx-auto w-full max-w-[400px] py-8">
+          <div className="relative z-200 mx-auto max-w-[32rem] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className="animated-bg-grt-violet absolute inset-x-0 -z-10"></div>
               <div className="animated-bg-grt-yellow absolute inset-x-0 -z-10"></div>
@@ -177,9 +177,9 @@ export default function MyApp() {
                   href="/shop/products"
                   className={cn(
                     buttonVariants({
-                      size: 'lg',
+                      size: 'xl',
                     }),
-                    'grt-button  border-muted font-bold',
+                    'grt-button border-muted font-bold',
                   )}
                 >
                   <Icon
@@ -209,7 +209,7 @@ export default function MyApp() {
                   href="/dashboard/stores"
                   className={cn(
                     buttonVariants({
-                      size: 'lg',
+                      size: 'xl',
                     }),
                     'grt-button hover:bg-transparent hover:text-theme-50',
                   )}

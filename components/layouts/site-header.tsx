@@ -18,17 +18,17 @@ export function SiteHeader({}: SiteHeaderProps) {
       className="fixed h-auto border-b-2 border-muted/70 @container"
     >
       <div id="globalnav-content" className="relative">
-        <nav className="bg-background-navbartop">
-          <div className="6xl:max-w-12xl mx-auto flex h-[--headerHeight] max-w-9xl px-4 py-2 md:px-8">
+        <div className="bg-background-navbartop">
+          <div className="mx-auto flex h-[--headerHeight] w-full max-w-9xl px-4 lg:px-8 4xl:max-w-[66.66666666666666%]">
             <div className="relative hidden flex-row items-center justify-start sm:flex sm:w-1/3 sm:gap-2">
               <Icon
                 name="logo"
-                className="absolute left-0 right-0 z-10 hidden h-[2cqi] w-[2cqi] text-primary sm:block"
+                className="absolute left-0 right-0 z-10 hidden h-8 w-8 text-primary sm:block"
               />
             </div>
             <div className="left-0 flex w-4/6 items-center sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h1 className="6xl:text-6xl cursor-pointer text-center text-lg font-extrabold leading-[24px] text-texthigh md:text-[24px] md:leading-[30.24px]">
+                <h1 className="cursor-pointer text-center text-lg font-extrabold leading-9  text-texthigh md:text-2xl">
                   TUNEDSPHERE
                 </h1>
               </Link>
@@ -43,7 +43,7 @@ export function SiteHeader({}: SiteHeaderProps) {
               </div>
             </div>
           </div>
-        </nav>
+        </div>
         <SiteHeaderMenuBurger />
       </div>
     </nav>

@@ -75,7 +75,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
               A Store specially built for You with everything you would expect
             </PageHeaderHeading>
           </PageHeader>
-          <div className="relative mx-auto w-full max-w-[400px] py-8">
+          <div className="relative z-200 mx-auto max-w-[32rem] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className="animated-bg-gradient-theme absolute inset-x-0"></div>
               <div className="grt-button-wrapper z-20 flex-1">
@@ -83,7 +83,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                   href="/shop/products"
                   className={cn(
                     buttonVariants({
-                      size: 'lg',
+                      size: 'xl',
                     }),
                     'grt-button text-primary hover:bg-background hover:text-sm',
                   )}
@@ -104,7 +104,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                   href="/dashboard/stores"
                   className={cn(
                     buttonVariants({
-                      size: 'lg',
+                      size: 'xl',
                     }),
                     'grt-button z-30 hover:bg-transparent hover:text-theme-50',
                   )}
