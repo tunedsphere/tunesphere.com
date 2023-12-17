@@ -89,7 +89,7 @@ export function AlbumsGrid({
     <>
       <div
         id="albums-grid"
-        className="sm:music-grid music-grid-mobile scrollable-container -z-10  grow  overflow-y-scroll border-muted @container"
+        className="sm:music-grid music-grid-mobile scrollable-container grow overflow-y-scroll border-muted @container"
       >
         <div className="grid grid-flow-row-dense grid-cols-2 gap-4 px-4 pb-12 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9 md:px-12">
           {sortedAndFilteredAlbums.map((album, index) => (
@@ -108,20 +108,22 @@ export function AlbumsGrid({
                   alt={album.title}
                   className="my-4 aspect-square cursor-pointer rounded-md border border-muted @9xl:w-[600px]"
                 ></Image>
-                <h1 className="8xl:text-6xl 7xl:text-3xl cursor-pointer break-words text-sm font-bold text-texthigh hover:text-theme sm:text-base">
+                <h1 className="cursor-pointer break-words text-sm font-bold text-texthigh hover:text-theme sm:text-base 7xl:text-3xl 8xl:text-6xl">
                   {album.title}
                 </h1>
-                <p className="8xl:text-5xl 7xl:text-3xl cursor-pointer break-words text-sm text-textlow hover:text-theme">
-                  {album.artist}
-                </p>
+                <Link href={`${slugify(album.artist)}`}>
+                  <p className="cursor-pointer break-words text-sm text-textlow hover:text-theme 7xl:text-3xl 8xl:text-5xl">
+                    {album.artist}
+                  </p>
+                </Link>
                 {String(selectedAlbum) === String(index) && (
-                  <div className="arrow-up absolute left-0 right-0 top-[97%] z-100 flex justify-center text-muted">
-                    <Icon name="chevron-up" className="h-8 w-8" />
-                  </div>
-                )}
-                {String(selectedAlbum) === String(index) && (
-                  <div className="arrow-up absolute left-0 right-0 top-[98%] z-100 flex justify-center text-gray-100 dark:text-background">
-                    <Icon name="chevron-up" className="h-8 w-8" />
+                  <div>
+                    <div className="arrow-up absolute left-0 right-0 top-[97%] flex justify-center text-muted">
+                      <Icon name="chevron-up" className="h-8 w-8" />
+                    </div>
+                    <div className="arrow-up absolute left-0 right-0 top-[98%] z-200 flex justify-center text-gray-100 dark:text-background">
+                      <Icon name="chevron-up" className="h-8 w-8" />
+                    </div>
                   </div>
                 )}
               </div>
@@ -141,11 +143,9 @@ export function AlbumsGrid({
                       ></Image>
                     </div>
                     <div className="col-span-3 col-start-2 @lg:col-start-3 @6xl:col-span-4 @6xl:pl-4 @7xl:col-span-5 @8xl:col-span-6 @9xl:col-span-7">
-                      <Link href={`label/${album.id}`}>
-                        <h3 className="8xl:text-8xl 7xl:text-6xl cursor-pointer text-3xl font-semibold">
-                          {album.title}
-                        </h3>
-                      </Link>
+                      <h3 className="cursor-pointer text-3xl font-semibold 7xl:text-6xl 8xl:text-8xl">
+                        {album.title}
+                      </h3>
                       <Link href={`${slugify(album.artist)}`}>
                         <div
                           className={cn(
@@ -154,7 +154,7 @@ export function AlbumsGrid({
                           )}
                         >
                           <h2
-                            className="8xl:text-8xl 7xl:text-6xl break-words text-3xl text-cyan-400 hover:text-foreground/80 dark:text-violet-500"
+                            className="break-words text-3xl text-cyan-400 hover:text-foreground/80 dark:text-violet-500 7xl:text-6xl 8xl:text-8xl"
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
                           >
@@ -170,18 +170,18 @@ export function AlbumsGrid({
                           </h2>
                         </div>
                       </Link>
-                      <div className="8xl:text-4xl 7xl:text-3xl flex text-sm">
+                      <div className="flex text-sm 7xl:text-3xl 8xl:text-4xl">
                         <p className="text-textlow">{album.release_date}</p>
                         <span className="mx-2"> - </span>
                         <p className="text-textlow">{album.genre}</p>
                       </div>
                     </div>
                     <div className="col-span-full @lg:col-start-3">
-                      <div className="6xl:gap-8 grid-flow-col px-2 @6xl:mr-4 @6xl:grid @6xl:grid-cols-2 @6xl:px-6">
+                      <div className="grid-flow-col px-2 @6xl:mr-4 @6xl:grid @6xl:grid-cols-2 @6xl:px-6 6xl:gap-8">
                         {album.tracklist.map((track, index) => (
                           <div
                             key={index}
-                            className={`8xl:text-4xl 7xl:text-3xl flex justify-between border-b border-muted py-2 text-base text-texthigh ${
+                            className={`flex justify-between border-b border-muted py-2 text-base text-texthigh 7xl:text-3xl 8xl:text-4xl ${
                               index < Math.ceil(album.tracklist.length / 2)
                                 ? '@6xl:col-span-1 @6xl:col-start-1 @6xl:mr-4'
                                 : '@6xl:col-span-1 @6xl:col-start-2 @6xl:ml-4'
@@ -189,7 +189,7 @@ export function AlbumsGrid({
                           >
                             <span>
                               {track.track}{' '}
-                              <span className="8xl:text-4xl 7xl:text-3xl mx-1 text-sm">
+                              <span className="mx-1 text-sm 7xl:text-3xl 8xl:text-4xl">
                                 {' '}
                                 -{' '}
                               </span>{' '}

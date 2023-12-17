@@ -5,11 +5,9 @@ import { useRouter, useSelectedLayoutSegment } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-interface MusicTabsProps extends React.ComponentPropsWithoutRef<typeof Tabs> {
-  onTabChange: (tab: string) => void // Define the onTabChange prop
-}
+interface MusicTabsProps extends React.ComponentPropsWithoutRef<typeof Tabs> {}
 
-export function MusicTabs({ onTabChange }: MusicTabsProps) {
+export function MusicTabs({}: MusicTabsProps) {
   const router = useRouter()
   const segment = useSelectedLayoutSegment()
   const tabs = [
@@ -36,13 +34,9 @@ export function MusicTabs({ onTabChange }: MusicTabsProps) {
     {
       title: 'Artists',
       href: `/music/artists`,
-      isActive: segment === 'arstits',
+      isActive: segment === 'artists',
     },
   ]
-  const handleTabChange = (tabTitle: string) => {
-    onTabChange(tabTitle)
-    // Update the URL with the selected tab
-  }
 
   return (
     <Tabs
@@ -59,10 +53,9 @@ export function MusicTabs({ onTabChange }: MusicTabsProps) {
             className={cn('border-transparent', tab.isActive && '')}
           >
             <TabsTrigger
-              onClick={() => handleTabChange(tab.title)} // Call handleTabChange when a tab is clicked
               value={tab.href}
               className={cn(
-                '5xl:text-2xl 8xl:text-4xl inline-flex items-center justify-center rounded-sm text-sm font-medium text-muted-foreground ring-offset-background transition-all hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1',
+                'inline-flex items-center justify-center rounded-sm text-sm font-medium text-muted-foreground ring-offset-background transition-all hover:text-foreground hover:underline hover:decoration-foreground/40 hover:decoration-2 hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 5xl:text-2xl 8xl:text-4xl',
                 tab.isActive && 'text-foreground',
               )}
             >

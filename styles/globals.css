@@ -70,9 +70,9 @@
     --sidebar-dashboard-width: 13rem;
     --headerHeight: 4.5rem;
     --globalNavHeight: 4.5rem;
-    --music-grid-banner-height: 4cqh;
-    --musicTabsHeight: 6cqh;
-    --music-grid-banner-height-mobile: 3rem;
+    --music-grid-banner-height: 5rem;
+    --musicTabsHeight: 3rem;
+    --music-grid-banner-height-mobile: 2rem;
     --sidebar-width: 208px;
 
     --theme-50: 185 100% 97%;
@@ -287,18 +287,6 @@
   margin: 0 0 40px;
 }
 
-.hero_description {
-  font-size: 1.5rem;
-  color: hsl(var(--indexlow));
-  letter-spacing: -0.02em;
-  text-align: center;
-  max-width: 740px;
-  width: 100%;
-  margin: 0 auto 64px;
-  vertical-align: top;
-  text-decoration: inherit;
-}
-
 .user-profile-container {
   width: calc(100vw - var(--sidebar-dashboard-width));
 }
@@ -396,11 +384,10 @@
   height: calc(100dvh - var(--headerHeight));
 }
 .music-grid {
-  height: calc(100vh - var(--headerHeight) - var(--music-grid-banner-height) - 96px) ;
+  height: calc(100vh - var(--headerHeight) - var(--music-grid-banner-height) - var(--musicTabsHeight)) ;
 }
 .music-grid-mobile {
-  height: calc(
-    100vh - var(--headerHeight) - var(--music-grid-banner-height-mobile) - 96px);
+  height: calc(100vh - var(--headerHeight) - var(--music-grid-banner-height-mobile) - var(--musicTabsHeight));
 }
 .sidebar {
   flex-shrink: 0;

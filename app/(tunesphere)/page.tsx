@@ -35,7 +35,7 @@ export default function MyApp() {
           >
             <PageHeaderHeading
               size="xxl"
-              className="hero_title justify-center gap-2 text-center"
+              className="hero_title justify-center gap-2 "
             >
               <span className="text-indexhigh">A </span>
               <span className="animated-grt-text_background-violet before:bg-white ">
@@ -56,7 +56,7 @@ export default function MyApp() {
             </PageHeaderHeading>
           </PageHeader>
 
-          <p className="hero_description py-4 text-center text-lg font-normal text-indexlow lg:text-xl">
+          <p className="py-4 text-center text-lg text-indexlow lg:text-xl">
             Explore the musical realm of Psychedelic Art, with Music, Art,
             Decorations, and Festivals
           </p>

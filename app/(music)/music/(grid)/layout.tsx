@@ -23,14 +23,6 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
   const [selectedYear, setSelectedYear] = useState<string | null>(null)
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null)
 
-  const [currentTab, setSelectedTab] = useState('Home')
-
-  const handleTabChange = (tab: string) => {
-    setSelectedTab(tab)
-    setSelectedGenre(null) // Reset the Genre selection
-    setSelectedYear(null) // Reset the Year selection
-    setSelectedCountry(null) // Reset the Country selection
-  }
   const [isSearchBarVisible, setIsSearchBarVisible] = useState(false) // New state for search bar visibility
 
   const toggleSearchBar = () => {
@@ -88,7 +80,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
     <section className="mt-[var(--headerHeight)]">
       <div className="">
         <div className="flex h-[--musicTabsHeight] w-full items-center justify-center align-middle">
-          <MusicTabs onTabChange={handleTabChange} />
+          <MusicTabs />
         </div>
         <div className="flex">
           <Sidebar
@@ -195,13 +187,6 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 id="music-sidebar-menu-triggers"
                 className="middle-sidebar overflow-y-auto border-muted"
               >
-                {isSidebarOpen ? (
-                  <div className="ml-1 h-[24px] items-center px-4 pb-1 text-xs font-medium">
-                    Melody Nexus
-                  </div>
-                ) : (
-                  <div className="ml-1 h-[24px] px-4 pb-1"></div>
-                )}
                 <div
                   onClick={() => handleToggleContent('fresh-frequencies')}
                   className={`cursor-pointer items-center text-xs text-texthigh hover:text-foreground md:text-sm ${
@@ -345,7 +330,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
                 }`}
               >
                 {activeContent === 'genre' && (
-                  <div className=" min-w-[200px] ">
+                  <div className="w-48">
                     {genreOptions
                       .sort((a, b) => a.localeCompare(b))
                       .map((genre) => (
@@ -413,9 +398,8 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
             selectedYear={selectedYear}
             selectedCountry={selectedCountry}
           >
-            <main className="mx-auto flex-1 grow border-b border-t border-muted @container">
+            <main className="mx-auto grow border-b border-t border-muted">
               <MusicOptionsBanner
-                currentTab={currentTab}
                 selectedGenre={selectedGenre}
                 selectedYear={selectedYear}
                 selectedCountry={selectedCountry}
