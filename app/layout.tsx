@@ -6,7 +6,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { env } from '@/env.mjs'
 import { ClerkProvider } from '@clerk/nextjs'
-
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { siteConfig } from '@/configs/site'
 import { Toaster, toast } from 'sonner'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -61,6 +61,7 @@ export default function RootLayout({
             {children}
           </ThemeProvider>
           <Toaster richColors />
+          <SpeedInsights />
         </body>
       </html>
     </ClerkProvider>
