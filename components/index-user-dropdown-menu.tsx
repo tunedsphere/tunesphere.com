@@ -38,7 +38,7 @@ export async function IndexUserDropdownMenu() {
             </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="z-10000 w-56 border-theme bg-background p-2"
+            className="z-10000 w-56 border-primary bg-background p-2"
             align="center"
             forceMount
           >

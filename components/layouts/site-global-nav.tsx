@@ -25,7 +25,7 @@ export function SiteGlobalNav() {
         >
           <div className="mx-auto flex h-[--headerHeight] w-full max-w-9xl px-4 lg:px-8 4xl:max-w-[66.66666666666666%]">
             <div className="relative hidden flex-row items-center justify-start gap-1 sm:flex sm:w-1/3 sm:gap-2">
-              <Icon name="logo" className="z-100 h-8 w-8 text-primary" />
+              <Icon name="logo" className="z-100 h-10 w-10 text-primary" />
             </div>
             <div className="left-0 z-20 flex w-4/6 shrink items-center sm:w-1/3 sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">

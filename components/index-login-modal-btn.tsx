@@ -19,7 +19,7 @@ export default function IndexLoginModalButton() {
     <>
       <Button
         id="index-login-modal-btn"
-        className="border-themefont-semibold hidden rounded-md border-2 border-primary p-0 px-2 text-white hover:bg-primary/30  hover:text-white/70 sm:block"
+        className="hidden rounded-md border-2 border-primary p-0 px-2 font-semibold text-white hover:bg-primary/30  hover:text-white/70 sm:block"
         variant="nav"
         onClick={handleClick}
       >

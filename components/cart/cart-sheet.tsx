@@ -48,7 +48,7 @@ export async function CartSheet({ className }: CartSheetProps) {
           )}
           <Icon
             name="basket"
-            className="h-5 w-5 transition-all"
+            className="h-6 w-6 transition-all"
             aria-hidden="true"
           />
         </Button>
