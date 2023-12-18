@@ -23,7 +23,7 @@ interface ShopMainNavProps {
 
 export function ShopMainNav({ items }: ShopMainNavProps) {
   return (
-    <div className="z-1000 hidden gap-6  lg:flex">
+    <div className="z-1000 no-scrollbar relative col-span-1 hidden gap-6 lg:flex">
       <Link
         aria-label="Explore & Shop"
         href="/shop"
@@ -33,16 +33,16 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
           Explore & Shop
         </span>
       </Link>
-      <NavigationMenu>
-        <NavigationMenuList className="scrollable-container overflow-y-clip overflow-x-scroll">
+      <NavigationMenu className="">
+        <NavigationMenuList className="">
           {items?.[0]?.items ? (
             <NavigationMenuItem>
               <Link href="/shop">
-                <NavigationMenuTrigger className="z-1000 h-auto bg-background-shopNavLink ">
+                <NavigationMenuTrigger className="z-100 h-auto bg-background-shopNavLink ">
                   {items[0].title}
                 </NavigationMenuTrigger>
               </Link>
-              <NavigationMenuContent className="z-1000 shadow-xl ">
+              <NavigationMenuContent className="z-200 shadow-xl">
                 <ul className="grid gap-3 border-muted p-6 md:w-[26rem] lg:w-[48rem] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
@@ -87,16 +87,15 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                       {formatTitleWithUnderscores(item.title)}
                     </NavigationMenuTrigger>
                   </Link>
-                  <NavigationMenuContent className="shadow-xl">
+                  <NavigationMenuContent className="z-200 shadow-xl ">
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[790px]">
                       {item.items.map((item) => (
                         <ListItem
-                          className=""
                           key={item.title}
                           title={item.title}
                           href={item.href}
                         >
-                          {item.description}
+                          {formatTitleWithUnderscores(item.description)}
                         </ListItem>
                       ))}
                     </ul>

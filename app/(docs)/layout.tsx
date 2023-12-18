@@ -61,12 +61,6 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
                     },
                   ]}
                 />
-                {/* 
-          <div className="flex items-center space-x-3 ">
-            <span>{sidebarNav.title}</span>
-          </div>
-          <div className="font-semibold truncate">{SidebarNav.item}</div>
-          */}
               </div>
               {showMobileMenu &&
                 docsConfig.mainNav &&

@@ -90,8 +90,18 @@ export function slugify(str: string | string[] | undefined | null) {
       (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()
     );
   }
-  export function formatTitleWithUnderscores(title: string) {
-    return toTitleCase(title.replace(/_/g, ' '));
+  export function formatTitleWithUnderscores(str: string | string[] | undefined | null) {
+    if (str === undefined || str === null) {
+      return ''; // or any default value you prefer
+    }
+  
+    if (Array.isArray(str)) {
+      // If it's an array, join the elements and then replace underscores
+      return toTitleCase(str.join(' ').replace(/_/g, ' '));
+    }
+  
+    // If it's a string, replace underscores
+    return toTitleCase(str.replace(/_/g, ' '));
   }
   export function truncate(str: string, length: number) {
     return str.length > length ? `${str.substring(0, length)}...` : str;

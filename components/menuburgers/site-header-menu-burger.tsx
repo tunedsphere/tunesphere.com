@@ -49,7 +49,7 @@ export default function SiteHeaderMenuBurger() {
     <>
       <div
         id="site-header-menu-burger"
-        className="invisible fixed left-0 right-0 top-0 z-20 mx-auto flex h-[--globalNavHeight] w-full max-w-9xl items-center justify-end px-4 lg:px-8 4xl:max-w-[66.66666666666666%]"
+        className="invisible fixed left-0 right-0 top-0 z-20 mx-auto flex h-[--globalNavHeight] w-full max-w-9xl items-center justify-end px-4 lg:px-8 5xl:max-w-[66.66666666666666%]"
       >
         <div className="visible z-20000">
           <Button
