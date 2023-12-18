@@ -23,12 +23,12 @@ export function SiteHeader({}: SiteHeaderProps) {
             <div className="relative hidden flex-row items-center justify-start sm:flex sm:w-1/3 sm:gap-2">
               <Icon
                 name="logo"
-                className="absolute left-0 right-0 z-10 hidden h-8 w-8 text-primary sm:block"
+                className="absolute left-0 right-0 z-10 hidden h-10 w-10 text-primary sm:block"
               />
             </div>
             <div className="left-0 flex w-4/6 items-center sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h1 className="cursor-pointer text-center text-lg font-extrabold leading-9  text-texthigh md:text-2xl">
+                <h1 className="cursor-pointer text-center text-lg font-extrabold leading-9 text-texthigh md:text-2xl">
                   TUNEDSPHERE
                 </h1>
               </Link>
