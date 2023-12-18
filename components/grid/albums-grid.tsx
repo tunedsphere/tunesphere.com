@@ -91,7 +91,7 @@ export function AlbumsGrid({
         id="albums-grid"
         className="sm:music-grid music-grid-mobile scrollable-container grow overflow-y-scroll border-muted @container"
       >
-        <div className="grid grid-flow-row-dense grid-cols-2 gap-4 px-4 pb-12 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9 md:px-12">
+        <div className="my-4 grid grid-flow-row-dense grid-cols-2 gap-4 px-4 pb-12 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9 md:px-12">
           {sortedAndFilteredAlbums.map((album, index) => (
             <React.Fragment key={index}>
               <div
@@ -106,16 +106,18 @@ export function AlbumsGrid({
                   height={400}
                   src={album.image}
                   alt={album.title}
-                  className="my-4 aspect-square cursor-pointer rounded-md border border-muted @9xl:w-[600px]"
+                  className="aspect-square grow-0 cursor-pointer rounded-md border border-muted "
                 ></Image>
-                <h1 className="cursor-pointer break-words text-sm font-bold text-texthigh hover:text-theme sm:text-base 7xl:text-3xl 8xl:text-6xl">
-                  {album.title}
-                </h1>
-                <Link href={`${slugify(album.artist)}`}>
-                  <p className="cursor-pointer break-words text-sm text-textlow hover:text-theme 7xl:text-3xl 8xl:text-5xl">
-                    {album.artist}
-                  </p>
-                </Link>
+                <div className="grid grid-flow-row ">
+                  <h1 className="cursor-pointer break-words text-sm font-bold text-texthigh hover:text-theme sm:text-base 7xl:text-3xl 8xl:text-6xl">
+                    {album.title}
+                  </h1>
+                  <Link href={`${slugify(album.artist)}`}>
+                    <p className="cursor-pointer break-all text-sm text-textlow hover:text-theme 7xl:text-3xl 8xl:text-5xl">
+                      {album.artist}
+                    </p>
+                  </Link>
+                </div>
                 {String(selectedAlbum) === String(index) && (
                   <div>
                     <div className="arrow-up absolute left-0 right-0 top-[97%] flex justify-center text-muted">

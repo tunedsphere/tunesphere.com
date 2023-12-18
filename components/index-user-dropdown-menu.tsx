@@ -17,8 +17,6 @@ import {
 import { Icon } from '@/components/icon'
 
 import IndexLoginModalButton from '@/components/index-login-modal-btn'
-import { Button } from './ui/button'
-
 export async function IndexUserDropdownMenu() {
   const user = await currentUser()
   const initials = `${user?.firstName?.charAt(0) ?? ''} ${
@@ -30,12 +28,14 @@ export async function IndexUserDropdownMenu() {
       {user ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="nav" className="hover:bg-transparent">
-              <Avatar className="flex h-6 w-6 items-center justify-center shadow-sm shadow-slate-900/50">
-                <AvatarImage src={user.imageUrl} alt={user.username ?? ''} />
-                <AvatarFallback>{initials}</AvatarFallback>
-              </Avatar>
-            </Button>
+            <Avatar className="h-6 w-6 cursor-pointer items-center justify-center shadow-sm shadow-slate-900/50">
+              <AvatarImage
+                role="img"
+                src={user.imageUrl}
+                alt={user.username ?? ''}
+              />
+              <AvatarFallback>{initials}</AvatarFallback>
+            </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="z-10000 w-56 border-theme bg-background p-2"

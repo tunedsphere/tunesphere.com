@@ -1,89 +1,91 @@
-"use client";
+'use client'
 
-import "@/styles/globals.css";
+import '@/styles/globals.css'
 
-import * as React from "react";
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { recordLabelsData } from "@/public/recordLabelsData";
-import { Button } from "@/components/ui/button";
+import * as React from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { recordLabelsData } from '@/public/recordLabelsData'
+import { Button } from '@/components/ui/button'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { Sidebar } from "@/components/ui/sidebar";
-import { Icon } from "@/components/icon";
-import MusicSidebarMenuBurger from "@/components/menuburgers/music-sidebar-menu-burger";
+} from '@/components/ui/collapsible'
+import { Sidebar } from '@/components/ui/sidebar'
+import { Icon } from '@/components/icon'
+import MusicSidebarMenuBurger from '@/components/menuburgers/music-sidebar-menu-burger'
 
 const MusicGrid: React.FC = () => {
-  const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
-  const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
-  const [selectedYear, setSelectedYear] = useState<string | null>(null);
-  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-  const expandedLabelRef = useRef(null);
+  const [selectedLabel, setSelectedLabel] = useState<string | null>(null)
+  const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
+  const [selectedYear, setSelectedYear] = useState<string | null>(null)
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null)
+  const expandedLabelRef = useRef(null)
 
-  const [genreExpanded, setGenreExpanded] = useState(false);
-  const [yearExpanded, setYearExpanded] = useState(false);
-  const [countryExpanded, setCountryExpanded] = useState(false);
+  const [genreExpanded, setGenreExpanded] = useState(false)
+  const [yearExpanded, setYearExpanded] = useState(false)
+  const [countryExpanded, setCountryExpanded] = useState(false)
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
 
   const handleSidebarClick = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+    setIsSidebarOpen(!isSidebarOpen)
+  }
 
   const handleGenreToggle = () => {
-    setGenreExpanded(!genreExpanded);
-  };
+    setGenreExpanded(!genreExpanded)
+  }
 
   const handleYearToggle = () => {
-    setYearExpanded(!yearExpanded);
-  };
+    setYearExpanded(!yearExpanded)
+  }
 
   const handleCountryToggle = () => {
-    setCountryExpanded(!countryExpanded);
-  };
+    setCountryExpanded(!countryExpanded)
+  }
   const handleLabelClick = (labelIndex: number) => {
     setSelectedLabel((prevSelectedLabel) =>
-      prevSelectedLabel === labelIndex.toString() ? null : labelIndex.toString()
-    );
-  };
+      prevSelectedLabel === labelIndex.toString()
+        ? null
+        : labelIndex.toString(),
+    )
+  }
   const yearOptions = Array.from(
-    new Set(recordLabelsData.flatMap((label) => label.founding_year))
-  );
+    new Set(recordLabelsData.flatMap((label) => label.founding_year)),
+  )
   const handleYearSelection = (year: string) => {
     if (year === selectedYear) {
       // If the same year is selected, reset the filter
-      setSelectedYear(null);
+      setSelectedYear(null)
     } else {
-      setSelectedYear(year);
+      setSelectedYear(year)
     }
-  };
+  }
 
   const genreOptions = Array.from(
-    new Set(recordLabelsData.flatMap((label) => label.genres))
-  );
+    new Set(recordLabelsData.flatMap((label) => label.genres)),
+  )
   const handleGenreSelection = (genre: string) => {
     if (genre === selectedGenre) {
       // If the same genre is selected, reset the filter
-      setSelectedGenre(null);
+      setSelectedGenre(null)
     } else {
-      setSelectedGenre(genre);
+      setSelectedGenre(genre)
     }
-  };
+  }
   const countryOptions = Array.from(
-    new Set(recordLabelsData.flatMap((label) => label.country))
-  );
+    new Set(recordLabelsData.flatMap((label) => label.country)),
+  )
   const handleCountrySelection = (country: string) => {
     if (country === selectedCountry) {
       // If the same country is selected, reset the filter
-      setSelectedCountry(null);
+      setSelectedCountry(null)
     } else {
-      setSelectedCountry(country);
+      setSelectedCountry(country)
     }
-  };
+  }
 
   // Filter and sort the record labels based on selected filters
   const sortedAndFilteredLabels = recordLabelsData
@@ -93,45 +95,45 @@ const MusicGrid: React.FC = () => {
         (selectedYear === null || label.founding_year.includes(selectedYear)) &&
         (selectedCountry === null || label.country.includes(selectedCountry))
       ) {
-        return true;
+        return true
       }
-      return false;
+      return false
     })
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.name.localeCompare(b.name))
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
         selectedLabel !== null &&
         event.target instanceof Element &&
-        event.target.closest(".expanded-label-container")
+        event.target.closest('.expanded-label-container')
       ) {
         // Inside the expanded label container, do nothing
-        return;
+        return
       }
 
-      setSelectedLabel(null);
-    };
+      setSelectedLabel(null)
+    }
 
     const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedLabel(null);
+      if (event.key === 'Escape') {
+        setSelectedLabel(null)
       }
-    };
+    }
 
-    document.addEventListener("click", handleOutsideClick);
-    document.addEventListener("keydown", handleEscapeKey);
+    document.addEventListener('click', handleOutsideClick)
+    document.addEventListener('keydown', handleEscapeKey)
 
     return () => {
-      document.removeEventListener("click", handleOutsideClick);
-      document.removeEventListener("keydown", handleEscapeKey);
-    };
-  }, [selectedLabel]);
-  const initialColumnWidth = 200; // Initial column width
-  const [columnWidth, setColumnWidth] = useState(initialColumnWidth);
+      document.removeEventListener('click', handleOutsideClick)
+      document.removeEventListener('keydown', handleEscapeKey)
+    }
+  }, [selectedLabel])
+  const initialColumnWidth = 200 // Initial column width
+  const [columnWidth, setColumnWidth] = useState(initialColumnWidth)
 
   const handleResize = (e: React.SyntheticEvent) => {
-    setColumnWidth((e.target as HTMLDivElement).offsetWidth);
-  };
+    setColumnWidth((e.target as HTMLDivElement).offsetWidth)
+  }
 
   return (
     <section className="">
@@ -143,15 +145,15 @@ const MusicGrid: React.FC = () => {
           >
             <div
               id="MusicGridBanner"
-              className="relative z-10 ml-4 flex min-h-[--music-grid-banner-height-mobile] w-full justify-center border-b-2 border-muted bg-transparent sm:ml-12 sm:min-h-[--music-grid-banner-height]"
+              className="relative z-10 ml-4 flex  w-full justify-center border-b-2 border-muted bg-transparent sm:ml-12"
             >
               <div className="absolute inset-x-0 bottom-2 w-full items-center ">
                 <h1 className="text-2xl font-semibold text-texthigh sm:text-3xl md:text-4xl">
-                  {selectedGenre ? `${selectedGenre} ` : "ALL Genres"}
+                  {selectedGenre ? `${selectedGenre} ` : 'ALL Genres'}
                 </h1>
                 <div className="flex gap-1">
                   <h2 className="text-base text-textlow sm:text-xl md:text-3xl">
-                    {selectedCountry ? `${selectedCountry}, ` : ""}
+                    {selectedCountry ? `${selectedCountry}, ` : ''}
                   </h2>
                   <h5 className="text-textlow ">{selectedYear}</h5>
                 </div>
@@ -167,7 +169,7 @@ const MusicGrid: React.FC = () => {
                     <div
                       key={label.id}
                       className={`cursor-pointer items-center justify-center text-center ${
-                        selectedLabel === index.toString() ? "" : ""
+                        selectedLabel === index.toString() ? '' : ''
                       }`}
                       onClick={() => handleLabelClick(index)}
                     >
@@ -182,7 +184,7 @@ const MusicGrid: React.FC = () => {
                         {label.name}
                       </h1>
                       <p className="cursor-pointer text-xs text-textlow hover:text-theme">
-                        {label.genres.join(", ")}
+                        {label.genres.join(', ')}
                       </p>
                     </div>
                     {String(selectedLabel) === String(index) && (
@@ -237,7 +239,7 @@ const MusicGrid: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default MusicGrid;
+export default MusicGrid

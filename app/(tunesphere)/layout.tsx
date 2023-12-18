@@ -1,16 +1,13 @@
 import { SiteGlobalNav } from '@/components/layouts/site-global-nav'
 import { SiteIndexFooter } from '@/components/layouts/site-index-footer'
-import { GlobalNav } from '@/components/layouts/global-nav'
-
 interface TunedLayoutProps {
   children: React.ReactNode
 }
 export default function TunedLayout({ children }: TunedLayoutProps) {
   return (
     <>
-      {/* <GlobalNav /> */}
       <SiteGlobalNav />
-      <main className="min-h-screen flex-1 bg-background-index">
+      <main className="relative flex-1 bg-background-index">
         {children}
         <SiteIndexFooter />
       </main>

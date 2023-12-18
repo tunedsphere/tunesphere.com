@@ -79,9 +79,8 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
   return (
     <section className="mt-[var(--headerHeight)]">
       <div className="">
-        <div className="flex h-[--musicTabsHeight] w-full items-center justify-center align-middle">
-          <MusicTabs />
-        </div>
+        <MusicTabs />
+
         <div className="flex">
           <Sidebar
             id="music-sidebar"
@@ -325,7 +324,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
 
               <div
                 id="music-sidebar-menu-content"
-                className={`middle-sidebar scrollable-container  border-l border-muted ${
+                className={`middle-sidebar scrollable-container border-l border-muted ${
                   isSidebarOpen ? '' : 'hidden'
                 }`}
               >

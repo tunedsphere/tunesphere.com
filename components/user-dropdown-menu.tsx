@@ -5,8 +5,6 @@ import React from 'react'
 import Link from 'next/link'
 
 import { Icon } from '@/components/icon'
-
-import { Button, buttonVariants } from '@/components/ui/button'
 import LoginModalButton from '@/components/login-modal-btn'
 
 import { getUserEmail } from '@/lib/utils'
@@ -34,12 +32,10 @@ export async function UserDropDownMenu() {
       {user ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button size="xs" variant="nav" className="hover:bg-transparent">
-              <Avatar className="flex h-7 w-7 items-center justify-center shadow-sm shadow-slate-900/50">
-                <AvatarImage src={user.imageUrl} alt={user.username ?? ''} />
-                <AvatarFallback>{initials}</AvatarFallback>
-              </Avatar>
-            </Button>
+            <Avatar className="h-6 w-6 cursor-pointer items-center justify-center shadow-sm shadow-slate-900/50">
+              <AvatarImage src={user.imageUrl} alt={user.username ?? ''} />
+              <AvatarFallback>{initials}</AvatarFallback>
+            </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="z-10000 w-56 border-theme bg-background p-2"

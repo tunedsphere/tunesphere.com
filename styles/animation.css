@@ -260,7 +260,17 @@
     animation: animated-grt-cyan 8s infinite;
     background-image: linear-gradient(to right, #4c51bf, #60d6fa);
   }
-  
+  @keyframes animated-grt-violet {
+    0%,
+    16.667%,
+    100% {
+      opacity: 1;
+    }
+    33%,
+    83.333% {
+      opacity: 0;
+    }
+  }
   @keyframes animated-grt-yellow {
     0%,
     16.667%,
@@ -273,17 +283,7 @@
       opacity: 1;
     }
   }
-  @keyframes animated-grt-violet {
-    0%,
-    16.667%,
-    100% {
-      opacity: 1;
-    }
-    33%,
-    83.333% {
-      opacity: 0;
-    }
-  }
+
   @keyframes animated-grt-cyan {
     0%,
     50%,
@@ -345,20 +345,20 @@
   .animated-bg-grt-violet {
     height: 120px;
     width: 100%;
-    background: #6d02d1;
+    background: #51009c;
     filter: blur(100px);
     animation: animated-grt-violet 8s infinite;
   }
   
   .animated-bg-grt-yellow {
-    height: 60px;
+    height: 120px;
     width: 100%;
     background: #fcd34d;
     filter: blur(100px);
-    animation: animated-grt-yellow8s infinite;
+    animation: animated-grt-yellow 8s infinite;
   }
   .animated-bg-grt-cyan {
-    height: 60px;
+    height: 120px;
     width: 100%;
     background: #60d6fa;
     filter: blur(100px);

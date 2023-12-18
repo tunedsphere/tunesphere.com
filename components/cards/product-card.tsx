@@ -1,15 +1,14 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { productsRelations } from "@/db/schema";
-import { type Product } from "@/db/schema";
-import { toast } from "sonner";
-import { catchError, cn, formatPrice } from "@/lib/utils";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Button } from "@/components/ui/button";
-import { slugify } from "@/lib/utils";
+import * as React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { type Product } from '@/db/schema'
+import { toast } from 'sonner'
+import { catchError, cn, formatPrice } from '@/lib/utils'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Button } from '@/components/ui/button'
+import { slugify } from '@/lib/utils'
 import {
   Card,
   CardContent,
@@ -17,39 +16,39 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Icon } from "@/components/icon";
-import { addToCartAction } from "@/app/_actions/cart";
+} from '@/components/ui/card'
+import { Icon } from '@/components/icon'
+import { addToCartAction } from '@/app/_actions/cart'
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  storeName: string | string[] | undefined;
+  storeName: string | string[] | undefined
   product: Pick<
     Product,
-    "id" | "name" | "price" | "images" | "category" | "inventory" | "storeId"
-  >;
-  variant?: "default" | "switchable";
-  isAddedToCart?: boolean;
-  onSwitch?: () => Promise<void>;
+    'id' | 'name' | 'price' | 'images' | 'category' | 'inventory' | 'storeId'
+  >
+  variant?: 'default' | 'switchable'
+  isAddedToCart?: boolean
+  onSwitch?: () => Promise<void>
 }
 
 export function ProductCard({
   product,
   storeName,
-  variant = "default",
+  variant = 'default',
   onSwitch,
   className,
   ...props
 }: ProductCardProps) {
-  const [isPending, startTransition] = React.useTransition();
-  const [isAddedToCart, setIsAddedToCart] = React.useState(false);
-  console.log(storeName);
+  const [isPending, startTransition] = React.useTransition()
+  const [isAddedToCart, setIsAddedToCart] = React.useState(false)
+  console.log(storeName)
   return (
     <div className="relative">
       <Card
         id="product-card"
         className={cn(
-          "group rounded-noneborder-none border-muted bg-card sm:rounded-lg sm:border",
-          className
+          'rounded-noneborder-none group border-muted bg-card sm:rounded-lg sm:border',
+          className,
         )}
         {...props}
       >
@@ -60,17 +59,17 @@ export function ProductCard({
           as={`/shop/product/${product.id}/${slugify(product.name)}`}
           className="group cursor-default"
         >
-          <CardHeader className="p-0 relative">
+          <CardHeader className="relative p-0">
             <AspectRatio ratio={4 / 3}>
-              <div className="absolute inset-0 z-10 bg-muted/20 transition-color group-hover:bg-zinc-950/30" />
+              <div className="transition-color absolute inset-0 z-10 bg-muted/20 group-hover:bg-zinc-950/30" />
               {product?.images?.length ? (
                 <Image
                   key={`${product.id}_image`}
                   src={
-                    product.images[0]?.url ?? "/images/product-placeholder.webp"
+                    product.images[0]?.url ?? '/images/product-placeholder.webp'
                   }
                   alt={product.images[0]?.name ?? product.name}
-                  className="absolute h-full w-full object-cover rounded-md cursor-default group-hover:bg-zinc-950/50"
+                  className="absolute h-full w-full cursor-default rounded-md object-cover group-hover:bg-zinc-950/50"
                   sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
                   fill
                   loading="lazy"
@@ -93,7 +92,7 @@ export function ProductCard({
           </CardHeader>
         </Link>
         <CardContent className="grid pb-4">
-          <CardTitle className="truncate py-2 text-base cursor-pointer group-hover:font-semibold group-hover:underline underline-offset-2 decoration-2 decoration-primary">
+          <CardTitle className="cursor-pointer truncate py-2 text-base decoration-primary decoration-2 underline-offset-2 group-hover:font-semibold group-hover:underline">
             {product.name}
           </CardTitle>
           <div className="text-lg font-bold leading-snug">
@@ -115,7 +114,7 @@ export function ProductCard({
             className="line-clamp-1 text-muted-foreground"
             key={product.storeId}
             aria-label={
-              Array.isArray(storeName) ? storeName.join(", ") : storeName
+              Array.isArray(storeName) ? storeName.join(', ') : storeName
             }
             href={`/shop/store/${product.storeId}/${slugify(storeName)}`}
           >
@@ -123,38 +122,38 @@ export function ProductCard({
           </Link>
         </CardContent>
         <CardFooter className="p-4">
-          <div className="flex w-full flex-col items-center gap-2 sm:flex-row align-middle">
+          <div className="flex w-full flex-col items-center gap-2 align-middle sm:flex-row">
             <Button
-              aria-label={isAddedToCart ? "Remove from cart" : "Add to Basket"}
+              aria-label={isAddedToCart ? 'Remove from cart' : 'Add to Basket'}
               size="sm"
-              className="w-full rounded-sm flex"
+              className="flex w-full rounded-sm"
               onClick={async () => {
-                if (isPending) return;
+                if (isPending) return
 
                 startTransition(async () => {
                   try {
                     if (isAddedToCart) {
                       // Handle removing from cart if it's already added
                       // Implement your remove from cart logic here
-                      toast.success("Removed from cart.");
+                      toast.success('Removed from cart.')
                     } else {
                       // Handle adding to cart if it's not added yet
                       await addToCartAction({
                         productId: product.id,
                         quantity: 1,
-                      });
-                      toast.success("Added to cart.");
+                      })
+                      toast.success('Added to cart.')
                     }
 
                     // Toggle isAddedToCart state
-                    setIsAddedToCart((prevIsAdded) => !prevIsAdded);
+                    setIsAddedToCart((prevIsAdded) => !prevIsAdded)
 
                     // Call onSwitch if provided
-                    onSwitch?.();
+                    onSwitch?.()
                   } catch (err) {
-                    catchError(err);
+                    catchError(err)
                   }
-                });
+                })
               }}
               disabled={isPending}
             >
@@ -181,7 +180,7 @@ export function ProductCard({
                   )}
                   {/* Consistent label */}
                   <span className="w-full font-semibold">
-                    {isAddedToCart ? "Added" : "Add to Basket"}
+                    {isAddedToCart ? 'Added' : 'Add to Basket'}
                   </span>
                 </>
               )}
@@ -190,5 +189,5 @@ export function ProductCard({
         </CardFooter>
       </Card>
     </div>
-  );
+  )
 }

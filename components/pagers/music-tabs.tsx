@@ -42,10 +42,10 @@ export function MusicTabs({}: MusicTabsProps) {
     <Tabs
       id="music-tabs"
       defaultValue={tabs.find((tab) => tab.isActive)?.href ?? tabs[0]?.href}
-      className="z-30 mx-auto flex w-full justify-center overflow-auto px-1"
+      className="mx-auto flex h-[--musicTabsHeight] items-center justify-center"
       onValueChange={(value) => router.push(value)}
     >
-      <TabsList className="inline-flex justify-center space-x-2 bg-transparent text-muted-foreground">
+      <TabsList className="inline-flex justify-center space-x-2  bg-transparent text-muted-foreground">
         {tabs.map((tab) => (
           <div
             role="none"

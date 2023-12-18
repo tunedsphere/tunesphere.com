@@ -1,7 +1,7 @@
-import * as React from "react";
-import Link from "next/link";
-import { Icon } from "@/components/icon";
-import { Button } from "@/components/ui/button";
+import * as React from 'react'
+import Link from 'next/link'
+import { Icon } from '@/components/icon'
+import { Button } from '@/components/ui/button'
 
 import {
   Card,
@@ -10,33 +10,32 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { OAuthSignIn } from "@/components/auth/oauth-signin";
-import { SignInForm } from "@/components/forms/signin-form";
+} from '@/components/ui/card'
+import { OAuthSignIn } from '@/components/auth/oauth-signin'
+import { SignInForm } from '@/components/forms/signin-form'
 
 export const metadata = {
-  title: "Sign In",
-  description: "Sign in to your account",
-};
+  title: 'Sign In',
+  description: 'Sign in to your account',
+}
 
 interface SigninCardProps {
-  onClose?: () => void;
+  onClose?: () => void
 }
 export default function SigninCard({ onClose }: SigninCardProps) {
   const handleClose = () => {
     if (onClose) {
-      onClose();
+      onClose()
     }
-  };
+  }
   const handleLinkClick = () => {
-    handleClose();
-  };
+    handleClose()
+  }
 
   return (
     <div id="signin-card" className="z-20 @container">
-      <div className="modal-gradient z-60"></div>
       <Card className="border-0 border-muted/50 bg-background @md:border">
-        <div className="signin-card-gradient -z-10"></div>
+        <div className="top-68 absolute left-0 -z-10 h-52 w-[33.333333%] bg-theme-secondary opacity-30 blur-[300px]"></div>
         <div className="flex justify-end p-2 sm:p-4">
           <Button
             variant="ghost"
@@ -45,11 +44,11 @@ export default function SigninCard({ onClose }: SigninCardProps) {
             title="close"
             className="text-texthigh "
           >
-            <Icon name="close" className="w-6 h-6 text-texthigh" />
+            <Icon name="close" className="h-6 w-6 text-texthigh" />
           </Button>
         </div>
         <CardHeader className="items-center space-y-1">
-          <CardTitle as="h1" className="text-card-foreground text-5xl">
+          <CardTitle as="h1" className="text-5xl text-card-foreground">
             Log in
           </CardTitle>
           <CardDescription className="p-2 text-center text-secondary">
@@ -72,7 +71,7 @@ export default function SigninCard({ onClose }: SigninCardProps) {
             <SignInForm handleLinkClick={handleClose} />
             <div className="flex justify-center">
               <span className="text-sm text-muted-foreground">
-                By signing in you accept our{" "}
+                By signing in you accept our{' '}
                 <>
                   <Link
                     href="/docs/legal/terms"
@@ -81,8 +80,8 @@ export default function SigninCard({ onClose }: SigninCardProps) {
                     className="text-secondary transition-colors hover:text-foreground"
                   >
                     Terms
-                  </Link>{" "}
-                  and{" "}
+                  </Link>{' '}
+                  and{' '}
                   <Link
                     href="/docs/legal/privacy" // "Privacy" href
                     target="_blank"
@@ -98,7 +97,7 @@ export default function SigninCard({ onClose }: SigninCardProps) {
         </CardContent>
         <CardFooter className="flex flex-wrap items-center space-x-2 pt-4">
           <div className="flex-1 text-sm text-muted-foreground">
-            Don&apos;t have an account?{" "}
+            Don&apos;t have an account?{' '}
             <Link
               aria-label="Sign up"
               href="/signup"
@@ -111,5 +110,5 @@ export default function SigninCard({ onClose }: SigninCardProps) {
         </CardFooter>
       </Card>
     </div>
-  );
+  )
 }

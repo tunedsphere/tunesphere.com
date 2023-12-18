@@ -23,7 +23,7 @@ interface ShopMainNavProps {
 
 export function ShopMainNav({ items }: ShopMainNavProps) {
   return (
-    <div className="z-1000 hidden gap-6 lg:flex">
+    <div className="z-1000 hidden gap-6  lg:flex">
       <Link
         aria-label="Explore & Shop"
         href="/shop"
@@ -34,7 +34,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
         </span>
       </Link>
       <NavigationMenu>
-        <NavigationMenuList>
+        <NavigationMenuList className="scrollable-container overflow-y-clip overflow-x-scroll">
           {items?.[0]?.items ? (
             <NavigationMenuItem>
               <Link href="/shop">
@@ -42,8 +42,8 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                   {items[0].title}
                 </NavigationMenuTrigger>
               </Link>
-              <NavigationMenuContent className="shadow-xl">
-                <ul className="grid gap-3 border-muted p-6 md:w-[400px] lg:w-[790px] lg:grid-cols-[.75fr_1fr]">
+              <NavigationMenuContent className="z-1000 shadow-xl ">
+                <ul className="grid gap-3 border-muted p-6 md:w-[26rem] lg:w-[48rem] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a

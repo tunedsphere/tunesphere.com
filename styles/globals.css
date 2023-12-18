@@ -70,9 +70,11 @@
     --sidebar-dashboard-width: 13rem;
     --headerHeight: 4.5rem;
     --globalNavHeight: 4.5rem;
-    --music-grid-banner-height: 5rem;
+    --music-grid-banner-height: 6.1rem;
+    --music-grid-banner-height-mobile: 6.1rem;
     --musicTabsHeight: 3rem;
-    --music-grid-banner-height-mobile: 2rem;
+    --music-options-banner-height: 6rem;
+    --music-options-banner-height-mobile: 3.1rem;
     --sidebar-width: 208px;
 
     --theme-50: 185 100% 97%;
@@ -135,7 +137,7 @@
     --input: 240 5.9% 90%;
 
     --accent-theme: 252 40.1% 22.5%;
-    --accent: 240 6% 82%;
+    --accent: 210 20% 98%;
     --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 62.8% 30.6%;    
@@ -215,7 +217,7 @@
     --border: 214 32% 91%; 
     --input: 215 28% 17%;    
 
-    --accent: 0 0% 4%;
+    --accent: 222 47% 4%;
     --accent-foreground: 210 20% 98%;  
 
     --accent-theme: hsl(252 40% 22%);
@@ -358,15 +360,6 @@
   justify-content: center;
 }
 
-.signin-card-gradient {
-  position: absolute;
-  width: 42%;
-  height: 180px;
-  top: 72%;
-  left: 0;
-  background: hsl(var(--theme-secondary));
-  filter: blur(100px);
-}
 
 /* Music GRID */
 
@@ -384,7 +377,7 @@
   height: calc(100dvh - var(--headerHeight));
 }
 .music-grid {
-  height: calc(100vh - var(--headerHeight) - var(--music-grid-banner-height) - var(--musicTabsHeight)) ;
+  height: calc(100dvh - var(--headerHeight) - var(--music-grid-banner-height) - var(--musicTabsHeight) - var(--music-options-banner-height));
 }
 .music-grid-mobile {
   height: calc(100vh - var(--headerHeight) - var(--music-grid-banner-height-mobile) - var(--musicTabsHeight));

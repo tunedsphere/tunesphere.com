@@ -19,12 +19,7 @@ export default function LoginModalButton() {
 
   return (
     <>
-      <Button
-        id="login-modal-btn"
-        variant="logInModal"
-        size="xs"
-        onClick={handleClick}
-      >
+      <Button id="login-modal-btn" variant="logInModal" onClick={handleClick}>
         Log In
       </Button>
       {isModalOpen && <Modal handleModalClose={handleModalClose} />}

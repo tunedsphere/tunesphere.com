@@ -12,8 +12,6 @@ import { PageHeader, PageHeaderHeading } from '@/components/page-header'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
 
-export const dynamic = 'force-dynamic'
-
 export default function MyApp() {
   return (
     <>

@@ -24,6 +24,7 @@ import type {
   getProductSchema,
   getProductsSchema,
   productSchema,
+  updateProductRatingSchema,
 } from "@/lib/validations/product"
 export async function filterProductsAction(query: string) {
   if (query.length === 0) return null
@@ -239,3 +240,25 @@ export async function getPreviousProductIdAction(
   return product.id
 }
 
+export async function updateProductRating(
+  input: z.infer<typeof updateProductRatingSchema>
+) {
+  const product = await db.query.products.findFirst({
+    columns: {
+      id: true,
+      rating: true,
+    },
+    where: eq(products.id, input.id),
+  })
+
+  if (!product) {
+    throw new Error("Product not found.")
+  }
+
+  await db
+    .update(products)
+    .set({ rating: input.rating })
+    .where(eq(products.id, input.id))
+
+  revalidatePath("/")
+}
