@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation'
 import { db } from '@/db'
 import { products, stores } from '@/db/schema'
 import { env } from '@/env.mjs'
-import { and, desc, eq, not } from 'drizzle-orm'
+import { eq } from 'drizzle-orm'
 
 import { formatPrice, toTitleCase, slugify } from '@/lib/utils'
 import {
@@ -165,7 +165,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               rating={product.rating}
             />
           </div>
-          <AddToCartForm productId={productId} />
+          <AddToCartForm productId={productId} showBuyNow={true} />
           <Separator className="mt-5" />
           <Accordion
             type="single"

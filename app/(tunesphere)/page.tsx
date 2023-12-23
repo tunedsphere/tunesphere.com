@@ -167,9 +167,9 @@ export default function MyApp() {
           </PageHeader>
           <div className="relative z-200 mx-auto max-w-[32rem] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="animated-bg-grt-violet absolute inset-x-0 -z-10"></div>
-              <div className="animated-bg-grt-yellow absolute inset-x-0 -z-10"></div>
-              <div className="animated-bg-grt-cyan absolute inset-x-0 -z-10"></div>
+              <div className="animated-bg-grt-violet !important absolute inset-x-0 -z-10"></div>
+              <div className="animated-bg-grt-yellow !important absolute inset-x-0 -z-10"></div>
+              <div className="animated-bg-grt-cyan !important absolute inset-x-0 -z-10"></div>
               <div className="grt-button-wrapper flex-1">
                 <Link
                   href="/shop/products"

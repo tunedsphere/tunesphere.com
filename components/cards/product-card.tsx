@@ -18,7 +18,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Icon } from '@/components/icon'
-import { addToCartAction } from '@/app/_actions/cart'
+import { addToCart } from '@/app/_actions/cart'
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
   storeName: string | string[] | undefined
@@ -138,7 +138,7 @@ export function ProductCard({
                       toast.success('Removed from cart.')
                     } else {
                       // Handle adding to cart if it's not added yet
-                      await addToCartAction({
+                      await addToCart({
                         productId: product.id,
                         quantity: 1,
                       })

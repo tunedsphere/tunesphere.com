@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { getCart } from '@/lib/fetchers/cart'
 import { formatPrice } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -15,14 +16,13 @@ import {
 } from '@/components/ui/sheet'
 import { UpdateCart } from '@/components/cart/update-cart'
 import { Icon } from '@/components/icon'
-import { getCartAction } from '@/app/_actions/cart'
-
+import { CartLineItems } from '@/components/cart/cart-line-items'
 interface CartSheetProps {
   className?: string
 }
 
 export async function CartSheet({ className }: CartSheetProps) {
-  const cartLineItems = await getCartAction()
+  const cartLineItems = await getCart()
 
   const itemCount = cartLineItems.reduce(
     (total, item) => total + Number(item.quantity),
@@ -30,14 +30,18 @@ export async function CartSheet({ className }: CartSheetProps) {
   )
 
   const cartTotal = cartLineItems.reduce(
-    (total, item) => total + Number(item.quantity) * Number(item.price),
+    (total, item) => total + item.quantity * Number(item.price),
     0,
   )
 
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button aria-label="Open cart" variant="nav" className={`${className}`}>
+        <Button
+          aria-label="Open cart"
+          variant="nav"
+          className={`relative ${className}`}
+        >
           {itemCount > 0 && (
             <Badge
               variant="success"
@@ -68,6 +72,7 @@ export async function CartSheet({ className }: CartSheetProps) {
         <Separator />
         {itemCount > 0 ? (
           <>
+            <CartLineItems items={cartLineItems} className="flex-1" />
             <div className="flex flex-1 flex-col gap-5 overflow-hidden">
               <ScrollArea className="h-full">
                 <div className="flex flex-col gap-5 pr-6">

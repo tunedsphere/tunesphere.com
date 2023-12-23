@@ -3,108 +3,19 @@
 import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
 import { db } from "@/db"
-import { carts, products, stores } from "@/db/schema"
-import type { CartLineItem } from "@/types"
-import { and, asc, desc, eq, inArray, sql } from "drizzle-orm"
+import { carts, products } from "@/db/schema"
+import { eq } from "drizzle-orm"
 import { type z } from "zod"
 
-import type {
+import {
   cartItemSchema,
   deleteCartItemSchema,
   deleteCartItemsSchema,
 } from "@/lib/validations/cart"
 
-export async function getCartAction(storeId?: number): Promise<CartLineItem[]> {
-  const cartId = cookies().get("cartId")?.value
+export async function addToCart(rawInput: z.infer<typeof cartItemSchema>) {
+  const input = cartItemSchema.parse(rawInput)
 
-  if (!cartId || isNaN(Number(cartId))) return []
-
-  const cart = await db.query.carts.findFirst({
-    columns: {
-      items: true,
-    },
-    where: eq(carts.id, Number(cartId)),
-  })
-
-  const productIds = cart?.items?.map((item) => item.productId) ?? []
-
-  if (productIds.length === 0) return []
-
-  const uniqueProductIds: number[] = Array.from(new Set(productIds));
-
-  const cartLineItems = await db
-    .select({
-      id: products.id,
-      name: products.name,
-      images: products.images,
-      category: products.category,
-      subcategory: products.subcategory,
-      price: products.price,
-      inventory: products.inventory,
-      storeId: products.storeId,
-      storeStripeAccountId: stores.stripeAccountId,
-    })
-    .from(products)
-    .leftJoin(stores, eq(stores.id, products.storeId))
-    .where(
-      and(
-        inArray(products.id, uniqueProductIds),
-        storeId ? eq(products.storeId, storeId) : undefined
-      )
-    )
-    .groupBy(products.id)
-    .orderBy(desc(stores.stripeAccountId), asc(products.createdAt))
-    .execute()
-    .then((items) => {
-      return items.map((item) => {
-        const quantity = cart?.items?.find(
-          (cartItem) => cartItem.productId === item.id
-        )?.quantity
-
-        return {
-          ...item,
-          storeId: item.storeId || 0,
-          quantity: quantity ?? 0,
-        }
-      })
-    })
-
-  return cartLineItems
-}
-
-export async function getUniqueStoreIds() {
-  const cartId = cookies().get("cartId")?.value
-
-  if (!cartId || isNaN(Number(cartId))) return []
-
-  const cart = await db
-    .select({ storeId: products.storeId })
-    .from(carts)
-    .leftJoin(
-      products,
-      sql`JSON_CONTAINS(carts.items, JSON_OBJECT('productId', products.id))`
-    )
-    .groupBy(products.storeId)
-    .where(eq(carts.id, Number(cartId)))
-
-  const storeIds = cart.map((item) => Number(item.storeId)).filter((id) => id)
-
-const uniqueStoreIds: number[] = Array.from(new Set(storeIds));
-
-  return uniqueStoreIds
-}
-
-export async function getCartItemsAction(input: { cartId?: number }) {
-  if (!input.cartId || isNaN(input.cartId)) return []
-
-  const cart = await db.query.carts.findFirst({
-    where: eq(carts.id, input.cartId),
-  })
-
-  return cart?.items
-}
-
-export async function addToCartAction(input: z.infer<typeof cartItemSchema>) {
   // Checking if product is in stock
   const product = await db.query.products.findFirst({
     columns: {
@@ -187,9 +98,9 @@ export async function addToCartAction(input: z.infer<typeof cartItemSchema>) {
   revalidatePath("/")
 }
 
-export async function updateCartItemAction(
-  input: z.infer<typeof cartItemSchema>
-) {
+export async function updateCartItem(rawInput: z.infer<typeof cartItemSchema>) {
+  const input = cartItemSchema.parse(rawInput)
+
   const cartId = cookies().get("cartId")?.value
 
   if (!cartId) {
@@ -233,7 +144,7 @@ export async function updateCartItemAction(
   revalidatePath("/")
 }
 
-export async function deleteCartAction() {
+export async function deleteCart() {
   const cartId = Number(cookies().get("cartId")?.value)
 
   if (!cartId) {
@@ -247,9 +158,11 @@ export async function deleteCartAction() {
   await db.delete(carts).where(eq(carts.id, cartId))
 }
 
-export async function deleteCartItemAction(
-  input: z.infer<typeof deleteCartItemSchema>
+export async function deleteCartItem(
+  rawInput: z.infer<typeof deleteCartItemSchema>
 ) {
+  const input = deleteCartItemSchema.parse(rawInput)
+
   const cartId = cookies().get("cartId")?.value
 
   if (!cartId) {
@@ -279,9 +192,11 @@ export async function deleteCartItemAction(
   revalidatePath("/")
 }
 
-export async function deleteCartItemsAction(
-  input: z.infer<typeof deleteCartItemsSchema>
+export async function deleteCartItems(
+  rawInput: z.infer<typeof deleteCartItemsSchema>
 ) {
+  const input = deleteCartItemsSchema.parse(rawInput)
+
   const cartId = cookies().get("cartId")?.value
 
   if (!cartId) {
