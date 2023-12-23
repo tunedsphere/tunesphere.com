@@ -9,9 +9,9 @@ import SiteHeaderMenuBurger from '@/components/menuburgers/site-header-menu-burg
 import { ThemeToggle } from '@/components/theme-toggle'
 import { UserDropDownMenu } from '../user-dropdown-menu'
 
-interface SiteHeaderProps {}
+interface SiteNavbarProps {}
 
-export function SiteHeader({}: SiteHeaderProps) {
+export function SiteNavbar({}: SiteNavbarProps) {
   return (
     <nav
       id="globalnav"

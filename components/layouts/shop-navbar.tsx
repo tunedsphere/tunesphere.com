@@ -5,7 +5,7 @@ import { dashboardConfig } from '@/configs/dashboard'
 import { siteConfig } from '@/configs/site'
 import { ShopSearchBar } from '@/components/searchs/shop-search-bar'
 import { Shell } from '../shells/shell'
-export function ShopHeader() {
+export function ShopNavbar() {
   return (
     <div className="relative z-50 mt-[--headerHeight] w-full border-b border-muted bg-background-navbartop">
       {/* <div className="mx-auto flex w-full max-w-9xl items-center justify-between gap-2 overflow-clip px-4 py-2 align-middle lg:px-8 5xl:max-w-[66.66666666666666%]"> */}

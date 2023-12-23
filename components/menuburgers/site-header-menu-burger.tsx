@@ -48,7 +48,7 @@ export default function SiteHeaderMenuBurger() {
   return (
     <>
       <div
-        id="site-header-menu-burger"
+        id="site-navbar-menu-burger"
         className="invisible fixed left-0 right-0 top-0 z-20 mx-auto flex h-[--globalNavHeight] w-full max-w-9xl items-center justify-end px-4 lg:px-8 5xl:max-w-[66.66666666666666%]"
       >
         <div className="visible z-20000">
@@ -56,7 +56,7 @@ export default function SiteHeaderMenuBurger() {
             size="xs"
             onClick={handleNavbarClick}
             aria-label="Toggle menu"
-            className="z-20 hidden bg-transparent text-texthigh hover:bg-theme-950  hover:text-primary md:block"
+            className="z-20 hidden bg-transparent text-texthigh hover:bg-theme-950 hover:text-primary md:block"
           >
             <Icon
               name="menu"
@@ -84,7 +84,6 @@ export default function SiteHeaderMenuBurger() {
               className="h-6 w-6"
             />
           </Button>
-          {/* <MenuBurger handleNavbarToggle={handleNavbarOpen} isOpen={isOpen} setIsOpen={setIsOpen}/> */}
         </div>
       </div>
 

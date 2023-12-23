@@ -12,7 +12,7 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import NavbarVideo from '../navbar-video'
 import { IndexUserDropdownMenu } from '@/components/index-user-dropdown-menu'
 
-export function SiteGlobalNav() {
+export function SiteIndexNavbar() {
   return (
     <>
       <nav

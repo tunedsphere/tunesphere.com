@@ -101,7 +101,7 @@ module.exports = {
           navbartop: "hsl(var(--background-navbartop))",
           footer: "hsl(var(--background-footer))",
           shop: "hsl(var(--background-shop))",
-          shopHeader: "hsl(var(--background-shop-header))",
+          shopNavbar: "hsl(var(--background-shop-navbar))",
           dashboard: "hsl(var(--background-dashboard))",
           shopNavLink: "hsl(var(--background-shop-navlink))",
         },

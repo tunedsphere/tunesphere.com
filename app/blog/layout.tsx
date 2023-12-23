@@ -1,12 +1,13 @@
-import { SiteFooter } from "@/components/layouts/site-footer"
-import { SiteHeader } from "@/components/layouts/site-header"
+import { SiteFooter } from '@/components/layouts/site-footer'
+import { SiteNavbar } from '@/components/layouts/site-navbar'
 
 export default function TunedLayout({ children }: React.PropsWithChildren) {
-
   return (
     <>
-     <SiteHeader />
-      <main className="flex-1 mt-[var(--headerHeight)] py-14 px-4 md:px-8 max-w-8xl mx-auto">{children}</main>
+      <SiteNavbar />
+      <main className="mx-auto mt-[var(--headerHeight)] max-w-8xl flex-1 px-4 py-14 md:px-8">
+        {children}
+      </main>
       <SiteFooter />
     </>
   )

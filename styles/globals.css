@@ -114,7 +114,7 @@
     --background-navbartop: 221 50% 98%;
     --background-navbarbottom: 221 50% 98%;
     --background-footer: 221 41% 20%;
-    --background-shopHeader: hsl(var(--background-navbartop));
+    --background-shopNavbar: hsl(var(--background-navbartop));
     --background-footer: 221 41% 20%;
 
     --background-shop-navlink: 195 92% 85%;

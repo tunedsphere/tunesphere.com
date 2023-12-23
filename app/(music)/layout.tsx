@@ -1,17 +1,14 @@
-import { currentUser } from "@clerk/nextjs"
-
-import { ReducedFooter } from "@/components/layouts/reduced-footer"
-import { SiteHeader } from "@/components/layouts/site-header"
+import { ReducedFooter } from '@/components/layouts/reduced-footer'
+import { SiteNavbar } from '@/components/layouts/site-navbar'
 
 interface RootMusicLayoutProps {
   children: React.ReactNode
 }
 
-export default  function RootMusicLayout({ children }: RootMusicLayoutProps) {
-
+export default function RootMusicLayout({ children }: RootMusicLayoutProps) {
   return (
     <>
-      <SiteHeader />
+      <SiteNavbar />
       <main className="flex-1 bg-background">{children}</main>
       <ReducedFooter />
     </>

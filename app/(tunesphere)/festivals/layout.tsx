@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/components/layouts/site-header"
+import { SiteNavbar } from '@/components/layouts/site-navbar'
 
 interface FestivalsLayoutProps {
   children: React.ReactNode
@@ -7,7 +7,7 @@ interface FestivalsLayoutProps {
 export default function FestivalsLayout({ children }: FestivalsLayoutProps) {
   return (
     <>
-      <SiteHeader />
+      <SiteNavbar />
       <main className="flex-1 bg-background">{children}</main>
     </>
   )

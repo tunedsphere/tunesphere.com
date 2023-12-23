@@ -1,6 +1,6 @@
-import { ShopHeader } from "@/components/layouts/shop-header"
-import { SiteFooter } from "@/components/layouts/site-footer"
-import { SiteHeader } from "@/components/layouts/site-header"
+import { ShopNavbar } from '@/components/layouts/shop-navbar'
+import { SiteFooter } from '@/components/layouts/site-footer'
+import { SiteNavbar } from '@/components/layouts/site-navbar'
 
 interface ShopLayoutProps {
   children: React.ReactNode
@@ -9,8 +9,8 @@ interface ShopLayoutProps {
 export default function ShopLayout({ children }: ShopLayoutProps) {
   return (
     <>
-      <SiteHeader />
-      <ShopHeader />
+      <SiteNavbar />
+      <ShopNavbar />
       <main className="flex-1 bg-background">{children}</main>
       <SiteFooter />
     </>
