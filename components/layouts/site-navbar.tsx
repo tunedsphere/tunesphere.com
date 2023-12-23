@@ -26,14 +26,14 @@ export function SiteNavbar({}: SiteNavbarProps) {
                 className="absolute left-0 right-0 z-10 hidden h-10 w-10 text-primary sm:block"
               />
             </div>
-            <div className="left-0 flex w-4/6 items-center sm:justify-center">
+            <div className="left-0 flex w-1/3 items-center sm:justify-center md:w-4/6">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
                 <h1 className="cursor-pointer text-center text-lg font-extrabold leading-9 text-texthigh md:text-2xl">
                   TUNEDSPHERE
                 </h1>
               </Link>
             </div>
-            <div className="relative flex w-2/6 flex-row items-center justify-end pr-8 sm:w-1/3 sm:gap-2 sm:pr-11">
+            <div className="relative flex w-2/3 flex-grow flex-row items-center justify-end pr-12 sm:w-1/3 sm:gap-2">
               <CartSheet />
               <div className="hidden sm:block">
                 <ThemeToggle />

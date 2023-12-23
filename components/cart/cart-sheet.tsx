@@ -45,7 +45,7 @@ export async function CartSheet({ className }: CartSheetProps) {
           {itemCount > 0 && (
             <Badge
               variant="success"
-              className="absolute -translate-y-1/2 translate-x-1/2 transform"
+              className="absolute z-200 -translate-y-1/2 translate-x-1/2 transform"
             >
               {itemCount}
             </Badge>

@@ -1,4 +1,3 @@
-import '@/components/layouts/layouts.css'
 import { currentUser } from '@clerk/nextjs'
 
 import React from 'react'
@@ -17,10 +16,8 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-
 export async function UserDropDownMenu() {
   const user = await currentUser()
   const initials = `${user?.firstName?.charAt(0) ?? ''} ${

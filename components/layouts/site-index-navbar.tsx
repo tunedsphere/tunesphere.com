@@ -15,7 +15,7 @@ import { IndexUserDropdownMenu } from '@/components/index-user-dropdown-menu'
 export function SiteIndexNavbar() {
   return (
     <>
-      <nav
+      <div
         id="globalnav"
         className="globalnav fixed h-auto border-b-2 border-accent-2 @container"
       >
@@ -47,7 +47,7 @@ export function SiteIndexNavbar() {
           <SiteGlobalNavMenuBurger />
         </div>
         <NavbarVideo />
-      </nav>
+      </div>
     </>
   )
 }

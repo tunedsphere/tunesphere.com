@@ -14,19 +14,13 @@ const buttonVariants = cva(
           'bg-destructive text-destructive-foreground hover:bg-destructive/80',
         outline:
           'border border-input shadow-sm hover:bg-accent hover:text-accent-foreground',
-        outlineTheme:
-          'border border-theme text-primary hover:bg-primary/30 hover:text-texthigh',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:text-secondary-foreground/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
-        ghostline:
-          'outline outline-1 outline-theme hover:bg-accent hover:outline-offset-1',
-        nav: 'rounded-md px-2 text-primary hover:bg-primary/30 hover:text-texthigh',
+        nav: 'rounded-md text-primary hover:bg-primary/30 hover:text-texthigh',
         link: 'text-primary underline-offset-4 hover:underline',
         logInButton:
           'rounded-full bg-primary/70 text-texthigh hover:bg-primary/50',
-        logInModal:
-          'text_texthigh hidden shrink-0 border-2 border-theme px-2 font-semibold leading-6 text-texthigh hover:bg-primary/30 hover:text-primary sm:block',
       },
       size: {
         icon: 'h-9 w-9',
