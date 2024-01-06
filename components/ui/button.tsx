@@ -8,19 +8,26 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        shopPagination: 'border border-muted/30 shadow-sm hover:bg-theme-100',
-        default: 'bg-primary text-texthigh hover:text-texthigh/80',
-        destructive:
-          'bg-destructive text-destructive-foreground hover:bg-destructive/80',
-        outline:
-          'border border-input shadow-sm hover:bg-accent hover:text-accent-foreground',
+        default: 'border text-texthigh hover:text-texthigh/80',
+        primary:
+          'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90',
         secondary:
-          'bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:text-secondary-foreground/80',
+          'bg-secondary/50 text-secondary-foreground shadow-sm hover:bg-secondary/60 hover:text-secondary-foreground',
+        soft: 'bg-soft/20 text-soft-foreground hover:bg-soft/50 font-semibold shadow-sm',
+        destructive:
+          'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/80',
+        success:
+          'bg-success text-success-foreground hover:bg-success/80 font-bold',
+        outline:
+          'border border-input hover:bg-theme-100 hover:text-accent-foreground',
+        outlineColor:
+          'border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
-        nav: 'rounded-md text-primary hover:bg-primary/30 hover:text-texthigh',
+        ghostColor:
+          'rounded-md text-primary hover:bg-primary/30 hover:text-secondary-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
-        logInButton:
-          'rounded-full bg-primary/70 text-texthigh hover:bg-primary/50',
+        rounded:
+          'rounded-full bg-primary text-primary-foreground hover:bg-primary/50',
       },
       size: {
         icon: 'h-9 w-9',

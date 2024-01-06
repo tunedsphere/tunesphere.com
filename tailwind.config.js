@@ -33,19 +33,12 @@ module.exports = {
     extend: {
       screens: {
         '3xl': {'min': '1600px'},
-        // => @media (min-width: 1600px) { ... }
         '4xl': {'min': '1920px'},
-        // => @media (min-width: 1920px) { ... }
         '5xl': {'min': '2560px'},
-           // => @media (min-width: 2560px) { ... }
         '6xl': {'min': '2880px'},
-         // => @media (min-width: 2880px) { ... }
         '7xl': {'min': '3200px'},
-        // => @media (min-width: 3200px) { ... }
         '8xl': {'min': '3840px'},
-        // => @media (min-width: 3840px) { ... }
         '9xl': {'min': '4096px'},
-        // => @media (min-width: 4096px) { ... }
     },
       containers: {
         '8xl': '88rem',
@@ -80,7 +73,6 @@ module.exports = {
       colors: {
         theme: {
           DEFAULT: "hsl(var(--primary))",
-          secondary: "hsl(var(--theme-secondary))",
           50: "hsl(var(--theme-50))",
           100: "hsl(var(--theme-100))",
           200: "hsl(var(--theme-200))",
@@ -124,9 +116,17 @@ module.exports = {
           index: "hsl(var(--secondary-index))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        soft: {
+          DEFAULT: "hsl(var(--soft))",
+          foreground: "hsl(var(--soft-foreground))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",

@@ -60,10 +60,9 @@ export default function MyApp() {
           </p>
         </div>
 
-        <div className="left-gradient -z-10"> </div>
         <div className="right-gradient absolute z-10"> </div>
-        <div className="z-200 grid gap-4 py-16 text-indexlow sm:grid-cols-2 sm:gap-2 lg:grid-cols-4">
-          <div className="flex-1 items-stretch">
+        <div className="z-200 grid gap-4 px-4 py-16 text-indexlow sm:grid-cols-2 sm:gap-2 md:px-8 xl:grid-cols-4">
+          <div className="">
             <Link href="/music/labels">
               <div
                 className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 text-center transition-colors hover:border-primary sm:text-left"
@@ -83,7 +82,7 @@ export default function MyApp() {
               </div>
             </Link>
           </div>
-          <div className="flex-1 items-stretch">
+          <div className="">
             <Link href="/music/artists">
               <div
                 className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 text-center transition-colors hover:border-primary sm:text-left"
@@ -105,7 +104,7 @@ export default function MyApp() {
             </Link>
           </div>
 
-          <div className="flex-1 items-stretch">
+          <div className="">
             <Link href="/fesitvals">
               <div
                 className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 text-center transition-colors hover:border-primary sm:text-left"
@@ -127,7 +126,7 @@ export default function MyApp() {
               </div>
             </Link>
           </div>
-          <div className="flex-1 items-stretch">
+          <div className="">
             <Link href="/music/albums">
               <div
                 className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 text-center transition-colors hover:border-primary sm:text-left"
@@ -149,9 +148,6 @@ export default function MyApp() {
           </div>
         </div>
 
-        <div className="flex justify-center">
-          {/* <NewReleasesSection/>  */}
-        </div>
         <section
           id="hero"
           aria-labelledby="hero-heading"

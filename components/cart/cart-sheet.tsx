@@ -39,7 +39,7 @@ export async function CartSheet({ className }: CartSheetProps) {
       <SheetTrigger asChild>
         <Button
           aria-label="Open cart"
-          variant="nav"
+          variant="ghostColor"
           className={`relative ${className}`}
         >
           {itemCount > 0 && (

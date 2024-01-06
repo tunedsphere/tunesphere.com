@@ -35,7 +35,7 @@ export function ShopMobileNav({
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button
-          variant="nav"
+          variant="ghostColor"
           className="col-span-1 grow-0 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
         >
           <Icon name="menu" className="h-6 w-6" />

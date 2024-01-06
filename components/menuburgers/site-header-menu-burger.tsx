@@ -56,7 +56,8 @@ export default function SiteHeaderMenuBurger() {
             size="xs"
             onClick={handleNavbarClick}
             aria-label="Toggle menu"
-            className="z-20 hidden bg-transparent text-texthigh hover:bg-theme-950 hover:text-primary md:block"
+            variant="ghostColor"
+            className="z-20 hidden text-texthigh md:block"
           >
             <Icon
               name="menu"
@@ -74,9 +75,10 @@ export default function SiteHeaderMenuBurger() {
             />
           </Button>
           <Button
+            variant="ghostColor"
             size="xs"
             onClick={handleNavbarClick}
-            className="z-20 block bg-transparent px-2 text-texthigh hover:bg-theme-950 hover:text-primary md:hidden"
+            className="z-20 block px-2 text-texthigh md:hidden"
           >
             <Icon
               name="vertical-three-dots"

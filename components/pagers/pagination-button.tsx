@@ -1,26 +1,26 @@
-import * as React from "react";
+import * as React from 'react'
 
-import { type AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { Icon } from "@/components/icon";
+import { type AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+import { Icon } from '@/components/icon'
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 
 interface PaginationButtonProps
   extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  pageCount: number;
-  page: string;
-  per_page?: string;
-  sort: string;
-  createQueryString: (params: Record<string, string | number | null>) => string;
-  router: AppRouterInstance;
-  pathname: string;
-  isPending: boolean;
-  startTransition: React.TransitionStartFunction;
-  siblingCount?: number;
+  pageCount: number
+  page: string
+  per_page?: string
+  sort: string
+  createQueryString: (params: Record<string, string | number | null>) => string
+  router: AppRouterInstance
+  pathname: string
+  isPending: boolean
+  startTransition: React.TransitionStartFunction
+  siblingCount?: number
 }
 
 export function PaginationButton({
@@ -39,45 +39,45 @@ export function PaginationButton({
 }: PaginationButtonProps) {
   // Memoize pagination range to avoid unnecessary re-renders
   const paginationRange = React.useMemo(() => {
-    const delta = siblingCount + 2;
+    const delta = siblingCount + 2
 
-    const range = [];
+    const range = []
     for (
       let i = Math.max(2, Number(page) - delta);
       i <= Math.min(pageCount - 1, Number(page) + delta);
       i++
     ) {
-      range.push(i as never);
+      range.push(i as never)
     }
 
     if (Number(page) - delta > 2) {
-      range.unshift("..." as never);
+      range.unshift('...' as never)
     }
     if (Number(page) + delta < pageCount - 1) {
-      range.push("..." as never);
+      range.push('...' as never)
     }
 
-    range.unshift(1 as never);
+    range.unshift(1 as never)
     if (pageCount !== 1) {
-      range.push(pageCount as never);
+      range.push(pageCount as never)
     }
 
-    return range;
-  }, [pageCount, page, siblingCount]);
+    return range
+  }, [pageCount, page, siblingCount])
 
   return (
     <div
       className={cn(
-        "flex flex-wrap items-center justify-center gap-2",
-        className
+        'flex flex-wrap items-center justify-center gap-2',
+        className,
       )}
       {...props}
     >
       <Button
         aria-label="Go to first page"
-        variant="shopPagination"
+        variant="outline"
         size="icon"
-        className="flex sm:h-8 sm:w-8 h-6 w-6"
+        className="flex h-6 w-6 sm:h-8 sm:w-8"
         onClick={() => {
           startTransition(() => {
             router.push(
@@ -85,9 +85,9 @@ export function PaginationButton({
                 page: 1,
                 per_page: per_page ?? null,
                 sort,
-              })}`
-            );
-          });
+              })}`,
+            )
+          })
         }}
         disabled={Number(page) === 1 || isPending}
       >
@@ -95,9 +95,9 @@ export function PaginationButton({
       </Button>
       <Button
         aria-label="Go to previous page"
-        variant="shopPagination"
+        variant="outline"
         size="icon"
-        className="sm:h-8 sm:w-8 h-6 w-6"
+        className="h-6 w-6 sm:h-8 sm:w-8"
         onClick={() => {
           startTransition(() => {
             router.push(
@@ -105,22 +105,22 @@ export function PaginationButton({
                 page: Number(page) - 1,
                 per_page: per_page ?? null,
                 sort,
-              })}`
-            );
-          });
+              })}`,
+            )
+          })
         }}
         disabled={Number(page) === 1 || isPending}
       >
         <Icon name="chevron-left" className="h-4 w-4" aria-hidden="true" />
       </Button>
       {paginationRange.map((pageNumber, i) =>
-        pageNumber === "..." ? (
+        pageNumber === '...' ? (
           <Button
             aria-label="Page separator"
             key={i}
-            variant="shopPagination"
+            variant="outline"
             size="icon"
-            className="sm:h-8 sm:w-8 h-6 w-6"
+            className="h-6 w-6 sm:h-8 sm:w-8"
             disabled
           >
             ...
@@ -129,9 +129,9 @@ export function PaginationButton({
           <Button
             aria-label={`Page ${pageNumber}`}
             key={i}
-            variant={Number(page) === pageNumber ? "default" : "shopPagination"}
+            variant={Number(page) === pageNumber ? 'default' : 'outline'}
             size="icon"
-            className="sm:h-8 sm:w-8 h-6 w-6"
+            className="h-6 w-6 sm:h-8 sm:w-8"
             onClick={() => {
               startTransition(() => {
                 router.push(
@@ -139,21 +139,21 @@ export function PaginationButton({
                     page: pageNumber,
                     per_page: per_page ?? null,
                     sort,
-                  })}`
-                );
-              });
+                  })}`,
+                )
+              })
             }}
             disabled={isPending}
           >
             {pageNumber}
           </Button>
-        )
+        ),
       )}
       <Button
         aria-label="Go to next page"
-        variant="shopPagination"
+        variant="outline"
         size="icon"
-        className="sm:h-8 sm:w-8 h-6 w-6"
+        className="h-6 w-6 sm:h-8 sm:w-8"
         onClick={() => {
           startTransition(() => {
             router.push(
@@ -161,9 +161,9 @@ export function PaginationButton({
                 page: Number(page) + 1,
                 per_page: per_page ?? null,
                 sort,
-              })}`
-            );
-          });
+              })}`,
+            )
+          })
         }}
         disabled={Number(page) === (pageCount ?? 10) || isPending}
       >
@@ -171,22 +171,22 @@ export function PaginationButton({
       </Button>
       <Button
         aria-label="Go to last page"
-        variant="shopPagination"
+        variant="outline"
         size="icon"
-        className="flex sm:h-8 sm:w-8 h-6 w-6"
+        className="flex h-6 w-6 sm:h-8 sm:w-8"
         onClick={() => {
           router.push(
             `${pathname}?${createQueryString({
               page: pageCount ?? 10,
               per_page: per_page ?? null,
               sort,
-            })}`
-          );
+            })}`,
+          )
         }}
         disabled={Number(page) === (pageCount ?? 10) || isPending}
       >
         <Icon name="chevron-right" className="h-4 w-4" aria-hidden="true" />
       </Button>
     </div>
-  );
+  )
 }

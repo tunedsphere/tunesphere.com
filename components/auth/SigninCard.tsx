@@ -35,7 +35,7 @@ export default function SigninCard({ onClose }: SigninCardProps) {
   return (
     <div id="signin-card" className="z-20 @container">
       <Card className="border-0 border-muted/50 bg-background @md:border">
-        <div className="top-68 absolute left-0 -z-10 h-52 w-[33.333333%] bg-theme-secondary opacity-30 blur-[300px]"></div>
+        <div className="top-68 absolute left-0 -z-10 h-52 w-[33.333333%] bg-secondary opacity-30 blur-[300px]"></div>
         <div className="flex justify-end p-2 sm:p-4">
           <Button
             variant="ghost"
@@ -48,7 +48,10 @@ export default function SigninCard({ onClose }: SigninCardProps) {
           </Button>
         </div>
         <CardHeader className="items-center space-y-1">
-          <CardTitle as="h1" className="text-5xl text-card-foreground">
+          <CardTitle
+            as="h1"
+            className="text-5xl font-bold text-card-foreground"
+          >
             Log in
           </CardTitle>
           <CardDescription className="p-2 text-center text-secondary">

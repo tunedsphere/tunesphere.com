@@ -343,7 +343,7 @@
   }
   
   .animated-bg-grt-violet {
-    height: 300px;
+    height: 100px;
     width: 100%;
     background: #51009c;
     filter: blur(260px);
@@ -351,14 +351,14 @@
   }
   
   .animated-bg-grt-yellow {
-    height: 300px;
+    height: 100px;
     width: 100%;
     background: #fcd34d;
     filter: blur(260px);
     animation: animated-grt-yellow 8s infinite;
   }
   .animated-bg-grt-cyan {
-    height: 300px;
+    height: 100px;
     width: 100%;
     background: #60d6fa;
     filter: blur(260px);

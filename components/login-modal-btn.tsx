@@ -20,9 +20,10 @@ export default function LoginModalButton() {
   return (
     <>
       <Button
+        variant="primary"
         id="login-modal-btn"
         onClick={handleClick}
-        className="hidden shrink-0 border-2 border-primary bg-transparent font-semibold leading-6 hover:bg-primary/30 sm:block"
+        className="hidden shrink-0 font-semibold leading-6 sm:block"
       >
         Log In
       </Button>

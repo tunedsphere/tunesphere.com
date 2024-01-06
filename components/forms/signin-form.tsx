@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useSignIn } from "@clerk/nextjs";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import type { z } from "zod";
+import * as React from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useSignIn } from '@clerk/nextjs'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import type { z } from 'zod'
 
-import { catchClerkError } from "@/lib/utils";
-import { authSignInSchema } from "@/lib/validations/auth";
-import { Button } from "@/components/ui/button";
+import { catchClerkError } from '@/lib/utils'
+import { authSignInSchema } from '@/lib/validations/auth'
+import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -18,52 +18,52 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Icon } from "@/components/icon";
-import { PasswordInput } from "@/components/password-input";
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Icon } from '@/components/icon'
+import { PasswordInput } from '@/components/password-input'
 
-type Inputs = z.infer<typeof authSignInSchema>;
+type Inputs = z.infer<typeof authSignInSchema>
 
 interface SignInFormProps {
-  handleLinkClick?: () => void;
+  handleLinkClick?: () => void
 }
 export function SignInForm({ handleLinkClick }: SignInFormProps) {
-  const router = useRouter();
-  const { isLoaded, signIn, setActive } = useSignIn();
-  const [isPending, startTransition] = React.useTransition();
+  const router = useRouter()
+  const { isLoaded, signIn, setActive } = useSignIn()
+  const [isPending, startTransition] = React.useTransition()
 
   // react-hook-form
   const form = useForm<Inputs>({
     resolver: zodResolver(authSignInSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
-  });
+  })
 
   function onSubmit(data: Inputs) {
-    if (!isLoaded) return;
+    if (!isLoaded) return
 
     startTransition(async () => {
       try {
         const result = await signIn.create({
           identifier: data.email,
           password: data.password,
-        });
+        })
 
-        if (result.status === "complete") {
-          await setActive({ session: result.createdSessionId });
+        if (result.status === 'complete') {
+          await setActive({ session: result.createdSessionId })
 
-          router.push(`${window.location.origin}/`);
+          router.push(`${window.location.origin}/`)
         } else {
           /*Investigate why the login hasn't completed */
-          console.log(result);
+          console.log(result)
         }
       } catch (err) {
-        catchClerkError(err);
+        catchClerkError(err)
       }
-    });
+    })
   }
 
   return (
@@ -95,7 +95,7 @@ export function SignInForm({ handleLinkClick }: SignInFormProps) {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <div className="flex justify-between text-center items-center">
+              <div className="flex items-center justify-between text-center">
                 <FormLabel>Password</FormLabel>
                 <Link
                   aria-label="Reset password"
@@ -119,8 +119,9 @@ export function SignInForm({ handleLinkClick }: SignInFormProps) {
         />
 
         <Button
+          variant="rounded"
           type="submit"
-          className="my-8 w-full items-center p-2 text-xl rounded-full text-texthigh bg-cyan-300 dark:bg-violet-800 hover:bg-cyan-300 dark:hover:bg-violet-800/50"
+          className="my-8 w-full items-center rounded-full p-4 text-xl "
           disabled={isPending}
         >
           {isPending && (
@@ -135,5 +136,5 @@ export function SignInForm({ handleLinkClick }: SignInFormProps) {
         </Button>
       </form>
     </Form>
-  );
+  )
 }

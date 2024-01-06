@@ -124,6 +124,7 @@ export function ProductCard({
         <CardFooter className="p-4">
           <div className="flex w-full flex-col items-center gap-2 align-middle sm:flex-row">
             <Button
+              variant="primary"
               aria-label={isAddedToCart ? 'Remove from cart' : 'Add to Basket'}
               size="sm"
               className="flex w-full rounded-sm"
