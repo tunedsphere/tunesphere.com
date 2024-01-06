@@ -42,7 +42,7 @@ export function SiteIndexFooter() {
         >
           {siteConfig.footerNav.map((item) => (
             <div key={item.title} className="space-y-3">
-              <h1 className="text-base font-medium text-indexhigh underline decoration-primary underline-offset-4 md:pl-28">
+              <h1 className="text-base font-bold text-indexhigh underline decoration-primary underline-offset-4 md:pl-28">
                 {item.title}
               </h1>
               <ul className="space-y-3">
@@ -55,7 +55,7 @@ export function SiteIndexFooter() {
                       target={link?.external ? '_blank' : undefined}
                       rel={link?.external ? 'noreferrer' : undefined}
                       className={cn(
-                        'text-sm text-indexlow transition-colors hover:text-indexhigh',
+                        'text-sm font-medium text-indexlow transition-colors hover:text-indexhigh',
                         link.disabled && 'cursor-not-allowed opacity-80',
                         link.href, // Add a comma here
                       )}

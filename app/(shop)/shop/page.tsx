@@ -85,11 +85,11 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                     buttonVariants({
                       size: 'xl',
                     }),
-                    'grt-button text-primary hover:bg-transparent hover:text-sm',
+                    'grt-button text-primary hover:bg-background hover:text-sm',
                   )}
                 >
-                  <span className="animated-grt-text_background-theme font-semibold before:bg-foreground">
-                    <span className="animated-grt-text_foreground-theme font-semibold">
+                  <span className="animated-grt-text_background-theme font-bold tracking-widest before:bg-foreground">
+                    <span className="animated-grt-text_foreground-theme font-bold tracking-widest">
                       Explore Products
                     </span>
                   </span>
@@ -109,7 +109,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                     'grt-button z-30 hover:bg-transparent hover:text-theme-50',
                   )}
                 >
-                  <span className="font-semibold">Sell Now</span>
+                  <span className="font-bold tracking-widest">Sell Now</span>
                 </Link>
               </div>
 

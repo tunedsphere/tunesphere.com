@@ -148,10 +148,7 @@
     --background-shop-navlink: 195 92% 85%;
 
     --background: 0 0% 100%;
-    --background-index: 0 0% 0%;  
-
-
-   
+    --background-index: 0 0% 0%; 
   }
 
   .dark {
@@ -170,7 +167,7 @@
     --theme-950: 269 82% 16%;
     --theme-secondary: 295 100% 51%;
 
-    --primary: 263 70% 64%;
+    --primary: 262 83% 58%;
     --primary-foreground: 210 20% 98%;
 
     --secondary: 264 67% 35%;

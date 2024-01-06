@@ -47,7 +47,7 @@ export function ProductCard({
       <Card
         id="product-card"
         className={cn(
-          'rounded-noneborder-none group border-muted bg-card sm:rounded-lg sm:border',
+          'group border-muted bg-card sm:rounded-lg sm:border',
           className,
         )}
         {...props}
@@ -57,11 +57,11 @@ export function ProductCard({
           aria-label={product.name}
           href="/shop/product/[...productId]/page"
           as={`/shop/product/${product.id}/${slugify(product.name)}`}
-          className="group cursor-default"
+          className="group"
         >
           <CardHeader className="relative p-0">
             <AspectRatio ratio={4 / 3}>
-              <div className="transition-color absolute inset-0 z-10 bg-muted/20 group-hover:bg-zinc-950/30" />
+              <div className="transition-color absolute inset-0 z-10 rounded-t-lg group-hover:bg-zinc-950/30 " />
               {product?.images?.length ? (
                 <Image
                   key={`${product.id}_image`}
@@ -69,7 +69,7 @@ export function ProductCard({
                     product.images[0]?.url ?? '/images/product-placeholder.webp'
                   }
                   alt={product.images[0]?.name ?? product.name}
-                  className="absolute h-full w-full cursor-default rounded-md object-cover group-hover:bg-zinc-950/50"
+                  className="absolute h-full w-full cursor-pointer rounded-t-lg object-cover group-hover:bg-zinc-950/50"
                   sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
                   fill
                   loading="lazy"
@@ -92,7 +92,7 @@ export function ProductCard({
           </CardHeader>
         </Link>
         <CardContent className="grid pb-4">
-          <CardTitle className="cursor-pointer truncate py-2 text-base decoration-primary decoration-2 underline-offset-2 group-hover:font-semibold group-hover:underline">
+          <CardTitle className="mb-1 mt-2 cursor-pointer truncate text-base font-medium leading-relaxed">
             {product.name}
           </CardTitle>
           <div className="text-lg font-bold leading-snug">
@@ -111,7 +111,7 @@ export function ProductCard({
             </div>
           </div>
           <Link
-            className="line-clamp-1 text-muted-foreground"
+            className="line-clamp-1 font-medium text-muted-foreground"
             key={product.storeId}
             aria-label={
               Array.isArray(storeName) ? storeName.join(', ') : storeName
