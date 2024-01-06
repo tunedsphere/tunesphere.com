@@ -29,7 +29,7 @@ export function SiteIndexNavbar() {
             </div>
             <div className="left-0 z-20 flex w-4/6 shrink items-center sm:w-1/3 sm:justify-center">
               <Link href="/" aria-label="tunedsphere" id="tunedsphere">
-                <h1 className="z-10 cursor-pointer text-center text-lg font-extrabold leading-9 text-foreground md:text-2xl">
+                <h1 className="z-10 cursor-pointer text-center text-lg font-extrabold leading-9 text-white md:text-2xl">
                   TUNEDSPHERE
                 </h1>
               </Link>
@@ -37,7 +37,7 @@ export function SiteIndexNavbar() {
             <div className="relative flex w-2/6 shrink-0 flex-row items-center justify-end gap-1 pr-10 sm:w-1/3 sm:gap-2 sm:pr-12">
               <CartSheet className="hover:text-white" />
               <div className="hidden @sm:block">
-                {/* <ThemeToggle className="hover:text-white" /> */}
+                <ThemeToggle className="hover:text-white" />
               </div>
               <div className="flex items-center justify-center">
                 <IndexUserDropdownMenu />

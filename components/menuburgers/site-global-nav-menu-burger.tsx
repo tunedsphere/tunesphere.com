@@ -57,7 +57,7 @@ export default function SiteGlobalNavMenuBurger() {
             variant="ghostColor"
             onClick={handleNavbarClick}
             aria-label="Toggle menu"
-            className="hidden text-foreground hover:text-theme md:block"
+            className="hidden text-white hover:text-theme md:block"
           >
             <Icon
               name="menu"
