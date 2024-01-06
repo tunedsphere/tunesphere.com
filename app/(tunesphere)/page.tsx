@@ -60,7 +60,7 @@ export default function MyApp() {
           </p>
         </div>
 
-        <div className="right-gradient absolute z-10"> </div>
+        {/* <div className="right-gradient absolute z-10"> </div> */}
         <div className="z-200 grid gap-4 px-4 py-16 text-indexlow sm:grid-cols-2 sm:gap-2 md:px-8 xl:grid-cols-4">
           <div className="">
             <Link href="/music/labels">

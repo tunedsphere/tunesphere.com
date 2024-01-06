@@ -1,35 +1,32 @@
 // Modified from: https://github.com/shadcn-ui/ui/blob/main/apps/www/components/page-header.tsx
 
-import { cva, type VariantProps } from "class-variance-authority"
-import { Balancer } from "react-wrap-balancer"
+import { cva, type VariantProps } from 'class-variance-authority'
+import { Balancer } from 'react-wrap-balancer'
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
 interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType
 }
-const PageHeaderVariants = cva(
-  "grid gap-1",
-  {
-    variants: {
-      variant: {
-        default: "",
-        dashboard:"pb-8 pt-2 border-muted border-b",
-        auth: "justify-center text-center",
-        shop: "justify-center text-center",
-        shopProducts: "justify-center text-center",
-      }
-    }
-  }
-)
+const PageHeaderVariants = cva('grid gap-1', {
+  variants: {
+    variant: {
+      default: '',
+      dashboard: 'border-b border-muted pb-8 pt-2',
+      auth: 'justify-center text-center',
+      shop: 'justify-center text-center',
+      shopProducts: 'justify-center text-center',
+    },
+  },
+})
 interface PageHeaderProps
-extends React.HTMLAttributes<HTMLHeadingElement>,
-VariantProps<typeof PageHeaderVariants> {}
+  extends React.HTMLAttributes<HTMLHeadingElement>,
+    VariantProps<typeof PageHeaderVariants> {}
 function PageHeader({
   variant,
   className,
   children,
-  as: Comp = "section",
+  as: Comp = 'section',
   ...props
 }: PageHeaderProps) {
   return (
@@ -39,60 +36,59 @@ function PageHeader({
   )
 }
 
-const headingVariants = cva(
-  "font-bold leading-tight tracking-tighter lg:leading-[1.1]",
-  {
-    variants: {
-      variant: { 
-        default: "",
-        shop: "",
-        shopProducts: "justify-center",
-      },
-      size: {
-        default: "text-3xl md:text-4xl",
-        xs: "text-xl md:text-2xl",
-        sm: "text-2xl md:text-3xl",
-        lg: "text-4xl md:text-5xl",
-        xl: "text-4xl md:text-5xl lg:text-6xl",
-        xxl: "text-6xl md:text-7xl lg:text-8xl",
-      },
+const headingVariants = cva('font-bold leading-loose tracking-tight', {
+  variants: {
+    variant: {
+      default: '',
+      shop: '',
+      shopProducts: 'justify-center',
     },
-    defaultVariants: {
-      size: "default",
+    size: {
+      default: 'text-3xl md:text-4xl',
+      xs: 'text-xl md:text-2xl',
+      sm: 'text-2xl md:text-3xl',
+      lg: 'text-4xl md:text-5xl',
+      xl: 'text-4xl md:text-5xl lg:text-6xl',
+      xxl: 'text-6xl md:text-7xl lg:text-8xl',
     },
-  }
-)
+  },
+  defaultVariants: {
+    size: 'default',
+  },
+})
 
 interface PageHeaderHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof headingVariants> {
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
 
 function PageHeaderHeading({
   className,
   size,
   variant,
-  as: Comp = "h1",
+  as: Comp = 'h1',
 
   ...props
 }: PageHeaderHeadingProps) {
   return (
-    <Comp className={cn(headingVariants({ size, className, variant }))} {...props} />
+    <Comp
+      className={cn(headingVariants({ size, className, variant }))}
+      {...props}
+    />
   )
 }
 
-const descriptionVariants = cva("text-muted-foreground max-w-[750px]", {
+const descriptionVariants = cva('max-w-[750px] leading-relaxed text-textlow', {
   variants: {
     size: {
-      default: "text-base sm:text-lg",
-      sm: "text-sm sm:text-base",
-      lg: "text-lg sm:text-xl",
-
+      default: 'text-base sm:text-lg',
+      sm: 'text-sm sm:text-base',
+      lg: 'text-lg sm:text-xl',
     },
   },
   defaultVariants: {
-    size: "default",
+    size: 'default',
   },
 })
 

@@ -1,15 +1,15 @@
-import Image from "next/image"
-import { useMDXComponent } from "next-contentlayer/hooks"
+import Image from 'next/image'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import { cn } from "@/lib/utils"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Callout } from "@/components/mdx/callout"
-import { CodeBlock } from "@/components/mdx/code-block"
-import { DocsCard } from "@/components/mdx/mdx-card"
+import { cn } from '@/lib/utils'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Callout } from '@/components/mdx/callout'
+import { CodeBlock } from '@/components/mdx/code-block'
+import { DocsCard } from '@/components/mdx/mdx-card'
 import { Label } from '@/components/mdx/mdx-label'
-import { ChevronLink } from "../chevronLink"
-import { Link } from "./Link"
+import { ChevronLink } from '../chevronLink'
+import { Link } from './Link'
 
 /** Originally from `shadcn/ui-docs`
  * @link https://github.com/shadcn/ui/blob/main/apps/www/components/mdx-components.tsx
@@ -26,15 +26,18 @@ type AspectRatioProps = React.ComponentProps<typeof AspectRatio>
 const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
-      className={cn("mt-2 scroll-m-20 text-4xl font-bold", className)}
+      className={cn(
+        'mt-2 scroll-m-20 text-4xl font-medium tracking-tight',
+        className,
+      )}
       {...props}
     />
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-20 pb-2 text-2xl font-bold tracking-tight first:mt-0",
-        className
+        'mt-10 scroll-m-20 pb-2 text-2xl font-medium leading-relaxed tracking-wide first:mt-0',
+        className,
       )}
       {...props}
     />
@@ -42,8 +45,8 @@ const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
-        className
+        'mt-8 scroll-m-20 text-xl font-medium leading-snug',
+        className,
       )}
       {...props}
     />
@@ -51,8 +54,8 @@ const components = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
-        className
+        'mt-8 scroll-m-20 text-lg font-medium leading-snug',
+        className,
       )}
       {...props}
     />
@@ -60,8 +63,8 @@ const components = {
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
       className={cn(
-        "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
-        className
+        'mt-8 scroll-m-20 text-lg font-semibold tracking-tight',
+        className,
       )}
       {...props}
     />
@@ -69,39 +72,42 @@ const components = {
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
       className={cn(
-        "mt-8 scroll-m-20 text-base font-semibold tracking-tight",
-        className
+        'mt-8 scroll-m-20 text-base font-semibold tracking-tight',
+        className,
       )}
       {...props}
     />
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium underline underline-offset-4 hover:text-texthigh/80 hover:decoration-2 text-texthigh decoration-primary", className)}
+      className={cn(
+        'font-medium text-texthigh underline decoration-primary underline-offset-4 hover:text-texthigh/80 hover:decoration-2',
+        className,
+      )}
       {...props}
     />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
-        "text-base text-textlow leading-7 [&:not(:first-child)]:mt-5",
-        className
+        'text-base leading-7 text-textlow [&:not(:first-child)]:mt-5',
+        className,
       )}
       {...props}
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+    <ul className={cn('my-6 ml-6 list-disc', className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
+    <ol className={cn('my-6 ml-6 list-decimal', className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <li className={cn("mt-2", className)} {...props} />
+    <li className={cn('mt-2', className)} {...props} />
   ),
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <blockquote
-      className={cn("mt-6 border-l-2 border-muted pl-6 italic", className)}
+      className={cn('mt-6 border-l-2 border-muted pl-6 italic', className)}
       {...props}
     />
   ),
@@ -111,27 +117,27 @@ const components = {
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img className={cn("rounded-md", className)} alt={alt} {...props} />
+    <img className={cn('rounded-md', className)} alt={alt} {...props} />
   ),
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <hr className="my-4 md:my-8" {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">
-      <table className={cn("w-full", className)} {...props} />
+      <table className={cn('w-full', className)} {...props} />
     </div>
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("m-0 border-t border-muted p-0 even:bg-muted", className)}
+      className={cn('m-0 border-t border-muted p-0 even:bg-muted', className)}
       {...props}
     />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
-        "border border-muted px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        'border border-muted px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
+        className,
       )}
       {...props}
     />
@@ -139,8 +145,8 @@ const components = {
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        "border border-muted px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        'border border-muted px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
+        className,
       )}
       {...props}
     />
@@ -149,14 +155,14 @@ const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
-        className
+        'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm',
+        className,
       )}
       {...props}
     />
   ),
   Image: ({ className, alt, ...props }: ImageProps) => (
-    <Image className={cn(className, "mt-4")} alt={alt} {...props} />
+    <Image className={cn(className, 'mt-4')} alt={alt} {...props} />
   ),
   Alert: ({ className, ...props }: AlertProps) => (
     <Alert className={cn(className)} {...props} />

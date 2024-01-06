@@ -177,7 +177,7 @@
     --soft-foreground: 258 90% 66%;  
 
     --texthigh: 210 6% 93%;
-    --textlow: 218 11% 65%;
+    --textlow: 215 20% 65%;
     --indexhigh: 210 6% 93%;
     --indexlow: 218 11% 65%;
 
@@ -230,7 +230,7 @@
 
     --background-shop-navlink: 272 100% 20%;
 
-    --background: 224 71.4% 2%; 
+    --background: 264 67% 5%; 
     --background-index: 0 0% 3%;     
   
     --backgroundgradient: linear-gradient(
