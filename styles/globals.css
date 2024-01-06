@@ -101,8 +101,6 @@
 
     --texthigh: 240 5.9% 10%;
     --textlow: 0 0% 40%;
-    --indexhigh: 210 6% 93%;
-    --indexlow: 218 11% 65%;
 
     --foreground: 240 10% 3.9%;
 
@@ -115,8 +113,8 @@
     --card:240 4.8% 97%;
     --card-foreground: 240 10% 3.9%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
+    --border: 220 3% 64%;
+    --input: 220 3% 64%;
 
     --accent: 210 20% 98%;
     --accent-foreground: 240 5.9% 10%;
@@ -147,8 +145,7 @@
 
     --background-shop-navlink: 195 92% 85%;
 
-    --background: 0 0% 100%;
-    --background-index: 0 0% 0%; 
+    --background: 0 0% 97%;
   }
 
   .dark {
@@ -178,8 +175,6 @@
 
     --texthigh: 210 6% 93%;
     --textlow: 215 20% 65%;
-    --indexhigh: 210 6% 93%;
-    --indexlow: 218 11% 65%;
 
     --foreground: 210 0% 98%;  
 
@@ -192,8 +187,8 @@
     --card: 215 27.9% 10%;    
     --card-foreground: 210 20% 98%;   
 
-    --border: 214 32% 91%; 
-    --input: 215 28% 17%;    
+    --border: 215 27.9% 16.9%; 
+    --input: 215 27.9% 16.9%;    
 
     --accent: 222 47% 4%;
     --accent-foreground: 210 20% 98%;  
@@ -215,7 +210,6 @@
     --ring: 263.4 70% 50.4%;
 
     --radius: 0.5rem;
-
     
     --background-navbartop: hsla(0, 0%, 2%, 0.5);
     --background-navbarbottom: hsla(0, 0%, 2%, 0.5);
@@ -231,7 +225,6 @@
     --background-shop-navlink: 272 100% 20%;
 
     --background: 264 67% 5%; 
-    --background-index: 0 0% 3%;     
   
     --backgroundgradient: linear-gradient(
       120deg,
@@ -252,15 +245,14 @@
     );
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
-  }
-  :global(body.custom-body-class) {
-    background-color: black;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
   @media (max-width: 767px) {
     body {

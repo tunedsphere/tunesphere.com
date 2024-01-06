@@ -35,18 +35,18 @@ export default function MyApp() {
               size="xxl"
               className="hero_title justify-center gap-2 "
             >
-              <span className="text-indexhigh">A </span>
-              <span className="animated-grt-text_background-violet before:bg-white ">
+              <span className="text-foreground">A </span>
+              <span className="animated-grt-text_background-violet before:bg-foreground ">
                 <span className="animated-grt-text_foreground-violet">
-                  Psychedelic
+                  Psygroove
                 </span>
               </span>
-              <span className="animated-grt-text_background-red before:bg-white">
+              <span className="animated-grt-text_background-red before:bg-foreground">
                 <span className="animated-grt-text_foreground-red">
                   Dedicated
                 </span>
               </span>
-              <span className="animated-grt-text_background-cyan before:bg-white">
+              <span className="animated-grt-text_background-cyan before:bg-foreground">
                 <span className="animated-grt-text_foreground-cyan">
                   Platform
                 </span>
@@ -54,99 +54,97 @@ export default function MyApp() {
             </PageHeaderHeading>
           </PageHeader>
 
-          <p className="py-4 text-center text-lg text-indexlow lg:text-xl">
+          <p className="py-4 text-center text-lg text-textlow lg:text-xl">
             Explore the musical realm of Psychedelic Art, with Music, Art,
             Decorations, and Festivals
           </p>
         </div>
 
         {/* <div className="right-gradient absolute z-10"> </div> */}
-        <div className="z-200 grid gap-4 px-4 py-16 text-indexlow sm:grid-cols-2 sm:gap-2 md:px-8 xl:grid-cols-4">
-          <div className="">
-            <Link href="/music/labels">
-              <div
-                className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 text-center transition-colors hover:border-primary sm:text-left"
-                rel="noopener noreferrer"
-              >
-                <h2 className={`mb-3 text-2xl font-semibold text-indexhigh`}>
+        <ol className="group/list grid gap-4 px-4 py-16 text-textlow sm:grid-cols-2 sm:gap-2 md:px-8 xl:grid-cols-4">
+          <li className="">
+            <Link
+              href="/music/labels"
+              className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+            >
+              <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
+
+              <div className="z-10 grid w-full">
+                <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                   Labels{' '}
-                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ">
+                  <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
                   </span>
-                </h2>
-                <p
-                  className={`mx-auto max-w-[20ch] text-center text-sm text-indexlow opacity-80 sm:m-0 sm:max-w-[30ch] sm:text-left`}
-                >
+                </h3>
+                <p className="text-textlow">
                   Search & Find the label that suits your ears the most.
                 </p>
               </div>
             </Link>
-          </div>
-          <div className="">
-            <Link href="/music/artists">
-              <div
-                className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 text-center transition-colors hover:border-primary sm:text-left"
-                rel="noopener noreferrer"
-              >
-                <h2 className={`mb-3 text-2xl font-semibold text-indexhigh`}>
+          </li>
+          <li className="">
+            <Link
+              href="/music/artists"
+              className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+            >
+              <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
+
+              <div className="z-10 grid w-full">
+                <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                   Artists & DJ{' '}
-                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
                   </span>
-                </h2>
-                <p
-                  className={`mx-auto max-w-[20ch] text-center text-sm text-indexlow opacity-80 sm:m-0 sm:max-w-[30ch] sm:text-left`}
-                >
+                </h3>
+                <p className="text-textlow">
                   Explore in depth of your favorite genre and find inspiring
                   Artists
                 </p>
               </div>
             </Link>
-          </div>
+          </li>
+          <li className="">
+            <Link
+              href="/music/festivals"
+              className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+            >
+              <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
 
-          <div className="">
-            <Link href="/fesitvals">
-              <div
-                className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 text-center transition-colors hover:border-primary sm:text-left"
-                rel="noopener noreferrer"
-              >
-                <h2
-                  className={`mb-3 px-1 text-2xl font-semibold text-indexhigh`}
-                >
+              <div className="z-10 grid w-full">
+                <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                   Festivals{' '}
-                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
                   </span>
-                </h2>
-                <p
-                  className={`mx-auto max-w-[20ch] text-center text-sm text-indexlow opacity-80 sm:m-0 sm:max-w-[30ch] sm:text-left`}
-                >
+                </h3>
+                <p className="text-textlow">
                   Instantly check where your favorite Artist will play.
                 </p>
               </div>
             </Link>
-          </div>
-          <div className="">
-            <Link href="/music/albums">
-              <div
-                className="group rounded-lg border border-gray-800 bg-background-index px-5 py-4 text-center transition-colors hover:border-primary sm:text-left"
-                rel="noopener noreferrer"
-              >
-                <h2 className={`mb-3 text-2xl font-semibold text-indexhigh`}>
+          </li>
+          <li className="">
+            <Link
+              href="/music"
+              className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+            >
+              <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
+
+              <div className="z-10 grid w-full">
+                <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                   Fresh Frequencies
-                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
                   </span>
-                </h2>
-                <p
-                  className={`mx-auto max-w-[20ch] text-center text-sm text-indexlow opacity-80 sm:m-0 sm:max-w-[30ch] sm:text-left`}
-                >
-                  Check some latest releases, prepare your caffé longo.
+                </h3>
+                <p className="text-textlow">
+                  Explore in depth of your favorite genre and find inspiring
+                  Artists
                 </p>
               </div>
             </Link>
-          </div>
-        </div>
+          </li>
+        </ol>
 
         <section
           id="hero"
@@ -156,29 +154,29 @@ export default function MyApp() {
           <PageHeader id="home-shop" aria-labelledby="home-shop-header-heading">
             <PageHeaderHeading
               size="xl"
-              className="py-6 tracking-tighter text-indexhigh md:py-24"
+              className="py-6 tracking-tighter text-foreground md:py-24"
             >
               A Store built for You with everything you would expect.
             </PageHeaderHeading>
           </PageHeader>
           <div className="relative z-200 mx-auto max-w-[32rem] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="animated-bg-grt-violet !important absolute inset-x-0 -z-10"></div>
+              {/* <div className="animated-bg-grt-violet !important absolute inset-x-0 -z-10"></div>
               <div className="animated-bg-grt-yellow !important absolute inset-x-0 -z-10"></div>
-              <div className="animated-bg-grt-cyan !important absolute inset-x-0 -z-10"></div>
-              <div className="grt-button-wrapper flex-1">
+              <div className="animated-bg-grt-cyan !important absolute inset-x-0 -z-10"></div> */}
+              <div className="grt-button-wrapper flex-1 ">
                 <Link
                   href="/shop/products"
                   className={cn(
                     buttonVariants({
                       size: 'xl',
                     }),
-                    'grt-button border-muted font-bold',
+                    'bg-white/90 font-bold',
                   )}
                 >
                   <Icon
                     name="chevron-right"
-                    className="absolute left-1 sm:left-4"
+                    className="absolute left-1 text-black sm:left-4"
                   />
                   <span className="animated-grt-text animated-grt-violet">
                     Buy Now

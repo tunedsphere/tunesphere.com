@@ -57,7 +57,7 @@ export default function SiteGlobalNavMenuBurger() {
             variant="ghostColor"
             onClick={handleNavbarClick}
             aria-label="Toggle menu"
-            className="hidden text-indexhigh hover:text-theme md:block"
+            className="hidden text-foreground hover:text-theme md:block"
           >
             <Icon
               name="menu"
@@ -84,7 +84,7 @@ export default function SiteGlobalNavMenuBurger() {
           <Button
             variant="ghostColor"
             onClick={handleFlyoutOpen}
-            className="block object-contain px-2 text-indexhigh hover:text-theme md:hidden"
+            className="block object-contain px-2 text-foreground hover:text-theme md:hidden"
           >
             <Icon name="menu" aria-hidden="true" className="h-6 w-6" />
           </Button>

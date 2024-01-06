@@ -12,7 +12,7 @@ export function SiteIndexFooter() {
       <div className="absolute bottom-0 left-[37%] h-24 w-60 bg-primary blur-[140px]" />
 
       <div className="gap-5">
-        <h1 className="py-8 text-center text-4xl font-bold text-indexhigh">
+        <h1 className="py-8 text-center text-4xl font-bold text-foreground">
           A Psychedelic dedicated Platform
         </h1>
       </div>
@@ -21,9 +21,9 @@ export function SiteIndexFooter() {
         aria-labelledby="newsletter-heading"
         className="mx-auto flex max-w-2xl flex-col justify-center gap-4 space-y-3 py-4"
       >
-        <p className="text-center text-base font-medium text-indexlow">
+        <p className="text-center text-base font-medium text-textlow">
           Subscribe to our{' '}
-          <span className="font-semibold text-indexhigh underline decoration-primary underline-offset-4">
+          <span className="font-semibold text-foreground underline decoration-primary underline-offset-4">
             Newsletter
           </span>
         </p>
@@ -42,7 +42,7 @@ export function SiteIndexFooter() {
         >
           {siteConfig.footerNav.map((item) => (
             <div key={item.title} className="space-y-3">
-              <h1 className="text-base font-bold text-indexhigh underline decoration-primary underline-offset-4 md:pl-28">
+              <h1 className="text-base font-bold text-foreground underline decoration-primary underline-offset-4 md:pl-28">
                 {item.title}
               </h1>
               <ul className="space-y-3">
@@ -55,7 +55,7 @@ export function SiteIndexFooter() {
                       target={link?.external ? '_blank' : undefined}
                       rel={link?.external ? 'noreferrer' : undefined}
                       className={cn(
-                        'text-sm font-medium text-indexlow transition-colors hover:text-indexhigh',
+                        'text-sm font-medium text-textlow transition-colors hover:text-foreground',
                         link.disabled && 'cursor-not-allowed opacity-80',
                         link.href, // Add a comma here
                       )}
@@ -76,10 +76,10 @@ export function SiteIndexFooter() {
         className="flex items-center justify-center align-middle"
       >
         <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
-          <h1 className="text-base font-extrabold text-indexhigh">
+          <h1 className="text-base font-extrabold text-foreground">
             TUNEDSPHERE
           </h1>
-          <p className="text-sm font-normal text-indexlow">
+          <p className="text-sm font-normal text-textlow">
             Copyright © 2023 - 2023 TunedSphere. All rights reserved.
           </p>
         </div>

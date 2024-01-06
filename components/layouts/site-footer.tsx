@@ -94,5 +94,3 @@ export function SiteFooter({ className }: SiteFooterProps) {
     </footer>
   )
 }
-
-export default SiteFooter

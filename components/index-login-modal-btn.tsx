@@ -19,7 +19,7 @@ export default function IndexLoginModalButton() {
     <>
       <Button
         id="index-login-modal-btn"
-        className="hidden shrink rounded-md border-2 border-primary font-semibold text-white hover:bg-primary/30 hover:text-white/70 sm:block"
+        className="hidden shrink rounded-md border-2 border-primary font-semibold text-white hover:bg-primary/30 hover:text-white sm:block"
         variant="ghostColor"
         onClick={handleClick}
       >
