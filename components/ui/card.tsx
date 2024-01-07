@@ -6,8 +6,9 @@ import { cn } from '@/lib/utils'
 const cardVariants = cva('text-card-foreground shadow-sm', {
   variants: {
     variant: {
-      default: 'rounded-lg border  bg-card',
-      dashboard: 'rounded-lg border  bg-background-dashboard',
+      default: 'rounded-lg border bg-card',
+      dashboard: 'rounded-lg border bg-background-dashboard',
+      album: '',
     },
   },
   defaultVariants: {

@@ -8,10 +8,28 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { albums } from '@/public/albumsData'
 import { cn } from '@/lib/utils'
-import { Icon } from '@/components/icon'
 import { slugify } from '@/lib/utils'
-import { MusicOptionsBanner } from '../music-options-banner'
-import { AlbumCoverCard } from '../cards/album-cover-card'
+import { AlbumCard } from '../cards/album-card'
+import { Icon } from '../icon'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from '@/components/ui/command'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 interface AlbumsGridProps {
   selectedGenre: string | null // Define the type of selectedGenre
   selectedYear: string | null // Define the type of selectedYear
@@ -26,7 +44,11 @@ export function AlbumsGrid({
   const [selectedAlbum, setselectedAlbum] = useState<string | null>(null)
   const [isHovered, setIsHovered] = useState(false)
   const expandedLabelRef = useRef(null)
+  const [isClicked, setIsClicked] = useState(false)
 
+  const handleClick = () => {
+    setIsClicked(true)
+  }
   const handleLabelClick = (labelIndex: number) => {
     setselectedAlbum((prevselectedAlbum) =>
       prevselectedAlbum === labelIndex.toString()
@@ -71,11 +93,9 @@ export function AlbumsGrid({
       }
     }
 
-    document.addEventListener('click', handleOutsideClick)
     document.addEventListener('keydown', handleEscapeKey)
 
     return () => {
-      document.removeEventListener('click', handleOutsideClick)
       document.removeEventListener('keydown', handleEscapeKey)
     }
   }, [selectedAlbum])
@@ -95,7 +115,7 @@ export function AlbumsGrid({
         <div className="my-4 grid grid-flow-row-dense grid-cols-2 gap-4 px-4 pb-12 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9 md:px-12">
           {sortedAndFilteredAlbums.map((album, index) => (
             <React.Fragment key={index}>
-              <AlbumCoverCard
+              <AlbumCard
                 key={album.id}
                 image={album.image}
                 artist={album.artist}
@@ -125,13 +145,14 @@ export function AlbumsGrid({
                       <h3 className="7xl:text-6xl 8xl:text-8xl cursor-pointer text-3xl font-semibold">
                         {album.title}
                       </h3>
-                      <Link href={`${slugify(album.artist)}`}>
-                        <div
-                          className={cn(
-                            'group relative flex cursor-pointer flex-wrap transition-colors',
-                            { hovered: isHovered },
-                          )}
-                        >
+
+                      <div
+                        className={cn(
+                          'group relative flex cursor-pointer flex-wrap transition-colors',
+                          { hovered: isHovered },
+                        )}
+                      >
+                        <Link href={`${slugify(album.artist)}`}>
                           <h2
                             className="7xl:text-6xl 8xl:text-8xl break-words text-3xl text-cyan-400 hover:text-foreground/80 dark:text-violet-500"
                             onMouseEnter={() => setIsHovered(true)}
@@ -147,8 +168,9 @@ export function AlbumsGrid({
                               &gt;
                             </span>
                           </h2>
-                        </div>
-                      </Link>
+                        </Link>
+                      </div>
+
                       <div className="7xl:text-3xl 8xl:text-4xl flex text-sm">
                         <p className="text-textlow">{album.release_date}</p>
                         <span className="mx-2"> - </span>
@@ -160,21 +182,55 @@ export function AlbumsGrid({
                         {album.tracklist.map((track, index) => (
                           <div
                             key={index}
-                            className={`7xl:text-3xl 8xl:text-4xl flex  justify-between border-b py-2 text-base text-texthigh ${
+                            className={`7xl:text-3xl 8xl:text-4xl group relative grid border-b py-2 text-base text-texthigh sm:grid-cols-12 ${
                               index < Math.ceil(album.tracklist.length / 2)
                                 ? '@6xl:col-span-1 @6xl:col-start-1 @6xl:mr-4'
                                 : '@6xl:col-span-1 @6xl:col-start-2 @6xl:ml-4'
                             }`}
                           >
-                            <span>
-                              {track.track}{' '}
-                              <span className="7xl:text-3xl 8xl:text-4xl mx-1 text-sm">
-                                {' '}
-                                -{' '}
-                              </span>{' '}
-                              {track.title}
-                            </span>
-                            <span>{track.length}</span>
+                            <div className="7xl:text-3xl 8xl:text-4xl  col-span-1 mx-1 hidden text-sm group-hover:block">
+                              <Button className="border-none p-0 align-middle">
+                                <Icon
+                                  name="play"
+                                  className="h-4 w-4 text-primary hover:text-primary/70"
+                                />
+                              </Button>
+                            </div>
+                            <div className="7xl:text-3xl 8xl:text-4xl col-span-1 mx-1 block text-sm group-hover:hidden">
+                              <div className="grid h-full grid-cols-2 items-center">
+                                <div className="col-span-1"> {track.track}</div>
+                                <div className="col-span-1">-</div>
+                              </div>
+                            </div>
+                            <div className="col-span-10">{track.title}</div>
+                            <div className="col-span-1 h-full items-center">
+                              <div className="group-hover:hidden">
+                                {track.length}
+                              </div>
+                              <div className="">
+                                <Popover>
+                                  <PopoverTrigger asChild>
+                                    <Button
+                                      variant="ghostColor"
+                                      className="hidden px-0 py-0 align-middle group-hover:block"
+                                    >
+                                      <Icon
+                                        name="horizontal-three-dots"
+                                        className="h-5 w-6 "
+                                      />
+                                    </Button>
+                                  </PopoverTrigger>
+                                  <PopoverContent className="fixed z-100 w-80">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Nemo necessitatibus, ipsa
+                                    ducimus illum voluptas optio ipsam natus
+                                    repudiandae vero exercitationem consequatur?
+                                    Magni nemo at ipsum provident sequi ab harum
+                                    consequuntur similique expedita?
+                                  </PopoverContent>
+                                </Popover>
+                              </div>
+                            </div>
                           </div>
                         ))}
                       </div>

@@ -67,14 +67,17 @@ import { ViewIcon } from './View'
 import { HideIcon } from './Hide'
 import { EditIcon } from './Edit'
 import { GripIcon } from './Grip'
+import { HeartIcon } from './Heart'
+import { HorizontalThreeDotsIcon } from './HorizontalThreeDots'
 
 import { ShopIconName, shopIconMap } from './shop'
 import { SocialIconName, socialIconMap } from './social'
-import { HeartIcon } from './Heart'
+import { MusicIconName, musicIconMap } from './music'
 
 export type IconName =
   | ShopIconName
   | SocialIconName
+  | MusicIconName
   | 'api'
   | 'add'
   | 'activity'
@@ -112,6 +115,7 @@ export type IconName =
   | 'grip'
   | 'heart'
   | 'hide'
+  | 'horizontal-three-dots'
   | 'home'
   | 'info'
   | 'lightning'
@@ -146,6 +150,7 @@ export type IconName =
 const iconMap = {
   ...shopIconMap,
   ...socialIconMap,
+  ...musicIconMap,
   'alert-triangle': AlertTriangleIcon,
   'broken-link': BrokenLinkIcon,
   'check-circle-outline': CheckCircleOutlineIcon,
@@ -157,6 +162,7 @@ const iconMap = {
   'code-light': CodeLightIcon,
   'cross-circle-outline': CrossCircleOutlineIcon,
   'external-link': ExternalLinkIcon,
+  'horizontal-three-dots': HorizontalThreeDotsIcon,
   'play-button': PlayButtonIcon,
   'vertical-three-dots': VerticalThreeDotsIcon,
   'page-layout': PageLayoutIcon,
