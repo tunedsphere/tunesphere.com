@@ -122,7 +122,7 @@ export function ArtistsGrid({
                   height={400}
                   src={label.image}
                   alt={label.name}
-                  className="my-4 aspect-square cursor-pointer  border"
+                  className="my-4 aspect-square cursor-pointer border"
                 ></Image>
                 <h3 className="cursor-pointer text-sm font-bold text-texthigh hover:text-theme sm:text-base">
                   {label.name}

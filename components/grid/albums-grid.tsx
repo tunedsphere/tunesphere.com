@@ -44,11 +44,7 @@ export function AlbumsGrid({
   const [selectedAlbum, setselectedAlbum] = useState<string | null>(null)
   const [isHovered, setIsHovered] = useState(false)
   const expandedLabelRef = useRef(null)
-  const [isClicked, setIsClicked] = useState(false)
 
-  const handleClick = () => {
-    setIsClicked(true)
-  }
   const handleLabelClick = (labelIndex: number) => {
     setselectedAlbum((prevselectedAlbum) =>
       prevselectedAlbum === labelIndex.toString()
@@ -115,16 +111,27 @@ export function AlbumsGrid({
         <div className="my-4 grid grid-flow-row-dense grid-cols-2 gap-4 px-4 pb-12 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9 md:px-12">
           {sortedAndFilteredAlbums.map((album, index) => (
             <React.Fragment key={index}>
-              <AlbumCard
-                key={album.id}
-                image={album.image}
-                artist={album.artist}
-                title={album.title}
-                selectedAlbum={
-                  selectedAlbum === index.toString() ? 'inset-y-2' : ''
-                }
-                onClick={() => handleLabelClick(index)}
-              />
+              <div className="relative">
+                <AlbumCard
+                  selectedAlbum={selectedAlbum === index.toString()}
+                  key={album.id}
+                  image={album.image}
+                  artist={album.artist}
+                  title={album.title}
+                  onClick={() => handleLabelClick(index)}
+                ></AlbumCard>
+
+                {String(selectedAlbum) === String(index) && (
+                  <div className="arrow-up absolute left-0 right-0 top-[98.5%] z-100 flex justify-center text-border">
+                    <Icon name="chevron-up" className="h-8 w-8" />
+                  </div>
+                )}
+                {String(selectedAlbum) === String(index) && (
+                  <div className="arrow-up absolute -inset-y-2 left-0 right-0 top-[101%] z-100 flex justify-center text-border dark:text-gray-900">
+                    <Icon name="chevron-up" className="h-6 w-6" />
+                  </div>
+                )}
+              </div>
 
               {String(selectedAlbum) === String(index) && (
                 <div

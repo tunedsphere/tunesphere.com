@@ -6,14 +6,16 @@ import { cn } from '@/lib/utils'
 import { Card, CardTitle } from '../ui/card'
 import { Button } from '../ui/button'
 import { Icon } from '../icon'
+import { useState } from 'react'
 
 interface AlbumCardProps extends React.HTMLAttributes<HTMLDivElement> {
   image: string
   title: string
   artist: string
-  selectedAlbum?: string
+  selectedAlbum?: boolean
   onClick?: () => void
   key?: string
+  index?: number
 }
 
 export function AlbumCard({
@@ -22,27 +24,28 @@ export function AlbumCard({
   artist,
   selectedAlbum,
   onClick,
+  index,
   key,
   ...props
 }: AlbumCardProps) {
+  console.log('Selected Album:', selectedAlbum)
   return (
     <Card
       variant="album"
       key={key}
-      className={cn(
-        'mx-auto h-full w-full items-center align-middle',
-        selectedAlbum,
-      )}
+      className={`relative items-center align-middle ${
+        selectedAlbum ? 'inset-y-2' : ''
+      }`}
       {...props}
     >
-      <div className="group relative">
+      <div className="group">
         <AspectRatio ratio={1}>
           <Image
             onClick={onClick}
             src={image}
             alt={title}
             fill
-            className="cursor-pointer object-cover"
+            className="cursor-pointer rounded-md object-cover"
             key={`${title}_image`}
             loading="lazy"
           ></Image>
