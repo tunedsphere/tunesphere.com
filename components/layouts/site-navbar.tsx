@@ -13,13 +13,10 @@ interface SiteNavbarProps {}
 
 export function SiteNavbar({}: SiteNavbarProps) {
   return (
-    <nav
-      id="globalnav"
-      className="fixed h-auto border-b-2 border-muted/70 @container"
-    >
+    <nav id="globalnav" className="/70 fixed h-auto border-b-2 @container">
       <div id="globalnav-content" className="relative">
         <div className="bg-background-navbartop">
-          <div className="mx-auto flex h-[--headerHeight] w-full max-w-9xl px-4 lg:px-8 5xl:max-w-[66.66666666666666%]">
+          <div className="5xl:max-w-[66.66666666666666%] mx-auto flex h-[--headerHeight] w-full max-w-9xl px-4 lg:px-8">
             <div className="relative hidden flex-row items-center justify-start sm:flex sm:w-1/3 sm:gap-2">
               <Icon
                 name="logo"

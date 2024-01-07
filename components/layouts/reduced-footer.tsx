@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import "./layouts.css";
-import Link from "next/link";
-import * as React from "react";
-import { Icon } from "@/components/icon";
+import './layouts.css'
+import Link from 'next/link'
+import * as React from 'react'
+import { Icon } from '@/components/icon'
 
 export function ReducedFooter() {
   return (
     <footer
-      className="fixed flex justify-between align-middle py-2 bottom-0 top[100%] bg-background border-t border-muted mx-auto w-full items-center px-4 overflow-x-auto"
+      className="top[100%] fixed bottom-0 mx-auto flex w-full items-center justify-between overflow-x-auto  border-t bg-background px-4 py-2 align-middle"
       id="reduced-footer-bottom"
       aria-labelledby="reduced-footer-bottom-heading"
     >
-      <div className="hidden sm:flex flex-wrap justify-center items-center gap-2">
+      <div className="hidden flex-wrap items-center justify-center gap-2 sm:flex">
         <h5 className="text-base font-extrabold text-texthigh">TUNEDSPHERE</h5>
         <p className="text-sm font-normal text-textlow opacity-75">
           Copyright © 2023
@@ -50,11 +50,11 @@ export function ReducedFooter() {
           </li>
           <li>
             <Link href="/" className="">
-              <Icon name="logo" className="w-6 h-6" />
+              <Icon name="logo" className="h-6 w-6" />
             </Link>
           </li>
         </ul>
       </div>
     </footer>
-  );
+  )
 }

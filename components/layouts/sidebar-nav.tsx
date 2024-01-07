@@ -1,44 +1,42 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import type { SidebarNavItem } from "@/types";
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import type { SidebarNavItem } from '@/types'
 
-import { cn } from "@/lib/utils";
-import { Icon } from "../icon";
+import { cn } from '@/lib/utils'
+import { Icon } from '../icon'
 
 export interface SidebarNavProps {
-  items: SidebarNavItem[];
+  items: SidebarNavItem[]
 }
 
 export function SidebarNav({ items }: SidebarNavProps) {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
-  if (!items?.length) return null;
+  if (!items?.length) return null
 
   return (
     <div className="flex w-full flex-col gap-2">
       {items.map((item, index) => {
-        if (item.title === "Separator") {
+        if (item.title === 'Separator') {
           // Add a separator element between "Settings" and "Purchases"
-          return (
-            <div key={`${index}-separator`} className="border-t border-muted" />
-          );
+          return <div key={`${index}-separator`} className="border-t " />
         }
         return item.href ? (
           <Link
             key={`${index}-${item.title}`}
             href={item.href}
-            target={item.external ? "_blank" : ""}
-            rel={item.external ? "noreferrer" : ""}
+            target={item.external ? '_blank' : ''}
+            rel={item.external ? 'noreferrer' : ''}
           >
             <span
               className={cn(
-                "group flex w-full items-center rounded-md px-2 py-1 hover:text-primary leading-6 font-medium",
+                'group flex w-full items-center rounded-md px-2 py-1 font-medium leading-6 hover:text-primary',
                 pathname === item.href
-                  ? "font-medium text-primary"
-                  : "text-muted-foreground",
-                item.disabled && "pointer-events-none opacity-60"
+                  ? 'font-medium text-primary'
+                  : 'text-muted-foreground',
+                item.disabled && 'pointer-events-none opacity-60',
               )}
             >
               {item.icon ? (
@@ -50,7 +48,7 @@ export function SidebarNav({ items }: SidebarNavProps) {
                         className="mr-2 h-4 w-4"
                         aria-hidden="true"
                       />
-                    );
+                    )
                   })()}
                 </div>
               ) : null}
@@ -64,8 +62,8 @@ export function SidebarNav({ items }: SidebarNavProps) {
           >
             {item.title}
           </span>
-        );
+        )
       })}
     </div>
-  );
+  )
 }

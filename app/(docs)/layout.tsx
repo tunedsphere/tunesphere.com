@@ -25,9 +25,9 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
   }
   return (
     <>
-      <div className="sticky top-0 z-40 w-full flex-none border-muted bg-background lg:border-b">
+      <div className="sticky top-0 z-40 w-full flex-none  bg-background lg:border-b">
         <div className="mx-auto max-w-8xl">
-          <div className="mx-4 flex items-center justify-between border-b border-muted py-4 lg:mx-0 lg:border-0 lg:px-8">
+          <div className="mx-4 flex items-center justify-between border-b  py-4 lg:mx-0 lg:border-0 lg:px-8">
             <div className="flex space-x-4">
               <DocsMainNav items={docsConfig.mainNav} />
             </div>
@@ -36,7 +36,7 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
               <ThemeToggle className="" />
             </div>
           </div>
-          <div className="flex items-center justify-between border-b border-muted p-4 sm:space-x-0 lg:hidden ">
+          <div className="flex items-center justify-between border-b  p-4 sm:space-x-0 lg:hidden ">
             <div className="flex">
               <button className="flex items-center space-x-2">
                 {showMobileMenu ? (
@@ -80,7 +80,7 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
         <main className="relative mx-auto w-full max-w-8xl lg:flex lg:items-start ">
           {children}
         </main>
-        <div className="border-t border-muted">
+        <div className="border-t ">
           <div className="mx-auto w-full max-w-8xl space-y-8 px-4 py-8 md:p-8 md:pb-12 lg:flex lg:justify-between lg:space-y-0 lg:p-16 lg:pb-20">
             {' '}
             <div className="absolute left-[37%] h-24 w-60 bg-primary blur-[140px]" />

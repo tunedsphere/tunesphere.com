@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import "@/styles/globals.css";
+import '@/styles/globals.css'
 
-import * as React from "react";
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { recordLabelsData } from "@/public/recordLabelsData";
+import * as React from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { recordLabelsData } from '@/public/recordLabelsData'
 
-import { Icon } from "@/components/icon";
+import { Icon } from '@/components/icon'
 
 interface DjsGridProps {
-  selectedGenre: string | null; // Define the type of selectedGenre
-  selectedYear: string | null; // Define the type of selectedYear
-  selectedCountry: string | null;
+  selectedGenre: string | null // Define the type of selectedGenre
+  selectedYear: string | null // Define the type of selectedYear
+  selectedCountry: string | null
 }
 
 export function DjsGrid({
@@ -21,15 +21,17 @@ export function DjsGrid({
   selectedCountry,
   selectedGenre,
 }: DjsGridProps) {
-  const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
+  const [selectedLabel, setSelectedLabel] = useState<string | null>(null)
 
-  const expandedLabelRef = useRef(null);
+  const expandedLabelRef = useRef(null)
 
   const handleLabelClick = (labelIndex: number) => {
     setSelectedLabel((prevSelectedLabel) =>
-      prevSelectedLabel === labelIndex.toString() ? null : labelIndex.toString()
-    );
-  };
+      prevSelectedLabel === labelIndex.toString()
+        ? null
+        : labelIndex.toString(),
+    )
+  }
   // Filter and sort the record labels based on selected filters
   const sortedAndFilteredLabels = recordLabelsData
     .filter((label) => {
@@ -38,59 +40,59 @@ export function DjsGrid({
         (selectedYear === null || label.founding_year.includes(selectedYear)) &&
         (selectedCountry === null || label.country.includes(selectedCountry))
       ) {
-        return true;
+        return true
       }
-      return false;
+      return false
     })
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.name.localeCompare(b.name))
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
         selectedLabel !== null &&
         event.target instanceof Element &&
-        event.target.closest(".expanded-label-container")
+        event.target.closest('.expanded-label-container')
       ) {
         // Inside the expanded label container, do nothing
-        return;
+        return
       }
 
-      setSelectedLabel(null);
-    };
+      setSelectedLabel(null)
+    }
 
     const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedLabel(null);
+      if (event.key === 'Escape') {
+        setSelectedLabel(null)
       }
-    };
+    }
 
-    document.addEventListener("click", handleOutsideClick);
-    document.addEventListener("keydown", handleEscapeKey);
+    document.addEventListener('click', handleOutsideClick)
+    document.addEventListener('keydown', handleEscapeKey)
 
     return () => {
-      document.removeEventListener("click", handleOutsideClick);
-      document.removeEventListener("keydown", handleEscapeKey);
-    };
-  }, [selectedLabel]);
-  const initialColumnWidth = 200; // Initial column width
-  const [columnWidth, setColumnWidth] = useState(initialColumnWidth);
+      document.removeEventListener('click', handleOutsideClick)
+      document.removeEventListener('keydown', handleEscapeKey)
+    }
+  }, [selectedLabel])
+  const initialColumnWidth = 200 // Initial column width
+  const [columnWidth, setColumnWidth] = useState(initialColumnWidth)
 
   const handleResize = (e: React.SyntheticEvent) => {
-    setColumnWidth((e.target as HTMLDivElement).offsetWidth);
-  };
+    setColumnWidth((e.target as HTMLDivElement).offsetWidth)
+  }
 
   return (
     <>
       <div
         id="djs-grid"
-        className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted @container max-w-12xl"
+        className="sm:music-grid music-grid-mobile scrollable-container -z-10 max-w-12xl grow  overflow-y-scroll @container"
       >
-        <div className="px-4 md:px-12 pb-12 grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9">
+        <div className="grid grid-flow-row-dense grid-cols-2 gap-4 px-4 pb-12 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9 md:px-12">
           {sortedAndFilteredLabels.map((label, index) => (
             <React.Fragment key={index}>
               <div
                 key={label.id}
                 className={`relative cursor-pointer items-center justify-center text-center ${
-                  selectedLabel === index.toString() ? "" : ""
+                  selectedLabel === index.toString() ? '' : ''
                 }`}
                 onClick={() => handleLabelClick(index)}
               >
@@ -105,15 +107,15 @@ export function DjsGrid({
                   {label.name}
                 </h1>
                 <p className="cursor-pointer text-xs text-textlow hover:text-theme">
-                  {label.genres.join(", ")}
+                  {label.genres.join(', ')}
                 </p>
                 {String(selectedLabel) === String(index) && (
-                  <div className="arrow-up absolute top-[96%] left-0 right-0 flex justify-center z-100 text-muted">
+                  <div className="arrow-up absolute left-0 right-0 top-[96%] z-100 flex justify-center text-muted">
                     <Icon name="chevron-up" className="h-10 w-10" />
                   </div>
                 )}
                 {String(selectedLabel) === String(index) && (
-                  <div className="arrow-up absolute top-[98%] left-0 right-0 flex justify-center z-100 text-gray-100 dark:text-gray-900/50">
+                  <div className="arrow-up absolute left-0 right-0 top-[98%] z-100 flex justify-center text-gray-100 dark:text-gray-900/50">
                     <Icon name="chevron-up" className="h-10 w-10" />
                   </div>
                 )}
@@ -121,10 +123,10 @@ export function DjsGrid({
               {String(selectedLabel) === String(index) && (
                 <div
                   ref={expandedLabelRef}
-                  className="sm:-ml-12 -ml-4 -mr-12 col-span-full hidden border-spacing-2 border-y-2 border-muted bg-gray-100 dark:bg-gray-900/50 py-8 @container @xs:block"
+                  className="col-span-full -ml-4 -mr-12 hidden border-spacing-2 border-y-2 bg-gray-100  py-8 @container @xs:block dark:bg-gray-900/50 sm:-ml-12"
                 >
                   <div className="grid gap-4 @xs:grid-cols-2 @xs:grid-rows-1 @md:grid-cols-3 @md:grid-rows-1 @2xl:grid-flow-col @2xl:grid-rows-2 @3xl:grid-rows-2">
-                    <div className=" flex justify-center border-r-2 border-muted @xs:row-start-1 @xs:row-end-1 @2xl:row-span-3 @3xl:row-span-2">
+                    <div className=" flex justify-center border-r-2  @xs:row-start-1 @xs:row-end-1 @2xl:row-span-3 @3xl:row-span-2">
                       <Link href={`label/${label.id}`} className="">
                         <Image
                           src={label.image}
@@ -163,5 +165,5 @@ export function DjsGrid({
         </div>
       </div>
     </>
-  );
+  )
 }

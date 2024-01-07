@@ -43,7 +43,7 @@ export function ShopMainNav({ items }: ShopMainNavProps) {
                 </NavigationMenuTrigger>
               </Link>
               <NavigationMenuContent className="z-200 shadow-xl">
-                <ul className="grid gap-3 border-muted p-6 md:w-[26rem] lg:w-[48rem] lg:grid-cols-[.75fr_1fr]">
+                <ul className="grid gap-3  p-6 md:w-[26rem] lg:w-[48rem] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a

@@ -98,7 +98,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                         height={500}
                         src={album.image}
                         alt={album.title}
-                        className="aspect-square cursor-pointer rounded-md border border-muted"
+                        className="aspect-square cursor-pointer rounded-md border "
                       ></Image>
                     </div>
                     <div className="col-span-3 col-start-2 @lg:col-span-5 @lg:col-start-3 @2xl:pl-4">
@@ -115,7 +115,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                     </div>
                     <div className="col-span-full @lg:col-start-1">
                       <div className="grid-flow-col">
-                        <div className="mb-4 flex justify-between border-b border-muted py-2 text-base text-textlow">
+                        <div className="mb-4 flex justify-between border-b  py-2 text-base text-textlow">
                           <div className="px-4">
                             <span className="">#</span>{' '}
                             <span className="mx-1"> Title</span>
@@ -124,7 +124,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                         {album.tracklist.map((track, index) => (
                           <div
                             key={index}
-                            className="align-center flex cursor-pointer items-center justify-between rounded-md border-muted py-2 text-base text-texthigh hover:bg-muted/50"
+                            className="align-center flex cursor-pointer items-center justify-between rounded-md  py-2 text-base text-texthigh hover:bg-muted/50"
                           >
                             <div className="flex-start">
                               <span className="px-4">

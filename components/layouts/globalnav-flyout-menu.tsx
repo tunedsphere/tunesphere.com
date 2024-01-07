@@ -34,7 +34,7 @@ export default function GlobalNavFlyout({ handleClose }: GlobalNavFlyoutProps) {
           width={60}
           height={60}
           src={user.imageUrl}
-          className="h-32 w-32 flex-none rounded-full border border-muted/30 shadow-sm"
+          className="h-32 w-32 flex-none rounded-full border shadow-sm"
           alt="Profile image"
         />
       </div>

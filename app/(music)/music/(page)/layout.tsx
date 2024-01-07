@@ -18,9 +18,7 @@ export default function MusicLayoutPage({ children }: MusicLayoutPageProps) {
             <MusicTabs />
           </div>
         </div>
-        <main className="flex-1 border-b border-t border-muted @container">
-          {children}
-        </main>
+        <main className="flex-1 border-b border-t  @container">{children}</main>
       </div>
     </section>
   )

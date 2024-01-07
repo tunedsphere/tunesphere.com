@@ -34,7 +34,7 @@ export default function SigninCard({ onClose }: SigninCardProps) {
 
   return (
     <div id="signin-card" className="z-20 @container">
-      <Card className="border-0 border-muted/50 bg-background @md:border">
+      <Card className="/50 border-0 bg-background @md:border">
         <div className="top-68 absolute left-0 -z-10 h-52 w-[33.333333%] bg-secondary opacity-30 blur-[300px]"></div>
         <div className="flex justify-end p-2 sm:p-4">
           <Button

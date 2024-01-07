@@ -17,13 +17,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
       }`}
     >
       <div className="absolute bottom-0 left-[37%] h-24 w-60 bg-primary blur-[140px]" />
-
-      <div className="gap-5">
-        <h1 className="py-8 text-center text-4xl font-bold text-texthigh">
-          A Psychedelic dedicated Platform
-        </h1>
-      </div>
-      <section
+      <div
         id="newsletter"
         aria-labelledby="newsletter-heading"
         className="mx-auto flex max-w-2xl flex-col justify-center gap-4 space-y-3 py-4"
@@ -35,14 +29,14 @@ export function SiteFooter({ className }: SiteFooterProps) {
           </span>
         </p>
         <SubscribeToNewsletterForm />
-      </section>
+      </div>
 
       <section
         id="footer-content"
         aria-labelledby="footer-content-heading"
         className="py-4"
       >
-        <section
+        <div
           id="footer-links"
           aria-labelledby="footer-links-heading"
           className="max-w-screen-xl mx-auto grid grid-cols-1 gap-6 py-8 md:grid-cols-2 lg:grid-cols-4"
@@ -75,7 +69,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
               </ul>
             </div>
           ))}
-        </section>
+        </div>
       </section>
       <section
         id="footer-bottom"

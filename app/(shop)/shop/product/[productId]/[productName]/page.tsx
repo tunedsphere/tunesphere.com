@@ -173,7 +173,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             className="w-full"
             defaultValue="description"
           >
-            <AccordionItem value="description" className="border-muted pb-5">
+            <AccordionItem value="description" className=" pb-5">
               <AccordionTrigger className="text-base underline decoration-primary underline-offset-4 hover:decoration-2">
                 Description
               </AccordionTrigger>

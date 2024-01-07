@@ -28,7 +28,7 @@ export function DocsPager({
   return (
     <div
       className={cn(
-        'flex items-center justify-between border-t border-muted py-4',
+        'flex items-center justify-between border-t  py-4',
         className,
       )}
       {...props}

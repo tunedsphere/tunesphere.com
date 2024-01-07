@@ -139,13 +139,10 @@ const MusicGrid: React.FC = () => {
     <section className="">
       <div className="">
         <div className="flex">
-          <div
-            id="GridMusicView"
-            className="grow border-2 border-muted @container"
-          >
+          <div id="GridMusicView" className="grow border-2  @container">
             <div
               id="MusicGridBanner"
-              className="relative z-10 ml-4 flex  w-full justify-center border-b-2 border-muted bg-transparent sm:ml-12"
+              className="relative z-10 ml-4 flex  w-full justify-center border-b-2  bg-transparent sm:ml-12"
             >
               <div className="absolute inset-x-0 bottom-2 w-full items-center ">
                 <h1 className="text-2xl font-semibold text-texthigh sm:text-3xl md:text-4xl">
@@ -161,7 +158,7 @@ const MusicGrid: React.FC = () => {
             </div>
             <div
               id="GridMusicView"
-              className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted p-4 @container sm:pl-12"
+              className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll  p-4 @container sm:pl-12"
             >
               <div className="grid grid-flow-row-dense grid-cols-2 gap-4 @xs:grid-cols-3 @sm:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-6 @xl:grid-cols-6 @2xl:grid-cols-7 @3xl:grid-cols-8 @4xl:grid-cols-9 @5xl:grid-cols-10 @6xl:grid-cols-12">
                 {sortedAndFilteredLabels.map((label, index) => (
@@ -193,7 +190,7 @@ const MusicGrid: React.FC = () => {
                         className="col-span-full mt-4 hidden border-spacing-2 border-y-2 bg-accent py-8 @container  @xs:block"
                       >
                         <div className="grid gap-4 @xs:grid-cols-2 @xs:grid-rows-1 @md:grid-cols-3 @md:grid-rows-1 @2xl:grid-flow-col @2xl:grid-rows-2 @3xl:grid-rows-2">
-                          <div className=" flex justify-center border-r-2 border-muted pr-8 @xs:row-start-1 @xs:row-end-1 @2xl:row-span-3 @3xl:row-span-2">
+                          <div className=" flex justify-center border-r-2  pr-8 @xs:row-start-1 @xs:row-end-1 @2xl:row-span-3 @3xl:row-span-2">
                             <Link href={`label/${label.id}`} className="">
                               <Image
                                 src={label.image}

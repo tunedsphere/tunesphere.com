@@ -46,10 +46,7 @@ export function ProductCard({
     <div className="relative">
       <Card
         id="product-card"
-        className={cn(
-          'group border-muted bg-card sm:rounded-lg sm:border',
-          className,
-        )}
+        className={cn('group  bg-card sm:rounded-lg sm:border', className)}
         {...props}
       >
         <Link

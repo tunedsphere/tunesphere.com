@@ -166,7 +166,7 @@ export default async function PostPage({ params }: PostPageProps) {
               src={post.image}
               alt={post.title}
               fill
-              className="object-fit rounded-md border border-muted bg-muted"
+              className="object-fit rounded-md border  bg-muted"
               priority
             />
           )}

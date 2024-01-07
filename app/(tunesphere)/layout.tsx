@@ -1,5 +1,4 @@
 import { SiteIndexNavbar } from '@/components/layouts/site-index-navbar'
-import { SiteIndexFooter } from '@/components/layouts/site-index-footer'
 import { SiteFooter } from '@/components/layouts/site-footer'
 interface TunedLayoutProps {
   children: React.ReactNode

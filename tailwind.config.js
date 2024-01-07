@@ -31,18 +31,9 @@ module.exports = {
       padding: "1rem",
     },
     extend: {
-      screens: {
-        '3xl': {'min': '1600px'},
-        '4xl': {'min': '1920px'},
-        '5xl': {'min': '2560px'},
-        '6xl': {'min': '2880px'},
-        '7xl': {'min': '3200px'},
-        '8xl': {'min': '3840px'},
-        '9xl': {'min': '4096px'},
-    },
       containers: {
-        '8xl': '88rem',
-        '9xl': '96rem',
+        '8xl': '90rem',
+        '9xl': '100rem',
       },
       maxWidth: {
         '8xl': '90rem',

@@ -1,13 +1,13 @@
-import { Icon } from "@/components/icon";
+import { Icon } from '@/components/icon'
 export default function ArtistsLoading() {
   return (
     <div
       id="artists-loading-grid"
-      className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll border-muted pl-4 pt-2 pb-12 pr-8 @container sm:pl-12"
+      className="sm:music-grid music-grid-mobile scrollable-container -z-10 grow overflow-y-scroll  pb-12 pl-4 pr-8 pt-2 @container sm:pl-12"
     >
-      <div className="h-full w-full mx-auto flex items-center justify-center">
+      <div className="mx-auto flex h-full w-full items-center justify-center">
         <Icon name="spinner" className=" h-20 w-20 animate-spin text-primary" />
       </div>
     </div>
-  );
+  )
 }

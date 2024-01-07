@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils'
 import { Icon } from '@/components/icon'
 import { slugify } from '@/lib/utils'
 import { MusicOptionsBanner } from '../music-options-banner'
+import { AlbumCoverCard } from '../cards/album-cover-card'
 interface AlbumsGridProps {
   selectedGenre: string | null // Define the type of selectedGenre
   selectedYear: string | null // Define the type of selectedYear
@@ -89,50 +90,26 @@ export function AlbumsGrid({
     <>
       <div
         id="albums-grid"
-        className="sm:music-grid music-grid-mobile scrollable-container grow overflow-y-scroll border-muted @container"
+        className="sm:music-grid music-grid-mobile scrollable-container grow overflow-y-scroll  @container"
       >
         <div className="my-4 grid grid-flow-row-dense grid-cols-2 gap-4 px-4 pb-12 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9 md:px-12">
           {sortedAndFilteredAlbums.map((album, index) => (
             <React.Fragment key={index}>
-              <div
+              <AlbumCoverCard
                 key={album.id}
-                className={`relative mx-auto cursor-pointer items-center align-middle ${
+                image={album.image}
+                artist={album.artist}
+                title={album.title}
+                selectedAlbum={
                   selectedAlbum === index.toString() ? 'inset-y-2' : ''
-                }`}
+                }
                 onClick={() => handleLabelClick(index)}
-              >
-                <Image
-                  width={400}
-                  height={400}
-                  src={album.image}
-                  alt={album.title}
-                  className="aspect-square grow-0 cursor-pointer rounded-md border border-muted "
-                ></Image>
-                <div className="grid grid-flow-row ">
-                  <h1 className="cursor-pointer break-words text-sm font-bold text-texthigh hover:text-theme sm:text-base 7xl:text-3xl 8xl:text-6xl">
-                    {album.title}
-                  </h1>
-                  <Link href={`${slugify(album.artist)}`}>
-                    <p className="cursor-pointer break-all text-sm text-textlow hover:text-theme 7xl:text-3xl 8xl:text-5xl">
-                      {album.artist}
-                    </p>
-                  </Link>
-                </div>
-                {String(selectedAlbum) === String(index) && (
-                  <div>
-                    <div className="arrow-up absolute left-0 right-0 top-[97%] flex justify-center text-muted">
-                      <Icon name="chevron-up" className="h-8 w-8" />
-                    </div>
-                    <div className="arrow-up absolute left-0 right-0 top-[98%] z-200 flex justify-center text-gray-100 dark:text-background">
-                      <Icon name="chevron-up" className="h-8 w-8" />
-                    </div>
-                  </div>
-                )}
-              </div>
+              />
+
               {String(selectedAlbum) === String(index) && (
                 <div
                   ref={expandedLabelRef}
-                  className="col-span-full -mx-8 border-spacing-2 border-y-2 border-muted bg-gray-100 px-8 py-12 @container @xs:block dark:bg-gray-900/50 md:-mx-12 md:px-12"
+                  className="col-span-full -mx-8 border-spacing-2 border-y-2  bg-gray-100 px-8 py-12 @container @xs:block dark:bg-gray-900/50 md:-mx-12 md:px-12"
                 >
                   <div className="grid grid-cols-2 grid-rows-[min-content_1fr] gap-4 @xs:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-8 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9">
                     <div className="mx-auto items-center align-middle @md:col-span-1 @lg:col-span-2 @lg:row-span-2 @xl:row-span-2 @6xl:col-span-2">
@@ -141,11 +118,11 @@ export function AlbumsGrid({
                         height={400}
                         src={album.image}
                         alt={album.title}
-                        className="aspect-square cursor-pointer rounded-md border border-muted @9xl:w-[800px]"
+                        className="aspect-square cursor-pointer rounded-md border  @9xl:w-[800px]"
                       ></Image>
                     </div>
                     <div className="col-span-3 col-start-2 @lg:col-start-3 @6xl:col-span-4 @6xl:pl-4 @7xl:col-span-5 @8xl:col-span-6 @9xl:col-span-7">
-                      <h3 className="cursor-pointer text-3xl font-semibold 7xl:text-6xl 8xl:text-8xl">
+                      <h3 className="7xl:text-6xl 8xl:text-8xl cursor-pointer text-3xl font-semibold">
                         {album.title}
                       </h3>
                       <Link href={`${slugify(album.artist)}`}>
@@ -156,7 +133,7 @@ export function AlbumsGrid({
                           )}
                         >
                           <h2
-                            className="break-words text-3xl text-cyan-400 hover:text-foreground/80 dark:text-violet-500 7xl:text-6xl 8xl:text-8xl"
+                            className="7xl:text-6xl 8xl:text-8xl break-words text-3xl text-cyan-400 hover:text-foreground/80 dark:text-violet-500"
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
                           >
@@ -172,18 +149,18 @@ export function AlbumsGrid({
                           </h2>
                         </div>
                       </Link>
-                      <div className="flex text-sm 7xl:text-3xl 8xl:text-4xl">
+                      <div className="7xl:text-3xl 8xl:text-4xl flex text-sm">
                         <p className="text-textlow">{album.release_date}</p>
                         <span className="mx-2"> - </span>
                         <p className="text-textlow">{album.genre}</p>
                       </div>
                     </div>
                     <div className="col-span-full @lg:col-start-3">
-                      <div className="grid-flow-col px-2 @6xl:mr-4 @6xl:grid @6xl:grid-cols-2 @6xl:px-6 6xl:gap-8">
+                      <div className="6xl:gap-8 grid-flow-col px-2 @6xl:mr-4 @6xl:grid @6xl:grid-cols-2 @6xl:px-6">
                         {album.tracklist.map((track, index) => (
                           <div
                             key={index}
-                            className={`flex justify-between border-b border-muted py-2 text-base text-texthigh 7xl:text-3xl 8xl:text-4xl ${
+                            className={`7xl:text-3xl 8xl:text-4xl flex  justify-between border-b py-2 text-base text-texthigh ${
                               index < Math.ceil(album.tracklist.length / 2)
                                 ? '@6xl:col-span-1 @6xl:col-start-1 @6xl:mr-4'
                                 : '@6xl:col-span-1 @6xl:col-start-2 @6xl:ml-4'
@@ -191,7 +168,7 @@ export function AlbumsGrid({
                           >
                             <span>
                               {track.track}{' '}
-                              <span className="mx-1 text-sm 7xl:text-3xl 8xl:text-4xl">
+                              <span className="7xl:text-3xl 8xl:text-4xl mx-1 text-sm">
                                 {' '}
                                 -{' '}
                               </span>{' '}

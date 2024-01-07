@@ -116,17 +116,18 @@ export const siteConfig = {
       ],
     },
     {
-      title: "Documentation", // Default href for "Docs" title
+      title: "Ressources", // Default href for "Docs" title
       items: [
         {
-          title: "Shop Docs",
-          href: "/docs/shop/selling",
+          title: "Docs",
+          href: "/docs",
           external: false,
         },
         {
-          title: "Music Docs",
-          href: "/docs/music/introduction",
+          title: "Guides",
+          href: "/guides",
           external: false,
+          disabled: true,
         },
         {
           title: "Legal Information",

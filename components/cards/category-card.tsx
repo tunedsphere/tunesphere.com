@@ -1,18 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
-import { db } from "@/db";
-import { products } from "@/db/schema";
-import type { Category } from "@/types";
-import { eq, sql } from "drizzle-orm";
-import { formatTitleWithUnderscores } from "@/lib/utils";
-import { cn } from "@/lib/utils";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { buttonVariants } from "@/components/ui/button";
-import { Icon, IconName } from "../icon";
+import Image from 'next/image'
+import Link from 'next/link'
+import { db } from '@/db'
+import { products } from '@/db/schema'
+import type { Category } from '@/types'
+import { eq, sql } from 'drizzle-orm'
+import { formatTitleWithUnderscores } from '@/lib/utils'
+import { cn } from '@/lib/utils'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { buttonVariants } from '@/components/ui/button'
+import { Icon, IconName } from '../icon'
 
 interface CategoryCardProps {
-  category: Category;
-  icon?: IconName;
+  category: Category
+  icon?: IconName
 }
 
 export async function CategoryCard({ category, icon }: CategoryCardProps) {
@@ -23,7 +23,7 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
     .from(products)
     .where(eq(products.category, category.title))
     .execute()
-    .then((res) => res[0]?.count ?? 0);
+    .then((res) => res[0]?.count ?? 0)
 
   return (
     <>
@@ -31,10 +31,10 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
         <Link
           key={`${category.title}_link`}
           href={`shop/c/${category.title}`}
-          className="group relative overflow-hidden sm:rounded-md border border-muted rounded-full cursor-default"
+          className="group relative cursor-default overflow-hidden rounded-full  border sm:rounded-md"
         >
           <AspectRatio ratio={16 / 9}>
-            <div className="absolute inset-0 z-10 bg-muted/20 transition-color group-hover:bg-zinc-950/50" />
+            <div className="transition-color absolute inset-0 z-10 bg-muted/20 group-hover:bg-zinc-950/50" />
             <Image
               key={`${category.title}_key`}
               src={category.image}
@@ -45,28 +45,28 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
               priority
             />
           </AspectRatio>
-          <div className="absolute inset-2 sm:inset-4 z-20 flex flex-col">
-            <div className="flex sm:items-start items-center top-0 justify-between space-x-2 sm:space-x-4">
+          <div className="absolute inset-2 z-20 flex flex-col sm:inset-4">
+            <div className="top-0 flex items-center justify-between space-x-2 sm:items-start sm:space-x-4">
               <div
                 className={cn(
                   buttonVariants({
-                    size: "icon",
+                    size: 'icon',
                     className:
-                      "pointer-events-none sm:bg-zinc-200 sm:text-zinc-950 bg-transparent",
-                  })
+                      'pointer-events-none bg-transparent sm:bg-zinc-200 sm:text-zinc-950',
+                  }),
                 )}
                 aria-hidden="true"
               >
                 {icon && <Icon name={icon} className="h-4 w-4" />}
               </div>
               <div>
-                <p className="hidden sm:block text-sm text-zinc-200  bg-black/10 backdrop-blur-sm rounded-md px-2 ml-2">
+                <p className="ml-2 hidden rounded-md bg-black/10  px-2 text-sm text-zinc-200 backdrop-blur-sm sm:block">
                   {productCount} items
                 </p>
               </div>
             </div>
             <div className="mt-auto hidden sm:flex ">
-              <h3 className="text-xl font-medium capitalize grow-0 text-zinc-200 bg-black/10 backdrop-blur-sm rounded-md text-center sm:text-left px-2 mr-2">
+              <h3 className="mr-2 grow-0 rounded-md bg-black/10 px-2 text-center text-xl font-medium capitalize text-zinc-200 backdrop-blur-sm sm:text-left">
                 {formatTitleWithUnderscores(category.title)}
               </h3>
             </div>
@@ -77,14 +77,14 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
           <Link
             key={category.title}
             href={`shop/c/${category.title}`}
-            className="group relative overflow-hidden sm:rounded-md rounded-full"
+            className="group relative overflow-hidden rounded-full sm:rounded-md"
           >
-            <h4 className="text-base font-medium capitalize text-center z-400 sm:hidden block">
+            <h4 className="z-400 block text-center text-base font-medium capitalize sm:hidden">
               {category.title}
             </h4>
           </Link>
         </div>
       </div>
     </>
-  );
+  )
 }

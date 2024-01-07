@@ -1,16 +1,16 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-import { cn, truncate } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { Icon } from "@/components/icon";
+import { cn, truncate } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
+import { Icon } from '@/components/icon'
 
 interface MdxPagerItem {
-  title?: string | undefined;
-  slug: string;
+  title?: string | undefined
+  slug: string
 }
 interface MdxPagerProps extends React.HTMLAttributes<HTMLDivElement> {
-  currentItem: MdxPagerItem;
-  allItems: MdxPagerItem[];
+  currentItem: MdxPagerItem
+  allItems: MdxPagerItem[]
 }
 
 export function MdxPager({
@@ -19,17 +19,17 @@ export function MdxPager({
   className,
   ...props
 }: MdxPagerProps) {
-  const pager = getPager(currentItem, allItems);
+  const pager = getPager(currentItem, allItems)
 
   if (!pager) {
-    return null;
+    return null
   }
 
   return (
     <div
       className={cn(
-        "flex items-center justify-between border-t border-muted py-4",
-        className
+        'flex items-center justify-between border-t  py-4',
+        className,
       )}
       {...props}
     >
@@ -38,7 +38,7 @@ export function MdxPager({
           aria-label="Next post"
           href={pager.next.slug}
           className={`hover:bg-muted/30 hover:text-primary ${cn(
-            buttonVariants({ variant: "ghost" })
+            buttonVariants({ variant: 'ghost' }),
           )}`}
         >
           <Icon
@@ -54,8 +54,8 @@ export function MdxPager({
           aria-label="Previous post"
           href={pager.prev.slug}
           className={`hover:bg-muted/30 hover:text-primary ${cn(
-            buttonVariants({ variant: "ghost" }),
-            ""
+            buttonVariants({ variant: 'ghost' }),
+            '',
           )}`}
         >
           {pager.prev.title ? truncate(pager.prev.title, 20) : null}
@@ -67,21 +67,21 @@ export function MdxPager({
         </Link>
       ) : null}
     </div>
-  );
+  )
 }
 
 export function getPager(currentItem: MdxPagerItem, allItems: MdxPagerItem[]) {
-  const flattenedLinks = allItems.flat();
+  const flattenedLinks = allItems.flat()
   const activeIndex = flattenedLinks.findIndex(
-    (link) => currentItem.slug === link?.slug
-  );
-  const prev = activeIndex !== 0 ? flattenedLinks[activeIndex - 1] : null;
+    (link) => currentItem.slug === link?.slug,
+  )
+  const prev = activeIndex !== 0 ? flattenedLinks[activeIndex - 1] : null
   const next =
     activeIndex !== flattenedLinks.length - 1
       ? flattenedLinks[activeIndex + 1]
-      : null;
+      : null
   return {
     prev,
     next,
-  };
+  }
 }

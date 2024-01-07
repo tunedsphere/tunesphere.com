@@ -1,28 +1,27 @@
-import "@/styles/globals.css"
+import '@/styles/globals.css'
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
-const sidebarVariants = cva("flex flex-col shrink-0 overflow-hidden", {
+const sidebarVariants = cva('flex shrink-0 flex-col overflow-hidden', {
   variants: {
     variant: {
-      default: "",
-      musicgrid:
-        "overflow-x-hidden overflow-auto border-muted border-t border-r border-b",
+      default: '',
+      musicgrid: 'overflow-auto overflow-x-hidden  border-b border-r border-t',
       dashboard:
-        "w-[var(--sidebar-dashboard-width)] h-screen flex flex-col overflow-hidden border-r border-muted pt-4 items-center sticky left-0 hidden shrink-0 overflow-y-auto border-r md:sticky md:block",
+        'sticky left-0 flex hidden h-screen w-[var(--sidebar-dashboard-width)]  shrink-0 flex-col items-center overflow-hidden overflow-y-auto border-r border-r pt-4 md:sticky md:block',
     },
 
     size: {
-      default: "",
-      small: "w-56",
-      large: "w-72",
+      default: '',
+      small: 'w-56',
+      large: 'w-72',
     },
   },
   defaultVariants: {
-    size: "default",
+    size: 'default',
   },
 })
 
@@ -39,9 +38,9 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
         {...props}
       />
     )
-  }
+  },
 )
 
-Sidebar.displayName = "Sidebar"
+Sidebar.displayName = 'Sidebar'
 
 export { Sidebar, sidebarVariants }

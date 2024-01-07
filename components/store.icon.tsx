@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { type StoredFile } from "@/types";
-import { Icon } from "@/components/icon";
+import Image from 'next/image'
+import { type StoredFile } from '@/types'
+import { Icon } from '@/components/icon'
 interface StoreIconProps extends React.HTMLAttributes<HTMLDivElement> {
-  images: StoredFile[];
+  images: StoredFile[]
 }
 
 export function StoreIcon({ images }: StoreIconProps) {
@@ -13,7 +13,7 @@ export function StoreIcon({ images }: StoreIconProps) {
           <span
             id="store-icon"
             key={index}
-            className="relative shrink-0 flex justify-center overflow-hidden border-muted/30 border"
+            className="relative flex shrink-0 justify-center overflow-hidden border"
           >
             <Image
               id="store-icon-image"
@@ -42,5 +42,5 @@ export function StoreIcon({ images }: StoreIconProps) {
         </div>
       )}
     </>
-  );
+  )
 }

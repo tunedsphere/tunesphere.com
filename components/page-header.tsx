@@ -12,7 +12,7 @@ const PageHeaderVariants = cva('grid gap-1', {
   variants: {
     variant: {
       default: '',
-      dashboard: 'border-b border-muted pb-8 pt-2',
+      dashboard: 'border-b  pb-8 pt-2',
       auth: 'justify-center text-center',
       shop: 'justify-center text-center',
       shopProducts: 'justify-center text-center',

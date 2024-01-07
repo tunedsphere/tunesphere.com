@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import { useRouter } from "next/navigation";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import type { z } from "zod";
+import * as React from 'react'
+import { useRouter } from 'next/navigation'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+import type { z } from 'zod'
 
-import { catchError, isArrayOfFile, isFile } from "@/lib/utils";
-import { storeSchema } from "@/lib/validations/store";
-import { Button } from "@/components/ui/button";
+import { catchError, isArrayOfFile, isFile } from '@/lib/utils'
+import { storeSchema } from '@/lib/validations/store'
+import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -18,45 +18,45 @@ import {
   FormLabel,
   FormMessage,
   UncontrolledFormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Icon } from "@/components/icon";
-import { addStoreAction } from "@/app/_actions/store";
-import type { FileWithPreview, StoredFile } from "@/types";
-import Image from "next/image";
-import { FileDialog } from "@/components/file-dialog";
-import { Zoom } from "@/components/zoom-image";
-import { useUploadThing } from "@/lib/uploadthing";
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Icon } from '@/components/icon'
+import { addStoreAction } from '@/app/_actions/store'
+import type { FileWithPreview, StoredFile } from '@/types'
+import Image from 'next/image'
+import { FileDialog } from '@/components/file-dialog'
+import { Zoom } from '@/components/zoom-image'
+import { useUploadThing } from '@/lib/uploadthing'
 
 interface AddStoreFormProps {
-  userId: string;
+  userId: string
 }
 
-type Inputs = z.infer<typeof storeSchema>;
+type Inputs = z.infer<typeof storeSchema>
 
 export function AddStoreForm({ userId }: AddStoreFormProps) {
-  const router = useRouter();
-  const [isPending, startTransition] = React.useTransition();
+  const router = useRouter()
+  const [isPending, startTransition] = React.useTransition()
   const [StoreBanners, setStoreBanners] = React.useState<
     FileWithPreview[] | null
-  >(null);
+  >(null)
   const [StoreIcons, setStoreIcons] = React.useState<FileWithPreview[] | null>(
-    null
-  ); // react-hook-form
+    null,
+  ) // react-hook-form
   const form = useForm<Inputs>({
     resolver: zodResolver(storeSchema),
     defaultValues: {
-      name: "",
-      headline: "",
-      description: "",
+      name: '',
+      headline: '',
+      description: '',
     },
-  });
+  })
 
   const { isUploading: isUploadingBanner, startUpload: startUploadBanner } =
-    useUploadThing("storeBanner");
+    useUploadThing('storeBanner')
   const { isUploading: isUploadingIcon, startUpload: startUploadIcon } =
-    useUploadThing("storeIcon");
+    useUploadThing('storeIcon')
 
   function onSubmit(data: Inputs) {
     startTransition(async () => {
@@ -77,10 +77,10 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
                 id: storeBanner.key,
                 name: storeBanner.key,
                 url: storeBanner.url,
-              })); // Since it's a single file
-              return formattedStoreBanner ?? null;
+              })) // Since it's a single file
+              return formattedStoreBanner ?? null
             })
-          : null;
+          : null
 
         const storeIcon = isFile(data.storeIcon)
           ? await startUploadIcon([data.storeIcon]).then((res) => {
@@ -88,22 +88,22 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
                 id: storeIcon.key,
                 name: storeIcon.key,
                 url: storeIcon.url,
-              })); // Since it's a single file
-              return formattedStoreIcon ?? null;
+              })) // Since it's a single file
+              return formattedStoreIcon ?? null
             })
-          : null;
+          : null
 
         // Call the addStoreAction with the updated data
-        await addStoreAction({ ...data, userId, storeBanner, storeIcon });
+        await addStoreAction({ ...data, userId, storeBanner, storeIcon })
 
-        form.reset();
-        toast.success("Store added successfully.");
-        router.push("/dashboard/stores");
-        router.refresh(); // Workaround for the inconsistency of cache revalidation
+        form.reset()
+        toast.success('Store added successfully.')
+        router.push('/dashboard/stores')
+        router.refresh() // Workaround for the inconsistency of cache revalidation
       } catch (err) {
-        catchError(err);
+        catchError(err)
       }
-    });
+    })
   }
   return (
     <Form {...form}>
@@ -111,9 +111,9 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
         className="grid w-full max-w-2xl gap-5"
         onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
       >
-        <div className="flex flex-1 gap-4 border border-muted rounded-lg p-4">
-          <FormItem className="flex flex-col gap-1.5 w-2/6 justify-between">
-            <FormLabel className="justify-center mx-auto">Store Icon</FormLabel>
+        <div className="flex flex-1 gap-4 rounded-lg  border p-4">
+          <FormItem className="flex w-2/6 flex-col justify-between gap-1.5">
+            <FormLabel className="mx-auto justify-center">Store Icon</FormLabel>
             {StoreIcons?.length ? (
               <div className="flex justify-center gap-2">
                 {StoreIcons.map((file) => (
@@ -121,7 +121,7 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
                     <Image
                       src={file.preview}
                       alt={file.name}
-                      className="h-20 w-20 shrink-0 rounded-full object-cover object-center border border-muted"
+                      className="h-20 w-20 shrink-0 rounded-full border object-cover object-center "
                       width={80}
                       height={80}
                     />
@@ -133,11 +133,11 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
                 aria-label="Placeholder"
                 role="img"
                 aria-roledescription="placeholder"
-                className="flex items-center justify-center mx-auto rounded-full bg-muted w-[80px] h-[80px]"
+                className="mx-auto flex h-[80px] w-[80px] items-center justify-center rounded-full bg-muted"
               >
                 <Icon
                   name="placeholder"
-                  className="h-6 w-6 text-muted-foreground rounded-full"
+                  className="h-6 w-6 rounded-full text-muted-foreground"
                   aria-hidden="true"
                 />
               </div>
@@ -158,7 +158,7 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
               message={form.formState.errors.storeIcon?.message}
             />
           </FormItem>
-          <div className="flex flex-col w-4/6 gap-2">
+          <div className="flex w-4/6 flex-col gap-2">
             <FormField
               control={form.control}
               name="name"
@@ -211,7 +211,7 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
         <FormItem className="flex w-full flex-col gap-1.5">
           <FormLabel>Store Banner</FormLabel>
           {StoreBanners?.length ? (
-            <div className="flex items-center justify-center mx-auto  gap-2">
+            <div className="mx-auto flex items-center justify-center  gap-2">
               {StoreBanners.map((file) => (
                 <Zoom key={file.name}>
                   <Image
@@ -229,11 +229,11 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
               aria-label="Placeholder"
               role="img"
               aria-roledescription="placeholder"
-              className="flex items-center justify-center mx-auto bg-muted/70 rounded-sm w-full"
+              className="mx-auto flex w-full items-center justify-center rounded-sm bg-muted/70"
             >
               <Icon
                 name="placeholder"
-                className="h-20 w-10 text-muted-foreground rounded-full"
+                className="h-20 w-10 rounded-full text-muted-foreground"
                 aria-hidden="true"
               />
             </div>
@@ -265,5 +265,5 @@ export function AddStoreForm({ userId }: AddStoreFormProps) {
         </Button>
       </form>
     </Form>
-  );
+  )
 }

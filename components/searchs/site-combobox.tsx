@@ -94,7 +94,7 @@ export function SiteCombobox({ className }: SiteComboboxProps) {
             value={query}
             onValueChange={setQuery}
           />
-          <CommandList className="border-t border-muted bg-muted/20">
+          <CommandList className="border-t  bg-muted/20">
             <CommandEmpty
               className={cn(isPending ? 'hidden' : 'py-6 text-center text-sm')}
             >

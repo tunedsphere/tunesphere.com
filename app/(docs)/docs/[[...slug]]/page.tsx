@@ -96,7 +96,7 @@ export default async function PagePage({ params }: DocsPageProps) {
   const toc = await getTableOfContents(doc.body.raw)
   return (
     <>
-      <div className="sticky top-[106px] hidden h-[calc(100vh-130px)] w-[19rem] shrink-0 border-r border-muted lg:block ">
+      <div className="sticky top-[106px] hidden h-[calc(100vh-130px)] w-[19rem] shrink-0 border-r  lg:block ">
         <div
           id="docs-sidebar"
           className="h-full overflow-y-scroll pb-10 pl-8 pr-6"
