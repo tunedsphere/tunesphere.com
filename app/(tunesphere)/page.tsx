@@ -167,7 +167,7 @@ export default function MyApp() {
             {/* <div className="animated-bg-grt-violet !important absolute inset-x-0 -z-10"></div>
               <div className="animated-bg-grt-yellow !important absolute inset-x-0 -z-10"></div>
               <div className="animated-bg-grt-cyan !important absolute inset-x-0 -z-10"></div> */}
-            <div className="grt-button-wrapper flex-1 ">
+            <div className="grt-button-wrapper group flex-1">
               <Link
                 href="/shop/products"
                 className={cn(
@@ -181,13 +181,13 @@ export default function MyApp() {
                   name="chevron-right"
                   className="absolute left-1 text-black sm:left-4"
                 />
-                <span className="animated-grt-text animated-grt-violet">
+                <span className="animated-grt-text animated-grt-violet group-hover:text-black">
                   Buy Now
                 </span>
-                <span className="animated-grt-text animated-grt-yellow">
+                <span className="animated-grt-text animated-grt-yellow group-hover:text-black">
                   Buy Now
                 </span>
-                <span className="animated-grt-text animated-grt-cyan">
+                <span className="animated-grt-text animated-grt-cyan group-hover:text-black">
                   Buy Now
                 </span>
               </Link>

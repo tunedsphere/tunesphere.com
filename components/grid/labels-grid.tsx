@@ -104,13 +104,13 @@ export function RecordLabelsGrid({
                     {label.genres.join(', ')}
                   </p>
                   {String(selectedLabel) === String(index) && (
-                    <div className="arrow-up absolute left-0 right-0 top-[96%] z-100 flex justify-center text-muted">
-                      <Icon name="chevron-up" className="h-10 w-10" />
+                    <div className="arrow-up absolute left-0 right-0 top-[98.5%] z-100 flex justify-center text-border">
+                      <Icon name="chevron-up" className="h-8 w-8" />
                     </div>
                   )}
                   {String(selectedLabel) === String(index) && (
-                    <div className="arrow-up absolute left-0 right-0 top-[98%] z-100 flex justify-center text-gray-100 dark:text-gray-900/50">
-                      <Icon name="chevron-up" className="h-10 w-10" />
+                    <div className="arrow-up absolute -inset-y-2 left-0 right-0 top-[101%] z-100 flex justify-center text-border dark:text-gray-900">
+                      <Icon name="chevron-up" className="h-6 w-6" />
                     </div>
                   )}
                 </div>

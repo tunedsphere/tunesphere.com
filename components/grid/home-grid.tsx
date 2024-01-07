@@ -245,7 +245,7 @@ export function HomeGrid({
                 height={180}
                 alt="Yo"
                 src="/images/product-placeholder.webp"
-                className="aspect-square cursor-pointer  border object-cover"
+                className="aspect-square cursor-pointer border object-cover"
               />
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni

@@ -23,12 +23,12 @@ export function MusicOptionsBanner({
         <div className="sticky flex h-[--music-options-banner-height-mobile] w-full border-b  align-bottom sm:h-[--music-options-banner-height]">
           <div className="absolute inset-0 -z-10 h-36 bg-gradient-to-b from-primary/20 via-transparent to-transparent opacity-20"></div>
           <div className="mt-4 grid grid-rows-2">
-            <div className="px-4 text-lg font-extrabold leading-relaxed sm:text-4xl md:px-12">
+            <div className="px-4 text-lg font-medium leading-relaxed sm:text-4xl md:px-12">
               {toTitleCase(segment)}
               {' : '}
             </div>
             {isOptionsSelected && (
-              <div className="px-4 text-sm font-semibold text-textlow md:px-12">
+              <div className="px-4 text-sm font-medium text-textlow md:px-12">
                 {(
                   [selectedGenre, selectedYear, selectedCountry].filter(
                     Boolean,

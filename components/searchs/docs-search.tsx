@@ -85,7 +85,7 @@ export function DocsSearch() {
       </Button>
       <CommandDialog position="top" open={isOpen} onOpenChange={setIsOpen}>
         <CommandInput
-          className="bg-transparent"
+          className=""
           placeholder="Searching Docs is in progress..."
           value={query}
           onValueChange={setQuery}

@@ -19,7 +19,7 @@ const buttonVariants = cva(
         success:
           'bg-success font-bold text-success-foreground hover:bg-success/80',
         outline:
-          'border border-input hover:bg-theme-100 hover:text-accent-foreground',
+          'border border-input hover:bg-primary/5 hover:text-accent-foreground',
         outlineColor:
           'border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
