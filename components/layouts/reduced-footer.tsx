@@ -15,7 +15,7 @@ export function ReducedFooter() {
       <div className="hidden flex-wrap items-center justify-center gap-2 sm:flex">
         <h5 className="text-base font-extrabold text-texthigh">TUNEDSPHERE</h5>
         <p className="text-sm font-normal text-textlow opacity-75">
-          Copyright © 2023
+          Copyright © 2024
         </p>
       </div>
       <div>

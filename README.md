@@ -1,6 +1,6 @@
 # [TunedSPhere](https://tunedsphere.com/)
 
-This is an open source e-commerce skateshop build with everything new in Next.js 13. It is bootstrapped with `create-t3-app`.
+An E-commerce and & Music Platform Project deployed with Vercel
 
 [![TunedSPhere]](https://tunedsphere.com/)
 

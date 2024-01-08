@@ -81,7 +81,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
             TUNEDSPHERE
           </h1>
           <p className="text-sm font-normal text-textlow">
-            Copyright © 2023 - 2023 TunedSphere. All rights reserved.
+            Copyright © 2024 - 2024 TunedSphere. All rights reserved.
           </p>
         </div>
       </section>
