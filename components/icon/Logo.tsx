@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { IconProps } from "./index";
+import { FC } from 'react'
+import { IconProps } from './index'
 export const LogoIcon: FC<IconProps> = ({ ...props }) => {
   return (
-        <svg
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -40,5 +40,5 @@ export const LogoIcon: FC<IconProps> = ({ ...props }) => {
         </g>
       </g>
     </svg>
-  );
-};
+  )
+}
