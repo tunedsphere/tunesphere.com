@@ -1,8 +1,8 @@
-# [TunedSPhere](https://tunedsphere.com/)
+# [TunedSphere](https://tunedsphere.com/)
 
 An E-commerce and & Music Platform Project deployed with Vercel
 
-[![TunedSPhere]](https://tunedsphere.com/)
+[![TunedSphere]](https://tunedsphere.com/)
 
 > **Warning**
 > This project is still in development and is not ready for production use.
