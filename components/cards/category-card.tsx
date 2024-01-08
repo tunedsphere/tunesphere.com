@@ -31,7 +31,7 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
         <Link
           key={`${category.title}_link`}
           href={`shop/c/${category.title}`}
-          className="group relative cursor-default overflow-hidden rounded-full  border sm:rounded-md"
+          className="group relative cursor-default overflow-hidden rounded-full border sm:rounded-md"
         >
           <AspectRatio ratio={16 / 9}>
             <div className="transition-color absolute inset-0 z-10 bg-muted/20 group-hover:bg-zinc-950/50" />
@@ -52,7 +52,7 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
                   buttonVariants({
                     size: 'icon',
                     className:
-                      'pointer-events-none bg-transparent sm:bg-zinc-200 sm:text-zinc-950',
+                      'pointer-events-none border-border/50 bg-transparent sm:bg-muted sm:text-muted-foreground',
                   }),
                 )}
                 aria-hidden="true"
@@ -60,7 +60,7 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
                 {icon && <Icon name={icon} className="h-4 w-4" />}
               </div>
               <div>
-                <p className="ml-2 hidden rounded-md bg-black/10  px-2 text-sm text-zinc-200 backdrop-blur-sm sm:block">
+                <p className="ml-2 hidden rounded-md bg-black/10 px-2 text-sm text-zinc-200 backdrop-blur-sm sm:block">
                   {productCount} items
                 </p>
               </div>
