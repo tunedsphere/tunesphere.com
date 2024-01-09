@@ -77,24 +77,13 @@
     --music-options-banner-height-mobile: 3.1rem;
     --sidebar-width: 208px;
 
-    --theme-50: 185 100% 97%;
-    --theme-100: 200 91% 94%;
-    --theme-200: 195 92% 85%;
-    --theme-300: 193 82% 70%;
-    --theme-400: 190 85% 55%;
-    --theme-500: 188 86% 53%;
-    --theme-600: 193 87% 36%;
-    --theme-700: 196 82% 31%;
-    --theme-800: 199 67% 28%;
-    --theme-900: 199 61% 25%;
-    --theme-950: 201 60% 19%;
     
     --theme-secondary: 230 100% 51%;
     --primary: 188 86% 53%;
     --primary-foreground: 185 100% 100%;
 
     --secondary: 195 92% 72%;
-    --secondary-foreground: var(--theme-600);
+    --secondary-foreground: 193 87% 36%;
 
     --soft: 186 94% 82%;    
     --soft-foreground: 188 86% 53%;  
@@ -150,18 +139,6 @@
 
   .dark {
 
-    --theme: 280 71% 60%;
-    --theme-50: 282 100% 97.8%;
-    --theme-100: 249 100% 94%;
-    --theme-200: 247 40% 84%;
-    --theme-300: 250 83% 81%;
-    --theme-400: 257 76% 67%;
-    --theme-500: 272 83% 50%;
-    --theme-600: 280 72% 49%;
-    --theme-700: 277 70% 40%;
-    --theme-800: 282 67% 35%;
-    --theme-900: 288 63% 29%;
-    --theme-950: 269 82% 16%;
     --theme-secondary: 295 100% 51%;
 
     --primary: 262 83% 58%;
@@ -226,13 +203,7 @@
 
     --background: 264 67% 5%; 
   
-    --backgroundgradient: linear-gradient(
-      120deg,
-      var(--colors-indigo4),
-      var(--colors-plum3)
-    );
 
-   
   }
 }
 
@@ -240,8 +211,8 @@
   .bg-custom-gradient {
     background: linear-gradient(
       120deg,
-      var(--colors-indigo4),
-      var(--colors-plum3)
+      var(--primary),
+      var(--secondary)
     );
   }
 }
