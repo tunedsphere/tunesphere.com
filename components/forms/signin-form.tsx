@@ -100,7 +100,7 @@ export function SignInForm({ handleLinkClick }: SignInFormProps) {
                 <Link
                   aria-label="Reset password"
                   href="/signin/reset-password"
-                  className="text-xs text-secondary underline-offset-4 transition-colors hover:underline"
+                  className="text-xs font-medium leading-relaxed text-muted-foreground underline-offset-4 transition-colors hover:underline"
                   onClick={handleLinkClick}
                 >
                   Forgot password?
@@ -121,7 +121,7 @@ export function SignInForm({ handleLinkClick }: SignInFormProps) {
         <Button
           variant="rounded"
           type="submit"
-          className="my-8 w-full items-center rounded-full p-4 text-xl "
+          className="my-8 w-full items-center rounded-full p-3 text-2xl font-medium"
           disabled={isPending}
         >
           {isPending && (

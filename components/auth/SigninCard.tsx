@@ -33,9 +33,13 @@ export default function SigninCard({ onClose }: SigninCardProps) {
   }
 
   return (
-    <div id="signin-card" className="z-20 @container">
-      <Card className="/50 border-0 bg-background @md:border">
-        <div className="top-68 absolute left-0 -z-10 h-52 w-[33.333333%] bg-secondary opacity-30 blur-[300px]"></div>
+    <>
+      <div className="top-68 absolute -z-10 mx-auto h-52 w-[33.333333%] bg-primary opacity-50 blur-[300px]"></div>
+
+      <Card
+        id="signin-card"
+        className="/50 z-20 border-0 bg-background @container @md:border"
+      >
         <div className="flex justify-end p-2 sm:p-4">
           <Button
             variant="ghost"
@@ -54,7 +58,7 @@ export default function SigninCard({ onClose }: SigninCardProps) {
           >
             Log in
           </CardTitle>
-          <CardDescription className="p-2 text-center text-secondary">
+          <CardDescription className="p-2 text-center font-bold text-primary">
             Choose your preferred log in method
           </CardDescription>
         </CardHeader>
@@ -80,7 +84,7 @@ export default function SigninCard({ onClose }: SigninCardProps) {
                     href="/docs/legal/terms"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-secondary transition-colors hover:text-foreground"
+                    className=" font-medium leading-relaxed text-primary transition-colors hover:text-foreground"
                   >
                     Terms
                   </Link>{' '}
@@ -89,7 +93,7 @@ export default function SigninCard({ onClose }: SigninCardProps) {
                     href="/docs/legal/privacy" // "Privacy" href
                     target="_blank"
                     rel="noreferrer"
-                    className="text-secondary transition-colors hover:text-foreground"
+                    className=" font-medium leading-relaxed text-primary transition-colors hover:text-foreground"
                   >
                     Privacy
                   </Link>
@@ -112,6 +116,6 @@ export default function SigninCard({ onClose }: SigninCardProps) {
           </div>
         </CardFooter>
       </Card>
-    </div>
+    </>
   )
 }
