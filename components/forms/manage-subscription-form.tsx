@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import { type z } from "zod";
+import * as React from 'react'
+import { type z } from 'zod'
 
-import { catchError } from "@/lib/utils";
-import { type manageSubscriptionSchema } from "@/lib/validations/stripe";
-import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/icon";
-import { manageSubscriptionAction } from "@/app/_actions/stripe";
+import { catchError } from '@/lib/utils'
+import { type manageSubscriptionSchema } from '@/lib/validations/stripe'
+import { Button } from '@/components/ui/button'
+import { Icon } from '@/components/icon'
+import { manageSubscriptionAction } from '@/app/_actions/stripe'
 
-type ManageSubscriptionFormProps = z.infer<typeof manageSubscriptionSchema>;
+type ManageSubscriptionFormProps = z.infer<typeof manageSubscriptionSchema>
 
 export function ManageSubscriptionForm({
   isCurrentPlan,
@@ -18,10 +18,10 @@ export function ManageSubscriptionForm({
   stripeSubscriptionId,
   stripePriceId,
 }: ManageSubscriptionFormProps) {
-  const [isPending, startTransition] = React.useTransition();
+  const [isPending, startTransition] = React.useTransition()
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+    e.preventDefault()
 
     startTransition(async () => {
       try {
@@ -31,19 +31,19 @@ export function ManageSubscriptionForm({
           stripeCustomerId,
           stripeSubscriptionId,
           stripePriceId,
-        });
+        })
         if (session) {
-          window.location.href = session.url ?? "/dashboard/billing";
+          window.location.href = session.url ?? '/dashboard/billing'
         }
       } catch (err) {
-        catchError(err);
+        catchError(err)
       }
-    });
+    })
   }
 
   return (
     <form className="w-full" onSubmit={(e) => onSubmit(e)}>
-      <Button className="w-full" disabled={isPending}>
+      <Button variant="primary" className="w-full" disabled={isPending}>
         {isPending && (
           <Icon
             name="spinner"
@@ -51,8 +51,8 @@ export function ManageSubscriptionForm({
             aria-hidden="true"
           />
         )}
-        {isCurrentPlan ? "Manage" : "Subscribe"}
+        {isCurrentPlan ? 'Manage' : 'Subscribe'}
       </Button>
     </form>
-  );
+  )
 }

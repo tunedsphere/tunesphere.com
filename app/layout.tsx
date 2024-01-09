@@ -8,8 +8,7 @@ import { env } from '@/env.mjs'
 import { ClerkProvider } from '@clerk/nextjs'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { siteConfig } from '@/configs/site'
-import { Toaster, toast } from 'sonner'
-import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -57,9 +56,7 @@ export default function RootLayout({
         )}
       >
         <body className="font-sans antialiased">
-          <ThemeProvider attribute="class" defaultTheme="dark">
-            {children}
-          </ThemeProvider>
+          {children}
           <Toaster richColors />
           <SpeedInsights />
         </body>

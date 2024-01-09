@@ -78,7 +78,7 @@ export async function CartSheet({ className }: CartSheetProps) {
                 <div className="flex flex-col gap-5 pr-6">
                   {cartLineItems.map((item) => (
                     <div key={item.id} className="space-y-3">
-                      <div className="flex items-center space-x-4">
+                      <div className="flex justify-center space-x-4">
                         <div className="relative h-16 w-16 overflow-hidden rounded">
                           {item?.images?.length ? (
                             <Image
@@ -157,13 +157,8 @@ export async function CartSheet({ className }: CartSheetProps) {
             </div>
           </>
         ) : (
-          <div className="flex h-full flex-col items-center justify-center space-y-2">
-            <Icon
-              name="cart"
-              className="h-12 w-12 text-muted-foreground"
-              aria-hidden="true"
-            />
-            <span className="text-lg font-medium text-muted-foreground">
+          <div className="flex h-full flex-col justify-center space-y-2">
+            <span className="items-center text-lg font-medium text-muted-foreground">
               We understand Inflation but your Basket is empty
             </span>
           </div>

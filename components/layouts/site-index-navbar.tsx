@@ -23,7 +23,7 @@ export function SiteIndexNavbar() {
           id="globalnav-bg"
           className="relative bg-background-globalnav @container md:bg-background-globalnav/50"
         >
-          <div className="mx-auto flex h-[--headerHeight] w-full max-w-9xl px-4 lg:px-8 5xl:max-w-[66.66666666666666%]">
+          <div className="5xl:max-w-[66.66666666666666%] mx-auto flex h-[--headerHeight] w-full max-w-9xl px-4 lg:px-8">
             <div className="relative hidden flex-row items-center justify-start gap-1 sm:flex sm:w-1/3 sm:gap-2">
               <Icon name="logo" className="z-100 h-10 w-10 text-primary" />
             </div>
@@ -36,9 +36,9 @@ export function SiteIndexNavbar() {
             </div>
             <div className="relative flex w-2/6 shrink-0 flex-row items-center justify-end gap-1 pr-10 sm:w-1/3 sm:gap-2 sm:pr-12">
               <CartSheet className="hover:text-white" />
-              <div className="hidden @sm:block">
+              {/* <div className="hidden @sm:block">
                 <ThemeToggle className="hover:text-white" />
-              </div>
+              </div> */}
               <div className="flex items-center justify-center">
                 <IndexUserDropdownMenu />
               </div>

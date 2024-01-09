@@ -21,7 +21,7 @@ export function SidebarNav({ items }: SidebarNavProps) {
       {items.map((item, index) => {
         if (item.title === 'Separator') {
           // Add a separator element between "Settings" and "Purchases"
-          return <div key={`${index}-separator`} className="border-t " />
+          return <div key={`${index}-separator`} className="border-t" />
         }
         return item.href ? (
           <Link
@@ -32,9 +32,9 @@ export function SidebarNav({ items }: SidebarNavProps) {
           >
             <span
               className={cn(
-                'group flex w-full items-center rounded-md px-2 py-1 font-medium leading-6 hover:text-primary',
+                'group flex w-full items-center rounded-md px-2 py-1 font-medium leading-6 hover:text-foreground',
                 pathname === item.href
-                  ? 'font-medium text-primary'
+                  ? 'bg-muted font-medium text-foreground'
                   : 'text-muted-foreground',
                 item.disabled && 'pointer-events-none opacity-60',
               )}

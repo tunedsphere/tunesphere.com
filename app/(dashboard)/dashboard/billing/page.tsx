@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import { env } from "@/env.mjs";
-import { currentUser } from "@clerk/nextjs";
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
+import { env } from '@/env.mjs'
+import { currentUser } from '@clerk/nextjs'
 
-import { storeSubscriptionPlans } from "@/configs/subscriptions";
-import { getSubscriptionPlanAction } from "@/app/_actions/stripe";
-import { cn, formatDate, formatPrice } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { storeSubscriptionPlans } from '@/configs/subscriptions'
+import { getSubscriptionPlanAction } from '@/app/_actions/stripe'
+import { cn, formatDate, formatPrice } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -15,30 +15,30 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { ManageSubscriptionForm } from "@/components/forms/manage-subscription-form";
+} from '@/components/ui/card'
+import { ManageSubscriptionForm } from '@/components/forms/manage-subscription-form'
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from "@/components/page-header";
-import { Shell } from "@/components/shells/shell";
-import { Icon } from "@/components/icon";
+} from '@/components/page-header'
+import { Shell } from '@/components/shells/shell'
+import { Icon } from '@/components/icon'
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: "Billing",
-  description: "Manage your billing and subscription",
-};
+  title: 'Billing',
+  description: 'Manage your billing and subscription',
+}
 
 export default async function BillingPage() {
-  const user = await currentUser();
+  const user = await currentUser()
 
   if (!user) {
-    redirect("/signin");
+    redirect('/signin')
   }
 
-  const storeSubscriptionPlan = await getSubscriptionPlanAction(user.id);
+  const storeSubscriptionPlan = await getSubscriptionPlanAction(user.id)
 
   return (
     <>
@@ -62,17 +62,17 @@ export default async function BillingPage() {
           <Card variant="dashboard" className="grid gap-4 p-6">
             <h3 className="text-lg font-semibold sm:text-xl">
               <span>Current Plan :</span>
-              <span className="font-normal text-primary">
-                {" "}
+              <span className="font-medium text-primary">
+                {' '}
                 <strong> {storeSubscriptionPlan?.name}</strong>
               </span>
             </h3>
             <p className="text-sm text-muted-foreground">
               {!storeSubscriptionPlan?.isSubscribed
-                ? "Upgrade to create more stores and products."
+                ? 'Upgrade to create more stores and products.'
                 : storeSubscriptionPlan.isCanceled
-                ? "Your plan will be canceled on "
-                : "Your plan renews on "}
+                  ? 'Your plan will be canceled on '
+                  : 'Your plan renews on '}
               {storeSubscriptionPlan?.stripeCurrentPeriodEnd
                 ? `${formatDate(storeSubscriptionPlan.stripeCurrentPeriodEnd)}.`
                 : null}
@@ -93,14 +93,16 @@ export default async function BillingPage() {
                 variant="dashboard"
                 key={plan.name}
                 className={cn(
-                  "flex flex-col",
+                  'flex flex-col',
                   i === storeSubscriptionPlans.length - 1 &&
-                    "lg:col-span-2 xl:col-span-1" &&
-                    "border-primary shadow-md"
+                    'lg:col-span-2 xl:col-span-1' &&
+                    'border-primary shadow-md',
                 )}
               >
                 <CardHeader>
-                  <CardTitle className="line-clamp-1">{plan.name}</CardTitle>
+                  <CardTitle className="mb-4 line-clamp-1 text-2xl font-bold">
+                    {plan.name}
+                  </CardTitle>
                   <CardDescription className="line-clamp-2 text-theme-300">
                     {plan.description}
                   </CardDescription>
@@ -108,7 +110,7 @@ export default async function BillingPage() {
                 <CardContent className="grid flex-1 place-items-start gap-6">
                   <div className="text-3xl font-bold">
                     {formatPrice(plan.price, {
-                      currency: "EUR",
+                      currency: 'EUR',
                     })}
                     <span className="text-sm font-normal text-muted-foreground">
                       /month
@@ -133,8 +135,9 @@ export default async function BillingPage() {
                       <div
                         className={cn(
                           buttonVariants({
-                            className: "w-full",
-                          })
+                            variant: 'primary',
+                            className: 'w-full',
+                          }),
                         )}
                       >
                         Manage Stores
@@ -161,5 +164,5 @@ export default async function BillingPage() {
         </section>
       </Shell>
     </>
-  );
+  )
 }
