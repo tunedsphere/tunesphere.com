@@ -22,32 +22,32 @@ export const sortOptions = [
 export const productCategories = [
   {
     title: "clothing",
-    image: "/images/skateboard-one.webp",
+    image: "/images/product-category/clothing-one.webp",
     icon: "shirt",
     subcategories: [
       {
         title: "pants",
         description: "pants",
-        image: "/images/deck-one.webp",
+        image: "/images/clothing-one.webp",
         slug: "pants",
       },
       {
         title: "hoodies",
         description: "Hoodies",
-        image: "/images/wheel-one.webp",
+        image: "/images/clothing-one.webp",
         slug: "hoodies",
       },
       {
         title: "T-shirts",
         description: "T-shirts",
-        image: "/images/truck-one.webp",
+        image: "/images/clothing-one.webp",
         slug: "t-shirts",
       },
     ],
   },
   {
     title: "accessories",
-    image: "/images/clothing-one.webp",
+    image: "/images/product-category/accessories-one.webp",
     icon: "backpack",
     subcategories: [
       {
@@ -59,7 +59,7 @@ export const productCategories = [
   },
   {
     title: "art",
-    image: "/images/shoe-one.webp",
+    image: "/images/product-category/art-one.jpg",
     icon: "art",
     subcategories: [
       {
@@ -71,7 +71,7 @@ export const productCategories = [
   },
   {
     title: "decorations",
-    image: "/images/backpack-one.webp",
+    image: "/images/product-category/decoration-one.jpg",
     icon: "spray",
     subcategories: [
       {
@@ -83,7 +83,7 @@ export const productCategories = [
   },
   {
     title: "plants",
-    image: "/images/plant-one.webp",
+    image: "/images/product-category/plant-one.webp",
     icon: "leaf",
     subcategories: [
       {
@@ -100,7 +100,7 @@ export const productCategories = [
   },
   {
     title: "literature",
-    image: "/images/book-one.webp",
+    image: "/images/product-category/book-one.webp",
     icon: "book",
     subcategories: [
       {
@@ -117,7 +117,7 @@ export const productCategories = [
   },
   {
     title: "tools",
-    image: "/images/tools.webp",
+    image: "/images/product-category/tools-one.webp",
     icon: "cigarette",
     subcategories: [
       {
@@ -134,7 +134,7 @@ export const productCategories = [
   },
   {
     title: "cds_and_vinyls",
-    image: "/images/physical_musical_format.jpg",
+    image: "/images/product-category/cd-vynils-one.jpg",
     icon: "cd",
     subcategories: [
       {

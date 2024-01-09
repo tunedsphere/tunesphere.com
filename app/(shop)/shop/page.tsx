@@ -70,7 +70,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
             <PageHeaderHeading
               size="lg"
               variant="shop"
-              className="py-6 tracking-tighter md:py-24"
+              className="z-300 py-6 tracking-tighter md:py-24"
             >
               A Store specially built for You with everything you would expect
             </PageHeaderHeading>
