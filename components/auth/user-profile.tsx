@@ -21,8 +21,9 @@ const appearance: Theme = {
     headerTitle: 'hidden',
     headerSubtitle: 'hidden',
     profilePage: 'gap-0',
-    profileSectionTitle: 'font-semibold text-2xl',
-    profileSectionContent: 'border rounded-md  bg-card',
+    profileSectionTitle: 'font-semibold text-2xl border-none',
+    profileSectionContent: 'border rounded-md bg-card',
+    profileSectionContent__danger: 'border-none p-8',
     profileSectionPrimaryButton: 'text-sm text-foreground text-semibold py-3',
     profileSection: 'py-4',
     pageScrollBox: 'p-0',
@@ -31,7 +32,8 @@ const appearance: Theme = {
     formFieldLabel: 'py-2 font-semibold',
     formButtonPrimary: 'bg-primary hover:bg-primary/70 rounded-sm',
     formButtonReset: 'rounded-sm',
-    badge: 'text-primary',
+    badge: 'text-primary rounded-md',
+    deleteAccountButton: 'rounded-md',
   },
 }
 

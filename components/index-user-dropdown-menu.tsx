@@ -28,7 +28,7 @@ export async function IndexUserDropdownMenu() {
       {user ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Avatar className="h-6 w-6 cursor-pointer items-center justify-center shadow-sm shadow-slate-900/50">
+            <Avatar className="h-6 w-6 cursor-pointer items-center justify-center">
               <AvatarImage
                 role="img"
                 src={user.imageUrl}
