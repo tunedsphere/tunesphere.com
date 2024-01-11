@@ -1,51 +1,51 @@
-import Image from "next/image";
-import Link from "next/link";
-import { db } from "@/db";
-import { products, stores, type Product } from "@/db/schema";
+import Link from 'next/link'
+import { db } from '@/db'
+import { products, stores, type Product } from '@/db/schema'
 
-import { desc, eq } from "drizzle-orm";
-import { Icon } from "@/components/icon";
-import { productCategories } from "@/configs/products";
+import { desc, eq } from 'drizzle-orm'
+import { Icon } from '@/components/icon'
+import { productCategories } from '@/configs/products'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
-import { buttonVariants } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Tabs } from "@/components/ui/tabs";
+import { buttonVariants } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Tabs } from '@/components/ui/tabs'
 
-import { ProductCard } from "@/components/cards/product-card";
+import { ProductCard } from '@/components/cards/product-card'
 
-import { ProudctTabs } from "@/components/pagers/product-tabs";
+import { ProudctTabs } from '@/components/pagers/product-tabs'
 
-import { delayFeaturedProducts } from "@/lib/delays";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { delayFeaturedProducts } from '@/lib/delays'
+import { AspectRatio } from './ui/aspect-ratio'
 
 interface FeaturedProductsProps {
   searchParams: {
-    [key: string]: string | string[] | undefined;
-  }; // Correct data type definition
+    [key: string]: string | string[] | undefined
+  } // Correct data type definition
 }
 
 export async function FeaturedProducts({
   searchParams,
 }: FeaturedProductsProps) {
-  await new Promise((resolve) => setTimeout(resolve, delayFeaturedProducts));
-  const category = searchParams?.category ?? "art";
+  await new Promise((resolve) => setTimeout(resolve, delayFeaturedProducts))
+  const category = searchParams?.category ?? 'art'
   const randomProductCategory =
-    productCategories[Math.floor(Math.random() * productCategories.length)];
+    productCategories[Math.floor(Math.random() * productCategories.length)]
 
   const someProducts = await db.query.products.findMany({
     with: {
       store: true,
     },
     where:
-      typeof category === "string"
-        ? eq(products.category, category as Product["category"])
+      typeof category === 'string'
+        ? eq(products.category, category as Product['category'])
         : undefined,
-  });
+    limit: 4, // Limit the total number of results to 4
+  })
 
-  const storeNames = someProducts.map((product) => product.store.name);
-  console.log(storeNames);
+  const storeNames = someProducts.map((product) => product.store.name)
+  console.log(storeNames)
   return (
     <section
       id="featured-products"
@@ -53,7 +53,7 @@ export async function FeaturedProducts({
       className="space-y-6 overflow-hidden py-8 md:pt-12 lg:pt-24"
     >
       <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible text-center">
-        <h2 className="  font-heading text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl underline-offset-4 underline decoration-primary">
+        <h2 className="  font-heading text-3xl font-bold leading-[1.1] underline decoration-primary underline-offset-4 sm:text-3xl md:text-5xl">
           Featured products
         </h2>
       </div>
@@ -96,9 +96,9 @@ export async function FeaturedProducts({
             href={`/shop/c/${category}`}
             className={cn(
               buttonVariants({
-                className: "mx-auto",
-                variant: "default",
-              })
+                className: 'mx-auto',
+                variant: 'default',
+              }),
             )}
           >
             View all {category}
@@ -107,26 +107,26 @@ export async function FeaturedProducts({
         </div>
       </Tabs>
     </section>
-  );
+  )
 }
 
-const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-theme/10 before:to-transparent`;
+const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-theme/10 before:to-transparent`
 
 function ProductSkeleton() {
   return (
-    <div className="flex flex-col col-span-4 lg:col-span-1">
-      <div className={`bg-card rounded-t-lg ${shimmer}`}>
+    <div className="col-span-4 flex flex-col lg:col-span-1">
+      <div className={`rounded-t-lg bg-card ${shimmer}`}>
         <AspectRatio ratio={4 / 3}>
           <div className={`bg-card ${shimmer}`} />
         </AspectRatio>
       </div>
-      <div className="flex-col space-y-2 p-6  bg-card rounded-b-lg">
+      <div className="flex-col space-y-2 rounded-b-lg  bg-card p-6">
         <div className={`h-4 w-1/4 rounded-lg bg-muted ${shimmer}`} />
         <div className={`h-4 w-full rounded-lg bg-muted ${shimmer}`} />
-        <div className={`h-6 w-1/2 mx-auto rounded-lg bg-muted ${shimmer}`} />
+        <div className={`mx-auto h-6 w-1/2 rounded-lg bg-muted ${shimmer}`} />
       </div>
     </div>
-  );
+  )
 }
 
 export function FeaturedProductsSkeleton() {
@@ -137,12 +137,12 @@ export function FeaturedProductsSkeleton() {
       className="space-y-6 overflow-hidden py-8 md:pt-12 lg:pt-24"
     >
       <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible text-center">
-        <h2 className="  font-heading text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl underline-offset-4 underline decoration-primary">
+        <h2 className="  font-heading text-3xl font-bold leading-[1.1] underline decoration-primary underline-offset-4 sm:text-3xl md:text-5xl">
           Featured products
         </h2>
       </div>
       <div className="space-y-6 pb-[5px]">
-        <div className="h-12 space-y-2 flex justify-center mx-auto items-center">
+        <div className="mx-auto flex h-12 items-center justify-center space-y-2">
           <div className={`h-6 w-1/3 rounded-lg bg-card ${shimmer}`} />
         </div>
 
@@ -154,5 +154,5 @@ export function FeaturedProductsSkeleton() {
         </div>
       </div>
     </section>
-  );
+  )
 }

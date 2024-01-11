@@ -19,13 +19,66 @@ import {
   sql,
 } from "drizzle-orm"
 import { type z } from "zod"
-
+import { faker } from "@faker-js/faker"
 import type {
   getProductSchema,
   getProductsSchema,
   productSchema,
   updateProductRatingSchema,
 } from "@/lib/validations/product"
+import { getSubcategories, productTags } from "@/configs/products"
+export async function generateProducts({
+  storeId,
+  count,
+}: {
+  storeId: number
+  count?: number
+}) {
+  const productCount = count ?? 100
+
+  const data: Product[] = []
+
+  for (let i = 0; i < productCount; i++) {
+    const category =
+      faker.helpers.shuffle(products.category.enumValues)[0] ?? "art"
+
+    const subcategories = getSubcategories(category)
+    
+
+    data.push({
+      id: new Date().getTime() + new Date().getMilliseconds() + i,
+      name: faker.commerce.productName(),
+      description: faker.commerce.productDescription(),
+      price: faker.commerce.price(),
+      images: Array.from({ length: 3 }).map(() => ({
+        id: faker.string.uuid(),
+        name: faker.system.fileName(),
+        url: faker.image.urlLoremFlickr({
+          category,
+          width: 640,
+          height: 480,
+        }),
+      })),
+      category,
+      subcategory:
+        faker.helpers.shuffle(subcategories)[0]?.value ??
+        subcategories[0]?.value ??
+        "",
+      storeId,
+      inventory: faker.number.float({ min: 50, max: 100 }),
+      rating: faker.number.float({ min: 0, max: 5 }),
+      tags: productTags.slice(0, faker.number.float({ min: 0, max: 5 })),
+      createdAt: faker.date.past(),
+      updatedAt: faker.date.past(),
+    })
+  }
+
+  await db.delete(products).where(eq(products.storeId, storeId))
+
+  await db.insert(products).values(data)
+}
+
+
 export async function filterProductsAction(query: string) {
   if (query.length === 0) return null
 
