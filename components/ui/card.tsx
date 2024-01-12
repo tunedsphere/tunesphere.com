@@ -3,10 +3,10 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
 
-const cardVariants = cva('text-card-foreground shadow-sm', {
+const cardVariants = cva('text-card-foreground', {
   variants: {
     variant: {
-      default: 'rounded-lg border bg-card',
+      default: 'rounded-md border bg-card',
       dashboard: 'rounded-lg border bg-background-dashboard',
       album: '',
     },

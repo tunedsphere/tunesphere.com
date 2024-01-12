@@ -69,6 +69,7 @@ import { EditIcon } from './Edit'
 import { GripIcon } from './Grip'
 import { HeartIcon } from './Heart'
 import { HorizontalThreeDotsIcon } from './HorizontalThreeDots'
+import { SlidersHorizontalIcon } from './SlidersHorizontal'
 
 import { ShopIconName, shopIconMap } from './shop'
 import { SocialIconName, socialIconMap } from './social'
@@ -138,6 +139,7 @@ export type IconName =
   | 'star-rating'
   | 'sign'
   | 'spinner'
+  | 'sliders-horizontal'
   | 'upload'
   | 'user'
   | 'vertical-three-dots'
@@ -164,6 +166,7 @@ const iconMap = {
   'external-link': ExternalLinkIcon,
   'horizontal-three-dots': HorizontalThreeDotsIcon,
   'play-button': PlayButtonIcon,
+  'sliders-horizontal': SlidersHorizontalIcon,
   'vertical-three-dots': VerticalThreeDotsIcon,
   'page-layout': PageLayoutIcon,
   'star-rating': StarRatingIcon,

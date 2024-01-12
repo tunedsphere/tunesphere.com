@@ -1,17 +1,17 @@
-"use client";
+'use client'
 
-import "@/styles/globals.css";
+import '@/styles/globals.css'
 
-import * as React from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { type Product, type Store } from "@/db/schema";
-import type { Option } from "@/types";
+import * as React from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { type Product, type Store } from '@/db/schema'
+import type { Option } from '@/types'
 
-import { getSubcategories, sortOptions } from "@/configs/products";
-import { cn, toTitleCase, truncate } from "@/lib/utils";
-import { useDebounce } from "@/hooks/use-debounce";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import { getSubcategories, sortOptions } from '@/configs/products'
+import { cn, toTitleCase, truncate } from '@/lib/utils'
+import { useDebounce } from '@/hooks/use-debounce'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,11 +19,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
+} from '@/components/ui/dropdown-menu'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Separator } from '@/components/ui/separator'
 import {
   Sheet,
   SheetContent,
@@ -31,21 +31,21 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { Slider } from "@/components/ui/slider";
-import { ProductCard } from "@/components/cards/product-card";
-import { Icon } from "@/components/icon";
-import { MultiSelect } from "@/components/multi-select";
-import { PaginationButton } from "@/components/pagers/pagination-button";
-import { delayProducts } from "@/lib/delays";
+} from '@/components/ui/sheet'
+import { Slider } from '@/components/ui/slider'
+import { ProductCard } from '@/components/cards/product-card'
+import { Icon } from '@/components/icon'
+import { MultiSelect } from '@/components/multi-select'
+import { PaginationButton } from '@/components/pagers/pagination-button'
+import { delayProducts } from '@/lib/delays'
 
 interface ProductsProps extends React.HTMLAttributes<HTMLDivElement> {
-  products: Product[];
-  pageCount: number;
-  category?: Product["category"];
-  categories?: Product["category"][];
-  stores?: Pick<Store, "id" | "name">[];
-  storePageCount?: number;
+  products: Product[]
+  pageCount: number
+  category?: Product['category']
+  categories?: Product['category'][]
+  stores?: Pick<Store, 'id' | 'name'>[]
+  storePageCount?: number
 }
 export function Products({
   products,
@@ -56,45 +56,43 @@ export function Products({
   storePageCount,
   ...props
 }: ProductsProps) {
-  const id = React.useId();
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [isPending, startTransition] = React.useTransition();
+  const id = React.useId()
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const [isPending, startTransition] = React.useTransition()
 
   // Search params
-  const page = searchParams?.get("page") ?? "1";
-  const per_page = searchParams?.get("per_page") ?? "16";
-  const sort = searchParams?.get("sort") ?? "createdAt.desc";
-  const store_ids = searchParams?.get("store_ids");
-  const store_page = searchParams?.get("store_page") ?? "1";
-  const storeNames = null;
+  const page = searchParams?.get('page') ?? '1'
+  const per_page = searchParams?.get('per_page') ?? '16'
+  const sort = searchParams?.get('sort') ?? 'createdAt.desc'
+  const store_ids = searchParams?.get('store_ids')
+  const store_page = searchParams?.get('store_page') ?? '1'
+  const storeNames = null
   // Create query string
   const createQueryString = React.useCallback(
     (params: Record<string, string | number | null>) => {
-      const newSearchParams = new URLSearchParams(searchParams?.toString());
+      const newSearchParams = new URLSearchParams(searchParams?.toString())
 
       for (const [key, value] of Object.entries(params)) {
         if (value === null) {
-          newSearchParams.delete(key);
+          newSearchParams.delete(key)
         } else {
-          newSearchParams.set(key, String(value));
+          newSearchParams.set(key, String(value))
         }
       }
 
-      return newSearchParams.toString();
+      return newSearchParams.toString()
     },
-    [searchParams]
-  );
+    [searchParams],
+  )
 
   // Price filter
-  const [priceRange, setPriceRange] = React.useState<[number, number]>([
-    0, 500,
-  ]);
-  const debouncedPrice = useDebounce(priceRange, 500);
+  const [priceRange, setPriceRange] = React.useState<[number, number]>([0, 500])
+  const debouncedPrice = useDebounce(priceRange, 500)
 
   React.useEffect(() => {
-    const [min, max] = debouncedPrice;
+    const [min, max] = debouncedPrice
     startTransition(() => {
       router.push(
         `${pathname}?${createQueryString({
@@ -102,16 +100,16 @@ export function Products({
         })}`,
         {
           scroll: false,
-        }
-      );
-    });
+        },
+      )
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedPrice]);
+  }, [debouncedPrice])
 
   // Category filter
   const [selectedCategories, setSelectedCategories] = React.useState<
     Option[] | null
-  >(null);
+  >(null)
 
   React.useEffect(() => {
     startTransition(() => {
@@ -119,57 +117,57 @@ export function Products({
         `${pathname}?${createQueryString({
           categories: selectedCategories?.length
             ? // Join categories with a dot to make search params prettier
-              selectedCategories.map((c) => c.value).join(".")
+              selectedCategories.map((c) => c.value).join('.')
             : null,
         })}`,
         {
           scroll: false,
-        }
-      );
-    });
+        },
+      )
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedCategories]);
+  }, [selectedCategories])
 
   // Subcategory filter
   const [selectedSubcategories, setSelectedSubcategories] = React.useState<
     Option[] | null
-  >(null);
-  const subcategories = getSubcategories(category);
+  >(null)
+  const subcategories = getSubcategories(category)
 
   React.useEffect(() => {
     startTransition(() => {
       router.push(
         `${pathname}?${createQueryString({
           subcategories: selectedSubcategories?.length
-            ? selectedSubcategories.map((s) => s.value).join(".")
+            ? selectedSubcategories.map((s) => s.value).join('.')
             : null,
         })}`,
         {
           scroll: false,
-        }
-      );
-    });
+        },
+      )
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedSubcategories]);
+  }, [selectedSubcategories])
 
   // Store filter
   const [storeIds, setStoreIds] = React.useState<number[] | null>(
-    store_ids?.split(".").map(Number) ?? null
-  );
+    store_ids?.split('.').map(Number) ?? null,
+  )
 
   React.useEffect(() => {
     startTransition(() => {
       router.push(
         `${pathname}?${createQueryString({
-          store_ids: storeIds?.length ? storeIds.join(".") : null,
+          store_ids: storeIds?.length ? storeIds.join('.') : null,
         })}`,
         {
           scroll: false,
-        }
-      );
-    });
+        },
+      )
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [storeIds]);
+  }, [storeIds])
 
   const handlePerPageChange = (newValue: number) => {
     startTransition(() => {
@@ -179,26 +177,30 @@ export function Products({
         })}`,
         {
           scroll: false,
-        }
-      );
-    });
-  };
+        },
+      )
+    })
+  }
 
   return (
     <div className="flex flex-col space-y-6" {...props}>
-      <div className="flex justify-between content-center items-stretch sm:px-12 px-4">
+      <div className="flex content-center items-stretch justify-between px-4 sm:px-12">
         <Sheet>
           <SheetTrigger asChild>
             <Button
               aria-label="Filter products"
               size="sm"
               disabled={isPending}
-              className="font-semibold leading-6 bg-background-shopNavLink"
+              className="bg-background-shopNavLink font-semibold leading-6"
             >
+              <Icon name="sliders-horizontal" className='h-3.5 w-4 mr-2'/>
               All Filters
             </Button>
           </SheetTrigger>
-          <SheetContent className="flex flex-col bg-background" side="left">
+          <SheetContent
+            className="z-10000 flex flex-col bg-background"
+            side="left"
+          >
             <SheetHeader className="px-1">
               <SheetTitle className="text-4xl">Filters</SheetTitle>
             </SheetHeader>
@@ -216,7 +218,7 @@ export function Products({
                   step={1}
                   value={priceRange}
                   onValueChange={(value: typeof priceRange) => {
-                    setPriceRange(value);
+                    setPriceRange(value)
                   }}
                 />
                 <div className="flex space-x-4">
@@ -228,8 +230,8 @@ export function Products({
                     className="h-9"
                     value={priceRange[0]}
                     onChange={(e) => {
-                      const value = Number(e.target.value);
-                      setPriceRange([value, priceRange[1]]);
+                      const value = Number(e.target.value)
+                      setPriceRange([value, priceRange[1]])
                     }}
                   />
                   <span className="">-</span>
@@ -241,8 +243,8 @@ export function Products({
                     className="h-9"
                     value={priceRange[1]}
                     onChange={(e) => {
-                      const value = Number(e.target.value);
-                      setPriceRange([priceRange[0], value]);
+                      const value = Number(e.target.value)
+                      setPriceRange([priceRange[0], value])
                     }}
                   />
                 </div>
@@ -292,9 +294,9 @@ export function Products({
                             router.push(
                               `${pathname}?${createQueryString({
                                 store_page: Number(store_page) - 1,
-                              })}`
-                            );
-                          });
+                              })}`,
+                            )
+                          })
                         }}
                         disabled={Number(store_page) === 1 || isPending}
                       >
@@ -314,9 +316,9 @@ export function Products({
                             router.push(
                               `${pathname}?${createQueryString({
                                 store_page: Number(store_page) + 1,
-                              })}`
-                            );
-                          });
+                              })}`,
+                            )
+                          })
                         }}
                         disabled={
                           Number(store_page) === storePageCount || isPending
@@ -344,12 +346,12 @@ export function Products({
                             checked={storeIds?.includes(store.id) ?? false}
                             onCheckedChange={(value) => {
                               if (value) {
-                                setStoreIds([...(storeIds ?? []), store.id]);
+                                setStoreIds([...(storeIds ?? []), store.id])
                               } else {
                                 setStoreIds(
                                   storeIds?.filter((id) => id !== store.id) ??
-                                    null
-                                );
+                                    null,
+                                )
                               }
                             }}
                           />
@@ -381,14 +383,14 @@ export function Products({
                           store_ids: null,
                           categories: null,
                           subcategories: null,
-                        })}`
-                      );
+                        })}`,
+                      )
 
-                      setPriceRange([0, 100]);
-                      setSelectedCategories(null);
-                      setSelectedSubcategories(null);
-                      setStoreIds(null);
-                    });
+                      setPriceRange([0, 100])
+                      setSelectedCategories(null)
+                      setSelectedSubcategories(null)
+                      setStoreIds(null)
+                    })
                   }}
                   disabled={isPending}
                 >
@@ -405,7 +407,7 @@ export function Products({
                 aria-label="Items-per-page"
                 size="sm"
                 disabled={isPending}
-                className="font-semibold bg-background-shopNavLink leading-6"
+                className="bg-background-shopNavLink font-semibold leading-6"
               >
                 {per_page}
                 <Icon
@@ -420,8 +422,8 @@ export function Products({
                 <DropdownMenuItem
                   key={value}
                   className={cn(
-                    value === +per_page && "",
-                    "hover:bg-muted/30 focus:bg-muted/30"
+                    value === +per_page && '',
+                    'hover:bg-muted/30 focus:bg-muted/30',
                   )}
                   onClick={() => handlePerPageChange(value)}
                 >
@@ -437,7 +439,7 @@ export function Products({
                   aria-label="Sort products"
                   size="sm"
                   disabled={isPending}
-                  className="font-semibold leading-6 bg-background-shopNavLink"
+                  className="bg-background-shopNavLink font-semibold leading-6"
                 >
                   Sort
                   <Icon name="chevron-down" className="" aria-hidden="true" />
@@ -450,16 +452,16 @@ export function Products({
                   <DropdownMenuItem
                     key={option.label}
                     className={cn(
-                      option.value === sort && "font-bold hover:bg-muted"
+                      option.value === sort && 'font-bold hover:bg-muted',
                     )}
                     onClick={() => {
                       startTransition(() => {
                         router.push(
                           `${pathname}?${createQueryString({
                             sort: option.value,
-                          })}`
-                        );
-                      });
+                          })}`,
+                        )
+                      })
                     }}
                   >
                     {option.label}
@@ -479,7 +481,7 @@ export function Products({
           </p>
         </div>
       ) : null}
-      <div className="grid w-full grid-cols-2 px-0 sm:grid-cols-4 gap-2 lg:grid-cols-4">
+      <div className="grid w-full grid-cols-2 gap-2 px-0 sm:grid-cols-4 lg:grid-cols-4">
         {products.map((product) => (
           <div key={product.id}>
             <ProductCard product={product} storeName={product.name} />
@@ -500,10 +502,10 @@ export function Products({
         />
       ) : null}
     </div>
-  );
+  )
 }
 
-const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent`;
+const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent`
 
 function ProductSkeleton() {
   return (
@@ -515,7 +517,7 @@ function ProductSkeleton() {
       <div className="h-4 w-full rounded-lg bg-gray-900" />
       <div className="h-4 w-4/6 rounded-lg bg-gray-900" />
     </div>
-  );
+  )
 }
 
 export function AllProductsSkeleton() {
@@ -533,5 +535,5 @@ export function AllProductsSkeleton() {
         <ProductSkeleton />
       </div>
     </div>
-  );
+  )
 }

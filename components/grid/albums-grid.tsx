@@ -13,18 +13,7 @@ import { AlbumCard } from '../cards/album-card'
 import { Icon } from '../icon'
 
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-} from '@/components/ui/command'
+
 import {
   Popover,
   PopoverContent,
@@ -140,13 +129,24 @@ export function AlbumsGrid({
                 >
                   <div className="grid grid-cols-2 grid-rows-[min-content_1fr] gap-4 @xs:grid-cols-4 @md:grid-cols-5 @lg:grid-cols-8 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9">
                     <div className="mx-auto items-center align-middle @md:col-span-1 @lg:col-span-2 @lg:row-span-2 @xl:row-span-2 @6xl:col-span-2">
-                      <Image
-                        width={400}
-                        height={400}
-                        src={album.image}
-                        alt={album.title}
-                        className="aspect-square cursor-pointer rounded-md border  @9xl:w-[800px]"
-                      ></Image>
+                      <div className="group/Image relative flex items-center justify-center">
+                        <Image
+                          width={400}
+                          height={400}
+                          src={album.image}
+                          alt={album.title}
+                          className="aspect-square cursor-pointer rounded-md border @9xl:w-[800px]"
+                        />
+                        <Button
+                          variant="link"
+                          className="absolute rounded-full bg-primary-foreground px-1 py-1 opacity-0 transition-opacity duration-300 group-hover/Image:opacity-100"
+                        >
+                          <Icon
+                            name="play"
+                            className="ml-1 h-10 w-10 fill-current text-primary hover:text-primary/80"
+                          />
+                        </Button>
+                      </div>
                     </div>
                     <div className="col-span-3 col-start-2 @lg:col-start-3 @6xl:col-span-4 @6xl:pl-4 @7xl:col-span-5 @8xl:col-span-6 @9xl:col-span-7">
                       <h3 className="7xl:text-6xl 8xl:text-8xl cursor-pointer text-3xl font-semibold">

@@ -14,7 +14,7 @@ export const PlayIcon: FC<IconProps> = ({ ...props }) => {
       strokeLinejoin="round"
       {...props}
     >
-      <polygon points="5 3 19 12 5 21 5 3" />
+      <polygon points="5 3 19 12 5 21 5 3" fill-rule="evenodd" />
     </svg>
   )
 }
