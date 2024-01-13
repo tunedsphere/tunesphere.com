@@ -19,7 +19,7 @@
     "stripe:listen": "stripe listen --forward-to localhost:3000/api/webhooks/stripe --latest"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.27.2",
+    "@clerk/nextjs": "^4.29.3",
     "@clerk/themes": "^1.7.9",
     "@faker-js/faker": "^8.3.1",
     "@hookform/resolvers": "^3.3.2",
