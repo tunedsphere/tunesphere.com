@@ -118,7 +118,7 @@ export function ProductCard({
             {storeName}
           </Link>
         </CardContent>
-        <CardFooter className="mt-1">
+        <CardFooter className="mb-2 mt-1">
           <div className="flex w-full flex-col items-center justify-between gap-2 align-middle sm:flex-row">
             <Badge className="shrink-0" variant="success">
               Free Delivery

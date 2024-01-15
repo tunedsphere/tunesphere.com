@@ -154,7 +154,11 @@ export default function MyApp() {
         aria-labelledby="hero-heading"
         className="z-200 gap-8 px-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28"
       >
-        <PageHeader id="home-shop" aria-labelledby="home-shop-header-heading">
+        <PageHeader
+          className="mx-auto max-w-5xl"
+          id="home-shop"
+          aria-labelledby="home-shop-header-heading"
+        >
           <PageHeaderHeading
             size="xl"
             className="py-6 tracking-tighter text-foreground md:py-24"
@@ -201,7 +205,7 @@ export default function MyApp() {
               <span className="grt-btn-bg animated-grt-yellow"></span>
               <span className="grt-btn-bg animated-grt-cyan"></span>
               <Link
-                href="/dashboard/stores"
+                href="/shop/sell"
                 className={cn(
                   buttonVariants({
                     size: 'xl',

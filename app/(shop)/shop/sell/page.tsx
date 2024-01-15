@@ -35,7 +35,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
 
   useEffect(() => {
     const options = {
-      threshold: 0.5, // Adjust this threshold based on your needs
+      threshold: 0.2, // Adjust this threshold based on your needs
     }
 
     const handleIntersection = (entries) => {
@@ -102,11 +102,11 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
           <div className="z-20 grid">
             <div className="col-span-1 rounded-lg p-16">
               <div className="mb-10 text-center">
-                <h1 className="text-5xl font-bold leading-snug tracking-widest text-foreground">
-                  Ready to give it a try?
+                <h1 className="text-5xl font-bold uppercase tracking-wide text-foreground">
+                  Ready To Tune In?
                 </h1>
                 <p className="mt-4 text-xl text-muted-foreground">
-                  Become a seller and let people dive into Your world.
+                  Become a seller and let people dive into Your World.
                 </p>
                 <Button
                   className="mt-6 rounded-full px-8 py-2 shadow-md"
@@ -120,72 +120,74 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
           </div>
         </div>
         {/* Features Section */}
-        <div className="sticky top-[--headerHeight] z-20 w-full border-b bg-gradient-to-r from-primary/20 via-background to-primary/20 px-6 py-4 ">
-          <div className="absolute z-10 w-full bg-background"></div>
-          <div className="mx-auto flex max-w-8xl justify-center">
-            <h2 className="flex gap-8 text-base font-bold uppercase tracking-widest text-foreground">
-              <Button
-                variant="link"
-                id="intro-sticky-navigation"
-                onClick={() => handleNavClick(introSectionRef)}
-              >
-                <span
-                  className={`text-lg font-medium hover:text-foreground hover:underline ${
-                    isScrolledToIntro
-                      ? 'text-foreground underline decoration-primary underline-offset-4'
-                      : 'text-muted-foreground'
-                  }`}
-                >
-                  Intro
-                </span>
-              </Button>
-              <Button
-                variant="link"
-                id="fees-sticky-navigation"
-                onClick={() => handleNavClick(feesSectionRef)}
-              >
-                <span
-                  className={`text-lg font-medium hover:text-foreground hover:underline ${
-                    isScrolledToFees
-                      ? 'text-foreground underline decoration-primary underline-offset-4'
-                      : 'text-muted-foreground'
-                  }`}
-                >
-                  Fees
-                </span>
-              </Button>
-              <Button
-                variant="link"
-                id="tools-sticky-navigation"
-                onClick={() => handleNavClick(toolsSectionRef)}
-              >
-                <span
-                  className={`text-lg font-medium underline-offset-4 hover:text-foreground hover:underline ${
-                    isScrolledToTools
-                      ? 'text-foreground underline decoration-primary'
-                      : 'text-muted-foreground'
-                  }`}
-                >
-                  Tools
-                </span>
-              </Button>
 
-              <Button
-                variant="link"
-                id="faq-sticky-navigation"
-                onClick={() => handleNavClick(faqSectionRef)}
-              >
-                <span
-                  className={`text-lg font-medium underline-offset-4 hover:text-foreground hover:underline ${
-                    isScrolledToFAQ
-                      ? 'text-foreground underline decoration-primary'
-                      : 'text-muted-foreground'
-                  }`}
+        <div className="sticky top-[--headerHeight] z-20 w-full border-b bg-background">
+          <div className="bg-gradient-to-r from-primary/20 via-background to-primary/20">
+            <div className="mx-auto flex max-w-8xl justify-center px-4 py-4">
+              <h2 className="flex gap-8 text-base font-bold uppercase tracking-widest text-foreground">
+                <Button
+                  variant="link"
+                  id="intro-sticky-navigation"
+                  onClick={() => handleNavClick(introSectionRef)}
                 >
-                  FAQ
-                </span>
-              </Button>
-            </h2>
+                  <span
+                    className={`text-lg font-medium hover:text-foreground hover:underline ${
+                      isScrolledToIntro
+                        ? 'text-foreground underline decoration-primary underline-offset-4'
+                        : 'text-muted-foreground'
+                    }`}
+                  >
+                    Intro
+                  </span>
+                </Button>
+                <Button
+                  variant="link"
+                  id="fees-sticky-navigation"
+                  onClick={() => handleNavClick(feesSectionRef)}
+                >
+                  <span
+                    className={`text-lg font-medium hover:text-foreground hover:underline ${
+                      isScrolledToFees
+                        ? 'text-foreground underline decoration-primary underline-offset-4'
+                        : 'text-muted-foreground'
+                    }`}
+                  >
+                    Fees
+                  </span>
+                </Button>
+                <Button
+                  variant="link"
+                  id="tools-sticky-navigation"
+                  onClick={() => handleNavClick(toolsSectionRef)}
+                >
+                  <span
+                    className={`text-lg font-medium underline-offset-4 hover:text-foreground hover:underline ${
+                      isScrolledToTools
+                        ? 'text-foreground underline decoration-primary'
+                        : 'text-muted-foreground'
+                    }`}
+                  >
+                    Tools
+                  </span>
+                </Button>
+
+                <Button
+                  variant="link"
+                  id="faq-sticky-navigation"
+                  onClick={() => handleNavClick(faqSectionRef)}
+                >
+                  <span
+                    className={`text-lg font-medium underline-offset-4 hover:text-foreground hover:underline ${
+                      isScrolledToFAQ
+                        ? 'text-foreground underline decoration-primary'
+                        : 'text-muted-foreground'
+                    }`}
+                  >
+                    FAQ
+                  </span>
+                </Button>
+              </h2>
+            </div>
           </div>
         </div>
         <section
@@ -194,8 +196,8 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
           className="relative mx-auto mt-[headerHeight] flex max-w-7xl flex-col items-center justify-center py-24"
         >
           <div className="mb-8 text-center">
-            <h2 className="text-4xl font-bold">Why Choose TunedSphere?</h2>
-            <p className="mt-4 text-xl text-muted-foreground">
+            <h2 className="text-5xl font-bold">Why Choose TunedSphere?</h2>
+            <p className="mt-4 text-xl tracking-wide text-muted-foreground">
               Immerse yourself in a world of creativity and imagination.
             </p>
           </div>
@@ -215,9 +217,8 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                 artistic expression can flourish.
               </p>
               <Button
-                className="mx-auto mt-6 w-1/2 rounded-full bg-teal-500 px-2 py-2 text-white shadow-md hover:bg-teal-600 sm:w-2/3 sm:px-8"
+                className="mx-auto mt-6 w-1/2 rounded-full bg-teal-500 px-2 py-2 text-white shadow-md hover:bg-teal-600 hover:text-white sm:w-2/3 sm:px-8"
                 type="button"
-                variant="default"
               >
                 Explore Art
               </Button>
@@ -238,9 +239,8 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                 establish the most competitive fee structure in the industry.
               </p>
               <Button
-                className="mx-auto mt-6 w-2/3 rounded-full bg-green-500 px-2 py-2 text-white shadow-md hover:bg-green-600 sm:px-8"
+                className="mx-auto mt-6 w-2/3 rounded-full bg-green-500 px-2 py-2 font-medium text-white shadow-md  hover:bg-green-600 hover:text-white sm:px-8"
                 type="button"
-                variant="default"
               >
                 View Pricing
               </Button>
@@ -260,9 +260,8 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                 art enthusiasts worldwide.
               </p>
               <Button
-                className="mx-auto mt-6 w-2/3 rounded-full bg-cyan-500 px-2 py-2 text-white shadow-md hover:bg-cyan-600 dark:bg-violet-500 sm:px-8"
+                className="mx-auto mt-6 w-2/3 rounded-full bg-cyan-500 px-2 py-2 font-medium text-white shadow-md hover:bg-cyan-600 hover:text-white dark:bg-violet-500 sm:px-8"
                 type="button"
-                variant="default"
               >
                 Join Us
               </Button>
@@ -280,28 +279,96 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
           </div> */}
         </section>
         <section
+          ref={feesSectionRef}
+          id="fees"
+          className="relative bg-gradient-to-r from-primary/0 via-primary/10 to-cyan-400/0 py-24"
+        >
+          <div className="mb-8 text-center">
+            <h2 className="text-5xl font-bold">
+              Transparent, Reliable, With Love
+            </h2>
+            <p className="mt-4 text-xl tracking-wide text-muted-foreground">
+              No Hidden Costs, Secured Transactions, Automated Payouts, Seller
+              Safeguards
+            </p>
+          </div>
+          <div className="mx-auto mt-10 grid max-w-5xl grid-flow-row  break-words px-4 sm:px-24 sm:py-16 lg:px-4">
+            <div className="relative grid grid-cols-8 rounded-lg p-6 px-2 py-8">
+              <div className="col-span-1 mx-auto grid grid-rows-3 items-center">
+                <div className="row-span-2 rounded-full bg-primary/20 p-2.5 text-primary">
+                  <Icon name="page-layout" className="h-12 w-12"></Icon>
+                </div>
+              </div>
+              <div className="col-span-7 float-left ml-4 text-left">
+                <h3 className="mt-2 text-lg font-bold tracking-tight sm:text-3xl">
+                  0€ Listing Products is Free* / Scale as you go
+                </h3>
+                <p className="grow text-lg text-muted-foreground ">
+                  Listing up to 5 products is free, then scale as you go.
+                  Listing are active for 6 months, or untill they sell.
+                </p>
+              </div>
+            </div>
+            <div className="relative grid grid-cols-8 rounded-lg p-6 px-2 py-8">
+              <div className="col-span-1 mx-auto grid grid-rows-3 items-center">
+                <div className="row-span-2 rounded-full bg-primary/20 p-2.5 text-primary">
+                  <Icon name="credit-card" className="h-12 w-12"></Icon>
+                </div>
+              </div>
+              <div className="col-span-7 float-left ml-4 text-left">
+                <h3 className="mt-2 text-lg font-bold tracking-tight sm:text-3xl">
+                  6.5 % Transaction fee, 4% + €0.30 payment processing fee*
+                </h3>
+                <p className="grow text-lg text-muted-foreground ">
+                  When you sell an item, there's a small commission and standard
+                  payment processing fee.
+                </p>
+              </div>
+            </div>
+            <div className="relative grid grid-cols-8 rounded-lg p-6 px-2 py-8">
+              <div className="col-span-1 mx-auto grid grid-rows-3 items-center">
+                <div className="row-span-2 rounded-full bg-primary/20 p-2.5 text-primary">
+                  <Icon name="flower" className="h-12 w-12"></Icon>
+                </div>
+              </div>
+              <div className="col-span-7 float-left ml-4 text-left">
+                <h3 className="mt-2 text-lg font-bold tracking-tight sm:text-3xl">
+                  Unique Artworks
+                </h3>
+                <p className="grow text-lg text-muted-foreground ">
+                  Showcase your art to a unique audience and be part of a
+                  vibrant community of creative minds. We offer a space where
+                  your artistic expression can flourish.
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* <div className="mt-10 flex w-full flex-col items-center rounded-xl p-6 shadow-md">
+            <h2 className="font-bol mb-4 text-4xl">Start Selling Your Art</h2>
+            <Button
+              className="rounded-full bg-orange-500 px-8 py-2 text-white shadow-md hover:bg-orange-600"
+              type="button"
+              variant="default"
+            >
+              Sell Your Art
+            </Button>
+          </div> */}
+        </section>
+        <section
           ref={toolsSectionRef}
           id="tools"
-          className="relative w-full bg-gradient-to-r from-purple-600 via-pink-500 to-cyan-400/20 py-16"
+          className="relative w-full bg-gradient-to-r from-primary/0 via-primary/30 to-cyan-400/0 py-16"
         >
-          <div className="flex h-full flex-col items-center justify-center space-y-10 text-white">
+          <div className="flex h-full flex-col items-center justify-center space-y-10 ">
             <h1 className="text-6xl font-extrabold tracking-wide">
               Embark on a Journey
             </h1>
-            <p className="text-2xl font-semibold">
+            <p className="text-2xl font-semibold text-muted-foreground">
               Experience mind-bending art like never before.
             </p>
             <div className="flex space-x-5">
-              <Button
-                className="border-white text-white hover:bg-pink-500 hover:text-black"
-                variant="outline"
-              >
-                Explore Artworks
-              </Button>
-              <Button
-                className="bg-white text-black hover:bg-gray-200"
-                variant="secondary"
-              >
+              <Button variant="outline">Explore Artworks</Button>
+              <Button variant="primary" className="">
                 Contact Us
               </Button>
             </div>
