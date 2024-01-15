@@ -88,7 +88,7 @@ export function ShopSearchBar() {
     <>
       <div
         id="shop-search-bar"
-        className="relative ml-2 flex grow flex-row items-center rounded-lg border  hover:border-primary/50 lg:max-w-[24rem]"
+        className="relative ml-2 flex grow flex-row items-center rounded-lg border hover:border-primary/50 lg:max-w-[24rem]"
       >
         <Command
           className={`align-middle ${query ? 'bg-popover' : 'bg-popover'}  `}
@@ -109,7 +109,7 @@ export function ShopSearchBar() {
           {data && isOpen && (
             <CommandList
               ref={commandListRef}
-              className="absolute left-0 right-0 mt-12 flex-grow rounded-sm border  bg-popover py-1 shadow-lg"
+              className="absolute left-0 right-0 mt-12 flex-grow rounded-sm border bg-popover py-1 shadow-lg"
             >
               <CommandEmpty
                 className={cn(

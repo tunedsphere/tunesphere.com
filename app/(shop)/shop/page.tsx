@@ -85,7 +85,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                     buttonVariants({
                       size: 'xl',
                     }),
-                    'grt-button text-primary hover:bg-background hover:text-sm',
+                    'grt-button hover:bg-background hover:text-sm',
                   )}
                 >
                   <span className="animated-grt-text_background-theme font-bold tracking-widest before:bg-foreground">

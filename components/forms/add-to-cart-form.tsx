@@ -162,12 +162,14 @@ export function AddToCartForm({ productId, showBuyNow }: AddToCartFromProps) {
             className="w-full"
             disabled={isAddingToCart}
           >
-            {isAddingToCart && (
+            {isAddingToCart ? (
               <Icon
                 name="spinner"
                 className="mr-2 h-4 w-4 animate-spin"
                 aria-hidden="true"
               />
+            ) : (
+              <Icon name="basket" className="mr-2 h-4 w-4" aria-hidden="true" />
             )}
             Add to cart
           </Button>

@@ -19,7 +19,7 @@ export function StartYourJourney() {
             Ready to Start Your Journey?
           </PageHeaderHeading>
           <PageHeaderDescription className="text-xl">
-            Create Your Psychedelics Store Today and Explore New Horizons!
+            Create Your Store Today and Explore New Horizons!
           </PageHeaderDescription>
         </PageHeader>
         <PageHeader variant="shop">

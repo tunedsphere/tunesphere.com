@@ -152,11 +152,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
           <Separator className="my-1.5" />
           {product.inventory < 4 ? (
-            <p className="text-base font-bold text-red-500 dark:text-red-400">
-              {product.inventory} Stock Left
+            <p className="text-base font-medium text-red-500 dark:text-red-400">
+              <span className="font-bold">{product.inventory}</span> Stock Left
             </p>
           ) : (
-            <p>{product.inventory} in Stock</p>
+            <p>
+              <span className="font-bold">{product.inventory}</span> in Stock
+            </p>
           )}
           <div className="flex items-center justify-between">
             <Rating rating={Math.round(product.rating / 5)} />

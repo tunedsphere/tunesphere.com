@@ -121,7 +121,7 @@ export interface RecordLabelGenre extends MusicGenre {};
 export interface Subcategory {
   title: string
   description?: string
-  image?: string
+  image: string
   slug: string
 }
 

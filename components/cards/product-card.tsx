@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/card'
 import { Icon } from '@/components/icon'
 import { addToCart } from '@/app/_actions/cart'
+import { Badge } from '../ui/badge'
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
   storeName: string | string[] | undefined
@@ -43,10 +44,10 @@ export function ProductCard({
   const [isAddedToCart, setIsAddedToCart] = React.useState(false)
   console.log(storeName)
   return (
-    <div className="relative">
+    <div className="group relative">
       <Card
         id="product-card"
-        className={cn('group bg-card sm:rounded-lg sm:border', className)}
+        className={cn('border-none bg-transparent', className)}
         {...props}
       >
         <Link
@@ -54,11 +55,10 @@ export function ProductCard({
           aria-label={product.name}
           href="/shop/product/[...productId]/page"
           as={`/shop/product/${product.id}/${slugify(product.name)}`}
-          className="group"
         >
           <CardHeader className="relative p-0">
             <AspectRatio ratio={4 / 3}>
-              <div className="transition-color absolute inset-0 z-10 rounded-t-lg group-hover:bg-zinc-950/30 " />
+              <div className="absolute -inset-x-1 -inset-y-1 hidden rounded-lg blur-sm transition motion-reduce:transition-none lg:block lg:group-hover:bg-muted "></div>
               {product?.images?.length ? (
                 <Image
                   key={`${product.id}_image`}
@@ -66,7 +66,7 @@ export function ProductCard({
                     product.images[0]?.url ?? '/images/product-placeholder.webp'
                   }
                   alt={product.images[0]?.name ?? product.name}
-                  className="absolute h-full w-full cursor-pointer rounded-t-lg object-cover group-hover:bg-zinc-950/50"
+                  className="absolute h-full w-full cursor-pointer rounded-t-sm"
                   sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
                   fill
                   loading="lazy"
@@ -88,8 +88,8 @@ export function ProductCard({
             </AspectRatio>
           </CardHeader>
         </Link>
-        <CardContent className="grid pb-4">
-          <CardTitle className="mb-1 mt-2 cursor-pointer truncate text-base font-medium leading-relaxed">
+        <CardContent className="grid p-0">
+          <CardTitle className="mb-1 mt-2 cursor-pointer truncate text-base font-medium leading-relaxed hover:text-foreground/80">
             {product.name}
           </CardTitle>
           <div className="text-lg font-bold leading-snug">
@@ -108,7 +108,7 @@ export function ProductCard({
             </div>
           </div>
           <Link
-            className="line-clamp-1 font-medium text-muted-foreground"
+            className="line-clamp-1 font-medium text-muted-foreground hover:text-foreground/80 hover:underline"
             key={product.storeId}
             aria-label={
               Array.isArray(storeName) ? storeName.join(', ') : storeName
@@ -118,13 +118,14 @@ export function ProductCard({
             {storeName}
           </Link>
         </CardContent>
-        <CardFooter className="p-4">
-          <div className="flex w-full flex-col items-center gap-2 align-middle sm:flex-row">
-            <Button
+        <CardFooter className="mt-1">
+          <div className="flex w-full flex-col items-center justify-between gap-2 align-middle sm:flex-row">
+            <Badge className="shrink-0" variant="success">
+              Free Delivery
+            </Badge>
+            {/* <Button
               variant="primary"
-              aria-label={isAddedToCart ? 'Remove from cart' : 'Add to Basket'}
-              size="sm"
-              className="flex w-full rounded-sm"
+              className="grow-0 self-end rounded-sm"
               onClick={async () => {
                 if (isPending) return
 
@@ -158,7 +159,7 @@ export function ProductCard({
               {isPending ? (
                 <Icon
                   name="spinner"
-                  className="mr-2 h-4 w-4 animate-spin"
+                  className="h-4 w-4 animate-spin"
                   aria-hidden="true"
                 />
               ) : (
@@ -166,23 +167,19 @@ export function ProductCard({
                   {isAddedToCart ? (
                     <Icon
                       name="check"
-                      className="mr-2 h-4 w-4"
+                      className=" h-4 w-4"
                       aria-hidden="true"
                     />
                   ) : (
                     <Icon
-                      name="add"
-                      className="mr-2 h-4 w-4"
+                      name="basket"
+                      className="h-4 w-4"
                       aria-hidden="true"
                     />
                   )}
-                  {/* Consistent label */}
-                  <span className="w-full font-semibold">
-                    {isAddedToCart ? 'Added' : 'Add to Basket'}
-                  </span>
                 </>
               )}
-            </Button>
+            </Button> */}
           </div>
         </CardFooter>
       </Card>

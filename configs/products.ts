@@ -28,19 +28,19 @@ export const productCategories = [
       {
         title: "pants",
         description: "pants",
-        image: "/images/clothing-one.webp",
+        image: "/images/product-category/clothing-one.webp",
         slug: "pants",
       },
       {
         title: "hoodies",
         description: "Hoodies",
-        image: "/images/clothing-one.webp",
+        image: "/images/product-category/clothing-one.webp",
         slug: "hoodies",
       },
       {
         title: "T-shirts",
         description: "T-shirts",
-        image: "/images/clothing-one.webp",
+        image: "/images/product-category/clothing-one.webp",
         slug: "t-shirts",
       },
     ],
@@ -53,6 +53,7 @@ export const productCategories = [
       {
         title: "pipe",
         description: "Cool and comfy tees for effortless style.",
+        image: "/images/product-category/clothing-one.webp",
         slug: "pipe",
       },
     ],
@@ -65,6 +66,7 @@ export const productCategories = [
       {
         title: "Painting",
         description: "Paintings",
+        image: "/images/product-category/clothing-one.webp",
         slug: "paintings",
       },
     ],
@@ -77,6 +79,7 @@ export const productCategories = [
       {
         title: "tapistery",
         description: "Essentials",
+        image: "/images/product-category/clothing-one.webp",
         slug: "tapistery",
       },
     ],
@@ -89,11 +92,13 @@ export const productCategories = [
       {
         title: "cacti",
         description: "Cacti",
+        image: "/images/product-category/clothing-one.webp",
         slug: "cacti",
       },
       {
         title: "succulents",
         description: "Succulents",
+        image: "/images/product-category/clothing-one.webp",
         slug: "succulents",
       },
     ],
@@ -106,11 +111,13 @@ export const productCategories = [
       {
         title: "books",
         description: "Books",
+        image: "/images/product-category/clothing-one.webp",
         slug: "books",
       },
       {
         title: "magazines",
         description: "Magazines",
+        image: "/images/product-category/clothing-one.webp",
         slug: "magazines",
       },
     ],
@@ -123,11 +130,13 @@ export const productCategories = [
       {
         title: "vaporizers",
         description: "Vaporizers",
+        image: "/images/product-category/clothing-one.webp",
         slug: "vaporizers",
       },
       {
         title: "smoking accessories",
         description: "Smoking Accessories",
+        image: "/images/product-category/clothing-one.webp",
         slug: "smoking-accessories",
       },
     ],
@@ -140,11 +149,13 @@ export const productCategories = [
       {
         title: "Vinyl Records",
         description: "Vinyl Records",
+        image: "/images/product-category/clothing-one.webp",
         slug: "vinyl-records",
       },
       {
         title: "Compact Discs",
         description: "Compact Discs",
+        image: "/images/product-category/clothing-one.webp",
         slug: "compact-discs",
       },
 

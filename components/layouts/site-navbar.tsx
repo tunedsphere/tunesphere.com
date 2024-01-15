@@ -20,7 +20,7 @@ export function SiteNavbar({}: SiteNavbarProps) {
             <div className="relative hidden flex-row items-center justify-start sm:flex sm:w-1/3 sm:gap-2">
               <Icon
                 name="logo"
-                className="absolute left-0 right-0 z-10 hidden h-10 w-10 text-primary sm:block"
+                className="absolute left-0 right-0 z-10 hidden h-8 w-8 text-primary sm:block"
               />
             </div>
             <div className="left-0 flex w-1/3 items-center sm:justify-center md:w-4/6">
@@ -30,12 +30,12 @@ export function SiteNavbar({}: SiteNavbarProps) {
                 </h1>
               </Link>
             </div>
-            <div className="relative flex w-2/3 flex-grow flex-row items-center justify-end pr-12 sm:w-1/3 sm:gap-2">
+            <div className="relative flex w-2/3 flex-grow flex-row items-center justify-end pr-12 sm:w-1/3 sm:gap-1">
               <CartSheet />
               <div className="hidden sm:block">
                 <ThemeToggle />
               </div>
-              <div className="flex items-center justify-center">
+              <div className="ml-2 flex items-center justify-center">
                 <UserDropDownMenu />
               </div>
             </div>

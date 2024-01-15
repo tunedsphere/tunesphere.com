@@ -37,7 +37,6 @@ import { ProductCard } from '@/components/cards/product-card'
 import { Icon } from '@/components/icon'
 import { MultiSelect } from '@/components/multi-select'
 import { PaginationButton } from '@/components/pagers/pagination-button'
-import { delayProducts } from '@/lib/delays'
 
 interface ProductsProps extends React.HTMLAttributes<HTMLDivElement> {
   products: Product[]
@@ -193,7 +192,7 @@ export function Products({
               disabled={isPending}
               className="bg-background-shopNavLink font-semibold leading-6"
             >
-              <Icon name="sliders-horizontal" className='h-3.5 w-4 mr-2'/>
+              <Icon name="sliders-horizontal" className="mr-2 h-3.5 w-4" />
               All Filters
             </Button>
           </SheetTrigger>

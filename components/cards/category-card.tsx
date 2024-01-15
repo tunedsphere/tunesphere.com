@@ -5,9 +5,7 @@ import { products } from '@/db/schema'
 import type { Category } from '@/types'
 import { eq, sql } from 'drizzle-orm'
 import { formatTitleWithUnderscores } from '@/lib/utils'
-import { cn } from '@/lib/utils'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
-import { buttonVariants } from '@/components/ui/button'
 import { Icon, IconName } from '../icon'
 
 interface CategoryCardProps {
@@ -31,7 +29,7 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
         <Link
           key={`${category.title}_link`}
           href={`shop/c/${category.title}`}
-          className="group relative cursor-default overflow-hidden rounded-full border sm:rounded-md"
+          className="group relative cursor-pointer overflow-hidden rounded-full border sm:rounded-md"
         >
           <AspectRatio ratio={16 / 9}>
             <div className="transition-color absolute inset-0 z-10 bg-muted/20 group-hover:bg-zinc-950/50" />
@@ -46,25 +44,6 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
             />
           </AspectRatio>
           <div className="absolute inset-2 z-20 flex flex-col sm:inset-4">
-            <div className="top-0 flex items-center justify-between space-x-2 sm:items-start sm:space-x-4">
-              <div
-                className={cn(
-                  buttonVariants({
-                    size: 'icon',
-                    className:
-                      'pointer-events-none border-border/50 bg-transparent sm:bg-muted sm:text-muted-foreground',
-                  }),
-                )}
-                aria-hidden="true"
-              >
-                {icon && <Icon name={icon} className="h-4 w-4" />}
-              </div>
-              <div>
-                <p className="ml-2 hidden rounded-md bg-black/10 px-2 text-sm text-zinc-200 backdrop-blur-sm sm:block">
-                  {productCount} items
-                </p>
-              </div>
-            </div>
             <div className="mt-auto hidden sm:flex ">
               <h3 className="mr-2 grow-0 rounded-md bg-black/10 px-2 text-center text-xl font-medium capitalize text-zinc-200 backdrop-blur-sm sm:text-left">
                 {formatTitleWithUnderscores(category.title)}

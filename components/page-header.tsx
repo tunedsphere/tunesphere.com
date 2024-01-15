@@ -15,7 +15,7 @@ const PageHeaderVariants = cva('grid gap-1', {
       dashboard: 'border-b  pb-8 pt-2',
       auth: 'justify-center text-center',
       shop: 'justify-center text-center',
-      shopProducts: 'justify-center text-center',
+      shopProducts: 'mb-4 justify-center text-center',
     },
   },
 })
