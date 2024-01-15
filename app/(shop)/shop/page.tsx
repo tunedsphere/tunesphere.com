@@ -101,7 +101,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                 <span className="grt-btn-bg grt-theme"></span>
 
                 <Link
-                  href="/dashboard/stores"
+                  href="/shop/sell"
                   className={cn(
                     buttonVariants({
                       size: 'xl',
