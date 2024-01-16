@@ -16,6 +16,15 @@ import {
 import { ReducedFooter } from '@/components/layouts/reduced-footer'
 import { SiteFooter } from '@/components/layouts/site-footer'
 
+import { Card, CardContent } from '@/components/ui/card'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import { productCategories } from '@/configs/products'
 interface BecomeASellerProps {}
 
 export default function BecomeASellerPage({}: BecomeASellerProps) {
@@ -413,83 +422,111 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
               <h1 className="text-6xl font-extrabold tracking-wide">
                 What can you sell?
               </h1>
-              <p className="text-2xl font-semibold text-muted-foreground">
-                It's simple, Tunedsphere is a place where you can sell unique
-                goods. From handmade crafts, literrature and much more...
+              <p className="text-xl font-semibold text-muted-foreground">
+                It's simple, Tunedsphere is a place where you can sell and
+                express your art. From handmade crafts, to festsivals
+                decorations.
               </p>
               <div className="flex space-x-5">
-                <Button variant="outline">Explore Artworks</Button>
-                <Button variant="primary" className="">
-                  Contact Us
-                </Button>
+                <Button variant="primary">Explore Artworks</Button>
               </div>
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                {/* Update images and descriptions for psychedelic art features */}
-                <div className="flex flex-col items-center space-y-2">
-                  <img
-                    alt="Psychedelic Artwork 1"
-                    className="rounded-full"
-                    height="200"
-                    src="/psychedelic-artwork-1.jpg"
-                    style={{
-                      aspectRatio: '200/200',
-                      objectFit: 'cover',
-                    }}
-                    width="200"
-                  />
-                  <p className="mt-4 text-lg font-medium">Vibrant Colors</p>
-                  <p className="text-sm font-light">
-                    Explore art with an explosion of vibrant and surreal colors.
-                  </p>
-                  <Link className="text-white underline" href="#">
-                    Read More
-                  </Link>
-                </div>
-                <div className="flex flex-col items-center space-y-2">
-                  <img
-                    alt="Psychedelic Artwork 2"
-                    className="rounded-full"
-                    height="200"
-                    src="/psychedelic-artwork-2.jpg"
-                    style={{
-                      aspectRatio: '200/200',
-                      objectFit: 'cover',
-                    }}
-                    width="200"
-                  />
-                  <p className="mt-4 text-lg font-medium">
-                    Abstract Expressions
-                  </p>
-                  <p className="text-sm font-light">
-                    Dive into the abstract world of artistic expressions.
-                  </p>
-                  <Link className="text-white underline" href="#">
-                    Read More
-                  </Link>
-                </div>
-                <div className="flex flex-col items-center space-y-2">
-                  <img
-                    alt="Psychedelic Artwork 3"
-                    className="rounded-full"
-                    height="200"
-                    src="/psychedelic-artwork-3.jpg"
-                    style={{
-                      aspectRatio: '200/200',
-                      objectFit: 'cover',
-                    }}
-                    width="200"
-                  />
-                  <p className="mt-4 text-lg font-medium">
-                    Mind-Bending Designs
-                  </p>
-                  <p className="text-sm font-light">
-                    Discover designs that challenge your perception of reality.
-                  </p>
-                  <Link className="text-white underline" href="#">
-                    Read More
-                  </Link>
-                </div>
-              </div>
+              <Carousel className="w-full max-w-5xl">
+                <CarouselContent className="">
+                  <CarouselItem className="w-1/3 basis-1/3 ">
+                    <div className="p-1">
+                      <Card className="">
+                        <CardContent className="flex aspect-square items-center justify-center p-0">
+                          <Image
+                            src={productCategories[0].image}
+                            alt={productCategories[0].title}
+                            width={320}
+                            height={320}
+                            className="aspect-square "
+                          />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                  {/* Carousel Item 2 - Decorations */}
+                  <CarouselItem className="basis-1/3 ">
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex aspect-square items-center justify-center p-0">
+                          <Image
+                            src={productCategories[1].image}
+                            alt={productCategories[1].title}
+                            width={320}
+                            height={320}
+                            className="aspect-square object-fill"
+                          />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="basis-1/3 ">
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex aspect-square items-center justify-center p-0">
+                          <Image
+                            src={productCategories[2].image}
+                            alt={productCategories[2].title}
+                            width={320}
+                            height={320}
+                            className="aspect-square object-fill"
+                          />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="basis-1/3 ">
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex aspect-square items-center justify-center p-0">
+                          <Image
+                            src={productCategories[3].image}
+                            alt={productCategories[3].title}
+                            width={320}
+                            height={320}
+                            className="aspect-square object-fill"
+                          />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="basis-1/3 ">
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex aspect-square items-center justify-center p-0">
+                          <Image
+                            src={productCategories[4].image}
+                            alt={productCategories[4].title}
+                            width={320}
+                            height={320}
+                            className="aspect-square object-fill"
+                          />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>{' '}
+                  <CarouselItem className="basis-1/3 ">
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex aspect-square items-center justify-center p-0">
+                          <Image
+                            src={productCategories[5].image}
+                            alt={productCategories[5].title}
+                            width={320}
+                            height={320}
+                            className="aspect-square object-fill"
+                          />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious className="" />
+                <CarouselNext />
+              </Carousel>
             </div>
           </section>
 
