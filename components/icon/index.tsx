@@ -70,6 +70,7 @@ import { GripIcon } from './Grip'
 import { HeartIcon } from './Heart'
 import { HorizontalThreeDotsIcon } from './HorizontalThreeDots'
 import { SlidersHorizontalIcon } from './SlidersHorizontal'
+import { ShieldCheckIcon } from './ShieldCheck'
 
 import { ShopIconName, shopIconMap } from './shop'
 import { SocialIconName, socialIconMap } from './social'
@@ -134,6 +135,7 @@ export type IconName =
   | 'reset'
   | 'rocket'
   | 'search'
+  | 'shield-check'
   | 'sign'
   | 'sun'
   | 'star-rating'
@@ -170,6 +172,7 @@ const iconMap = {
   'vertical-three-dots': VerticalThreeDotsIcon,
   'page-layout': PageLayoutIcon,
   'star-rating': StarRatingIcon,
+  'shield-check': ShieldCheckIcon,
   api: ApiIcon,
   add: AddIcon,
   activity: ActivityIcon,

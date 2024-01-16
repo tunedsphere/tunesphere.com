@@ -19,6 +19,7 @@ export default authMiddleware({
     "/shop/product/[...slug](.*)",
     "/shop/stores(.*)",
     "/festivals(.*)", 
+    "/sell(.*)",
     "/music(.*)",
     "/docs(.*)",
     "/email-preferences(.*)",

@@ -64,89 +64,84 @@ export default function MyApp() {
       </section>
       <Shell>
         {/* <div className="right-gradient absolute z-10"> </div> */}
-        <ol className="group/list grid gap-4 px-4 py-16 text-textlow sm:grid-cols-2 sm:gap-2 md:px-8 xl:grid-cols-4">
-          <li className="">
-            <Link
-              href="/music/labels"
-              className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
-            >
-              <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
+        <ol className="group/list grid gap-4 px-4 py-16 text-textlow sm:grid-cols-2 sm:grid-rows-2 sm:gap-2 md:px-8 xl:grid-cols-4 xl:grid-rows-1">
+          <Link
+            href="/music/labels"
+            className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+          >
+            <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
 
-              <div className="z-10 grid w-full">
-                <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
-                  Labels{' '}
-                  <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                    -&gt;
-                  </span>
-                </h3>
-                <p className="text-textlow">
-                  Search & Find the label that suits your ears the most.
-                </p>
-              </div>
-            </Link>
-          </li>
-          <li className="">
-            <Link
-              href="/music/artists"
-              className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
-            >
-              <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
+            <div className="z-10 grid w-full">
+              <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
+                Labels{' '}
+                <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h3>
+              <p className="text-textlow">
+                Search & Find the label that suits your ears the most.
+              </p>
+            </div>
+          </Link>
 
-              <div className="z-10 grid w-full">
-                <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
-                  Artists & DJ{' '}
-                  <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                    -&gt;
-                  </span>
-                </h3>
-                <p className="text-textlow">
-                  Explore in depth of your favorite genre and find inspiring
-                  Artists
-                </p>
-              </div>
-            </Link>
-          </li>
-          <li className="">
-            <Link
-              href="/music/festivals"
-              className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
-            >
-              <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
+          <Link
+            href="/music/artists"
+            className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+          >
+            <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
 
-              <div className="z-10 grid w-full">
-                <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
-                  Festivals{' '}
-                  <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                    -&gt;
-                  </span>
-                </h3>
-                <p className="text-textlow">
-                  Instantly check where your favorite Artist will play.
-                </p>
-              </div>
-            </Link>
-          </li>
-          <li className="">
-            <Link
-              href="/music"
-              className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
-            >
-              <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
+            <div className="z-10 grid w-full">
+              <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
+                Artists & DJ{' '}
+                <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h3>
+              <p className="text-textlow">
+                Explore in depth of your favorite genre and find inspiring
+                Artists
+              </p>
+            </div>
+          </Link>
 
-              <div className="z-10 grid w-full">
-                <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
-                  Fresh Frequencies
-                  <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                    -&gt;
-                  </span>
-                </h3>
-                <p className="text-textlow">
-                  Explore in depth of your favorite genre and find inspiring
-                  Artists
-                </p>
-              </div>
-            </Link>
-          </li>
+          <Link
+            href="/music/festivals"
+            className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+          >
+            <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
+
+            <div className="z-10 grid w-full">
+              <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
+                Festivals{' '}
+                <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h3>
+              <p className="text-textlow">
+                Instantly check where your favorite Artist will play.
+              </p>
+            </div>
+          </Link>
+
+          <Link
+            href="/music"
+            className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+          >
+            <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
+
+            <div className="z-10 grid w-full">
+              <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
+                Fresh Frequencies
+                <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h3>
+              <p className="text-textlow">
+                Explore in depth of your favorite genre and find inspiring
+                Artists
+              </p>
+            </div>
+          </Link>
         </ol>
       </Shell>
       <section
@@ -205,7 +200,7 @@ export default function MyApp() {
               <span className="grt-btn-bg animated-grt-yellow"></span>
               <span className="grt-btn-bg animated-grt-cyan"></span>
               <Link
-                href="/shop/sell"
+                href="/sell"
                 className={cn(
                   buttonVariants({
                     size: 'xl',

@@ -77,39 +77,41 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           </PageHeader>
           <div className="relative z-200 mx-auto max-w-[32rem] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="animated-bg-gradient-theme absolute inset-x-0"></div>
-              <div className="grt-button-wrapper z-20 flex-1">
+              <div className=" animated-bg-gradient-theme absolute inset-x-0"></div>
+              <div className="grt-button-wrapper  group group z-20 flex-1 ">
                 <Link
                   href="/shop/products"
                   className={cn(
                     buttonVariants({
                       size: 'xl',
                     }),
-                    'grt-button hover:bg-background hover:text-sm',
+                    'grt-button border-2 hover:border-primary',
                   )}
                 >
                   <span className="animated-grt-text_background-theme font-bold tracking-widest before:bg-foreground">
-                    <span className="animated-grt-text_foreground-theme font-bold tracking-widest">
+                    <span className="animated-grt-text_foreground-theme font-bold tracking-widest text-foreground group-hover:text-foreground">
                       Explore Products
                     </span>
                   </span>
                 </Link>
               </div>
 
-              <div className="grt-button-wrapper z-20 flex-1">
+              <div className="grt-button-wrapper group z-20 flex-1">
                 <div className="grt-btn-bg animated-grt-theme blur"></div>
                 <span className="grt-btn-bg grt-theme"></span>
 
                 <Link
-                  href="/shop/sell"
+                  href="/sell"
                   className={cn(
                     buttonVariants({
                       size: 'xl',
                     }),
-                    'grt-button z-30 hover:bg-transparent hover:text-theme-50',
+                    'grt-button z-30 hover:bg-transparent',
                   )}
                 >
-                  <span className="font-bold tracking-widest">Sell Now</span>
+                  <span className="font-bold tracking-widest group-hover:text-white">
+                    Sell Now
+                  </span>
                 </Link>
               </div>
 
