@@ -88,7 +88,7 @@ export function ShopSearchBar() {
     <>
       <div
         id="shop-search-bar"
-        className="relative ml-2 flex grow flex-row items-center rounded-lg border hover:border-primary/50 lg:max-w-[24rem]"
+        className="relative ml-2 flex grow flex-row items-center rounded-full border p-1 hover:border-primary/50 2xl:max-w-[24rem]"
       >
         <Command
           className={`align-middle ${query ? 'bg-popover' : 'bg-popover'}  `}

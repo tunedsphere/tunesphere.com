@@ -114,7 +114,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
       <ThemeProvider attribute="class" defaultTheme="light">
         <div
           id="sell-navbar"
-          className="fixed left-0 right-0 top-0 z-9999  m-0 h-auto w-full bg-background"
+          className="fixed left-0 right-0 top-0 z-9999 m-0 h-auto w-full bg-background"
         >
           <nav className="navbar z-9999  mx-auto flex max-w-8xl items-center px-4 py-5 align-middle sm:grid sm:grid-cols-3 md:px-8">
             <div className="mr-5 hidden sm:block">
@@ -144,7 +144,12 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
               alt="become-a-seller-image"
               src="/bghome/heroShop1.png"
               fill
-              className="absolute z-10 object-cover opacity-20"
+              className="z-10 opacity-20"
+              sizes="100vw"
+              style={{
+                objectFit: 'cover',
+              }}
+              priority
             />
             <div className="z-20 grid">
               <div className="col-span-1 rounded-lg p-16">
@@ -314,16 +319,6 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                 </Button>
               </div>
             </div>
-            {/* <div className="mt-10 flex w-full flex-col items-center rounded-xl p-6 shadow-md">
-            <h2 className="font-bol mb-4 text-4xl">Start Selling Your Art</h2>
-            <Button
-              className="rounded-full bg-orange-500 px-8 py-2 text-white shadow-md hover:bg-orange-600"
-              type="button"
-              variant="default"
-            >
-              Sell Your Art
-            </Button>
-          </div> */}
           </section>
           <section
             ref={feesSectionRef}
@@ -416,7 +411,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
           <section
             ref={toolsSectionRef}
             id="tools"
-            className="relative w-full bg-gradient-to-r from-primary/0 via-primary/30 to-cyan-400/0 py-16"
+            className="relative w-full bg-gradient-to-r from-primary/0 via-primary/30 to-cyan-400/0 px-4 py-16"
           >
             <div className="flex h-full flex-col items-center justify-center space-y-10 ">
               <h1 className="text-6xl font-extrabold tracking-wide">
@@ -430,103 +425,104 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
               <div className="flex space-x-5">
                 <Button variant="primary">Explore Artworks</Button>
               </div>
-              <Carousel className="w-full max-w-5xl">
-                <CarouselContent className="">
-                  <CarouselItem className="w-1/3 basis-1/3 ">
-                    <div className="p-1">
-                      <Card className="">
-                        <CardContent className="flex aspect-square items-center justify-center p-0">
-                          <Image
-                            src={productCategories[0].image}
-                            alt={productCategories[0].title}
-                            width={320}
-                            height={320}
-                            className="aspect-square "
-                          />
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                  {/* Carousel Item 2 - Decorations */}
-                  <CarouselItem className="basis-1/3 ">
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-0">
-                          <Image
-                            src={productCategories[1].image}
-                            alt={productCategories[1].title}
-                            width={320}
-                            height={320}
-                            className="aspect-square object-fill"
-                          />
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem className="basis-1/3 ">
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-0">
-                          <Image
-                            src={productCategories[2].image}
-                            alt={productCategories[2].title}
-                            width={320}
-                            height={320}
-                            className="aspect-square object-fill"
-                          />
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem className="basis-1/3 ">
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-0">
-                          <Image
-                            src={productCategories[3].image}
-                            alt={productCategories[3].title}
-                            width={320}
-                            height={320}
-                            className="aspect-square object-fill"
-                          />
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem className="basis-1/3 ">
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-0">
-                          <Image
-                            src={productCategories[4].image}
-                            alt={productCategories[4].title}
-                            width={320}
-                            height={320}
-                            className="aspect-square object-fill"
-                          />
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>{' '}
-                  <CarouselItem className="basis-1/3 ">
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-0">
-                          <Image
-                            src={productCategories[5].image}
-                            alt={productCategories[5].title}
-                            width={320}
-                            height={320}
-                            className="aspect-square object-fill"
-                          />
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                </CarouselContent>
-                <CarouselPrevious className="" />
-                <CarouselNext />
-              </Carousel>
+              <div className="overflow-hidden px-4">
+                <Carousel className="max-w-5xl">
+                  <CarouselContent className="">
+                    <CarouselItem className="w-1/3 basis-1/3 ">
+                      <div className="p-1">
+                        <Card className="">
+                          <CardContent className="flex aspect-square items-center justify-center p-0">
+                            <Image
+                              src={productCategories[0].image}
+                              alt={productCategories[0].title}
+                              width={320}
+                              height={320}
+                              className="aspect-square "
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem className="basis-1/3 ">
+                      <div className="p-1">
+                        <Card>
+                          <CardContent className="flex aspect-square items-center justify-center p-0">
+                            <Image
+                              src={productCategories[1].image}
+                              alt={productCategories[1].title}
+                              width={320}
+                              height={320}
+                              className="aspect-square object-fill"
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem className="basis-1/3 ">
+                      <div className="p-1">
+                        <Card>
+                          <CardContent className="flex aspect-square items-center justify-center p-0">
+                            <Image
+                              src={productCategories[2].image}
+                              alt={productCategories[2].title}
+                              width={320}
+                              height={320}
+                              className="aspect-square object-fill"
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem className="basis-1/3 ">
+                      <div className="p-1">
+                        <Card>
+                          <CardContent className="flex aspect-square items-center justify-center p-0">
+                            <Image
+                              src={productCategories[3].image}
+                              alt={productCategories[3].title}
+                              width={320}
+                              height={320}
+                              className="aspect-square object-fill"
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem className="basis-1/3 ">
+                      <div className="p-1">
+                        <Card>
+                          <CardContent className="flex aspect-square items-center justify-center p-0">
+                            <Image
+                              src={productCategories[4].image}
+                              alt={productCategories[4].title}
+                              width={320}
+                              height={320}
+                              className="aspect-square object-fill"
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>{' '}
+                    <CarouselItem className="basis-1/3 ">
+                      <div className="p-1">
+                        <Card>
+                          <CardContent className="flex aspect-square items-center justify-center p-0">
+                            <Image
+                              src={productCategories[5].image}
+                              alt={productCategories[5].title}
+                              width={320}
+                              height={320}
+                              className="aspect-square object-fill"
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  </CarouselContent>
+                  <CarouselPrevious className="" />
+                  <CarouselNext />
+                </Carousel>
+              </div>
             </div>
           </section>
 

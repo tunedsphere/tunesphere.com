@@ -34,13 +34,18 @@ export function ShopMobileNav({
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button
-          variant="ghostColor"
-          className="col-span-1 grow-0 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
-        >
-          <Icon name="menu" className="h-6 w-6" />
-          <span className="sr-only">Toggle Menu</span>
-        </Button>
+        <div className="flex items-center">
+          <Button
+            variant="ghostColor"
+            className="col-span-1 grow-0 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 2xl:hidden"
+          >
+            <Icon name="menu" className="h-6 w-6" />
+            <span className="sr-only">Toggle Menu</span>
+          </Button>
+          <span className="ml-2 mt-1 block align-baseline 2xl:hidden">
+            Categories
+          </span>
+        </div>
       </SheetTrigger>
       <SheetContent side="left" className="pl-1 pr-0">
         <div className="px-7 pt-16">

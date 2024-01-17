@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import type { z } from "zod";
+import * as React from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+import type { z } from 'zod'
 
-import { emailSchema } from "@/lib/validations/email";
-import { Button } from "@/components/ui/button";
+import { emailSchema } from '@/lib/validations/email'
+import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -15,67 +15,67 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Icon } from "@/components/icon";
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Icon } from '@/components/icon'
 
-type Inputs = z.infer<typeof emailSchema>;
+type Inputs = z.infer<typeof emailSchema>
 
 export function SubscribeToNewsletterForm() {
-  const [isPending, startTransition] = React.useTransition();
+  const [isPending, startTransition] = React.useTransition()
 
   // react-hook-form
   const form = useForm<Inputs>({
     resolver: zodResolver(emailSchema),
     defaultValues: {
-      email: "",
+      email: '',
     },
-  });
+  })
 
   function onSubmit(data: Inputs) {
-    console.log("Form Data:", data);
+    console.log('Form Data:', data)
 
     startTransition(async () => {
-      const response = await fetch("/api/email/newsletter", {
-        method: "POST",
+      const response = await fetch('/api/email/newsletter', {
+        method: 'POST',
         body: JSON.stringify({
           email: data.email,
           // This token is used as a search param in the email preferences page to identify the subscriber.
           token: crypto.randomUUID(),
-          subject: "Welcome to TunedSphere",
+          subject: 'Welcome to TunedSphere',
         }),
-      });
+      })
 
       if (!response.ok) {
-        console.log("API Error Response:", response.status);
+        console.log('API Error Response:', response.status)
         switch (response.status) {
           case 409:
-            toast.error("You are already subscribed to our newsletter.");
-            break;
+            toast.error('You are already subscribed to our newsletter.')
+            break
           case 422:
-            toast.error("Invalid input.");
-            break;
+            toast.error('Invalid input.')
+            break
           case 429:
-            toast.error("The daily email limit has been reached.");
-            break;
+            toast.error('The daily email limit has been reached.')
+            break
           case 500:
-            toast.error("Something went wrong. Please try again later.");
-            break;
+            toast.error('Something went wrong. Please try again later.')
+            break
           default:
-            toast.error("Something went wrong. Please try again later.");
+            toast.error('Something went wrong. Please try again later.')
         }
-        return;
+        return
       }
 
-      toast.success("You have been subscribed to our newsletter.");
-      form.reset();
-    });
+      toast.success('You have been subscribed to our newsletter.')
+      form.reset()
+    })
   }
 
   return (
     <Form {...form}>
       <form
-        className="grid w-full bg-background/80 rounded-md"
+        className="grid w-full rounded-md bg-background/80"
         onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
       >
         <FormField
@@ -92,10 +92,10 @@ export function SubscribeToNewsletterForm() {
                   {...field}
                 />
               </FormControl>
-              <FormMessage className="absolute pt-2 pl-2" />
+              <FormMessage className="absolute pl-2 pt-2" />
               <Button
                 type="submit"
-                className="absolute right-2 top-[4px] z-20 h-8 w-8 align-middle object-contain"
+                className="absolute right-2 top-[4px] z-20 h-8 w-8 object-contain align-middle hover:bg-primary/30"
                 size="icon"
                 disabled={isPending}
               >
@@ -115,5 +115,5 @@ export function SubscribeToNewsletterForm() {
         />
       </form>
     </Form>
-  );
+  )
 }

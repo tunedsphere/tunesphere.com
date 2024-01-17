@@ -7,9 +7,8 @@ import { ShopSearchBar } from '@/components/searchs/shop-search-bar'
 import { Shell } from '../shells/shell'
 export function ShopNavbar() {
   return (
-    <div className="relative z-50 mt-[--headerHeight] w-full border-b  bg-background-navbartop">
-      {/* <div className="mx-auto flex w-full max-w-9xl items-center justify-between gap-2 overflow-clip px-4 py-2 align-middle lg:px-8 5xl:max-w-[66.66666666666666%]"> */}
-      <Shell className="5xl:max-w-[66.66666666666666%] flex max-w-9xl items-center justify-between gap-2 py-2 align-middle lg:px-8">
+    <div className="relative z-50 mt-[--headerHeight] w-full border-b bg-background-navbartop">
+      <Shell className="5xl:max-w-[66.66666666666666%] flex max-w-9xl items-center justify-start gap-2 py-2.5 align-middle lg:px-8">
         <ShopMainNav items={siteConfig.shopNav} />
         <ShopMobileNav
           shopMainNavItems={siteConfig.shopNav}
@@ -18,7 +17,6 @@ export function ShopNavbar() {
 
         <ShopSearchBar />
       </Shell>
-      {/* </div> */}
     </div>
   )
 }

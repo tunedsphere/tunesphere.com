@@ -23,7 +23,7 @@ interface ShopMainNavProps {
 
 export function ShopMainNav({ items }: ShopMainNavProps) {
   return (
-    <div className="z-1000 no-scrollbar relative col-span-1 hidden gap-6 lg:flex">
+    <div className="z-1000 no-scrollbar relative col-span-1 hidden gap-6 2xl:flex">
       <Link
         aria-label="Explore & Shop"
         href="/shop"

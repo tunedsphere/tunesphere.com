@@ -74,7 +74,7 @@ export default function MyApp() {
             <div className="z-10 grid w-full">
               <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                 Labels{' '}
-                <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                <span className="hidden sm:block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h3>
@@ -93,7 +93,7 @@ export default function MyApp() {
             <div className="z-10 grid w-full">
               <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                 Artists & DJ{' '}
-                <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                <span className="hidden sm:block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h3>
@@ -113,7 +113,7 @@ export default function MyApp() {
             <div className="z-10 grid w-full">
               <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                 Festivals{' '}
-                <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                <span className="hidden sm:block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h3>
@@ -132,7 +132,7 @@ export default function MyApp() {
             <div className="z-10 grid w-full">
               <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                 Fresh Frequencies
-                <span className="inline-block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                <span className="hidden sm:block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h3>

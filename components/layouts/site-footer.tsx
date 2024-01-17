@@ -16,7 +16,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
         <div
           id="newsletter"
           aria-labelledby="newsletter-heading"
-          className="mx-auto flex max-w-2xl flex-col justify-center gap-4 space-y-3 py-4"
+          className="mx-auto flex max-w-2xl flex-col justify-center gap-4 space-y-3 px-4 py-4"
         >
           <p className="text-center text-base font-medium">
             Subscribe to our{' '}
