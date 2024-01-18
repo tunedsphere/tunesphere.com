@@ -32,6 +32,7 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
           key={`${category.title}_link`}
           href={`shop/c/${category.title}`}
           className="group relative cursor-pointer overflow-hidden rounded-full border sm:rounded-md "
+          aria-label={`Navigate to ${category.title} category`}
         >
           <div className="aspect-square sm:aspect-video">
             <div className="transition-color absolute inset-0 z-10 bg-muted/20 group-hover:bg-zinc-950/50 " />
@@ -65,24 +66,23 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
               </div>
             </div>
             <div className="mt-auto hidden sm:flex ">
-              <span className="mr-2 grow-0 rounded-md bg-black/10 px-2 text-center text-xl font-medium capitalize text-zinc-200 backdrop-blur-sm sm:text-left">
+              <h3 className="mr-2 grow-0 rounded-md bg-black/10 px-2 text-center text-xl font-medium capitalize text-zinc-200 backdrop-blur-sm sm:text-left">
                 {formatTitleWithUnderscores(category.title)}
-              </span>
+              </h3>
             </div>
           </div>
           <span className="sr-only">{category.title}</span>
         </Link>
-        <div className="">
-          <Link
-            key={category.title}
-            href={`shop/c/${category.title}`}
-            className="group relative overflow-hidden rounded-full sm:rounded-md"
-          >
-            <h4 className="z-400 block text-center text-base font-medium capitalize sm:hidden">
-              {formatTitleWithUnderscores(category.title)}
-            </h4>
-          </Link>
-        </div>
+        <Link
+          key={category.title}
+          href={`shop/c/${category.title}`}
+          className="group relative overflow-hidden rounded-full sm:rounded-md"
+          aria-label={`Navigate to ${category.title} category`}
+        >
+          <h4 className="z-400 block text-center text-base font-medium capitalize sm:hidden">
+            {formatTitleWithUnderscores(category.title)}
+          </h4>
+        </Link>
       </div>
     </>
   )
