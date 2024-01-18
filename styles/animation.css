@@ -17,6 +17,7 @@
       text-align: center;
       margin-bottom: -10px;
       background-clip: text;
+      background-color: hsl(var(--foreground))!important;
       color: transparent;
       z-index: 0;
   }

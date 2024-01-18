@@ -37,12 +37,12 @@ export default function MyApp() {
                 className="hero_title justify-center gap-2 "
               >
                 <span className="text-foreground">A </span>
-                <span className="animated-grt-text_background-violet before:bg-foreground ">
+                <span className="animated-grt-text_background-violet ">
                   <span className="animated-grt-text_foreground-violet">
                     Psygroove
                   </span>
                 </span>
-                <span className="animated-grt-text_background-red before:bg-foreground">
+                <span className="animated-grt-text_background-red ">
                   <span className="animated-grt-text_foreground-red">
                     Dedicated
                   </span>
@@ -74,7 +74,7 @@ export default function MyApp() {
             <div className="z-10 grid w-full">
               <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                 Labels{' '}
-                <span className="hidden sm:block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                <span className="hidden text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none sm:inline-block">
                   -&gt;
                 </span>
               </h3>
@@ -93,7 +93,7 @@ export default function MyApp() {
             <div className="z-10 grid w-full">
               <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                 Artists & DJ{' '}
-                <span className="hidden sm:block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                <span className="hidden text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none sm:inline-block">
                   -&gt;
                 </span>
               </h3>
@@ -113,7 +113,7 @@ export default function MyApp() {
             <div className="z-10 grid w-full">
               <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
                 Festivals{' '}
-                <span className="hidden sm:block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                <span className="hidden text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none sm:inline-block">
                   -&gt;
                 </span>
               </h3>
@@ -131,8 +131,8 @@ export default function MyApp() {
 
             <div className="z-10 grid w-full">
               <h3 className="mb-3 text-2xl font-semibold leading-snug text-foreground focus-visible:text-secondary">
-                Fresh Frequencies
-                <span className="hidden sm:block text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                Fresh Frequencies{' '}
+                <span className="hidden text-base transition-transform group-hover:translate-x-1 motion-reduce:transform-none sm:inline-block">
                   -&gt;
                 </span>
               </h3>

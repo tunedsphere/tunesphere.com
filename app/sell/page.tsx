@@ -26,13 +26,10 @@ import {
 } from '@/components/ui/carousel'
 import { productCategories } from '@/configs/products'
 import { formatTitleWithUnderscores } from '@/lib/utils'
-import Autoplay from 'embla-carousel-autoplay'
 
 interface BecomeASellerProps {}
 
 export default function BecomeASellerPage({}: BecomeASellerProps) {
-  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }))
-
   const [isScrolledToFees, setIsScrolledToFees] = useState(false)
   const [isScrolledToTools, setIsScrolledToTools] = useState(false)
   const [isScrolledToFAQ, setIsScrolledToFAQ] = useState(false)
@@ -374,23 +371,6 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                   </p>
                 </div>
               </div>
-              <div className="relative grid grid-cols-8 rounded-lg p-6 px-2 py-8">
-                <div className="col-span-1 mx-auto grid grid-rows-3 items-center">
-                  <div className="row-span-2 rounded-full bg-primary/20 p-2.5 text-primary">
-                    <Icon name="flower" className="h-12 w-12"></Icon>
-                  </div>
-                </div>
-                <div className="col-span-7 col-start-2 float-left ml-8 text-left sm:col-span-7 sm:ml-4">
-                  <h3 className="mt-2 text-lg font-bold tracking-tight sm:text-3xl">
-                    Unique Artworks
-                  </h3>
-                  <p className="grow text-lg text-muted-foreground ">
-                    Showcase your art to a unique audience and be part of a
-                    vibrant community of creative minds. We offer a space where
-                    your artistic expression can flourish.
-                  </p>
-                </div>
-              </div>
             </div>
             <div className="mx-auto mt-10 grid max-w-3xl grid-cols-8 items-center rounded-xl p-6 py-8 shadow-md">
               <div className="col-span-1">
@@ -434,11 +414,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                 <Carousel
                   opts={{
                     align: 'start',
-                    loop: true,
                   }}
-                  plugins={[plugin.current]}
-                  onMouseEnter={plugin.current.stop}
-                  onMouseLeave={plugin.current.reset}
                 >
                   <CarouselContent className="">
                     {productCategories.map((category, index) => (
