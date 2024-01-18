@@ -42,7 +42,7 @@ export function ShopMobileNav({
             <Icon name="menu" className="h-6 w-6" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
-          <span className="ml-2 mt-1 block align-baseline 2xl:hidden">
+          <span className="ml-2 mt-1 block align-baseline font-medium 2xl:hidden">
             Categories
           </span>
         </div>

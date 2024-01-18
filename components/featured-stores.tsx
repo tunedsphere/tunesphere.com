@@ -9,11 +9,7 @@ import { cn } from '@/lib/utils'
 
 import { buttonVariants } from '@/components/ui/button'
 import { StoreCard } from '@/components/cards/store-card'
-import {
-  PageHeader,
-  PageHeaderHeading,
-  PageHeaderDescription,
-} from '@/components/page-header'
+import { PageHeader, PageHeaderHeading } from '@/components/page-header'
 import { delayFeaturedStores } from '@/lib/delays'
 
 interface FeaturedStoresProps {}
@@ -41,14 +37,15 @@ export async function FeaturedStores({}: FeaturedStoresProps) {
       aria-labelledby="featured-stores-heading"
       className="flex flex-col space-y-6 py-8 md:pt-12 lg:pt-24"
     >
-      <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+      <PageHeader className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
         <PageHeaderHeading
+          as="h2"
           size="lg"
           className="flex-1 py-8 font-semibold underline decoration-primary underline-offset-4"
         >
           Featured Stores
         </PageHeaderHeading>
-      </div>
+      </PageHeader>
       <div className="flex flex-col space-y-6">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {someStores.map((store) => (

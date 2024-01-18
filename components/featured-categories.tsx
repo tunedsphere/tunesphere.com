@@ -18,22 +18,17 @@ export async function FeaturedCategories({}: FeaturedCategoriesProps) {
   return (
     <section
       id="featured-categories"
-      aria-labelledby="featured-categories"
+      aria-labelledby="featured-categories-heading"
       className="z-10 w-full space-y-6 py-6 @container md:pt-40"
     >
-      <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-        <PageHeader
-          id="shop-categories-header"
-          aria-labelledby="shop-categories-header-heading"
-        >
-          <PageHeaderHeading size="lg" className="py-8 ">
-            Categories
-          </PageHeaderHeading>
-          <PageHeaderDescription size="lg" className="">
-            Explore our categories and find the best products for you
-          </PageHeaderDescription>
-        </PageHeader>
-      </div>
+      <PageHeader className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+        <PageHeaderHeading as="h2" size="lg" className="py-8 ">
+          Categories
+        </PageHeaderHeading>
+        <PageHeaderDescription size="lg" className="">
+          Explore our categories and find the best products for you
+        </PageHeaderDescription>
+      </PageHeader>
       <div className="grid grid-cols-4 gap-3 px-4 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 lg:grid-cols-4">
         {productCategories.map((category) => (
           <CategoryCard

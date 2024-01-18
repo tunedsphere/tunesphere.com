@@ -18,7 +18,7 @@ import { ProudctTabs } from '@/components/pagers/product-tabs'
 
 import { delayFeaturedProducts } from '@/lib/delays'
 import { AspectRatio } from './ui/aspect-ratio'
-
+import { PageHeader, PageHeaderHeading } from './page-header'
 interface FeaturedProductsProps {
   searchParams: {
     [key: string]: string | string[] | undefined
@@ -52,11 +52,11 @@ export async function FeaturedProducts({
       aria-labelledby="featured-products-heading"
       className="space-y-6 overflow-hidden px-2 py-8 md:pt-12 lg:pt-24"
     >
-      <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible py-8 text-center">
-        <h2 className=" font-heading text-3xl font-bold leading-[1.1] underline decoration-primary underline-offset-4 sm:text-3xl md:text-5xl">
+      <PageHeader className="font-heading mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible py-8 text-center text-3xl font-bold leading-[1.1] underline decoration-primary underline-offset-4 sm:text-3xl md:text-5xl">
+        <PageHeaderHeading as="h2" size="lg" className="py-8 ">
           Featured products
-        </h2>
-      </div>
+        </PageHeaderHeading>
+      </PageHeader>
       <Tabs defaultValue="art" className="space-y-6 overflow-visible">
         <ScrollArea
           orientation="horizontal"

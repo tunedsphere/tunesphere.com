@@ -65,9 +65,9 @@ export async function CategoryCard({ category, icon }: CategoryCardProps) {
               </div>
             </div>
             <div className="mt-auto hidden sm:flex ">
-              <h3 className="mr-2 grow-0 rounded-md bg-black/10 px-2 text-center text-xl font-medium capitalize text-zinc-200 backdrop-blur-sm sm:text-left">
+              <span className="mr-2 grow-0 rounded-md bg-black/10 px-2 text-center text-xl font-medium capitalize text-zinc-200 backdrop-blur-sm sm:text-left">
                 {formatTitleWithUnderscores(category.title)}
-              </h3>
+              </span>
             </div>
           </div>
           <span className="sr-only">{category.title}</span>

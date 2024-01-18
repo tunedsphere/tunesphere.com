@@ -86,73 +86,70 @@ export function ShopSearchBar() {
   }, [isOpen])
   return (
     <>
-      <div
-        id="shop-search-bar"
-        className="relative ml-2 flex grow flex-row items-center rounded-full border p-1 hover:border-primary/50 2xl:max-w-[24rem]"
+      <Command
+        role="search"
+        aria-label="Search products"
+        className={`relative ml-4 flex grow flex-row items-center rounded-full border p-1 align-middle hover:border-primary/50 2xl:max-w-[24rem] ${query ? 'bg-popover' : 'bg-popover'}  `}
       >
-        <Command
-          className={`align-middle ${query ? 'bg-popover' : 'bg-popover'}  `}
-        >
-          <CommandInput
-            aria-label="Search products"
-            aria-autocomplete="list"
-            className="bg-transparent px-0 py-0 align-middle"
-            placeholder="Search products..."
-            value={query}
-            onValueChange={setQuery}
-            onClick={(e) => {
-              handleInputClick()
-              setIsOpen(true) // Open the CommandList
-              e.stopPropagation() // Prevent the click event from propagating to the parent Command element
-            }}
-          />
-          {data && isOpen && (
-            <CommandList
-              ref={commandListRef}
-              className="absolute left-0 right-0 mt-12 flex-grow rounded-sm border bg-popover py-1 shadow-lg"
+        <CommandInput
+          id="shop-search-input"
+          aria-labelledby="search-products-label"
+          aria-autocomplete="list"
+          className="bg-transparent px-0 py-0 align-middle"
+          placeholder="Search products..."
+          value={query}
+          onValueChange={setQuery}
+          onClick={(e) => {
+            handleInputClick()
+            setIsOpen(true) // Open the CommandList
+            e.stopPropagation() // Prevent the click event from propagating to the parent Command element
+          }}
+        />
+        {data && isOpen && (
+          <CommandList
+            aria-live="polite"
+            ref={commandListRef}
+            className="absolute left-0 right-0 mt-12 flex-grow rounded-sm border bg-popover py-1 shadow-lg"
+          >
+            <CommandEmpty
+              className={cn(isPending ? 'hidden' : 'py-6 text-center text-sm ')}
             >
-              <CommandEmpty
-                className={cn(
-                  isPending ? 'hidden' : 'py-6 text-center text-sm ',
-                )}
-              >
-                No products found.
-              </CommandEmpty>
-              {isPending ? (
-                <div className="space-y-1 overflow-hidden px-4 py-2">
-                  <Skeleton className="h-4 w-10 rounded" />
-                  <Skeleton className="h-8 rounded-sm" />
-                  <Skeleton className="h-8 rounded-sm" />
-                </div>
-              ) : (
-                data?.map((group) => (
-                  <CommandGroup
-                    key={group.category}
-                    className="bg-transparent capitalize tracking-tighter [&_[cmdk-group-heading]]:text-sm [&_[cmdk-group-heading]]:text-muted-foreground"
-                    heading={group.category}
-                  >
-                    {group.products.map((item) => (
-                      <CommandItem
-                        role="option"
-                        className=" cursor-pointer bg-transparent hover:bg-muted/30"
-                        key={item.id}
-                        aria-selected={false}
-                        onSelect={() =>
-                          handleSelect(() =>
-                            router.push(`/shop/product/${item.id}`),
-                          )
-                        }
-                      >
-                        {item.name}
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                ))
-              )}
-            </CommandList>
-          )}
-        </Command>
-      </div>
+              No products found.
+            </CommandEmpty>
+            {isPending ? (
+              <div className="space-y-1 overflow-hidden px-4 py-2">
+                <Skeleton className="h-4 w-10 rounded" />
+                <Skeleton className="h-8 rounded-sm" />
+                <Skeleton className="h-8 rounded-sm" />
+              </div>
+            ) : (
+              data?.map((group) => (
+                <CommandGroup
+                  key={group.category}
+                  className="bg-transparent capitalize tracking-tighter [&_[cmdk-group-heading]]:text-sm [&_[cmdk-group-heading]]:text-muted-foreground"
+                  heading={group.category}
+                >
+                  {group.products.map((item) => (
+                    <CommandItem
+                      role="option"
+                      className=" cursor-pointer bg-transparent hover:bg-muted/30"
+                      key={item.id}
+                      aria-selected={false}
+                      onSelect={() =>
+                        handleSelect(() =>
+                          router.push(`/shop/product/${item.id}`),
+                        )
+                      }
+                    >
+                      {item.name}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              ))
+            )}
+          </CommandList>
+        )}
+      </Command>
     </>
   )
 }
