@@ -65,6 +65,7 @@
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.10",
     "drizzle-orm": "^0.29.3",
+    "embla-carousel-autoplay": "8.0.0-rc19",
     "embla-carousel-react": "8.0.0-rc14",
     "framer-motion": "^10.18.0",
     "geist": "1.1.0",

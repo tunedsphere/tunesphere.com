@@ -51,11 +51,11 @@ export function AlbumCard({
           ></Image>
           <Button
             variant="link"
-            className="absolute bottom-2 left-2 flex items-center justify-center rounded-full bg-muted px-1 py-1 opacity-0 transition-opacity duration-300 hover:bg-none group-hover:opacity-100"
+            className="absolute bottom-2 left-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent opacity-0 transition-opacity duration-300 hover:bg-none group-hover:opacity-100"
           >
             <Icon
               name="play"
-              className="ml-1 h-6 w-6 fill-current text-primary hover:text-primary/80"
+              className="ml-1 fill-current text-primary hover:text-primary/80"
             />
           </Button>
         </AspectRatio>

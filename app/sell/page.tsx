@@ -25,9 +25,14 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { productCategories } from '@/configs/products'
+import { formatTitleWithUnderscores } from '@/lib/utils'
+import Autoplay from 'embla-carousel-autoplay'
+
 interface BecomeASellerProps {}
 
 export default function BecomeASellerPage({}: BecomeASellerProps) {
+  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }))
+
   const [isScrolledToFees, setIsScrolledToFees] = useState(false)
   const [isScrolledToTools, setIsScrolledToTools] = useState(false)
   const [isScrolledToFAQ, setIsScrolledToFAQ] = useState(false)
@@ -269,10 +274,11 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                   your artistic expression can flourish.
                 </p>
                 <Button
+                  onClick={() => handleNavClick(toolsSectionRef)}
                   className="mx-auto mt-6 w-1/2 rounded-full bg-teal-500 px-2 py-2 text-white shadow-md hover:bg-teal-600 hover:text-white sm:w-2/3 sm:px-8"
                   type="button"
                 >
-                  Explore Art
+                  Explore
                 </Button>
               </div>
               <div className="col-span-1 flex flex-col  rounded-lg bg-gradient-to-r from-green-200/20 to-green-100/90 p-2 px-2 py-4 text-center dark:from-green-900/20 dark:to-green-900/20 sm:p-8">
@@ -291,6 +297,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                   establish the most competitive fee structure in the industry.
                 </p>
                 <Button
+                  onClick={() => handleNavClick(feesSectionRef)}
                   className="mx-auto mt-6 w-2/3 rounded-full bg-green-500 px-2 py-2 font-medium text-white shadow-md  hover:bg-green-600 hover:text-white sm:px-8"
                   type="button"
                 >
@@ -341,7 +348,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                     <Icon name="page-layout" className="h-12 w-12"></Icon>
                   </div>
                 </div>
-                <div className="col-span-7 float-left ml-4 text-left">
+                <div className="col-span-7 col-start-2 float-left ml-8 text-left sm:col-span-7 sm:ml-4">
                   <h3 className="mt-2 text-lg font-bold tracking-tight sm:text-3xl">
                     0€ Listing Products is Free* / Scale as you go
                   </h3>
@@ -357,7 +364,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                     <Icon name="credit-card" className="h-12 w-12"></Icon>
                   </div>
                 </div>
-                <div className="col-span-7 float-left ml-4 text-left">
+                <div className="col-span-7 col-start-2 float-left ml-8 text-left sm:col-span-7 sm:ml-4">
                   <h3 className="mt-2 text-lg font-bold tracking-tight sm:text-3xl">
                     6.5 % Transaction fee, 4% + €0.30 payment processing fee*
                   </h3>
@@ -373,7 +380,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                     <Icon name="flower" className="h-12 w-12"></Icon>
                   </div>
                 </div>
-                <div className="col-span-7 float-left ml-4 text-left">
+                <div className="col-span-7 col-start-2 float-left ml-8 text-left sm:col-span-7 sm:ml-4">
                   <h3 className="mt-2 text-lg font-bold tracking-tight sm:text-3xl">
                     Unique Artworks
                   </h3>
@@ -391,8 +398,8 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                   Sell Your Art
                 </Icon>
               </div>
-              <div className="col-span-7 ml-8">
-                <h2 className="text-3xl font-bold">
+              <div className="col-span-7 col-start-3 ml-8 sm:col-start-2">
+                <h2 className="font-bold sm:text-2xl">
                   We process payments on our secure, SSL-encrypted platform, and
                   have security specialists and fraud detection systems to
                   protect you and your buyers 24/7.
@@ -401,7 +408,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
               <div className="col-span-8 mx-auto my-4">
                 <Link
                   href="/docs/shop"
-                  className="text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground underline hover:text-foreground"
                 >
                   Learn more
                 </Link>
@@ -414,113 +421,53 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
             className="relative w-full bg-gradient-to-r from-primary/0 via-primary/30 to-cyan-400/0 px-4 py-16"
           >
             <div className="flex h-full flex-col items-center justify-center space-y-10 ">
-              <h1 className="text-6xl font-extrabold tracking-wide">
+              <h1 className="text-5xl font-extrabold tracking-wide">
                 What can you sell?
               </h1>
-              <p className="text-xl font-semibold text-muted-foreground">
+              <p className="max-w-3xl text-center text-lg font-semibold text-muted-foreground">
                 It's simple, Tunedsphere is a place where you can sell and
-                express your art. From handmade crafts, to festsivals
-                decorations.
+                express your art. From handmade crafts, to festsival decorations
+                & instruments.
               </p>
-              <div className="flex space-x-5">
-                <Button variant="primary">Explore Artworks</Button>
-              </div>
-              <div className="overflow-hidden px-4">
-                <Carousel className="max-w-5xl">
+
+              <div className="relative max-w-full px-4">
+                <Carousel
+                  opts={{
+                    align: 'start',
+                    loop: true,
+                  }}
+                  plugins={[plugin.current]}
+                  onMouseEnter={plugin.current.stop}
+                  onMouseLeave={plugin.current.reset}
+                >
                   <CarouselContent className="">
-                    <CarouselItem className="w-1/3 basis-1/3 ">
-                      <div className="p-1">
-                        <Card className="">
-                          <CardContent className="flex aspect-square items-center justify-center p-0">
-                            <Image
-                              src={productCategories[0].image}
-                              alt={productCategories[0].title}
-                              width={320}
-                              height={320}
-                              className="aspect-square "
-                            />
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="basis-1/3 ">
-                      <div className="p-1">
-                        <Card>
-                          <CardContent className="flex aspect-square items-center justify-center p-0">
-                            <Image
-                              src={productCategories[1].image}
-                              alt={productCategories[1].title}
-                              width={320}
-                              height={320}
-                              className="aspect-square object-fill"
-                            />
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="basis-1/3 ">
-                      <div className="p-1">
-                        <Card>
-                          <CardContent className="flex aspect-square items-center justify-center p-0">
-                            <Image
-                              src={productCategories[2].image}
-                              alt={productCategories[2].title}
-                              width={320}
-                              height={320}
-                              className="aspect-square object-fill"
-                            />
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="basis-1/3 ">
-                      <div className="p-1">
-                        <Card>
-                          <CardContent className="flex aspect-square items-center justify-center p-0">
-                            <Image
-                              src={productCategories[3].image}
-                              alt={productCategories[3].title}
-                              width={320}
-                              height={320}
-                              className="aspect-square object-fill"
-                            />
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="basis-1/3 ">
-                      <div className="p-1">
-                        <Card>
-                          <CardContent className="flex aspect-square items-center justify-center p-0">
-                            <Image
-                              src={productCategories[4].image}
-                              alt={productCategories[4].title}
-                              width={320}
-                              height={320}
-                              className="aspect-square object-fill"
-                            />
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>{' '}
-                    <CarouselItem className="basis-1/3 ">
-                      <div className="p-1">
-                        <Card>
-                          <CardContent className="flex aspect-square items-center justify-center p-0">
-                            <Image
-                              src={productCategories[5].image}
-                              alt={productCategories[5].title}
-                              width={320}
-                              height={320}
-                              className="aspect-square object-fill"
-                            />
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
+                    {productCategories.map((category, index) => (
+                      <CarouselItem key={index} className="w-1/3 basis-1/3 ">
+                        <div className="relative">
+                          <Card className="border-none">
+                            <CardContent className="flex aspect-video items-center justify-center p-0">
+                              <Image
+                                src={category.image}
+                                alt={category.title}
+                                fill
+                                className="aspect-video overflow-hidden rounded-lg"
+                                style={{
+                                  objectFit: 'cover',
+                                }}
+                              />
+                            </CardContent>
+                          </Card>
+                        </div>
+                        <div className="mt-2 flex justify-center">
+                          <h3 className="text-base font-medium text-muted-foreground">
+                            {formatTitleWithUnderscores(category.title)}
+                          </h3>
+                        </div>
+                      </CarouselItem>
+                    ))}
                   </CarouselContent>
-                  <CarouselPrevious className="" />
                   <CarouselNext />
+                  <CarouselPrevious />
                 </Carousel>
               </div>
             </div>
