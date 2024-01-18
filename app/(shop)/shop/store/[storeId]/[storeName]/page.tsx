@@ -1,16 +1,16 @@
-import type { Metadata } from "next"
-import { notFound } from "next/navigation"
-import { db } from "@/db"
-import { products, stores } from "@/db/schema"
-import { env } from "@/env.mjs"
-import { eq } from "drizzle-orm"
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { db } from '@/db'
+import { products, stores } from '@/db/schema'
+import { env } from '@/env.mjs'
+import { eq } from 'drizzle-orm'
 
-import { Products } from "@/components/products/products"
-import { Shell } from "@/components/shells/shell"
-import { getProductsAction } from "@/app/_actions/product"
-import { getStoresAction } from "@/app/_actions/store"
-import { StoreBanner } from "@/components/store-banner"
-import { StoreIcon } from "@/components/store.icon"
+import { Products } from '@/components/products/products'
+import { Shell } from '@/components/shells/shell'
+import { getProductsAction } from '@/app/_actions/product'
+import { getStoresAction } from '@/app/_actions/store'
+import { StoreBanner } from '@/components/store-banner'
+import { StoreIcon } from '@/components/store.icon'
 interface StorePageProps {
   params: {
     storeId: string
@@ -19,7 +19,7 @@ interface StorePageProps {
     [key: string]: string | string[] | undefined
   }
 }
-async function getStoreFromParams(params: StorePageProps["params"]) {
+async function getStoreFromParams(params: StorePageProps['params']) {
   const storeId = Number(params.storeId)
 
   return await db.query.stores.findFirst({
@@ -56,8 +56,8 @@ export default async function StorePage({
   const { page, per_page, store_page } = searchParams
 
   // Products transaction
-  const limit = typeof per_page === "string" ? parseInt(per_page) : 8
-  const offset = typeof page === "string" ? (parseInt(page) - 1) * limit : 0
+  const limit = typeof per_page === 'string' ? parseInt(per_page) : 8
+  const offset = typeof page === 'string' ? (parseInt(page) - 1) * limit : 0
 
   const productsTransaction = await getProductsAction({
     limit: limit,
@@ -70,36 +70,39 @@ export default async function StorePage({
   // Stores transaction
   const storesLimit = 25
   const storesOffset =
-    typeof store_page === "string"
+    typeof store_page === 'string'
       ? (parseInt(store_page) - 1) * storesLimit
       : 0
 
   const storesTransaction = await getStoresAction({
     limit: storesLimit,
     offset: storesOffset,
-    sort: "name.asc",
+    sort: 'name.asc',
   })
 
   const storePageCount = Math.ceil(storesTransaction.count / storesLimit)
 
   return (
     <>
-
       <section id="store-home-header" className="relative flex-1">
-        <div className="flex w-full h-[3.5rem] bg-primary/20"></div>
-        {/* <StoreBanner
-        key={store.id}
-        className="object-contain " 
-          images={store.storeBanner ?? []}/>  */}
-        <div className="flex w-full bg-muted/10">
-          <div className="flex max-w-7xl mx-auto w-full p-4 space-y-2">
+        <StoreBanner
+          key={store.id}
+          className="object-contain"
+          images={store.storeBanner ?? []}
+        />
+        <div className="flex w-full bg-muted/30 py-4">
+          <div className="mx-auto flex w-full max-w-4xl space-y-2">
             <div className="flex w-1/2">
-              <div className="items-center justify-center p-2">
-                <StoreIcon className="w-[120px] h-[120px]"
-                  images={store.storeIcon ?? []} />
+              <div className="mr-4 items-center justify-center">
+                <StoreIcon
+                  className="h-[120px] w-[120px]"
+                  images={store.storeIcon ?? []}
+                />
               </div>
-              <div className="pt-4 flex flex-col">
-                <h2 className="flex flex-start line-clamp-1 text-2xl font-bold">{store.name}</h2>
+              <div className="flex flex-col pt-4">
+                <h2 className="flex-start line-clamp-1 flex text-2xl font-bold">
+                  {store.name}
+                </h2>
                 <p className="text-base text-muted-foreground">
                   {store.headline}
                 </p>
@@ -121,7 +124,6 @@ export default async function StorePage({
           </div>
         </div>
       </Shell>
-
     </>
   )
 }

@@ -183,7 +183,7 @@ export function Products({
 
   return (
     <div className="flex flex-col space-y-6" {...props}>
-      <div className="flex content-center items-stretch justify-between px-4 sm:px-12">
+      <div className="flex content-center items-stretch justify-between">
         <Sheet>
           <SheetTrigger asChild>
             <Button

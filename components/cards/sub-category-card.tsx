@@ -23,7 +23,7 @@ export async function SubCategoryCard({
         <Link
           key={`${category}/${subCategory.title}_link`}
           href={`${category}/${subCategory.slug}`} // Assuming you have a slug property
-          className="group relative mb-4 h-40 w-40 cursor-pointer overflow-hidden rounded-full border"
+          className="group relative mb-4 h-24 w-24 cursor-pointer overflow-hidden rounded-full border"
         >
           <Image
             key={`${subCategory.title}_key`}
@@ -31,6 +31,9 @@ export async function SubCategoryCard({
             alt={`${subCategory.title} subCategory`}
             className=" transition-transform group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{
+              objectFit: 'cover',
+            }}
             fill
             priority
           />
@@ -40,7 +43,7 @@ export async function SubCategoryCard({
         <div className="flex justify-center">
           <Link
             href={`${category}/${subCategory.slug}`}
-            className="text-center text-base font-medium capitalize underline-offset-4 hover:text-muted-foreground hover:underline"
+            className="text-center font-mono text-sm font-medium capitalize underline-offset-4 hover:text-muted-foreground hover:underline"
           >
             {subCategory.title}
           </Link>

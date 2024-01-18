@@ -13,7 +13,7 @@ export function StoreIcon({ images }: StoreIconProps) {
           <span
             id="store-icon"
             key={index}
-            className="relative flex shrink-0 justify-center overflow-hidden border"
+            className="relative flex shrink-0 justify-center overflow-hidden rounded-md border"
           >
             <Image
               id="store-icon-image"

@@ -1,9 +1,9 @@
-import Image from "next/image";
-import { Icon } from "@/components/icon";
-import { type StoredFile } from "@/types";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import Image from 'next/image'
+import { Icon } from '@/components/icon'
+import { type StoredFile } from '@/types'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 interface StoreBannerProps extends React.HTMLAttributes<HTMLDivElement> {
-  images: StoredFile[];
+  images: StoredFile[]
 }
 
 export function StoreBanner({ images }: StoreBannerProps) {
@@ -11,19 +11,19 @@ export function StoreBanner({ images }: StoreBannerProps) {
     <>
       {images.length > 0 ? (
         images.map((image) => (
-          <div key={`storeBanner-${image.id}`} className="max-h-[500px]">
+          <div key={`storeBanner-${image.id}`} className="max-h-[300px]">
             <AspectRatio
               ratio={21 / 9}
               asChild
-              className="max-h-[500px] relative"
+              className="relative max-h-[300px]"
             >
               <span
                 id="store-banner"
-                className="overflow-hidden relative shrink-0 flex justify-center"
+                className="relative flex shrink-0 justify-center overflow-hidden"
               >
                 <Image
                   width={2400}
-                  height={400}
+                  height={300}
                   src={image.url}
                   alt={image.name}
                   className="h-full w-full object-cover"
@@ -48,5 +48,5 @@ export function StoreBanner({ images }: StoreBannerProps) {
         </div>
       )}
     </>
-  );
+  )
 }

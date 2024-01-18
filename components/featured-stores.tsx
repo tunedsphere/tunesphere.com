@@ -1,25 +1,25 @@
-import Image from "next/image";
-import Link from "next/link";
-import { db } from "@/db";
-import { products, stores, type Product } from "@/db/schema";
-import { desc, eq, sql } from "drizzle-orm";
-import { slugify } from "@/lib/utils";
+import Image from 'next/image'
+import Link from 'next/link'
+import { db } from '@/db'
+import { products, stores, type Product } from '@/db/schema'
+import { desc, eq, sql } from 'drizzle-orm'
+import { slugify } from '@/lib/utils'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
-import { buttonVariants } from "@/components/ui/button";
-import { StoreCard } from "@/components/cards/store-card";
+import { buttonVariants } from '@/components/ui/button'
+import { StoreCard } from '@/components/cards/store-card'
 import {
   PageHeader,
   PageHeaderHeading,
   PageHeaderDescription,
-} from "@/components/page-header";
-import { delayFeaturedStores } from "@/lib/delays";
+} from '@/components/page-header'
+import { delayFeaturedStores } from '@/lib/delays'
 
 interface FeaturedStoresProps {}
 
 export async function FeaturedStores({}: FeaturedStoresProps) {
-  await new Promise((resolve) => setTimeout(resolve, delayFeaturedStores));
+  await new Promise((resolve) => setTimeout(resolve, delayFeaturedStores))
 
   const someStores = await db
     .select({
@@ -33,7 +33,7 @@ export async function FeaturedStores({}: FeaturedStoresProps) {
     .limit(4)
     .leftJoin(products, eq(products.storeId, stores.id))
     .groupBy(stores.id)
-    .orderBy(desc(stores.stripeAccountId), desc(sql<number>`count(*)`));
+    .orderBy(desc(stores.stripeAccountId), desc(sql<number>`count(*)`))
 
   return (
     <section
@@ -44,7 +44,7 @@ export async function FeaturedStores({}: FeaturedStoresProps) {
       <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
         <PageHeaderHeading
           size="lg"
-          className="flex-1 /90 underline-offset-4 underline decoration-primary font-semibold"
+          className="flex-1 py-8 font-semibold underline decoration-primary underline-offset-4"
         >
           Featured Stores
         </PageHeaderHeading>
@@ -63,9 +63,9 @@ export async function FeaturedStores({}: FeaturedStoresProps) {
           href="/shop/stores"
           className={cn(
             buttonVariants({
-              size: "sm",
-              className: "mx-auto",
-            })
+              size: 'sm',
+              className: 'mx-auto',
+            }),
           )}
         >
           View all Stores
@@ -73,21 +73,21 @@ export async function FeaturedStores({}: FeaturedStoresProps) {
         </Link>
       </div>
     </section>
-  );
+  )
 }
 
-const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-theme/10 before:to-transparent`;
+const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-theme/10 before:to-transparent`
 
 function StoreSkeleton() {
   return (
-    <div className="flex flex-col col-span-4 lg:col-span-1">
+    <div className="col-span-4 flex flex-col lg:col-span-1">
       <div className={`h-[157px] bg-card ${shimmer}`} />
-      <div className="flex-col space-y-1.5 p-6 h-[101px] bg-card">
+      <div className="h-[101px] flex-col space-y-1.5 bg-card p-6">
         <div className={`h-6 w-1/3 rounded-lg bg-muted ${shimmer}`} />
         <div className={`h-4 w-full rounded-lg bg-muted ${shimmer}`} />
       </div>
     </div>
-  );
+  )
 }
 
 export function FeaturedStoresSkeleton() {
@@ -98,7 +98,7 @@ export function FeaturedStoresSkeleton() {
       className="space-y-6 overflow-hidden py-8 md:pt-12 lg:pt-24"
     >
       <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible text-center">
-        <h2 className="  font-heading text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl underline-offset-4 underline decoration-primary">
+        <h2 className="  font-heading text-3xl font-bold leading-[1.1] underline decoration-primary underline-offset-4 sm:text-3xl md:text-5xl">
           Featured Stores
         </h2>
       </div>
@@ -110,14 +110,14 @@ export function FeaturedStoresSkeleton() {
           <StoreSkeleton />
         </div>
       </div>
-      <div className="flex mx-auto">
+      <div className="mx-auto flex">
         <Link
           href="/shop/stores"
           className={cn(
             buttonVariants({
-              size: "sm",
-              className: "mx-auto",
-            })
+              size: 'sm',
+              className: 'mx-auto',
+            }),
           )}
         >
           View all Stores
@@ -125,5 +125,5 @@ export function FeaturedStoresSkeleton() {
         </Link>
       </div>
     </section>
-  );
+  )
 }

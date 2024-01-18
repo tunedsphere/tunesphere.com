@@ -52,8 +52,8 @@ export async function FeaturedProducts({
       aria-labelledby="featured-products-heading"
       className="space-y-6 overflow-hidden px-2 py-8 md:pt-12 lg:pt-24"
     >
-      <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible text-center">
-        <h2 className="  font-heading text-3xl font-bold leading-[1.1] underline decoration-primary underline-offset-4 sm:text-3xl md:text-5xl">
+      <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible py-8 text-center">
+        <h2 className=" font-heading text-3xl font-bold leading-[1.1] underline decoration-primary underline-offset-4 sm:text-3xl md:text-5xl">
           Featured products
         </h2>
       </div>
