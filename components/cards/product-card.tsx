@@ -9,6 +9,7 @@ import { catchError, cn, formatPrice } from '@/lib/utils'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Button } from '@/components/ui/button'
 import { slugify } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -119,67 +120,85 @@ export function ProductCard({
           </Link>
         </CardContent>
         <CardFooter className="mb-2 mt-1">
-          <div className="flex w-full flex-col items-center justify-between gap-2 align-middle sm:flex-row">
-            <Badge className="shrink-0" variant="success">
-              Free Delivery
-            </Badge>
-            {/* <Button
-              variant="primary"
-              className="grow-0 self-end rounded-sm"
-              onClick={async () => {
-                if (isPending) return
+          <div className="grid w-full grid-flow-col gap-2">
+            <div>
+              <Badge className="shrink-0 self-start" variant="success">
+                Free Delivery
+              </Badge>
+            </div>
+            <div className="flex justify-end gap-2">
+              <Link
+                href={`/shop/preview/product/${product.id}`}
+                title="Preview"
+                className={cn(
+                  buttonVariants({
+                    variant: 'outline',
+                    size: 'icon',
+                    className: 'h-8 w-8 shrink-0',
+                  }),
+                )}
+              >
+                <Icon name="scan-eye" className="h-4 w-4" aria-hidden="true" />
+                <span className="sr-only">Preview</span>
+              </Link>
+              <Button
+                variant="primary"
+                className="grow-0 rounded-sm"
+                onClick={async () => {
+                  if (isPending) return
 
-                startTransition(async () => {
-                  try {
-                    if (isAddedToCart) {
-                      // Handle removing from cart if it's already added
-                      // Implement your remove from cart logic here
-                      toast.success('Removed from cart.')
-                    } else {
-                      // Handle adding to cart if it's not added yet
-                      await addToCart({
-                        productId: product.id,
-                        quantity: 1,
-                      })
-                      toast.success('Added to cart.')
+                  startTransition(async () => {
+                    try {
+                      if (isAddedToCart) {
+                        // Handle removing from cart if it's already added
+                        // Implement your remove from cart logic here
+                        toast.success('Removed from cart.')
+                      } else {
+                        // Handle adding to cart if it's not added yet
+                        await addToCart({
+                          productId: product.id,
+                          quantity: 1,
+                        })
+                        toast.success('Added to cart.')
+                      }
+
+                      // Toggle isAddedToCart state
+                      setIsAddedToCart((prevIsAdded) => !prevIsAdded)
+
+                      // Call onSwitch if provided
+                      onSwitch?.()
+                    } catch (err) {
+                      catchError(err)
                     }
-
-                    // Toggle isAddedToCart state
-                    setIsAddedToCart((prevIsAdded) => !prevIsAdded)
-
-                    // Call onSwitch if provided
-                    onSwitch?.()
-                  } catch (err) {
-                    catchError(err)
-                  }
-                })
-              }}
-              disabled={isPending}
-            >
-              {isPending ? (
-                <Icon
-                  name="spinner"
-                  className="h-4 w-4 animate-spin"
-                  aria-hidden="true"
-                />
-              ) : (
-                <>
-                  {isAddedToCart ? (
-                    <Icon
-                      name="check"
-                      className=" h-4 w-4"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <Icon
-                      name="basket"
-                      className="h-4 w-4"
-                      aria-hidden="true"
-                    />
-                  )}
-                </>
-              )}
-            </Button> */}
+                  })
+                }}
+                disabled={isPending}
+              >
+                {isPending ? (
+                  <Icon
+                    name="spinner"
+                    className="h-4 w-4 animate-spin"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <>
+                    {isAddedToCart ? (
+                      <Icon
+                        name="check"
+                        className=" h-4 w-4"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <Icon
+                        name="basket"
+                        className="h-4 w-4"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </>
+                )}
+              </Button>
+            </div>
           </div>
         </CardFooter>
       </Card>

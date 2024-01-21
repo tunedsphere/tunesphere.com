@@ -5,4 +5,6 @@ export const delayFeaturedStores = 3000;
 export const delayRecordLabelsGrid = 80000;
 export const delayProducts = 1200;
 export const delayProductName = 1200;
+export const delayProductImageCarousel = 1200;
+
 

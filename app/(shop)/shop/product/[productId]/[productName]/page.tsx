@@ -20,13 +20,14 @@ import { Rating } from '@/components/rating'
 import { UpdateProductRatingButton } from '@/components/update-product-rating-button'
 import { AddToCartForm } from '@/components/forms/add-to-cart-form'
 import { Breadcrumbs } from '@/components/pagers/breadcrumbs'
-import { ProductImageCarousel } from '@/components/products/product-image-carousel'
+
 import { Shell } from '@/components/shells/shell'
 import {
   ProductsFromStore,
   ProductsFromStoreSkeleton,
 } from '@/components/products-from-store'
-
+import { delayProductImageCarousel } from '@/lib/delays'
+import { ProductImageCarousel } from '@/components/products/product-image-carousel'
 interface ProductPageProps {
   params: {
     productId: String
@@ -122,13 +123,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
         ]}
       />
       <div className="flex flex-col gap-8 px-2 py-12 md:flex-row md:gap-16">
-        <ProductImageCarousel
-          className="w-full md:w-1/2"
-          images={product.images ?? []}
-          options={{
-            loop: true,
-          }}
-        />
+        <Suspense fallback={<ProductImageSkeleton />}>
+          <ProductImageCarousel images={product.images ?? []} />
+        </Suspense>
         <Separator className="mt-4 md:hidden" />
         <div className="flex w-full flex-col gap-4 md:w-1/2">
           <div className="space-y-2">
@@ -150,7 +147,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
             ) : null}
           </div>
-          <Separator className="my-1.5" />
+
           {product.inventory < 4 ? (
             <p className="text-base font-medium text-red-500 dark:text-red-400">
               <span className="font-bold">{product.inventory}</span> Stock Left
@@ -191,5 +188,34 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <ProductsFromStore params={params} />
       </Suspense>
     </Shell>
+  )
+}
+
+const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-theme/10 before:to-transparent`
+
+function ImageCarouselSkeleton() {
+  return <div className={`h-20 bg-card ${shimmer}`} />
+}
+
+export function ProductImageSkeleton() {
+  return (
+    <section
+      aria-label="Product image carousel"
+      className="grid w-full grid-cols-12 gap-2 md:w-1/2"
+      id="featured-stores"
+      aria-labelledby="featured-stores-heading"
+    >
+      <div className="col-span-2 col-start-1 grid h-[80%] grid-flow-row">
+        <ImageCarouselSkeleton />
+        <ImageCarouselSkeleton />
+        <ImageCarouselSkeleton />
+        <ImageCarouselSkeleton />
+      </div>
+      <div className="col-span-10 col-start-3 px-8">
+        <div
+          className={`flex-full relative h-full max-h-[400px] w-full min-w-0 justify-center rounded-lg bg-card pl-4 ${shimmer}`}
+        />
+      </div>
+    </section>
   )
 }

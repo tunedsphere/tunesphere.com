@@ -75,6 +75,8 @@ import { ShieldCheckIcon } from './ShieldCheck'
 import { ShopIconName, shopIconMap } from './shop'
 import { SocialIconName, socialIconMap } from './social'
 import { MusicIconName, musicIconMap } from './music'
+import { EyeIcon } from './Eye'
+import { ScanEyeIcon } from './ScanEye'
 
 export type IconName =
   | ShopIconName
@@ -110,6 +112,7 @@ export type IconName =
   | 'exclamation'
   | 'expand'
   | 'external-link'
+  | 'eye'
   | 'flame'
   | 'flower'
   | 'gear'
@@ -135,6 +138,7 @@ export type IconName =
   | 'reset'
   | 'rocket'
   | 'search'
+  | 'scan-eye'
   | 'shield-check'
   | 'sign'
   | 'sun'
@@ -173,6 +177,7 @@ const iconMap = {
   'page-layout': PageLayoutIcon,
   'star-rating': StarRatingIcon,
   'shield-check': ShieldCheckIcon,
+  'scan-eye': ScanEyeIcon,
   api: ApiIcon,
   add: AddIcon,
   activity: ActivityIcon,
@@ -192,6 +197,7 @@ const iconMap = {
   edit: EditIcon,
   exclamation: ExclamationIcon,
   expand: ExpandIcon,
+  eye: EyeIcon,
   flame: FlameIcon,
   flower: FlowerIcon,
   gear: GearIcon,
