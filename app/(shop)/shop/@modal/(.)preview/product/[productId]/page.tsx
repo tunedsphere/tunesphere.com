@@ -66,7 +66,7 @@ export default async function ProductModalPage({
       <AspectRatio ratio={16 / 9} className="w-full">
         {product.images?.length ? (
           <Image
-            src={product.images[0]?.url ?? '/images/product-placeholder.webp'}
+            src={product.images[0]?.url ?? '/images/placeholder.webp'}
             alt={product.images[0]?.name ?? product.name}
             className="object-cover"
             sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"

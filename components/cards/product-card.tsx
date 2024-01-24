@@ -67,13 +67,11 @@ export function ProductCard({
         >
           <CardHeader className="relative p-0">
             <AspectRatio ratio={4 / 3}>
-              <div className="absolute -inset-x-1 -inset-y-1 hidden rounded-lg blur-sm transition motion-reduce:transition-none lg:block lg:group-hover:bg-muted "></div>
+              <div className="absolute -inset-x-0.5 -inset-y-0.5 hidden rounded-lg blur-lg transition motion-reduce:transition-none lg:block lg:group-hover:bg-muted/80 "></div>
               {product?.images?.length ? (
                 <Image
                   key={`${product.id}_image`}
-                  src={
-                    product.images[0]?.url ?? '/images/product-placeholder.webp'
-                  }
+                  src={product.images[0]?.url ?? '/images/placeholder.webp'}
                   alt={product.images[0]?.name ?? product.name}
                   className="absolute h-full w-full cursor-pointer rounded-t-sm"
                   sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"

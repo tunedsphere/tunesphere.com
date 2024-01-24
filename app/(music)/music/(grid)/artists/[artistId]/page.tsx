@@ -62,7 +62,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
       <div
         className="flex items-center justify-center"
         style={{
-          backgroundImage: '/images/product-placeholder.webp',
+          backgroundImage: '/images/placeholder.webp',
         }}
       >
         <div className="container mx-auto flex max-w-6xl bg-background px-8 pb-24 backdrop-blur-sm">
@@ -74,7 +74,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                     <Link href="/albums">
                       <Image
                         key={`album.id_image`}
-                        src={'/images/product-placeholder.webp'}
+                        src={'/images/placeholder.webp'}
                         alt="album.title"
                         className="aspect-square cursor-pointer rounded-md"
                         width={300}
@@ -155,7 +155,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
           <div className="ml-auto flex w-[120px] shrink-0 flex-col gap-2">
             <Image
               key={`artist.id_image`}
-              src={'/images/product-placeholder.webp'}
+              src={'/images/placeholder.webp'}
               alt="album.title"
               className="aspect-square cursor-pointer rounded-md"
               width={120}

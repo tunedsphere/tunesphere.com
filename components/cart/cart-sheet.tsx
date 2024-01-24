@@ -84,7 +84,7 @@ export async function CartSheet({ className }: CartSheetProps) {
                             <Image
                               src={
                                 item.images[0]?.url ??
-                                '/images/product-placeholder.webp'
+                                '/images/placeholder.webp'
                               }
                               alt={item.images[0]?.name ?? item.name}
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

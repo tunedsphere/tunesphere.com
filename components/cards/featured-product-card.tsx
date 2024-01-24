@@ -53,9 +53,7 @@ export function FeaturedProductCard({
             {product?.images?.length ? (
               <Image
                 key={`${product.id}_image`}
-                src={
-                  product.images[0]?.url ?? '/images/product-placeholder.webp'
-                }
+                src={product.images[0]?.url ?? '/images/placeholder.webp'}
                 alt={product.images[0]?.name ?? product.name}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 fill

@@ -48,10 +48,7 @@ export function CartLineItems({
                   <div className="relative aspect-square h-16 w-16 min-w-fit overflow-hidden rounded">
                     {item?.images?.length ? (
                       <Image
-                        src={
-                          item.images[0]?.url ??
-                          '/images/product-placeholder.webp'
-                        }
+                        src={item.images[0]?.url ?? '/images/placeholder.webp'}
                         alt={item.images[0]?.name ?? item.name}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         fill

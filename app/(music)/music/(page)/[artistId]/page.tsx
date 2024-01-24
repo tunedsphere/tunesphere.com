@@ -59,12 +59,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
           </Button>
         </div>
       </div>
-      <div
-        className="flex items-center justify-center"
-        style={{
-          backgroundImage: '/images/product-placeholder.webp',
-        }}
-      >
+      <div className="flex items-center justify-center">
         <div className="container mx-auto flex max-w-6xl bg-background px-8 pb-24 backdrop-blur-sm">
           <div className="flex-grow flex-wrap pr-12 @container">
             {gridView ? (
@@ -74,8 +69,8 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                     <Link href="/albums">
                       <Image
                         key={index}
-                        src="/images/product-placeholder.webp"
-                        alt={`${album.artist} - ${album.title} add-image`}
+                        src={album.image}
+                        alt={album.title}
                         className="aspect-square cursor-pointer rounded-md"
                         width={300}
                         height={300}
@@ -154,7 +149,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
           <div className="ml-auto flex w-[120px] shrink-0 flex-col gap-2">
             <Image
               key={`artist.id_image`}
-              src={'/images/product-placeholder.webp'}
+              src={'/images/placeholder.webp'}
               alt="album.title"
               className="aspect-square cursor-pointer rounded-md"
               width={120}

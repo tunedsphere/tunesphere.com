@@ -41,7 +41,7 @@ export default async function RecordLabelPage({
         <section
           className="relative h-[260px] w-full bg-slate-600 bg-cover bg-center"
           style={{
-            backgroundImage: '/images/product-placeholder.webp',
+            backgroundImage: '/images/placeholder.webp',
           }}
         >
           <div className="container absolute bottom-0 px-4 py-4 md:px-12">

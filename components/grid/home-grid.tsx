@@ -244,7 +244,7 @@ export function HomeGrid({
                 width={180}
                 height={180}
                 alt="Yo"
-                src="/images/product-placeholder.webp"
+                src="/images/placeholder.webp"
                 className="aspect-square cursor-pointer border object-cover"
               />
               <p>
