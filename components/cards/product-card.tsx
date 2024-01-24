@@ -119,14 +119,16 @@ export function ProductCard({
             {storeName}
           </Link>
         </CardContent>
-        <CardFooter className="mb-2 mt-1">
-          <div className="grid w-full grid-flow-col gap-2">
+        <CardFooter className="mb-2 mt-1 grid w-full grid-flow-col gap-2">
+          <div className="">
             <div>
               <Badge className="shrink-0 self-start" variant="success">
                 Free Delivery
               </Badge>
             </div>
-            <div className="flex justify-end gap-2">
+          </div>
+          <div className="flex justify-end gap-2">
+            <div className="hidden sm:block">
               <Link
                 href={`/shop/preview/product/${product.id}`}
                 title="Preview"
@@ -134,71 +136,71 @@ export function ProductCard({
                   buttonVariants({
                     variant: 'outline',
                     size: 'icon',
-                    className: 'h-8 w-8 shrink-0',
+                    className: 'h-8 w-8',
                   }),
                 )}
               >
                 <Icon name="scan-eye" className="h-4 w-4" aria-hidden="true" />
                 <span className="sr-only">Preview</span>
               </Link>
-              <Button
-                variant="primary"
-                className="grow-0 rounded-sm"
-                onClick={async () => {
-                  if (isPending) return
-
-                  startTransition(async () => {
-                    try {
-                      if (isAddedToCart) {
-                        // Handle removing from cart if it's already added
-                        // Implement your remove from cart logic here
-                        toast.success('Removed from cart.')
-                      } else {
-                        // Handle adding to cart if it's not added yet
-                        await addToCart({
-                          productId: product.id,
-                          quantity: 1,
-                        })
-                        toast.success('Added to cart.')
-                      }
-
-                      // Toggle isAddedToCart state
-                      setIsAddedToCart((prevIsAdded) => !prevIsAdded)
-
-                      // Call onSwitch if provided
-                      onSwitch?.()
-                    } catch (err) {
-                      catchError(err)
-                    }
-                  })
-                }}
-                disabled={isPending}
-              >
-                {isPending ? (
-                  <Icon
-                    name="spinner"
-                    className="h-4 w-4 animate-spin"
-                    aria-hidden="true"
-                  />
-                ) : (
-                  <>
-                    {isAddedToCart ? (
-                      <Icon
-                        name="check"
-                        className=" h-4 w-4"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <Icon
-                        name="basket"
-                        className="h-4 w-4"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </>
-                )}
-              </Button>
             </div>
+            <Button
+              variant="primary"
+              className="rounded-sm"
+              onClick={async () => {
+                if (isPending) return
+
+                startTransition(async () => {
+                  try {
+                    if (isAddedToCart) {
+                      // Handle removing from cart if it's already added
+                      // Implement your remove from cart logic here
+                      toast.success('Removed from cart.')
+                    } else {
+                      // Handle adding to cart if it's not added yet
+                      await addToCart({
+                        productId: product.id,
+                        quantity: 1,
+                      })
+                      toast.success('Added to cart.')
+                    }
+
+                    // Toggle isAddedToCart state
+                    setIsAddedToCart((prevIsAdded) => !prevIsAdded)
+
+                    // Call onSwitch if provided
+                    onSwitch?.()
+                  } catch (err) {
+                    catchError(err)
+                  }
+                })
+              }}
+              disabled={isPending}
+            >
+              {isPending ? (
+                <Icon
+                  name="spinner"
+                  className="h-4 w-4 animate-spin"
+                  aria-hidden="true"
+                />
+              ) : (
+                <>
+                  {isAddedToCart ? (
+                    <Icon
+                      name="check"
+                      className=" h-4 w-4"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <Icon
+                      name="basket"
+                      className="h-4 w-4"
+                      aria-hidden="true"
+                    />
+                  )}
+                </>
+              )}
+            </Button>
           </div>
         </CardFooter>
       </Card>
