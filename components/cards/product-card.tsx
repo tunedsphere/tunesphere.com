@@ -21,12 +21,20 @@ import {
 import { Icon } from '@/components/icon'
 import { addToCart } from '@/app/_actions/cart'
 import { Badge } from '../ui/badge'
+import { Rating } from '../rating'
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
   storeName: string | string[] | undefined
   product: Pick<
     Product,
-    'id' | 'name' | 'price' | 'images' | 'category' | 'inventory' | 'storeId'
+    | 'id'
+    | 'name'
+    | 'price'
+    | 'images'
+    | 'category'
+    | 'inventory'
+    | 'storeId'
+    | 'rating'
   >
   variant?: 'default' | 'switchable'
   isAddedToCart?: boolean
@@ -89,10 +97,13 @@ export function ProductCard({
             </AspectRatio>
           </CardHeader>
         </Link>
-        <CardContent className="grid p-0">
-          <CardTitle className="mb-1 mt-2 cursor-pointer truncate text-sm font-medium leading-relaxed hover:text-foreground/80 sm:text-base">
+        <CardContent className="grid gap-0.5 p-0">
+          <CardTitle className="mt-2 cursor-pointer truncate text-sm font-medium leading-relaxed hover:text-foreground/80 sm:text-base">
             {product.name}
           </CardTitle>
+          <div className="text-sm font-bold leading-snug sm:text-lg">
+            <Rating rating={Math.round(product.rating / 5)} />
+          </div>
           <div className="text-sm font-bold leading-snug sm:text-lg">
             {formatPrice(product.price)}
           </div>
@@ -101,7 +112,7 @@ export function ProductCard({
               -{/* */}30{/* */}%
             </div>
             <div className="flex">
-              <div className="leading-snug sm:text-sm">$</div>
+              <div className="text-sm leading-snug sm:text-sm">$</div>
               <div className="text-sm font-bold leading-snug sm:text-lg">
                 204.4
               </div>

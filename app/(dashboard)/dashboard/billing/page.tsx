@@ -93,7 +93,7 @@ export default async function BillingPage() {
                 variant="dashboard"
                 key={plan.name}
                 className={cn(
-                  'flex flex-col',
+                  'flex flex-col py-4',
                   i === storeSubscriptionPlans.length - 1 &&
                     'lg:col-span-2 xl:col-span-1' &&
                     'border-primary shadow-md',
@@ -103,7 +103,7 @@ export default async function BillingPage() {
                   <CardTitle className="mb-4 line-clamp-1 text-2xl font-bold">
                     {plan.name}
                   </CardTitle>
-                  <CardDescription className="line-clamp-2 text-theme-300">
+                  <CardDescription className="line-clamp-2 text-primary">
                     {plan.description}
                   </CardDescription>
                 </CardHeader>
@@ -129,7 +129,7 @@ export default async function BillingPage() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="pt-4">
+                <CardFooter className="p-4">
                   {storeSubscriptionPlan?.name === plan.name ? (
                     <Link href="/dashboard/stores" className="w-full">
                       <div

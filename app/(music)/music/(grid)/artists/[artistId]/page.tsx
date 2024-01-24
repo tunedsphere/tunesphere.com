@@ -36,7 +36,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
 
   return (
     <>
-      <div className="mx-auto flex  max-w-6xl items-center justify-end bg-background px-8 py-2 font-bold ">
+      <div className="mx-auto flex  max-w-6xl items-center justify-end bg-background px-8 py-2 font-bold">
         <div className="mr-[160px] flex align-middle">
           <Button
             variant="ghost"
@@ -69,16 +69,17 @@ export default function ArtistPage({ params }: ArtistPageProps) {
           <div className="flex-grow flex-wrap pr-12 @container">
             {gridView ? (
               <div className="grid grid-flow-row-dense grid-cols-1 justify-around gap-x-8 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {albums.map((album, index) => (
-                  <div key={index} className="flex flex-col gap-y-2">
+                {albums.map((album) => (
+                  <div className="flex flex-col gap-y-2">
                     <Link href="/albums">
                       <Image
-                        key={index}
-                        src="/images/product-placeholder.webp"
-                        alt={`${album.artist} - ${album.title} add-image`}
+                        key={`album.id_image`}
+                        src={'/images/product-placeholder.webp'}
+                        alt="album.title"
                         className="aspect-square cursor-pointer rounded-md"
                         width={300}
                         height={300}
+                        loading="lazy"
                       />
                     </Link>
                     <p className="break-words text-left text-base font-bold">

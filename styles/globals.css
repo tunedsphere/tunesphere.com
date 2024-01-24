@@ -76,6 +76,7 @@
     --music-options-banner-height: 6rem;
     --music-options-banner-height-mobile: 3.1rem;
     --sidebar-width: 208px;
+    --reduced-footer-height: 2.5rem;
 
     
     --theme-secondary: 230 100% 51%;
@@ -99,7 +100,7 @@
     --popover: 195 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --card: 240 4.8% 87%;
+    --card: 240 4.8% 94%;
     --card-foreground: 240 10% 3.9%;
 
     --border: 220 3% 78%;
@@ -350,6 +351,7 @@
 .music-grid-mobile {
   height: calc(100vh - var(--headerHeight) - var(--music-grid-banner-height-mobile) - var(--musicTabsHeight));
 }
+
 .sidebar {
   flex-shrink: 0;
   overflow: hidden;
