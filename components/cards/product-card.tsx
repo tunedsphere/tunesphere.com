@@ -90,26 +90,28 @@ export function ProductCard({
           </CardHeader>
         </Link>
         <CardContent className="grid p-0">
-          <CardTitle className="mb-1 mt-2 cursor-pointer truncate text-base font-medium leading-relaxed hover:text-foreground/80">
+          <CardTitle className="mb-1 mt-2 cursor-pointer truncate text-sm font-medium leading-relaxed hover:text-foreground/80 sm:text-base">
             {product.name}
           </CardTitle>
-          <div className="text-lg font-bold leading-snug">
+          <div className="text-sm font-bold leading-snug sm:text-lg">
             {formatPrice(product.price)}
           </div>
           <div className="flex gap-x-1.5">
-            <div className="text-lg font-bold leading-snug text-emerald-400">
+            <div className="text-sm font-bold leading-snug text-emerald-400 sm:text-lg">
               -{/* */}30{/* */}%
             </div>
             <div className="flex">
-              <div className="text-sm leading-snug">$</div>
-              <div className="text-lg font-bold leading-snug">204.4</div>
+              <div className="leading-snug sm:text-sm">$</div>
+              <div className="text-sm font-bold leading-snug sm:text-lg">
+                204.4
+              </div>
             </div>
             <div className="text-sm leading-snug text-muted-foreground line-through">
               {formatPrice(product.price)}
             </div>
           </div>
           <Link
-            className="line-clamp-1 font-medium text-muted-foreground hover:text-foreground/80 hover:underline"
+            className="line-clamp-1  text-sm font-medium text-muted-foreground hover:text-foreground/80 hover:underline sm:text-base"
             key={product.storeId}
             aria-label={
               Array.isArray(storeName) ? storeName.join(', ') : storeName

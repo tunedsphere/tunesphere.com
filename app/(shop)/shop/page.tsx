@@ -78,20 +78,21 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           <div className="relative z-200 mx-auto max-w-[32rem] py-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className=" animated-bg-gradient-theme absolute inset-x-0"></div>
-              <div className="grt-button-wrapper  group group z-20 flex-1 ">
+              <div className="grt-button-wrapper group z-20 flex-1">
+                {/* <div className="grt-btn-bg animated-grt-theme blur"></div> */}
+                <span className=""></span>
+
                 <Link
                   href="/shop/products"
                   className={cn(
                     buttonVariants({
                       size: 'xl',
                     }),
-                    'grt-button border-2 hover:border-primary',
+                    'grt-button z-30 from-sky-500 to-teal-400 hover:bg-gradient-to-r dark:from-violet-950 dark:to-fuchsia-600',
                   )}
                 >
-                  <span className="animated-grt-text_background-theme font-bold tracking-widest before:bg-foreground">
-                    <span className="animated-grt-text_foreground-theme font-bold tracking-widest text-foreground group-hover:text-foreground">
-                      Explore Products
-                    </span>
+                  <span className="font-bold tracking-widest group-hover:text-white">
+                    Explore Products
                   </span>
                 </Link>
               </div>

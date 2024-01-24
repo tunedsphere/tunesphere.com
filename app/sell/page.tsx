@@ -126,14 +126,16 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
               <Link href="/shop" aria-label="tunedsphere" id="tunedsphere">
                 <h1 className="cursor-pointer text-2xl font-extrabold text-foreground">
                   TUNEDSPHERE
-                  <span className="ml-2 font-mono text-base italic text-muted-foreground">
+                  <span className="ml-2 hidden font-mono text-base italic text-muted-foreground sm:inline-flex">
                     Shop
                   </span>
                 </h1>
               </Link>
             </div>
             <div className="flex shrink-0 justify-end">
-              <ThemeToggle className="mr-2" />
+              <div className="hidden sm:block">
+                <ThemeToggle className="mr-2 " />
+              </div>
               <Button variant="primary" className="max-w-xs rounded-full px-4">
                 Become a Seller
               </Button>
@@ -177,7 +179,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
 
           <div className="sticky top-[--headerHeight] z-20 w-full border-b bg-background">
             <div className="bg-gradient-to-r from-primary/20 via-background to-primary/20">
-              <div className="mx-auto flex max-w-8xl justify-center px-4 py-4">
+              <div className="mx-auto flex max-w-8xl justify-center px-4 py-2">
                 <h2 className="flex gap-8 text-base font-bold uppercase tracking-widest text-foreground">
                   <Button
                     variant="link"
@@ -187,7 +189,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                     <span
                       className={`text-lg font-medium hover:text-foreground hover:underline ${
                         isScrolledToIntro
-                          ? 'text-foreground underline decoration-primary underline-offset-4'
+                          ? 'text-foreground underline decoration-primary decoration-2 underline-offset-4'
                           : 'text-muted-foreground'
                       }`}
                     >
@@ -200,9 +202,9 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                     onClick={() => handleNavClick(feesSectionRef)}
                   >
                     <span
-                      className={`text-lg font-medium hover:text-foreground hover:underline ${
+                      className={`text-lg font-medium underline-offset-4 hover:text-foreground  hover:underline ${
                         isScrolledToFees
-                          ? 'text-foreground underline decoration-primary underline-offset-4'
+                          ? 'text-foreground underline decoration-primary decoration-2'
                           : 'text-muted-foreground'
                       }`}
                     >
@@ -217,7 +219,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                     <span
                       className={`text-lg font-medium underline-offset-4 hover:text-foreground hover:underline ${
                         isScrolledToTools
-                          ? 'text-foreground underline decoration-primary'
+                          ? 'text-foreground underline decoration-primary decoration-2'
                           : 'text-muted-foreground'
                       }`}
                     >
@@ -233,7 +235,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
                     <span
                       className={`text-lg font-medium underline-offset-4 hover:text-foreground hover:underline ${
                         isScrolledToFAQ
-                          ? 'text-foreground underline decoration-primary'
+                          ? 'text-foreground underline decoration-primary decoration-2'
                           : 'text-muted-foreground'
                       }`}
                     >
@@ -401,7 +403,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
             className="relative w-full bg-gradient-to-r from-primary/0 via-primary/30 to-cyan-400/0 px-4 py-16"
           >
             <div className="flex h-full flex-col items-center justify-center space-y-10 ">
-              <h1 className="text-5xl font-extrabold tracking-wide">
+              <h1 className="text-center text-5xl font-extrabold tracking-wide">
                 What can you sell?
               </h1>
               <p className="max-w-3xl text-center text-lg font-semibold text-muted-foreground">
@@ -453,7 +455,7 @@ export default function BecomeASellerPage({}: BecomeASellerProps) {
           <section
             ref={faqSectionRef}
             id="faq"
-            className="relative w-full py-24"
+            className="relative w-full py-24 md:px-24"
           >
             <div className="mx-auto max-w-5xl">
               <div>

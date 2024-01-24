@@ -182,8 +182,8 @@ export function Products({
   }
 
   return (
-    <div className="flex flex-col space-y-6" {...props}>
-      <div className="flex content-center items-stretch justify-between">
+    <div className="flex flex-col space-y-6 px-1" {...props}>
+      <div className="flex content-center items-stretch justify-between ">
         <Sheet>
           <SheetTrigger asChild>
             <Button
@@ -480,7 +480,7 @@ export function Products({
           </p>
         </div>
       ) : null}
-      <div className="grid w-full grid-cols-2 gap-2 px-0 sm:grid-cols-4 lg:grid-cols-4">
+      <div className="grid w-full grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-4">
         {products.map((product) => (
           <div key={product.id}>
             <ProductCard product={product} storeName={product.name} />
