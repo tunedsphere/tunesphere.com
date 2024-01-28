@@ -34,7 +34,7 @@ export default function MyApp() {
             >
               <PageHeaderHeading
                 size="xxl"
-                className="hero_title justify-center gap-2 "
+                className="hero_title animate-slideIn justify-center gap-2 opacity-0 [--slideIn-delay:300ms] "
               >
                 <span className="text-foreground">A </span>
                 <span className="animated-grt-text_background-violet ">
@@ -55,7 +55,7 @@ export default function MyApp() {
               </PageHeaderHeading>
             </PageHeader>
 
-            <p className="py-4 text-center text-lg text-textlow lg:text-xl">
+            <p className="animate-slideIn py-4 text-center text-lg text-textlow opacity-0 [--slideIn-delay:500ms] lg:text-xl">
               Explore the musical realm of Psychedelic Art, with Music, Art,
               Decorations, and Festivals
             </p>
@@ -67,7 +67,7 @@ export default function MyApp() {
         <ol className="group/list grid gap-4 px-4 py-16 text-textlow sm:grid-cols-2 sm:grid-rows-2 sm:gap-2 md:px-8 xl:grid-cols-4 xl:grid-rows-1">
           <Link
             href="/music/labels"
-            className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+            className="animate-slideIn group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow opacity-0 transition-all [--slideIn-delay:600ms] hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
           >
             <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
 
@@ -86,7 +86,7 @@ export default function MyApp() {
 
           <Link
             href="/music/artists"
-            className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+            className="animate-slideIn group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow opacity-0 transition-all [--slideIn-delay:800ms] hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
           >
             <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
 
@@ -106,7 +106,7 @@ export default function MyApp() {
 
           <Link
             href="/music/festivals"
-            className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+            className="animate-slideIn group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow opacity-0 transition-all [--slideIn-delay:1000ms] hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
           >
             <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
 
@@ -125,7 +125,7 @@ export default function MyApp() {
 
           <Link
             href="/music"
-            className="group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow transition-all hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
+            className="animate-slideIn group relative grid cursor-pointer rounded-lg border p-4 leading-relaxed text-textlow opacity-0  transition-all [--slideIn-delay:1200ms] hover:border-primary hover:!opacity-100 group-hover/list:opacity-40"
           >
             <div className="absolute -inset-x-4 -inset-y-4 z-0 block rounded-lg from-indigo-900/20 to-purple-900/20 blur-lg transition group-hover:bg-gradient-to-r group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] group-hover:drop-shadow-lg motion-reduce:transition-none lg:-inset-x-6"></div>
 

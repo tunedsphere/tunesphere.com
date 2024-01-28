@@ -156,7 +156,6 @@ export function ProductCard({
               </Link>
             </div>
             <Button
-              variant=""
               className="rounded-sm"
               onClick={async () => {
                 if (isPending) return

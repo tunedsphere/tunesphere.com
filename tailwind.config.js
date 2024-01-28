@@ -155,6 +155,16 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+          slideIn: {
+            from:{
+              opacity: 0,
+              transform: "translateY(-10px)",
+            },
+            to: {
+              opacity: 1,
+              transform: "translate(0)",
+            },
+          },
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -188,6 +198,7 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        slideIn: "slideIn 1s ease-out var(--slideIn-delay, 0) forwards",
       },
     },
   },
