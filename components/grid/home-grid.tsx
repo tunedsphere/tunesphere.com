@@ -22,8 +22,6 @@ export function HomeGrid({
 }: HomeGridProps) {
   const [selectedLabel, setSelectedLabel] = useState<string | null>(null)
 
-  const expandedLabelRef = useRef(null)
-
   const handleLabelClick = (labelIndex: number) => {
     setSelectedLabel((prevSelectedLabel) =>
       prevSelectedLabel === labelIndex.toString()
@@ -88,7 +86,8 @@ export function HomeGrid({
     <>
       <div
         id="music-home-index"
-        className="sm:music-grid music-grid-mobile scrollable-container grow overflow-y-scroll "
+        className="sm:music-grid music-grid-mobile scrollable-container grow overflow-y-scroll"
+        onResize={handleResize}
       >
         <div className="flex flex-col">
           <section

@@ -96,6 +96,7 @@ export function AlbumsGrid({
       <div
         id="albums-grid"
         className="sm:music-grid music-grid-mobile scrollable-container grow overflow-y-scroll  @container"
+        onResize={handleResize}
       >
         <div className="my-4 grid grid-flow-row-dense grid-cols-2 gap-4 px-4 pb-12 @sm:grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @5xl:grid-cols-5 @6xl:grid-cols-6 @7xl:grid-cols-7 @8xl:grid-cols-8 @9xl:grid-cols-9 md:px-12">
           {sortedAndFilteredAlbums.map((album, index) => (
