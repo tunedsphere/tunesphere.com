@@ -26,7 +26,7 @@ export default function MyApp() {
         />
       </div>
       <section>
-        <Shell className="mx-auto pt-[var(--headerHeight)] sm:pt-[14cqh] md:px-3">
+        <Shell className="mx-auto pt-[var(--headerHeight)] sm:pt-[12cqh] md:px-3">
           <div className="z-200 mt-12 py-12 md:mt-20 lg:mt-32">
             <PageHeader
               id="home-shop"
