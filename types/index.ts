@@ -12,17 +12,27 @@ import { Icon, IconName } from "@/components/icon"
 
 export interface NavItem {
   title: string
-  href?: string | undefined
+  href?: string
   disabled?: boolean
   external?: boolean
   icon?: keyof typeof Icon
   label?: string
   description?: string
 }
-export interface ShopNavItemWithChildren extends NavItem {
+export interface ShopNavItem {
+  title: string
+  href?: string
+  disabled?: boolean
+  external?: boolean
+  icon?: keyof typeof Icon
+  label?: string
+  description?: string
+}
+export interface ShopNavItemWithChildren extends ShopNavItem {
   items?: ShopNavItemWithChildren[]
 }
-export interface ShopNavItemWithOptionalChildren extends NavItem {
+export interface ShopNavItemWithOptionalChildren extends ShopNavItem {
+
   items?: ShopNavItemWithChildren[]
 }
 export interface FooterItem {
